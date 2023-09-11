@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a AWS Transfer AS2 Agreement resource.
@@ -60,8 +61,10 @@ type Agreement struct {
 
 	// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
 	AccessRole pulumi.StringOutput `pulumi:"accessRole"`
-	// The unique identifier for the AS2 agreement
+	// The unique identifier for the AS2 agreement.
 	AgreementId pulumi.StringOutput `pulumi:"agreementId"`
+	// The ARN of the agreement.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The landing directory for the files transferred by using the AS2 protocol.
 	BaseDirectory pulumi.StringOutput `pulumi:"baseDirectory"`
 	// The Optional description of the transdfer.
@@ -125,8 +128,10 @@ func GetAgreement(ctx *pulumi.Context,
 type agreementState struct {
 	// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
 	AccessRole *string `pulumi:"accessRole"`
-	// The unique identifier for the AS2 agreement
+	// The unique identifier for the AS2 agreement.
 	AgreementId *string `pulumi:"agreementId"`
+	// The ARN of the agreement.
+	Arn *string `pulumi:"arn"`
 	// The landing directory for the files transferred by using the AS2 protocol.
 	BaseDirectory *string `pulumi:"baseDirectory"`
 	// The Optional description of the transdfer.
@@ -146,8 +151,10 @@ type agreementState struct {
 type AgreementState struct {
 	// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
 	AccessRole pulumi.StringPtrInput
-	// The unique identifier for the AS2 agreement
+	// The unique identifier for the AS2 agreement.
 	AgreementId pulumi.StringPtrInput
+	// The ARN of the agreement.
+	Arn pulumi.StringPtrInput
 	// The landing directory for the files transferred by using the AS2 protocol.
 	BaseDirectory pulumi.StringPtrInput
 	// The Optional description of the transdfer.
@@ -226,6 +233,12 @@ func (i *Agreement) ToAgreementOutputWithContext(ctx context.Context) AgreementO
 	return pulumi.ToOutputWithContext(ctx, i).(AgreementOutput)
 }
 
+func (i *Agreement) ToOutput(ctx context.Context) pulumix.Output[*Agreement] {
+	return pulumix.Output[*Agreement]{
+		OutputState: i.ToAgreementOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AgreementArrayInput is an input type that accepts AgreementArray and AgreementArrayOutput values.
 // You can construct a concrete instance of `AgreementArrayInput` via:
 //
@@ -249,6 +262,12 @@ func (i AgreementArray) ToAgreementArrayOutput() AgreementArrayOutput {
 
 func (i AgreementArray) ToAgreementArrayOutputWithContext(ctx context.Context) AgreementArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AgreementArrayOutput)
+}
+
+func (i AgreementArray) ToOutput(ctx context.Context) pulumix.Output[[]*Agreement] {
+	return pulumix.Output[[]*Agreement]{
+		OutputState: i.ToAgreementArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AgreementMapInput is an input type that accepts AgreementMap and AgreementMapOutput values.
@@ -276,6 +295,12 @@ func (i AgreementMap) ToAgreementMapOutputWithContext(ctx context.Context) Agree
 	return pulumi.ToOutputWithContext(ctx, i).(AgreementMapOutput)
 }
 
+func (i AgreementMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Agreement] {
+	return pulumix.Output[map[string]*Agreement]{
+		OutputState: i.ToAgreementMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AgreementOutput struct{ *pulumi.OutputState }
 
 func (AgreementOutput) ElementType() reflect.Type {
@@ -290,14 +315,25 @@ func (o AgreementOutput) ToAgreementOutputWithContext(ctx context.Context) Agree
 	return o
 }
 
+func (o AgreementOutput) ToOutput(ctx context.Context) pulumix.Output[*Agreement] {
+	return pulumix.Output[*Agreement]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
 func (o AgreementOutput) AccessRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.AccessRole }).(pulumi.StringOutput)
 }
 
-// The unique identifier for the AS2 agreement
+// The unique identifier for the AS2 agreement.
 func (o AgreementOutput) AgreementId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.AgreementId }).(pulumi.StringOutput)
+}
+
+// The ARN of the agreement.
+func (o AgreementOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // The landing directory for the files transferred by using the AS2 protocol.
@@ -352,6 +388,12 @@ func (o AgreementArrayOutput) ToAgreementArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o AgreementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Agreement] {
+	return pulumix.Output[[]*Agreement]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AgreementArrayOutput) Index(i pulumi.IntInput) AgreementOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Agreement {
 		return vs[0].([]*Agreement)[vs[1].(int)]
@@ -370,6 +412,12 @@ func (o AgreementMapOutput) ToAgreementMapOutput() AgreementMapOutput {
 
 func (o AgreementMapOutput) ToAgreementMapOutputWithContext(ctx context.Context) AgreementMapOutput {
 	return o
+}
+
+func (o AgreementMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Agreement] {
+	return pulumix.Output[map[string]*Agreement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AgreementMapOutput) MapIndex(k pulumi.StringInput) AgreementOutput {

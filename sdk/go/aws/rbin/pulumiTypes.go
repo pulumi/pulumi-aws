@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -44,6 +45,12 @@ func (i RuleLockConfigurationArgs) ToRuleLockConfigurationOutput() RuleLockConfi
 
 func (i RuleLockConfigurationArgs) ToRuleLockConfigurationOutputWithContext(ctx context.Context) RuleLockConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleLockConfigurationOutput)
+}
+
+func (i RuleLockConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[RuleLockConfiguration] {
+	return pulumix.Output[RuleLockConfiguration]{
+		OutputState: i.ToRuleLockConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i RuleLockConfigurationArgs) ToRuleLockConfigurationPtrOutput() RuleLockConfigurationPtrOutput {
@@ -87,6 +94,12 @@ func (i *ruleLockConfigurationPtrType) ToRuleLockConfigurationPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(RuleLockConfigurationPtrOutput)
 }
 
+func (i *ruleLockConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*RuleLockConfiguration] {
+	return pulumix.Output[*RuleLockConfiguration]{
+		OutputState: i.ToRuleLockConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleLockConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RuleLockConfigurationOutput) ElementType() reflect.Type {
@@ -111,6 +124,12 @@ func (o RuleLockConfigurationOutput) ToRuleLockConfigurationPtrOutputWithContext
 	}).(RuleLockConfigurationPtrOutput)
 }
 
+func (o RuleLockConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[RuleLockConfiguration] {
+	return pulumix.Output[RuleLockConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Information about the retention rule unlock delay. See `unlockDelay` below.
 func (o RuleLockConfigurationOutput) UnlockDelay() RuleLockConfigurationUnlockDelayOutput {
 	return o.ApplyT(func(v RuleLockConfiguration) RuleLockConfigurationUnlockDelay { return v.UnlockDelay }).(RuleLockConfigurationUnlockDelayOutput)
@@ -128,6 +147,12 @@ func (o RuleLockConfigurationPtrOutput) ToRuleLockConfigurationPtrOutput() RuleL
 
 func (o RuleLockConfigurationPtrOutput) ToRuleLockConfigurationPtrOutputWithContext(ctx context.Context) RuleLockConfigurationPtrOutput {
 	return o
+}
+
+func (o RuleLockConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleLockConfiguration] {
+	return pulumix.Output[*RuleLockConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleLockConfigurationPtrOutput) Elem() RuleLockConfigurationOutput {
@@ -187,6 +212,12 @@ func (i RuleLockConfigurationUnlockDelayArgs) ToRuleLockConfigurationUnlockDelay
 	return pulumi.ToOutputWithContext(ctx, i).(RuleLockConfigurationUnlockDelayOutput)
 }
 
+func (i RuleLockConfigurationUnlockDelayArgs) ToOutput(ctx context.Context) pulumix.Output[RuleLockConfigurationUnlockDelay] {
+	return pulumix.Output[RuleLockConfigurationUnlockDelay]{
+		OutputState: i.ToRuleLockConfigurationUnlockDelayOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RuleLockConfigurationUnlockDelayArgs) ToRuleLockConfigurationUnlockDelayPtrOutput() RuleLockConfigurationUnlockDelayPtrOutput {
 	return i.ToRuleLockConfigurationUnlockDelayPtrOutputWithContext(context.Background())
 }
@@ -228,6 +259,12 @@ func (i *ruleLockConfigurationUnlockDelayPtrType) ToRuleLockConfigurationUnlockD
 	return pulumi.ToOutputWithContext(ctx, i).(RuleLockConfigurationUnlockDelayPtrOutput)
 }
 
+func (i *ruleLockConfigurationUnlockDelayPtrType) ToOutput(ctx context.Context) pulumix.Output[*RuleLockConfigurationUnlockDelay] {
+	return pulumix.Output[*RuleLockConfigurationUnlockDelay]{
+		OutputState: i.ToRuleLockConfigurationUnlockDelayPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleLockConfigurationUnlockDelayOutput struct{ *pulumi.OutputState }
 
 func (RuleLockConfigurationUnlockDelayOutput) ElementType() reflect.Type {
@@ -252,6 +289,12 @@ func (o RuleLockConfigurationUnlockDelayOutput) ToRuleLockConfigurationUnlockDel
 	}).(RuleLockConfigurationUnlockDelayPtrOutput)
 }
 
+func (o RuleLockConfigurationUnlockDelayOutput) ToOutput(ctx context.Context) pulumix.Output[RuleLockConfigurationUnlockDelay] {
+	return pulumix.Output[RuleLockConfigurationUnlockDelay]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
 func (o RuleLockConfigurationUnlockDelayOutput) UnlockDelayUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleLockConfigurationUnlockDelay) string { return v.UnlockDelayUnit }).(pulumi.StringOutput)
@@ -274,6 +317,12 @@ func (o RuleLockConfigurationUnlockDelayPtrOutput) ToRuleLockConfigurationUnlock
 
 func (o RuleLockConfigurationUnlockDelayPtrOutput) ToRuleLockConfigurationUnlockDelayPtrOutputWithContext(ctx context.Context) RuleLockConfigurationUnlockDelayPtrOutput {
 	return o
+}
+
+func (o RuleLockConfigurationUnlockDelayPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleLockConfigurationUnlockDelay] {
+	return pulumix.Output[*RuleLockConfigurationUnlockDelay]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleLockConfigurationUnlockDelayPtrOutput) Elem() RuleLockConfigurationUnlockDelayOutput {
@@ -347,6 +396,12 @@ func (i RuleResourceTagArgs) ToRuleResourceTagOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RuleResourceTagOutput)
 }
 
+func (i RuleResourceTagArgs) ToOutput(ctx context.Context) pulumix.Output[RuleResourceTag] {
+	return pulumix.Output[RuleResourceTag]{
+		OutputState: i.ToRuleResourceTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RuleResourceTagArrayInput is an input type that accepts RuleResourceTagArray and RuleResourceTagArrayOutput values.
 // You can construct a concrete instance of `RuleResourceTagArrayInput` via:
 //
@@ -372,6 +427,12 @@ func (i RuleResourceTagArray) ToRuleResourceTagArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(RuleResourceTagArrayOutput)
 }
 
+func (i RuleResourceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleResourceTag] {
+	return pulumix.Output[[]RuleResourceTag]{
+		OutputState: i.ToRuleResourceTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleResourceTagOutput struct{ *pulumi.OutputState }
 
 func (RuleResourceTagOutput) ElementType() reflect.Type {
@@ -384,6 +445,12 @@ func (o RuleResourceTagOutput) ToRuleResourceTagOutput() RuleResourceTagOutput {
 
 func (o RuleResourceTagOutput) ToRuleResourceTagOutputWithContext(ctx context.Context) RuleResourceTagOutput {
 	return o
+}
+
+func (o RuleResourceTagOutput) ToOutput(ctx context.Context) pulumix.Output[RuleResourceTag] {
+	return pulumix.Output[RuleResourceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The tag key.
@@ -410,6 +477,12 @@ func (o RuleResourceTagArrayOutput) ToRuleResourceTagArrayOutput() RuleResourceT
 
 func (o RuleResourceTagArrayOutput) ToRuleResourceTagArrayOutputWithContext(ctx context.Context) RuleResourceTagArrayOutput {
 	return o
+}
+
+func (o RuleResourceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleResourceTag] {
+	return pulumix.Output[[]RuleResourceTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleResourceTagArrayOutput) Index(i pulumi.IntInput) RuleResourceTagOutput {
@@ -455,6 +528,12 @@ func (i RuleRetentionPeriodArgs) ToRuleRetentionPeriodOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(RuleRetentionPeriodOutput)
 }
 
+func (i RuleRetentionPeriodArgs) ToOutput(ctx context.Context) pulumix.Output[RuleRetentionPeriod] {
+	return pulumix.Output[RuleRetentionPeriod]{
+		OutputState: i.ToRuleRetentionPeriodOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RuleRetentionPeriodArgs) ToRuleRetentionPeriodPtrOutput() RuleRetentionPeriodPtrOutput {
 	return i.ToRuleRetentionPeriodPtrOutputWithContext(context.Background())
 }
@@ -496,6 +575,12 @@ func (i *ruleRetentionPeriodPtrType) ToRuleRetentionPeriodPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(RuleRetentionPeriodPtrOutput)
 }
 
+func (i *ruleRetentionPeriodPtrType) ToOutput(ctx context.Context) pulumix.Output[*RuleRetentionPeriod] {
+	return pulumix.Output[*RuleRetentionPeriod]{
+		OutputState: i.ToRuleRetentionPeriodPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RuleRetentionPeriodOutput struct{ *pulumi.OutputState }
 
 func (RuleRetentionPeriodOutput) ElementType() reflect.Type {
@@ -520,6 +605,12 @@ func (o RuleRetentionPeriodOutput) ToRuleRetentionPeriodPtrOutputWithContext(ctx
 	}).(RuleRetentionPeriodPtrOutput)
 }
 
+func (o RuleRetentionPeriodOutput) ToOutput(ctx context.Context) pulumix.Output[RuleRetentionPeriod] {
+	return pulumix.Output[RuleRetentionPeriod]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The unit of time in which the retention period is measured. Currently, only DAYS is supported.
 func (o RuleRetentionPeriodOutput) RetentionPeriodUnit() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleRetentionPeriod) string { return v.RetentionPeriodUnit }).(pulumi.StringOutput)
@@ -542,6 +633,12 @@ func (o RuleRetentionPeriodPtrOutput) ToRuleRetentionPeriodPtrOutput() RuleReten
 
 func (o RuleRetentionPeriodPtrOutput) ToRuleRetentionPeriodPtrOutputWithContext(ctx context.Context) RuleRetentionPeriodPtrOutput {
 	return o
+}
+
+func (o RuleRetentionPeriodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleRetentionPeriod] {
+	return pulumix.Output[*RuleRetentionPeriod]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RuleRetentionPeriodPtrOutput) Elem() RuleRetentionPeriodOutput {

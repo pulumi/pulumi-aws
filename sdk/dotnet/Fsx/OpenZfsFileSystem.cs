@@ -86,13 +86,13 @@ namespace Pulumi.Aws.Fsx
         public Output<string> DailyAutomaticBackupStartTime { get; private set; } = null!;
 
         /// <summary>
-        /// The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
+        /// The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
         /// </summary>
         [Output("deploymentType")]
         public Output<string> DeploymentType { get; private set; } = null!;
 
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration Below.
+        /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
         /// </summary>
         [Output("diskIopsConfiguration")]
         public Output<Outputs.OpenZfsFileSystemDiskIopsConfiguration> DiskIopsConfiguration { get; private set; } = null!;
@@ -102,6 +102,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Output("dnsName")]
         public Output<string> DnsName { get; private set; } = null!;
+
+        /// <summary>
+        /// (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
+        /// </summary>
+        [Output("endpointIpAddressRange")]
+        public Output<string> EndpointIpAddressRange { get; private set; } = null!;
 
         /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
@@ -122,7 +128,13 @@ namespace Pulumi.Aws.Fsx
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration Below.
+        /// (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
+        /// </summary>
+        [Output("preferredSubnetId")]
+        public Output<string?> PreferredSubnetId { get; private set; } = null!;
+
+        /// <summary>
+        /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
         /// </summary>
         [Output("rootVolumeConfiguration")]
         public Output<Outputs.OpenZfsFileSystemRootVolumeConfiguration> RootVolumeConfiguration { get; private set; } = null!;
@@ -132,6 +144,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Output("rootVolumeId")]
         public Output<string> RootVolumeId { get; private set; } = null!;
+
+        /// <summary>
+        /// (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
+        /// </summary>
+        [Output("routeTableIds")]
+        public Output<ImmutableArray<string>> RouteTableIds { get; private set; } = null!;
 
         /// <summary>
         /// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
@@ -152,7 +170,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string?> StorageType { get; private set; } = null!;
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
+        /// A list of IDs for the subnets that the file system will be accessible from.
         /// </summary>
         [Output("subnetIds")]
         public Output<string> SubnetIds { get; private set; } = null!;
@@ -264,16 +282,22 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
 
         /// <summary>
-        /// The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
+        /// The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
         /// </summary>
         [Input("deploymentType", required: true)]
         public Input<string> DeploymentType { get; set; } = null!;
 
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration Below.
+        /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
         /// </summary>
         [Input("diskIopsConfiguration")]
         public Input<Inputs.OpenZfsFileSystemDiskIopsConfigurationArgs>? DiskIopsConfiguration { get; set; }
+
+        /// <summary>
+        /// (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
+        /// </summary>
+        [Input("endpointIpAddressRange")]
+        public Input<string>? EndpointIpAddressRange { get; set; }
 
         /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
@@ -282,10 +306,28 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration Below.
+        /// (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
+        /// </summary>
+        [Input("preferredSubnetId")]
+        public Input<string>? PreferredSubnetId { get; set; }
+
+        /// <summary>
+        /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
         /// </summary>
         [Input("rootVolumeConfiguration")]
         public Input<Inputs.OpenZfsFileSystemRootVolumeConfigurationArgs>? RootVolumeConfiguration { get; set; }
+
+        [Input("routeTableIds")]
+        private InputList<string>? _routeTableIds;
+
+        /// <summary>
+        /// (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
+        /// </summary>
+        public InputList<string> RouteTableIds
+        {
+            get => _routeTableIds ?? (_routeTableIds = new InputList<string>());
+            set => _routeTableIds = value;
+        }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
@@ -312,7 +354,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? StorageType { get; set; }
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
+        /// A list of IDs for the subnets that the file system will be accessible from.
         /// </summary>
         [Input("subnetIds", required: true)]
         public Input<string> SubnetIds { get; set; } = null!;
@@ -386,13 +428,13 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
 
         /// <summary>
-        /// The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
+        /// The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
         /// </summary>
         [Input("deploymentType")]
         public Input<string>? DeploymentType { get; set; }
 
         /// <summary>
-        /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration Below.
+        /// The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
         /// </summary>
         [Input("diskIopsConfiguration")]
         public Input<Inputs.OpenZfsFileSystemDiskIopsConfigurationGetArgs>? DiskIopsConfiguration { get; set; }
@@ -402,6 +444,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }
+
+        /// <summary>
+        /// (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
+        /// </summary>
+        [Input("endpointIpAddressRange")]
+        public Input<string>? EndpointIpAddressRange { get; set; }
 
         /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
@@ -428,7 +476,13 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? OwnerId { get; set; }
 
         /// <summary>
-        /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration Below.
+        /// (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
+        /// </summary>
+        [Input("preferredSubnetId")]
+        public Input<string>? PreferredSubnetId { get; set; }
+
+        /// <summary>
+        /// The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
         /// </summary>
         [Input("rootVolumeConfiguration")]
         public Input<Inputs.OpenZfsFileSystemRootVolumeConfigurationGetArgs>? RootVolumeConfiguration { get; set; }
@@ -438,6 +492,18 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("rootVolumeId")]
         public Input<string>? RootVolumeId { get; set; }
+
+        [Input("routeTableIds")]
+        private InputList<string>? _routeTableIds;
+
+        /// <summary>
+        /// (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
+        /// </summary>
+        public InputList<string> RouteTableIds
+        {
+            get => _routeTableIds ?? (_routeTableIds = new InputList<string>());
+            set => _routeTableIds = value;
+        }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
@@ -464,7 +530,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? StorageType { get; set; }
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
+        /// A list of IDs for the subnets that the file system will be accessible from.
         /// </summary>
         [Input("subnetIds")]
         public Input<string>? SubnetIds { get; set; }

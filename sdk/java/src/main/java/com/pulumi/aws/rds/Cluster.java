@@ -626,9 +626,17 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> dbClusterInstanceClass() {
         return Codegen.optional(this.dbClusterInstanceClass);
     }
+    /**
+     * A cluster parameter group to associate with the cluster.
+     * 
+     */
     @Export(name="dbClusterParameterGroupName", refs={String.class}, tree="[0]")
     private Output<String> dbClusterParameterGroupName;
 
+    /**
+     * @return A cluster parameter group to associate with the cluster.
+     * 
+     */
     public Output<String> dbClusterParameterGroupName() {
         return this.dbClusterParameterGroupName;
     }
@@ -659,6 +667,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> dbSubnetGroupName() {
         return this.dbSubnetGroupName;
+    }
+    /**
+     * For use with RDS Custom.
+     * 
+     */
+    @Export(name="dbSystemId", refs={String.class}, tree="[0]")
+    private Output<String> dbSystemId;
+
+    /**
+     * @return For use with RDS Custom.
+     * 
+     */
+    public Output<String> dbSystemId() {
+        return this.dbSystemId;
     }
     /**
      * If the DB instance should have deletion protection enabled. The database can&#39;t be deleted when this value is set to `true`. The default is `false`.

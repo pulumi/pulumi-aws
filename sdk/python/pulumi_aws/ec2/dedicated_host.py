@@ -525,7 +525,7 @@ class DedicatedHost(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="assetId")
-    def asset_id(self) -> pulumi.Output[Optional[str]]:
+    def asset_id(self) -> pulumi.Output[str]:
         """
         The ID of the Outpost hardware asset on which to allocate the Dedicated Hosts. This parameter is supported only if you specify OutpostArn. If you are allocating the Dedicated Hosts in a Region, omit this parameter.
         """

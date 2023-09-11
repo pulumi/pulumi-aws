@@ -13,18 +13,42 @@ namespace Pulumi.Aws.MediaLive.Outputs
     [OutputType]
     public sealed class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings
     {
+        /// <summary>
+        /// Ancillary Source Settings. See Ancillary Source Settings for more details.
+        /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings? AncillarySourceSettings;
-        public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings? DvbTdtSettings;
+        /// <summary>
+        /// Arib Source Settings.
+        /// </summary>
+        public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings? AribSourceSettings;
+        /// <summary>
+        /// DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+        /// </summary>
+        public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings? DvbSubSourceSettings;
+        /// <summary>
+        /// Embedded Source Settings. See Embedded Source Settings for more details.
+        /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings? EmbeddedSourceSettings;
+        /// <summary>
+        /// SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+        /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings? Scte20SourceSettings;
+        /// <summary>
+        /// SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+        /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings? Scte27SourceSettings;
+        /// <summary>
+        /// Teletext Source Settings. See Teletext Source Settings for more details.
+        /// </summary>
         public readonly Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings? TeletextSourceSettings;
 
         [OutputConstructor]
         private ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings(
             Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings? ancillarySourceSettings,
 
-            Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings? dvbTdtSettings,
+            Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings? aribSourceSettings,
+
+            Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings? dvbSubSourceSettings,
 
             Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings? embeddedSourceSettings,
 
@@ -35,7 +59,8 @@ namespace Pulumi.Aws.MediaLive.Outputs
             Outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings? teletextSourceSettings)
         {
             AncillarySourceSettings = ancillarySourceSettings;
-            DvbTdtSettings = dvbTdtSettings;
+            AribSourceSettings = aribSourceSettings;
+            DvbSubSourceSettings = dvbSubSourceSettings;
             EmbeddedSourceSettings = embeddedSourceSettings;
             Scte20SourceSettings = scte20SourceSettings;
             Scte27SourceSettings = scte27SourceSettings;

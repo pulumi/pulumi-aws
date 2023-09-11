@@ -98,6 +98,12 @@ public class RuleGroup extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    @Export(name="namePrefix", refs={String.class}, tree="[0]")
+    private Output<String> namePrefix;
+
+    public Output<String> namePrefix() {
+        return this.namePrefix;
+    }
     /**
      * The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
      * 

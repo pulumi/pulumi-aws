@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a AWS Transfer AS2 Connector resource.
@@ -66,9 +67,11 @@ type Connector struct {
 
 	// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
 	AccessRole pulumi.StringOutput `pulumi:"accessRole"`
+	// The ARN of the connector.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The parameters to configure for the connector object. Fields documented below.
 	As2Config ConnectorAs2ConfigOutput `pulumi:"as2Config"`
-	// The unique identifier for the AS2 profile
+	// The unique identifier for the AS2 profile.
 	ConnectorId pulumi.StringOutput `pulumi:"connectorId"`
 	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole pulumi.StringPtrOutput `pulumi:"loggingRole"`
@@ -120,9 +123,11 @@ func GetConnector(ctx *pulumi.Context,
 type connectorState struct {
 	// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
 	AccessRole *string `pulumi:"accessRole"`
+	// The ARN of the connector.
+	Arn *string `pulumi:"arn"`
 	// The parameters to configure for the connector object. Fields documented below.
 	As2Config *ConnectorAs2Config `pulumi:"as2Config"`
-	// The unique identifier for the AS2 profile
+	// The unique identifier for the AS2 profile.
 	ConnectorId *string `pulumi:"connectorId"`
 	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole *string `pulumi:"loggingRole"`
@@ -136,9 +141,11 @@ type connectorState struct {
 type ConnectorState struct {
 	// The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
 	AccessRole pulumi.StringPtrInput
+	// The ARN of the connector.
+	Arn pulumi.StringPtrInput
 	// The parameters to configure for the connector object. Fields documented below.
 	As2Config ConnectorAs2ConfigPtrInput
-	// The unique identifier for the AS2 profile
+	// The unique identifier for the AS2 profile.
 	ConnectorId pulumi.StringPtrInput
 	// The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
 	LoggingRole pulumi.StringPtrInput
@@ -203,6 +210,12 @@ func (i *Connector) ToConnectorOutputWithContext(ctx context.Context) ConnectorO
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorOutput)
 }
 
+func (i *Connector) ToOutput(ctx context.Context) pulumix.Output[*Connector] {
+	return pulumix.Output[*Connector]{
+		OutputState: i.ToConnectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConnectorArrayInput is an input type that accepts ConnectorArray and ConnectorArrayOutput values.
 // You can construct a concrete instance of `ConnectorArrayInput` via:
 //
@@ -226,6 +239,12 @@ func (i ConnectorArray) ToConnectorArrayOutput() ConnectorArrayOutput {
 
 func (i ConnectorArray) ToConnectorArrayOutputWithContext(ctx context.Context) ConnectorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorArrayOutput)
+}
+
+func (i ConnectorArray) ToOutput(ctx context.Context) pulumix.Output[[]*Connector] {
+	return pulumix.Output[[]*Connector]{
+		OutputState: i.ToConnectorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ConnectorMapInput is an input type that accepts ConnectorMap and ConnectorMapOutput values.
@@ -253,6 +272,12 @@ func (i ConnectorMap) ToConnectorMapOutputWithContext(ctx context.Context) Conne
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorMapOutput)
 }
 
+func (i ConnectorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Connector] {
+	return pulumix.Output[map[string]*Connector]{
+		OutputState: i.ToConnectorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectorOutput struct{ *pulumi.OutputState }
 
 func (ConnectorOutput) ElementType() reflect.Type {
@@ -267,9 +292,20 @@ func (o ConnectorOutput) ToConnectorOutputWithContext(ctx context.Context) Conne
 	return o
 }
 
+func (o ConnectorOutput) ToOutput(ctx context.Context) pulumix.Output[*Connector] {
+	return pulumix.Output[*Connector]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
 func (o ConnectorOutput) AccessRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.AccessRole }).(pulumi.StringOutput)
+}
+
+// The ARN of the connector.
+func (o ConnectorOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // The parameters to configure for the connector object. Fields documented below.
@@ -277,7 +313,7 @@ func (o ConnectorOutput) As2Config() ConnectorAs2ConfigOutput {
 	return o.ApplyT(func(v *Connector) ConnectorAs2ConfigOutput { return v.As2Config }).(ConnectorAs2ConfigOutput)
 }
 
-// The unique identifier for the AS2 profile
+// The unique identifier for the AS2 profile.
 func (o ConnectorOutput) ConnectorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.ConnectorId }).(pulumi.StringOutput)
 }
@@ -315,6 +351,12 @@ func (o ConnectorArrayOutput) ToConnectorArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o ConnectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Connector] {
+	return pulumix.Output[[]*Connector]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConnectorArrayOutput) Index(i pulumi.IntInput) ConnectorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Connector {
 		return vs[0].([]*Connector)[vs[1].(int)]
@@ -333,6 +375,12 @@ func (o ConnectorMapOutput) ToConnectorMapOutput() ConnectorMapOutput {
 
 func (o ConnectorMapOutput) ToConnectorMapOutputWithContext(ctx context.Context) ConnectorMapOutput {
 	return o
+}
+
+func (o ConnectorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Connector] {
+	return pulumix.Output[map[string]*Connector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectorMapOutput) MapIndex(k pulumi.StringInput) ConnectorOutput {

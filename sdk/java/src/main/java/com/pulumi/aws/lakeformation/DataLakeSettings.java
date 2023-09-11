@@ -255,6 +255,20 @@ public class DataLakeSettings extends com.pulumi.resources.CustomResource {
         return this.externalDataFilteringAllowLists;
     }
     /**
+     * Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+     * 
+     */
+    @Export(name="readOnlyAdmins", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> readOnlyAdmins;
+
+    /**
+     * @return Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+     * 
+     */
+    public Output<List<String>> readOnlyAdmins() {
+        return this.readOnlyAdmins;
+    }
+    /**
      * List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
      * 
      */

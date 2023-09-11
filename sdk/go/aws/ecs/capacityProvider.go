@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an ECS cluster capacity provider. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
@@ -192,6 +193,12 @@ func (i *CapacityProvider) ToCapacityProviderOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderOutput)
 }
 
+func (i *CapacityProvider) ToOutput(ctx context.Context) pulumix.Output[*CapacityProvider] {
+	return pulumix.Output[*CapacityProvider]{
+		OutputState: i.ToCapacityProviderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CapacityProviderArrayInput is an input type that accepts CapacityProviderArray and CapacityProviderArrayOutput values.
 // You can construct a concrete instance of `CapacityProviderArrayInput` via:
 //
@@ -215,6 +222,12 @@ func (i CapacityProviderArray) ToCapacityProviderArrayOutput() CapacityProviderA
 
 func (i CapacityProviderArray) ToCapacityProviderArrayOutputWithContext(ctx context.Context) CapacityProviderArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderArrayOutput)
+}
+
+func (i CapacityProviderArray) ToOutput(ctx context.Context) pulumix.Output[[]*CapacityProvider] {
+	return pulumix.Output[[]*CapacityProvider]{
+		OutputState: i.ToCapacityProviderArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CapacityProviderMapInput is an input type that accepts CapacityProviderMap and CapacityProviderMapOutput values.
@@ -242,6 +255,12 @@ func (i CapacityProviderMap) ToCapacityProviderMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderMapOutput)
 }
 
+func (i CapacityProviderMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CapacityProvider] {
+	return pulumix.Output[map[string]*CapacityProvider]{
+		OutputState: i.ToCapacityProviderMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CapacityProviderOutput struct{ *pulumi.OutputState }
 
 func (CapacityProviderOutput) ElementType() reflect.Type {
@@ -254,6 +273,12 @@ func (o CapacityProviderOutput) ToCapacityProviderOutput() CapacityProviderOutpu
 
 func (o CapacityProviderOutput) ToCapacityProviderOutputWithContext(ctx context.Context) CapacityProviderOutput {
 	return o
+}
+
+func (o CapacityProviderOutput) ToOutput(ctx context.Context) pulumix.Output[*CapacityProvider] {
+	return pulumix.Output[*CapacityProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN that identifies the capacity provider.
@@ -297,6 +322,12 @@ func (o CapacityProviderArrayOutput) ToCapacityProviderArrayOutputWithContext(ct
 	return o
 }
 
+func (o CapacityProviderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CapacityProvider] {
+	return pulumix.Output[[]*CapacityProvider]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CapacityProviderArrayOutput) Index(i pulumi.IntInput) CapacityProviderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CapacityProvider {
 		return vs[0].([]*CapacityProvider)[vs[1].(int)]
@@ -315,6 +346,12 @@ func (o CapacityProviderMapOutput) ToCapacityProviderMapOutput() CapacityProvide
 
 func (o CapacityProviderMapOutput) ToCapacityProviderMapOutputWithContext(ctx context.Context) CapacityProviderMapOutput {
 	return o
+}
+
+func (o CapacityProviderMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CapacityProvider] {
+	return pulumix.Output[map[string]*CapacityProvider]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CapacityProviderMapOutput) MapIndex(k pulumi.StringInput) CapacityProviderOutput {

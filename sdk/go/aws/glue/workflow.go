@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Glue Workflow resource.
@@ -216,6 +217,12 @@ func (i *Workflow) ToWorkflowOutputWithContext(ctx context.Context) WorkflowOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowOutput)
 }
 
+func (i *Workflow) ToOutput(ctx context.Context) pulumix.Output[*Workflow] {
+	return pulumix.Output[*Workflow]{
+		OutputState: i.ToWorkflowOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkflowArrayInput is an input type that accepts WorkflowArray and WorkflowArrayOutput values.
 // You can construct a concrete instance of `WorkflowArrayInput` via:
 //
@@ -239,6 +246,12 @@ func (i WorkflowArray) ToWorkflowArrayOutput() WorkflowArrayOutput {
 
 func (i WorkflowArray) ToWorkflowArrayOutputWithContext(ctx context.Context) WorkflowArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowArrayOutput)
+}
+
+func (i WorkflowArray) ToOutput(ctx context.Context) pulumix.Output[[]*Workflow] {
+	return pulumix.Output[[]*Workflow]{
+		OutputState: i.ToWorkflowArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WorkflowMapInput is an input type that accepts WorkflowMap and WorkflowMapOutput values.
@@ -266,6 +279,12 @@ func (i WorkflowMap) ToWorkflowMapOutputWithContext(ctx context.Context) Workflo
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowMapOutput)
 }
 
+func (i WorkflowMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Workflow] {
+	return pulumix.Output[map[string]*Workflow]{
+		OutputState: i.ToWorkflowMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkflowOutput struct{ *pulumi.OutputState }
 
 func (WorkflowOutput) ElementType() reflect.Type {
@@ -278,6 +297,12 @@ func (o WorkflowOutput) ToWorkflowOutput() WorkflowOutput {
 
 func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) WorkflowOutput {
 	return o
+}
+
+func (o WorkflowOutput) ToOutput(ctx context.Context) pulumix.Output[*Workflow] {
+	return pulumix.Output[*Workflow]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of Glue Workflow
@@ -329,6 +354,12 @@ func (o WorkflowArrayOutput) ToWorkflowArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o WorkflowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Workflow] {
+	return pulumix.Output[[]*Workflow]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkflowArrayOutput) Index(i pulumi.IntInput) WorkflowOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Workflow {
 		return vs[0].([]*Workflow)[vs[1].(int)]
@@ -347,6 +378,12 @@ func (o WorkflowMapOutput) ToWorkflowMapOutput() WorkflowMapOutput {
 
 func (o WorkflowMapOutput) ToWorkflowMapOutputWithContext(ctx context.Context) WorkflowMapOutput {
 	return o
+}
+
+func (o WorkflowMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Workflow] {
+	return pulumix.Output[map[string]*Workflow]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkflowMapOutput) MapIndex(k pulumi.StringInput) WorkflowOutput {

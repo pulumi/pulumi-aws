@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i GlobalTableReplicaArgs) ToGlobalTableReplicaOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReplicaOutput)
 }
 
+func (i GlobalTableReplicaArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalTableReplica] {
+	return pulumix.Output[GlobalTableReplica]{
+		OutputState: i.ToGlobalTableReplicaOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GlobalTableReplicaArrayInput is an input type that accepts GlobalTableReplicaArray and GlobalTableReplicaArrayOutput values.
 // You can construct a concrete instance of `GlobalTableReplicaArrayInput` via:
 //
@@ -71,6 +78,12 @@ func (i GlobalTableReplicaArray) ToGlobalTableReplicaArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableReplicaArrayOutput)
 }
 
+func (i GlobalTableReplicaArray) ToOutput(ctx context.Context) pulumix.Output[[]GlobalTableReplica] {
+	return pulumix.Output[[]GlobalTableReplica]{
+		OutputState: i.ToGlobalTableReplicaArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GlobalTableReplicaOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableReplicaOutput) ElementType() reflect.Type {
@@ -83,6 +96,12 @@ func (o GlobalTableReplicaOutput) ToGlobalTableReplicaOutput() GlobalTableReplic
 
 func (o GlobalTableReplicaOutput) ToGlobalTableReplicaOutputWithContext(ctx context.Context) GlobalTableReplicaOutput {
 	return o
+}
+
+func (o GlobalTableReplicaOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalTableReplica] {
+	return pulumix.Output[GlobalTableReplica]{
+		OutputState: o.OutputState,
+	}
 }
 
 // AWS region name of replica DynamoDB TableE.g., `us-east-1`
@@ -102,6 +121,12 @@ func (o GlobalTableReplicaArrayOutput) ToGlobalTableReplicaArrayOutput() GlobalT
 
 func (o GlobalTableReplicaArrayOutput) ToGlobalTableReplicaArrayOutputWithContext(ctx context.Context) GlobalTableReplicaArrayOutput {
 	return o
+}
+
+func (o GlobalTableReplicaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GlobalTableReplica] {
+	return pulumix.Output[[]GlobalTableReplica]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GlobalTableReplicaArrayOutput) Index(i pulumi.IntInput) GlobalTableReplicaOutput {
@@ -147,6 +172,12 @@ func (i TableAttributeArgs) ToTableAttributeOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TableAttributeOutput)
 }
 
+func (i TableAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[TableAttribute] {
+	return pulumix.Output[TableAttribute]{
+		OutputState: i.ToTableAttributeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TableAttributeArrayInput is an input type that accepts TableAttributeArray and TableAttributeArrayOutput values.
 // You can construct a concrete instance of `TableAttributeArrayInput` via:
 //
@@ -172,6 +203,12 @@ func (i TableAttributeArray) ToTableAttributeArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TableAttributeArrayOutput)
 }
 
+func (i TableAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]TableAttribute] {
+	return pulumix.Output[[]TableAttribute]{
+		OutputState: i.ToTableAttributeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableAttributeOutput struct{ *pulumi.OutputState }
 
 func (TableAttributeOutput) ElementType() reflect.Type {
@@ -184,6 +221,12 @@ func (o TableAttributeOutput) ToTableAttributeOutput() TableAttributeOutput {
 
 func (o TableAttributeOutput) ToTableAttributeOutputWithContext(ctx context.Context) TableAttributeOutput {
 	return o
+}
+
+func (o TableAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[TableAttribute] {
+	return pulumix.Output[TableAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the attribute
@@ -208,6 +251,12 @@ func (o TableAttributeArrayOutput) ToTableAttributeArrayOutput() TableAttributeA
 
 func (o TableAttributeArrayOutput) ToTableAttributeArrayOutputWithContext(ctx context.Context) TableAttributeArrayOutput {
 	return o
+}
+
+func (o TableAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TableAttribute] {
+	return pulumix.Output[[]TableAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TableAttributeArrayOutput) Index(i pulumi.IntInput) TableAttributeOutput {
@@ -273,6 +322,12 @@ func (i TableGlobalSecondaryIndexArgs) ToTableGlobalSecondaryIndexOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(TableGlobalSecondaryIndexOutput)
 }
 
+func (i TableGlobalSecondaryIndexArgs) ToOutput(ctx context.Context) pulumix.Output[TableGlobalSecondaryIndex] {
+	return pulumix.Output[TableGlobalSecondaryIndex]{
+		OutputState: i.ToTableGlobalSecondaryIndexOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TableGlobalSecondaryIndexArrayInput is an input type that accepts TableGlobalSecondaryIndexArray and TableGlobalSecondaryIndexArrayOutput values.
 // You can construct a concrete instance of `TableGlobalSecondaryIndexArrayInput` via:
 //
@@ -298,6 +353,12 @@ func (i TableGlobalSecondaryIndexArray) ToTableGlobalSecondaryIndexArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TableGlobalSecondaryIndexArrayOutput)
 }
 
+func (i TableGlobalSecondaryIndexArray) ToOutput(ctx context.Context) pulumix.Output[[]TableGlobalSecondaryIndex] {
+	return pulumix.Output[[]TableGlobalSecondaryIndex]{
+		OutputState: i.ToTableGlobalSecondaryIndexArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableGlobalSecondaryIndexOutput struct{ *pulumi.OutputState }
 
 func (TableGlobalSecondaryIndexOutput) ElementType() reflect.Type {
@@ -310,6 +371,12 @@ func (o TableGlobalSecondaryIndexOutput) ToTableGlobalSecondaryIndexOutput() Tab
 
 func (o TableGlobalSecondaryIndexOutput) ToTableGlobalSecondaryIndexOutputWithContext(ctx context.Context) TableGlobalSecondaryIndexOutput {
 	return o
+}
+
+func (o TableGlobalSecondaryIndexOutput) ToOutput(ctx context.Context) pulumix.Output[TableGlobalSecondaryIndex] {
+	return pulumix.Output[TableGlobalSecondaryIndex]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the hash key in the index; must be defined as an attribute in the resource.
@@ -359,6 +426,12 @@ func (o TableGlobalSecondaryIndexArrayOutput) ToTableGlobalSecondaryIndexArrayOu
 
 func (o TableGlobalSecondaryIndexArrayOutput) ToTableGlobalSecondaryIndexArrayOutputWithContext(ctx context.Context) TableGlobalSecondaryIndexArrayOutput {
 	return o
+}
+
+func (o TableGlobalSecondaryIndexArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TableGlobalSecondaryIndex] {
+	return pulumix.Output[[]TableGlobalSecondaryIndex]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TableGlobalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) TableGlobalSecondaryIndexOutput {
@@ -412,6 +485,12 @@ func (i TableLocalSecondaryIndexArgs) ToTableLocalSecondaryIndexOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TableLocalSecondaryIndexOutput)
 }
 
+func (i TableLocalSecondaryIndexArgs) ToOutput(ctx context.Context) pulumix.Output[TableLocalSecondaryIndex] {
+	return pulumix.Output[TableLocalSecondaryIndex]{
+		OutputState: i.ToTableLocalSecondaryIndexOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TableLocalSecondaryIndexArrayInput is an input type that accepts TableLocalSecondaryIndexArray and TableLocalSecondaryIndexArrayOutput values.
 // You can construct a concrete instance of `TableLocalSecondaryIndexArrayInput` via:
 //
@@ -437,6 +516,12 @@ func (i TableLocalSecondaryIndexArray) ToTableLocalSecondaryIndexArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TableLocalSecondaryIndexArrayOutput)
 }
 
+func (i TableLocalSecondaryIndexArray) ToOutput(ctx context.Context) pulumix.Output[[]TableLocalSecondaryIndex] {
+	return pulumix.Output[[]TableLocalSecondaryIndex]{
+		OutputState: i.ToTableLocalSecondaryIndexArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableLocalSecondaryIndexOutput struct{ *pulumi.OutputState }
 
 func (TableLocalSecondaryIndexOutput) ElementType() reflect.Type {
@@ -449,6 +534,12 @@ func (o TableLocalSecondaryIndexOutput) ToTableLocalSecondaryIndexOutput() Table
 
 func (o TableLocalSecondaryIndexOutput) ToTableLocalSecondaryIndexOutputWithContext(ctx context.Context) TableLocalSecondaryIndexOutput {
 	return o
+}
+
+func (o TableLocalSecondaryIndexOutput) ToOutput(ctx context.Context) pulumix.Output[TableLocalSecondaryIndex] {
+	return pulumix.Output[TableLocalSecondaryIndex]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the index
@@ -483,6 +574,12 @@ func (o TableLocalSecondaryIndexArrayOutput) ToTableLocalSecondaryIndexArrayOutp
 
 func (o TableLocalSecondaryIndexArrayOutput) ToTableLocalSecondaryIndexArrayOutputWithContext(ctx context.Context) TableLocalSecondaryIndexArrayOutput {
 	return o
+}
+
+func (o TableLocalSecondaryIndexArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TableLocalSecondaryIndex] {
+	return pulumix.Output[[]TableLocalSecondaryIndex]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TableLocalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) TableLocalSecondaryIndexOutput {
@@ -522,6 +619,12 @@ func (i TablePointInTimeRecoveryArgs) ToTablePointInTimeRecoveryOutput() TablePo
 
 func (i TablePointInTimeRecoveryArgs) ToTablePointInTimeRecoveryOutputWithContext(ctx context.Context) TablePointInTimeRecoveryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TablePointInTimeRecoveryOutput)
+}
+
+func (i TablePointInTimeRecoveryArgs) ToOutput(ctx context.Context) pulumix.Output[TablePointInTimeRecovery] {
+	return pulumix.Output[TablePointInTimeRecovery]{
+		OutputState: i.ToTablePointInTimeRecoveryOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i TablePointInTimeRecoveryArgs) ToTablePointInTimeRecoveryPtrOutput() TablePointInTimeRecoveryPtrOutput {
@@ -565,6 +668,12 @@ func (i *tablePointInTimeRecoveryPtrType) ToTablePointInTimeRecoveryPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(TablePointInTimeRecoveryPtrOutput)
 }
 
+func (i *tablePointInTimeRecoveryPtrType) ToOutput(ctx context.Context) pulumix.Output[*TablePointInTimeRecovery] {
+	return pulumix.Output[*TablePointInTimeRecovery]{
+		OutputState: i.ToTablePointInTimeRecoveryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TablePointInTimeRecoveryOutput struct{ *pulumi.OutputState }
 
 func (TablePointInTimeRecoveryOutput) ElementType() reflect.Type {
@@ -589,6 +698,12 @@ func (o TablePointInTimeRecoveryOutput) ToTablePointInTimeRecoveryPtrOutputWithC
 	}).(TablePointInTimeRecoveryPtrOutput)
 }
 
+func (o TablePointInTimeRecoveryOutput) ToOutput(ctx context.Context) pulumix.Output[TablePointInTimeRecovery] {
+	return pulumix.Output[TablePointInTimeRecovery]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `pointInTimeRecovery` block is not provided, this defaults to `false`.
 func (o TablePointInTimeRecoveryOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v TablePointInTimeRecovery) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -606,6 +721,12 @@ func (o TablePointInTimeRecoveryPtrOutput) ToTablePointInTimeRecoveryPtrOutput()
 
 func (o TablePointInTimeRecoveryPtrOutput) ToTablePointInTimeRecoveryPtrOutputWithContext(ctx context.Context) TablePointInTimeRecoveryPtrOutput {
 	return o
+}
+
+func (o TablePointInTimeRecoveryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TablePointInTimeRecovery] {
+	return pulumix.Output[*TablePointInTimeRecovery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TablePointInTimeRecoveryPtrOutput) Elem() TablePointInTimeRecoveryOutput {
@@ -685,6 +806,12 @@ func (i TableReplicaTypeArgs) ToTableReplicaTypeOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(TableReplicaTypeOutput)
 }
 
+func (i TableReplicaTypeArgs) ToOutput(ctx context.Context) pulumix.Output[TableReplicaType] {
+	return pulumix.Output[TableReplicaType]{
+		OutputState: i.ToTableReplicaTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TableReplicaTypeArrayInput is an input type that accepts TableReplicaTypeArray and TableReplicaTypeArrayOutput values.
 // You can construct a concrete instance of `TableReplicaTypeArrayInput` via:
 //
@@ -710,6 +837,12 @@ func (i TableReplicaTypeArray) ToTableReplicaTypeArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TableReplicaTypeArrayOutput)
 }
 
+func (i TableReplicaTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]TableReplicaType] {
+	return pulumix.Output[[]TableReplicaType]{
+		OutputState: i.ToTableReplicaTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableReplicaTypeOutput struct{ *pulumi.OutputState }
 
 func (TableReplicaTypeOutput) ElementType() reflect.Type {
@@ -722,6 +855,12 @@ func (o TableReplicaTypeOutput) ToTableReplicaTypeOutput() TableReplicaTypeOutpu
 
 func (o TableReplicaTypeOutput) ToTableReplicaTypeOutputWithContext(ctx context.Context) TableReplicaTypeOutput {
 	return o
+}
+
+func (o TableReplicaTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TableReplicaType] {
+	return pulumix.Output[TableReplicaType]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the table
@@ -773,6 +912,12 @@ func (o TableReplicaTypeArrayOutput) ToTableReplicaTypeArrayOutputWithContext(ct
 	return o
 }
 
+func (o TableReplicaTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TableReplicaType] {
+	return pulumix.Output[[]TableReplicaType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TableReplicaTypeArrayOutput) Index(i pulumi.IntInput) TableReplicaTypeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableReplicaType {
 		return vs[0].([]TableReplicaType)[vs[1].(int)]
@@ -816,6 +961,12 @@ func (i TableServerSideEncryptionArgs) ToTableServerSideEncryptionOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(TableServerSideEncryptionOutput)
 }
 
+func (i TableServerSideEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[TableServerSideEncryption] {
+	return pulumix.Output[TableServerSideEncryption]{
+		OutputState: i.ToTableServerSideEncryptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TableServerSideEncryptionArgs) ToTableServerSideEncryptionPtrOutput() TableServerSideEncryptionPtrOutput {
 	return i.ToTableServerSideEncryptionPtrOutputWithContext(context.Background())
 }
@@ -857,6 +1008,12 @@ func (i *tableServerSideEncryptionPtrType) ToTableServerSideEncryptionPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(TableServerSideEncryptionPtrOutput)
 }
 
+func (i *tableServerSideEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableServerSideEncryption] {
+	return pulumix.Output[*TableServerSideEncryption]{
+		OutputState: i.ToTableServerSideEncryptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableServerSideEncryptionOutput struct{ *pulumi.OutputState }
 
 func (TableServerSideEncryptionOutput) ElementType() reflect.Type {
@@ -881,6 +1038,12 @@ func (o TableServerSideEncryptionOutput) ToTableServerSideEncryptionPtrOutputWit
 	}).(TableServerSideEncryptionPtrOutput)
 }
 
+func (o TableServerSideEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[TableServerSideEncryption] {
+	return pulumix.Output[TableServerSideEncryption]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Whether or not to enable encryption at rest using an AWS managed KMS customer master key (CMK). If `enabled` is `false` then server-side encryption is set to AWS-_owned_ key (shown as `DEFAULT` in the AWS console). Potentially confusingly, if `enabled` is `true` and no `kmsKeyArn` is specified then server-side encryption is set to the _default_ KMS-_managed_ key (shown as `KMS` in the AWS console). The [AWS KMS documentation](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) explains the difference between AWS-_owned_ and KMS-_managed_ keys.
 func (o TableServerSideEncryptionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v TableServerSideEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -903,6 +1066,12 @@ func (o TableServerSideEncryptionPtrOutput) ToTableServerSideEncryptionPtrOutput
 
 func (o TableServerSideEncryptionPtrOutput) ToTableServerSideEncryptionPtrOutputWithContext(ctx context.Context) TableServerSideEncryptionPtrOutput {
 	return o
+}
+
+func (o TableServerSideEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableServerSideEncryption] {
+	return pulumix.Output[*TableServerSideEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TableServerSideEncryptionPtrOutput) Elem() TableServerSideEncryptionOutput {
@@ -972,6 +1141,12 @@ func (i TableTtlArgs) ToTableTtlOutputWithContext(ctx context.Context) TableTtlO
 	return pulumi.ToOutputWithContext(ctx, i).(TableTtlOutput)
 }
 
+func (i TableTtlArgs) ToOutput(ctx context.Context) pulumix.Output[TableTtl] {
+	return pulumix.Output[TableTtl]{
+		OutputState: i.ToTableTtlOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TableTtlArgs) ToTableTtlPtrOutput() TableTtlPtrOutput {
 	return i.ToTableTtlPtrOutputWithContext(context.Background())
 }
@@ -1013,6 +1188,12 @@ func (i *tableTtlPtrType) ToTableTtlPtrOutputWithContext(ctx context.Context) Ta
 	return pulumi.ToOutputWithContext(ctx, i).(TableTtlPtrOutput)
 }
 
+func (i *tableTtlPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableTtl] {
+	return pulumix.Output[*TableTtl]{
+		OutputState: i.ToTableTtlPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableTtlOutput struct{ *pulumi.OutputState }
 
 func (TableTtlOutput) ElementType() reflect.Type {
@@ -1037,6 +1218,12 @@ func (o TableTtlOutput) ToTableTtlPtrOutputWithContext(ctx context.Context) Tabl
 	}).(TableTtlPtrOutput)
 }
 
+func (o TableTtlOutput) ToOutput(ctx context.Context) pulumix.Output[TableTtl] {
+	return pulumix.Output[TableTtl]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Name of the table attribute to store the TTL timestamp in.
 func (o TableTtlOutput) AttributeName() pulumi.StringOutput {
 	return o.ApplyT(func(v TableTtl) string { return v.AttributeName }).(pulumi.StringOutput)
@@ -1059,6 +1246,12 @@ func (o TableTtlPtrOutput) ToTableTtlPtrOutput() TableTtlPtrOutput {
 
 func (o TableTtlPtrOutput) ToTableTtlPtrOutputWithContext(ctx context.Context) TableTtlPtrOutput {
 	return o
+}
+
+func (o TableTtlPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableTtl] {
+	return pulumix.Output[*TableTtl]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TableTtlPtrOutput) Elem() TableTtlOutput {
@@ -1126,6 +1319,12 @@ func (i GetTableAttributeArgs) ToGetTableAttributeOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetTableAttributeOutput)
 }
 
+func (i GetTableAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[GetTableAttribute] {
+	return pulumix.Output[GetTableAttribute]{
+		OutputState: i.ToGetTableAttributeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetTableAttributeArrayInput is an input type that accepts GetTableAttributeArray and GetTableAttributeArrayOutput values.
 // You can construct a concrete instance of `GetTableAttributeArrayInput` via:
 //
@@ -1151,6 +1350,12 @@ func (i GetTableAttributeArray) ToGetTableAttributeArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetTableAttributeArrayOutput)
 }
 
+func (i GetTableAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTableAttribute] {
+	return pulumix.Output[[]GetTableAttribute]{
+		OutputState: i.ToGetTableAttributeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTableAttributeOutput struct{ *pulumi.OutputState }
 
 func (GetTableAttributeOutput) ElementType() reflect.Type {
@@ -1163,6 +1368,12 @@ func (o GetTableAttributeOutput) ToGetTableAttributeOutput() GetTableAttributeOu
 
 func (o GetTableAttributeOutput) ToGetTableAttributeOutputWithContext(ctx context.Context) GetTableAttributeOutput {
 	return o
+}
+
+func (o GetTableAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[GetTableAttribute] {
+	return pulumix.Output[GetTableAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the DynamoDB table.
@@ -1186,6 +1397,12 @@ func (o GetTableAttributeArrayOutput) ToGetTableAttributeArrayOutput() GetTableA
 
 func (o GetTableAttributeArrayOutput) ToGetTableAttributeArrayOutputWithContext(ctx context.Context) GetTableAttributeArrayOutput {
 	return o
+}
+
+func (o GetTableAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTableAttribute] {
+	return pulumix.Output[[]GetTableAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTableAttributeArrayOutput) Index(i pulumi.IntInput) GetTableAttributeOutput {
@@ -1239,6 +1456,12 @@ func (i GetTableGlobalSecondaryIndexArgs) ToGetTableGlobalSecondaryIndexOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetTableGlobalSecondaryIndexOutput)
 }
 
+func (i GetTableGlobalSecondaryIndexArgs) ToOutput(ctx context.Context) pulumix.Output[GetTableGlobalSecondaryIndex] {
+	return pulumix.Output[GetTableGlobalSecondaryIndex]{
+		OutputState: i.ToGetTableGlobalSecondaryIndexOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetTableGlobalSecondaryIndexArrayInput is an input type that accepts GetTableGlobalSecondaryIndexArray and GetTableGlobalSecondaryIndexArrayOutput values.
 // You can construct a concrete instance of `GetTableGlobalSecondaryIndexArrayInput` via:
 //
@@ -1264,6 +1487,12 @@ func (i GetTableGlobalSecondaryIndexArray) ToGetTableGlobalSecondaryIndexArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetTableGlobalSecondaryIndexArrayOutput)
 }
 
+func (i GetTableGlobalSecondaryIndexArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTableGlobalSecondaryIndex] {
+	return pulumix.Output[[]GetTableGlobalSecondaryIndex]{
+		OutputState: i.ToGetTableGlobalSecondaryIndexArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTableGlobalSecondaryIndexOutput struct{ *pulumi.OutputState }
 
 func (GetTableGlobalSecondaryIndexOutput) ElementType() reflect.Type {
@@ -1276,6 +1505,12 @@ func (o GetTableGlobalSecondaryIndexOutput) ToGetTableGlobalSecondaryIndexOutput
 
 func (o GetTableGlobalSecondaryIndexOutput) ToGetTableGlobalSecondaryIndexOutputWithContext(ctx context.Context) GetTableGlobalSecondaryIndexOutput {
 	return o
+}
+
+func (o GetTableGlobalSecondaryIndexOutput) ToOutput(ctx context.Context) pulumix.Output[GetTableGlobalSecondaryIndex] {
+	return pulumix.Output[GetTableGlobalSecondaryIndex]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTableGlobalSecondaryIndexOutput) HashKey() pulumi.StringOutput {
@@ -1319,6 +1554,12 @@ func (o GetTableGlobalSecondaryIndexArrayOutput) ToGetTableGlobalSecondaryIndexA
 
 func (o GetTableGlobalSecondaryIndexArrayOutput) ToGetTableGlobalSecondaryIndexArrayOutputWithContext(ctx context.Context) GetTableGlobalSecondaryIndexArrayOutput {
 	return o
+}
+
+func (o GetTableGlobalSecondaryIndexArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTableGlobalSecondaryIndex] {
+	return pulumix.Output[[]GetTableGlobalSecondaryIndex]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTableGlobalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) GetTableGlobalSecondaryIndexOutput {
@@ -1366,6 +1607,12 @@ func (i GetTableLocalSecondaryIndexArgs) ToGetTableLocalSecondaryIndexOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetTableLocalSecondaryIndexOutput)
 }
 
+func (i GetTableLocalSecondaryIndexArgs) ToOutput(ctx context.Context) pulumix.Output[GetTableLocalSecondaryIndex] {
+	return pulumix.Output[GetTableLocalSecondaryIndex]{
+		OutputState: i.ToGetTableLocalSecondaryIndexOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetTableLocalSecondaryIndexArrayInput is an input type that accepts GetTableLocalSecondaryIndexArray and GetTableLocalSecondaryIndexArrayOutput values.
 // You can construct a concrete instance of `GetTableLocalSecondaryIndexArrayInput` via:
 //
@@ -1391,6 +1638,12 @@ func (i GetTableLocalSecondaryIndexArray) ToGetTableLocalSecondaryIndexArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetTableLocalSecondaryIndexArrayOutput)
 }
 
+func (i GetTableLocalSecondaryIndexArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTableLocalSecondaryIndex] {
+	return pulumix.Output[[]GetTableLocalSecondaryIndex]{
+		OutputState: i.ToGetTableLocalSecondaryIndexArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTableLocalSecondaryIndexOutput struct{ *pulumi.OutputState }
 
 func (GetTableLocalSecondaryIndexOutput) ElementType() reflect.Type {
@@ -1403,6 +1656,12 @@ func (o GetTableLocalSecondaryIndexOutput) ToGetTableLocalSecondaryIndexOutput()
 
 func (o GetTableLocalSecondaryIndexOutput) ToGetTableLocalSecondaryIndexOutputWithContext(ctx context.Context) GetTableLocalSecondaryIndexOutput {
 	return o
+}
+
+func (o GetTableLocalSecondaryIndexOutput) ToOutput(ctx context.Context) pulumix.Output[GetTableLocalSecondaryIndex] {
+	return pulumix.Output[GetTableLocalSecondaryIndex]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the DynamoDB table.
@@ -1434,6 +1693,12 @@ func (o GetTableLocalSecondaryIndexArrayOutput) ToGetTableLocalSecondaryIndexArr
 
 func (o GetTableLocalSecondaryIndexArrayOutput) ToGetTableLocalSecondaryIndexArrayOutputWithContext(ctx context.Context) GetTableLocalSecondaryIndexArrayOutput {
 	return o
+}
+
+func (o GetTableLocalSecondaryIndexArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTableLocalSecondaryIndex] {
+	return pulumix.Output[[]GetTableLocalSecondaryIndex]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTableLocalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) GetTableLocalSecondaryIndexOutput {
@@ -1473,6 +1738,12 @@ func (i GetTablePointInTimeRecoveryArgs) ToGetTablePointInTimeRecoveryOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetTablePointInTimeRecoveryOutput)
 }
 
+func (i GetTablePointInTimeRecoveryArgs) ToOutput(ctx context.Context) pulumix.Output[GetTablePointInTimeRecovery] {
+	return pulumix.Output[GetTablePointInTimeRecovery]{
+		OutputState: i.ToGetTablePointInTimeRecoveryOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTablePointInTimeRecoveryOutput struct{ *pulumi.OutputState }
 
 func (GetTablePointInTimeRecoveryOutput) ElementType() reflect.Type {
@@ -1485,6 +1756,12 @@ func (o GetTablePointInTimeRecoveryOutput) ToGetTablePointInTimeRecoveryOutput()
 
 func (o GetTablePointInTimeRecoveryOutput) ToGetTablePointInTimeRecoveryOutputWithContext(ctx context.Context) GetTablePointInTimeRecoveryOutput {
 	return o
+}
+
+func (o GetTablePointInTimeRecoveryOutput) ToOutput(ctx context.Context) pulumix.Output[GetTablePointInTimeRecovery] {
+	return pulumix.Output[GetTablePointInTimeRecovery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTablePointInTimeRecoveryOutput) Enabled() pulumi.BoolOutput {
@@ -1524,6 +1801,12 @@ func (i GetTableReplicaTypeArgs) ToGetTableReplicaTypeOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetTableReplicaTypeOutput)
 }
 
+func (i GetTableReplicaTypeArgs) ToOutput(ctx context.Context) pulumix.Output[GetTableReplicaType] {
+	return pulumix.Output[GetTableReplicaType]{
+		OutputState: i.ToGetTableReplicaTypeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetTableReplicaTypeArrayInput is an input type that accepts GetTableReplicaTypeArray and GetTableReplicaTypeArrayOutput values.
 // You can construct a concrete instance of `GetTableReplicaTypeArrayInput` via:
 //
@@ -1549,6 +1832,12 @@ func (i GetTableReplicaTypeArray) ToGetTableReplicaTypeArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetTableReplicaTypeArrayOutput)
 }
 
+func (i GetTableReplicaTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTableReplicaType] {
+	return pulumix.Output[[]GetTableReplicaType]{
+		OutputState: i.ToGetTableReplicaTypeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTableReplicaTypeOutput struct{ *pulumi.OutputState }
 
 func (GetTableReplicaTypeOutput) ElementType() reflect.Type {
@@ -1561,6 +1850,12 @@ func (o GetTableReplicaTypeOutput) ToGetTableReplicaTypeOutput() GetTableReplica
 
 func (o GetTableReplicaTypeOutput) ToGetTableReplicaTypeOutputWithContext(ctx context.Context) GetTableReplicaTypeOutput {
 	return o
+}
+
+func (o GetTableReplicaTypeOutput) ToOutput(ctx context.Context) pulumix.Output[GetTableReplicaType] {
+	return pulumix.Output[GetTableReplicaType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTableReplicaTypeOutput) KmsKeyArn() pulumi.StringOutput {
@@ -1583,6 +1878,12 @@ func (o GetTableReplicaTypeArrayOutput) ToGetTableReplicaTypeArrayOutput() GetTa
 
 func (o GetTableReplicaTypeArrayOutput) ToGetTableReplicaTypeArrayOutputWithContext(ctx context.Context) GetTableReplicaTypeArrayOutput {
 	return o
+}
+
+func (o GetTableReplicaTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTableReplicaType] {
+	return pulumix.Output[[]GetTableReplicaType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTableReplicaTypeArrayOutput) Index(i pulumi.IntInput) GetTableReplicaTypeOutput {
@@ -1622,6 +1923,12 @@ func (i GetTableServerSideEncryptionArgs) ToGetTableServerSideEncryptionOutput()
 
 func (i GetTableServerSideEncryptionArgs) ToGetTableServerSideEncryptionOutputWithContext(ctx context.Context) GetTableServerSideEncryptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetTableServerSideEncryptionOutput)
+}
+
+func (i GetTableServerSideEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetTableServerSideEncryption] {
+	return pulumix.Output[GetTableServerSideEncryption]{
+		OutputState: i.ToGetTableServerSideEncryptionOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i GetTableServerSideEncryptionArgs) ToGetTableServerSideEncryptionPtrOutput() GetTableServerSideEncryptionPtrOutput {
@@ -1665,6 +1972,12 @@ func (i *getTableServerSideEncryptionPtrType) ToGetTableServerSideEncryptionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(GetTableServerSideEncryptionPtrOutput)
 }
 
+func (i *getTableServerSideEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetTableServerSideEncryption] {
+	return pulumix.Output[*GetTableServerSideEncryption]{
+		OutputState: i.ToGetTableServerSideEncryptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTableServerSideEncryptionOutput struct{ *pulumi.OutputState }
 
 func (GetTableServerSideEncryptionOutput) ElementType() reflect.Type {
@@ -1689,6 +2002,12 @@ func (o GetTableServerSideEncryptionOutput) ToGetTableServerSideEncryptionPtrOut
 	}).(GetTableServerSideEncryptionPtrOutput)
 }
 
+func (o GetTableServerSideEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetTableServerSideEncryption] {
+	return pulumix.Output[GetTableServerSideEncryption]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetTableServerSideEncryptionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetTableServerSideEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -1709,6 +2028,12 @@ func (o GetTableServerSideEncryptionPtrOutput) ToGetTableServerSideEncryptionPtr
 
 func (o GetTableServerSideEncryptionPtrOutput) ToGetTableServerSideEncryptionPtrOutputWithContext(ctx context.Context) GetTableServerSideEncryptionPtrOutput {
 	return o
+}
+
+func (o GetTableServerSideEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetTableServerSideEncryption] {
+	return pulumix.Output[*GetTableServerSideEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTableServerSideEncryptionPtrOutput) Elem() GetTableServerSideEncryptionOutput {
@@ -1772,6 +2097,12 @@ func (i GetTableTtlArgs) ToGetTableTtlOutputWithContext(ctx context.Context) Get
 	return pulumi.ToOutputWithContext(ctx, i).(GetTableTtlOutput)
 }
 
+func (i GetTableTtlArgs) ToOutput(ctx context.Context) pulumix.Output[GetTableTtl] {
+	return pulumix.Output[GetTableTtl]{
+		OutputState: i.ToGetTableTtlOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetTableTtlOutput struct{ *pulumi.OutputState }
 
 func (GetTableTtlOutput) ElementType() reflect.Type {
@@ -1784,6 +2115,12 @@ func (o GetTableTtlOutput) ToGetTableTtlOutput() GetTableTtlOutput {
 
 func (o GetTableTtlOutput) ToGetTableTtlOutputWithContext(ctx context.Context) GetTableTtlOutput {
 	return o
+}
+
+func (o GetTableTtlOutput) ToOutput(ctx context.Context) pulumix.Output[GetTableTtl] {
+	return pulumix.Output[GetTableTtl]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetTableTtlOutput) AttributeName() pulumi.StringOutput {

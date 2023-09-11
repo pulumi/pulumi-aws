@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EC2 Transit Gateway Route Table propagation.
@@ -162,6 +163,12 @@ func (i *RouteTablePropagation) ToRouteTablePropagationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTablePropagationOutput)
 }
 
+func (i *RouteTablePropagation) ToOutput(ctx context.Context) pulumix.Output[*RouteTablePropagation] {
+	return pulumix.Output[*RouteTablePropagation]{
+		OutputState: i.ToRouteTablePropagationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RouteTablePropagationArrayInput is an input type that accepts RouteTablePropagationArray and RouteTablePropagationArrayOutput values.
 // You can construct a concrete instance of `RouteTablePropagationArrayInput` via:
 //
@@ -185,6 +192,12 @@ func (i RouteTablePropagationArray) ToRouteTablePropagationArrayOutput() RouteTa
 
 func (i RouteTablePropagationArray) ToRouteTablePropagationArrayOutputWithContext(ctx context.Context) RouteTablePropagationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTablePropagationArrayOutput)
+}
+
+func (i RouteTablePropagationArray) ToOutput(ctx context.Context) pulumix.Output[[]*RouteTablePropagation] {
+	return pulumix.Output[[]*RouteTablePropagation]{
+		OutputState: i.ToRouteTablePropagationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RouteTablePropagationMapInput is an input type that accepts RouteTablePropagationMap and RouteTablePropagationMapOutput values.
@@ -212,6 +225,12 @@ func (i RouteTablePropagationMap) ToRouteTablePropagationMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RouteTablePropagationMapOutput)
 }
 
+func (i RouteTablePropagationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RouteTablePropagation] {
+	return pulumix.Output[map[string]*RouteTablePropagation]{
+		OutputState: i.ToRouteTablePropagationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RouteTablePropagationOutput struct{ *pulumi.OutputState }
 
 func (RouteTablePropagationOutput) ElementType() reflect.Type {
@@ -224,6 +243,12 @@ func (o RouteTablePropagationOutput) ToRouteTablePropagationOutput() RouteTableP
 
 func (o RouteTablePropagationOutput) ToRouteTablePropagationOutputWithContext(ctx context.Context) RouteTablePropagationOutput {
 	return o
+}
+
+func (o RouteTablePropagationOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteTablePropagation] {
+	return pulumix.Output[*RouteTablePropagation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Identifier of the resource
@@ -260,6 +285,12 @@ func (o RouteTablePropagationArrayOutput) ToRouteTablePropagationArrayOutputWith
 	return o
 }
 
+func (o RouteTablePropagationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RouteTablePropagation] {
+	return pulumix.Output[[]*RouteTablePropagation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RouteTablePropagationArrayOutput) Index(i pulumi.IntInput) RouteTablePropagationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RouteTablePropagation {
 		return vs[0].([]*RouteTablePropagation)[vs[1].(int)]
@@ -278,6 +309,12 @@ func (o RouteTablePropagationMapOutput) ToRouteTablePropagationMapOutput() Route
 
 func (o RouteTablePropagationMapOutput) ToRouteTablePropagationMapOutputWithContext(ctx context.Context) RouteTablePropagationMapOutput {
 	return o
+}
+
+func (o RouteTablePropagationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RouteTablePropagation] {
+	return pulumix.Output[map[string]*RouteTablePropagation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RouteTablePropagationMapOutput) MapIndex(k pulumi.StringInput) RouteTablePropagationOutput {

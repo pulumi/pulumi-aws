@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a [RDS Aurora Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html). To manage cluster instances that inherit configuration from the cluster (when not running the cluster in `serverless` engine mode), see the `rds.ClusterInstance` resource. To manage non-Aurora databases (e.g., MySQL, PostgreSQL, SQL Server, etc.), see the `rds.Instance` resource.
@@ -414,12 +415,15 @@ type Cluster struct {
 	// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// (Required for Multi-AZ DB cluster) The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
-	DbClusterInstanceClass      pulumi.StringPtrOutput `pulumi:"dbClusterInstanceClass"`
-	DbClusterParameterGroupName pulumi.StringOutput    `pulumi:"dbClusterParameterGroupName"`
+	DbClusterInstanceClass pulumi.StringPtrOutput `pulumi:"dbClusterInstanceClass"`
+	// A cluster parameter group to associate with the cluster.
+	DbClusterParameterGroupName pulumi.StringOutput `pulumi:"dbClusterParameterGroupName"`
 	// Instance parameter group to associate with all instances of the DB cluster. The `dbInstanceParameterGroupName` parameter is only valid in combination with the `allowMajorVersionUpgrade` parameter.
 	DbInstanceParameterGroupName pulumi.StringPtrOutput `pulumi:"dbInstanceParameterGroupName"`
 	// DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `rds.ClusterInstance` in the cluster.
 	DbSubnetGroupName pulumi.StringOutput `pulumi:"dbSubnetGroupName"`
+	// For use with RDS Custom.
+	DbSystemId pulumi.StringOutput `pulumi:"dbSystemId"`
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrOutput `pulumi:"deletionProtection"`
 	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
@@ -567,12 +571,15 @@ type clusterState struct {
 	// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
 	DatabaseName *string `pulumi:"databaseName"`
 	// (Required for Multi-AZ DB cluster) The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
-	DbClusterInstanceClass      *string `pulumi:"dbClusterInstanceClass"`
+	DbClusterInstanceClass *string `pulumi:"dbClusterInstanceClass"`
+	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName *string `pulumi:"dbClusterParameterGroupName"`
 	// Instance parameter group to associate with all instances of the DB cluster. The `dbInstanceParameterGroupName` parameter is only valid in combination with the `allowMajorVersionUpgrade` parameter.
 	DbInstanceParameterGroupName *string `pulumi:"dbInstanceParameterGroupName"`
 	// DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `rds.ClusterInstance` in the cluster.
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
+	// For use with RDS Custom.
+	DbSystemId *string `pulumi:"dbSystemId"`
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
@@ -681,12 +688,15 @@ type ClusterState struct {
 	// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
 	DatabaseName pulumi.StringPtrInput
 	// (Required for Multi-AZ DB cluster) The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
-	DbClusterInstanceClass      pulumi.StringPtrInput
+	DbClusterInstanceClass pulumi.StringPtrInput
+	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName pulumi.StringPtrInput
 	// Instance parameter group to associate with all instances of the DB cluster. The `dbInstanceParameterGroupName` parameter is only valid in combination with the `allowMajorVersionUpgrade` parameter.
 	DbInstanceParameterGroupName pulumi.StringPtrInput
 	// DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `rds.ClusterInstance` in the cluster.
 	DbSubnetGroupName pulumi.StringPtrInput
+	// For use with RDS Custom.
+	DbSystemId pulumi.StringPtrInput
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrInput
 	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
@@ -795,12 +805,15 @@ type clusterArgs struct {
 	// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
 	DatabaseName *string `pulumi:"databaseName"`
 	// (Required for Multi-AZ DB cluster) The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
-	DbClusterInstanceClass      *string `pulumi:"dbClusterInstanceClass"`
+	DbClusterInstanceClass *string `pulumi:"dbClusterInstanceClass"`
+	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName *string `pulumi:"dbClusterParameterGroupName"`
 	// Instance parameter group to associate with all instances of the DB cluster. The `dbInstanceParameterGroupName` parameter is only valid in combination with the `allowMajorVersionUpgrade` parameter.
 	DbInstanceParameterGroupName *string `pulumi:"dbInstanceParameterGroupName"`
 	// DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `rds.ClusterInstance` in the cluster.
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
+	// For use with RDS Custom.
+	DbSystemId *string `pulumi:"dbSystemId"`
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
@@ -893,12 +906,15 @@ type ClusterArgs struct {
 	// Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
 	DatabaseName pulumi.StringPtrInput
 	// (Required for Multi-AZ DB cluster) The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example db.m6g.xlarge. Not all DB instance classes are available in all AWS Regions, or for all database engines. For the full list of DB instance classes and availability for your engine, see [DB instance class](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) in the Amazon RDS User Guide.
-	DbClusterInstanceClass      pulumi.StringPtrInput
+	DbClusterInstanceClass pulumi.StringPtrInput
+	// A cluster parameter group to associate with the cluster.
 	DbClusterParameterGroupName pulumi.StringPtrInput
 	// Instance parameter group to associate with all instances of the DB cluster. The `dbInstanceParameterGroupName` parameter is only valid in combination with the `allowMajorVersionUpgrade` parameter.
 	DbInstanceParameterGroupName pulumi.StringPtrInput
 	// DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `rds.ClusterInstance` in the cluster.
 	DbSubnetGroupName pulumi.StringPtrInput
+	// For use with RDS Custom.
+	DbSystemId pulumi.StringPtrInput
 	// If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
 	DeletionProtection pulumi.BoolPtrInput
 	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
@@ -989,6 +1005,12 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutput)
 }
 
+func (i *Cluster) ToOutput(ctx context.Context) pulumix.Output[*Cluster] {
+	return pulumix.Output[*Cluster]{
+		OutputState: i.ToClusterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterArrayInput is an input type that accepts ClusterArray and ClusterArrayOutput values.
 // You can construct a concrete instance of `ClusterArrayInput` via:
 //
@@ -1012,6 +1034,12 @@ func (i ClusterArray) ToClusterArrayOutput() ClusterArrayOutput {
 
 func (i ClusterArray) ToClusterArrayOutputWithContext(ctx context.Context) ClusterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterArrayOutput)
+}
+
+func (i ClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*Cluster] {
+	return pulumix.Output[[]*Cluster]{
+		OutputState: i.ToClusterArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ClusterMapInput is an input type that accepts ClusterMap and ClusterMapOutput values.
@@ -1039,6 +1067,12 @@ func (i ClusterMap) ToClusterMapOutputWithContext(ctx context.Context) ClusterMa
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterMapOutput)
 }
 
+func (i ClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Cluster] {
+	return pulumix.Output[map[string]*Cluster]{
+		OutputState: i.ToClusterMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterOutput struct{ *pulumi.OutputState }
 
 func (ClusterOutput) ElementType() reflect.Type {
@@ -1051,6 +1085,12 @@ func (o ClusterOutput) ToClusterOutput() ClusterOutput {
 
 func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOutput {
 	return o
+}
+
+func (o ClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*Cluster] {
+	return pulumix.Output[*Cluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required for Multi-AZ DB cluster) The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
@@ -1123,6 +1163,7 @@ func (o ClusterOutput) DbClusterInstanceClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.DbClusterInstanceClass }).(pulumi.StringPtrOutput)
 }
 
+// A cluster parameter group to associate with the cluster.
 func (o ClusterOutput) DbClusterParameterGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.DbClusterParameterGroupName }).(pulumi.StringOutput)
 }
@@ -1135,6 +1176,11 @@ func (o ClusterOutput) DbInstanceParameterGroupName() pulumi.StringPtrOutput {
 // DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `rds.ClusterInstance` in the cluster.
 func (o ClusterOutput) DbSubnetGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.DbSubnetGroupName }).(pulumi.StringOutput)
+}
+
+// For use with RDS Custom.
+func (o ClusterOutput) DbSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.DbSystemId }).(pulumi.StringOutput)
 }
 
 // If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
@@ -1348,6 +1394,12 @@ func (o ClusterArrayOutput) ToClusterArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Cluster] {
+	return pulumix.Output[[]*Cluster]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ClusterArrayOutput) Index(i pulumi.IntInput) ClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Cluster {
 		return vs[0].([]*Cluster)[vs[1].(int)]
@@ -1366,6 +1418,12 @@ func (o ClusterMapOutput) ToClusterMapOutput() ClusterMapOutput {
 
 func (o ClusterMapOutput) ToClusterMapOutputWithContext(ctx context.Context) ClusterMapOutput {
 	return o
+}
+
+func (o ClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Cluster] {
+	return pulumix.Output[map[string]*Cluster]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterMapOutput) MapIndex(k pulumi.StringInput) ClusterOutput {

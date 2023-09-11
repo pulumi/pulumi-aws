@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CE Cost Allocation Tag.
@@ -156,6 +157,12 @@ func (i *CostAllocationTag) ToCostAllocationTagOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(CostAllocationTagOutput)
 }
 
+func (i *CostAllocationTag) ToOutput(ctx context.Context) pulumix.Output[*CostAllocationTag] {
+	return pulumix.Output[*CostAllocationTag]{
+		OutputState: i.ToCostAllocationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CostAllocationTagArrayInput is an input type that accepts CostAllocationTagArray and CostAllocationTagArrayOutput values.
 // You can construct a concrete instance of `CostAllocationTagArrayInput` via:
 //
@@ -179,6 +186,12 @@ func (i CostAllocationTagArray) ToCostAllocationTagArrayOutput() CostAllocationT
 
 func (i CostAllocationTagArray) ToCostAllocationTagArrayOutputWithContext(ctx context.Context) CostAllocationTagArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CostAllocationTagArrayOutput)
+}
+
+func (i CostAllocationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]*CostAllocationTag] {
+	return pulumix.Output[[]*CostAllocationTag]{
+		OutputState: i.ToCostAllocationTagArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CostAllocationTagMapInput is an input type that accepts CostAllocationTagMap and CostAllocationTagMapOutput values.
@@ -206,6 +219,12 @@ func (i CostAllocationTagMap) ToCostAllocationTagMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CostAllocationTagMapOutput)
 }
 
+func (i CostAllocationTagMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CostAllocationTag] {
+	return pulumix.Output[map[string]*CostAllocationTag]{
+		OutputState: i.ToCostAllocationTagMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CostAllocationTagOutput struct{ *pulumi.OutputState }
 
 func (CostAllocationTagOutput) ElementType() reflect.Type {
@@ -218,6 +237,12 @@ func (o CostAllocationTagOutput) ToCostAllocationTagOutput() CostAllocationTagOu
 
 func (o CostAllocationTagOutput) ToCostAllocationTagOutputWithContext(ctx context.Context) CostAllocationTagOutput {
 	return o
+}
+
+func (o CostAllocationTagOutput) ToOutput(ctx context.Context) pulumix.Output[*CostAllocationTag] {
+	return pulumix.Output[*CostAllocationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The status of a cost allocation tag. Valid values are `Active` and `Inactive`.
@@ -249,6 +274,12 @@ func (o CostAllocationTagArrayOutput) ToCostAllocationTagArrayOutputWithContext(
 	return o
 }
 
+func (o CostAllocationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CostAllocationTag] {
+	return pulumix.Output[[]*CostAllocationTag]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CostAllocationTagArrayOutput) Index(i pulumi.IntInput) CostAllocationTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CostAllocationTag {
 		return vs[0].([]*CostAllocationTag)[vs[1].(int)]
@@ -267,6 +298,12 @@ func (o CostAllocationTagMapOutput) ToCostAllocationTagMapOutput() CostAllocatio
 
 func (o CostAllocationTagMapOutput) ToCostAllocationTagMapOutputWithContext(ctx context.Context) CostAllocationTagMapOutput {
 	return o
+}
+
+func (o CostAllocationTagMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CostAllocationTag] {
+	return pulumix.Output[map[string]*CostAllocationTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CostAllocationTagMapOutput) MapIndex(k pulumi.StringInput) CostAllocationTagOutput {

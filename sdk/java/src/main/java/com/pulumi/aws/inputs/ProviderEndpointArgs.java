@@ -372,6 +372,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.codebuild);
     }
 
+    @Import(name="codecatalyst")
+    private @Nullable Output<String> codecatalyst;
+
+    public Optional<Output<String>> codecatalyst() {
+        return Optional.ofNullable(this.codecatalyst);
+    }
+
     @Import(name="codecommit")
     private @Nullable Output<String> codecommit;
 
@@ -1049,6 +1056,20 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<String>> lexmodels() {
         return Optional.ofNullable(this.lexmodels);
+    }
+
+    @Import(name="lexmodelsv2")
+    private @Nullable Output<String> lexmodelsv2;
+
+    public Optional<Output<String>> lexmodelsv2() {
+        return Optional.ofNullable(this.lexmodelsv2);
+    }
+
+    @Import(name="lexv2models")
+    private @Nullable Output<String> lexv2models;
+
+    public Optional<Output<String>> lexv2models() {
+        return Optional.ofNullable(this.lexv2models);
     }
 
     @Import(name="licensemanager")
@@ -1791,6 +1812,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.cloudwatchrum = $.cloudwatchrum;
         this.codeartifact = $.codeartifact;
         this.codebuild = $.codebuild;
+        this.codecatalyst = $.codecatalyst;
         this.codecommit = $.codecommit;
         this.codedeploy = $.codedeploy;
         this.codegurureviewer = $.codegurureviewer;
@@ -1888,6 +1910,8 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.lexmodelbuilding = $.lexmodelbuilding;
         this.lexmodelbuildingservice = $.lexmodelbuildingservice;
         this.lexmodels = $.lexmodels;
+        this.lexmodelsv2 = $.lexmodelsv2;
+        this.lexv2models = $.lexv2models;
         this.licensemanager = $.licensemanager;
         this.lightsail = $.lightsail;
         this.location = $.location;
@@ -2463,6 +2487,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder codebuild(String codebuild) {
             return codebuild(Output.of(codebuild));
+        }
+
+        public Builder codecatalyst(@Nullable Output<String> codecatalyst) {
+            $.codecatalyst = codecatalyst;
+            return this;
+        }
+
+        public Builder codecatalyst(String codecatalyst) {
+            return codecatalyst(Output.of(codecatalyst));
         }
 
         public Builder codecommit(@Nullable Output<String> codecommit) {
@@ -3336,6 +3369,24 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder lexmodels(String lexmodels) {
             return lexmodels(Output.of(lexmodels));
+        }
+
+        public Builder lexmodelsv2(@Nullable Output<String> lexmodelsv2) {
+            $.lexmodelsv2 = lexmodelsv2;
+            return this;
+        }
+
+        public Builder lexmodelsv2(String lexmodelsv2) {
+            return lexmodelsv2(Output.of(lexmodelsv2));
+        }
+
+        public Builder lexv2models(@Nullable Output<String> lexv2models) {
+            $.lexv2models = lexv2models;
+            return this;
+        }
+
+        public Builder lexv2models(String lexv2models) {
+            return lexv2models(Output.of(lexv2models));
         }
 
         public Builder licensemanager(@Nullable Output<String> licensemanager) {

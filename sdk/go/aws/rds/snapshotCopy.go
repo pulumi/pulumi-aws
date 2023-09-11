@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an RDS database instance snapshot copy. For managing RDS database cluster snapshots, see the `rds.ClusterSnapshot` resource.
@@ -320,6 +321,12 @@ func (i *SnapshotCopy) ToSnapshotCopyOutputWithContext(ctx context.Context) Snap
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotCopyOutput)
 }
 
+func (i *SnapshotCopy) ToOutput(ctx context.Context) pulumix.Output[*SnapshotCopy] {
+	return pulumix.Output[*SnapshotCopy]{
+		OutputState: i.ToSnapshotCopyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SnapshotCopyArrayInput is an input type that accepts SnapshotCopyArray and SnapshotCopyArrayOutput values.
 // You can construct a concrete instance of `SnapshotCopyArrayInput` via:
 //
@@ -343,6 +350,12 @@ func (i SnapshotCopyArray) ToSnapshotCopyArrayOutput() SnapshotCopyArrayOutput {
 
 func (i SnapshotCopyArray) ToSnapshotCopyArrayOutputWithContext(ctx context.Context) SnapshotCopyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotCopyArrayOutput)
+}
+
+func (i SnapshotCopyArray) ToOutput(ctx context.Context) pulumix.Output[[]*SnapshotCopy] {
+	return pulumix.Output[[]*SnapshotCopy]{
+		OutputState: i.ToSnapshotCopyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SnapshotCopyMapInput is an input type that accepts SnapshotCopyMap and SnapshotCopyMapOutput values.
@@ -370,6 +383,12 @@ func (i SnapshotCopyMap) ToSnapshotCopyMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotCopyMapOutput)
 }
 
+func (i SnapshotCopyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SnapshotCopy] {
+	return pulumix.Output[map[string]*SnapshotCopy]{
+		OutputState: i.ToSnapshotCopyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SnapshotCopyOutput struct{ *pulumi.OutputState }
 
 func (SnapshotCopyOutput) ElementType() reflect.Type {
@@ -382,6 +401,12 @@ func (o SnapshotCopyOutput) ToSnapshotCopyOutput() SnapshotCopyOutput {
 
 func (o SnapshotCopyOutput) ToSnapshotCopyOutputWithContext(ctx context.Context) SnapshotCopyOutput {
 	return o
+}
+
+func (o SnapshotCopyOutput) ToOutput(ctx context.Context) pulumix.Output[*SnapshotCopy] {
+	return pulumix.Output[*SnapshotCopy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the allocated storage size in gigabytes (GB).
@@ -511,6 +536,12 @@ func (o SnapshotCopyArrayOutput) ToSnapshotCopyArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o SnapshotCopyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SnapshotCopy] {
+	return pulumix.Output[[]*SnapshotCopy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SnapshotCopyArrayOutput) Index(i pulumi.IntInput) SnapshotCopyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SnapshotCopy {
 		return vs[0].([]*SnapshotCopy)[vs[1].(int)]
@@ -529,6 +560,12 @@ func (o SnapshotCopyMapOutput) ToSnapshotCopyMapOutput() SnapshotCopyMapOutput {
 
 func (o SnapshotCopyMapOutput) ToSnapshotCopyMapOutputWithContext(ctx context.Context) SnapshotCopyMapOutput {
 	return o
+}
+
+func (o SnapshotCopyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SnapshotCopy] {
+	return pulumix.Output[map[string]*SnapshotCopy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SnapshotCopyMapOutput) MapIndex(k pulumi.StringInput) SnapshotCopyOutput {

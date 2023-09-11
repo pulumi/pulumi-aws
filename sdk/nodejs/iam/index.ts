@@ -28,7 +28,8 @@ utilities.lazyLoad(exports, ["getAccessKeys","getAccessKeysOutput"], () => requi
 
 export { GetAccountAliasResult } from "./getAccountAlias";
 export const getAccountAlias: typeof import("./getAccountAlias").getAccountAlias = null as any;
-utilities.lazyLoad(exports, ["getAccountAlias"], () => require("./getAccountAlias"));
+export const getAccountAliasOutput: typeof import("./getAccountAlias").getAccountAliasOutput = null as any;
+utilities.lazyLoad(exports, ["getAccountAlias","getAccountAliasOutput"], () => require("./getAccountAlias"));
 
 export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
 export const getGroup: typeof import("./getGroup").getGroup = null as any;

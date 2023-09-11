@@ -13,26 +13,30 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
 
     public static final ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs Empty = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs();
 
+    /**
+     * Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+     * 
+     */
     @Import(name="groupId", required=true)
     private Output<String> groupId;
 
+    /**
+     * @return Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+     * 
+     */
     public Output<String> groupId() {
         return this.groupId;
     }
 
     /**
-     * Name of the Channel.
-     * 
-     * The following arguments are optional:
+     * Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the Channel.
-     * 
-     * The following arguments are optional:
+     * @return Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
      * 
      */
     public Output<String> name() {
@@ -64,19 +68,29 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
             $ = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param groupId Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupId(Output<String> groupId) {
             $.groupId = groupId;
             return this;
         }
 
+        /**
+         * @param groupId Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+         * 
+         * @return builder
+         * 
+         */
         public Builder groupId(String groupId) {
             return groupId(Output.of(groupId));
         }
 
         /**
-         * @param name Name of the Channel.
-         * 
-         * The following arguments are optional:
+         * @param name Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
          * 
          * @return builder
          * 
@@ -87,9 +101,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
 
         /**
-         * @param name Name of the Channel.
-         * 
-         * The following arguments are optional:
+         * @param name Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
          * 
          * @return builder
          * 

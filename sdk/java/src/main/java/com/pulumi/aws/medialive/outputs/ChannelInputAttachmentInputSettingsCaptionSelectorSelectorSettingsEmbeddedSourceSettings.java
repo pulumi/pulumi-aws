@@ -12,23 +12,43 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings {
+    /**
+     * @return If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+     * 
+     */
     private @Nullable String convert608To708;
+    /**
+     * @return Set to “auto” to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
+     * 
+     */
     private @Nullable String scte20Detection;
+    /**
+     * @return Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+     * 
+     */
     private @Nullable Integer source608ChannelNumber;
-    private @Nullable Integer source608TrackNumber;
 
     private ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings() {}
+    /**
+     * @return If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+     * 
+     */
     public Optional<String> convert608To708() {
         return Optional.ofNullable(this.convert608To708);
     }
+    /**
+     * @return Set to “auto” to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
+     * 
+     */
     public Optional<String> scte20Detection() {
         return Optional.ofNullable(this.scte20Detection);
     }
+    /**
+     * @return Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+     * 
+     */
     public Optional<Integer> source608ChannelNumber() {
         return Optional.ofNullable(this.source608ChannelNumber);
-    }
-    public Optional<Integer> source608TrackNumber() {
-        return Optional.ofNullable(this.source608TrackNumber);
     }
 
     public static Builder builder() {
@@ -43,14 +63,12 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         private @Nullable String convert608To708;
         private @Nullable String scte20Detection;
         private @Nullable Integer source608ChannelNumber;
-        private @Nullable Integer source608TrackNumber;
         public Builder() {}
         public Builder(ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.convert608To708 = defaults.convert608To708;
     	      this.scte20Detection = defaults.scte20Detection;
     	      this.source608ChannelNumber = defaults.source608ChannelNumber;
-    	      this.source608TrackNumber = defaults.source608TrackNumber;
         }
 
         @CustomType.Setter
@@ -68,17 +86,11 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
             this.source608ChannelNumber = source608ChannelNumber;
             return this;
         }
-        @CustomType.Setter
-        public Builder source608TrackNumber(@Nullable Integer source608TrackNumber) {
-            this.source608TrackNumber = source608TrackNumber;
-            return this;
-        }
         public ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings build() {
             final var o = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings();
             o.convert608To708 = convert608To708;
             o.scte20Detection = scte20Detection;
             o.source608ChannelNumber = source608ChannelNumber;
-            o.source608TrackNumber = source608TrackNumber;
             return o;
         }
     }

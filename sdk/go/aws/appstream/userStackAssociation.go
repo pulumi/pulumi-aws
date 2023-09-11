@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AppStream User Stack association.
@@ -195,6 +196,12 @@ func (i *UserStackAssociation) ToUserStackAssociationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(UserStackAssociationOutput)
 }
 
+func (i *UserStackAssociation) ToOutput(ctx context.Context) pulumix.Output[*UserStackAssociation] {
+	return pulumix.Output[*UserStackAssociation]{
+		OutputState: i.ToUserStackAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserStackAssociationArrayInput is an input type that accepts UserStackAssociationArray and UserStackAssociationArrayOutput values.
 // You can construct a concrete instance of `UserStackAssociationArrayInput` via:
 //
@@ -218,6 +225,12 @@ func (i UserStackAssociationArray) ToUserStackAssociationArrayOutput() UserStack
 
 func (i UserStackAssociationArray) ToUserStackAssociationArrayOutputWithContext(ctx context.Context) UserStackAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserStackAssociationArrayOutput)
+}
+
+func (i UserStackAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserStackAssociation] {
+	return pulumix.Output[[]*UserStackAssociation]{
+		OutputState: i.ToUserStackAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // UserStackAssociationMapInput is an input type that accepts UserStackAssociationMap and UserStackAssociationMapOutput values.
@@ -245,6 +258,12 @@ func (i UserStackAssociationMap) ToUserStackAssociationMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(UserStackAssociationMapOutput)
 }
 
+func (i UserStackAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserStackAssociation] {
+	return pulumix.Output[map[string]*UserStackAssociation]{
+		OutputState: i.ToUserStackAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserStackAssociationOutput struct{ *pulumi.OutputState }
 
 func (UserStackAssociationOutput) ElementType() reflect.Type {
@@ -257,6 +276,12 @@ func (o UserStackAssociationOutput) ToUserStackAssociationOutput() UserStackAsso
 
 func (o UserStackAssociationOutput) ToUserStackAssociationOutputWithContext(ctx context.Context) UserStackAssociationOutput {
 	return o
+}
+
+func (o UserStackAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*UserStackAssociation] {
+	return pulumix.Output[*UserStackAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Authentication type for the user.
@@ -295,6 +320,12 @@ func (o UserStackAssociationArrayOutput) ToUserStackAssociationArrayOutputWithCo
 	return o
 }
 
+func (o UserStackAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserStackAssociation] {
+	return pulumix.Output[[]*UserStackAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserStackAssociationArrayOutput) Index(i pulumi.IntInput) UserStackAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserStackAssociation {
 		return vs[0].([]*UserStackAssociation)[vs[1].(int)]
@@ -313,6 +344,12 @@ func (o UserStackAssociationMapOutput) ToUserStackAssociationMapOutput() UserSta
 
 func (o UserStackAssociationMapOutput) ToUserStackAssociationMapOutputWithContext(ctx context.Context) UserStackAssociationMapOutput {
 	return o
+}
+
+func (o UserStackAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserStackAssociation] {
+	return pulumix.Output[map[string]*UserStackAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserStackAssociationMapOutput) MapIndex(k pulumi.StringInput) UserStackAssociationOutput {

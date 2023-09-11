@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination.
@@ -309,6 +310,12 @@ func (i *ConfigurationSetEventDestination) ToConfigurationSetEventDestinationOut
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationOutput)
 }
 
+func (i *ConfigurationSetEventDestination) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetEventDestination] {
+	return pulumix.Output[*ConfigurationSetEventDestination]{
+		OutputState: i.ToConfigurationSetEventDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConfigurationSetEventDestinationArrayInput is an input type that accepts ConfigurationSetEventDestinationArray and ConfigurationSetEventDestinationArrayOutput values.
 // You can construct a concrete instance of `ConfigurationSetEventDestinationArrayInput` via:
 //
@@ -332,6 +339,12 @@ func (i ConfigurationSetEventDestinationArray) ToConfigurationSetEventDestinatio
 
 func (i ConfigurationSetEventDestinationArray) ToConfigurationSetEventDestinationArrayOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationArrayOutput)
+}
+
+func (i ConfigurationSetEventDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConfigurationSetEventDestination] {
+	return pulumix.Output[[]*ConfigurationSetEventDestination]{
+		OutputState: i.ToConfigurationSetEventDestinationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ConfigurationSetEventDestinationMapInput is an input type that accepts ConfigurationSetEventDestinationMap and ConfigurationSetEventDestinationMapOutput values.
@@ -359,6 +372,12 @@ func (i ConfigurationSetEventDestinationMap) ToConfigurationSetEventDestinationM
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationMapOutput)
 }
 
+func (i ConfigurationSetEventDestinationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConfigurationSetEventDestination] {
+	return pulumix.Output[map[string]*ConfigurationSetEventDestination]{
+		OutputState: i.ToConfigurationSetEventDestinationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfigurationSetEventDestinationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetEventDestinationOutput) ElementType() reflect.Type {
@@ -371,6 +390,12 @@ func (o ConfigurationSetEventDestinationOutput) ToConfigurationSetEventDestinati
 
 func (o ConfigurationSetEventDestinationOutput) ToConfigurationSetEventDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationOutput {
 	return o
+}
+
+func (o ConfigurationSetEventDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetEventDestination] {
+	return pulumix.Output[*ConfigurationSetEventDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the configuration set.
@@ -404,6 +429,12 @@ func (o ConfigurationSetEventDestinationArrayOutput) ToConfigurationSetEventDest
 	return o
 }
 
+func (o ConfigurationSetEventDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConfigurationSetEventDestination] {
+	return pulumix.Output[[]*ConfigurationSetEventDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConfigurationSetEventDestinationArrayOutput) Index(i pulumi.IntInput) ConfigurationSetEventDestinationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConfigurationSetEventDestination {
 		return vs[0].([]*ConfigurationSetEventDestination)[vs[1].(int)]
@@ -422,6 +453,12 @@ func (o ConfigurationSetEventDestinationMapOutput) ToConfigurationSetEventDestin
 
 func (o ConfigurationSetEventDestinationMapOutput) ToConfigurationSetEventDestinationMapOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationMapOutput {
 	return o
+}
+
+func (o ConfigurationSetEventDestinationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConfigurationSetEventDestination] {
+	return pulumix.Output[map[string]*ConfigurationSetEventDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationSetEventDestinationMapOutput) MapIndex(k pulumi.StringInput) ConfigurationSetEventDestinationOutput {

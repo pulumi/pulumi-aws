@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about an Image Builder Image Pipeline.
@@ -78,7 +79,8 @@ type LookupImagePipelineResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// ARN of the image recipe.
-	ImageRecipeArn string `pulumi:"imageRecipeArn"`
+	ImageRecipeArn              string                                       `pulumi:"imageRecipeArn"`
+	ImageScanningConfigurations []GetImagePipelineImageScanningConfiguration `pulumi:"imageScanningConfigurations"`
 	// List of an object with image tests configuration.
 	ImageTestsConfigurations []GetImagePipelineImageTestsConfiguration `pulumi:"imageTestsConfigurations"`
 	// ARN of the Image Builder Infrastructure Configuration.
@@ -135,6 +137,12 @@ func (o LookupImagePipelineResultOutput) ToLookupImagePipelineResultOutputWithCo
 	return o
 }
 
+func (o LookupImagePipelineResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupImagePipelineResult] {
+	return pulumix.Output[LookupImagePipelineResult]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LookupImagePipelineResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -187,6 +195,12 @@ func (o LookupImagePipelineResultOutput) Id() pulumi.StringOutput {
 // ARN of the image recipe.
 func (o LookupImagePipelineResultOutput) ImageRecipeArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.ImageRecipeArn }).(pulumi.StringOutput)
+}
+
+func (o LookupImagePipelineResultOutput) ImageScanningConfigurations() GetImagePipelineImageScanningConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupImagePipelineResult) []GetImagePipelineImageScanningConfiguration {
+		return v.ImageScanningConfigurations
+	}).(GetImagePipelineImageScanningConfigurationArrayOutput)
 }
 
 // List of an object with image tests configuration.

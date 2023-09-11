@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about connections.
@@ -112,6 +113,12 @@ func (o GetConnectionsResultOutput) ToGetConnectionsResultOutput() GetConnection
 
 func (o GetConnectionsResultOutput) ToGetConnectionsResultOutputWithContext(ctx context.Context) GetConnectionsResultOutput {
 	return o
+}
+
+func (o GetConnectionsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetConnectionsResult] {
+	return pulumix.Output[GetConnectionsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetConnectionsResultOutput) DeviceId() pulumi.StringPtrOutput {

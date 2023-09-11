@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Subscribes to a Security Hub product.
@@ -345,6 +346,12 @@ func (i *ProductSubscription) ToProductSubscriptionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ProductSubscriptionOutput)
 }
 
+func (i *ProductSubscription) ToOutput(ctx context.Context) pulumix.Output[*ProductSubscription] {
+	return pulumix.Output[*ProductSubscription]{
+		OutputState: i.ToProductSubscriptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProductSubscriptionArrayInput is an input type that accepts ProductSubscriptionArray and ProductSubscriptionArrayOutput values.
 // You can construct a concrete instance of `ProductSubscriptionArrayInput` via:
 //
@@ -368,6 +375,12 @@ func (i ProductSubscriptionArray) ToProductSubscriptionArrayOutput() ProductSubs
 
 func (i ProductSubscriptionArray) ToProductSubscriptionArrayOutputWithContext(ctx context.Context) ProductSubscriptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProductSubscriptionArrayOutput)
+}
+
+func (i ProductSubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProductSubscription] {
+	return pulumix.Output[[]*ProductSubscription]{
+		OutputState: i.ToProductSubscriptionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProductSubscriptionMapInput is an input type that accepts ProductSubscriptionMap and ProductSubscriptionMapOutput values.
@@ -395,6 +408,12 @@ func (i ProductSubscriptionMap) ToProductSubscriptionMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ProductSubscriptionMapOutput)
 }
 
+func (i ProductSubscriptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProductSubscription] {
+	return pulumix.Output[map[string]*ProductSubscription]{
+		OutputState: i.ToProductSubscriptionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProductSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (ProductSubscriptionOutput) ElementType() reflect.Type {
@@ -407,6 +426,12 @@ func (o ProductSubscriptionOutput) ToProductSubscriptionOutput() ProductSubscrip
 
 func (o ProductSubscriptionOutput) ToProductSubscriptionOutputWithContext(ctx context.Context) ProductSubscriptionOutput {
 	return o
+}
+
+func (o ProductSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*ProductSubscription] {
+	return pulumix.Output[*ProductSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
@@ -471,6 +496,12 @@ func (o ProductSubscriptionArrayOutput) ToProductSubscriptionArrayOutputWithCont
 	return o
 }
 
+func (o ProductSubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProductSubscription] {
+	return pulumix.Output[[]*ProductSubscription]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProductSubscriptionArrayOutput) Index(i pulumi.IntInput) ProductSubscriptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProductSubscription {
 		return vs[0].([]*ProductSubscription)[vs[1].(int)]
@@ -489,6 +520,12 @@ func (o ProductSubscriptionMapOutput) ToProductSubscriptionMapOutput() ProductSu
 
 func (o ProductSubscriptionMapOutput) ToProductSubscriptionMapOutputWithContext(ctx context.Context) ProductSubscriptionMapOutput {
 	return o
+}
+
+func (o ProductSubscriptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProductSubscription] {
+	return pulumix.Output[map[string]*ProductSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProductSubscriptionMapOutput) MapIndex(k pulumi.StringInput) ProductSubscriptionOutput {

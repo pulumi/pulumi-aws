@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about an AWS WorkSpaces directory.
@@ -129,6 +130,12 @@ func (o LookupDirectoryResultOutput) ToLookupDirectoryResultOutput() LookupDirec
 
 func (o LookupDirectoryResultOutput) ToLookupDirectoryResultOutputWithContext(ctx context.Context) LookupDirectoryResultOutput {
 	return o
+}
+
+func (o LookupDirectoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDirectoryResult] {
+	return pulumix.Output[LookupDirectoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Directory alias.

@@ -14,6 +14,10 @@ namespace Pulumi.Aws.FinSpace.Outputs
     public sealed class KxEnvironmentTransitGatewayConfiguration
     {
         /// <summary>
+        /// Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration> AttachmentNetworkAclConfigurations;
+        /// <summary>
         /// Routing CIDR on behalf of KX environment. It could be any “/26 range in the 100.64.0.0 CIDR space. After providing, it will be added to the customer’s transit gateway routing table so that the traffics could be routed to KX network.
         /// </summary>
         public readonly string RoutableCidrSpace;
@@ -24,10 +28,13 @@ namespace Pulumi.Aws.FinSpace.Outputs
 
         [OutputConstructor]
         private KxEnvironmentTransitGatewayConfiguration(
+            ImmutableArray<Outputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration> attachmentNetworkAclConfigurations,
+
             string routableCidrSpace,
 
             string transitGatewayId)
         {
+            AttachmentNetworkAclConfigurations = attachmentNetworkAclConfigurations;
             RoutableCidrSpace = routableCidrSpace;
             TransitGatewayId = transitGatewayId;
         }

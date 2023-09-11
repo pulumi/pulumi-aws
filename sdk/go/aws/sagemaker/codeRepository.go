@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a SageMaker Code Repository resource.
@@ -228,6 +229,12 @@ func (i *CodeRepository) ToCodeRepositoryOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryOutput)
 }
 
+func (i *CodeRepository) ToOutput(ctx context.Context) pulumix.Output[*CodeRepository] {
+	return pulumix.Output[*CodeRepository]{
+		OutputState: i.ToCodeRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CodeRepositoryArrayInput is an input type that accepts CodeRepositoryArray and CodeRepositoryArrayOutput values.
 // You can construct a concrete instance of `CodeRepositoryArrayInput` via:
 //
@@ -251,6 +258,12 @@ func (i CodeRepositoryArray) ToCodeRepositoryArrayOutput() CodeRepositoryArrayOu
 
 func (i CodeRepositoryArray) ToCodeRepositoryArrayOutputWithContext(ctx context.Context) CodeRepositoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryArrayOutput)
+}
+
+func (i CodeRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*CodeRepository] {
+	return pulumix.Output[[]*CodeRepository]{
+		OutputState: i.ToCodeRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CodeRepositoryMapInput is an input type that accepts CodeRepositoryMap and CodeRepositoryMapOutput values.
@@ -278,6 +291,12 @@ func (i CodeRepositoryMap) ToCodeRepositoryMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryMapOutput)
 }
 
+func (i CodeRepositoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CodeRepository] {
+	return pulumix.Output[map[string]*CodeRepository]{
+		OutputState: i.ToCodeRepositoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CodeRepositoryOutput struct{ *pulumi.OutputState }
 
 func (CodeRepositoryOutput) ElementType() reflect.Type {
@@ -290,6 +309,12 @@ func (o CodeRepositoryOutput) ToCodeRepositoryOutput() CodeRepositoryOutput {
 
 func (o CodeRepositoryOutput) ToCodeRepositoryOutputWithContext(ctx context.Context) CodeRepositoryOutput {
 	return o
+}
+
+func (o CodeRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*CodeRepository] {
+	return pulumix.Output[*CodeRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
@@ -331,6 +356,12 @@ func (o CodeRepositoryArrayOutput) ToCodeRepositoryArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o CodeRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CodeRepository] {
+	return pulumix.Output[[]*CodeRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CodeRepositoryArrayOutput) Index(i pulumi.IntInput) CodeRepositoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CodeRepository {
 		return vs[0].([]*CodeRepository)[vs[1].(int)]
@@ -349,6 +380,12 @@ func (o CodeRepositoryMapOutput) ToCodeRepositoryMapOutput() CodeRepositoryMapOu
 
 func (o CodeRepositoryMapOutput) ToCodeRepositoryMapOutputWithContext(ctx context.Context) CodeRepositoryMapOutput {
 	return o
+}
+
+func (o CodeRepositoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CodeRepository] {
+	return pulumix.Output[map[string]*CodeRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CodeRepositoryMapOutput) MapIndex(k pulumi.StringInput) CodeRepositoryOutput {

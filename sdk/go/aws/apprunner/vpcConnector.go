@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an App Runner VPC Connector.
@@ -204,6 +205,12 @@ func (i *VpcConnector) ToVpcConnectorOutputWithContext(ctx context.Context) VpcC
 	return pulumi.ToOutputWithContext(ctx, i).(VpcConnectorOutput)
 }
 
+func (i *VpcConnector) ToOutput(ctx context.Context) pulumix.Output[*VpcConnector] {
+	return pulumix.Output[*VpcConnector]{
+		OutputState: i.ToVpcConnectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpcConnectorArrayInput is an input type that accepts VpcConnectorArray and VpcConnectorArrayOutput values.
 // You can construct a concrete instance of `VpcConnectorArrayInput` via:
 //
@@ -227,6 +234,12 @@ func (i VpcConnectorArray) ToVpcConnectorArrayOutput() VpcConnectorArrayOutput {
 
 func (i VpcConnectorArray) ToVpcConnectorArrayOutputWithContext(ctx context.Context) VpcConnectorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcConnectorArrayOutput)
+}
+
+func (i VpcConnectorArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcConnector] {
+	return pulumix.Output[[]*VpcConnector]{
+		OutputState: i.ToVpcConnectorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VpcConnectorMapInput is an input type that accepts VpcConnectorMap and VpcConnectorMapOutput values.
@@ -254,6 +267,12 @@ func (i VpcConnectorMap) ToVpcConnectorMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(VpcConnectorMapOutput)
 }
 
+func (i VpcConnectorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcConnector] {
+	return pulumix.Output[map[string]*VpcConnector]{
+		OutputState: i.ToVpcConnectorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcConnectorOutput struct{ *pulumi.OutputState }
 
 func (VpcConnectorOutput) ElementType() reflect.Type {
@@ -266,6 +285,12 @@ func (o VpcConnectorOutput) ToVpcConnectorOutput() VpcConnectorOutput {
 
 func (o VpcConnectorOutput) ToVpcConnectorOutputWithContext(ctx context.Context) VpcConnectorOutput {
 	return o
+}
+
+func (o VpcConnectorOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcConnector] {
+	return pulumix.Output[*VpcConnector]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of VPC connector.
@@ -322,6 +347,12 @@ func (o VpcConnectorArrayOutput) ToVpcConnectorArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o VpcConnectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcConnector] {
+	return pulumix.Output[[]*VpcConnector]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpcConnectorArrayOutput) Index(i pulumi.IntInput) VpcConnectorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcConnector {
 		return vs[0].([]*VpcConnector)[vs[1].(int)]
@@ -340,6 +371,12 @@ func (o VpcConnectorMapOutput) ToVpcConnectorMapOutput() VpcConnectorMapOutput {
 
 func (o VpcConnectorMapOutput) ToVpcConnectorMapOutputWithContext(ctx context.Context) VpcConnectorMapOutput {
 	return o
+}
+
+func (o VpcConnectorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcConnector] {
+	return pulumix.Output[map[string]*VpcConnector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcConnectorMapOutput) MapIndex(k pulumi.StringInput) VpcConnectorOutput {

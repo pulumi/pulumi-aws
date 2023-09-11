@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the pricing information of all products in AWS.
@@ -169,6 +170,12 @@ func (o GetProductResultOutput) ToGetProductResultOutput() GetProductResultOutpu
 
 func (o GetProductResultOutput) ToGetProductResultOutputWithContext(ctx context.Context) GetProductResultOutput {
 	return o
+}
+
+func (o GetProductResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetProductResult] {
+	return pulumix.Output[GetProductResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetProductResultOutput) Filters() GetProductFilterArrayOutput {

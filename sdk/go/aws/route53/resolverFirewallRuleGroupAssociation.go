@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Route 53 Resolver DNS Firewall rule group association resource.
@@ -210,6 +211,12 @@ func (i *ResolverFirewallRuleGroupAssociation) ToResolverFirewallRuleGroupAssoci
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallRuleGroupAssociationOutput)
 }
 
+func (i *ResolverFirewallRuleGroupAssociation) ToOutput(ctx context.Context) pulumix.Output[*ResolverFirewallRuleGroupAssociation] {
+	return pulumix.Output[*ResolverFirewallRuleGroupAssociation]{
+		OutputState: i.ToResolverFirewallRuleGroupAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResolverFirewallRuleGroupAssociationArrayInput is an input type that accepts ResolverFirewallRuleGroupAssociationArray and ResolverFirewallRuleGroupAssociationArrayOutput values.
 // You can construct a concrete instance of `ResolverFirewallRuleGroupAssociationArrayInput` via:
 //
@@ -233,6 +240,12 @@ func (i ResolverFirewallRuleGroupAssociationArray) ToResolverFirewallRuleGroupAs
 
 func (i ResolverFirewallRuleGroupAssociationArray) ToResolverFirewallRuleGroupAssociationArrayOutputWithContext(ctx context.Context) ResolverFirewallRuleGroupAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallRuleGroupAssociationArrayOutput)
+}
+
+func (i ResolverFirewallRuleGroupAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverFirewallRuleGroupAssociation] {
+	return pulumix.Output[[]*ResolverFirewallRuleGroupAssociation]{
+		OutputState: i.ToResolverFirewallRuleGroupAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResolverFirewallRuleGroupAssociationMapInput is an input type that accepts ResolverFirewallRuleGroupAssociationMap and ResolverFirewallRuleGroupAssociationMapOutput values.
@@ -260,6 +273,12 @@ func (i ResolverFirewallRuleGroupAssociationMap) ToResolverFirewallRuleGroupAsso
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallRuleGroupAssociationMapOutput)
 }
 
+func (i ResolverFirewallRuleGroupAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverFirewallRuleGroupAssociation] {
+	return pulumix.Output[map[string]*ResolverFirewallRuleGroupAssociation]{
+		OutputState: i.ToResolverFirewallRuleGroupAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverFirewallRuleGroupAssociationOutput struct{ *pulumi.OutputState }
 
 func (ResolverFirewallRuleGroupAssociationOutput) ElementType() reflect.Type {
@@ -272,6 +291,12 @@ func (o ResolverFirewallRuleGroupAssociationOutput) ToResolverFirewallRuleGroupA
 
 func (o ResolverFirewallRuleGroupAssociationOutput) ToResolverFirewallRuleGroupAssociationOutputWithContext(ctx context.Context) ResolverFirewallRuleGroupAssociationOutput {
 	return o
+}
+
+func (o ResolverFirewallRuleGroupAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverFirewallRuleGroupAssociation] {
+	return pulumix.Output[*ResolverFirewallRuleGroupAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN (Amazon Resource Name) of the firewall rule group association.
@@ -328,6 +353,12 @@ func (o ResolverFirewallRuleGroupAssociationArrayOutput) ToResolverFirewallRuleG
 	return o
 }
 
+func (o ResolverFirewallRuleGroupAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverFirewallRuleGroupAssociation] {
+	return pulumix.Output[[]*ResolverFirewallRuleGroupAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResolverFirewallRuleGroupAssociationArrayOutput) Index(i pulumi.IntInput) ResolverFirewallRuleGroupAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResolverFirewallRuleGroupAssociation {
 		return vs[0].([]*ResolverFirewallRuleGroupAssociation)[vs[1].(int)]
@@ -346,6 +377,12 @@ func (o ResolverFirewallRuleGroupAssociationMapOutput) ToResolverFirewallRuleGro
 
 func (o ResolverFirewallRuleGroupAssociationMapOutput) ToResolverFirewallRuleGroupAssociationMapOutputWithContext(ctx context.Context) ResolverFirewallRuleGroupAssociationMapOutput {
 	return o
+}
+
+func (o ResolverFirewallRuleGroupAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverFirewallRuleGroupAssociation] {
+	return pulumix.Output[map[string]*ResolverFirewallRuleGroupAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResolverFirewallRuleGroupAssociationMapOutput) MapIndex(k pulumi.StringInput) ResolverFirewallRuleGroupAssociationOutput {

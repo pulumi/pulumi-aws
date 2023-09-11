@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes.
@@ -154,6 +155,12 @@ func (i *EmailIdentityFeedbackAttributes) ToEmailIdentityFeedbackAttributesOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityFeedbackAttributesOutput)
 }
 
+func (i *EmailIdentityFeedbackAttributes) ToOutput(ctx context.Context) pulumix.Output[*EmailIdentityFeedbackAttributes] {
+	return pulumix.Output[*EmailIdentityFeedbackAttributes]{
+		OutputState: i.ToEmailIdentityFeedbackAttributesOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EmailIdentityFeedbackAttributesArrayInput is an input type that accepts EmailIdentityFeedbackAttributesArray and EmailIdentityFeedbackAttributesArrayOutput values.
 // You can construct a concrete instance of `EmailIdentityFeedbackAttributesArrayInput` via:
 //
@@ -177,6 +184,12 @@ func (i EmailIdentityFeedbackAttributesArray) ToEmailIdentityFeedbackAttributesA
 
 func (i EmailIdentityFeedbackAttributesArray) ToEmailIdentityFeedbackAttributesArrayOutputWithContext(ctx context.Context) EmailIdentityFeedbackAttributesArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityFeedbackAttributesArrayOutput)
+}
+
+func (i EmailIdentityFeedbackAttributesArray) ToOutput(ctx context.Context) pulumix.Output[[]*EmailIdentityFeedbackAttributes] {
+	return pulumix.Output[[]*EmailIdentityFeedbackAttributes]{
+		OutputState: i.ToEmailIdentityFeedbackAttributesArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EmailIdentityFeedbackAttributesMapInput is an input type that accepts EmailIdentityFeedbackAttributesMap and EmailIdentityFeedbackAttributesMapOutput values.
@@ -204,6 +217,12 @@ func (i EmailIdentityFeedbackAttributesMap) ToEmailIdentityFeedbackAttributesMap
 	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityFeedbackAttributesMapOutput)
 }
 
+func (i EmailIdentityFeedbackAttributesMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmailIdentityFeedbackAttributes] {
+	return pulumix.Output[map[string]*EmailIdentityFeedbackAttributes]{
+		OutputState: i.ToEmailIdentityFeedbackAttributesMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EmailIdentityFeedbackAttributesOutput struct{ *pulumi.OutputState }
 
 func (EmailIdentityFeedbackAttributesOutput) ElementType() reflect.Type {
@@ -216,6 +235,12 @@ func (o EmailIdentityFeedbackAttributesOutput) ToEmailIdentityFeedbackAttributes
 
 func (o EmailIdentityFeedbackAttributesOutput) ToEmailIdentityFeedbackAttributesOutputWithContext(ctx context.Context) EmailIdentityFeedbackAttributesOutput {
 	return o
+}
+
+func (o EmailIdentityFeedbackAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[*EmailIdentityFeedbackAttributes] {
+	return pulumix.Output[*EmailIdentityFeedbackAttributes]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Sets the feedback forwarding configuration for the identity.
@@ -242,6 +267,12 @@ func (o EmailIdentityFeedbackAttributesArrayOutput) ToEmailIdentityFeedbackAttri
 	return o
 }
 
+func (o EmailIdentityFeedbackAttributesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EmailIdentityFeedbackAttributes] {
+	return pulumix.Output[[]*EmailIdentityFeedbackAttributes]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EmailIdentityFeedbackAttributesArrayOutput) Index(i pulumi.IntInput) EmailIdentityFeedbackAttributesOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EmailIdentityFeedbackAttributes {
 		return vs[0].([]*EmailIdentityFeedbackAttributes)[vs[1].(int)]
@@ -260,6 +291,12 @@ func (o EmailIdentityFeedbackAttributesMapOutput) ToEmailIdentityFeedbackAttribu
 
 func (o EmailIdentityFeedbackAttributesMapOutput) ToEmailIdentityFeedbackAttributesMapOutputWithContext(ctx context.Context) EmailIdentityFeedbackAttributesMapOutput {
 	return o
+}
+
+func (o EmailIdentityFeedbackAttributesMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmailIdentityFeedbackAttributes] {
+	return pulumix.Output[map[string]*EmailIdentityFeedbackAttributes]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EmailIdentityFeedbackAttributesMapOutput) MapIndex(k pulumi.StringInput) EmailIdentityFeedbackAttributesOutput {

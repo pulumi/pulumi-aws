@@ -35,12 +35,12 @@ namespace Pulumi.Aws.AppConfig
         /// 
         ///     var exampleConfigurationProfile = .Select(__value =&gt; 
         ///     {
-        ///         return  Aws.AppConfig.GetConfigurationProfile.Invoke(new()
+        ///         return Aws.AppConfig.GetConfigurationProfile.Invoke(new()
         ///         {
         ///             ConfigurationProfileId = __value,
         ///             ApplicationId = aws_appconfig_application.Example.Id,
         ///         });
-        ///     });
+        ///     }).ToList();
         /// 
         /// });
         /// ```
@@ -74,12 +74,12 @@ namespace Pulumi.Aws.AppConfig
         /// 
         ///     var exampleConfigurationProfile = .Select(__value =&gt; 
         ///     {
-        ///         return  Aws.AppConfig.GetConfigurationProfile.Invoke(new()
+        ///         return Aws.AppConfig.GetConfigurationProfile.Invoke(new()
         ///         {
         ///             ConfigurationProfileId = __value,
         ///             ApplicationId = aws_appconfig_application.Example.Id,
         ///         });
-        ///     });
+        ///     }).ToList();
         /// 
         /// });
         /// ```

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS OpenSearch Serverless Security Config.
@@ -112,6 +113,12 @@ func (o LookupServerlessSecurityConfigResultOutput) ToLookupServerlessSecurityCo
 
 func (o LookupServerlessSecurityConfigResultOutput) ToLookupServerlessSecurityConfigResultOutputWithContext(ctx context.Context) LookupServerlessSecurityConfigResultOutput {
 	return o
+}
+
+func (o LookupServerlessSecurityConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServerlessSecurityConfigResult] {
+	return pulumix.Output[LookupServerlessSecurityConfigResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The version of the security configuration.

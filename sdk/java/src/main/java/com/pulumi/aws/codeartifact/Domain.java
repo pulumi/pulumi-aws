@@ -78,14 +78,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * The total size of all assets in the domain.
      * 
      */
-    @Export(name="assetSizeBytes", refs={Integer.class}, tree="[0]")
-    private Output<Integer> assetSizeBytes;
+    @Export(name="assetSizeBytes", refs={String.class}, tree="[0]")
+    private Output<String> assetSizeBytes;
 
     /**
      * @return The total size of all assets in the domain.
      * 
      */
-    public Output<Integer> assetSizeBytes() {
+    public Output<String> assetSizeBytes() {
         return this.assetSizeBytes;
     }
     /**

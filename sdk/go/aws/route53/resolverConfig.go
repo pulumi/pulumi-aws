@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Route 53 Resolver config resource.
@@ -165,6 +166,12 @@ func (i *ResolverConfig) ToResolverConfigOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverConfigOutput)
 }
 
+func (i *ResolverConfig) ToOutput(ctx context.Context) pulumix.Output[*ResolverConfig] {
+	return pulumix.Output[*ResolverConfig]{
+		OutputState: i.ToResolverConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResolverConfigArrayInput is an input type that accepts ResolverConfigArray and ResolverConfigArrayOutput values.
 // You can construct a concrete instance of `ResolverConfigArrayInput` via:
 //
@@ -188,6 +195,12 @@ func (i ResolverConfigArray) ToResolverConfigArrayOutput() ResolverConfigArrayOu
 
 func (i ResolverConfigArray) ToResolverConfigArrayOutputWithContext(ctx context.Context) ResolverConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverConfigArrayOutput)
+}
+
+func (i ResolverConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverConfig] {
+	return pulumix.Output[[]*ResolverConfig]{
+		OutputState: i.ToResolverConfigArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResolverConfigMapInput is an input type that accepts ResolverConfigMap and ResolverConfigMapOutput values.
@@ -215,6 +228,12 @@ func (i ResolverConfigMap) ToResolverConfigMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverConfigMapOutput)
 }
 
+func (i ResolverConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverConfig] {
+	return pulumix.Output[map[string]*ResolverConfig]{
+		OutputState: i.ToResolverConfigMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResolverConfigOutput struct{ *pulumi.OutputState }
 
 func (ResolverConfigOutput) ElementType() reflect.Type {
@@ -227,6 +246,12 @@ func (o ResolverConfigOutput) ToResolverConfigOutput() ResolverConfigOutput {
 
 func (o ResolverConfigOutput) ToResolverConfigOutputWithContext(ctx context.Context) ResolverConfigOutput {
 	return o
+}
+
+func (o ResolverConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverConfig] {
+	return pulumix.Output[*ResolverConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
@@ -258,6 +283,12 @@ func (o ResolverConfigArrayOutput) ToResolverConfigArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o ResolverConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverConfig] {
+	return pulumix.Output[[]*ResolverConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResolverConfigArrayOutput) Index(i pulumi.IntInput) ResolverConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResolverConfig {
 		return vs[0].([]*ResolverConfig)[vs[1].(int)]
@@ -276,6 +307,12 @@ func (o ResolverConfigMapOutput) ToResolverConfigMapOutput() ResolverConfigMapOu
 
 func (o ResolverConfigMapOutput) ToResolverConfigMapOutputWithContext(ctx context.Context) ResolverConfigMapOutput {
 	return o
+}
+
+func (o ResolverConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverConfig] {
+	return pulumix.Output[map[string]*ResolverConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResolverConfigMapOutput) MapIndex(k pulumi.StringInput) ResolverConfigOutput {

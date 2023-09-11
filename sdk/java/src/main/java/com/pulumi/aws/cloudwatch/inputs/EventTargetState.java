@@ -12,6 +12,7 @@ import com.pulumi.aws.cloudwatch.inputs.EventTargetKinesisTargetArgs;
 import com.pulumi.aws.cloudwatch.inputs.EventTargetRedshiftTargetArgs;
 import com.pulumi.aws.cloudwatch.inputs.EventTargetRetryPolicyArgs;
 import com.pulumi.aws.cloudwatch.inputs.EventTargetRunCommandTargetArgs;
+import com.pulumi.aws.cloudwatch.inputs.EventTargetSagemakerPipelineTargetArgs;
 import com.pulumi.aws.cloudwatch.inputs.EventTargetSqsTargetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -258,6 +259,21 @@ public final class EventTargetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+     * 
+     */
+    @Import(name="sagemakerPipelineTarget")
+    private @Nullable Output<EventTargetSagemakerPipelineTargetArgs> sagemakerPipelineTarget;
+
+    /**
+     * @return Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+     * 
+     */
+    public Optional<Output<EventTargetSagemakerPipelineTargetArgs>> sagemakerPipelineTarget() {
+        return Optional.ofNullable(this.sagemakerPipelineTarget);
+    }
+
+    /**
      * Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
      * 
      */
@@ -305,6 +321,7 @@ public final class EventTargetState extends com.pulumi.resources.ResourceArgs {
         this.roleArn = $.roleArn;
         this.rule = $.rule;
         this.runCommandTargets = $.runCommandTargets;
+        this.sagemakerPipelineTarget = $.sagemakerPipelineTarget;
         this.sqsTarget = $.sqsTarget;
         this.targetId = $.targetId;
     }
@@ -656,6 +673,27 @@ public final class EventTargetState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder runCommandTargets(EventTargetRunCommandTargetArgs... runCommandTargets) {
             return runCommandTargets(List.of(runCommandTargets));
+        }
+
+        /**
+         * @param sagemakerPipelineTarget Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sagemakerPipelineTarget(@Nullable Output<EventTargetSagemakerPipelineTargetArgs> sagemakerPipelineTarget) {
+            $.sagemakerPipelineTarget = sagemakerPipelineTarget;
+            return this;
+        }
+
+        /**
+         * @param sagemakerPipelineTarget Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sagemakerPipelineTarget(EventTargetSagemakerPipelineTargetArgs sagemakerPipelineTarget) {
+            return sagemakerPipelineTarget(Output.of(sagemakerPipelineTarget));
         }
 
         /**

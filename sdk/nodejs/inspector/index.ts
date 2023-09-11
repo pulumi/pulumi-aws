@@ -17,7 +17,8 @@ utilities.lazyLoad(exports, ["AssessmentTemplate"], () => require("./assessmentT
 
 export { GetRulesPackagesResult } from "./getRulesPackages";
 export const getRulesPackages: typeof import("./getRulesPackages").getRulesPackages = null as any;
-utilities.lazyLoad(exports, ["getRulesPackages"], () => require("./getRulesPackages"));
+export const getRulesPackagesOutput: typeof import("./getRulesPackages").getRulesPackagesOutput = null as any;
+utilities.lazyLoad(exports, ["getRulesPackages","getRulesPackagesOutput"], () => require("./getRulesPackages"));
 
 export { ResourceGroupArgs, ResourceGroupState } from "./resourceGroup";
 export type ResourceGroup = import("./resourceGroup").ResourceGroup;

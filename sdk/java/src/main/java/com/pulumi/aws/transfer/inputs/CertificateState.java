@@ -32,6 +32,21 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The ARN of the certificate
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return The ARN of the certificate
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * The valid certificate file required for the transfer.
      * 
      */
@@ -162,6 +177,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
 
     private CertificateState(CertificateState $) {
         this.activeDate = $.activeDate;
+        this.arn = $.arn;
         this.certificate = $.certificate;
         this.certificateChain = $.certificateChain;
         this.certificateId = $.certificateId;
@@ -210,6 +226,27 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder activeDate(String activeDate) {
             return activeDate(Output.of(activeDate));
+        }
+
+        /**
+         * @param arn The ARN of the certificate
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn The ARN of the certificate
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

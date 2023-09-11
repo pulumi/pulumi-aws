@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Backup vault resource.
@@ -180,6 +181,12 @@ func (i *Vault) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VaultOutput)
 }
 
+func (i *Vault) ToOutput(ctx context.Context) pulumix.Output[*Vault] {
+	return pulumix.Output[*Vault]{
+		OutputState: i.ToVaultOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VaultArrayInput is an input type that accepts VaultArray and VaultArrayOutput values.
 // You can construct a concrete instance of `VaultArrayInput` via:
 //
@@ -203,6 +210,12 @@ func (i VaultArray) ToVaultArrayOutput() VaultArrayOutput {
 
 func (i VaultArray) ToVaultArrayOutputWithContext(ctx context.Context) VaultArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VaultArrayOutput)
+}
+
+func (i VaultArray) ToOutput(ctx context.Context) pulumix.Output[[]*Vault] {
+	return pulumix.Output[[]*Vault]{
+		OutputState: i.ToVaultArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VaultMapInput is an input type that accepts VaultMap and VaultMapOutput values.
@@ -230,6 +243,12 @@ func (i VaultMap) ToVaultMapOutputWithContext(ctx context.Context) VaultMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(VaultMapOutput)
 }
 
+func (i VaultMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Vault] {
+	return pulumix.Output[map[string]*Vault]{
+		OutputState: i.ToVaultMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VaultOutput struct{ *pulumi.OutputState }
 
 func (VaultOutput) ElementType() reflect.Type {
@@ -242,6 +261,12 @@ func (o VaultOutput) ToVaultOutput() VaultOutput {
 
 func (o VaultOutput) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
 	return o
+}
+
+func (o VaultOutput) ToOutput(ctx context.Context) pulumix.Output[*Vault] {
+	return pulumix.Output[*Vault]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the vault.
@@ -293,6 +318,12 @@ func (o VaultArrayOutput) ToVaultArrayOutputWithContext(ctx context.Context) Vau
 	return o
 }
 
+func (o VaultArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Vault] {
+	return pulumix.Output[[]*Vault]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VaultArrayOutput) Index(i pulumi.IntInput) VaultOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Vault {
 		return vs[0].([]*Vault)[vs[1].(int)]
@@ -311,6 +342,12 @@ func (o VaultMapOutput) ToVaultMapOutput() VaultMapOutput {
 
 func (o VaultMapOutput) ToVaultMapOutputWithContext(ctx context.Context) VaultMapOutput {
 	return o
+}
+
+func (o VaultMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Vault] {
+	return pulumix.Output[map[string]*Vault]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VaultMapOutput) MapIndex(k pulumi.StringInput) VaultOutput {

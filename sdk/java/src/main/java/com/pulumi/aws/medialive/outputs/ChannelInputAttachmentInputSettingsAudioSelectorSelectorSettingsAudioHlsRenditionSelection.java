@@ -9,23 +9,27 @@ import java.util.Objects;
 
 @CustomType
 public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection {
+    /**
+     * @return Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+     * 
+     */
     private String groupId;
     /**
-     * @return Name of the Channel.
-     * 
-     * The following arguments are optional:
+     * @return Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
      * 
      */
     private String name;
 
     private ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection() {}
+    /**
+     * @return Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+     * 
+     */
     public String groupId() {
         return this.groupId;
     }
     /**
-     * @return Name of the Channel.
-     * 
-     * The following arguments are optional:
+     * @return Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
      * 
      */
     public String name() {

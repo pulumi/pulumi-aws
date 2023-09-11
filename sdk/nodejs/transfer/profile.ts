@@ -46,6 +46,10 @@ export class Profile extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the profile.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
      */
     public readonly as2Id!: pulumi.Output<string>;
@@ -54,7 +58,7 @@ export class Profile extends pulumi.CustomResource {
      */
     public readonly certificateIds!: pulumi.Output<string[] | undefined>;
     /**
-     * The unique identifier for the AS2 profile
+     * The unique identifier for the AS2 profile.
      */
     public /*out*/ readonly profileId!: pulumi.Output<string>;
     /**
@@ -80,6 +84,7 @@ export class Profile extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfileState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["as2Id"] = state ? state.as2Id : undefined;
             resourceInputs["certificateIds"] = state ? state.certificateIds : undefined;
             resourceInputs["profileId"] = state ? state.profileId : undefined;
@@ -98,6 +103,7 @@ export class Profile extends pulumi.CustomResource {
             resourceInputs["certificateIds"] = args ? args.certificateIds : undefined;
             resourceInputs["profileType"] = args ? args.profileType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["profileId"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -111,6 +117,10 @@ export class Profile extends pulumi.CustomResource {
  */
 export interface ProfileState {
     /**
+     * The ARN of the profile.
+     */
+    arn?: pulumi.Input<string>;
+    /**
      * The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
      */
     as2Id?: pulumi.Input<string>;
@@ -119,7 +129,7 @@ export interface ProfileState {
      */
     certificateIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The unique identifier for the AS2 profile
+     * The unique identifier for the AS2 profile.
      */
     profileId?: pulumi.Input<string>;
     /**

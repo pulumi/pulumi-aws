@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Amazon FSx for NetApp ONTAP file system.
@@ -354,6 +355,12 @@ func (i *OntapFileSystem) ToOntapFileSystemOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(OntapFileSystemOutput)
 }
 
+func (i *OntapFileSystem) ToOutput(ctx context.Context) pulumix.Output[*OntapFileSystem] {
+	return pulumix.Output[*OntapFileSystem]{
+		OutputState: i.ToOntapFileSystemOutputWithContext(ctx).OutputState,
+	}
+}
+
 // OntapFileSystemArrayInput is an input type that accepts OntapFileSystemArray and OntapFileSystemArrayOutput values.
 // You can construct a concrete instance of `OntapFileSystemArrayInput` via:
 //
@@ -377,6 +384,12 @@ func (i OntapFileSystemArray) ToOntapFileSystemArrayOutput() OntapFileSystemArra
 
 func (i OntapFileSystemArray) ToOntapFileSystemArrayOutputWithContext(ctx context.Context) OntapFileSystemArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OntapFileSystemArrayOutput)
+}
+
+func (i OntapFileSystemArray) ToOutput(ctx context.Context) pulumix.Output[[]*OntapFileSystem] {
+	return pulumix.Output[[]*OntapFileSystem]{
+		OutputState: i.ToOntapFileSystemArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // OntapFileSystemMapInput is an input type that accepts OntapFileSystemMap and OntapFileSystemMapOutput values.
@@ -404,6 +417,12 @@ func (i OntapFileSystemMap) ToOntapFileSystemMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(OntapFileSystemMapOutput)
 }
 
+func (i OntapFileSystemMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OntapFileSystem] {
+	return pulumix.Output[map[string]*OntapFileSystem]{
+		OutputState: i.ToOntapFileSystemMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type OntapFileSystemOutput struct{ *pulumi.OutputState }
 
 func (OntapFileSystemOutput) ElementType() reflect.Type {
@@ -416,6 +435,12 @@ func (o OntapFileSystemOutput) ToOntapFileSystemOutput() OntapFileSystemOutput {
 
 func (o OntapFileSystemOutput) ToOntapFileSystemOutputWithContext(ctx context.Context) OntapFileSystemOutput {
 	return o
+}
+
+func (o OntapFileSystemOutput) ToOutput(ctx context.Context) pulumix.Output[*OntapFileSystem] {
+	return pulumix.Output[*OntapFileSystem]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name of the file system.
@@ -547,6 +572,12 @@ func (o OntapFileSystemArrayOutput) ToOntapFileSystemArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o OntapFileSystemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OntapFileSystem] {
+	return pulumix.Output[[]*OntapFileSystem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o OntapFileSystemArrayOutput) Index(i pulumi.IntInput) OntapFileSystemOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OntapFileSystem {
 		return vs[0].([]*OntapFileSystem)[vs[1].(int)]
@@ -565,6 +596,12 @@ func (o OntapFileSystemMapOutput) ToOntapFileSystemMapOutput() OntapFileSystemMa
 
 func (o OntapFileSystemMapOutput) ToOntapFileSystemMapOutputWithContext(ctx context.Context) OntapFileSystemMapOutput {
 	return o
+}
+
+func (o OntapFileSystemMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OntapFileSystem] {
+	return pulumix.Output[map[string]*OntapFileSystem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o OntapFileSystemMapOutput) MapIndex(k pulumi.StringInput) OntapFileSystemOutput {

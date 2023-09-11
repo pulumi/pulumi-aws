@@ -152,6 +152,7 @@ export interface ProviderEndpoint {
     cloudwatchrum?: pulumi.Input<string>;
     codeartifact?: pulumi.Input<string>;
     codebuild?: pulumi.Input<string>;
+    codecatalyst?: pulumi.Input<string>;
     codecommit?: pulumi.Input<string>;
     codedeploy?: pulumi.Input<string>;
     codegurureviewer?: pulumi.Input<string>;
@@ -249,6 +250,8 @@ export interface ProviderEndpoint {
     lexmodelbuilding?: pulumi.Input<string>;
     lexmodelbuildingservice?: pulumi.Input<string>;
     lexmodels?: pulumi.Input<string>;
+    lexmodelsv2?: pulumi.Input<string>;
+    lexv2models?: pulumi.Input<string>;
     licensemanager?: pulumi.Input<string>;
     lightsail?: pulumi.Input<string>;
     location?: pulumi.Input<string>;
@@ -8647,6 +8650,12 @@ export namespace batch {
         attemptDurationSeconds?: pulumi.Input<number>;
     }
 
+    export interface JobQueueTimeouts {
+        create?: pulumi.Input<string>;
+        delete?: pulumi.Input<string>;
+        update?: pulumi.Input<string>;
+    }
+
     export interface SchedulingPolicyFairSharePolicy {
         /**
          * A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
@@ -9633,6 +9642,65 @@ export namespace cloudfront {
 
     export interface CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings {
         items?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ContinuousDeploymentPolicyStagingDistributionDnsNames {
+        /**
+         * A list of CloudFront domain names for the staging distribution.
+         */
+        items?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Number of CloudFront domain names in the staging distribution.
+         */
+        quantity: pulumi.Input<number>;
+    }
+
+    export interface ContinuousDeploymentPolicyTrafficConfig {
+        /**
+         * Determines which HTTP requests are sent to the staging distribution. See `singleHeaderConfig`.
+         */
+        singleHeaderConfig?: pulumi.Input<inputs.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig>;
+        /**
+         * Contains the percentage of traffic to send to the staging distribution. See `singleWeightConfig`.
+         */
+        singleWeightConfig?: pulumi.Input<inputs.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig>;
+        /**
+         * Type of traffic configuration. Valid values are `SingleWeight` and `SingleHeader`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig {
+        /**
+         * Request header name to send to the staging distribution. The header must contain the prefix `aws-cf-cd-`.
+         */
+        header: pulumi.Input<string>;
+        /**
+         * Request header value.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig {
+        /**
+         * Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `sessionStickinessConfig`.
+         */
+        sessionStickinessConfig?: pulumi.Input<inputs.cloudfront.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig>;
+        /**
+         * The percentage of traffic to send to a staging distribution, expressed as a decimal number between `0` and `.15`.
+         */
+        weight: pulumi.Input<number>;
+    }
+
+    export interface ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig {
+        /**
+         * The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` – `3600` (5–60 minutes). The value must be less than or equal to `maximumTtl`.
+         */
+        idleTtl: pulumi.Input<number>;
+        /**
+         * The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` – `3600` (5–60 minutes). The value must be greater than or equal to `idleTtl`.
+         */
+        maximumTtl: pulumi.Input<number>;
     }
 
     export interface DistributionCustomErrorResponse {
@@ -10690,6 +10758,21 @@ export namespace cloudtrail {
 }
 
 export namespace cloudwatch {
+    export interface CompositeAlarmActionsSuppressor {
+        /**
+         * Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+         */
+        alarm: pulumi.Input<string>;
+        /**
+         * The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
+         */
+        extensionPeriod: pulumi.Input<number>;
+        /**
+         * The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
+         */
+        waitPeriod: pulumi.Input<number>;
+    }
+
     export interface EventConnectionAuthParameters {
         /**
          * Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
@@ -11160,6 +11243,24 @@ export namespace cloudwatch {
          * If Key is `tag:tag-key`, Values is a list of tag values. If Key is `InstanceIds`, Values is a list of Amazon EC2 instance IDs.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface EventTargetSagemakerPipelineTarget {
+        /**
+         * List of Parameter names and values for SageMaker Model Building Pipeline execution.
+         */
+        pipelineParameterLists?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventTargetSagemakerPipelineTargetPipelineParameterList>[]>;
+    }
+
+    export interface EventTargetSagemakerPipelineTargetPipelineParameterList {
+        /**
+         * Name of parameter to start execution of a SageMaker Model Building Pipeline.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Value of parameter to start execution of a SageMaker Model Building Pipeline.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface EventTargetSqsTarget {
@@ -11961,6 +12062,49 @@ export namespace codebuild {
          * The webhook filter group's type. Valid values for this parameter are: `EVENT`, `BASE_REF`, `HEAD_REF`, `ACTOR_ACCOUNT_ID`, `FILE_PATH`, `COMMIT_MESSAGE`. At least one filter group must specify `EVENT` as its type.
          */
         type: pulumi.Input<string>;
+    }
+}
+
+export namespace codecatalyst {
+    export interface DevEnvironmentIdes {
+        /**
+         * The name of the IDE. Valid values include Cloud9, IntelliJ, PyCharm, GoLand, and VSCode.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * A link to the IDE runtime image. This parameter is not required if the name is VSCode. Values of the runtime can be for example public.ecr.aws/jetbrains/py,public.ecr.aws/jetbrains/go
+         */
+        runtime?: pulumi.Input<string>;
+    }
+
+    export interface DevEnvironmentPersistentStorage {
+        /**
+         * The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
+         */
+        size: pulumi.Input<number>;
+    }
+
+    export interface DevEnvironmentRepository {
+        /**
+         * The name of the branch in a source repository.
+         *
+         * persistent storage (` persistentStorage`) supports the following:
+         */
+        branchName?: pulumi.Input<string>;
+        /**
+         * The name of the source repository.
+         */
+        repositoryName: pulumi.Input<string>;
+    }
+
+    export interface GetDevEnvironmentRepository {
+        branchName?: string;
+        repositoryName?: string;
+    }
+
+    export interface GetDevEnvironmentRepositoryArgs {
+        branchName?: pulumi.Input<string>;
+        repositoryName?: pulumi.Input<string>;
     }
 }
 
@@ -15141,6 +15285,64 @@ export namespace datasync {
         version?: pulumi.Input<string>;
     }
 
+    export interface LocationAzureBlobSasConfiguration {
+        /**
+         * A SAS token that provides permissions to access your Azure Blob Storage.
+         */
+        token: pulumi.Input<string>;
+    }
+
+    export interface LocationFsxOntapFileSystemProtocol {
+        /**
+         * Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
+         */
+        nfs?: pulumi.Input<inputs.datasync.LocationFsxOntapFileSystemProtocolNfs>;
+        /**
+         * Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
+         */
+        smb?: pulumi.Input<inputs.datasync.LocationFsxOntapFileSystemProtocolSmb>;
+    }
+
+    export interface LocationFsxOntapFileSystemProtocolNfs {
+        /**
+         * Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
+         */
+        mountOptions: pulumi.Input<inputs.datasync.LocationFsxOntapFileSystemProtocolNfsMountOptions>;
+    }
+
+    export interface LocationFsxOntapFileSystemProtocolNfsMountOptions {
+        /**
+         * The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
+         */
+        version?: pulumi.Input<string>;
+    }
+
+    export interface LocationFsxOntapFileSystemProtocolSmb {
+        /**
+         * Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
+         */
+        domain?: pulumi.Input<string>;
+        /**
+         * Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
+         */
+        mountOptions: pulumi.Input<inputs.datasync.LocationFsxOntapFileSystemProtocolSmbMountOptions>;
+        /**
+         * Password of a user who has permission to access your SVM.
+         */
+        password: pulumi.Input<string>;
+        /**
+         * Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
+         */
+        user: pulumi.Input<string>;
+    }
+
+    export interface LocationFsxOntapFileSystemProtocolSmbMountOptions {
+        /**
+         * The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `NFS3`. Default: `NFS3`
+         */
+        version?: pulumi.Input<string>;
+    }
+
     export interface LocationHdfsNameNode {
         /**
          * The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.
@@ -16070,80 +16272,6 @@ export namespace dms {
          * When set to true, uses the task start time as the timestamp column value instead of the time data is written to target. For full load, when set to true, each row of the timestamp column contains the task start time. For CDC loads, each row of the timestamp column contains the transaction commit time. When set to false, the full load timestamp in the timestamp column increments with the time data arrives at the target. Default is `false`.
          */
         useTaskStartTimeForFullLoadTimestamp?: pulumi.Input<boolean>;
-    }
-
-    export interface GetEndpointElasticsearchSetting {
-        endpointUri: string;
-        errorRetryDuration?: number;
-        fullLoadErrorPercentage?: number;
-        serviceAccessRoleArn: string;
-    }
-
-    export interface GetEndpointElasticsearchSettingArgs {
-        endpointUri: pulumi.Input<string>;
-        errorRetryDuration?: pulumi.Input<number>;
-        fullLoadErrorPercentage?: pulumi.Input<number>;
-        serviceAccessRoleArn: pulumi.Input<string>;
-    }
-
-    export interface GetEndpointKafkaSetting {
-        broker: string;
-        includeControlDetails?: boolean;
-        includeNullAndEmpty?: boolean;
-        includePartitionValue?: boolean;
-        includeTableAlterOperations?: boolean;
-        includeTransactionDetails?: boolean;
-        messageFormat?: string;
-        messageMaxBytes?: number;
-        noHexPrefix?: boolean;
-        partitionIncludeSchemaTable?: boolean;
-        saslPassword?: string;
-        saslUsername?: string;
-        securityProtocol?: string;
-        sslCaCertificateArn?: string;
-        sslClientCertificateArn?: string;
-        sslClientKeyArn?: string;
-        sslClientKeyPassword?: string;
-        topic?: string;
-    }
-
-    export interface GetEndpointKafkaSettingArgs {
-        broker: pulumi.Input<string>;
-        includeControlDetails?: pulumi.Input<boolean>;
-        includeNullAndEmpty?: pulumi.Input<boolean>;
-        includePartitionValue?: pulumi.Input<boolean>;
-        includeTableAlterOperations?: pulumi.Input<boolean>;
-        includeTransactionDetails?: pulumi.Input<boolean>;
-        messageFormat?: pulumi.Input<string>;
-        messageMaxBytes?: pulumi.Input<number>;
-        noHexPrefix?: pulumi.Input<boolean>;
-        partitionIncludeSchemaTable?: pulumi.Input<boolean>;
-        saslPassword?: pulumi.Input<string>;
-        saslUsername?: pulumi.Input<string>;
-        securityProtocol?: pulumi.Input<string>;
-        sslCaCertificateArn?: pulumi.Input<string>;
-        sslClientCertificateArn?: pulumi.Input<string>;
-        sslClientKeyArn?: pulumi.Input<string>;
-        sslClientKeyPassword?: pulumi.Input<string>;
-        topic?: pulumi.Input<string>;
-    }
-
-    export interface GetEndpointMongodbSetting {
-        authMechanism?: string;
-        authSource?: string;
-        authType?: string;
-        docsToInvestigate?: string;
-        extractDocId?: string;
-        nestingLevel?: string;
-    }
-
-    export interface GetEndpointMongodbSettingArgs {
-        authMechanism?: pulumi.Input<string>;
-        authSource?: pulumi.Input<string>;
-        authType?: pulumi.Input<string>;
-        docsToInvestigate?: pulumi.Input<string>;
-        extractDocId?: pulumi.Input<string>;
-        nestingLevel?: pulumi.Input<string>;
     }
 
 }
@@ -18641,6 +18769,10 @@ export namespace ec2 {
          */
         httpEndpoint?: pulumi.Input<string>;
         /**
+         * Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+         */
+        httpProtocolIpv6?: pulumi.Input<string>;
+        /**
          * Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
          */
         httpPutResponseHopLimit?: pulumi.Input<number>;
@@ -21016,6 +21148,10 @@ export namespace ec2 {
          */
         httpEndpoint?: pulumi.Input<string>;
         /**
+         * Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+         */
+        httpProtocolIpv6?: pulumi.Input<string>;
+        /**
          * Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
          */
         httpPutResponseHopLimit?: pulumi.Input<number>;
@@ -21627,6 +21763,30 @@ export namespace ec2transitgateway {
         /**
          * Set of values that are accepted for the given field.
          * A Transit Gateway Route Table will be selected if any one of the given values matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetRouteTableRoutesFilter {
+        /**
+         * Name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayRoutes.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field.
+         */
+        values: string[];
+    }
+
+    export interface GetRouteTableRoutesFilterArgs {
+        /**
+         * Name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayRoutes.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given field.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -25052,6 +25212,10 @@ export namespace finspace {
 
     export interface KxEnvironmentTransitGatewayConfiguration {
         /**
+         * Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
+         */
+        attachmentNetworkAclConfigurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration>[]>;
+        /**
          * Routing CIDR on behalf of KX environment. It could be any “/26 range in the 100.64.0.0 CIDR space. After providing, it will be added to the customer’s transit gateway routing table so that the traffics could be routed to KX network.
          */
         routableCidrSpace: pulumi.Input<string>;
@@ -25059,6 +25223,55 @@ export namespace finspace {
          * Identifier of the transit gateway created by the customer to connect outbound traffics from KX network to your internal network.
          */
         transitGatewayId: pulumi.Input<string>;
+    }
+
+    export interface KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfiguration {
+        /**
+         * The IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
+         */
+        cidrBlock: pulumi.Input<string>;
+        /**
+         * Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
+         */
+        icmpTypeCode?: pulumi.Input<inputs.finspace.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode>;
+        /**
+         * Range of ports the rule applies to. Defined below.
+         */
+        portRange?: pulumi.Input<inputs.finspace.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange>;
+        /**
+         * Protocol number. A value of `1` means all the protocols.
+         */
+        protocol: pulumi.Input<string>;
+        /**
+         * Indicates whether to `allow` or `deny` the traffic that matches the rule.
+         */
+        ruleAction: pulumi.Input<string>;
+        /**
+         * Rule number for the entry. All the network ACL entries are processed in ascending order by rule number.
+         */
+        ruleNumber: pulumi.Input<number>;
+    }
+
+    export interface KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCode {
+        /**
+         * ICMP code. A value of `-1` means all codes for the specified ICMP type.
+         */
+        code: pulumi.Input<number>;
+        /**
+         * ICMP type. A value of `-1` means all types.
+         */
+        type: pulumi.Input<number>;
+    }
+
+    export interface KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRange {
+        /**
+         * First port in the range.
+         */
+        from: pulumi.Input<number>;
+        /**
+         * Last port in the range.
+         */
+        to: pulumi.Input<number>;
     }
 }
 
@@ -26415,6 +26628,25 @@ export namespace glue {
          * The percentage of the configured read capacity units to use by the AWS Glue crawler. The valid values are null or a value between 0.1 to 1.5.
          */
         scanRate?: pulumi.Input<number>;
+    }
+
+    export interface CrawlerHudiTarget {
+        /**
+         * The name of the connection to use to connect to the Hudi target.
+         */
+        connectionName?: pulumi.Input<string>;
+        /**
+         * A list of glob patterns used to exclude from the crawl.
+         */
+        exclusions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The maximum depth of Amazon S3 paths that the crawler can traverse to discover the Hudi metadata folder in your Amazon S3 path. Used to limit the crawler run time. Valid values are between `1` and `20`.
+         */
+        maximumTraversalDepth: pulumi.Input<number>;
+        /**
+         * One or more Amazon S3 paths that contains Hudi metadata folders as s3://bucket/prefix.
+         */
+        paths: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface CrawlerIcebergTarget {
@@ -28123,6 +28355,25 @@ export namespace imagebuilder {
          * Region of the container image.
          */
         region?: pulumi.Input<string>;
+    }
+
+    export interface ImagePipelineImageScanningConfiguration {
+        /**
+         * Configuration block with ECR configuration for image scanning. Detailed below.
+         */
+        ecrConfiguration?: pulumi.Input<inputs.imagebuilder.ImagePipelineImageScanningConfigurationEcrConfiguration>;
+        /**
+         * Whether image scans are enabled. Defaults to `false`.
+         */
+        imageScanningEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface ImagePipelineImageScanningConfigurationEcrConfiguration {
+        containerTags?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the repository to scan
+         */
+        repositoryName?: pulumi.Input<string>;
     }
 
     export interface ImagePipelineImageTestsConfiguration {
@@ -34943,7 +35194,7 @@ export namespace medialive {
          */
         codecSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsAudioDescriptionCodecSettings>;
         /**
-         * When specified this field indicates the three letter language code of the caption track to extract from the source.
+         * Selects a specific three-letter language code from within an audio source.
          */
         languageCode?: pulumi.Input<string>;
         languageCodeControl?: pulumi.Input<string>;
@@ -35294,11 +35545,11 @@ export namespace medialive {
          */
         burnInDestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings>;
         /**
-         * Dvb Sub Destination Settings. See Dvb Sub Destination Settings for more details.
+         * DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
          */
         dvbSubDestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings>;
         /**
-         * Ebu Tt D Destination Settings. See Ebu Tt D Destination Settings for more details.
+         * EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
          */
         ebuTtDDestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings>;
         /**
@@ -35306,32 +35557,35 @@ export namespace medialive {
          */
         embeddedDestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings>;
         /**
-         * Embedded Plus Scte20 Destination Settings.
+         * Embedded Plus SCTE20 Destination Settings.
          */
         embeddedPlusScte20DestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings>;
         /**
-         * Rtmp Caption Info Destination Settings.
+         * RTMP Caption Info Destination Settings.
          */
         rtmpCaptionInfoDestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings>;
         /**
-         * Scte20 Plus Embedded Destination Settings.
+         * SCTE20 Plus Embedded Destination Settings.
          */
         scte20PlusEmbeddedDestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings>;
         /**
-         * Scte27 Destination Settings.
+         * SCTE27 Destination Settings.
          */
         scte27DestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings>;
+        /**
+         * SMPTE TT Destination Settings.
+         */
         smpteTtDestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings>;
         /**
          * Teletext Destination Settings.
          */
         teletextDestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings>;
         /**
-         * Ttml Destination Settings. See Ttml Destination Settings for more details.
+         * TTML Destination Settings. See TTML Destination Settings for more details.
          */
         ttmlDestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings>;
         /**
-         * Webvtt Destination Settings. See Webvtt Destination Settings for more details.
+         * WebVTT Destination Settings. See WebVTT Destination Settings for more details.
          */
         webvttDestinationSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings>;
     }
@@ -35827,7 +36081,7 @@ export namespace medialive {
     export interface ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping {
         captionChannel: pulumi.Input<number>;
         /**
-         * When specified this field indicates the three letter language code of the caption track to extract from the source.
+         * Selects a specific three-letter language code from within an audio source.
          */
         languageCode: pulumi.Input<string>;
         /**
@@ -36966,49 +37220,88 @@ export namespace medialive {
          * The following arguments are optional:
          */
         name: pulumi.Input<string>;
+        /**
+         * The audio selector settings. See Audio Selector Settings for more details.
+         */
         selectorSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings>;
     }
 
     export interface ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings {
+        /**
+         * Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
+         */
         audioHlsRenditionSelection?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection>;
+        /**
+         * Audio Language Selection. See Audio Language Selection for more details.
+         */
         audioLanguageSelection?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection>;
+        /**
+         * Audio Pid Selection. See Audio PID Selection for more details.
+         */
         audioPidSelection?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection>;
+        /**
+         * Audio Track Selection. See Audio Track Selection for more details.
+         */
         audioTrackSelection?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection>;
     }
 
     export interface ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection {
+        /**
+         * Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition.
+         */
         groupId: pulumi.Input<string>;
         /**
-         * Name of the Channel.
-         *
-         * The following arguments are optional:
+         * Specifies the NAME in the #EXT-X-MEDIA tag of the target HLS audio rendition.
          */
         name: pulumi.Input<string>;
     }
 
     export interface ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection {
         /**
-         * When specified this field indicates the three letter language code of the caption track to extract from the source.
+         * Selects a specific three-letter language code from within an audio source.
          */
         languageCode: pulumi.Input<string>;
+        /**
+         * When set to “strict”, the transport stream demux strictly identifies audio streams by their language descriptor. If a PMT update occurs such that an audio stream matching the initially selected language is no longer present then mute will be encoded until the language returns. If “loose”, then on a PMT update the demux will choose another audio stream in the program with the same stream type if it can’t find one with the same language.
+         */
         languageSelectionPolicy?: pulumi.Input<string>;
     }
 
     export interface ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection {
+        /**
+         * Selects a specific PID from within a source.
+         */
         pid: pulumi.Input<number>;
     }
 
     export interface ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection {
+        /**
+         * Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
+         */
+        dolbyEDecode?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode>;
+        /**
+         * Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
+         */
         tracks: pulumi.Input<pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack>[]>;
     }
 
+    export interface ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode {
+        /**
+         * Applies only to Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. “All channels” means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect.
+         */
+        programSelection: pulumi.Input<string>;
+    }
+
     export interface ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack {
+        /**
+         * 1-based integer value that maps to a specific audio track.
+         */
         track: pulumi.Input<number>;
     }
 
     export interface ChannelInputAttachmentInputSettingsCaptionSelector {
         /**
-         * When specified this field indicates the three letter language code of the caption track to extract from the source.
+         * Selects a specific three-letter language code from within an audio source.
          */
         languageCode?: pulumi.Input<string>;
         /**
@@ -37017,58 +37310,127 @@ export namespace medialive {
          * The following arguments are optional:
          */
         name: pulumi.Input<string>;
+        /**
+         * The audio selector settings. See Audio Selector Settings for more details.
+         */
         selectorSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings>;
     }
 
     export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings {
+        /**
+         * Ancillary Source Settings. See Ancillary Source Settings for more details.
+         */
         ancillarySourceSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings>;
-        dvbTdtSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings>;
+        /**
+         * Arib Source Settings.
+         */
+        aribSourceSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings>;
+        /**
+         * DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+         */
+        dvbSubSourceSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings>;
+        /**
+         * Embedded Source Settings. See Embedded Source Settings for more details.
+         */
         embeddedSourceSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings>;
+        /**
+         * SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+         */
         scte20SourceSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings>;
+        /**
+         * SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+         */
         scte27SourceSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings>;
+        /**
+         * Teletext Source Settings. See Teletext Source Settings for more details.
+         */
         teletextSourceSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings>;
     }
 
     export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings {
+        /**
+         * Specifies the number (1 to 4) of the captions channel you want to extract from the ancillary captions. If you plan to convert the ancillary captions to another format, complete this field. If you plan to choose Embedded as the captions destination in the output (to pass through all the channels in the ancillary captions), leave this field blank because MediaLive ignores the field.
+         */
         sourceAncillaryChannelNumber?: pulumi.Input<number>;
     }
 
-    export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbTdtSettings {
+    export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings {
+    }
+
+    export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings {
+        /**
+         * If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
+         */
         ocrLanguage?: pulumi.Input<string>;
+        /**
+         * When using DVB-Sub with Burn-In or SMPTE-TT, use this PID for the source content. Unused for DVB-Sub passthrough. All DVB-Sub content is passed through, regardless of selectors.
+         */
         pid?: pulumi.Input<number>;
     }
 
     export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings {
+        /**
+         * If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+         */
         convert608To708?: pulumi.Input<string>;
+        /**
+         * Set to “auto” to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
+         */
         scte20Detection?: pulumi.Input<string>;
+        /**
+         * Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+         */
         source608ChannelNumber?: pulumi.Input<number>;
-        source608TrackNumber?: pulumi.Input<number>;
     }
 
     export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings {
+        /**
+         * If upconvert, 608 data is both passed through via the “608 compatibility bytes” fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
+         */
         convert608To708?: pulumi.Input<string>;
+        /**
+         * Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+         */
         source608ChannelNumber?: pulumi.Input<number>;
     }
 
     export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings {
+        /**
+         * If you will configure a WebVTT caption description that references this caption selector, use this field to provide the language to consider when translating the image-based source to text.
+         */
         ocrLanguage?: pulumi.Input<string>;
+        /**
+         * Selects a specific PID from within a source.
+         */
         pid?: pulumi.Input<number>;
     }
 
     export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings {
+        /**
+         * Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
+         */
         outputRectangle?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle>;
+        /**
+         * Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
+         */
         pageNumber?: pulumi.Input<string>;
     }
 
     export interface ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle {
         /**
-         * Output video height in pixels.
+         * See the description in left\_offset. For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, "80" means the rectangle height is 80% of the underlying frame height. The top\_offset and rectangle\_height must add up to 100% or less. This field corresponds to tts:extent - Y in the TTML standard.
          */
         height: pulumi.Input<number>;
+        /**
+         * Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, "10" means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
+         */
         leftOffset: pulumi.Input<number>;
+        /**
+         * See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, "10" means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
+         */
         topOffset: pulumi.Input<number>;
         /**
-         * Output video width in pixels.
+         * See the description in left\_offset. For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, "80" means the rectangle width is 80% of the underlying frame width. The left\_offset and rectangle\_width must add up to 100% or less. This field corresponds to tts:extent - X in the TTML standard.
          */
         width: pulumi.Input<number>;
     }
@@ -37589,13 +37951,46 @@ export namespace msk {
          * Access control settings for brokers. See below.
          */
         publicAccess?: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess>;
+        /**
+         * VPC connectivity access control for brokers. See below.
+         */
+        vpcConnectivity?: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity>;
     }
 
     export interface ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
         /**
-         * Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+         * Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
          */
         type?: pulumi.Input<string>;
+    }
+
+    export interface ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity {
+        /**
+         * Configuration block for specifying a client authentication. See below.
+         */
+        clientAuthentication?: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication>;
+    }
+
+    export interface ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication {
+        /**
+         * Configuration block for specifying SASL client authentication. See below.
+         */
+        sasl?: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl>;
+        /**
+         * Configuration block for specifying TLS client authentication. See below.
+         */
+        tls?: pulumi.Input<boolean>;
+    }
+
+    export interface ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl {
+        /**
+         * Enables SASL/IAM authentication for VPC connectivity.
+         */
+        iam?: pulumi.Input<boolean>;
+        /**
+         * Enables SASL/SCRAM authentication for VPC connectivity.
+         */
+        scram?: pulumi.Input<boolean>;
     }
 
     export interface ClusterBrokerNodeGroupInfoStorageInfo {
@@ -37644,11 +38039,11 @@ export namespace msk {
 
     export interface ClusterClientAuthenticationSasl {
         /**
-         * Enables IAM client authentication. Defaults to `false`.
+         * Enables SASL/IAM authentication for VPC connectivity.
          */
         iam?: pulumi.Input<boolean>;
         /**
-         * Enables SCRAM client authentication via AWS Secrets Manager. Defaults to `false`.
+         * Enables SASL/SCRAM authentication for VPC connectivity.
          */
         scram?: pulumi.Input<boolean>;
     }
@@ -39303,6 +39698,7 @@ export namespace opensearch {
          * Instance type of data nodes in the cluster.
          */
         instanceType?: pulumi.Input<string>;
+        multiAzWithStandbyEnabled?: pulumi.Input<boolean>;
         /**
          * Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
          */
@@ -39673,6 +40069,19 @@ export namespace opensearch {
         create?: pulumi.Input<string>;
         delete?: pulumi.Input<string>;
         update?: pulumi.Input<string>;
+    }
+
+    export interface VpcEndpointVpcOptions {
+        availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, OpenSearch Service uses the default security group for the VPC.
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
+         */
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+        vpcId?: pulumi.Input<string>;
     }
 }
 
@@ -43335,7 +43744,7 @@ export namespace rds {
          */
         restoreType?: pulumi.Input<string>;
         /**
-         * Identifier of the source database cluster from which to restore.
+         * Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
          */
         sourceClusterIdentifier: pulumi.Input<string>;
         /**
@@ -45175,7 +45584,7 @@ export namespace s3 {
 
     export interface BucketLifecycleConfigurationV2RuleExpiration {
         /**
-         * Date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+         * Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
          */
         date?: pulumi.Input<string>;
         /**
@@ -45269,7 +45678,7 @@ export namespace s3 {
 
     export interface BucketLifecycleConfigurationV2RuleTransition {
         /**
-         * Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) and set to midnight UTC e.g. `2023-01-13T00:00:00Z`.
+         * Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
          */
         date?: pulumi.Input<string>;
         /**
@@ -45941,7 +46350,7 @@ export namespace s3 {
          */
         kmsMasterKeyId?: pulumi.Input<string>;
         /**
-         * Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+         * Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
          */
         sseAlgorithm: pulumi.Input<string>;
     }
@@ -51137,9 +51546,11 @@ export namespace sesv2 {
     export interface ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration {
         /**
          * The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
-         * ( `dimensionName` - (Required) The name of an Amazon CloudWatch dimension associated with an email sending metric.
          */
         defaultDimensionValue: pulumi.Input<string>;
+        /**
+         * The name of an Amazon CloudWatch dimension associated with an email sending metric.
+         */
         dimensionName: pulumi.Input<string>;
         /**
          * The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
@@ -57449,6 +57860,10 @@ export namespace wafv2 {
 
     export interface WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet {
         /**
+         * Whether or not to allow the use of regular expressions in the login page path.
+         */
+        enableRegexInPath?: pulumi.Input<boolean>;
+        /**
          * The path of the login endpoint for your application.
          */
         loginPath: pulumi.Input<string>;
@@ -57608,6 +58023,10 @@ export namespace wafv2 {
          */
         captcha?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha>;
         /**
+         * Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+         */
+        challenge?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge>;
+        /**
          * Instructs AWS WAF to count the web request and allow it. See `count` below for details.
          */
         count?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount>;
@@ -57686,6 +58105,31 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeader {
+        /**
+         * Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Value of the custom header.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge {
+        /**
+         * Defines custom handling for the web request. See `customRequestHandling` below for details.
+         */
+        customRequestHandling?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling {
+        /**
+         * The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+         */
+        insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader>[]>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader {
         /**
          * Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
          */
@@ -60751,6 +61195,10 @@ export namespace wafv2 {
          */
         captcha?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha>;
         /**
+         * Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+         */
+        challenge?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge>;
+        /**
          * Instructs AWS WAF to count the web request and allow it. See `count` below for details.
          */
         count?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount>;
@@ -60829,6 +61277,31 @@ export namespace wafv2 {
     }
 
     export interface WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeader {
+        /**
+         * Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Value of the custom header.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge {
+        /**
+         * Defines custom handling for the web request. See `customRequestHandling` below for details.
+         */
+        customRequestHandling?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling>;
+    }
+
+    export interface WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling {
+        /**
+         * The `insertHeader` blocks used to define HTTP headers added to the request. See `insertHeader` below for details.
+         */
+        insertHeaders: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader>[]>;
+    }
+
+    export interface WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader {
         /**
          * Name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
          */

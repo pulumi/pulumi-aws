@@ -237,9 +237,17 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.dbClusterInstanceClass);
     }
 
+    /**
+     * A cluster parameter group to associate with the cluster.
+     * 
+     */
     @Import(name="dbClusterParameterGroupName")
     private @Nullable Output<String> dbClusterParameterGroupName;
 
+    /**
+     * @return A cluster parameter group to associate with the cluster.
+     * 
+     */
     public Optional<Output<String>> dbClusterParameterGroupName() {
         return Optional.ofNullable(this.dbClusterParameterGroupName);
     }
@@ -272,6 +280,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> dbSubnetGroupName() {
         return Optional.ofNullable(this.dbSubnetGroupName);
+    }
+
+    /**
+     * For use with RDS Custom.
+     * 
+     */
+    @Import(name="dbSystemId")
+    private @Nullable Output<String> dbSystemId;
+
+    /**
+     * @return For use with RDS Custom.
+     * 
+     */
+    public Optional<Output<String>> dbSystemId() {
+        return Optional.ofNullable(this.dbSystemId);
     }
 
     /**
@@ -873,6 +896,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.dbClusterParameterGroupName = $.dbClusterParameterGroupName;
         this.dbInstanceParameterGroupName = $.dbInstanceParameterGroupName;
         this.dbSubnetGroupName = $.dbSubnetGroupName;
+        this.dbSystemId = $.dbSystemId;
         this.deletionProtection = $.deletionProtection;
         this.enableGlobalWriteForwarding = $.enableGlobalWriteForwarding;
         this.enableHttpEndpoint = $.enableHttpEndpoint;
@@ -1246,11 +1270,23 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
             return dbClusterInstanceClass(Output.of(dbClusterInstanceClass));
         }
 
+        /**
+         * @param dbClusterParameterGroupName A cluster parameter group to associate with the cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbClusterParameterGroupName(@Nullable Output<String> dbClusterParameterGroupName) {
             $.dbClusterParameterGroupName = dbClusterParameterGroupName;
             return this;
         }
 
+        /**
+         * @param dbClusterParameterGroupName A cluster parameter group to associate with the cluster.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbClusterParameterGroupName(String dbClusterParameterGroupName) {
             return dbClusterParameterGroupName(Output.of(dbClusterParameterGroupName));
         }
@@ -1295,6 +1331,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dbSubnetGroupName(String dbSubnetGroupName) {
             return dbSubnetGroupName(Output.of(dbSubnetGroupName));
+        }
+
+        /**
+         * @param dbSystemId For use with RDS Custom.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dbSystemId(@Nullable Output<String> dbSystemId) {
+            $.dbSystemId = dbSystemId;
+            return this;
+        }
+
+        /**
+         * @param dbSystemId For use with RDS Custom.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dbSystemId(String dbSystemId) {
+            return dbSystemId(Output.of(dbSystemId));
         }
 
         /**

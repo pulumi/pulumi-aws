@@ -27,3 +27,9 @@ export interface GetClustersResult {
      */
     readonly names: string[];
 }
+/**
+ * Retrieve EKS Clusters list
+ */
+export function getClustersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetClustersResult> {
+    return pulumi.output(getClusters(opts))
+}

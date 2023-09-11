@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -58,6 +59,12 @@ func (i GroupInitialLifecycleHookArgs) ToGroupInitialLifecycleHookOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GroupInitialLifecycleHookOutput)
 }
 
+func (i GroupInitialLifecycleHookArgs) ToOutput(ctx context.Context) pulumix.Output[GroupInitialLifecycleHook] {
+	return pulumix.Output[GroupInitialLifecycleHook]{
+		OutputState: i.ToGroupInitialLifecycleHookOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupInitialLifecycleHookArrayInput is an input type that accepts GroupInitialLifecycleHookArray and GroupInitialLifecycleHookArrayOutput values.
 // You can construct a concrete instance of `GroupInitialLifecycleHookArrayInput` via:
 //
@@ -83,6 +90,12 @@ func (i GroupInitialLifecycleHookArray) ToGroupInitialLifecycleHookArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GroupInitialLifecycleHookArrayOutput)
 }
 
+func (i GroupInitialLifecycleHookArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupInitialLifecycleHook] {
+	return pulumix.Output[[]GroupInitialLifecycleHook]{
+		OutputState: i.ToGroupInitialLifecycleHookArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupInitialLifecycleHookOutput struct{ *pulumi.OutputState }
 
 func (GroupInitialLifecycleHookOutput) ElementType() reflect.Type {
@@ -95,6 +108,12 @@ func (o GroupInitialLifecycleHookOutput) ToGroupInitialLifecycleHookOutput() Gro
 
 func (o GroupInitialLifecycleHookOutput) ToGroupInitialLifecycleHookOutputWithContext(ctx context.Context) GroupInitialLifecycleHookOutput {
 	return o
+}
+
+func (o GroupInitialLifecycleHookOutput) ToOutput(ctx context.Context) pulumix.Output[GroupInitialLifecycleHook] {
+	return pulumix.Output[GroupInitialLifecycleHook]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupInitialLifecycleHookOutput) DefaultResult() pulumi.StringPtrOutput {
@@ -138,6 +157,12 @@ func (o GroupInitialLifecycleHookArrayOutput) ToGroupInitialLifecycleHookArrayOu
 
 func (o GroupInitialLifecycleHookArrayOutput) ToGroupInitialLifecycleHookArrayOutputWithContext(ctx context.Context) GroupInitialLifecycleHookArrayOutput {
 	return o
+}
+
+func (o GroupInitialLifecycleHookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupInitialLifecycleHook] {
+	return pulumix.Output[[]GroupInitialLifecycleHook]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupInitialLifecycleHookArrayOutput) Index(i pulumi.IntInput) GroupInitialLifecycleHookOutput {
@@ -203,6 +228,12 @@ func (i GroupInstanceRefreshArgs) ToGroupInstanceRefreshOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GroupInstanceRefreshOutput)
 }
 
+func (i GroupInstanceRefreshArgs) ToOutput(ctx context.Context) pulumix.Output[GroupInstanceRefresh] {
+	return pulumix.Output[GroupInstanceRefresh]{
+		OutputState: i.ToGroupInstanceRefreshOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupInstanceRefreshArgs) ToGroupInstanceRefreshPtrOutput() GroupInstanceRefreshPtrOutput {
 	return i.ToGroupInstanceRefreshPtrOutputWithContext(context.Background())
 }
@@ -244,6 +275,12 @@ func (i *groupInstanceRefreshPtrType) ToGroupInstanceRefreshPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(GroupInstanceRefreshPtrOutput)
 }
 
+func (i *groupInstanceRefreshPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupInstanceRefresh] {
+	return pulumix.Output[*GroupInstanceRefresh]{
+		OutputState: i.ToGroupInstanceRefreshPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupInstanceRefreshOutput struct{ *pulumi.OutputState }
 
 func (GroupInstanceRefreshOutput) ElementType() reflect.Type {
@@ -266,6 +303,12 @@ func (o GroupInstanceRefreshOutput) ToGroupInstanceRefreshPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupInstanceRefresh) *GroupInstanceRefresh {
 		return &v
 	}).(GroupInstanceRefreshPtrOutput)
+}
+
+func (o GroupInstanceRefreshOutput) ToOutput(ctx context.Context) pulumix.Output[GroupInstanceRefresh] {
+	return pulumix.Output[GroupInstanceRefresh]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Override default parameters for Instance Refresh.
@@ -303,6 +346,12 @@ func (o GroupInstanceRefreshPtrOutput) ToGroupInstanceRefreshPtrOutput() GroupIn
 
 func (o GroupInstanceRefreshPtrOutput) ToGroupInstanceRefreshPtrOutputWithContext(ctx context.Context) GroupInstanceRefreshPtrOutput {
 	return o
+}
+
+func (o GroupInstanceRefreshPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupInstanceRefresh] {
+	return pulumix.Output[*GroupInstanceRefresh]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupInstanceRefreshPtrOutput) Elem() GroupInstanceRefreshOutput {
@@ -406,6 +455,12 @@ func (i GroupInstanceRefreshPreferencesArgs) ToGroupInstanceRefreshPreferencesOu
 	return pulumi.ToOutputWithContext(ctx, i).(GroupInstanceRefreshPreferencesOutput)
 }
 
+func (i GroupInstanceRefreshPreferencesArgs) ToOutput(ctx context.Context) pulumix.Output[GroupInstanceRefreshPreferences] {
+	return pulumix.Output[GroupInstanceRefreshPreferences]{
+		OutputState: i.ToGroupInstanceRefreshPreferencesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupInstanceRefreshPreferencesArgs) ToGroupInstanceRefreshPreferencesPtrOutput() GroupInstanceRefreshPreferencesPtrOutput {
 	return i.ToGroupInstanceRefreshPreferencesPtrOutputWithContext(context.Background())
 }
@@ -447,6 +502,12 @@ func (i *groupInstanceRefreshPreferencesPtrType) ToGroupInstanceRefreshPreferenc
 	return pulumi.ToOutputWithContext(ctx, i).(GroupInstanceRefreshPreferencesPtrOutput)
 }
 
+func (i *groupInstanceRefreshPreferencesPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupInstanceRefreshPreferences] {
+	return pulumix.Output[*GroupInstanceRefreshPreferences]{
+		OutputState: i.ToGroupInstanceRefreshPreferencesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupInstanceRefreshPreferencesOutput struct{ *pulumi.OutputState }
 
 func (GroupInstanceRefreshPreferencesOutput) ElementType() reflect.Type {
@@ -469,6 +530,12 @@ func (o GroupInstanceRefreshPreferencesOutput) ToGroupInstanceRefreshPreferences
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupInstanceRefreshPreferences) *GroupInstanceRefreshPreferences {
 		return &v
 	}).(GroupInstanceRefreshPreferencesPtrOutput)
+}
+
+func (o GroupInstanceRefreshPreferencesOutput) ToOutput(ctx context.Context) pulumix.Output[GroupInstanceRefreshPreferences] {
+	return pulumix.Output[GroupInstanceRefreshPreferences]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launchTemplate` or `mixedInstancesPolicy`.
@@ -513,6 +580,12 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) ToGroupInstanceRefreshPreferen
 
 func (o GroupInstanceRefreshPreferencesPtrOutput) ToGroupInstanceRefreshPreferencesPtrOutputWithContext(ctx context.Context) GroupInstanceRefreshPreferencesPtrOutput {
 	return o
+}
+
+func (o GroupInstanceRefreshPreferencesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupInstanceRefreshPreferences] {
+	return pulumix.Output[*GroupInstanceRefreshPreferences]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupInstanceRefreshPreferencesPtrOutput) Elem() GroupInstanceRefreshPreferencesOutput {
@@ -626,6 +699,12 @@ func (i GroupLaunchTemplateArgs) ToGroupLaunchTemplateOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GroupLaunchTemplateOutput)
 }
 
+func (i GroupLaunchTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[GroupLaunchTemplate] {
+	return pulumix.Output[GroupLaunchTemplate]{
+		OutputState: i.ToGroupLaunchTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupLaunchTemplateArgs) ToGroupLaunchTemplatePtrOutput() GroupLaunchTemplatePtrOutput {
 	return i.ToGroupLaunchTemplatePtrOutputWithContext(context.Background())
 }
@@ -667,6 +746,12 @@ func (i *groupLaunchTemplatePtrType) ToGroupLaunchTemplatePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(GroupLaunchTemplatePtrOutput)
 }
 
+func (i *groupLaunchTemplatePtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupLaunchTemplate] {
+	return pulumix.Output[*GroupLaunchTemplate]{
+		OutputState: i.ToGroupLaunchTemplatePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupLaunchTemplateOutput struct{ *pulumi.OutputState }
 
 func (GroupLaunchTemplateOutput) ElementType() reflect.Type {
@@ -689,6 +774,12 @@ func (o GroupLaunchTemplateOutput) ToGroupLaunchTemplatePtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupLaunchTemplate) *GroupLaunchTemplate {
 		return &v
 	}).(GroupLaunchTemplatePtrOutput)
+}
+
+func (o GroupLaunchTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[GroupLaunchTemplate] {
+	return pulumix.Output[GroupLaunchTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the launch template. Conflicts with `name`.
@@ -718,6 +809,12 @@ func (o GroupLaunchTemplatePtrOutput) ToGroupLaunchTemplatePtrOutput() GroupLaun
 
 func (o GroupLaunchTemplatePtrOutput) ToGroupLaunchTemplatePtrOutputWithContext(ctx context.Context) GroupLaunchTemplatePtrOutput {
 	return o
+}
+
+func (o GroupLaunchTemplatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupLaunchTemplate] {
+	return pulumix.Output[*GroupLaunchTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupLaunchTemplatePtrOutput) Elem() GroupLaunchTemplateOutput {
@@ -797,6 +894,12 @@ func (i GroupMixedInstancesPolicyArgs) ToGroupMixedInstancesPolicyOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyOutput)
 }
 
+func (i GroupMixedInstancesPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicy] {
+	return pulumix.Output[GroupMixedInstancesPolicy]{
+		OutputState: i.ToGroupMixedInstancesPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupMixedInstancesPolicyArgs) ToGroupMixedInstancesPolicyPtrOutput() GroupMixedInstancesPolicyPtrOutput {
 	return i.ToGroupMixedInstancesPolicyPtrOutputWithContext(context.Background())
 }
@@ -838,6 +941,12 @@ func (i *groupMixedInstancesPolicyPtrType) ToGroupMixedInstancesPolicyPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyPtrOutput)
 }
 
+func (i *groupMixedInstancesPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicy] {
+	return pulumix.Output[*GroupMixedInstancesPolicy]{
+		OutputState: i.ToGroupMixedInstancesPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupMixedInstancesPolicyOutput struct{ *pulumi.OutputState }
 
 func (GroupMixedInstancesPolicyOutput) ElementType() reflect.Type {
@@ -860,6 +969,12 @@ func (o GroupMixedInstancesPolicyOutput) ToGroupMixedInstancesPolicyPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicy) *GroupMixedInstancesPolicy {
 		return &v
 	}).(GroupMixedInstancesPolicyPtrOutput)
+}
+
+func (o GroupMixedInstancesPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicy] {
+	return pulumix.Output[GroupMixedInstancesPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Nested argument containing settings on how to mix on-demand and Spot instances in the Auto Scaling group. Defined below.
@@ -886,6 +1001,12 @@ func (o GroupMixedInstancesPolicyPtrOutput) ToGroupMixedInstancesPolicyPtrOutput
 
 func (o GroupMixedInstancesPolicyPtrOutput) ToGroupMixedInstancesPolicyPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyPtrOutput {
 	return o
+}
+
+func (o GroupMixedInstancesPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicy] {
+	return pulumix.Output[*GroupMixedInstancesPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupMixedInstancesPolicyPtrOutput) Elem() GroupMixedInstancesPolicyOutput {
@@ -971,6 +1092,12 @@ func (i GroupMixedInstancesPolicyInstancesDistributionArgs) ToGroupMixedInstance
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyInstancesDistributionOutput)
 }
 
+func (i GroupMixedInstancesPolicyInstancesDistributionArgs) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyInstancesDistribution] {
+	return pulumix.Output[GroupMixedInstancesPolicyInstancesDistribution]{
+		OutputState: i.ToGroupMixedInstancesPolicyInstancesDistributionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupMixedInstancesPolicyInstancesDistributionArgs) ToGroupMixedInstancesPolicyInstancesDistributionPtrOutput() GroupMixedInstancesPolicyInstancesDistributionPtrOutput {
 	return i.ToGroupMixedInstancesPolicyInstancesDistributionPtrOutputWithContext(context.Background())
 }
@@ -1012,6 +1139,12 @@ func (i *groupMixedInstancesPolicyInstancesDistributionPtrType) ToGroupMixedInst
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyInstancesDistributionPtrOutput)
 }
 
+func (i *groupMixedInstancesPolicyInstancesDistributionPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyInstancesDistribution] {
+	return pulumix.Output[*GroupMixedInstancesPolicyInstancesDistribution]{
+		OutputState: i.ToGroupMixedInstancesPolicyInstancesDistributionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupMixedInstancesPolicyInstancesDistributionOutput struct{ *pulumi.OutputState }
 
 func (GroupMixedInstancesPolicyInstancesDistributionOutput) ElementType() reflect.Type {
@@ -1034,6 +1167,12 @@ func (o GroupMixedInstancesPolicyInstancesDistributionOutput) ToGroupMixedInstan
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyInstancesDistribution) *GroupMixedInstancesPolicyInstancesDistribution {
 		return &v
 	}).(GroupMixedInstancesPolicyInstancesDistributionPtrOutput)
+}
+
+func (o GroupMixedInstancesPolicyInstancesDistributionOutput) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyInstancesDistribution] {
+	return pulumix.Output[GroupMixedInstancesPolicyInstancesDistribution]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Strategy to use when launching on-demand instances. Valid values: `prioritized`, `lowest-price`. Default: `prioritized`.
@@ -1080,6 +1219,12 @@ func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) ToGroupMixedIns
 
 func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) ToGroupMixedInstancesPolicyInstancesDistributionPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyInstancesDistributionPtrOutput {
 	return o
+}
+
+func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyInstancesDistribution] {
+	return pulumix.Output[*GroupMixedInstancesPolicyInstancesDistribution]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) Elem() GroupMixedInstancesPolicyInstancesDistributionOutput {
@@ -1189,6 +1334,12 @@ func (i GroupMixedInstancesPolicyLaunchTemplateArgs) ToGroupMixedInstancesPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOutput)
 }
 
+func (i GroupMixedInstancesPolicyLaunchTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplate] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplate]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupMixedInstancesPolicyLaunchTemplateArgs) ToGroupMixedInstancesPolicyLaunchTemplatePtrOutput() GroupMixedInstancesPolicyLaunchTemplatePtrOutput {
 	return i.ToGroupMixedInstancesPolicyLaunchTemplatePtrOutputWithContext(context.Background())
 }
@@ -1230,6 +1381,12 @@ func (i *groupMixedInstancesPolicyLaunchTemplatePtrType) ToGroupMixedInstancesPo
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplatePtrOutput)
 }
 
+func (i *groupMixedInstancesPolicyLaunchTemplatePtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplate] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplate]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplatePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupMixedInstancesPolicyLaunchTemplateOutput struct{ *pulumi.OutputState }
 
 func (GroupMixedInstancesPolicyLaunchTemplateOutput) ElementType() reflect.Type {
@@ -1252,6 +1409,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOutput) ToGroupMixedInstancesPoli
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplate) *GroupMixedInstancesPolicyLaunchTemplate {
 		return &v
 	}).(GroupMixedInstancesPolicyLaunchTemplatePtrOutput)
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplate] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Nested argument defines the Launch Template. Defined below.
@@ -1280,6 +1443,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplatePtrOutput) ToGroupMixedInstancesP
 
 func (o GroupMixedInstancesPolicyLaunchTemplatePtrOutput) ToGroupMixedInstancesPolicyLaunchTemplatePtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplatePtrOutput {
 	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplate] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupMixedInstancesPolicyLaunchTemplatePtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateOutput {
@@ -1353,6 +1522,12 @@ func (i GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs) 
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput)
 }
 
+func (i GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs) ToGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOutput() GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOutput {
 	return i.ToGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOutputWithContext(context.Background())
 }
@@ -1394,6 +1569,12 @@ func (i *groupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrTy
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOutput)
 }
 
+func (i *groupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput struct{ *pulumi.OutputState }
 
 func (GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput) ElementType() reflect.Type {
@@ -1416,6 +1597,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification) *GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification {
 		return &v
 	}).(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOutput)
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the launch template. Conflicts with `launchTemplateName`.
@@ -1449,6 +1636,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOut
 
 func (o GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOutput {
 	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput {
@@ -1536,6 +1729,12 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideArgs) ToGroupMixedInstanc
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideOutput)
 }
 
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverride] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverride]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupMixedInstancesPolicyLaunchTemplateOverrideArrayInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideArray and GroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput values.
 // You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideArrayInput` via:
 //
@@ -1561,6 +1760,12 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideArray) ToGroupMixedInstan
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput)
 }
 
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupMixedInstancesPolicyLaunchTemplateOverride] {
+	return pulumix.Output[[]GroupMixedInstancesPolicyLaunchTemplateOverride]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupMixedInstancesPolicyLaunchTemplateOverrideOutput struct{ *pulumi.OutputState }
 
 func (GroupMixedInstancesPolicyLaunchTemplateOverrideOutput) ElementType() reflect.Type {
@@ -1573,6 +1778,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideOutput) ToGroupMixedInsta
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideOutput {
 	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverride] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Override the instance type in the Launch Template with instance types that satisfy the requirements.
@@ -1611,6 +1822,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput) ToGroupMixed
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput {
 	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupMixedInstancesPolicyLaunchTemplateOverride] {
+	return pulumix.Output[[]GroupMixedInstancesPolicyLaunchTemplateOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput) Index(i pulumi.IntInput) GroupMixedInstancesPolicyLaunchTemplateOverrideOutput {
@@ -1928,6 +2145,12 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs)
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput)
 }
 
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput {
 	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutputWithContext(context.Background())
 }
@@ -1969,6 +2192,12 @@ func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrT
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput)
 }
 
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput struct{ *pulumi.OutputState }
 
 func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) ElementType() reflect.Type {
@@ -1991,6 +2220,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements {
 		return &v
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput)
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
@@ -2278,6 +2513,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOu
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput {
 	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput {
@@ -2669,6 +2910,12 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAccel
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput)
 }
 
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput {
 	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(context.Background())
 }
@@ -2710,6 +2957,12 @@ func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcce
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput)
 }
 
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput struct{ *pulumi.OutputState }
 
 func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput) ElementType() reflect.Type {
@@ -2732,6 +2985,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAccel
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount {
 		return &v
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput)
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Maximum. Set to `0` to exclude instance types with accelerators.
@@ -2760,6 +3019,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAccel
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput {
 	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput {
@@ -2829,6 +3094,12 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAccel
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput)
 }
 
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
 	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(context.Background())
 }
@@ -2870,6 +3141,12 @@ func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcce
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
 }
 
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput struct{ *pulumi.OutputState }
 
 func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) ElementType() reflect.Type {
@@ -2892,6 +3169,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAccel
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib {
 		return &v
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Maximum. Set to `0` to exclude instance types with accelerators.
@@ -2920,6 +3203,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAccel
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
 	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput {
@@ -2989,6 +3278,12 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBasel
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput)
 }
 
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
 	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Background())
 }
@@ -3030,6 +3325,12 @@ func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBase
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
 }
 
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput struct{ *pulumi.OutputState }
 
 func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ElementType() reflect.Type {
@@ -3052,6 +3353,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBasel
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
 		return &v
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Maximum. Set to `0` to exclude instance types with accelerators.
@@ -3080,6 +3387,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBasel
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
 	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
@@ -3149,6 +3462,12 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemor
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput)
 }
 
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
 	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(context.Background())
 }
@@ -3190,6 +3509,12 @@ func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemo
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput)
 }
 
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput struct{ *pulumi.OutputState }
 
 func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput) ElementType() reflect.Type {
@@ -3212,6 +3537,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemor
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu {
 		return &v
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput)
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Maximum. Set to `0` to exclude instance types with accelerators.
@@ -3240,6 +3571,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemor
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
 	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput {
@@ -3309,6 +3646,12 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemor
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput)
 }
 
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput {
 	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(context.Background())
 }
@@ -3350,6 +3693,12 @@ func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemo
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput)
 }
 
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput struct{ *pulumi.OutputState }
 
 func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput) ElementType() reflect.Type {
@@ -3372,6 +3721,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemor
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib {
 		return &v
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput)
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Maximum. Set to `0` to exclude instance types with accelerators.
@@ -3400,6 +3755,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemor
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput {
 	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput {
@@ -3469,6 +3830,12 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetwo
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsOutput)
 }
 
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsArgs) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
 	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(context.Background())
 }
@@ -3510,6 +3877,12 @@ func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetw
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput)
 }
 
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsOutput struct{ *pulumi.OutputState }
 
 func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsOutput) ElementType() reflect.Type {
@@ -3532,6 +3905,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetwo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps {
 		return &v
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput)
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsOutput) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Maximum. Set to `0` to exclude instance types with accelerators.
@@ -3560,6 +3939,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetwo
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput {
 	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsPtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsOutput {
@@ -3629,6 +4014,12 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetwo
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput)
 }
 
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
 	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(context.Background())
 }
@@ -3670,6 +4061,12 @@ func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetw
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput)
 }
 
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput struct{ *pulumi.OutputState }
 
 func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput) ElementType() reflect.Type {
@@ -3692,6 +4089,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetwo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount {
 		return &v
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput)
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Maximum. Set to `0` to exclude instance types with accelerators.
@@ -3720,6 +4123,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetwo
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
 	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput {
@@ -3789,6 +4198,12 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotal
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput)
 }
 
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
 	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(context.Background())
 }
@@ -3830,6 +4245,12 @@ func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTota
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput)
 }
 
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput struct{ *pulumi.OutputState }
 
 func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput) ElementType() reflect.Type {
@@ -3852,6 +4273,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotal
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb {
 		return &v
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput)
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Maximum. Set to `0` to exclude instance types with accelerators.
@@ -3880,6 +4307,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotal
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
 	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput {
@@ -3949,6 +4382,12 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuC
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput)
 }
 
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput {
 	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(context.Background())
 }
@@ -3990,6 +4429,12 @@ func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpu
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput)
 }
 
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput struct{ *pulumi.OutputState }
 
 func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput) ElementType() reflect.Type {
@@ -4012,6 +4457,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount {
 		return &v
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput)
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Maximum. Set to `0` to exclude instance types with accelerators.
@@ -4040,6 +4491,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuC
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput {
 	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput {
@@ -4113,6 +4570,12 @@ func (i GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificati
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput)
 }
 
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrOutput {
 	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrOutputWithContext(context.Background())
 }
@@ -4154,6 +4617,12 @@ func (i *groupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificat
 	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrOutput)
 }
 
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification]{
+		OutputState: i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput struct{ *pulumi.OutputState }
 
 func (GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput) ElementType() reflect.Type {
@@ -4176,6 +4645,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificati
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification) *GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification {
 		return &v
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrOutput)
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification] {
+	return pulumix.Output[GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the launch template. Conflicts with `launchTemplateName`.
@@ -4211,6 +4686,12 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificati
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrOutput {
 	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification] {
+	return pulumix.Output[*GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput {
@@ -4304,6 +4785,12 @@ func (i GroupTagArgs) ToGroupTagOutputWithContext(ctx context.Context) GroupTagO
 	return pulumi.ToOutputWithContext(ctx, i).(GroupTagOutput)
 }
 
+func (i GroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[GroupTag] {
+	return pulumix.Output[GroupTag]{
+		OutputState: i.ToGroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupTagArrayInput is an input type that accepts GroupTagArray and GroupTagArrayOutput values.
 // You can construct a concrete instance of `GroupTagArrayInput` via:
 //
@@ -4329,6 +4816,12 @@ func (i GroupTagArray) ToGroupTagArrayOutputWithContext(ctx context.Context) Gro
 	return pulumi.ToOutputWithContext(ctx, i).(GroupTagArrayOutput)
 }
 
+func (i GroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupTag] {
+	return pulumix.Output[[]GroupTag]{
+		OutputState: i.ToGroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupTagOutput struct{ *pulumi.OutputState }
 
 func (GroupTagOutput) ElementType() reflect.Type {
@@ -4341,6 +4834,12 @@ func (o GroupTagOutput) ToGroupTagOutput() GroupTagOutput {
 
 func (o GroupTagOutput) ToGroupTagOutputWithContext(ctx context.Context) GroupTagOutput {
 	return o
+}
+
+func (o GroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[GroupTag] {
+	return pulumix.Output[GroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Key
@@ -4375,6 +4874,12 @@ func (o GroupTagArrayOutput) ToGroupTagArrayOutput() GroupTagArrayOutput {
 
 func (o GroupTagArrayOutput) ToGroupTagArrayOutputWithContext(ctx context.Context) GroupTagArrayOutput {
 	return o
+}
+
+func (o GroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupTag] {
+	return pulumix.Output[[]GroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupTagArrayOutput) Index(i pulumi.IntInput) GroupTagOutput {
@@ -4428,6 +4933,12 @@ func (i GroupTrafficSourceArgs) ToGroupTrafficSourceOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GroupTrafficSourceOutput)
 }
 
+func (i GroupTrafficSourceArgs) ToOutput(ctx context.Context) pulumix.Output[GroupTrafficSource] {
+	return pulumix.Output[GroupTrafficSource]{
+		OutputState: i.ToGroupTrafficSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupTrafficSourceArrayInput is an input type that accepts GroupTrafficSourceArray and GroupTrafficSourceArrayOutput values.
 // You can construct a concrete instance of `GroupTrafficSourceArrayInput` via:
 //
@@ -4453,6 +4964,12 @@ func (i GroupTrafficSourceArray) ToGroupTrafficSourceArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GroupTrafficSourceArrayOutput)
 }
 
+func (i GroupTrafficSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupTrafficSource] {
+	return pulumix.Output[[]GroupTrafficSource]{
+		OutputState: i.ToGroupTrafficSourceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupTrafficSourceOutput struct{ *pulumi.OutputState }
 
 func (GroupTrafficSourceOutput) ElementType() reflect.Type {
@@ -4465,6 +4982,12 @@ func (o GroupTrafficSourceOutput) ToGroupTrafficSourceOutput() GroupTrafficSourc
 
 func (o GroupTrafficSourceOutput) ToGroupTrafficSourceOutputWithContext(ctx context.Context) GroupTrafficSourceOutput {
 	return o
+}
+
+func (o GroupTrafficSourceOutput) ToOutput(ctx context.Context) pulumix.Output[GroupTrafficSource] {
+	return pulumix.Output[GroupTrafficSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
@@ -4493,6 +5016,12 @@ func (o GroupTrafficSourceArrayOutput) ToGroupTrafficSourceArrayOutput() GroupTr
 
 func (o GroupTrafficSourceArrayOutput) ToGroupTrafficSourceArrayOutputWithContext(ctx context.Context) GroupTrafficSourceArrayOutput {
 	return o
+}
+
+func (o GroupTrafficSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupTrafficSource] {
+	return pulumix.Output[[]GroupTrafficSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupTrafficSourceArrayOutput) Index(i pulumi.IntInput) GroupTrafficSourceOutput {
@@ -4546,6 +5075,12 @@ func (i GroupWarmPoolArgs) ToGroupWarmPoolOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GroupWarmPoolOutput)
 }
 
+func (i GroupWarmPoolArgs) ToOutput(ctx context.Context) pulumix.Output[GroupWarmPool] {
+	return pulumix.Output[GroupWarmPool]{
+		OutputState: i.ToGroupWarmPoolOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupWarmPoolArgs) ToGroupWarmPoolPtrOutput() GroupWarmPoolPtrOutput {
 	return i.ToGroupWarmPoolPtrOutputWithContext(context.Background())
 }
@@ -4587,6 +5122,12 @@ func (i *groupWarmPoolPtrType) ToGroupWarmPoolPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(GroupWarmPoolPtrOutput)
 }
 
+func (i *groupWarmPoolPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupWarmPool] {
+	return pulumix.Output[*GroupWarmPool]{
+		OutputState: i.ToGroupWarmPoolPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupWarmPoolOutput struct{ *pulumi.OutputState }
 
 func (GroupWarmPoolOutput) ElementType() reflect.Type {
@@ -4609,6 +5150,12 @@ func (o GroupWarmPoolOutput) ToGroupWarmPoolPtrOutputWithContext(ctx context.Con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupWarmPool) *GroupWarmPool {
 		return &v
 	}).(GroupWarmPoolPtrOutput)
+}
+
+func (o GroupWarmPoolOutput) ToOutput(ctx context.Context) pulumix.Output[GroupWarmPool] {
+	return pulumix.Output[GroupWarmPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
@@ -4643,6 +5190,12 @@ func (o GroupWarmPoolPtrOutput) ToGroupWarmPoolPtrOutput() GroupWarmPoolPtrOutpu
 
 func (o GroupWarmPoolPtrOutput) ToGroupWarmPoolPtrOutputWithContext(ctx context.Context) GroupWarmPoolPtrOutput {
 	return o
+}
+
+func (o GroupWarmPoolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupWarmPool] {
+	return pulumix.Output[*GroupWarmPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupWarmPoolPtrOutput) Elem() GroupWarmPoolOutput {
@@ -4728,6 +5281,12 @@ func (i GroupWarmPoolInstanceReusePolicyArgs) ToGroupWarmPoolInstanceReusePolicy
 	return pulumi.ToOutputWithContext(ctx, i).(GroupWarmPoolInstanceReusePolicyOutput)
 }
 
+func (i GroupWarmPoolInstanceReusePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GroupWarmPoolInstanceReusePolicy] {
+	return pulumix.Output[GroupWarmPoolInstanceReusePolicy]{
+		OutputState: i.ToGroupWarmPoolInstanceReusePolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GroupWarmPoolInstanceReusePolicyArgs) ToGroupWarmPoolInstanceReusePolicyPtrOutput() GroupWarmPoolInstanceReusePolicyPtrOutput {
 	return i.ToGroupWarmPoolInstanceReusePolicyPtrOutputWithContext(context.Background())
 }
@@ -4769,6 +5328,12 @@ func (i *groupWarmPoolInstanceReusePolicyPtrType) ToGroupWarmPoolInstanceReusePo
 	return pulumi.ToOutputWithContext(ctx, i).(GroupWarmPoolInstanceReusePolicyPtrOutput)
 }
 
+func (i *groupWarmPoolInstanceReusePolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupWarmPoolInstanceReusePolicy] {
+	return pulumix.Output[*GroupWarmPoolInstanceReusePolicy]{
+		OutputState: i.ToGroupWarmPoolInstanceReusePolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupWarmPoolInstanceReusePolicyOutput struct{ *pulumi.OutputState }
 
 func (GroupWarmPoolInstanceReusePolicyOutput) ElementType() reflect.Type {
@@ -4793,6 +5358,12 @@ func (o GroupWarmPoolInstanceReusePolicyOutput) ToGroupWarmPoolInstanceReusePoli
 	}).(GroupWarmPoolInstanceReusePolicyPtrOutput)
 }
 
+func (o GroupWarmPoolInstanceReusePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GroupWarmPoolInstanceReusePolicy] {
+	return pulumix.Output[GroupWarmPoolInstanceReusePolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
 func (o GroupWarmPoolInstanceReusePolicyOutput) ReuseOnScaleIn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GroupWarmPoolInstanceReusePolicy) *bool { return v.ReuseOnScaleIn }).(pulumi.BoolPtrOutput)
@@ -4810,6 +5381,12 @@ func (o GroupWarmPoolInstanceReusePolicyPtrOutput) ToGroupWarmPoolInstanceReuseP
 
 func (o GroupWarmPoolInstanceReusePolicyPtrOutput) ToGroupWarmPoolInstanceReusePolicyPtrOutputWithContext(ctx context.Context) GroupWarmPoolInstanceReusePolicyPtrOutput {
 	return o
+}
+
+func (o GroupWarmPoolInstanceReusePolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupWarmPoolInstanceReusePolicy] {
+	return pulumix.Output[*GroupWarmPoolInstanceReusePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupWarmPoolInstanceReusePolicyPtrOutput) Elem() GroupWarmPoolInstanceReusePolicyOutput {
@@ -4881,6 +5458,12 @@ func (i PolicyPredictiveScalingConfigurationArgs) ToPolicyPredictiveScalingConfi
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationOutput)
 }
 
+func (i PolicyPredictiveScalingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfiguration] {
+	return pulumix.Output[PolicyPredictiveScalingConfiguration]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicyPredictiveScalingConfigurationArgs) ToPolicyPredictiveScalingConfigurationPtrOutput() PolicyPredictiveScalingConfigurationPtrOutput {
 	return i.ToPolicyPredictiveScalingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4922,6 +5505,12 @@ func (i *policyPredictiveScalingConfigurationPtrType) ToPolicyPredictiveScalingC
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationPtrOutput)
 }
 
+func (i *policyPredictiveScalingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfiguration] {
+	return pulumix.Output[*PolicyPredictiveScalingConfiguration]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyPredictiveScalingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PolicyPredictiveScalingConfigurationOutput) ElementType() reflect.Type {
@@ -4944,6 +5533,12 @@ func (o PolicyPredictiveScalingConfigurationOutput) ToPolicyPredictiveScalingCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyPredictiveScalingConfiguration) *PolicyPredictiveScalingConfiguration {
 		return &v
 	}).(PolicyPredictiveScalingConfigurationPtrOutput)
+}
+
+func (o PolicyPredictiveScalingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfiguration] {
+	return pulumix.Output[PolicyPredictiveScalingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group. Valid values are `HonorMaxCapacity` or `IncreaseMaxCapacity`. Default is `HonorMaxCapacity`.
@@ -4985,6 +5580,12 @@ func (o PolicyPredictiveScalingConfigurationPtrOutput) ToPolicyPredictiveScaling
 
 func (o PolicyPredictiveScalingConfigurationPtrOutput) ToPolicyPredictiveScalingConfigurationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationPtrOutput {
 	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfiguration] {
+	return pulumix.Output[*PolicyPredictiveScalingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyPredictiveScalingConfigurationPtrOutput) Elem() PolicyPredictiveScalingConfigurationOutput {
@@ -5104,6 +5705,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationArgs) ToPolicyPre
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationOutput)
 }
 
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecification] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecification]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicyPredictiveScalingConfigurationMetricSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput {
 	return i.ToPolicyPredictiveScalingConfigurationMetricSpecificationPtrOutputWithContext(context.Background())
 }
@@ -5145,6 +5752,12 @@ func (i *policyPredictiveScalingConfigurationMetricSpecificationPtrType) ToPolic
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput)
 }
 
+func (i *policyPredictiveScalingConfigurationMetricSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecification] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecification]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyPredictiveScalingConfigurationMetricSpecificationOutput struct{ *pulumi.OutputState }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationOutput) ElementType() reflect.Type {
@@ -5167,6 +5780,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationOutput) ToPolicyP
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyPredictiveScalingConfigurationMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecification {
 		return &v
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput)
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecification] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Customized capacity metric specification. The field is only valid when you use `customizedLoadMetricSpecification`
@@ -5228,6 +5847,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) ToPoli
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput {
 	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecification] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPtrOutput) Elem() PolicyPredictiveScalingConfigurationMetricSpecificationOutput {
@@ -5343,6 +5968,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationOutput)
 }
 
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationPtrOutput {
 	return i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationPtrOutputWithContext(context.Background())
 }
@@ -5384,6 +6015,12 @@ func (i *policyPredictiveScalingConfigurationMetricSpecificationCustomizedCapaci
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationPtrOutput)
 }
 
+func (i *policyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationOutput struct{ *pulumi.OutputState }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationOutput) ElementType() reflect.Type {
@@ -5408,6 +6045,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationPtrOutput)
 }
 
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
 // List of up to 10 structures that defines custom capacity metric in predictive scaling policy
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationOutput) MetricDataQueries() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArrayOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification) []PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery {
@@ -5427,6 +6070,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationPtrOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationPtrOutput {
 	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationPtrOutput) Elem() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationOutput {
@@ -5498,6 +6147,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryOutput)
 }
 
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArrayInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArray and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArrayOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArrayInput` via:
 //
@@ -5523,6 +6178,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArrayOutput)
 }
 
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery] {
+	return pulumix.Output[[]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryOutput struct{ *pulumi.OutputState }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryOutput) ElementType() reflect.Type {
@@ -5535,6 +6196,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryOutput {
 	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
@@ -5586,6 +6253,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 	return o
 }
 
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery] {
+	return pulumix.Output[[]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArrayOutput) Index(i pulumi.IntInput) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery {
 		return vs[0].([]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery)[vs[1].(int)]
@@ -5633,6 +6306,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatOutput)
 }
 
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatPtrOutput {
 	return i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatPtrOutputWithContext(context.Background())
 }
@@ -5674,6 +6353,12 @@ func (i *policyPredictiveScalingConfigurationMetricSpecificationCustomizedCapaci
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatPtrOutput)
 }
 
+func (i *policyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatOutput struct{ *pulumi.OutputState }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatOutput) ElementType() reflect.Type {
@@ -5696,6 +6381,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat) *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat {
 		return &v
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatPtrOutput)
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
@@ -5731,6 +6422,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatPtrOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatPtrOutput {
 	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatPtrOutput) Elem() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatOutput {
@@ -5814,6 +6511,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricOutput)
 }
 
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput {
 	return i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricPtrOutputWithContext(context.Background())
 }
@@ -5855,6 +6558,12 @@ func (i *policyPredictiveScalingConfigurationMetricSpecificationCustomizedCapaci
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput)
 }
 
+func (i *policyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricOutput struct{ *pulumi.OutputState }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricOutput) ElementType() reflect.Type {
@@ -5877,6 +6586,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric) *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric {
 		return &v
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput)
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Dimensions of the metric.
@@ -5912,6 +6627,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput {
 	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput) Elem() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricOutput {
@@ -5991,6 +6712,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput)
 }
 
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArray and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayInput` via:
 //
@@ -6016,6 +6743,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput)
 }
 
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension] {
+	return pulumix.Output[[]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput struct{ *pulumi.OutputState }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput) ElementType() reflect.Type {
@@ -6028,6 +6761,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput {
 	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the dimension.
@@ -6056,6 +6795,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacit
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput {
 	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension] {
+	return pulumix.Output[[]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput) Index(i pulumi.IntInput) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput {
@@ -6095,6 +6840,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 
 func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationOutput)
+}
+
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationPtrOutput {
@@ -6138,6 +6889,12 @@ func (i *policyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMe
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationPtrOutput)
 }
 
+func (i *policyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationOutput struct{ *pulumi.OutputState }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationOutput) ElementType() reflect.Type {
@@ -6162,6 +6919,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationPtrOutput)
 }
 
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
 // List of up to 10 structures that defines custom load metric in predictive scaling policy
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationOutput) MetricDataQueries() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArrayOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification) []PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery {
@@ -6181,6 +6944,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationPtrOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationPtrOutput {
 	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationPtrOutput) Elem() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationOutput {
@@ -6252,6 +7021,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryOutput)
 }
 
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArrayInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArray and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArrayOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArrayInput` via:
 //
@@ -6277,6 +7052,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArrayOutput)
 }
 
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery] {
+	return pulumix.Output[[]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryOutput struct{ *pulumi.OutputState }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryOutput) ElementType() reflect.Type {
@@ -6289,6 +7070,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryOutput {
 	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
@@ -6340,6 +7127,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 	return o
 }
 
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery] {
+	return pulumix.Output[[]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArrayOutput) Index(i pulumi.IntInput) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery {
 		return vs[0].([]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery)[vs[1].(int)]
@@ -6387,6 +7180,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatOutput)
 }
 
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatPtrOutput {
 	return i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatPtrOutputWithContext(context.Background())
 }
@@ -6428,6 +7227,12 @@ func (i *policyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMe
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatPtrOutput)
 }
 
+func (i *policyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatOutput struct{ *pulumi.OutputState }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatOutput) ElementType() reflect.Type {
@@ -6450,6 +7255,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat) *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat {
 		return &v
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatPtrOutput)
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
@@ -6485,6 +7296,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatPtrOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatPtrOutput {
 	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatPtrOutput) Elem() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatOutput {
@@ -6568,6 +7385,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricOutput)
 }
 
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput {
 	return i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricPtrOutputWithContext(context.Background())
 }
@@ -6609,6 +7432,12 @@ func (i *policyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMe
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput)
 }
 
+func (i *policyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricOutput struct{ *pulumi.OutputState }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricOutput) ElementType() reflect.Type {
@@ -6631,6 +7460,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric) *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric {
 		return &v
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput)
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Dimensions of the metric.
@@ -6666,6 +7501,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput {
 	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput) Elem() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricOutput {
@@ -6745,6 +7586,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput)
 }
 
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArray and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayInput` via:
 //
@@ -6770,6 +7617,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput)
 }
 
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension] {
+	return pulumix.Output[[]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput struct{ *pulumi.OutputState }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput) ElementType() reflect.Type {
@@ -6782,6 +7635,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput {
 	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the dimension.
@@ -6810,6 +7669,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMet
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput {
 	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension] {
+	return pulumix.Output[[]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput) Index(i pulumi.IntInput) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput {
@@ -6849,6 +7714,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 
 func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationOutput)
+}
+
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationPtrOutput {
@@ -6892,6 +7763,12 @@ func (i *policyPredictiveScalingConfigurationMetricSpecificationCustomizedScalin
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationPtrOutput)
 }
 
+func (i *policyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationOutput struct{ *pulumi.OutputState }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationOutput) ElementType() reflect.Type {
@@ -6916,6 +7793,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationPtrOutput)
 }
 
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
 // List of up to 10 structures that defines custom scaling metric in predictive scaling policy
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationOutput) MetricDataQueries() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArrayOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification) []PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery {
@@ -6935,6 +7818,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationPtrOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationPtrOutput {
 	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationPtrOutput) Elem() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationOutput {
@@ -7006,6 +7895,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryOutput)
 }
 
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArrayInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArray and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArrayOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArrayInput` via:
 //
@@ -7031,6 +7926,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArrayOutput)
 }
 
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery] {
+	return pulumix.Output[[]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryOutput struct{ *pulumi.OutputState }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryOutput) ElementType() reflect.Type {
@@ -7043,6 +7944,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryOutput {
 	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
@@ -7094,6 +8001,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 	return o
 }
 
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery] {
+	return pulumix.Output[[]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArrayOutput) Index(i pulumi.IntInput) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery {
 		return vs[0].([]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery)[vs[1].(int)]
@@ -7141,6 +8054,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatOutput)
 }
 
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatPtrOutput {
 	return i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatPtrOutputWithContext(context.Background())
 }
@@ -7182,6 +8101,12 @@ func (i *policyPredictiveScalingConfigurationMetricSpecificationCustomizedScalin
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatPtrOutput)
 }
 
+func (i *policyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatOutput struct{ *pulumi.OutputState }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatOutput) ElementType() reflect.Type {
@@ -7204,6 +8129,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat) *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat {
 		return &v
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatPtrOutput)
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
@@ -7239,6 +8170,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatPtrOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatPtrOutput {
 	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatPtrOutput) Elem() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatOutput {
@@ -7322,6 +8259,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricOutput)
 }
 
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput {
 	return i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricPtrOutputWithContext(context.Background())
 }
@@ -7363,6 +8306,12 @@ func (i *policyPredictiveScalingConfigurationMetricSpecificationCustomizedScalin
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput)
 }
 
+func (i *policyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricOutput struct{ *pulumi.OutputState }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricOutput) ElementType() reflect.Type {
@@ -7385,6 +8334,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric) *PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric {
 		return &v
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput)
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Dimensions of the metric.
@@ -7420,6 +8375,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput {
 	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricPtrOutput) Elem() PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricOutput {
@@ -7499,6 +8460,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput)
 }
 
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayInput is an input type that accepts PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArray and PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput values.
 // You can construct a concrete instance of `PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayInput` via:
 //
@@ -7524,6 +8491,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput)
 }
 
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension] {
+	return pulumix.Output[[]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput struct{ *pulumi.OutputState }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput) ElementType() reflect.Type {
@@ -7536,6 +8509,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput {
 	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the dimension.
@@ -7564,6 +8543,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput {
 	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension] {
+	return pulumix.Output[[]PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrayOutput) Index(i pulumi.IntInput) PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionOutput {
@@ -7609,6 +8594,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMet
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput)
 }
 
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput {
 	return i.ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutputWithContext(context.Background())
 }
@@ -7650,6 +8641,12 @@ func (i *policyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMe
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput)
 }
 
+func (i *policyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput struct{ *pulumi.OutputState }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput) ElementType() reflect.Type {
@@ -7672,6 +8669,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMet
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification {
 		return &v
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput)
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Metric type. Valid values are `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`, or `ALBTargetGroupRequestCount`.
@@ -7700,6 +8703,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMet
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput {
 	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput) Elem() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput {
@@ -7769,6 +8778,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricP
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput)
 }
 
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput {
 	return i.ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutputWithContext(context.Background())
 }
@@ -7810,6 +8825,12 @@ func (i *policyPredictiveScalingConfigurationMetricSpecificationPredefinedMetric
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput)
 }
 
+func (i *policyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput struct{ *pulumi.OutputState }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput) ElementType() reflect.Type {
@@ -7832,6 +8853,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricP
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification {
 		return &v
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput)
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric. For example, if the metric type is `ASGCPUUtilization`, the Auto Scaling group's total CPU metric is used as the load metric, and the average CPU metric is used for the scaling metric. Valid values are `ASGCPUUtilization`, `ASGNetworkIn`, `ASGNetworkOut`, or `ALBRequestCount`.
@@ -7860,6 +8887,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricP
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput {
 	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput) Elem() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput {
@@ -7929,6 +8962,12 @@ func (i PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScaling
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput)
 }
 
+func (i PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput {
 	return i.ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutputWithContext(context.Background())
 }
@@ -7970,6 +9009,12 @@ func (i *policyPredictiveScalingConfigurationMetricSpecificationPredefinedScalin
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput)
 }
 
+func (i *policyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification]{
+		OutputState: i.ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput struct{ *pulumi.OutputState }
 
 func (PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput) ElementType() reflect.Type {
@@ -7992,6 +9037,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScaling
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification) *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification {
 		return &v
 	}).(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput)
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification] {
+	return pulumix.Output[PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
@@ -8020,6 +9071,12 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScaling
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput) ToPolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput {
 	return o
+}
+
+func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification] {
+	return pulumix.Output[*PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput) Elem() PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput {
@@ -8115,6 +9172,12 @@ func (i PolicyStepAdjustmentArgs) ToPolicyStepAdjustmentOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyStepAdjustmentOutput)
 }
 
+func (i PolicyStepAdjustmentArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyStepAdjustment] {
+	return pulumix.Output[PolicyStepAdjustment]{
+		OutputState: i.ToPolicyStepAdjustmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PolicyStepAdjustmentArrayInput is an input type that accepts PolicyStepAdjustmentArray and PolicyStepAdjustmentArrayOutput values.
 // You can construct a concrete instance of `PolicyStepAdjustmentArrayInput` via:
 //
@@ -8140,6 +9203,12 @@ func (i PolicyStepAdjustmentArray) ToPolicyStepAdjustmentArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyStepAdjustmentArrayOutput)
 }
 
+func (i PolicyStepAdjustmentArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyStepAdjustment] {
+	return pulumix.Output[[]PolicyStepAdjustment]{
+		OutputState: i.ToPolicyStepAdjustmentArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyStepAdjustmentOutput struct{ *pulumi.OutputState }
 
 func (PolicyStepAdjustmentOutput) ElementType() reflect.Type {
@@ -8152,6 +9221,12 @@ func (o PolicyStepAdjustmentOutput) ToPolicyStepAdjustmentOutput() PolicyStepAdj
 
 func (o PolicyStepAdjustmentOutput) ToPolicyStepAdjustmentOutputWithContext(ctx context.Context) PolicyStepAdjustmentOutput {
 	return o
+}
+
+func (o PolicyStepAdjustmentOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyStepAdjustment] {
+	return pulumix.Output[PolicyStepAdjustment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Lower bound for the
@@ -8192,6 +9267,12 @@ func (o PolicyStepAdjustmentArrayOutput) ToPolicyStepAdjustmentArrayOutput() Pol
 
 func (o PolicyStepAdjustmentArrayOutput) ToPolicyStepAdjustmentArrayOutputWithContext(ctx context.Context) PolicyStepAdjustmentArrayOutput {
 	return o
+}
+
+func (o PolicyStepAdjustmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyStepAdjustment] {
+	return pulumix.Output[[]PolicyStepAdjustment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyStepAdjustmentArrayOutput) Index(i pulumi.IntInput) PolicyStepAdjustmentOutput {
@@ -8245,6 +9326,12 @@ func (i PolicyTargetTrackingConfigurationArgs) ToPolicyTargetTrackingConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingConfigurationOutput)
 }
 
+func (i PolicyTargetTrackingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingConfiguration] {
+	return pulumix.Output[PolicyTargetTrackingConfiguration]{
+		OutputState: i.ToPolicyTargetTrackingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicyTargetTrackingConfigurationArgs) ToPolicyTargetTrackingConfigurationPtrOutput() PolicyTargetTrackingConfigurationPtrOutput {
 	return i.ToPolicyTargetTrackingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -8286,6 +9373,12 @@ func (i *policyTargetTrackingConfigurationPtrType) ToPolicyTargetTrackingConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingConfigurationPtrOutput)
 }
 
+func (i *policyTargetTrackingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyTargetTrackingConfiguration] {
+	return pulumix.Output[*PolicyTargetTrackingConfiguration]{
+		OutputState: i.ToPolicyTargetTrackingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyTargetTrackingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PolicyTargetTrackingConfigurationOutput) ElementType() reflect.Type {
@@ -8308,6 +9401,12 @@ func (o PolicyTargetTrackingConfigurationOutput) ToPolicyTargetTrackingConfigura
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyTargetTrackingConfiguration) *PolicyTargetTrackingConfiguration {
 		return &v
 	}).(PolicyTargetTrackingConfigurationPtrOutput)
+}
+
+func (o PolicyTargetTrackingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingConfiguration] {
+	return pulumix.Output[PolicyTargetTrackingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Customized metric. Conflicts with `predefinedMetricSpecification`.
@@ -8346,6 +9445,12 @@ func (o PolicyTargetTrackingConfigurationPtrOutput) ToPolicyTargetTrackingConfig
 
 func (o PolicyTargetTrackingConfigurationPtrOutput) ToPolicyTargetTrackingConfigurationPtrOutputWithContext(ctx context.Context) PolicyTargetTrackingConfigurationPtrOutput {
 	return o
+}
+
+func (o PolicyTargetTrackingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyTargetTrackingConfiguration] {
+	return pulumix.Output[*PolicyTargetTrackingConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyTargetTrackingConfigurationPtrOutput) Elem() PolicyTargetTrackingConfigurationOutput {
@@ -8451,6 +9556,12 @@ func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs) ToPo
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput)
 }
 
+func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingConfigurationCustomizedMetricSpecification] {
+	return pulumix.Output[PolicyTargetTrackingConfigurationCustomizedMetricSpecification]{
+		OutputState: i.ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs) ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput() PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput {
 	return i.ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutputWithContext(context.Background())
 }
@@ -8492,6 +9603,12 @@ func (i *policyTargetTrackingConfigurationCustomizedMetricSpecificationPtrType) 
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput)
 }
 
+func (i *policyTargetTrackingConfigurationCustomizedMetricSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyTargetTrackingConfigurationCustomizedMetricSpecification] {
+	return pulumix.Output[*PolicyTargetTrackingConfigurationCustomizedMetricSpecification]{
+		OutputState: i.ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput struct{ *pulumi.OutputState }
 
 func (PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput) ElementType() reflect.Type {
@@ -8514,6 +9631,12 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput) To
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyTargetTrackingConfigurationCustomizedMetricSpecification) *PolicyTargetTrackingConfigurationCustomizedMetricSpecification {
 		return &v
 	}).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput)
+}
+
+func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingConfigurationCustomizedMetricSpecification] {
+	return pulumix.Output[PolicyTargetTrackingConfigurationCustomizedMetricSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Dimensions of the metric.
@@ -8562,6 +9685,12 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput)
 
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput) ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput {
 	return o
+}
+
+func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyTargetTrackingConfigurationCustomizedMetricSpecification] {
+	return pulumix.Output[*PolicyTargetTrackingConfigurationCustomizedMetricSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationPtrOutput) Elem() PolicyTargetTrackingConfigurationCustomizedMetricSpecificationOutput {
@@ -8683,6 +9812,12 @@ func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricOutput)
 }
 
+func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric] {
+	return pulumix.Output[PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric]{
+		OutputState: i.ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArrayInput is an input type that accepts PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArray and PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArrayOutput values.
 // You can construct a concrete instance of `PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArrayInput` via:
 //
@@ -8708,6 +9843,12 @@ func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArra
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArrayOutput)
 }
 
+func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric] {
+	return pulumix.Output[[]PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric]{
+		OutputState: i.ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricOutput struct{ *pulumi.OutputState }
 
 func (PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricOutput) ElementType() reflect.Type {
@@ -8720,6 +9861,12 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricOutp
 
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricOutput) ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricOutputWithContext(ctx context.Context) PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricOutput {
 	return o
+}
+
+func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric] {
+	return pulumix.Output[PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Math expression used on the returned metric. You must specify either `expression` or `metricStat`, but not both.
@@ -8767,6 +9914,12 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArra
 	return o
 }
 
+func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric] {
+	return pulumix.Output[[]PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArrayOutput) Index(i pulumi.IntInput) PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric {
 		return vs[0].([]PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric)[vs[1].(int)]
@@ -8810,6 +9963,12 @@ func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDime
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionOutput)
 }
 
+func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension] {
+	return pulumix.Output[PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension]{
+		OutputState: i.ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayInput is an input type that accepts PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArray and PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayOutput values.
 // You can construct a concrete instance of `PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayInput` via:
 //
@@ -8835,6 +9994,12 @@ func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDime
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayOutput)
 }
 
+func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension] {
+	return pulumix.Output[[]PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension]{
+		OutputState: i.ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionOutput struct{ *pulumi.OutputState }
 
 func (PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionOutput) ElementType() reflect.Type {
@@ -8847,6 +10012,12 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDime
 
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionOutput) ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionOutputWithContext(ctx context.Context) PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionOutput {
 	return o
+}
+
+func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension] {
+	return pulumix.Output[PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the dimension.
@@ -8875,6 +10046,12 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDime
 
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayOutput) ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayOutputWithContext(ctx context.Context) PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayOutput {
 	return o
+}
+
+func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension] {
+	return pulumix.Output[[]PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrayOutput) Index(i pulumi.IntInput) PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionOutput {
@@ -8924,6 +10101,12 @@ func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetr
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatOutput)
 }
 
+func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat] {
+	return pulumix.Output[PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat]{
+		OutputState: i.ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs) ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutput() PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutput {
 	return i.ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutputWithContext(context.Background())
 }
@@ -8965,6 +10148,12 @@ func (i *policyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMet
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutput)
 }
 
+func (i *policyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat] {
+	return pulumix.Output[*PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat]{
+		OutputState: i.ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatOutput struct{ *pulumi.OutputState }
 
 func (PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatOutput) ElementType() reflect.Type {
@@ -8987,6 +10176,12 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat) *PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat {
 		return &v
 	}).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutput)
+}
+
+func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat] {
+	return pulumix.Output[PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
@@ -9022,6 +10217,12 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetr
 
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutput) ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutputWithContext(ctx context.Context) PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutput {
 	return o
+}
+
+func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat] {
+	return pulumix.Output[*PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatPtrOutput) Elem() PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatOutput {
@@ -9105,6 +10306,12 @@ func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetr
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricOutput)
 }
 
+func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric] {
+	return pulumix.Output[PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric]{
+		OutputState: i.ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs) ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutput() PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutput {
 	return i.ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutputWithContext(context.Background())
 }
@@ -9146,6 +10353,12 @@ func (i *policyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMet
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutput)
 }
 
+func (i *policyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric] {
+	return pulumix.Output[*PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric]{
+		OutputState: i.ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricOutput struct{ *pulumi.OutputState }
 
 func (PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricOutput) ElementType() reflect.Type {
@@ -9168,6 +10381,12 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric) *PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric {
 		return &v
 	}).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutput)
+}
+
+func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric] {
+	return pulumix.Output[PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Dimensions of the metric.
@@ -9203,6 +10422,12 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetr
 
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutput) ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutputWithContext(ctx context.Context) PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutput {
 	return o
+}
+
+func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric] {
+	return pulumix.Output[*PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricPtrOutput) Elem() PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricOutput {
@@ -9282,6 +10507,12 @@ func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetr
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionOutput)
 }
 
+func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension] {
+	return pulumix.Output[PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension]{
+		OutputState: i.ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayInput is an input type that accepts PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArray and PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayOutput values.
 // You can construct a concrete instance of `PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayInput` via:
 //
@@ -9307,6 +10538,12 @@ func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetr
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayOutput)
 }
 
+func (i PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension] {
+	return pulumix.Output[[]PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension]{
+		OutputState: i.ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionOutput struct{ *pulumi.OutputState }
 
 func (PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionOutput) ElementType() reflect.Type {
@@ -9319,6 +10556,12 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetr
 
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionOutput) ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionOutputWithContext(ctx context.Context) PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionOutput {
 	return o
+}
+
+func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension] {
+	return pulumix.Output[PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the dimension.
@@ -9347,6 +10590,12 @@ func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetr
 
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayOutput) ToPolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayOutputWithContext(ctx context.Context) PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayOutput {
 	return o
+}
+
+func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension] {
+	return pulumix.Output[[]PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrayOutput) Index(i pulumi.IntInput) PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionOutput {
@@ -9392,6 +10641,12 @@ func (i PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs) ToPo
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput)
 }
 
+func (i PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingConfigurationPredefinedMetricSpecification] {
+	return pulumix.Output[PolicyTargetTrackingConfigurationPredefinedMetricSpecification]{
+		OutputState: i.ToPolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs) ToPolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput() PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput {
 	return i.ToPolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutputWithContext(context.Background())
 }
@@ -9433,6 +10688,12 @@ func (i *policyTargetTrackingConfigurationPredefinedMetricSpecificationPtrType) 
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput)
 }
 
+func (i *policyTargetTrackingConfigurationPredefinedMetricSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyTargetTrackingConfigurationPredefinedMetricSpecification] {
+	return pulumix.Output[*PolicyTargetTrackingConfigurationPredefinedMetricSpecification]{
+		OutputState: i.ToPolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput struct{ *pulumi.OutputState }
 
 func (PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput) ElementType() reflect.Type {
@@ -9455,6 +10716,12 @@ func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput) To
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyTargetTrackingConfigurationPredefinedMetricSpecification) *PolicyTargetTrackingConfigurationPredefinedMetricSpecification {
 		return &v
 	}).(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput)
+}
+
+func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyTargetTrackingConfigurationPredefinedMetricSpecification] {
+	return pulumix.Output[PolicyTargetTrackingConfigurationPredefinedMetricSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Metric type.
@@ -9481,6 +10748,12 @@ func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput)
 
 func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput) ToPolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutputWithContext(ctx context.Context) PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput {
 	return o
+}
+
+func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyTargetTrackingConfigurationPredefinedMetricSpecification] {
+	return pulumix.Output[*PolicyTargetTrackingConfigurationPredefinedMetricSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput) Elem() PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput {
@@ -9554,6 +10827,12 @@ func (i TagTagArgs) ToTagTagOutputWithContext(ctx context.Context) TagTagOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(TagTagOutput)
 }
 
+func (i TagTagArgs) ToOutput(ctx context.Context) pulumix.Output[TagTag] {
+	return pulumix.Output[TagTag]{
+		OutputState: i.ToTagTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TagTagArgs) ToTagTagPtrOutput() TagTagPtrOutput {
 	return i.ToTagTagPtrOutputWithContext(context.Background())
 }
@@ -9595,6 +10874,12 @@ func (i *tagTagPtrType) ToTagTagPtrOutputWithContext(ctx context.Context) TagTag
 	return pulumi.ToOutputWithContext(ctx, i).(TagTagPtrOutput)
 }
 
+func (i *tagTagPtrType) ToOutput(ctx context.Context) pulumix.Output[*TagTag] {
+	return pulumix.Output[*TagTag]{
+		OutputState: i.ToTagTagPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TagTagOutput struct{ *pulumi.OutputState }
 
 func (TagTagOutput) ElementType() reflect.Type {
@@ -9617,6 +10902,12 @@ func (o TagTagOutput) ToTagTagPtrOutputWithContext(ctx context.Context) TagTagPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagTag) *TagTag {
 		return &v
 	}).(TagTagPtrOutput)
+}
+
+func (o TagTagOutput) ToOutput(ctx context.Context) pulumix.Output[TagTag] {
+	return pulumix.Output[TagTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Tag name.
@@ -9646,6 +10937,12 @@ func (o TagTagPtrOutput) ToTagTagPtrOutput() TagTagPtrOutput {
 
 func (o TagTagPtrOutput) ToTagTagPtrOutputWithContext(ctx context.Context) TagTagPtrOutput {
 	return o
+}
+
+func (o TagTagPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TagTag] {
+	return pulumix.Output[*TagTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TagTagPtrOutput) Elem() TagTagOutput {
@@ -9733,6 +11030,12 @@ func (i TrafficSourceAttachmentTrafficSourceArgs) ToTrafficSourceAttachmentTraff
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficSourceAttachmentTrafficSourceOutput)
 }
 
+func (i TrafficSourceAttachmentTrafficSourceArgs) ToOutput(ctx context.Context) pulumix.Output[TrafficSourceAttachmentTrafficSource] {
+	return pulumix.Output[TrafficSourceAttachmentTrafficSource]{
+		OutputState: i.ToTrafficSourceAttachmentTrafficSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TrafficSourceAttachmentTrafficSourceArgs) ToTrafficSourceAttachmentTrafficSourcePtrOutput() TrafficSourceAttachmentTrafficSourcePtrOutput {
 	return i.ToTrafficSourceAttachmentTrafficSourcePtrOutputWithContext(context.Background())
 }
@@ -9774,6 +11077,12 @@ func (i *trafficSourceAttachmentTrafficSourcePtrType) ToTrafficSourceAttachmentT
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficSourceAttachmentTrafficSourcePtrOutput)
 }
 
+func (i *trafficSourceAttachmentTrafficSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*TrafficSourceAttachmentTrafficSource] {
+	return pulumix.Output[*TrafficSourceAttachmentTrafficSource]{
+		OutputState: i.ToTrafficSourceAttachmentTrafficSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TrafficSourceAttachmentTrafficSourceOutput struct{ *pulumi.OutputState }
 
 func (TrafficSourceAttachmentTrafficSourceOutput) ElementType() reflect.Type {
@@ -9796,6 +11105,12 @@ func (o TrafficSourceAttachmentTrafficSourceOutput) ToTrafficSourceAttachmentTra
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrafficSourceAttachmentTrafficSource) *TrafficSourceAttachmentTrafficSource {
 		return &v
 	}).(TrafficSourceAttachmentTrafficSourcePtrOutput)
+}
+
+func (o TrafficSourceAttachmentTrafficSourceOutput) ToOutput(ctx context.Context) pulumix.Output[TrafficSourceAttachmentTrafficSource] {
+	return pulumix.Output[TrafficSourceAttachmentTrafficSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
@@ -9824,6 +11139,12 @@ func (o TrafficSourceAttachmentTrafficSourcePtrOutput) ToTrafficSourceAttachment
 
 func (o TrafficSourceAttachmentTrafficSourcePtrOutput) ToTrafficSourceAttachmentTrafficSourcePtrOutputWithContext(ctx context.Context) TrafficSourceAttachmentTrafficSourcePtrOutput {
 	return o
+}
+
+func (o TrafficSourceAttachmentTrafficSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TrafficSourceAttachmentTrafficSource] {
+	return pulumix.Output[*TrafficSourceAttachmentTrafficSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TrafficSourceAttachmentTrafficSourcePtrOutput) Elem() TrafficSourceAttachmentTrafficSourceOutput {
@@ -9897,6 +11218,12 @@ func (i GetAmiIdsFilterArgs) ToGetAmiIdsFilterOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetAmiIdsFilterOutput)
 }
 
+func (i GetAmiIdsFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetAmiIdsFilter] {
+	return pulumix.Output[GetAmiIdsFilter]{
+		OutputState: i.ToGetAmiIdsFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetAmiIdsFilterArrayInput is an input type that accepts GetAmiIdsFilterArray and GetAmiIdsFilterArrayOutput values.
 // You can construct a concrete instance of `GetAmiIdsFilterArrayInput` via:
 //
@@ -9922,6 +11249,12 @@ func (i GetAmiIdsFilterArray) ToGetAmiIdsFilterArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetAmiIdsFilterArrayOutput)
 }
 
+func (i GetAmiIdsFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAmiIdsFilter] {
+	return pulumix.Output[[]GetAmiIdsFilter]{
+		OutputState: i.ToGetAmiIdsFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetAmiIdsFilterOutput struct{ *pulumi.OutputState }
 
 func (GetAmiIdsFilterOutput) ElementType() reflect.Type {
@@ -9934,6 +11267,12 @@ func (o GetAmiIdsFilterOutput) ToGetAmiIdsFilterOutput() GetAmiIdsFilterOutput {
 
 func (o GetAmiIdsFilterOutput) ToGetAmiIdsFilterOutputWithContext(ctx context.Context) GetAmiIdsFilterOutput {
 	return o
+}
+
+func (o GetAmiIdsFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetAmiIdsFilter] {
+	return pulumix.Output[GetAmiIdsFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:<tag name>`
@@ -9958,6 +11297,12 @@ func (o GetAmiIdsFilterArrayOutput) ToGetAmiIdsFilterArrayOutput() GetAmiIdsFilt
 
 func (o GetAmiIdsFilterArrayOutput) ToGetAmiIdsFilterArrayOutputWithContext(ctx context.Context) GetAmiIdsFilterArrayOutput {
 	return o
+}
+
+func (o GetAmiIdsFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAmiIdsFilter] {
+	return pulumix.Output[[]GetAmiIdsFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAmiIdsFilterArrayOutput) Index(i pulumi.IntInput) GetAmiIdsFilterOutput {
@@ -10007,6 +11352,12 @@ func (i GetGroupLaunchTemplateArgs) ToGetGroupLaunchTemplateOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupLaunchTemplateOutput)
 }
 
+func (i GetGroupLaunchTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupLaunchTemplate] {
+	return pulumix.Output[GetGroupLaunchTemplate]{
+		OutputState: i.ToGetGroupLaunchTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetGroupLaunchTemplateArrayInput is an input type that accepts GetGroupLaunchTemplateArray and GetGroupLaunchTemplateArrayOutput values.
 // You can construct a concrete instance of `GetGroupLaunchTemplateArrayInput` via:
 //
@@ -10032,6 +11383,12 @@ func (i GetGroupLaunchTemplateArray) ToGetGroupLaunchTemplateArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupLaunchTemplateArrayOutput)
 }
 
+func (i GetGroupLaunchTemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupLaunchTemplate] {
+	return pulumix.Output[[]GetGroupLaunchTemplate]{
+		OutputState: i.ToGetGroupLaunchTemplateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupLaunchTemplateOutput struct{ *pulumi.OutputState }
 
 func (GetGroupLaunchTemplateOutput) ElementType() reflect.Type {
@@ -10044,6 +11401,12 @@ func (o GetGroupLaunchTemplateOutput) ToGetGroupLaunchTemplateOutput() GetGroupL
 
 func (o GetGroupLaunchTemplateOutput) ToGetGroupLaunchTemplateOutputWithContext(ctx context.Context) GetGroupLaunchTemplateOutput {
 	return o
+}
+
+func (o GetGroupLaunchTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupLaunchTemplate] {
+	return pulumix.Output[GetGroupLaunchTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the launch template.
@@ -10073,6 +11436,12 @@ func (o GetGroupLaunchTemplateArrayOutput) ToGetGroupLaunchTemplateArrayOutput()
 
 func (o GetGroupLaunchTemplateArrayOutput) ToGetGroupLaunchTemplateArrayOutputWithContext(ctx context.Context) GetGroupLaunchTemplateArrayOutput {
 	return o
+}
+
+func (o GetGroupLaunchTemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupLaunchTemplate] {
+	return pulumix.Output[[]GetGroupLaunchTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupLaunchTemplateArrayOutput) Index(i pulumi.IntInput) GetGroupLaunchTemplateOutput {
@@ -10118,6 +11487,12 @@ func (i GetGroupMixedInstancesPolicyArgs) ToGetGroupMixedInstancesPolicyOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicy] {
+	return pulumix.Output[GetGroupMixedInstancesPolicy]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetGroupMixedInstancesPolicyArrayInput is an input type that accepts GetGroupMixedInstancesPolicyArray and GetGroupMixedInstancesPolicyArrayOutput values.
 // You can construct a concrete instance of `GetGroupMixedInstancesPolicyArrayInput` via:
 //
@@ -10143,6 +11518,12 @@ func (i GetGroupMixedInstancesPolicyArray) ToGetGroupMixedInstancesPolicyArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyArrayOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicy] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicy]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupMixedInstancesPolicyOutput struct{ *pulumi.OutputState }
 
 func (GetGroupMixedInstancesPolicyOutput) ElementType() reflect.Type {
@@ -10155,6 +11536,12 @@ func (o GetGroupMixedInstancesPolicyOutput) ToGetGroupMixedInstancesPolicyOutput
 
 func (o GetGroupMixedInstancesPolicyOutput) ToGetGroupMixedInstancesPolicyOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicy] {
+	return pulumix.Output[GetGroupMixedInstancesPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of instances distribution objects.
@@ -10183,6 +11570,12 @@ func (o GetGroupMixedInstancesPolicyArrayOutput) ToGetGroupMixedInstancesPolicyA
 
 func (o GetGroupMixedInstancesPolicyArrayOutput) ToGetGroupMixedInstancesPolicyArrayOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyArrayOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicy] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupMixedInstancesPolicyArrayOutput) Index(i pulumi.IntInput) GetGroupMixedInstancesPolicyOutput {
@@ -10242,6 +11635,12 @@ func (i GetGroupMixedInstancesPolicyInstancesDistributionArgs) ToGetGroupMixedIn
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyInstancesDistributionOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyInstancesDistributionArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyInstancesDistribution] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyInstancesDistribution]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyInstancesDistributionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetGroupMixedInstancesPolicyInstancesDistributionArrayInput is an input type that accepts GetGroupMixedInstancesPolicyInstancesDistributionArray and GetGroupMixedInstancesPolicyInstancesDistributionArrayOutput values.
 // You can construct a concrete instance of `GetGroupMixedInstancesPolicyInstancesDistributionArrayInput` via:
 //
@@ -10267,6 +11666,12 @@ func (i GetGroupMixedInstancesPolicyInstancesDistributionArray) ToGetGroupMixedI
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyInstancesDistributionArrayOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyInstancesDistributionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyInstancesDistribution] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyInstancesDistribution]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyInstancesDistributionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupMixedInstancesPolicyInstancesDistributionOutput struct{ *pulumi.OutputState }
 
 func (GetGroupMixedInstancesPolicyInstancesDistributionOutput) ElementType() reflect.Type {
@@ -10279,6 +11684,12 @@ func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) ToGetGroupMixed
 
 func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) ToGetGroupMixedInstancesPolicyInstancesDistributionOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyInstancesDistributionOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyInstancesDistributionOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyInstancesDistribution] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyInstancesDistribution]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Strategy used when launching on-demand instances.
@@ -10326,6 +11737,12 @@ func (o GetGroupMixedInstancesPolicyInstancesDistributionArrayOutput) ToGetGroup
 	return o
 }
 
+func (o GetGroupMixedInstancesPolicyInstancesDistributionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyInstancesDistribution] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyInstancesDistribution]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetGroupMixedInstancesPolicyInstancesDistributionArrayOutput) Index(i pulumi.IntInput) GetGroupMixedInstancesPolicyInstancesDistributionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGroupMixedInstancesPolicyInstancesDistribution {
 		return vs[0].([]GetGroupMixedInstancesPolicyInstancesDistribution)[vs[1].(int)]
@@ -10369,6 +11786,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateArgs) ToGetGroupMixedInstances
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplate] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplate]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetGroupMixedInstancesPolicyLaunchTemplateArrayInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateArray and GetGroupMixedInstancesPolicyLaunchTemplateArrayOutput values.
 // You can construct a concrete instance of `GetGroupMixedInstancesPolicyLaunchTemplateArrayInput` via:
 //
@@ -10394,6 +11817,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateArray) ToGetGroupMixedInstance
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateArrayOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplate] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplate]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupMixedInstancesPolicyLaunchTemplateOutput struct{ *pulumi.OutputState }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOutput) ElementType() reflect.Type {
@@ -10406,6 +11835,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOutput) ToGetGroupMixedInstanc
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplate] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of overriding launch template specification objects.
@@ -10434,6 +11869,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateArrayOutput) ToGetGroupMixedIn
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateArrayOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateArrayOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateArrayOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplate] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateArrayOutput) Index(i pulumi.IntInput) GetGroupMixedInstancesPolicyLaunchTemplateOutput {
@@ -10483,6 +11924,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArg
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArrayInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArray and GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArrayOutput values.
 // You can construct a concrete instance of `GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArrayInput` via:
 //
@@ -10508,6 +11955,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArrayOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput struct{ *pulumi.OutputState }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput) ElementType() reflect.Type {
@@ -10520,6 +11973,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOut
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the launch template.
@@ -10553,6 +12012,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArr
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArrayOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArrayOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArrayOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArrayOutput) Index(i pulumi.IntInput) GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationOutput {
@@ -10608,6 +12073,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideArgs) ToGetGroupMixedI
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverride] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverride]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideArrayInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideArray and GetGroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput values.
 // You can construct a concrete instance of `GetGroupMixedInstancesPolicyLaunchTemplateOverrideArrayInput` via:
 //
@@ -10633,6 +12104,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideArray) ToGetGroupMixed
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverride] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverride]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideOutput struct{ *pulumi.OutputState }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideOutput) ElementType() reflect.Type {
@@ -10645,6 +12122,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideOutput) ToGetGroupMixe
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateOverrideOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverride] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of instance requirements objects.
@@ -10684,6 +12167,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput) ToGetGrou
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverride] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverride]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput) Index(i pulumi.IntInput) GetGroupMixedInstancesPolicyLaunchTemplateOverrideOutput {
@@ -10811,6 +12300,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArg
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArrayInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArray and GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArrayOutput values.
 // You can construct a concrete instance of `GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArrayInput` via:
 //
@@ -10836,6 +12331,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArrayOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput struct{ *pulumi.OutputState }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) ElementType() reflect.Type {
@@ -10848,6 +12349,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOut
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) AcceleratorCounts() GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArrayOutput {
@@ -11024,6 +12531,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArr
 	return o
 }
 
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArrayOutput) Index(i pulumi.IntInput) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement {
 		return vs[0].([]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement)[vs[1].(int)]
@@ -11067,6 +12580,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcc
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArrayInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArray and GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArrayOutput values.
 // You can construct a concrete instance of `GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArrayInput` via:
 //
@@ -11092,6 +12611,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcc
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArrayOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountOutput struct{ *pulumi.OutputState }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountOutput) ElementType() reflect.Type {
@@ -11104,6 +12629,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcc
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Maximum.
@@ -11132,6 +12663,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcc
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArrayOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArrayOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArrayOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArrayOutput) Index(i pulumi.IntInput) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountOutput {
@@ -11177,6 +12714,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcc
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArrayInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArray and GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArrayOutput values.
 // You can construct a concrete instance of `GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArrayInput` via:
 //
@@ -11202,6 +12745,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcc
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArrayOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibOutput struct{ *pulumi.OutputState }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibOutput) ElementType() reflect.Type {
@@ -11214,6 +12763,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcc
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Maximum.
@@ -11242,6 +12797,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcc
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArrayOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArrayOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArrayOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMib]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArrayOutput) Index(i pulumi.IntInput) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibOutput {
@@ -11287,6 +12848,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBas
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArrayInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArray and GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArrayOutput values.
 // You can construct a concrete instance of `GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArrayInput` via:
 //
@@ -11312,6 +12879,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBas
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArrayOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpOutput struct{ *pulumi.OutputState }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpOutput) ElementType() reflect.Type {
@@ -11324,6 +12897,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBas
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Maximum.
@@ -11352,6 +12931,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBas
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArrayOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArrayOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArrayOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArrayOutput) Index(i pulumi.IntInput) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpOutput {
@@ -11397,6 +12982,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMem
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArrayInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArray and GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArrayOutput values.
 // You can construct a concrete instance of `GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArrayInput` via:
 //
@@ -11422,6 +13013,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMem
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArrayOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusOutput struct{ *pulumi.OutputState }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusOutput) ElementType() reflect.Type {
@@ -11434,6 +13031,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMem
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Maximum.
@@ -11462,6 +13065,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMem
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArrayOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArrayOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArrayOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpus]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArrayOutput) Index(i pulumi.IntInput) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusOutput {
@@ -11507,6 +13116,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMem
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArrayInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArray and GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArrayOutput values.
 // You can construct a concrete instance of `GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArrayInput` via:
 //
@@ -11532,6 +13147,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMem
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArrayOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibOutput struct{ *pulumi.OutputState }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibOutput) ElementType() reflect.Type {
@@ -11544,6 +13165,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMem
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Maximum.
@@ -11572,6 +13199,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMem
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArrayOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArrayOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArrayOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMib]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArrayOutput) Index(i pulumi.IntInput) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibOutput {
@@ -11617,6 +13250,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNet
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArrayInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArray and GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArrayOutput values.
 // You can construct a concrete instance of `GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArrayInput` via:
 //
@@ -11642,6 +13281,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNet
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArrayOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpOutput struct{ *pulumi.OutputState }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpOutput) ElementType() reflect.Type {
@@ -11654,6 +13299,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNet
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Maximum.
@@ -11682,6 +13333,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNet
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArrayOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArrayOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArrayOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArrayOutput) Index(i pulumi.IntInput) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpOutput {
@@ -11727,6 +13384,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNet
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArrayInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArray and GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArrayOutput values.
 // You can construct a concrete instance of `GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArrayInput` via:
 //
@@ -11752,6 +13415,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNet
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArrayOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountOutput struct{ *pulumi.OutputState }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountOutput) ElementType() reflect.Type {
@@ -11764,6 +13433,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNet
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Maximum.
@@ -11792,6 +13467,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNet
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArrayOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArrayOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArrayOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArrayOutput) Index(i pulumi.IntInput) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountOutput {
@@ -11837,6 +13518,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTot
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArrayInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArray and GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArrayOutput values.
 // You can construct a concrete instance of `GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArrayInput` via:
 //
@@ -11862,6 +13549,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTot
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArrayOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbOutput struct{ *pulumi.OutputState }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbOutput) ElementType() reflect.Type {
@@ -11874,6 +13567,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTot
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Maximum.
@@ -11902,6 +13601,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTot
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArrayOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArrayOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArrayOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGb]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArrayOutput) Index(i pulumi.IntInput) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbOutput {
@@ -11947,6 +13652,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcp
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountArrayInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountArray and GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountArrayOutput values.
 // You can construct a concrete instance of `GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountArrayInput` via:
 //
@@ -11972,6 +13683,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcp
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountArrayOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountOutput struct{ *pulumi.OutputState }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountOutput) ElementType() reflect.Type {
@@ -11984,6 +13701,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcp
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Maximum.
@@ -12012,6 +13735,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcp
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountArrayOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountArrayOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountArrayOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountArrayOutput) Index(i pulumi.IntInput) GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountOutput {
@@ -12061,6 +13790,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecific
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArrayInput is an input type that accepts GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArray and GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArrayOutput values.
 // You can construct a concrete instance of `GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArrayInput` via:
 //
@@ -12086,6 +13821,12 @@ func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecific
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArrayOutput)
 }
 
+func (i GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification]{
+		OutputState: i.ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput struct{ *pulumi.OutputState }
 
 func (GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput) ElementType() reflect.Type {
@@ -12098,6 +13839,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecific
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification] {
+	return pulumix.Output[GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the launch template.
@@ -12133,6 +13880,12 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecific
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArrayOutput) ToGetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArrayOutputWithContext(ctx context.Context) GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArrayOutput {
 	return o
+}
+
+func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification] {
+	return pulumix.Output[[]GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArrayOutput) Index(i pulumi.IntInput) GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput {
@@ -12182,6 +13935,12 @@ func (i GetGroupTagArgs) ToGetGroupTagOutputWithContext(ctx context.Context) Get
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupTagOutput)
 }
 
+func (i GetGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupTag] {
+	return pulumix.Output[GetGroupTag]{
+		OutputState: i.ToGetGroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetGroupTagArrayInput is an input type that accepts GetGroupTagArray and GetGroupTagArrayOutput values.
 // You can construct a concrete instance of `GetGroupTagArrayInput` via:
 //
@@ -12207,6 +13966,12 @@ func (i GetGroupTagArray) ToGetGroupTagArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupTagArrayOutput)
 }
 
+func (i GetGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupTag] {
+	return pulumix.Output[[]GetGroupTag]{
+		OutputState: i.ToGetGroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupTagOutput struct{ *pulumi.OutputState }
 
 func (GetGroupTagOutput) ElementType() reflect.Type {
@@ -12219,6 +13984,12 @@ func (o GetGroupTagOutput) ToGetGroupTagOutput() GetGroupTagOutput {
 
 func (o GetGroupTagOutput) ToGetGroupTagOutputWithContext(ctx context.Context) GetGroupTagOutput {
 	return o
+}
+
+func (o GetGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupTag] {
+	return pulumix.Output[GetGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Key.
@@ -12248,6 +14019,12 @@ func (o GetGroupTagArrayOutput) ToGetGroupTagArrayOutput() GetGroupTagArrayOutpu
 
 func (o GetGroupTagArrayOutput) ToGetGroupTagArrayOutputWithContext(ctx context.Context) GetGroupTagArrayOutput {
 	return o
+}
+
+func (o GetGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupTag] {
+	return pulumix.Output[[]GetGroupTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupTagArrayOutput) Index(i pulumi.IntInput) GetGroupTagOutput {
@@ -12293,6 +14070,12 @@ func (i GetGroupTrafficSourceArgs) ToGetGroupTrafficSourceOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupTrafficSourceOutput)
 }
 
+func (i GetGroupTrafficSourceArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupTrafficSource] {
+	return pulumix.Output[GetGroupTrafficSource]{
+		OutputState: i.ToGetGroupTrafficSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetGroupTrafficSourceArrayInput is an input type that accepts GetGroupTrafficSourceArray and GetGroupTrafficSourceArrayOutput values.
 // You can construct a concrete instance of `GetGroupTrafficSourceArrayInput` via:
 //
@@ -12318,6 +14101,12 @@ func (i GetGroupTrafficSourceArray) ToGetGroupTrafficSourceArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupTrafficSourceArrayOutput)
 }
 
+func (i GetGroupTrafficSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupTrafficSource] {
+	return pulumix.Output[[]GetGroupTrafficSource]{
+		OutputState: i.ToGetGroupTrafficSourceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupTrafficSourceOutput struct{ *pulumi.OutputState }
 
 func (GetGroupTrafficSourceOutput) ElementType() reflect.Type {
@@ -12330,6 +14119,12 @@ func (o GetGroupTrafficSourceOutput) ToGetGroupTrafficSourceOutput() GetGroupTra
 
 func (o GetGroupTrafficSourceOutput) ToGetGroupTrafficSourceOutputWithContext(ctx context.Context) GetGroupTrafficSourceOutput {
 	return o
+}
+
+func (o GetGroupTrafficSourceOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupTrafficSource] {
+	return pulumix.Output[GetGroupTrafficSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
@@ -12354,6 +14149,12 @@ func (o GetGroupTrafficSourceArrayOutput) ToGetGroupTrafficSourceArrayOutput() G
 
 func (o GetGroupTrafficSourceArrayOutput) ToGetGroupTrafficSourceArrayOutputWithContext(ctx context.Context) GetGroupTrafficSourceArrayOutput {
 	return o
+}
+
+func (o GetGroupTrafficSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupTrafficSource] {
+	return pulumix.Output[[]GetGroupTrafficSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupTrafficSourceArrayOutput) Index(i pulumi.IntInput) GetGroupTrafficSourceOutput {
@@ -12405,6 +14206,12 @@ func (i GetGroupWarmPoolArgs) ToGetGroupWarmPoolOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupWarmPoolOutput)
 }
 
+func (i GetGroupWarmPoolArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupWarmPool] {
+	return pulumix.Output[GetGroupWarmPool]{
+		OutputState: i.ToGetGroupWarmPoolOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetGroupWarmPoolArrayInput is an input type that accepts GetGroupWarmPoolArray and GetGroupWarmPoolArrayOutput values.
 // You can construct a concrete instance of `GetGroupWarmPoolArrayInput` via:
 //
@@ -12430,6 +14237,12 @@ func (i GetGroupWarmPoolArray) ToGetGroupWarmPoolArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupWarmPoolArrayOutput)
 }
 
+func (i GetGroupWarmPoolArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupWarmPool] {
+	return pulumix.Output[[]GetGroupWarmPool]{
+		OutputState: i.ToGetGroupWarmPoolArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupWarmPoolOutput struct{ *pulumi.OutputState }
 
 func (GetGroupWarmPoolOutput) ElementType() reflect.Type {
@@ -12442,6 +14255,12 @@ func (o GetGroupWarmPoolOutput) ToGetGroupWarmPoolOutput() GetGroupWarmPoolOutpu
 
 func (o GetGroupWarmPoolOutput) ToGetGroupWarmPoolOutputWithContext(ctx context.Context) GetGroupWarmPoolOutput {
 	return o
+}
+
+func (o GetGroupWarmPoolOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupWarmPool] {
+	return pulumix.Output[GetGroupWarmPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of instance reuse policy objects.
@@ -12475,6 +14294,12 @@ func (o GetGroupWarmPoolArrayOutput) ToGetGroupWarmPoolArrayOutput() GetGroupWar
 
 func (o GetGroupWarmPoolArrayOutput) ToGetGroupWarmPoolArrayOutputWithContext(ctx context.Context) GetGroupWarmPoolArrayOutput {
 	return o
+}
+
+func (o GetGroupWarmPoolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupWarmPool] {
+	return pulumix.Output[[]GetGroupWarmPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupWarmPoolArrayOutput) Index(i pulumi.IntInput) GetGroupWarmPoolOutput {
@@ -12516,6 +14341,12 @@ func (i GetGroupWarmPoolInstanceReusePolicyArgs) ToGetGroupWarmPoolInstanceReuse
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupWarmPoolInstanceReusePolicyOutput)
 }
 
+func (i GetGroupWarmPoolInstanceReusePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupWarmPoolInstanceReusePolicy] {
+	return pulumix.Output[GetGroupWarmPoolInstanceReusePolicy]{
+		OutputState: i.ToGetGroupWarmPoolInstanceReusePolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetGroupWarmPoolInstanceReusePolicyArrayInput is an input type that accepts GetGroupWarmPoolInstanceReusePolicyArray and GetGroupWarmPoolInstanceReusePolicyArrayOutput values.
 // You can construct a concrete instance of `GetGroupWarmPoolInstanceReusePolicyArrayInput` via:
 //
@@ -12541,6 +14372,12 @@ func (i GetGroupWarmPoolInstanceReusePolicyArray) ToGetGroupWarmPoolInstanceReus
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupWarmPoolInstanceReusePolicyArrayOutput)
 }
 
+func (i GetGroupWarmPoolInstanceReusePolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupWarmPoolInstanceReusePolicy] {
+	return pulumix.Output[[]GetGroupWarmPoolInstanceReusePolicy]{
+		OutputState: i.ToGetGroupWarmPoolInstanceReusePolicyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupWarmPoolInstanceReusePolicyOutput struct{ *pulumi.OutputState }
 
 func (GetGroupWarmPoolInstanceReusePolicyOutput) ElementType() reflect.Type {
@@ -12553,6 +14390,12 @@ func (o GetGroupWarmPoolInstanceReusePolicyOutput) ToGetGroupWarmPoolInstanceReu
 
 func (o GetGroupWarmPoolInstanceReusePolicyOutput) ToGetGroupWarmPoolInstanceReusePolicyOutputWithContext(ctx context.Context) GetGroupWarmPoolInstanceReusePolicyOutput {
 	return o
+}
+
+func (o GetGroupWarmPoolInstanceReusePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupWarmPoolInstanceReusePolicy] {
+	return pulumix.Output[GetGroupWarmPoolInstanceReusePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
@@ -12572,6 +14415,12 @@ func (o GetGroupWarmPoolInstanceReusePolicyArrayOutput) ToGetGroupWarmPoolInstan
 
 func (o GetGroupWarmPoolInstanceReusePolicyArrayOutput) ToGetGroupWarmPoolInstanceReusePolicyArrayOutputWithContext(ctx context.Context) GetGroupWarmPoolInstanceReusePolicyArrayOutput {
 	return o
+}
+
+func (o GetGroupWarmPoolInstanceReusePolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupWarmPoolInstanceReusePolicy] {
+	return pulumix.Output[[]GetGroupWarmPoolInstanceReusePolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupWarmPoolInstanceReusePolicyArrayOutput) Index(i pulumi.IntInput) GetGroupWarmPoolInstanceReusePolicyOutput {

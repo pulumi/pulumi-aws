@@ -3,16 +3,39 @@
 
 package com.pulumi.aws.medialive.outputs;
 
+import com.pulumi.aws.medialive.outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode;
 import com.pulumi.aws.medialive.outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection {
+    /**
+     * @return Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
+     * 
+     */
+    private @Nullable ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode dolbyEDecode;
+    /**
+     * @return Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
+     * 
+     */
     private List<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack> tracks;
 
     private ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection() {}
+    /**
+     * @return Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
+     * 
+     */
+    public Optional<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode> dolbyEDecode() {
+        return Optional.ofNullable(this.dolbyEDecode);
+    }
+    /**
+     * @return Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
+     * 
+     */
     public List<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack> tracks() {
         return this.tracks;
     }
@@ -26,13 +49,20 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode dolbyEDecode;
         private List<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack> tracks;
         public Builder() {}
         public Builder(ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.dolbyEDecode = defaults.dolbyEDecode;
     	      this.tracks = defaults.tracks;
         }
 
+        @CustomType.Setter
+        public Builder dolbyEDecode(@Nullable ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode dolbyEDecode) {
+            this.dolbyEDecode = dolbyEDecode;
+            return this;
+        }
         @CustomType.Setter
         public Builder tracks(List<ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack> tracks) {
             this.tracks = Objects.requireNonNull(tracks);
@@ -43,6 +73,7 @@ public final class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSetti
         }
         public ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection build() {
             final var o = new ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection();
+            o.dolbyEDecode = dolbyEDecode;
             o.tracks = tracks;
             return o;
         }

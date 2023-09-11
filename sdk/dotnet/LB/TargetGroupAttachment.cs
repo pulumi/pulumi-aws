@@ -103,10 +103,7 @@ namespace Pulumi.Aws.LB
     /// 
     ///     // ... other configuration ...
     ///     var exampleTargetGroupAttachment = new List&lt;Aws.LB.TargetGroupAttachment&gt;();
-    ///     foreach (var range in exampleInstance.Select((value, i) =&gt; new { Key = i.ToString(), Value = pair.Value }).Select(v =&gt; 
-    ///     {
-    ///         return  v;
-    ///     }).Select(pair =&gt; new { pair.Key, pair.Value }))
+    ///     foreach (var range in exampleInstance.Select((value, i) =&gt; new { Key = i.ToString(), Value = pair.Value }).Select(pair =&gt; new { pair.Key, pair.Value }))
     ///     {
     ///         exampleTargetGroupAttachment.Add(new Aws.LB.TargetGroupAttachment($"exampleTargetGroupAttachment-{range.Key}", new()
     ///         {

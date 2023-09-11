@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Managed Grafana workspace SAML configuration resource.
@@ -317,6 +318,12 @@ func (i *WorkspaceSamlConfiguration) ToWorkspaceSamlConfigurationOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSamlConfigurationOutput)
 }
 
+func (i *WorkspaceSamlConfiguration) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceSamlConfiguration] {
+	return pulumix.Output[*WorkspaceSamlConfiguration]{
+		OutputState: i.ToWorkspaceSamlConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkspaceSamlConfigurationArrayInput is an input type that accepts WorkspaceSamlConfigurationArray and WorkspaceSamlConfigurationArrayOutput values.
 // You can construct a concrete instance of `WorkspaceSamlConfigurationArrayInput` via:
 //
@@ -340,6 +347,12 @@ func (i WorkspaceSamlConfigurationArray) ToWorkspaceSamlConfigurationArrayOutput
 
 func (i WorkspaceSamlConfigurationArray) ToWorkspaceSamlConfigurationArrayOutputWithContext(ctx context.Context) WorkspaceSamlConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSamlConfigurationArrayOutput)
+}
+
+func (i WorkspaceSamlConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*WorkspaceSamlConfiguration] {
+	return pulumix.Output[[]*WorkspaceSamlConfiguration]{
+		OutputState: i.ToWorkspaceSamlConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WorkspaceSamlConfigurationMapInput is an input type that accepts WorkspaceSamlConfigurationMap and WorkspaceSamlConfigurationMapOutput values.
@@ -367,6 +380,12 @@ func (i WorkspaceSamlConfigurationMap) ToWorkspaceSamlConfigurationMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSamlConfigurationMapOutput)
 }
 
+func (i WorkspaceSamlConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkspaceSamlConfiguration] {
+	return pulumix.Output[map[string]*WorkspaceSamlConfiguration]{
+		OutputState: i.ToWorkspaceSamlConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkspaceSamlConfigurationOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceSamlConfigurationOutput) ElementType() reflect.Type {
@@ -379,6 +398,12 @@ func (o WorkspaceSamlConfigurationOutput) ToWorkspaceSamlConfigurationOutput() W
 
 func (o WorkspaceSamlConfigurationOutput) ToWorkspaceSamlConfigurationOutputWithContext(ctx context.Context) WorkspaceSamlConfigurationOutput {
 	return o
+}
+
+func (o WorkspaceSamlConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceSamlConfiguration] {
+	return pulumix.Output[*WorkspaceSamlConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The admin role values.
@@ -467,6 +492,12 @@ func (o WorkspaceSamlConfigurationArrayOutput) ToWorkspaceSamlConfigurationArray
 	return o
 }
 
+func (o WorkspaceSamlConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WorkspaceSamlConfiguration] {
+	return pulumix.Output[[]*WorkspaceSamlConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkspaceSamlConfigurationArrayOutput) Index(i pulumi.IntInput) WorkspaceSamlConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WorkspaceSamlConfiguration {
 		return vs[0].([]*WorkspaceSamlConfiguration)[vs[1].(int)]
@@ -485,6 +516,12 @@ func (o WorkspaceSamlConfigurationMapOutput) ToWorkspaceSamlConfigurationMapOutp
 
 func (o WorkspaceSamlConfigurationMapOutput) ToWorkspaceSamlConfigurationMapOutputWithContext(ctx context.Context) WorkspaceSamlConfigurationMapOutput {
 	return o
+}
+
+func (o WorkspaceSamlConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkspaceSamlConfiguration] {
+	return pulumix.Output[map[string]*WorkspaceSamlConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkspaceSamlConfigurationMapOutput) MapIndex(k pulumi.StringInput) WorkspaceSamlConfigurationOutput {

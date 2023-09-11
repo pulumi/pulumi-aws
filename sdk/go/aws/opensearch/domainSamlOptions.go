@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages SAML authentication options for an AWS OpenSearch Domain.
@@ -189,6 +190,12 @@ func (i *DomainSamlOptions) ToDomainSamlOptionsOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DomainSamlOptionsOutput)
 }
 
+func (i *DomainSamlOptions) ToOutput(ctx context.Context) pulumix.Output[*DomainSamlOptions] {
+	return pulumix.Output[*DomainSamlOptions]{
+		OutputState: i.ToDomainSamlOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DomainSamlOptionsArrayInput is an input type that accepts DomainSamlOptionsArray and DomainSamlOptionsArrayOutput values.
 // You can construct a concrete instance of `DomainSamlOptionsArrayInput` via:
 //
@@ -212,6 +219,12 @@ func (i DomainSamlOptionsArray) ToDomainSamlOptionsArrayOutput() DomainSamlOptio
 
 func (i DomainSamlOptionsArray) ToDomainSamlOptionsArrayOutputWithContext(ctx context.Context) DomainSamlOptionsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainSamlOptionsArrayOutput)
+}
+
+func (i DomainSamlOptionsArray) ToOutput(ctx context.Context) pulumix.Output[[]*DomainSamlOptions] {
+	return pulumix.Output[[]*DomainSamlOptions]{
+		OutputState: i.ToDomainSamlOptionsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DomainSamlOptionsMapInput is an input type that accepts DomainSamlOptionsMap and DomainSamlOptionsMapOutput values.
@@ -239,6 +252,12 @@ func (i DomainSamlOptionsMap) ToDomainSamlOptionsMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DomainSamlOptionsMapOutput)
 }
 
+func (i DomainSamlOptionsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainSamlOptions] {
+	return pulumix.Output[map[string]*DomainSamlOptions]{
+		OutputState: i.ToDomainSamlOptionsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainSamlOptionsOutput struct{ *pulumi.OutputState }
 
 func (DomainSamlOptionsOutput) ElementType() reflect.Type {
@@ -251,6 +270,12 @@ func (o DomainSamlOptionsOutput) ToDomainSamlOptionsOutput() DomainSamlOptionsOu
 
 func (o DomainSamlOptionsOutput) ToDomainSamlOptionsOutputWithContext(ctx context.Context) DomainSamlOptionsOutput {
 	return o
+}
+
+func (o DomainSamlOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainSamlOptions] {
+	return pulumix.Output[*DomainSamlOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the domain.
@@ -279,6 +304,12 @@ func (o DomainSamlOptionsArrayOutput) ToDomainSamlOptionsArrayOutputWithContext(
 	return o
 }
 
+func (o DomainSamlOptionsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DomainSamlOptions] {
+	return pulumix.Output[[]*DomainSamlOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DomainSamlOptionsArrayOutput) Index(i pulumi.IntInput) DomainSamlOptionsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DomainSamlOptions {
 		return vs[0].([]*DomainSamlOptions)[vs[1].(int)]
@@ -297,6 +328,12 @@ func (o DomainSamlOptionsMapOutput) ToDomainSamlOptionsMapOutput() DomainSamlOpt
 
 func (o DomainSamlOptionsMapOutput) ToDomainSamlOptionsMapOutputWithContext(ctx context.Context) DomainSamlOptionsMapOutput {
 	return o
+}
+
+func (o DomainSamlOptionsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DomainSamlOptions] {
+	return pulumix.Output[map[string]*DomainSamlOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainSamlOptionsMapOutput) MapIndex(k pulumi.StringInput) DomainSamlOptionsOutput {

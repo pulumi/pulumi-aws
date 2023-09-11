@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -98,6 +99,12 @@ func (i RegisteredDomainAdminContactArgs) ToRegisteredDomainAdminContactOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RegisteredDomainAdminContactOutput)
 }
 
+func (i RegisteredDomainAdminContactArgs) ToOutput(ctx context.Context) pulumix.Output[RegisteredDomainAdminContact] {
+	return pulumix.Output[RegisteredDomainAdminContact]{
+		OutputState: i.ToRegisteredDomainAdminContactOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RegisteredDomainAdminContactArgs) ToRegisteredDomainAdminContactPtrOutput() RegisteredDomainAdminContactPtrOutput {
 	return i.ToRegisteredDomainAdminContactPtrOutputWithContext(context.Background())
 }
@@ -139,6 +146,12 @@ func (i *registeredDomainAdminContactPtrType) ToRegisteredDomainAdminContactPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(RegisteredDomainAdminContactPtrOutput)
 }
 
+func (i *registeredDomainAdminContactPtrType) ToOutput(ctx context.Context) pulumix.Output[*RegisteredDomainAdminContact] {
+	return pulumix.Output[*RegisteredDomainAdminContact]{
+		OutputState: i.ToRegisteredDomainAdminContactPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegisteredDomainAdminContactOutput struct{ *pulumi.OutputState }
 
 func (RegisteredDomainAdminContactOutput) ElementType() reflect.Type {
@@ -161,6 +174,12 @@ func (o RegisteredDomainAdminContactOutput) ToRegisteredDomainAdminContactPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegisteredDomainAdminContact) *RegisteredDomainAdminContact {
 		return &v
 	}).(RegisteredDomainAdminContactPtrOutput)
+}
+
+func (o RegisteredDomainAdminContactOutput) ToOutput(ctx context.Context) pulumix.Output[RegisteredDomainAdminContact] {
+	return pulumix.Output[RegisteredDomainAdminContact]{
+		OutputState: o.OutputState,
+	}
 }
 
 // First line of the contact's address.
@@ -245,6 +264,12 @@ func (o RegisteredDomainAdminContactPtrOutput) ToRegisteredDomainAdminContactPtr
 
 func (o RegisteredDomainAdminContactPtrOutput) ToRegisteredDomainAdminContactPtrOutputWithContext(ctx context.Context) RegisteredDomainAdminContactPtrOutput {
 	return o
+}
+
+func (o RegisteredDomainAdminContactPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RegisteredDomainAdminContact] {
+	return pulumix.Output[*RegisteredDomainAdminContact]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegisteredDomainAdminContactPtrOutput) Elem() RegisteredDomainAdminContactOutput {
@@ -434,6 +459,12 @@ func (i RegisteredDomainNameServerArgs) ToRegisteredDomainNameServerOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(RegisteredDomainNameServerOutput)
 }
 
+func (i RegisteredDomainNameServerArgs) ToOutput(ctx context.Context) pulumix.Output[RegisteredDomainNameServer] {
+	return pulumix.Output[RegisteredDomainNameServer]{
+		OutputState: i.ToRegisteredDomainNameServerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RegisteredDomainNameServerArrayInput is an input type that accepts RegisteredDomainNameServerArray and RegisteredDomainNameServerArrayOutput values.
 // You can construct a concrete instance of `RegisteredDomainNameServerArrayInput` via:
 //
@@ -459,6 +490,12 @@ func (i RegisteredDomainNameServerArray) ToRegisteredDomainNameServerArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RegisteredDomainNameServerArrayOutput)
 }
 
+func (i RegisteredDomainNameServerArray) ToOutput(ctx context.Context) pulumix.Output[[]RegisteredDomainNameServer] {
+	return pulumix.Output[[]RegisteredDomainNameServer]{
+		OutputState: i.ToRegisteredDomainNameServerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegisteredDomainNameServerOutput struct{ *pulumi.OutputState }
 
 func (RegisteredDomainNameServerOutput) ElementType() reflect.Type {
@@ -471,6 +508,12 @@ func (o RegisteredDomainNameServerOutput) ToRegisteredDomainNameServerOutput() R
 
 func (o RegisteredDomainNameServerOutput) ToRegisteredDomainNameServerOutputWithContext(ctx context.Context) RegisteredDomainNameServerOutput {
 	return o
+}
+
+func (o RegisteredDomainNameServerOutput) ToOutput(ctx context.Context) pulumix.Output[RegisteredDomainNameServer] {
+	return pulumix.Output[RegisteredDomainNameServer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
@@ -495,6 +538,12 @@ func (o RegisteredDomainNameServerArrayOutput) ToRegisteredDomainNameServerArray
 
 func (o RegisteredDomainNameServerArrayOutput) ToRegisteredDomainNameServerArrayOutputWithContext(ctx context.Context) RegisteredDomainNameServerArrayOutput {
 	return o
+}
+
+func (o RegisteredDomainNameServerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RegisteredDomainNameServer] {
+	return pulumix.Output[[]RegisteredDomainNameServer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegisteredDomainNameServerArrayOutput) Index(i pulumi.IntInput) RegisteredDomainNameServerOutput {
@@ -588,6 +637,12 @@ func (i RegisteredDomainRegistrantContactArgs) ToRegisteredDomainRegistrantConta
 	return pulumi.ToOutputWithContext(ctx, i).(RegisteredDomainRegistrantContactOutput)
 }
 
+func (i RegisteredDomainRegistrantContactArgs) ToOutput(ctx context.Context) pulumix.Output[RegisteredDomainRegistrantContact] {
+	return pulumix.Output[RegisteredDomainRegistrantContact]{
+		OutputState: i.ToRegisteredDomainRegistrantContactOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RegisteredDomainRegistrantContactArgs) ToRegisteredDomainRegistrantContactPtrOutput() RegisteredDomainRegistrantContactPtrOutput {
 	return i.ToRegisteredDomainRegistrantContactPtrOutputWithContext(context.Background())
 }
@@ -629,6 +684,12 @@ func (i *registeredDomainRegistrantContactPtrType) ToRegisteredDomainRegistrantC
 	return pulumi.ToOutputWithContext(ctx, i).(RegisteredDomainRegistrantContactPtrOutput)
 }
 
+func (i *registeredDomainRegistrantContactPtrType) ToOutput(ctx context.Context) pulumix.Output[*RegisteredDomainRegistrantContact] {
+	return pulumix.Output[*RegisteredDomainRegistrantContact]{
+		OutputState: i.ToRegisteredDomainRegistrantContactPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegisteredDomainRegistrantContactOutput struct{ *pulumi.OutputState }
 
 func (RegisteredDomainRegistrantContactOutput) ElementType() reflect.Type {
@@ -651,6 +712,12 @@ func (o RegisteredDomainRegistrantContactOutput) ToRegisteredDomainRegistrantCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegisteredDomainRegistrantContact) *RegisteredDomainRegistrantContact {
 		return &v
 	}).(RegisteredDomainRegistrantContactPtrOutput)
+}
+
+func (o RegisteredDomainRegistrantContactOutput) ToOutput(ctx context.Context) pulumix.Output[RegisteredDomainRegistrantContact] {
+	return pulumix.Output[RegisteredDomainRegistrantContact]{
+		OutputState: o.OutputState,
+	}
 }
 
 // First line of the contact's address.
@@ -735,6 +802,12 @@ func (o RegisteredDomainRegistrantContactPtrOutput) ToRegisteredDomainRegistrant
 
 func (o RegisteredDomainRegistrantContactPtrOutput) ToRegisteredDomainRegistrantContactPtrOutputWithContext(ctx context.Context) RegisteredDomainRegistrantContactPtrOutput {
 	return o
+}
+
+func (o RegisteredDomainRegistrantContactPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RegisteredDomainRegistrantContact] {
+	return pulumix.Output[*RegisteredDomainRegistrantContact]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegisteredDomainRegistrantContactPtrOutput) Elem() RegisteredDomainRegistrantContactOutput {
@@ -972,6 +1045,12 @@ func (i RegisteredDomainTechContactArgs) ToRegisteredDomainTechContactOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(RegisteredDomainTechContactOutput)
 }
 
+func (i RegisteredDomainTechContactArgs) ToOutput(ctx context.Context) pulumix.Output[RegisteredDomainTechContact] {
+	return pulumix.Output[RegisteredDomainTechContact]{
+		OutputState: i.ToRegisteredDomainTechContactOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i RegisteredDomainTechContactArgs) ToRegisteredDomainTechContactPtrOutput() RegisteredDomainTechContactPtrOutput {
 	return i.ToRegisteredDomainTechContactPtrOutputWithContext(context.Background())
 }
@@ -1013,6 +1092,12 @@ func (i *registeredDomainTechContactPtrType) ToRegisteredDomainTechContactPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(RegisteredDomainTechContactPtrOutput)
 }
 
+func (i *registeredDomainTechContactPtrType) ToOutput(ctx context.Context) pulumix.Output[*RegisteredDomainTechContact] {
+	return pulumix.Output[*RegisteredDomainTechContact]{
+		OutputState: i.ToRegisteredDomainTechContactPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RegisteredDomainTechContactOutput struct{ *pulumi.OutputState }
 
 func (RegisteredDomainTechContactOutput) ElementType() reflect.Type {
@@ -1035,6 +1120,12 @@ func (o RegisteredDomainTechContactOutput) ToRegisteredDomainTechContactPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegisteredDomainTechContact) *RegisteredDomainTechContact {
 		return &v
 	}).(RegisteredDomainTechContactPtrOutput)
+}
+
+func (o RegisteredDomainTechContactOutput) ToOutput(ctx context.Context) pulumix.Output[RegisteredDomainTechContact] {
+	return pulumix.Output[RegisteredDomainTechContact]{
+		OutputState: o.OutputState,
+	}
 }
 
 // First line of the contact's address.
@@ -1119,6 +1210,12 @@ func (o RegisteredDomainTechContactPtrOutput) ToRegisteredDomainTechContactPtrOu
 
 func (o RegisteredDomainTechContactPtrOutput) ToRegisteredDomainTechContactPtrOutputWithContext(ctx context.Context) RegisteredDomainTechContactPtrOutput {
 	return o
+}
+
+func (o RegisteredDomainTechContactPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RegisteredDomainTechContact] {
+	return pulumix.Output[*RegisteredDomainTechContact]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegisteredDomainTechContactPtrOutput) Elem() RegisteredDomainTechContactOutput {

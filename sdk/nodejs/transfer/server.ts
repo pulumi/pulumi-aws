@@ -235,7 +235,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly securityPolicyName!: pulumi.Output<string | undefined>;
     /**
-     * This is a set of arns of destinations that will receive structured logs from the transfer server
+     * A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
      */
     public readonly structuredLogDestinations!: pulumi.Output<string[] | undefined>;
     /**
@@ -407,7 +407,7 @@ export interface ServerState {
      */
     securityPolicyName?: pulumi.Input<string>;
     /**
-     * This is a set of arns of destinations that will receive structured logs from the transfer server
+     * A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
      */
     structuredLogDestinations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -497,7 +497,7 @@ export interface ServerArgs {
      */
     securityPolicyName?: pulumi.Input<string>;
     /**
-     * This is a set of arns of destinations that will receive structured logs from the transfer server
+     * A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
      */
     structuredLogDestinations?: pulumi.Input<pulumi.Input<string>[]>;
     /**

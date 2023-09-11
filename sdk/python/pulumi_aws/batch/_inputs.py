@@ -17,6 +17,7 @@ __all__ = [
     'JobDefinitionRetryStrategyArgs',
     'JobDefinitionRetryStrategyEvaluateOnExitArgs',
     'JobDefinitionTimeoutArgs',
+    'JobQueueTimeoutsArgs',
     'SchedulingPolicyFairSharePolicyArgs',
     'SchedulingPolicyFairSharePolicyShareDistributionArgs',
 ]
@@ -558,6 +559,47 @@ class JobDefinitionTimeoutArgs:
     @attempt_duration_seconds.setter
     def attempt_duration_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "attempt_duration_seconds", value)
+
+
+@pulumi.input_type
+class JobQueueTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None,
+                 update: Optional[pulumi.Input[str]] = None):
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update", value)
 
 
 @pulumi.input_type

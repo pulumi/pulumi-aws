@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information on an Amazon MSK Configuration.
@@ -107,6 +108,12 @@ func (o LookupConfigurationResultOutput) ToLookupConfigurationResultOutput() Loo
 
 func (o LookupConfigurationResultOutput) ToLookupConfigurationResultOutputWithContext(ctx context.Context) LookupConfigurationResultOutput {
 	return o
+}
+
+func (o LookupConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConfigurationResult] {
+	return pulumix.Output[LookupConfigurationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the configuration.

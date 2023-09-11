@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS WorkSpaces Connection Alias.
@@ -170,6 +171,12 @@ func (i *ConnectionAlias) ToConnectionAliasOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasOutput)
 }
 
+func (i *ConnectionAlias) ToOutput(ctx context.Context) pulumix.Output[*ConnectionAlias] {
+	return pulumix.Output[*ConnectionAlias]{
+		OutputState: i.ToConnectionAliasOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConnectionAliasArrayInput is an input type that accepts ConnectionAliasArray and ConnectionAliasArrayOutput values.
 // You can construct a concrete instance of `ConnectionAliasArrayInput` via:
 //
@@ -193,6 +200,12 @@ func (i ConnectionAliasArray) ToConnectionAliasArrayOutput() ConnectionAliasArra
 
 func (i ConnectionAliasArray) ToConnectionAliasArrayOutputWithContext(ctx context.Context) ConnectionAliasArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasArrayOutput)
+}
+
+func (i ConnectionAliasArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectionAlias] {
+	return pulumix.Output[[]*ConnectionAlias]{
+		OutputState: i.ToConnectionAliasArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ConnectionAliasMapInput is an input type that accepts ConnectionAliasMap and ConnectionAliasMapOutput values.
@@ -220,6 +233,12 @@ func (i ConnectionAliasMap) ToConnectionAliasMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAliasMapOutput)
 }
 
+func (i ConnectionAliasMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectionAlias] {
+	return pulumix.Output[map[string]*ConnectionAlias]{
+		OutputState: i.ToConnectionAliasMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectionAliasOutput struct{ *pulumi.OutputState }
 
 func (ConnectionAliasOutput) ElementType() reflect.Type {
@@ -232,6 +251,12 @@ func (o ConnectionAliasOutput) ToConnectionAliasOutput() ConnectionAliasOutput {
 
 func (o ConnectionAliasOutput) ToConnectionAliasOutputWithContext(ctx context.Context) ConnectionAliasOutput {
 	return o
+}
+
+func (o ConnectionAliasOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectionAlias] {
+	return pulumix.Output[*ConnectionAlias]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as www.example.com.
@@ -277,6 +302,12 @@ func (o ConnectionAliasArrayOutput) ToConnectionAliasArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o ConnectionAliasArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectionAlias] {
+	return pulumix.Output[[]*ConnectionAlias]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConnectionAliasArrayOutput) Index(i pulumi.IntInput) ConnectionAliasOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConnectionAlias {
 		return vs[0].([]*ConnectionAlias)[vs[1].(int)]
@@ -295,6 +326,12 @@ func (o ConnectionAliasMapOutput) ToConnectionAliasMapOutput() ConnectionAliasMa
 
 func (o ConnectionAliasMapOutput) ToConnectionAliasMapOutputWithContext(ctx context.Context) ConnectionAliasMapOutput {
 	return o
+}
+
+func (o ConnectionAliasMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectionAlias] {
+	return pulumix.Output[map[string]*ConnectionAlias]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectionAliasMapOutput) MapIndex(k pulumi.StringInput) ConnectionAliasOutput {

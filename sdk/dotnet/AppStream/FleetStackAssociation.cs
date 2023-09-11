@@ -24,7 +24,7 @@ namespace Pulumi.Aws.AppStream
     /// {
     ///     var exampleFleet = new Aws.AppStream.Fleet("exampleFleet", new()
     ///     {
-    ///         ImageName = "Amazon-AppStream2-Sample-Image-02-04-2019",
+    ///         ImageName = "Amazon-AppStream2-Sample-Image-03-11-2023",
     ///         InstanceType = "stream.standard.small",
     ///         ComputeCapacity = new Aws.AppStream.Inputs.FleetComputeCapacityArgs
     ///         {

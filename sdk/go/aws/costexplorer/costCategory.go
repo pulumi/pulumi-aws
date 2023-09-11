@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CE Cost Category.
@@ -271,6 +272,12 @@ func (i *CostCategory) ToCostCategoryOutputWithContext(ctx context.Context) Cost
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryOutput)
 }
 
+func (i *CostCategory) ToOutput(ctx context.Context) pulumix.Output[*CostCategory] {
+	return pulumix.Output[*CostCategory]{
+		OutputState: i.ToCostCategoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CostCategoryArrayInput is an input type that accepts CostCategoryArray and CostCategoryArrayOutput values.
 // You can construct a concrete instance of `CostCategoryArrayInput` via:
 //
@@ -294,6 +301,12 @@ func (i CostCategoryArray) ToCostCategoryArrayOutput() CostCategoryArrayOutput {
 
 func (i CostCategoryArray) ToCostCategoryArrayOutputWithContext(ctx context.Context) CostCategoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryArrayOutput)
+}
+
+func (i CostCategoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*CostCategory] {
+	return pulumix.Output[[]*CostCategory]{
+		OutputState: i.ToCostCategoryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CostCategoryMapInput is an input type that accepts CostCategoryMap and CostCategoryMapOutput values.
@@ -321,6 +334,12 @@ func (i CostCategoryMap) ToCostCategoryMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(CostCategoryMapOutput)
 }
 
+func (i CostCategoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CostCategory] {
+	return pulumix.Output[map[string]*CostCategory]{
+		OutputState: i.ToCostCategoryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CostCategoryOutput struct{ *pulumi.OutputState }
 
 func (CostCategoryOutput) ElementType() reflect.Type {
@@ -333,6 +352,12 @@ func (o CostCategoryOutput) ToCostCategoryOutput() CostCategoryOutput {
 
 func (o CostCategoryOutput) ToCostCategoryOutputWithContext(ctx context.Context) CostCategoryOutput {
 	return o
+}
+
+func (o CostCategoryOutput) ToOutput(ctx context.Context) pulumix.Output[*CostCategory] {
+	return pulumix.Output[*CostCategory]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the cost category.
@@ -401,6 +426,12 @@ func (o CostCategoryArrayOutput) ToCostCategoryArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o CostCategoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CostCategory] {
+	return pulumix.Output[[]*CostCategory]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CostCategoryArrayOutput) Index(i pulumi.IntInput) CostCategoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CostCategory {
 		return vs[0].([]*CostCategory)[vs[1].(int)]
@@ -419,6 +450,12 @@ func (o CostCategoryMapOutput) ToCostCategoryMapOutput() CostCategoryMapOutput {
 
 func (o CostCategoryMapOutput) ToCostCategoryMapOutputWithContext(ctx context.Context) CostCategoryMapOutput {
 	return o
+}
+
+func (o CostCategoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CostCategory] {
+	return pulumix.Output[map[string]*CostCategory]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CostCategoryMapOutput) MapIndex(k pulumi.StringInput) CostCategoryOutput {

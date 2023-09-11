@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -44,6 +45,12 @@ func (i FindingsFilterFindingCriteriaArgs) ToFindingsFilterFindingCriteriaOutput
 
 func (i FindingsFilterFindingCriteriaArgs) ToFindingsFilterFindingCriteriaOutputWithContext(ctx context.Context) FindingsFilterFindingCriteriaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterFindingCriteriaOutput)
+}
+
+func (i FindingsFilterFindingCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[FindingsFilterFindingCriteria] {
+	return pulumix.Output[FindingsFilterFindingCriteria]{
+		OutputState: i.ToFindingsFilterFindingCriteriaOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i FindingsFilterFindingCriteriaArgs) ToFindingsFilterFindingCriteriaPtrOutput() FindingsFilterFindingCriteriaPtrOutput {
@@ -87,6 +94,12 @@ func (i *findingsFilterFindingCriteriaPtrType) ToFindingsFilterFindingCriteriaPt
 	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterFindingCriteriaPtrOutput)
 }
 
+func (i *findingsFilterFindingCriteriaPtrType) ToOutput(ctx context.Context) pulumix.Output[*FindingsFilterFindingCriteria] {
+	return pulumix.Output[*FindingsFilterFindingCriteria]{
+		OutputState: i.ToFindingsFilterFindingCriteriaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FindingsFilterFindingCriteriaOutput struct{ *pulumi.OutputState }
 
 func (FindingsFilterFindingCriteriaOutput) ElementType() reflect.Type {
@@ -111,6 +124,12 @@ func (o FindingsFilterFindingCriteriaOutput) ToFindingsFilterFindingCriteriaPtrO
 	}).(FindingsFilterFindingCriteriaPtrOutput)
 }
 
+func (o FindingsFilterFindingCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[FindingsFilterFindingCriteria] {
+	return pulumix.Output[FindingsFilterFindingCriteria]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
 func (o FindingsFilterFindingCriteriaOutput) Criterions() FindingsFilterFindingCriteriaCriterionArrayOutput {
 	return o.ApplyT(func(v FindingsFilterFindingCriteria) []FindingsFilterFindingCriteriaCriterion { return v.Criterions }).(FindingsFilterFindingCriteriaCriterionArrayOutput)
@@ -128,6 +147,12 @@ func (o FindingsFilterFindingCriteriaPtrOutput) ToFindingsFilterFindingCriteriaP
 
 func (o FindingsFilterFindingCriteriaPtrOutput) ToFindingsFilterFindingCriteriaPtrOutputWithContext(ctx context.Context) FindingsFilterFindingCriteriaPtrOutput {
 	return o
+}
+
+func (o FindingsFilterFindingCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FindingsFilterFindingCriteria] {
+	return pulumix.Output[*FindingsFilterFindingCriteria]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FindingsFilterFindingCriteriaPtrOutput) Elem() FindingsFilterFindingCriteriaOutput {
@@ -211,6 +236,12 @@ func (i FindingsFilterFindingCriteriaCriterionArgs) ToFindingsFilterFindingCrite
 	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterFindingCriteriaCriterionOutput)
 }
 
+func (i FindingsFilterFindingCriteriaCriterionArgs) ToOutput(ctx context.Context) pulumix.Output[FindingsFilterFindingCriteriaCriterion] {
+	return pulumix.Output[FindingsFilterFindingCriteriaCriterion]{
+		OutputState: i.ToFindingsFilterFindingCriteriaCriterionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FindingsFilterFindingCriteriaCriterionArrayInput is an input type that accepts FindingsFilterFindingCriteriaCriterionArray and FindingsFilterFindingCriteriaCriterionArrayOutput values.
 // You can construct a concrete instance of `FindingsFilterFindingCriteriaCriterionArrayInput` via:
 //
@@ -236,6 +267,12 @@ func (i FindingsFilterFindingCriteriaCriterionArray) ToFindingsFilterFindingCrit
 	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterFindingCriteriaCriterionArrayOutput)
 }
 
+func (i FindingsFilterFindingCriteriaCriterionArray) ToOutput(ctx context.Context) pulumix.Output[[]FindingsFilterFindingCriteriaCriterion] {
+	return pulumix.Output[[]FindingsFilterFindingCriteriaCriterion]{
+		OutputState: i.ToFindingsFilterFindingCriteriaCriterionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FindingsFilterFindingCriteriaCriterionOutput struct{ *pulumi.OutputState }
 
 func (FindingsFilterFindingCriteriaCriterionOutput) ElementType() reflect.Type {
@@ -248,6 +285,12 @@ func (o FindingsFilterFindingCriteriaCriterionOutput) ToFindingsFilterFindingCri
 
 func (o FindingsFilterFindingCriteriaCriterionOutput) ToFindingsFilterFindingCriteriaCriterionOutputWithContext(ctx context.Context) FindingsFilterFindingCriteriaCriterionOutput {
 	return o
+}
+
+func (o FindingsFilterFindingCriteriaCriterionOutput) ToOutput(ctx context.Context) pulumix.Output[FindingsFilterFindingCriteriaCriterion] {
+	return pulumix.Output[FindingsFilterFindingCriteriaCriterion]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The value for the property exclusively matches (equals an exact match for) all the specified values. If you specify multiple values, Amazon Macie uses AND logic to join the values.
@@ -302,6 +345,12 @@ func (o FindingsFilterFindingCriteriaCriterionArrayOutput) ToFindingsFilterFindi
 
 func (o FindingsFilterFindingCriteriaCriterionArrayOutput) ToFindingsFilterFindingCriteriaCriterionArrayOutputWithContext(ctx context.Context) FindingsFilterFindingCriteriaCriterionArrayOutput {
 	return o
+}
+
+func (o FindingsFilterFindingCriteriaCriterionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FindingsFilterFindingCriteriaCriterion] {
+	return pulumix.Output[[]FindingsFilterFindingCriteriaCriterion]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FindingsFilterFindingCriteriaCriterionArrayOutput) Index(i pulumi.IntInput) FindingsFilterFindingCriteriaCriterionOutput {

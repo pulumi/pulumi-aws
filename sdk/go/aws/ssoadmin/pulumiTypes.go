@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -48,6 +49,12 @@ func (i CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs) ToCus
 
 func (i CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs) ToCustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutputWithContext(ctx context.Context) CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput)
+}
+
+func (i CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[CustomerManagedPolicyAttachmentCustomerManagedPolicyReference] {
+	return pulumix.Output[CustomerManagedPolicyAttachmentCustomerManagedPolicyReference]{
+		OutputState: i.ToCustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs) ToCustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput() CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput {
@@ -91,6 +98,12 @@ func (i *customerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrType) T
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput)
 }
 
+func (i *customerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrType) ToOutput(ctx context.Context) pulumix.Output[*CustomerManagedPolicyAttachmentCustomerManagedPolicyReference] {
+	return pulumix.Output[*CustomerManagedPolicyAttachmentCustomerManagedPolicyReference]{
+		OutputState: i.ToCustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput struct{ *pulumi.OutputState }
 
 func (CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput) ElementType() reflect.Type {
@@ -115,6 +128,12 @@ func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput) ToC
 	}).(CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput)
 }
 
+func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[CustomerManagedPolicyAttachmentCustomerManagedPolicyReference] {
+	return pulumix.Output[CustomerManagedPolicyAttachmentCustomerManagedPolicyReference]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Name of the customer managed IAM Policy to be attached.
 func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomerManagedPolicyAttachmentCustomerManagedPolicyReference) string { return v.Name }).(pulumi.StringOutput)
@@ -137,6 +156,12 @@ func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput) 
 
 func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput) ToCustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutputWithContext(ctx context.Context) CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput {
 	return o
+}
+
+func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomerManagedPolicyAttachmentCustomerManagedPolicyReference] {
+	return pulumix.Output[*CustomerManagedPolicyAttachmentCustomerManagedPolicyReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput) Elem() CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput {
@@ -206,6 +231,12 @@ func (i InstanceAccessControlAttributesAttributeArgs) ToInstanceAccessControlAtt
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceAccessControlAttributesAttributeOutput)
 }
 
+func (i InstanceAccessControlAttributesAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceAccessControlAttributesAttribute] {
+	return pulumix.Output[InstanceAccessControlAttributesAttribute]{
+		OutputState: i.ToInstanceAccessControlAttributesAttributeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InstanceAccessControlAttributesAttributeArrayInput is an input type that accepts InstanceAccessControlAttributesAttributeArray and InstanceAccessControlAttributesAttributeArrayOutput values.
 // You can construct a concrete instance of `InstanceAccessControlAttributesAttributeArrayInput` via:
 //
@@ -231,6 +262,12 @@ func (i InstanceAccessControlAttributesAttributeArray) ToInstanceAccessControlAt
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceAccessControlAttributesAttributeArrayOutput)
 }
 
+func (i InstanceAccessControlAttributesAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]InstanceAccessControlAttributesAttribute] {
+	return pulumix.Output[[]InstanceAccessControlAttributesAttribute]{
+		OutputState: i.ToInstanceAccessControlAttributesAttributeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceAccessControlAttributesAttributeOutput struct{ *pulumi.OutputState }
 
 func (InstanceAccessControlAttributesAttributeOutput) ElementType() reflect.Type {
@@ -243,6 +280,12 @@ func (o InstanceAccessControlAttributesAttributeOutput) ToInstanceAccessControlA
 
 func (o InstanceAccessControlAttributesAttributeOutput) ToInstanceAccessControlAttributesAttributeOutputWithContext(ctx context.Context) InstanceAccessControlAttributesAttributeOutput {
 	return o
+}
+
+func (o InstanceAccessControlAttributesAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceAccessControlAttributesAttribute] {
+	return pulumix.Output[InstanceAccessControlAttributesAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
@@ -269,6 +312,12 @@ func (o InstanceAccessControlAttributesAttributeArrayOutput) ToInstanceAccessCon
 
 func (o InstanceAccessControlAttributesAttributeArrayOutput) ToInstanceAccessControlAttributesAttributeArrayOutputWithContext(ctx context.Context) InstanceAccessControlAttributesAttributeArrayOutput {
 	return o
+}
+
+func (o InstanceAccessControlAttributesAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstanceAccessControlAttributesAttribute] {
+	return pulumix.Output[[]InstanceAccessControlAttributesAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceAccessControlAttributesAttributeArrayOutput) Index(i pulumi.IntInput) InstanceAccessControlAttributesAttributeOutput {
@@ -310,6 +359,12 @@ func (i InstanceAccessControlAttributesAttributeValueArgs) ToInstanceAccessContr
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceAccessControlAttributesAttributeValueOutput)
 }
 
+func (i InstanceAccessControlAttributesAttributeValueArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceAccessControlAttributesAttributeValue] {
+	return pulumix.Output[InstanceAccessControlAttributesAttributeValue]{
+		OutputState: i.ToInstanceAccessControlAttributesAttributeValueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InstanceAccessControlAttributesAttributeValueArrayInput is an input type that accepts InstanceAccessControlAttributesAttributeValueArray and InstanceAccessControlAttributesAttributeValueArrayOutput values.
 // You can construct a concrete instance of `InstanceAccessControlAttributesAttributeValueArrayInput` via:
 //
@@ -335,6 +390,12 @@ func (i InstanceAccessControlAttributesAttributeValueArray) ToInstanceAccessCont
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceAccessControlAttributesAttributeValueArrayOutput)
 }
 
+func (i InstanceAccessControlAttributesAttributeValueArray) ToOutput(ctx context.Context) pulumix.Output[[]InstanceAccessControlAttributesAttributeValue] {
+	return pulumix.Output[[]InstanceAccessControlAttributesAttributeValue]{
+		OutputState: i.ToInstanceAccessControlAttributesAttributeValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceAccessControlAttributesAttributeValueOutput struct{ *pulumi.OutputState }
 
 func (InstanceAccessControlAttributesAttributeValueOutput) ElementType() reflect.Type {
@@ -347,6 +408,12 @@ func (o InstanceAccessControlAttributesAttributeValueOutput) ToInstanceAccessCon
 
 func (o InstanceAccessControlAttributesAttributeValueOutput) ToInstanceAccessControlAttributesAttributeValueOutputWithContext(ctx context.Context) InstanceAccessControlAttributesAttributeValueOutput {
 	return o
+}
+
+func (o InstanceAccessControlAttributesAttributeValueOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceAccessControlAttributesAttributeValue] {
+	return pulumix.Output[InstanceAccessControlAttributesAttributeValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identity source to use when mapping a specified attribute to AWS SSO.
@@ -366,6 +433,12 @@ func (o InstanceAccessControlAttributesAttributeValueArrayOutput) ToInstanceAcce
 
 func (o InstanceAccessControlAttributesAttributeValueArrayOutput) ToInstanceAccessControlAttributesAttributeValueArrayOutputWithContext(ctx context.Context) InstanceAccessControlAttributesAttributeValueArrayOutput {
 	return o
+}
+
+func (o InstanceAccessControlAttributesAttributeValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstanceAccessControlAttributesAttributeValue] {
+	return pulumix.Output[[]InstanceAccessControlAttributesAttributeValue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceAccessControlAttributesAttributeValueArrayOutput) Index(i pulumi.IntInput) InstanceAccessControlAttributesAttributeValueOutput {
@@ -411,6 +484,12 @@ func (i PermissionsBoundaryAttachmentPermissionsBoundaryArgs) ToPermissionsBound
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsBoundaryAttachmentPermissionsBoundaryOutput)
 }
 
+func (i PermissionsBoundaryAttachmentPermissionsBoundaryArgs) ToOutput(ctx context.Context) pulumix.Output[PermissionsBoundaryAttachmentPermissionsBoundary] {
+	return pulumix.Output[PermissionsBoundaryAttachmentPermissionsBoundary]{
+		OutputState: i.ToPermissionsBoundaryAttachmentPermissionsBoundaryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PermissionsBoundaryAttachmentPermissionsBoundaryArgs) ToPermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput() PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput {
 	return i.ToPermissionsBoundaryAttachmentPermissionsBoundaryPtrOutputWithContext(context.Background())
 }
@@ -452,6 +531,12 @@ func (i *permissionsBoundaryAttachmentPermissionsBoundaryPtrType) ToPermissionsB
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput)
 }
 
+func (i *permissionsBoundaryAttachmentPermissionsBoundaryPtrType) ToOutput(ctx context.Context) pulumix.Output[*PermissionsBoundaryAttachmentPermissionsBoundary] {
+	return pulumix.Output[*PermissionsBoundaryAttachmentPermissionsBoundary]{
+		OutputState: i.ToPermissionsBoundaryAttachmentPermissionsBoundaryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PermissionsBoundaryAttachmentPermissionsBoundaryOutput struct{ *pulumi.OutputState }
 
 func (PermissionsBoundaryAttachmentPermissionsBoundaryOutput) ElementType() reflect.Type {
@@ -474,6 +559,12 @@ func (o PermissionsBoundaryAttachmentPermissionsBoundaryOutput) ToPermissionsBou
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionsBoundaryAttachmentPermissionsBoundary) *PermissionsBoundaryAttachmentPermissionsBoundary {
 		return &v
 	}).(PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput)
+}
+
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryOutput) ToOutput(ctx context.Context) pulumix.Output[PermissionsBoundaryAttachmentPermissionsBoundary] {
+	return pulumix.Output[PermissionsBoundaryAttachmentPermissionsBoundary]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the name and path of a customer managed policy. See below.
@@ -500,6 +591,12 @@ func (o PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput) ToPermissions
 
 func (o PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput) ToPermissionsBoundaryAttachmentPermissionsBoundaryPtrOutputWithContext(ctx context.Context) PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput {
 	return o
+}
+
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PermissionsBoundaryAttachmentPermissionsBoundary] {
+	return pulumix.Output[*PermissionsBoundaryAttachmentPermissionsBoundary]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput) Elem() PermissionsBoundaryAttachmentPermissionsBoundaryOutput {
@@ -569,6 +666,12 @@ func (i PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRef
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput)
 }
 
+func (i PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference] {
+	return pulumix.Output[PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference]{
+		OutputState: i.ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs) ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput() PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput {
 	return i.ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutputWithContext(context.Background())
 }
@@ -610,6 +713,12 @@ func (i *permissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRe
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput)
 }
 
+func (i *permissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrType) ToOutput(ctx context.Context) pulumix.Output[*PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference] {
+	return pulumix.Output[*PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference]{
+		OutputState: i.ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput struct{ *pulumi.OutputState }
 
 func (PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput) ElementType() reflect.Type {
@@ -632,6 +741,12 @@ func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRef
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference) *PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference {
 		return &v
 	}).(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput)
+}
+
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference] {
+	return pulumix.Output[PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the customer managed IAM Policy to be attached.
@@ -660,6 +775,12 @@ func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRef
 
 func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput) ToPermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutputWithContext(ctx context.Context) PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput {
 	return o
+}
+
+func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference] {
+	return pulumix.Output[*PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput) Elem() PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput {

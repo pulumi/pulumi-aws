@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Connect Hours of Operation resource. For more information see
@@ -240,6 +241,12 @@ func (i *HoursOfOperation) ToHoursOfOperationOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationOutput)
 }
 
+func (i *HoursOfOperation) ToOutput(ctx context.Context) pulumix.Output[*HoursOfOperation] {
+	return pulumix.Output[*HoursOfOperation]{
+		OutputState: i.ToHoursOfOperationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HoursOfOperationArrayInput is an input type that accepts HoursOfOperationArray and HoursOfOperationArrayOutput values.
 // You can construct a concrete instance of `HoursOfOperationArrayInput` via:
 //
@@ -263,6 +270,12 @@ func (i HoursOfOperationArray) ToHoursOfOperationArrayOutput() HoursOfOperationA
 
 func (i HoursOfOperationArray) ToHoursOfOperationArrayOutputWithContext(ctx context.Context) HoursOfOperationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationArrayOutput)
+}
+
+func (i HoursOfOperationArray) ToOutput(ctx context.Context) pulumix.Output[[]*HoursOfOperation] {
+	return pulumix.Output[[]*HoursOfOperation]{
+		OutputState: i.ToHoursOfOperationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // HoursOfOperationMapInput is an input type that accepts HoursOfOperationMap and HoursOfOperationMapOutput values.
@@ -290,6 +303,12 @@ func (i HoursOfOperationMap) ToHoursOfOperationMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationMapOutput)
 }
 
+func (i HoursOfOperationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HoursOfOperation] {
+	return pulumix.Output[map[string]*HoursOfOperation]{
+		OutputState: i.ToHoursOfOperationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HoursOfOperationOutput struct{ *pulumi.OutputState }
 
 func (HoursOfOperationOutput) ElementType() reflect.Type {
@@ -302,6 +321,12 @@ func (o HoursOfOperationOutput) ToHoursOfOperationOutput() HoursOfOperationOutpu
 
 func (o HoursOfOperationOutput) ToHoursOfOperationOutputWithContext(ctx context.Context) HoursOfOperationOutput {
 	return o
+}
+
+func (o HoursOfOperationOutput) ToOutput(ctx context.Context) pulumix.Output[*HoursOfOperation] {
+	return pulumix.Output[*HoursOfOperation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the Hours of Operation.
@@ -363,6 +388,12 @@ func (o HoursOfOperationArrayOutput) ToHoursOfOperationArrayOutputWithContext(ct
 	return o
 }
 
+func (o HoursOfOperationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HoursOfOperation] {
+	return pulumix.Output[[]*HoursOfOperation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HoursOfOperationArrayOutput) Index(i pulumi.IntInput) HoursOfOperationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HoursOfOperation {
 		return vs[0].([]*HoursOfOperation)[vs[1].(int)]
@@ -381,6 +412,12 @@ func (o HoursOfOperationMapOutput) ToHoursOfOperationMapOutput() HoursOfOperatio
 
 func (o HoursOfOperationMapOutput) ToHoursOfOperationMapOutputWithContext(ctx context.Context) HoursOfOperationMapOutput {
 	return o
+}
+
+func (o HoursOfOperationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HoursOfOperation] {
+	return pulumix.Output[map[string]*HoursOfOperation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HoursOfOperationMapOutput) MapIndex(k pulumi.StringInput) HoursOfOperationOutput {

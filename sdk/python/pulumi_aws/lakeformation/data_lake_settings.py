@@ -23,6 +23,7 @@ class DataLakeSettingsArgs:
                  create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]] = None,
                  create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]]] = None,
                  external_data_filtering_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 read_only_admins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DataLakeSettings resource.
@@ -35,6 +36,7 @@ class DataLakeSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_data_filtering_allow_lists: A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] read_only_admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_resource_owners: List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
         """
         if admins is not None:
@@ -51,6 +53,8 @@ class DataLakeSettingsArgs:
             pulumi.set(__self__, "create_table_default_permissions", create_table_default_permissions)
         if external_data_filtering_allow_lists is not None:
             pulumi.set(__self__, "external_data_filtering_allow_lists", external_data_filtering_allow_lists)
+        if read_only_admins is not None:
+            pulumi.set(__self__, "read_only_admins", read_only_admins)
         if trusted_resource_owners is not None:
             pulumi.set(__self__, "trusted_resource_owners", trusted_resource_owners)
 
@@ -139,6 +143,18 @@ class DataLakeSettingsArgs:
     @external_data_filtering_allow_lists.setter
     def external_data_filtering_allow_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "external_data_filtering_allow_lists", value)
+
+    @property
+    @pulumi.getter(name="readOnlyAdmins")
+    def read_only_admins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+        """
+        return pulumi.get(self, "read_only_admins")
+
+    @read_only_admins.setter
+    def read_only_admins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "read_only_admins", value)
 
     @property
     @pulumi.getter(name="trustedResourceOwners")
@@ -163,6 +179,7 @@ class _DataLakeSettingsState:
                  create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]] = None,
                  create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]]] = None,
                  external_data_filtering_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 read_only_admins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering DataLakeSettings resources.
@@ -175,6 +192,7 @@ class _DataLakeSettingsState:
         :param pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_data_filtering_allow_lists: A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] read_only_admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_resource_owners: List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
         """
         if admins is not None:
@@ -191,6 +209,8 @@ class _DataLakeSettingsState:
             pulumi.set(__self__, "create_table_default_permissions", create_table_default_permissions)
         if external_data_filtering_allow_lists is not None:
             pulumi.set(__self__, "external_data_filtering_allow_lists", external_data_filtering_allow_lists)
+        if read_only_admins is not None:
+            pulumi.set(__self__, "read_only_admins", read_only_admins)
         if trusted_resource_owners is not None:
             pulumi.set(__self__, "trusted_resource_owners", trusted_resource_owners)
 
@@ -279,6 +299,18 @@ class _DataLakeSettingsState:
     @external_data_filtering_allow_lists.setter
     def external_data_filtering_allow_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "external_data_filtering_allow_lists", value)
+
+    @property
+    @pulumi.getter(name="readOnlyAdmins")
+    def read_only_admins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+        """
+        return pulumi.get(self, "read_only_admins")
+
+    @read_only_admins.setter
+    def read_only_admins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "read_only_admins", value)
 
     @property
     @pulumi.getter(name="trustedResourceOwners")
@@ -305,6 +337,7 @@ class DataLakeSettings(pulumi.CustomResource):
                  create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]]] = None,
                  create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateTableDefaultPermissionArgs']]]]] = None,
                  external_data_filtering_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 read_only_admins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -390,6 +423,7 @@ class DataLakeSettings(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateTableDefaultPermissionArgs']]]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_data_filtering_allow_lists: A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] read_only_admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_resource_owners: List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
         """
         ...
@@ -492,6 +526,7 @@ class DataLakeSettings(pulumi.CustomResource):
                  create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]]] = None,
                  create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateTableDefaultPermissionArgs']]]]] = None,
                  external_data_filtering_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 read_only_admins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -509,6 +544,7 @@ class DataLakeSettings(pulumi.CustomResource):
             __props__.__dict__["create_database_default_permissions"] = create_database_default_permissions
             __props__.__dict__["create_table_default_permissions"] = create_table_default_permissions
             __props__.__dict__["external_data_filtering_allow_lists"] = external_data_filtering_allow_lists
+            __props__.__dict__["read_only_admins"] = read_only_admins
             __props__.__dict__["trusted_resource_owners"] = trusted_resource_owners
         super(DataLakeSettings, __self__).__init__(
             'aws:lakeformation/dataLakeSettings:DataLakeSettings',
@@ -527,6 +563,7 @@ class DataLakeSettings(pulumi.CustomResource):
             create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]]] = None,
             create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateTableDefaultPermissionArgs']]]]] = None,
             external_data_filtering_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            read_only_admins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'DataLakeSettings':
         """
         Get an existing DataLakeSettings resource's state with the given name, id, and optional extra
@@ -544,6 +581,7 @@ class DataLakeSettings(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateTableDefaultPermissionArgs']]]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_data_filtering_allow_lists: A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] read_only_admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_resource_owners: List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -557,6 +595,7 @@ class DataLakeSettings(pulumi.CustomResource):
         __props__.__dict__["create_database_default_permissions"] = create_database_default_permissions
         __props__.__dict__["create_table_default_permissions"] = create_table_default_permissions
         __props__.__dict__["external_data_filtering_allow_lists"] = external_data_filtering_allow_lists
+        __props__.__dict__["read_only_admins"] = read_only_admins
         __props__.__dict__["trusted_resource_owners"] = trusted_resource_owners
         return DataLakeSettings(resource_name, opts=opts, __props__=__props__)
 
@@ -617,6 +656,14 @@ class DataLakeSettings(pulumi.CustomResource):
         A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
         """
         return pulumi.get(self, "external_data_filtering_allow_lists")
+
+    @property
+    @pulumi.getter(name="readOnlyAdmins")
+    def read_only_admins(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+        """
+        return pulumi.get(self, "read_only_admins")
 
     @property
     @pulumi.getter(name="trustedResourceOwners")

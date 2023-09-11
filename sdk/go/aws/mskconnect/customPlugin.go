@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon MSK Connect Custom Plugin Resource.
@@ -217,6 +218,12 @@ func (i *CustomPlugin) ToCustomPluginOutputWithContext(ctx context.Context) Cust
 	return pulumi.ToOutputWithContext(ctx, i).(CustomPluginOutput)
 }
 
+func (i *CustomPlugin) ToOutput(ctx context.Context) pulumix.Output[*CustomPlugin] {
+	return pulumix.Output[*CustomPlugin]{
+		OutputState: i.ToCustomPluginOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CustomPluginArrayInput is an input type that accepts CustomPluginArray and CustomPluginArrayOutput values.
 // You can construct a concrete instance of `CustomPluginArrayInput` via:
 //
@@ -240,6 +247,12 @@ func (i CustomPluginArray) ToCustomPluginArrayOutput() CustomPluginArrayOutput {
 
 func (i CustomPluginArray) ToCustomPluginArrayOutputWithContext(ctx context.Context) CustomPluginArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomPluginArrayOutput)
+}
+
+func (i CustomPluginArray) ToOutput(ctx context.Context) pulumix.Output[[]*CustomPlugin] {
+	return pulumix.Output[[]*CustomPlugin]{
+		OutputState: i.ToCustomPluginArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CustomPluginMapInput is an input type that accepts CustomPluginMap and CustomPluginMapOutput values.
@@ -267,6 +280,12 @@ func (i CustomPluginMap) ToCustomPluginMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(CustomPluginMapOutput)
 }
 
+func (i CustomPluginMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomPlugin] {
+	return pulumix.Output[map[string]*CustomPlugin]{
+		OutputState: i.ToCustomPluginMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CustomPluginOutput struct{ *pulumi.OutputState }
 
 func (CustomPluginOutput) ElementType() reflect.Type {
@@ -279,6 +298,12 @@ func (o CustomPluginOutput) ToCustomPluginOutput() CustomPluginOutput {
 
 func (o CustomPluginOutput) ToCustomPluginOutputWithContext(ctx context.Context) CustomPluginOutput {
 	return o
+}
+
+func (o CustomPluginOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomPlugin] {
+	return pulumix.Output[*CustomPlugin]{
+		OutputState: o.OutputState,
+	}
 }
 
 // the Amazon Resource Name (ARN) of the custom plugin.
@@ -332,6 +357,12 @@ func (o CustomPluginArrayOutput) ToCustomPluginArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o CustomPluginArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CustomPlugin] {
+	return pulumix.Output[[]*CustomPlugin]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CustomPluginArrayOutput) Index(i pulumi.IntInput) CustomPluginOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomPlugin {
 		return vs[0].([]*CustomPlugin)[vs[1].(int)]
@@ -350,6 +381,12 @@ func (o CustomPluginMapOutput) ToCustomPluginMapOutput() CustomPluginMapOutput {
 
 func (o CustomPluginMapOutput) ToCustomPluginMapOutputWithContext(ctx context.Context) CustomPluginMapOutput {
 	return o
+}
+
+func (o CustomPluginMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomPlugin] {
+	return pulumix.Output[map[string]*CustomPlugin]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CustomPluginMapOutput) MapIndex(k pulumi.StringInput) CustomPluginOutput {

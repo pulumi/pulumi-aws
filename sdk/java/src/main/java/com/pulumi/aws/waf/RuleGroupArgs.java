@@ -49,14 +49,14 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A friendly name of the rule group
+     * Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return A friendly name of the rule group
+     * @return Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -158,7 +158,7 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A friendly name of the rule group
+         * @param name Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class RuleGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name A friendly name of the rule group
+         * @param name Name of the rule group. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
          * 
          * @return builder
          * 

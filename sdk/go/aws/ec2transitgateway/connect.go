@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EC2 Transit Gateway Connect.
@@ -206,6 +207,12 @@ func (i *Connect) ToConnectOutputWithContext(ctx context.Context) ConnectOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectOutput)
 }
 
+func (i *Connect) ToOutput(ctx context.Context) pulumix.Output[*Connect] {
+	return pulumix.Output[*Connect]{
+		OutputState: i.ToConnectOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConnectArrayInput is an input type that accepts ConnectArray and ConnectArrayOutput values.
 // You can construct a concrete instance of `ConnectArrayInput` via:
 //
@@ -229,6 +236,12 @@ func (i ConnectArray) ToConnectArrayOutput() ConnectArrayOutput {
 
 func (i ConnectArray) ToConnectArrayOutputWithContext(ctx context.Context) ConnectArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectArrayOutput)
+}
+
+func (i ConnectArray) ToOutput(ctx context.Context) pulumix.Output[[]*Connect] {
+	return pulumix.Output[[]*Connect]{
+		OutputState: i.ToConnectArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ConnectMapInput is an input type that accepts ConnectMap and ConnectMapOutput values.
@@ -256,6 +269,12 @@ func (i ConnectMap) ToConnectMapOutputWithContext(ctx context.Context) ConnectMa
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectMapOutput)
 }
 
+func (i ConnectMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Connect] {
+	return pulumix.Output[map[string]*Connect]{
+		OutputState: i.ToConnectMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConnectOutput struct{ *pulumi.OutputState }
 
 func (ConnectOutput) ElementType() reflect.Type {
@@ -268,6 +287,12 @@ func (o ConnectOutput) ToConnectOutput() ConnectOutput {
 
 func (o ConnectOutput) ToConnectOutputWithContext(ctx context.Context) ConnectOutput {
 	return o
+}
+
+func (o ConnectOutput) ToOutput(ctx context.Context) pulumix.Output[*Connect] {
+	return pulumix.Output[*Connect]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The tunnel protocol. Valid values: `gre`. Default is `gre`.
@@ -319,6 +344,12 @@ func (o ConnectArrayOutput) ToConnectArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ConnectArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Connect] {
+	return pulumix.Output[[]*Connect]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConnectArrayOutput) Index(i pulumi.IntInput) ConnectOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Connect {
 		return vs[0].([]*Connect)[vs[1].(int)]
@@ -337,6 +368,12 @@ func (o ConnectMapOutput) ToConnectMapOutput() ConnectMapOutput {
 
 func (o ConnectMapOutput) ToConnectMapOutputWithContext(ctx context.Context) ConnectMapOutput {
 	return o
+}
+
+func (o ConnectMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Connect] {
+	return pulumix.Output[map[string]*Connect]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConnectMapOutput) MapIndex(k pulumi.StringInput) ConnectOutput {

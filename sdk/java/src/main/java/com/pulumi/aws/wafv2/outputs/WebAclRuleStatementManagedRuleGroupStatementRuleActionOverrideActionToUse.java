@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.outputs;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
@@ -29,6 +30,11 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
      * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha captcha;
+    /**
+     * @return Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+     * 
+     */
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge challenge;
     /**
      * @return Instructs AWS WAF to count the web request and allow it. See `count` below for details.
      * 
@@ -58,6 +64,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
         return Optional.ofNullable(this.captcha);
     }
     /**
+     * @return Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+     * 
+     */
+    public Optional<WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge> challenge() {
+        return Optional.ofNullable(this.challenge);
+    }
+    /**
      * @return Instructs AWS WAF to count the web request and allow it. See `count` below for details.
      * 
      */
@@ -77,6 +90,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow allow;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock block;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha captcha;
+        private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge challenge;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount count;
         public Builder() {}
         public Builder(WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse defaults) {
@@ -84,6 +98,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
     	      this.allow = defaults.allow;
     	      this.block = defaults.block;
     	      this.captcha = defaults.captcha;
+    	      this.challenge = defaults.challenge;
     	      this.count = defaults.count;
         }
 
@@ -103,6 +118,11 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
             return this;
         }
         @CustomType.Setter
+        public Builder challenge(@Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge challenge) {
+            this.challenge = challenge;
+            return this;
+        }
+        @CustomType.Setter
         public Builder count(@Nullable WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount count) {
             this.count = count;
             return this;
@@ -112,6 +132,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrid
             o.allow = allow;
             o.block = block;
             o.captcha = captcha;
+            o.challenge = challenge;
             o.count = count;
             return o;
         }

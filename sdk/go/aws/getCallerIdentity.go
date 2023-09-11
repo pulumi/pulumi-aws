@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the access to the effective Account ID, User ID, and ARN in
@@ -104,6 +105,12 @@ func (o GetCallerIdentityResultOutput) ToGetCallerIdentityResultOutput() GetCall
 
 func (o GetCallerIdentityResultOutput) ToGetCallerIdentityResultOutputWithContext(ctx context.Context) GetCallerIdentityResultOutput {
 	return o
+}
+
+func (o GetCallerIdentityResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetCallerIdentityResult] {
+	return pulumix.Output[GetCallerIdentityResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // AWS Account ID number of the account that owns or contains the calling entity.

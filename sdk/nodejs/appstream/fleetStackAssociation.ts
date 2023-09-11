@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleFleet = new aws.appstream.Fleet("exampleFleet", {
- *     imageName: "Amazon-AppStream2-Sample-Image-02-04-2019",
+ *     imageName: "Amazon-AppStream2-Sample-Image-03-11-2023",
  *     instanceType: "stream.standard.small",
  *     computeCapacity: {
  *         desiredInstances: 1,

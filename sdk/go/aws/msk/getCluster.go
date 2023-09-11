@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information on an Amazon MSK Cluster.
@@ -129,6 +130,12 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutput() LookupClusterRe
 
 func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx context.Context) LookupClusterResultOutput {
 	return o
+}
+
+func (o LookupClusterResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupClusterResult] {
+	return pulumix.Output[LookupClusterResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the MSK cluster.

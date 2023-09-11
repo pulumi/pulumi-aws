@@ -70,7 +70,7 @@ export interface GetResourceShareArgs {
      */
     resourceShareStatus?: string;
     /**
-     * Tags attached to the RAM share
+     * Tags attached to the resource share.
      */
     tags?: {[key: string]: string};
 }
@@ -93,14 +93,18 @@ export interface GetResourceShareResult {
      * ID of the AWS account that owns the resource share.
      */
     readonly owningAccountId: string;
+    /**
+     * A list of resource ARNs associated with the resource share.
+     */
+    readonly resourceArns: string[];
     readonly resourceOwner: string;
     readonly resourceShareStatus?: string;
     /**
-     * Status of the RAM share.
+     * Status of the resource share.
      */
     readonly status: string;
     /**
-     * Tags attached to the RAM share
+     * Tags attached to the resource share.
      */
     readonly tags: {[key: string]: string};
 }
@@ -159,7 +163,7 @@ export interface GetResourceShareOutputArgs {
      */
     resourceShareStatus?: pulumi.Input<string>;
     /**
-     * Tags attached to the RAM share
+     * Tags attached to the resource share.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

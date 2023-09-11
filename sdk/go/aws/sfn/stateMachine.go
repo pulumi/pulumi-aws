@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Step Function State Machine resource
@@ -405,6 +406,12 @@ func (i *StateMachine) ToStateMachineOutputWithContext(ctx context.Context) Stat
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineOutput)
 }
 
+func (i *StateMachine) ToOutput(ctx context.Context) pulumix.Output[*StateMachine] {
+	return pulumix.Output[*StateMachine]{
+		OutputState: i.ToStateMachineOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StateMachineArrayInput is an input type that accepts StateMachineArray and StateMachineArrayOutput values.
 // You can construct a concrete instance of `StateMachineArrayInput` via:
 //
@@ -428,6 +435,12 @@ func (i StateMachineArray) ToStateMachineArrayOutput() StateMachineArrayOutput {
 
 func (i StateMachineArray) ToStateMachineArrayOutputWithContext(ctx context.Context) StateMachineArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineArrayOutput)
+}
+
+func (i StateMachineArray) ToOutput(ctx context.Context) pulumix.Output[[]*StateMachine] {
+	return pulumix.Output[[]*StateMachine]{
+		OutputState: i.ToStateMachineArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StateMachineMapInput is an input type that accepts StateMachineMap and StateMachineMapOutput values.
@@ -455,6 +468,12 @@ func (i StateMachineMap) ToStateMachineMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineMapOutput)
 }
 
+func (i StateMachineMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StateMachine] {
+	return pulumix.Output[map[string]*StateMachine]{
+		OutputState: i.ToStateMachineMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StateMachineOutput struct{ *pulumi.OutputState }
 
 func (StateMachineOutput) ElementType() reflect.Type {
@@ -467,6 +486,12 @@ func (o StateMachineOutput) ToStateMachineOutput() StateMachineOutput {
 
 func (o StateMachineOutput) ToStateMachineOutputWithContext(ctx context.Context) StateMachineOutput {
 	return o
+}
+
+func (o StateMachineOutput) ToOutput(ctx context.Context) pulumix.Output[*StateMachine] {
+	return pulumix.Output[*StateMachine]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the state machine.
@@ -564,6 +589,12 @@ func (o StateMachineArrayOutput) ToStateMachineArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o StateMachineArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StateMachine] {
+	return pulumix.Output[[]*StateMachine]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StateMachineArrayOutput) Index(i pulumi.IntInput) StateMachineOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StateMachine {
 		return vs[0].([]*StateMachine)[vs[1].(int)]
@@ -582,6 +613,12 @@ func (o StateMachineMapOutput) ToStateMachineMapOutput() StateMachineMapOutput {
 
 func (o StateMachineMapOutput) ToStateMachineMapOutputWithContext(ctx context.Context) StateMachineMapOutput {
 	return o
+}
+
+func (o StateMachineMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StateMachine] {
+	return pulumix.Output[map[string]*StateMachine]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StateMachineMapOutput) MapIndex(k pulumi.StringInput) StateMachineOutput {

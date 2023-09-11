@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Direct Connect hosted transit virtual interface resource.
@@ -264,6 +265,12 @@ func (i *HostedTransitVirtualInterface) ToHostedTransitVirtualInterfaceOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(HostedTransitVirtualInterfaceOutput)
 }
 
+func (i *HostedTransitVirtualInterface) ToOutput(ctx context.Context) pulumix.Output[*HostedTransitVirtualInterface] {
+	return pulumix.Output[*HostedTransitVirtualInterface]{
+		OutputState: i.ToHostedTransitVirtualInterfaceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // HostedTransitVirtualInterfaceArrayInput is an input type that accepts HostedTransitVirtualInterfaceArray and HostedTransitVirtualInterfaceArrayOutput values.
 // You can construct a concrete instance of `HostedTransitVirtualInterfaceArrayInput` via:
 //
@@ -287,6 +294,12 @@ func (i HostedTransitVirtualInterfaceArray) ToHostedTransitVirtualInterfaceArray
 
 func (i HostedTransitVirtualInterfaceArray) ToHostedTransitVirtualInterfaceArrayOutputWithContext(ctx context.Context) HostedTransitVirtualInterfaceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HostedTransitVirtualInterfaceArrayOutput)
+}
+
+func (i HostedTransitVirtualInterfaceArray) ToOutput(ctx context.Context) pulumix.Output[[]*HostedTransitVirtualInterface] {
+	return pulumix.Output[[]*HostedTransitVirtualInterface]{
+		OutputState: i.ToHostedTransitVirtualInterfaceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // HostedTransitVirtualInterfaceMapInput is an input type that accepts HostedTransitVirtualInterfaceMap and HostedTransitVirtualInterfaceMapOutput values.
@@ -314,6 +327,12 @@ func (i HostedTransitVirtualInterfaceMap) ToHostedTransitVirtualInterfaceMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(HostedTransitVirtualInterfaceMapOutput)
 }
 
+func (i HostedTransitVirtualInterfaceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HostedTransitVirtualInterface] {
+	return pulumix.Output[map[string]*HostedTransitVirtualInterface]{
+		OutputState: i.ToHostedTransitVirtualInterfaceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type HostedTransitVirtualInterfaceOutput struct{ *pulumi.OutputState }
 
 func (HostedTransitVirtualInterfaceOutput) ElementType() reflect.Type {
@@ -326,6 +345,12 @@ func (o HostedTransitVirtualInterfaceOutput) ToHostedTransitVirtualInterfaceOutp
 
 func (o HostedTransitVirtualInterfaceOutput) ToHostedTransitVirtualInterfaceOutputWithContext(ctx context.Context) HostedTransitVirtualInterfaceOutput {
 	return o
+}
+
+func (o HostedTransitVirtualInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[*HostedTransitVirtualInterface] {
+	return pulumix.Output[*HostedTransitVirtualInterface]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The address family for the BGP peer. ` ipv4  ` or `ipv6`.
@@ -411,6 +436,12 @@ func (o HostedTransitVirtualInterfaceArrayOutput) ToHostedTransitVirtualInterfac
 	return o
 }
 
+func (o HostedTransitVirtualInterfaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HostedTransitVirtualInterface] {
+	return pulumix.Output[[]*HostedTransitVirtualInterface]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o HostedTransitVirtualInterfaceArrayOutput) Index(i pulumi.IntInput) HostedTransitVirtualInterfaceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HostedTransitVirtualInterface {
 		return vs[0].([]*HostedTransitVirtualInterface)[vs[1].(int)]
@@ -429,6 +460,12 @@ func (o HostedTransitVirtualInterfaceMapOutput) ToHostedTransitVirtualInterfaceM
 
 func (o HostedTransitVirtualInterfaceMapOutput) ToHostedTransitVirtualInterfaceMapOutputWithContext(ctx context.Context) HostedTransitVirtualInterfaceMapOutput {
 	return o
+}
+
+func (o HostedTransitVirtualInterfaceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HostedTransitVirtualInterface] {
+	return pulumix.Output[map[string]*HostedTransitVirtualInterface]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o HostedTransitVirtualInterfaceMapOutput) MapIndex(k pulumi.StringInput) HostedTransitVirtualInterfaceOutput {

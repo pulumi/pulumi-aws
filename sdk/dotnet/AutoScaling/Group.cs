@@ -560,6 +560,12 @@ namespace Pulumi.Aws.AutoScaling
         public Output<string> HealthCheckType { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+        /// </summary>
+        [Output("ignoreFailedScalingActivities")]
+        public Output<bool?> IgnoreFailedScalingActivities { get; private set; } = null!;
+
+        /// <summary>
         /// One or more
         /// [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
         /// to attach to the Auto Scaling Group **before** instances are launched. The
@@ -881,6 +887,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("healthCheckType")]
         public Input<string>? HealthCheckType { get; set; }
+
+        /// <summary>
+        /// Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+        /// </summary>
+        [Input("ignoreFailedScalingActivities")]
+        public Input<bool>? IgnoreFailedScalingActivities { get; set; }
 
         [Input("initialLifecycleHooks")]
         private InputList<Inputs.GroupInitialLifecycleHookArgs>? _initialLifecycleHooks;
@@ -1208,6 +1220,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("healthCheckType")]
         public Input<string>? HealthCheckType { get; set; }
+
+        /// <summary>
+        /// Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+        /// </summary>
+        [Input("ignoreFailedScalingActivities")]
+        public Input<bool>? IgnoreFailedScalingActivities { get; set; }
 
         [Input("initialLifecycleHooks")]
         private InputList<Inputs.GroupInitialLifecycleHookGetArgs>? _initialLifecycleHooks;

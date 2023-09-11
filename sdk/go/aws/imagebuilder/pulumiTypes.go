@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -50,6 +51,12 @@ func (i ContainerRecipeComponentArgs) ToContainerRecipeComponentOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeComponentOutput)
 }
 
+func (i ContainerRecipeComponentArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeComponent] {
+	return pulumix.Output[ContainerRecipeComponent]{
+		OutputState: i.ToContainerRecipeComponentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ContainerRecipeComponentArrayInput is an input type that accepts ContainerRecipeComponentArray and ContainerRecipeComponentArrayOutput values.
 // You can construct a concrete instance of `ContainerRecipeComponentArrayInput` via:
 //
@@ -75,6 +82,12 @@ func (i ContainerRecipeComponentArray) ToContainerRecipeComponentArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeComponentArrayOutput)
 }
 
+func (i ContainerRecipeComponentArray) ToOutput(ctx context.Context) pulumix.Output[[]ContainerRecipeComponent] {
+	return pulumix.Output[[]ContainerRecipeComponent]{
+		OutputState: i.ToContainerRecipeComponentArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ContainerRecipeComponentOutput struct{ *pulumi.OutputState }
 
 func (ContainerRecipeComponentOutput) ElementType() reflect.Type {
@@ -87,6 +100,12 @@ func (o ContainerRecipeComponentOutput) ToContainerRecipeComponentOutput() Conta
 
 func (o ContainerRecipeComponentOutput) ToContainerRecipeComponentOutputWithContext(ctx context.Context) ContainerRecipeComponentOutput {
 	return o
+}
+
+func (o ContainerRecipeComponentOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeComponent] {
+	return pulumix.Output[ContainerRecipeComponent]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the Image Builder Component to associate.
@@ -111,6 +130,12 @@ func (o ContainerRecipeComponentArrayOutput) ToContainerRecipeComponentArrayOutp
 
 func (o ContainerRecipeComponentArrayOutput) ToContainerRecipeComponentArrayOutputWithContext(ctx context.Context) ContainerRecipeComponentArrayOutput {
 	return o
+}
+
+func (o ContainerRecipeComponentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContainerRecipeComponent] {
+	return pulumix.Output[[]ContainerRecipeComponent]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContainerRecipeComponentArrayOutput) Index(i pulumi.IntInput) ContainerRecipeComponentOutput {
@@ -156,6 +181,12 @@ func (i ContainerRecipeComponentParameterArgs) ToContainerRecipeComponentParamet
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeComponentParameterOutput)
 }
 
+func (i ContainerRecipeComponentParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeComponentParameter] {
+	return pulumix.Output[ContainerRecipeComponentParameter]{
+		OutputState: i.ToContainerRecipeComponentParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ContainerRecipeComponentParameterArrayInput is an input type that accepts ContainerRecipeComponentParameterArray and ContainerRecipeComponentParameterArrayOutput values.
 // You can construct a concrete instance of `ContainerRecipeComponentParameterArrayInput` via:
 //
@@ -181,6 +212,12 @@ func (i ContainerRecipeComponentParameterArray) ToContainerRecipeComponentParame
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeComponentParameterArrayOutput)
 }
 
+func (i ContainerRecipeComponentParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ContainerRecipeComponentParameter] {
+	return pulumix.Output[[]ContainerRecipeComponentParameter]{
+		OutputState: i.ToContainerRecipeComponentParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ContainerRecipeComponentParameterOutput struct{ *pulumi.OutputState }
 
 func (ContainerRecipeComponentParameterOutput) ElementType() reflect.Type {
@@ -193,6 +230,12 @@ func (o ContainerRecipeComponentParameterOutput) ToContainerRecipeComponentParam
 
 func (o ContainerRecipeComponentParameterOutput) ToContainerRecipeComponentParameterOutputWithContext(ctx context.Context) ContainerRecipeComponentParameterOutput {
 	return o
+}
+
+func (o ContainerRecipeComponentParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeComponentParameter] {
+	return pulumix.Output[ContainerRecipeComponentParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the component parameter.
@@ -217,6 +260,12 @@ func (o ContainerRecipeComponentParameterArrayOutput) ToContainerRecipeComponent
 
 func (o ContainerRecipeComponentParameterArrayOutput) ToContainerRecipeComponentParameterArrayOutputWithContext(ctx context.Context) ContainerRecipeComponentParameterArrayOutput {
 	return o
+}
+
+func (o ContainerRecipeComponentParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContainerRecipeComponentParameter] {
+	return pulumix.Output[[]ContainerRecipeComponentParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContainerRecipeComponentParameterArrayOutput) Index(i pulumi.IntInput) ContainerRecipeComponentParameterOutput {
@@ -262,6 +311,12 @@ func (i ContainerRecipeInstanceConfigurationArgs) ToContainerRecipeInstanceConfi
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceConfigurationOutput)
 }
 
+func (i ContainerRecipeInstanceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeInstanceConfiguration] {
+	return pulumix.Output[ContainerRecipeInstanceConfiguration]{
+		OutputState: i.ToContainerRecipeInstanceConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ContainerRecipeInstanceConfigurationArgs) ToContainerRecipeInstanceConfigurationPtrOutput() ContainerRecipeInstanceConfigurationPtrOutput {
 	return i.ToContainerRecipeInstanceConfigurationPtrOutputWithContext(context.Background())
 }
@@ -303,6 +358,12 @@ func (i *containerRecipeInstanceConfigurationPtrType) ToContainerRecipeInstanceC
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceConfigurationPtrOutput)
 }
 
+func (i *containerRecipeInstanceConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipeInstanceConfiguration] {
+	return pulumix.Output[*ContainerRecipeInstanceConfiguration]{
+		OutputState: i.ToContainerRecipeInstanceConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ContainerRecipeInstanceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ContainerRecipeInstanceConfigurationOutput) ElementType() reflect.Type {
@@ -325,6 +386,12 @@ func (o ContainerRecipeInstanceConfigurationOutput) ToContainerRecipeInstanceCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerRecipeInstanceConfiguration) *ContainerRecipeInstanceConfiguration {
 		return &v
 	}).(ContainerRecipeInstanceConfigurationPtrOutput)
+}
+
+func (o ContainerRecipeInstanceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeInstanceConfiguration] {
+	return pulumix.Output[ContainerRecipeInstanceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block(s) with block device mappings for the container recipe. Detailed below.
@@ -351,6 +418,12 @@ func (o ContainerRecipeInstanceConfigurationPtrOutput) ToContainerRecipeInstance
 
 func (o ContainerRecipeInstanceConfigurationPtrOutput) ToContainerRecipeInstanceConfigurationPtrOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationPtrOutput {
 	return o
+}
+
+func (o ContainerRecipeInstanceConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipeInstanceConfiguration] {
+	return pulumix.Output[*ContainerRecipeInstanceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContainerRecipeInstanceConfigurationPtrOutput) Elem() ContainerRecipeInstanceConfigurationOutput {
@@ -428,6 +501,12 @@ func (i ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs) ToContainerR
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput)
 }
 
+func (i ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeInstanceConfigurationBlockDeviceMapping] {
+	return pulumix.Output[ContainerRecipeInstanceConfigurationBlockDeviceMapping]{
+		OutputState: i.ToContainerRecipeInstanceConfigurationBlockDeviceMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayInput is an input type that accepts ContainerRecipeInstanceConfigurationBlockDeviceMappingArray and ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput values.
 // You can construct a concrete instance of `ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayInput` via:
 //
@@ -453,6 +532,12 @@ func (i ContainerRecipeInstanceConfigurationBlockDeviceMappingArray) ToContainer
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput)
 }
 
+func (i ContainerRecipeInstanceConfigurationBlockDeviceMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]ContainerRecipeInstanceConfigurationBlockDeviceMapping] {
+	return pulumix.Output[[]ContainerRecipeInstanceConfigurationBlockDeviceMapping]{
+		OutputState: i.ToContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput struct{ *pulumi.OutputState }
 
 func (ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) ElementType() reflect.Type {
@@ -465,6 +550,12 @@ func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) ToContaine
 
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) ToContainerRecipeInstanceConfigurationBlockDeviceMappingOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput {
 	return o
+}
+
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeInstanceConfigurationBlockDeviceMapping] {
+	return pulumix.Output[ContainerRecipeInstanceConfigurationBlockDeviceMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
@@ -501,6 +592,12 @@ func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput) ToCon
 
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput) ToContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput {
 	return o
+}
+
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContainerRecipeInstanceConfigurationBlockDeviceMapping] {
+	return pulumix.Output[[]ContainerRecipeInstanceConfigurationBlockDeviceMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) ContainerRecipeInstanceConfigurationBlockDeviceMappingOutput {
@@ -570,6 +667,12 @@ func (i ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs) ToContain
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput)
 }
 
+func (i ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs] {
+	return pulumix.Output[ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs]{
+		OutputState: i.ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs) ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput() ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput {
 	return i.ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutputWithContext(context.Background())
 }
@@ -611,6 +714,12 @@ func (i *containerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrType) ToCon
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput)
 }
 
+func (i *containerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs] {
+	return pulumix.Output[*ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs]{
+		OutputState: i.ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput struct{ *pulumi.OutputState }
 
 func (ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) ElementType() reflect.Type {
@@ -633,6 +742,12 @@ func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) ToConta
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs) *ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs {
 		return &v
 	}).(ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput)
+}
+
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs] {
+	return pulumix.Output[ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
@@ -689,6 +804,12 @@ func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) ToCo
 
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) ToContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput {
 	return o
+}
+
+func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs] {
+	return pulumix.Output[*ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsPtrOutput) Elem() ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsOutput {
@@ -818,6 +939,12 @@ func (i ContainerRecipeTargetRepositoryArgs) ToContainerRecipeTargetRepositoryOu
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeTargetRepositoryOutput)
 }
 
+func (i ContainerRecipeTargetRepositoryArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeTargetRepository] {
+	return pulumix.Output[ContainerRecipeTargetRepository]{
+		OutputState: i.ToContainerRecipeTargetRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ContainerRecipeTargetRepositoryArgs) ToContainerRecipeTargetRepositoryPtrOutput() ContainerRecipeTargetRepositoryPtrOutput {
 	return i.ToContainerRecipeTargetRepositoryPtrOutputWithContext(context.Background())
 }
@@ -859,6 +986,12 @@ func (i *containerRecipeTargetRepositoryPtrType) ToContainerRecipeTargetReposito
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeTargetRepositoryPtrOutput)
 }
 
+func (i *containerRecipeTargetRepositoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipeTargetRepository] {
+	return pulumix.Output[*ContainerRecipeTargetRepository]{
+		OutputState: i.ToContainerRecipeTargetRepositoryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ContainerRecipeTargetRepositoryOutput struct{ *pulumi.OutputState }
 
 func (ContainerRecipeTargetRepositoryOutput) ElementType() reflect.Type {
@@ -883,6 +1016,12 @@ func (o ContainerRecipeTargetRepositoryOutput) ToContainerRecipeTargetRepository
 	}).(ContainerRecipeTargetRepositoryPtrOutput)
 }
 
+func (o ContainerRecipeTargetRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeTargetRepository] {
+	return pulumix.Output[ContainerRecipeTargetRepository]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
 func (o ContainerRecipeTargetRepositoryOutput) RepositoryName() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerRecipeTargetRepository) string { return v.RepositoryName }).(pulumi.StringOutput)
@@ -905,6 +1044,12 @@ func (o ContainerRecipeTargetRepositoryPtrOutput) ToContainerRecipeTargetReposit
 
 func (o ContainerRecipeTargetRepositoryPtrOutput) ToContainerRecipeTargetRepositoryPtrOutputWithContext(ctx context.Context) ContainerRecipeTargetRepositoryPtrOutput {
 	return o
+}
+
+func (o ContainerRecipeTargetRepositoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipeTargetRepository] {
+	return pulumix.Output[*ContainerRecipeTargetRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContainerRecipeTargetRepositoryPtrOutput) Elem() ContainerRecipeTargetRepositoryOutput {
@@ -994,6 +1139,12 @@ func (i DistributionConfigurationDistributionArgs) ToDistributionConfigurationDi
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionOutput)
 }
 
+func (i DistributionConfigurationDistributionArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationDistribution] {
+	return pulumix.Output[DistributionConfigurationDistribution]{
+		OutputState: i.ToDistributionConfigurationDistributionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DistributionConfigurationDistributionArrayInput is an input type that accepts DistributionConfigurationDistributionArray and DistributionConfigurationDistributionArrayOutput values.
 // You can construct a concrete instance of `DistributionConfigurationDistributionArrayInput` via:
 //
@@ -1019,6 +1170,12 @@ func (i DistributionConfigurationDistributionArray) ToDistributionConfigurationD
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionArrayOutput)
 }
 
+func (i DistributionConfigurationDistributionArray) ToOutput(ctx context.Context) pulumix.Output[[]DistributionConfigurationDistribution] {
+	return pulumix.Output[[]DistributionConfigurationDistribution]{
+		OutputState: i.ToDistributionConfigurationDistributionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DistributionConfigurationDistributionOutput struct{ *pulumi.OutputState }
 
 func (DistributionConfigurationDistributionOutput) ElementType() reflect.Type {
@@ -1031,6 +1188,12 @@ func (o DistributionConfigurationDistributionOutput) ToDistributionConfiguration
 
 func (o DistributionConfigurationDistributionOutput) ToDistributionConfigurationDistributionOutputWithContext(ctx context.Context) DistributionConfigurationDistributionOutput {
 	return o
+}
+
+func (o DistributionConfigurationDistributionOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationDistribution] {
+	return pulumix.Output[DistributionConfigurationDistribution]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
@@ -1085,6 +1248,12 @@ func (o DistributionConfigurationDistributionArrayOutput) ToDistributionConfigur
 
 func (o DistributionConfigurationDistributionArrayOutput) ToDistributionConfigurationDistributionArrayOutputWithContext(ctx context.Context) DistributionConfigurationDistributionArrayOutput {
 	return o
+}
+
+func (o DistributionConfigurationDistributionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DistributionConfigurationDistribution] {
+	return pulumix.Output[[]DistributionConfigurationDistribution]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DistributionConfigurationDistributionArrayOutput) Index(i pulumi.IntInput) DistributionConfigurationDistributionOutput {
@@ -1146,6 +1315,12 @@ func (i DistributionConfigurationDistributionAmiDistributionConfigurationArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionAmiDistributionConfigurationOutput)
 }
 
+func (i DistributionConfigurationDistributionAmiDistributionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationDistributionAmiDistributionConfiguration] {
+	return pulumix.Output[DistributionConfigurationDistributionAmiDistributionConfiguration]{
+		OutputState: i.ToDistributionConfigurationDistributionAmiDistributionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DistributionConfigurationDistributionAmiDistributionConfigurationArgs) ToDistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput() DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput {
 	return i.ToDistributionConfigurationDistributionAmiDistributionConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1187,6 +1362,12 @@ func (i *distributionConfigurationDistributionAmiDistributionConfigurationPtrTyp
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput)
 }
 
+func (i *distributionConfigurationDistributionAmiDistributionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationDistributionAmiDistributionConfiguration] {
+	return pulumix.Output[*DistributionConfigurationDistributionAmiDistributionConfiguration]{
+		OutputState: i.ToDistributionConfigurationDistributionAmiDistributionConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DistributionConfigurationDistributionAmiDistributionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DistributionConfigurationDistributionAmiDistributionConfigurationOutput) ElementType() reflect.Type {
@@ -1209,6 +1390,12 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationOutput)
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationDistributionAmiDistributionConfiguration) *DistributionConfigurationDistributionAmiDistributionConfiguration {
 		return &v
 	}).(DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput)
+}
+
+func (o DistributionConfigurationDistributionAmiDistributionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationDistributionAmiDistributionConfiguration] {
+	return pulumix.Output[DistributionConfigurationDistributionAmiDistributionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Key-value map of tags to apply to the distributed AMI.
@@ -1261,6 +1448,12 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutp
 
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput) ToDistributionConfigurationDistributionAmiDistributionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput {
 	return o
+}
+
+func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationDistributionAmiDistributionConfiguration] {
+	return pulumix.Output[*DistributionConfigurationDistributionAmiDistributionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutput) Elem() DistributionConfigurationDistributionAmiDistributionConfigurationOutput {
@@ -1378,6 +1571,12 @@ func (i DistributionConfigurationDistributionAmiDistributionConfigurationLaunchP
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput)
 }
 
+func (i DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission] {
+	return pulumix.Output[DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission]{
+		OutputState: i.ToDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs) ToDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput() DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput {
 	return i.ToDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutputWithContext(context.Background())
 }
@@ -1419,6 +1618,12 @@ func (i *distributionConfigurationDistributionAmiDistributionConfigurationLaunch
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput)
 }
 
+func (i *distributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrType) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission] {
+	return pulumix.Output[*DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission]{
+		OutputState: i.ToDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput struct{ *pulumi.OutputState }
 
 func (DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput) ElementType() reflect.Type {
@@ -1441,6 +1646,12 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchP
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission) *DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission {
 		return &v
 	}).(DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput)
+}
+
+func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission] {
+	return pulumix.Output[DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of AWS Organization ARNs to assign.
@@ -1483,6 +1694,12 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchP
 
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput) ToDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput {
 	return o
+}
+
+func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission] {
+	return pulumix.Output[*DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput) Elem() DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput {
@@ -1576,6 +1793,12 @@ func (i DistributionConfigurationDistributionContainerDistributionConfigurationA
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionContainerDistributionConfigurationOutput)
 }
 
+func (i DistributionConfigurationDistributionContainerDistributionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationDistributionContainerDistributionConfiguration] {
+	return pulumix.Output[DistributionConfigurationDistributionContainerDistributionConfiguration]{
+		OutputState: i.ToDistributionConfigurationDistributionContainerDistributionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DistributionConfigurationDistributionContainerDistributionConfigurationArgs) ToDistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput() DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput {
 	return i.ToDistributionConfigurationDistributionContainerDistributionConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1617,6 +1840,12 @@ func (i *distributionConfigurationDistributionContainerDistributionConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput)
 }
 
+func (i *distributionConfigurationDistributionContainerDistributionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationDistributionContainerDistributionConfiguration] {
+	return pulumix.Output[*DistributionConfigurationDistributionContainerDistributionConfiguration]{
+		OutputState: i.ToDistributionConfigurationDistributionContainerDistributionConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DistributionConfigurationDistributionContainerDistributionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DistributionConfigurationDistributionContainerDistributionConfigurationOutput) ElementType() reflect.Type {
@@ -1639,6 +1868,12 @@ func (o DistributionConfigurationDistributionContainerDistributionConfigurationO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationDistributionContainerDistributionConfiguration) *DistributionConfigurationDistributionContainerDistributionConfiguration {
 		return &v
 	}).(DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput)
+}
+
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationDistributionContainerDistributionConfiguration] {
+	return pulumix.Output[DistributionConfigurationDistributionContainerDistributionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of tags that are attached to the container distribution configuration.
@@ -1674,6 +1909,12 @@ func (o DistributionConfigurationDistributionContainerDistributionConfigurationP
 
 func (o DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput) ToDistributionConfigurationDistributionContainerDistributionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput {
 	return o
+}
+
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationDistributionContainerDistributionConfiguration] {
+	return pulumix.Output[*DistributionConfigurationDistributionContainerDistributionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput) Elem() DistributionConfigurationDistributionContainerDistributionConfigurationOutput {
@@ -1753,6 +1994,12 @@ func (i DistributionConfigurationDistributionContainerDistributionConfigurationT
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput)
 }
 
+func (i DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository] {
+	return pulumix.Output[DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository]{
+		OutputState: i.ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs) ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput() DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput {
 	return i.ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutputWithContext(context.Background())
 }
@@ -1794,6 +2041,12 @@ func (i *distributionConfigurationDistributionContainerDistributionConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput)
 }
 
+func (i *distributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository] {
+	return pulumix.Output[*DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository]{
+		OutputState: i.ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput struct{ *pulumi.OutputState }
 
 func (DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput) ElementType() reflect.Type {
@@ -1816,6 +2069,12 @@ func (o DistributionConfigurationDistributionContainerDistributionConfigurationT
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository) *DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository {
 		return &v
 	}).(DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput)
+}
+
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository] {
+	return pulumix.Output[DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
@@ -1844,6 +2103,12 @@ func (o DistributionConfigurationDistributionContainerDistributionConfigurationT
 
 func (o DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput) ToDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput {
 	return o
+}
+
+func (o DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository] {
+	return pulumix.Output[*DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput) Elem() DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput {
@@ -1925,6 +2190,12 @@ func (i DistributionConfigurationDistributionFastLaunchConfigurationArgs) ToDist
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionFastLaunchConfigurationOutput)
 }
 
+func (i DistributionConfigurationDistributionFastLaunchConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationDistributionFastLaunchConfiguration] {
+	return pulumix.Output[DistributionConfigurationDistributionFastLaunchConfiguration]{
+		OutputState: i.ToDistributionConfigurationDistributionFastLaunchConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DistributionConfigurationDistributionFastLaunchConfigurationArrayInput is an input type that accepts DistributionConfigurationDistributionFastLaunchConfigurationArray and DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput values.
 // You can construct a concrete instance of `DistributionConfigurationDistributionFastLaunchConfigurationArrayInput` via:
 //
@@ -1950,6 +2221,12 @@ func (i DistributionConfigurationDistributionFastLaunchConfigurationArray) ToDis
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput)
 }
 
+func (i DistributionConfigurationDistributionFastLaunchConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]DistributionConfigurationDistributionFastLaunchConfiguration] {
+	return pulumix.Output[[]DistributionConfigurationDistributionFastLaunchConfiguration]{
+		OutputState: i.ToDistributionConfigurationDistributionFastLaunchConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DistributionConfigurationDistributionFastLaunchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DistributionConfigurationDistributionFastLaunchConfigurationOutput) ElementType() reflect.Type {
@@ -1962,6 +2239,12 @@ func (o DistributionConfigurationDistributionFastLaunchConfigurationOutput) ToDi
 
 func (o DistributionConfigurationDistributionFastLaunchConfigurationOutput) ToDistributionConfigurationDistributionFastLaunchConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationDistributionFastLaunchConfigurationOutput {
 	return o
+}
+
+func (o DistributionConfigurationDistributionFastLaunchConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationDistributionFastLaunchConfiguration] {
+	return pulumix.Output[DistributionConfigurationDistributionFastLaunchConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The owner account ID for the fast-launch enabled Windows AMI.
@@ -2007,6 +2290,12 @@ func (o DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput)
 
 func (o DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput) ToDistributionConfigurationDistributionFastLaunchConfigurationArrayOutputWithContext(ctx context.Context) DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput {
 	return o
+}
+
+func (o DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DistributionConfigurationDistributionFastLaunchConfiguration] {
+	return pulumix.Output[[]DistributionConfigurationDistributionFastLaunchConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput) Index(i pulumi.IntInput) DistributionConfigurationDistributionFastLaunchConfigurationOutput {
@@ -2056,6 +2345,12 @@ func (i DistributionConfigurationDistributionFastLaunchConfigurationLaunchTempla
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput)
 }
 
+func (i DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate] {
+	return pulumix.Output[DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate]{
+		OutputState: i.ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs) ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput() DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput {
 	return i.ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutputWithContext(context.Background())
 }
@@ -2097,6 +2392,12 @@ func (i *distributionConfigurationDistributionFastLaunchConfigurationLaunchTempl
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput)
 }
 
+func (i *distributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrType) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate] {
+	return pulumix.Output[*DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate]{
+		OutputState: i.ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput struct{ *pulumi.OutputState }
 
 func (DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) ElementType() reflect.Type {
@@ -2119,6 +2420,12 @@ func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTempla
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate) *DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate {
 		return &v
 	}).(DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput)
+}
+
+func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate] {
+	return pulumix.Output[DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the launch template to use for faster launching for a Windows AMI.
@@ -2154,6 +2461,12 @@ func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTempla
 
 func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput) ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput {
 	return o
+}
+
+func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate] {
+	return pulumix.Output[*DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput) Elem() DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput {
@@ -2229,6 +2542,12 @@ func (i DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConf
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput)
 }
 
+func (i DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration] {
+	return pulumix.Output[DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration]{
+		OutputState: i.ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs) ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput() DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput {
 	return i.ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2270,6 +2589,12 @@ func (i *distributionConfigurationDistributionFastLaunchConfigurationSnapshotCon
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput)
 }
 
+func (i *distributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration] {
+	return pulumix.Output[*DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration]{
+		OutputState: i.ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput) ElementType() reflect.Type {
@@ -2294,6 +2619,12 @@ func (o DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConf
 	}).(DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput)
 }
 
+func (o DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration] {
+	return pulumix.Output[DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
 func (o DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput) TargetResourceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration) *int {
@@ -2313,6 +2644,12 @@ func (o DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConf
 
 func (o DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput) ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput {
 	return o
+}
+
+func (o DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration] {
+	return pulumix.Output[*DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput) Elem() DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput {
@@ -2376,6 +2713,12 @@ func (i DistributionConfigurationDistributionLaunchTemplateConfigurationArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionLaunchTemplateConfigurationOutput)
 }
 
+func (i DistributionConfigurationDistributionLaunchTemplateConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationDistributionLaunchTemplateConfiguration] {
+	return pulumix.Output[DistributionConfigurationDistributionLaunchTemplateConfiguration]{
+		OutputState: i.ToDistributionConfigurationDistributionLaunchTemplateConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput is an input type that accepts DistributionConfigurationDistributionLaunchTemplateConfigurationArray and DistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput values.
 // You can construct a concrete instance of `DistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput` via:
 //
@@ -2401,6 +2744,12 @@ func (i DistributionConfigurationDistributionLaunchTemplateConfigurationArray) T
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput)
 }
 
+func (i DistributionConfigurationDistributionLaunchTemplateConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]DistributionConfigurationDistributionLaunchTemplateConfiguration] {
+	return pulumix.Output[[]DistributionConfigurationDistributionLaunchTemplateConfiguration]{
+		OutputState: i.ToDistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DistributionConfigurationDistributionLaunchTemplateConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DistributionConfigurationDistributionLaunchTemplateConfigurationOutput) ElementType() reflect.Type {
@@ -2413,6 +2762,12 @@ func (o DistributionConfigurationDistributionLaunchTemplateConfigurationOutput) 
 
 func (o DistributionConfigurationDistributionLaunchTemplateConfigurationOutput) ToDistributionConfigurationDistributionLaunchTemplateConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationDistributionLaunchTemplateConfigurationOutput {
 	return o
+}
+
+func (o DistributionConfigurationDistributionLaunchTemplateConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationDistributionLaunchTemplateConfiguration] {
+	return pulumix.Output[DistributionConfigurationDistributionLaunchTemplateConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The account ID that this configuration applies to.
@@ -2444,6 +2799,12 @@ func (o DistributionConfigurationDistributionLaunchTemplateConfigurationArrayOut
 
 func (o DistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput) ToDistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutputWithContext(ctx context.Context) DistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput {
 	return o
+}
+
+func (o DistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DistributionConfigurationDistributionLaunchTemplateConfiguration] {
+	return pulumix.Output[[]DistributionConfigurationDistributionLaunchTemplateConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput) Index(i pulumi.IntInput) DistributionConfigurationDistributionLaunchTemplateConfigurationOutput {
@@ -2489,6 +2850,12 @@ func (i ImageImageTestsConfigurationArgs) ToImageImageTestsConfigurationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ImageImageTestsConfigurationOutput)
 }
 
+func (i ImageImageTestsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ImageImageTestsConfiguration] {
+	return pulumix.Output[ImageImageTestsConfiguration]{
+		OutputState: i.ToImageImageTestsConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ImageImageTestsConfigurationArgs) ToImageImageTestsConfigurationPtrOutput() ImageImageTestsConfigurationPtrOutput {
 	return i.ToImageImageTestsConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2530,6 +2897,12 @@ func (i *imageImageTestsConfigurationPtrType) ToImageImageTestsConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ImageImageTestsConfigurationPtrOutput)
 }
 
+func (i *imageImageTestsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ImageImageTestsConfiguration] {
+	return pulumix.Output[*ImageImageTestsConfiguration]{
+		OutputState: i.ToImageImageTestsConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ImageImageTestsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ImageImageTestsConfigurationOutput) ElementType() reflect.Type {
@@ -2554,6 +2927,12 @@ func (o ImageImageTestsConfigurationOutput) ToImageImageTestsConfigurationPtrOut
 	}).(ImageImageTestsConfigurationPtrOutput)
 }
 
+func (o ImageImageTestsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ImageImageTestsConfiguration] {
+	return pulumix.Output[ImageImageTestsConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Whether image tests are enabled. Defaults to `true`.
 func (o ImageImageTestsConfigurationOutput) ImageTestsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ImageImageTestsConfiguration) *bool { return v.ImageTestsEnabled }).(pulumi.BoolPtrOutput)
@@ -2576,6 +2955,12 @@ func (o ImageImageTestsConfigurationPtrOutput) ToImageImageTestsConfigurationPtr
 
 func (o ImageImageTestsConfigurationPtrOutput) ToImageImageTestsConfigurationPtrOutputWithContext(ctx context.Context) ImageImageTestsConfigurationPtrOutput {
 	return o
+}
+
+func (o ImageImageTestsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageImageTestsConfiguration] {
+	return pulumix.Output[*ImageImageTestsConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ImageImageTestsConfigurationPtrOutput) Elem() ImageImageTestsConfigurationOutput {
@@ -2645,6 +3030,12 @@ func (i ImageOutputResourceArgs) ToImageOutputResourceOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ImageOutputResourceOutput)
 }
 
+func (i ImageOutputResourceArgs) ToOutput(ctx context.Context) pulumix.Output[ImageOutputResource] {
+	return pulumix.Output[ImageOutputResource]{
+		OutputState: i.ToImageOutputResourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ImageOutputResourceArrayInput is an input type that accepts ImageOutputResourceArray and ImageOutputResourceArrayOutput values.
 // You can construct a concrete instance of `ImageOutputResourceArrayInput` via:
 //
@@ -2670,6 +3061,12 @@ func (i ImageOutputResourceArray) ToImageOutputResourceArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ImageOutputResourceArrayOutput)
 }
 
+func (i ImageOutputResourceArray) ToOutput(ctx context.Context) pulumix.Output[[]ImageOutputResource] {
+	return pulumix.Output[[]ImageOutputResource]{
+		OutputState: i.ToImageOutputResourceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ImageOutputResourceOutput struct{ *pulumi.OutputState }
 
 func (ImageOutputResourceOutput) ElementType() reflect.Type {
@@ -2682,6 +3079,12 @@ func (o ImageOutputResourceOutput) ToImageOutputResourceOutput() ImageOutputReso
 
 func (o ImageOutputResourceOutput) ToImageOutputResourceOutputWithContext(ctx context.Context) ImageOutputResourceOutput {
 	return o
+}
+
+func (o ImageOutputResourceOutput) ToOutput(ctx context.Context) pulumix.Output[ImageOutputResource] {
+	return pulumix.Output[ImageOutputResource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of objects with each Amazon Machine Image (AMI) created.
@@ -2706,6 +3109,12 @@ func (o ImageOutputResourceArrayOutput) ToImageOutputResourceArrayOutput() Image
 
 func (o ImageOutputResourceArrayOutput) ToImageOutputResourceArrayOutputWithContext(ctx context.Context) ImageOutputResourceArrayOutput {
 	return o
+}
+
+func (o ImageOutputResourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ImageOutputResource] {
+	return pulumix.Output[[]ImageOutputResource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ImageOutputResourceArrayOutput) Index(i pulumi.IntInput) ImageOutputResourceOutput {
@@ -2763,6 +3172,12 @@ func (i ImageOutputResourceAmiArgs) ToImageOutputResourceAmiOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ImageOutputResourceAmiOutput)
 }
 
+func (i ImageOutputResourceAmiArgs) ToOutput(ctx context.Context) pulumix.Output[ImageOutputResourceAmi] {
+	return pulumix.Output[ImageOutputResourceAmi]{
+		OutputState: i.ToImageOutputResourceAmiOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ImageOutputResourceAmiArrayInput is an input type that accepts ImageOutputResourceAmiArray and ImageOutputResourceAmiArrayOutput values.
 // You can construct a concrete instance of `ImageOutputResourceAmiArrayInput` via:
 //
@@ -2788,6 +3203,12 @@ func (i ImageOutputResourceAmiArray) ToImageOutputResourceAmiArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ImageOutputResourceAmiArrayOutput)
 }
 
+func (i ImageOutputResourceAmiArray) ToOutput(ctx context.Context) pulumix.Output[[]ImageOutputResourceAmi] {
+	return pulumix.Output[[]ImageOutputResourceAmi]{
+		OutputState: i.ToImageOutputResourceAmiArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ImageOutputResourceAmiOutput struct{ *pulumi.OutputState }
 
 func (ImageOutputResourceAmiOutput) ElementType() reflect.Type {
@@ -2800,6 +3221,12 @@ func (o ImageOutputResourceAmiOutput) ToImageOutputResourceAmiOutput() ImageOutp
 
 func (o ImageOutputResourceAmiOutput) ToImageOutputResourceAmiOutputWithContext(ctx context.Context) ImageOutputResourceAmiOutput {
 	return o
+}
+
+func (o ImageOutputResourceAmiOutput) ToOutput(ctx context.Context) pulumix.Output[ImageOutputResourceAmi] {
+	return pulumix.Output[ImageOutputResourceAmi]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Account identifier of the AMI.
@@ -2839,6 +3266,12 @@ func (o ImageOutputResourceAmiArrayOutput) ToImageOutputResourceAmiArrayOutput()
 
 func (o ImageOutputResourceAmiArrayOutput) ToImageOutputResourceAmiArrayOutputWithContext(ctx context.Context) ImageOutputResourceAmiArrayOutput {
 	return o
+}
+
+func (o ImageOutputResourceAmiArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ImageOutputResourceAmi] {
+	return pulumix.Output[[]ImageOutputResourceAmi]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ImageOutputResourceAmiArrayOutput) Index(i pulumi.IntInput) ImageOutputResourceAmiOutput {
@@ -2884,6 +3317,12 @@ func (i ImageOutputResourceContainerArgs) ToImageOutputResourceContainerOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ImageOutputResourceContainerOutput)
 }
 
+func (i ImageOutputResourceContainerArgs) ToOutput(ctx context.Context) pulumix.Output[ImageOutputResourceContainer] {
+	return pulumix.Output[ImageOutputResourceContainer]{
+		OutputState: i.ToImageOutputResourceContainerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ImageOutputResourceContainerArrayInput is an input type that accepts ImageOutputResourceContainerArray and ImageOutputResourceContainerArrayOutput values.
 // You can construct a concrete instance of `ImageOutputResourceContainerArrayInput` via:
 //
@@ -2909,6 +3348,12 @@ func (i ImageOutputResourceContainerArray) ToImageOutputResourceContainerArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ImageOutputResourceContainerArrayOutput)
 }
 
+func (i ImageOutputResourceContainerArray) ToOutput(ctx context.Context) pulumix.Output[[]ImageOutputResourceContainer] {
+	return pulumix.Output[[]ImageOutputResourceContainer]{
+		OutputState: i.ToImageOutputResourceContainerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ImageOutputResourceContainerOutput struct{ *pulumi.OutputState }
 
 func (ImageOutputResourceContainerOutput) ElementType() reflect.Type {
@@ -2921,6 +3366,12 @@ func (o ImageOutputResourceContainerOutput) ToImageOutputResourceContainerOutput
 
 func (o ImageOutputResourceContainerOutput) ToImageOutputResourceContainerOutputWithContext(ctx context.Context) ImageOutputResourceContainerOutput {
 	return o
+}
+
+func (o ImageOutputResourceContainerOutput) ToOutput(ctx context.Context) pulumix.Output[ImageOutputResourceContainer] {
+	return pulumix.Output[ImageOutputResourceContainer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of URIs for created containers.
@@ -2947,10 +3398,374 @@ func (o ImageOutputResourceContainerArrayOutput) ToImageOutputResourceContainerA
 	return o
 }
 
+func (o ImageOutputResourceContainerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ImageOutputResourceContainer] {
+	return pulumix.Output[[]ImageOutputResourceContainer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ImageOutputResourceContainerArrayOutput) Index(i pulumi.IntInput) ImageOutputResourceContainerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageOutputResourceContainer {
 		return vs[0].([]ImageOutputResourceContainer)[vs[1].(int)]
 	}).(ImageOutputResourceContainerOutput)
+}
+
+type ImagePipelineImageScanningConfiguration struct {
+	// Configuration block with ECR configuration for image scanning. Detailed below.
+	EcrConfiguration *ImagePipelineImageScanningConfigurationEcrConfiguration `pulumi:"ecrConfiguration"`
+	// Whether image scans are enabled. Defaults to `false`.
+	ImageScanningEnabled *bool `pulumi:"imageScanningEnabled"`
+}
+
+// ImagePipelineImageScanningConfigurationInput is an input type that accepts ImagePipelineImageScanningConfigurationArgs and ImagePipelineImageScanningConfigurationOutput values.
+// You can construct a concrete instance of `ImagePipelineImageScanningConfigurationInput` via:
+//
+//	ImagePipelineImageScanningConfigurationArgs{...}
+type ImagePipelineImageScanningConfigurationInput interface {
+	pulumi.Input
+
+	ToImagePipelineImageScanningConfigurationOutput() ImagePipelineImageScanningConfigurationOutput
+	ToImagePipelineImageScanningConfigurationOutputWithContext(context.Context) ImagePipelineImageScanningConfigurationOutput
+}
+
+type ImagePipelineImageScanningConfigurationArgs struct {
+	// Configuration block with ECR configuration for image scanning. Detailed below.
+	EcrConfiguration ImagePipelineImageScanningConfigurationEcrConfigurationPtrInput `pulumi:"ecrConfiguration"`
+	// Whether image scans are enabled. Defaults to `false`.
+	ImageScanningEnabled pulumi.BoolPtrInput `pulumi:"imageScanningEnabled"`
+}
+
+func (ImagePipelineImageScanningConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineImageScanningConfiguration)(nil)).Elem()
+}
+
+func (i ImagePipelineImageScanningConfigurationArgs) ToImagePipelineImageScanningConfigurationOutput() ImagePipelineImageScanningConfigurationOutput {
+	return i.ToImagePipelineImageScanningConfigurationOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineImageScanningConfigurationArgs) ToImagePipelineImageScanningConfigurationOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageScanningConfigurationOutput)
+}
+
+func (i ImagePipelineImageScanningConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineImageScanningConfiguration] {
+	return pulumix.Output[ImagePipelineImageScanningConfiguration]{
+		OutputState: i.ToImagePipelineImageScanningConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ImagePipelineImageScanningConfigurationArgs) ToImagePipelineImageScanningConfigurationPtrOutput() ImagePipelineImageScanningConfigurationPtrOutput {
+	return i.ToImagePipelineImageScanningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineImageScanningConfigurationArgs) ToImagePipelineImageScanningConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageScanningConfigurationOutput).ToImagePipelineImageScanningConfigurationPtrOutputWithContext(ctx)
+}
+
+// ImagePipelineImageScanningConfigurationPtrInput is an input type that accepts ImagePipelineImageScanningConfigurationArgs, ImagePipelineImageScanningConfigurationPtr and ImagePipelineImageScanningConfigurationPtrOutput values.
+// You can construct a concrete instance of `ImagePipelineImageScanningConfigurationPtrInput` via:
+//
+//	        ImagePipelineImageScanningConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ImagePipelineImageScanningConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToImagePipelineImageScanningConfigurationPtrOutput() ImagePipelineImageScanningConfigurationPtrOutput
+	ToImagePipelineImageScanningConfigurationPtrOutputWithContext(context.Context) ImagePipelineImageScanningConfigurationPtrOutput
+}
+
+type imagePipelineImageScanningConfigurationPtrType ImagePipelineImageScanningConfigurationArgs
+
+func ImagePipelineImageScanningConfigurationPtr(v *ImagePipelineImageScanningConfigurationArgs) ImagePipelineImageScanningConfigurationPtrInput {
+	return (*imagePipelineImageScanningConfigurationPtrType)(v)
+}
+
+func (*imagePipelineImageScanningConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineImageScanningConfiguration)(nil)).Elem()
+}
+
+func (i *imagePipelineImageScanningConfigurationPtrType) ToImagePipelineImageScanningConfigurationPtrOutput() ImagePipelineImageScanningConfigurationPtrOutput {
+	return i.ToImagePipelineImageScanningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *imagePipelineImageScanningConfigurationPtrType) ToImagePipelineImageScanningConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageScanningConfigurationPtrOutput)
+}
+
+func (i *imagePipelineImageScanningConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ImagePipelineImageScanningConfiguration] {
+	return pulumix.Output[*ImagePipelineImageScanningConfiguration]{
+		OutputState: i.ToImagePipelineImageScanningConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ImagePipelineImageScanningConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineImageScanningConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineImageScanningConfiguration)(nil)).Elem()
+}
+
+func (o ImagePipelineImageScanningConfigurationOutput) ToImagePipelineImageScanningConfigurationOutput() ImagePipelineImageScanningConfigurationOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationOutput) ToImagePipelineImageScanningConfigurationOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationOutput) ToImagePipelineImageScanningConfigurationPtrOutput() ImagePipelineImageScanningConfigurationPtrOutput {
+	return o.ToImagePipelineImageScanningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineImageScanningConfigurationOutput) ToImagePipelineImageScanningConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImagePipelineImageScanningConfiguration) *ImagePipelineImageScanningConfiguration {
+		return &v
+	}).(ImagePipelineImageScanningConfigurationPtrOutput)
+}
+
+func (o ImagePipelineImageScanningConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineImageScanningConfiguration] {
+	return pulumix.Output[ImagePipelineImageScanningConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Configuration block with ECR configuration for image scanning. Detailed below.
+func (o ImagePipelineImageScanningConfigurationOutput) EcrConfiguration() ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput {
+	return o.ApplyT(func(v ImagePipelineImageScanningConfiguration) *ImagePipelineImageScanningConfigurationEcrConfiguration {
+		return v.EcrConfiguration
+	}).(ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput)
+}
+
+// Whether image scans are enabled. Defaults to `false`.
+func (o ImagePipelineImageScanningConfigurationOutput) ImageScanningEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ImagePipelineImageScanningConfiguration) *bool { return v.ImageScanningEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type ImagePipelineImageScanningConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineImageScanningConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineImageScanningConfiguration)(nil)).Elem()
+}
+
+func (o ImagePipelineImageScanningConfigurationPtrOutput) ToImagePipelineImageScanningConfigurationPtrOutput() ImagePipelineImageScanningConfigurationPtrOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationPtrOutput) ToImagePipelineImageScanningConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationPtrOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImagePipelineImageScanningConfiguration] {
+	return pulumix.Output[*ImagePipelineImageScanningConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ImagePipelineImageScanningConfigurationPtrOutput) Elem() ImagePipelineImageScanningConfigurationOutput {
+	return o.ApplyT(func(v *ImagePipelineImageScanningConfiguration) ImagePipelineImageScanningConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ImagePipelineImageScanningConfiguration
+		return ret
+	}).(ImagePipelineImageScanningConfigurationOutput)
+}
+
+// Configuration block with ECR configuration for image scanning. Detailed below.
+func (o ImagePipelineImageScanningConfigurationPtrOutput) EcrConfiguration() ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineImageScanningConfiguration) *ImagePipelineImageScanningConfigurationEcrConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EcrConfiguration
+	}).(ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput)
+}
+
+// Whether image scans are enabled. Defaults to `false`.
+func (o ImagePipelineImageScanningConfigurationPtrOutput) ImageScanningEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineImageScanningConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ImageScanningEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ImagePipelineImageScanningConfigurationEcrConfiguration struct {
+	ContainerTags []string `pulumi:"containerTags"`
+	// The name of the repository to scan
+	RepositoryName *string `pulumi:"repositoryName"`
+}
+
+// ImagePipelineImageScanningConfigurationEcrConfigurationInput is an input type that accepts ImagePipelineImageScanningConfigurationEcrConfigurationArgs and ImagePipelineImageScanningConfigurationEcrConfigurationOutput values.
+// You can construct a concrete instance of `ImagePipelineImageScanningConfigurationEcrConfigurationInput` via:
+//
+//	ImagePipelineImageScanningConfigurationEcrConfigurationArgs{...}
+type ImagePipelineImageScanningConfigurationEcrConfigurationInput interface {
+	pulumi.Input
+
+	ToImagePipelineImageScanningConfigurationEcrConfigurationOutput() ImagePipelineImageScanningConfigurationEcrConfigurationOutput
+	ToImagePipelineImageScanningConfigurationEcrConfigurationOutputWithContext(context.Context) ImagePipelineImageScanningConfigurationEcrConfigurationOutput
+}
+
+type ImagePipelineImageScanningConfigurationEcrConfigurationArgs struct {
+	ContainerTags pulumi.StringArrayInput `pulumi:"containerTags"`
+	// The name of the repository to scan
+	RepositoryName pulumi.StringPtrInput `pulumi:"repositoryName"`
+}
+
+func (ImagePipelineImageScanningConfigurationEcrConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineImageScanningConfigurationEcrConfiguration)(nil)).Elem()
+}
+
+func (i ImagePipelineImageScanningConfigurationEcrConfigurationArgs) ToImagePipelineImageScanningConfigurationEcrConfigurationOutput() ImagePipelineImageScanningConfigurationEcrConfigurationOutput {
+	return i.ToImagePipelineImageScanningConfigurationEcrConfigurationOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineImageScanningConfigurationEcrConfigurationArgs) ToImagePipelineImageScanningConfigurationEcrConfigurationOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationEcrConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageScanningConfigurationEcrConfigurationOutput)
+}
+
+func (i ImagePipelineImageScanningConfigurationEcrConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineImageScanningConfigurationEcrConfiguration] {
+	return pulumix.Output[ImagePipelineImageScanningConfigurationEcrConfiguration]{
+		OutputState: i.ToImagePipelineImageScanningConfigurationEcrConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ImagePipelineImageScanningConfigurationEcrConfigurationArgs) ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput() ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput {
+	return i.ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineImageScanningConfigurationEcrConfigurationArgs) ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageScanningConfigurationEcrConfigurationOutput).ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutputWithContext(ctx)
+}
+
+// ImagePipelineImageScanningConfigurationEcrConfigurationPtrInput is an input type that accepts ImagePipelineImageScanningConfigurationEcrConfigurationArgs, ImagePipelineImageScanningConfigurationEcrConfigurationPtr and ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput values.
+// You can construct a concrete instance of `ImagePipelineImageScanningConfigurationEcrConfigurationPtrInput` via:
+//
+//	        ImagePipelineImageScanningConfigurationEcrConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ImagePipelineImageScanningConfigurationEcrConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput() ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput
+	ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutputWithContext(context.Context) ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput
+}
+
+type imagePipelineImageScanningConfigurationEcrConfigurationPtrType ImagePipelineImageScanningConfigurationEcrConfigurationArgs
+
+func ImagePipelineImageScanningConfigurationEcrConfigurationPtr(v *ImagePipelineImageScanningConfigurationEcrConfigurationArgs) ImagePipelineImageScanningConfigurationEcrConfigurationPtrInput {
+	return (*imagePipelineImageScanningConfigurationEcrConfigurationPtrType)(v)
+}
+
+func (*imagePipelineImageScanningConfigurationEcrConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineImageScanningConfigurationEcrConfiguration)(nil)).Elem()
+}
+
+func (i *imagePipelineImageScanningConfigurationEcrConfigurationPtrType) ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput() ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput {
+	return i.ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *imagePipelineImageScanningConfigurationEcrConfigurationPtrType) ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput)
+}
+
+func (i *imagePipelineImageScanningConfigurationEcrConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ImagePipelineImageScanningConfigurationEcrConfiguration] {
+	return pulumix.Output[*ImagePipelineImageScanningConfigurationEcrConfiguration]{
+		OutputState: i.ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ImagePipelineImageScanningConfigurationEcrConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineImageScanningConfigurationEcrConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineImageScanningConfigurationEcrConfiguration)(nil)).Elem()
+}
+
+func (o ImagePipelineImageScanningConfigurationEcrConfigurationOutput) ToImagePipelineImageScanningConfigurationEcrConfigurationOutput() ImagePipelineImageScanningConfigurationEcrConfigurationOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationEcrConfigurationOutput) ToImagePipelineImageScanningConfigurationEcrConfigurationOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationEcrConfigurationOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationEcrConfigurationOutput) ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput() ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput {
+	return o.ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineImageScanningConfigurationEcrConfigurationOutput) ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImagePipelineImageScanningConfigurationEcrConfiguration) *ImagePipelineImageScanningConfigurationEcrConfiguration {
+		return &v
+	}).(ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput)
+}
+
+func (o ImagePipelineImageScanningConfigurationEcrConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineImageScanningConfigurationEcrConfiguration] {
+	return pulumix.Output[ImagePipelineImageScanningConfigurationEcrConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ImagePipelineImageScanningConfigurationEcrConfigurationOutput) ContainerTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ImagePipelineImageScanningConfigurationEcrConfiguration) []string { return v.ContainerTags }).(pulumi.StringArrayOutput)
+}
+
+// The name of the repository to scan
+func (o ImagePipelineImageScanningConfigurationEcrConfigurationOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImagePipelineImageScanningConfigurationEcrConfiguration) *string { return v.RepositoryName }).(pulumi.StringPtrOutput)
+}
+
+type ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineImageScanningConfigurationEcrConfiguration)(nil)).Elem()
+}
+
+func (o ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput) ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput() ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput) ToImagePipelineImageScanningConfigurationEcrConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput {
+	return o
+}
+
+func (o ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImagePipelineImageScanningConfigurationEcrConfiguration] {
+	return pulumix.Output[*ImagePipelineImageScanningConfigurationEcrConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput) Elem() ImagePipelineImageScanningConfigurationEcrConfigurationOutput {
+	return o.ApplyT(func(v *ImagePipelineImageScanningConfigurationEcrConfiguration) ImagePipelineImageScanningConfigurationEcrConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ImagePipelineImageScanningConfigurationEcrConfiguration
+		return ret
+	}).(ImagePipelineImageScanningConfigurationEcrConfigurationOutput)
+}
+
+func (o ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput) ContainerTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ImagePipelineImageScanningConfigurationEcrConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerTags
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the repository to scan
+func (o ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput) RepositoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImagePipelineImageScanningConfigurationEcrConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryName
+	}).(pulumi.StringPtrOutput)
 }
 
 type ImagePipelineImageTestsConfiguration struct {
@@ -2988,6 +3803,12 @@ func (i ImagePipelineImageTestsConfigurationArgs) ToImagePipelineImageTestsConfi
 
 func (i ImagePipelineImageTestsConfigurationArgs) ToImagePipelineImageTestsConfigurationOutputWithContext(ctx context.Context) ImagePipelineImageTestsConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageTestsConfigurationOutput)
+}
+
+func (i ImagePipelineImageTestsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineImageTestsConfiguration] {
+	return pulumix.Output[ImagePipelineImageTestsConfiguration]{
+		OutputState: i.ToImagePipelineImageTestsConfigurationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ImagePipelineImageTestsConfigurationArgs) ToImagePipelineImageTestsConfigurationPtrOutput() ImagePipelineImageTestsConfigurationPtrOutput {
@@ -3031,6 +3852,12 @@ func (i *imagePipelineImageTestsConfigurationPtrType) ToImagePipelineImageTestsC
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageTestsConfigurationPtrOutput)
 }
 
+func (i *imagePipelineImageTestsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ImagePipelineImageTestsConfiguration] {
+	return pulumix.Output[*ImagePipelineImageTestsConfiguration]{
+		OutputState: i.ToImagePipelineImageTestsConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ImagePipelineImageTestsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ImagePipelineImageTestsConfigurationOutput) ElementType() reflect.Type {
@@ -3055,6 +3882,12 @@ func (o ImagePipelineImageTestsConfigurationOutput) ToImagePipelineImageTestsCon
 	}).(ImagePipelineImageTestsConfigurationPtrOutput)
 }
 
+func (o ImagePipelineImageTestsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineImageTestsConfiguration] {
+	return pulumix.Output[ImagePipelineImageTestsConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Whether image tests are enabled. Defaults to `true`.
 func (o ImagePipelineImageTestsConfigurationOutput) ImageTestsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ImagePipelineImageTestsConfiguration) *bool { return v.ImageTestsEnabled }).(pulumi.BoolPtrOutput)
@@ -3077,6 +3910,12 @@ func (o ImagePipelineImageTestsConfigurationPtrOutput) ToImagePipelineImageTests
 
 func (o ImagePipelineImageTestsConfigurationPtrOutput) ToImagePipelineImageTestsConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageTestsConfigurationPtrOutput {
 	return o
+}
+
+func (o ImagePipelineImageTestsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImagePipelineImageTestsConfiguration] {
+	return pulumix.Output[*ImagePipelineImageTestsConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ImagePipelineImageTestsConfigurationPtrOutput) Elem() ImagePipelineImageTestsConfigurationOutput {
@@ -3154,6 +3993,12 @@ func (i ImagePipelineScheduleArgs) ToImagePipelineScheduleOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineScheduleOutput)
 }
 
+func (i ImagePipelineScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineSchedule] {
+	return pulumix.Output[ImagePipelineSchedule]{
+		OutputState: i.ToImagePipelineScheduleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ImagePipelineScheduleArgs) ToImagePipelineSchedulePtrOutput() ImagePipelineSchedulePtrOutput {
 	return i.ToImagePipelineSchedulePtrOutputWithContext(context.Background())
 }
@@ -3195,6 +4040,12 @@ func (i *imagePipelineSchedulePtrType) ToImagePipelineSchedulePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineSchedulePtrOutput)
 }
 
+func (i *imagePipelineSchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*ImagePipelineSchedule] {
+	return pulumix.Output[*ImagePipelineSchedule]{
+		OutputState: i.ToImagePipelineSchedulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ImagePipelineScheduleOutput struct{ *pulumi.OutputState }
 
 func (ImagePipelineScheduleOutput) ElementType() reflect.Type {
@@ -3217,6 +4068,12 @@ func (o ImagePipelineScheduleOutput) ToImagePipelineSchedulePtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImagePipelineSchedule) *ImagePipelineSchedule {
 		return &v
 	}).(ImagePipelineSchedulePtrOutput)
+}
+
+func (o ImagePipelineScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineSchedule] {
+	return pulumix.Output[ImagePipelineSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
@@ -3248,6 +4105,12 @@ func (o ImagePipelineSchedulePtrOutput) ToImagePipelineSchedulePtrOutput() Image
 
 func (o ImagePipelineSchedulePtrOutput) ToImagePipelineSchedulePtrOutputWithContext(ctx context.Context) ImagePipelineSchedulePtrOutput {
 	return o
+}
+
+func (o ImagePipelineSchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImagePipelineSchedule] {
+	return pulumix.Output[*ImagePipelineSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ImagePipelineSchedulePtrOutput) Elem() ImagePipelineScheduleOutput {
@@ -3337,6 +4200,12 @@ func (i ImageRecipeBlockDeviceMappingArgs) ToImageRecipeBlockDeviceMappingOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeBlockDeviceMappingOutput)
 }
 
+func (i ImageRecipeBlockDeviceMappingArgs) ToOutput(ctx context.Context) pulumix.Output[ImageRecipeBlockDeviceMapping] {
+	return pulumix.Output[ImageRecipeBlockDeviceMapping]{
+		OutputState: i.ToImageRecipeBlockDeviceMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ImageRecipeBlockDeviceMappingArrayInput is an input type that accepts ImageRecipeBlockDeviceMappingArray and ImageRecipeBlockDeviceMappingArrayOutput values.
 // You can construct a concrete instance of `ImageRecipeBlockDeviceMappingArrayInput` via:
 //
@@ -3362,6 +4231,12 @@ func (i ImageRecipeBlockDeviceMappingArray) ToImageRecipeBlockDeviceMappingArray
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeBlockDeviceMappingArrayOutput)
 }
 
+func (i ImageRecipeBlockDeviceMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]ImageRecipeBlockDeviceMapping] {
+	return pulumix.Output[[]ImageRecipeBlockDeviceMapping]{
+		OutputState: i.ToImageRecipeBlockDeviceMappingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ImageRecipeBlockDeviceMappingOutput struct{ *pulumi.OutputState }
 
 func (ImageRecipeBlockDeviceMappingOutput) ElementType() reflect.Type {
@@ -3374,6 +4249,12 @@ func (o ImageRecipeBlockDeviceMappingOutput) ToImageRecipeBlockDeviceMappingOutp
 
 func (o ImageRecipeBlockDeviceMappingOutput) ToImageRecipeBlockDeviceMappingOutputWithContext(ctx context.Context) ImageRecipeBlockDeviceMappingOutput {
 	return o
+}
+
+func (o ImageRecipeBlockDeviceMappingOutput) ToOutput(ctx context.Context) pulumix.Output[ImageRecipeBlockDeviceMapping] {
+	return pulumix.Output[ImageRecipeBlockDeviceMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
@@ -3408,6 +4289,12 @@ func (o ImageRecipeBlockDeviceMappingArrayOutput) ToImageRecipeBlockDeviceMappin
 
 func (o ImageRecipeBlockDeviceMappingArrayOutput) ToImageRecipeBlockDeviceMappingArrayOutputWithContext(ctx context.Context) ImageRecipeBlockDeviceMappingArrayOutput {
 	return o
+}
+
+func (o ImageRecipeBlockDeviceMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ImageRecipeBlockDeviceMapping] {
+	return pulumix.Output[[]ImageRecipeBlockDeviceMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ImageRecipeBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) ImageRecipeBlockDeviceMappingOutput {
@@ -3477,6 +4364,12 @@ func (i ImageRecipeBlockDeviceMappingEbsArgs) ToImageRecipeBlockDeviceMappingEbs
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeBlockDeviceMappingEbsOutput)
 }
 
+func (i ImageRecipeBlockDeviceMappingEbsArgs) ToOutput(ctx context.Context) pulumix.Output[ImageRecipeBlockDeviceMappingEbs] {
+	return pulumix.Output[ImageRecipeBlockDeviceMappingEbs]{
+		OutputState: i.ToImageRecipeBlockDeviceMappingEbsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ImageRecipeBlockDeviceMappingEbsArgs) ToImageRecipeBlockDeviceMappingEbsPtrOutput() ImageRecipeBlockDeviceMappingEbsPtrOutput {
 	return i.ToImageRecipeBlockDeviceMappingEbsPtrOutputWithContext(context.Background())
 }
@@ -3518,6 +4411,12 @@ func (i *imageRecipeBlockDeviceMappingEbsPtrType) ToImageRecipeBlockDeviceMappin
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeBlockDeviceMappingEbsPtrOutput)
 }
 
+func (i *imageRecipeBlockDeviceMappingEbsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ImageRecipeBlockDeviceMappingEbs] {
+	return pulumix.Output[*ImageRecipeBlockDeviceMappingEbs]{
+		OutputState: i.ToImageRecipeBlockDeviceMappingEbsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ImageRecipeBlockDeviceMappingEbsOutput struct{ *pulumi.OutputState }
 
 func (ImageRecipeBlockDeviceMappingEbsOutput) ElementType() reflect.Type {
@@ -3540,6 +4439,12 @@ func (o ImageRecipeBlockDeviceMappingEbsOutput) ToImageRecipeBlockDeviceMappingE
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageRecipeBlockDeviceMappingEbs) *ImageRecipeBlockDeviceMappingEbs {
 		return &v
 	}).(ImageRecipeBlockDeviceMappingEbsPtrOutput)
+}
+
+func (o ImageRecipeBlockDeviceMappingEbsOutput) ToOutput(ctx context.Context) pulumix.Output[ImageRecipeBlockDeviceMappingEbs] {
+	return pulumix.Output[ImageRecipeBlockDeviceMappingEbs]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
@@ -3594,6 +4499,12 @@ func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) ToImageRecipeBlockDeviceMappi
 
 func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) ToImageRecipeBlockDeviceMappingEbsPtrOutputWithContext(ctx context.Context) ImageRecipeBlockDeviceMappingEbsPtrOutput {
 	return o
+}
+
+func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageRecipeBlockDeviceMappingEbs] {
+	return pulumix.Output[*ImageRecipeBlockDeviceMappingEbs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ImageRecipeBlockDeviceMappingEbsPtrOutput) Elem() ImageRecipeBlockDeviceMappingEbsOutput {
@@ -3723,6 +4634,12 @@ func (i ImageRecipeComponentArgs) ToImageRecipeComponentOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeComponentOutput)
 }
 
+func (i ImageRecipeComponentArgs) ToOutput(ctx context.Context) pulumix.Output[ImageRecipeComponent] {
+	return pulumix.Output[ImageRecipeComponent]{
+		OutputState: i.ToImageRecipeComponentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ImageRecipeComponentArrayInput is an input type that accepts ImageRecipeComponentArray and ImageRecipeComponentArrayOutput values.
 // You can construct a concrete instance of `ImageRecipeComponentArrayInput` via:
 //
@@ -3748,6 +4665,12 @@ func (i ImageRecipeComponentArray) ToImageRecipeComponentArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeComponentArrayOutput)
 }
 
+func (i ImageRecipeComponentArray) ToOutput(ctx context.Context) pulumix.Output[[]ImageRecipeComponent] {
+	return pulumix.Output[[]ImageRecipeComponent]{
+		OutputState: i.ToImageRecipeComponentArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ImageRecipeComponentOutput struct{ *pulumi.OutputState }
 
 func (ImageRecipeComponentOutput) ElementType() reflect.Type {
@@ -3760,6 +4683,12 @@ func (o ImageRecipeComponentOutput) ToImageRecipeComponentOutput() ImageRecipeCo
 
 func (o ImageRecipeComponentOutput) ToImageRecipeComponentOutputWithContext(ctx context.Context) ImageRecipeComponentOutput {
 	return o
+}
+
+func (o ImageRecipeComponentOutput) ToOutput(ctx context.Context) pulumix.Output[ImageRecipeComponent] {
+	return pulumix.Output[ImageRecipeComponent]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the Image Builder Component to associate.
@@ -3784,6 +4713,12 @@ func (o ImageRecipeComponentArrayOutput) ToImageRecipeComponentArrayOutput() Ima
 
 func (o ImageRecipeComponentArrayOutput) ToImageRecipeComponentArrayOutputWithContext(ctx context.Context) ImageRecipeComponentArrayOutput {
 	return o
+}
+
+func (o ImageRecipeComponentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ImageRecipeComponent] {
+	return pulumix.Output[[]ImageRecipeComponent]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ImageRecipeComponentArrayOutput) Index(i pulumi.IntInput) ImageRecipeComponentOutput {
@@ -3829,6 +4764,12 @@ func (i ImageRecipeComponentParameterArgs) ToImageRecipeComponentParameterOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeComponentParameterOutput)
 }
 
+func (i ImageRecipeComponentParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ImageRecipeComponentParameter] {
+	return pulumix.Output[ImageRecipeComponentParameter]{
+		OutputState: i.ToImageRecipeComponentParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ImageRecipeComponentParameterArrayInput is an input type that accepts ImageRecipeComponentParameterArray and ImageRecipeComponentParameterArrayOutput values.
 // You can construct a concrete instance of `ImageRecipeComponentParameterArrayInput` via:
 //
@@ -3854,6 +4795,12 @@ func (i ImageRecipeComponentParameterArray) ToImageRecipeComponentParameterArray
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeComponentParameterArrayOutput)
 }
 
+func (i ImageRecipeComponentParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ImageRecipeComponentParameter] {
+	return pulumix.Output[[]ImageRecipeComponentParameter]{
+		OutputState: i.ToImageRecipeComponentParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ImageRecipeComponentParameterOutput struct{ *pulumi.OutputState }
 
 func (ImageRecipeComponentParameterOutput) ElementType() reflect.Type {
@@ -3866,6 +4813,12 @@ func (o ImageRecipeComponentParameterOutput) ToImageRecipeComponentParameterOutp
 
 func (o ImageRecipeComponentParameterOutput) ToImageRecipeComponentParameterOutputWithContext(ctx context.Context) ImageRecipeComponentParameterOutput {
 	return o
+}
+
+func (o ImageRecipeComponentParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ImageRecipeComponentParameter] {
+	return pulumix.Output[ImageRecipeComponentParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the component parameter.
@@ -3890,6 +4843,12 @@ func (o ImageRecipeComponentParameterArrayOutput) ToImageRecipeComponentParamete
 
 func (o ImageRecipeComponentParameterArrayOutput) ToImageRecipeComponentParameterArrayOutputWithContext(ctx context.Context) ImageRecipeComponentParameterArrayOutput {
 	return o
+}
+
+func (o ImageRecipeComponentParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ImageRecipeComponentParameter] {
+	return pulumix.Output[[]ImageRecipeComponentParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ImageRecipeComponentParameterArrayOutput) Index(i pulumi.IntInput) ImageRecipeComponentParameterOutput {
@@ -3929,6 +4888,12 @@ func (i ImageRecipeSystemsManagerAgentArgs) ToImageRecipeSystemsManagerAgentOutp
 
 func (i ImageRecipeSystemsManagerAgentArgs) ToImageRecipeSystemsManagerAgentOutputWithContext(ctx context.Context) ImageRecipeSystemsManagerAgentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeSystemsManagerAgentOutput)
+}
+
+func (i ImageRecipeSystemsManagerAgentArgs) ToOutput(ctx context.Context) pulumix.Output[ImageRecipeSystemsManagerAgent] {
+	return pulumix.Output[ImageRecipeSystemsManagerAgent]{
+		OutputState: i.ToImageRecipeSystemsManagerAgentOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i ImageRecipeSystemsManagerAgentArgs) ToImageRecipeSystemsManagerAgentPtrOutput() ImageRecipeSystemsManagerAgentPtrOutput {
@@ -3972,6 +4937,12 @@ func (i *imageRecipeSystemsManagerAgentPtrType) ToImageRecipeSystemsManagerAgent
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeSystemsManagerAgentPtrOutput)
 }
 
+func (i *imageRecipeSystemsManagerAgentPtrType) ToOutput(ctx context.Context) pulumix.Output[*ImageRecipeSystemsManagerAgent] {
+	return pulumix.Output[*ImageRecipeSystemsManagerAgent]{
+		OutputState: i.ToImageRecipeSystemsManagerAgentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ImageRecipeSystemsManagerAgentOutput struct{ *pulumi.OutputState }
 
 func (ImageRecipeSystemsManagerAgentOutput) ElementType() reflect.Type {
@@ -3996,6 +4967,12 @@ func (o ImageRecipeSystemsManagerAgentOutput) ToImageRecipeSystemsManagerAgentPt
 	}).(ImageRecipeSystemsManagerAgentPtrOutput)
 }
 
+func (o ImageRecipeSystemsManagerAgentOutput) ToOutput(ctx context.Context) pulumix.Output[ImageRecipeSystemsManagerAgent] {
+	return pulumix.Output[ImageRecipeSystemsManagerAgent]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Whether to remove the Systems Manager Agent after the image has been built. Defaults to `false`.
 func (o ImageRecipeSystemsManagerAgentOutput) UninstallAfterBuild() pulumi.BoolOutput {
 	return o.ApplyT(func(v ImageRecipeSystemsManagerAgent) bool { return v.UninstallAfterBuild }).(pulumi.BoolOutput)
@@ -4013,6 +4990,12 @@ func (o ImageRecipeSystemsManagerAgentPtrOutput) ToImageRecipeSystemsManagerAgen
 
 func (o ImageRecipeSystemsManagerAgentPtrOutput) ToImageRecipeSystemsManagerAgentPtrOutputWithContext(ctx context.Context) ImageRecipeSystemsManagerAgentPtrOutput {
 	return o
+}
+
+func (o ImageRecipeSystemsManagerAgentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageRecipeSystemsManagerAgent] {
+	return pulumix.Output[*ImageRecipeSystemsManagerAgent]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ImageRecipeSystemsManagerAgentPtrOutput) Elem() ImageRecipeSystemsManagerAgentOutput {
@@ -4072,6 +5055,12 @@ func (i InfrastructureConfigurationInstanceMetadataOptionsArgs) ToInfrastructure
 	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationInstanceMetadataOptionsOutput)
 }
 
+func (i InfrastructureConfigurationInstanceMetadataOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[InfrastructureConfigurationInstanceMetadataOptions] {
+	return pulumix.Output[InfrastructureConfigurationInstanceMetadataOptions]{
+		OutputState: i.ToInfrastructureConfigurationInstanceMetadataOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i InfrastructureConfigurationInstanceMetadataOptionsArgs) ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutput() InfrastructureConfigurationInstanceMetadataOptionsPtrOutput {
 	return i.ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutputWithContext(context.Background())
 }
@@ -4113,6 +5102,12 @@ func (i *infrastructureConfigurationInstanceMetadataOptionsPtrType) ToInfrastruc
 	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationInstanceMetadataOptionsPtrOutput)
 }
 
+func (i *infrastructureConfigurationInstanceMetadataOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*InfrastructureConfigurationInstanceMetadataOptions] {
+	return pulumix.Output[*InfrastructureConfigurationInstanceMetadataOptions]{
+		OutputState: i.ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InfrastructureConfigurationInstanceMetadataOptionsOutput struct{ *pulumi.OutputState }
 
 func (InfrastructureConfigurationInstanceMetadataOptionsOutput) ElementType() reflect.Type {
@@ -4137,6 +5132,12 @@ func (o InfrastructureConfigurationInstanceMetadataOptionsOutput) ToInfrastructu
 	}).(InfrastructureConfigurationInstanceMetadataOptionsPtrOutput)
 }
 
+func (o InfrastructureConfigurationInstanceMetadataOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[InfrastructureConfigurationInstanceMetadataOptions] {
+	return pulumix.Output[InfrastructureConfigurationInstanceMetadataOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The number of hops that an instance can traverse to reach its destonation.
 func (o InfrastructureConfigurationInstanceMetadataOptionsOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InfrastructureConfigurationInstanceMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
@@ -4159,6 +5160,12 @@ func (o InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) ToInfrastru
 
 func (o InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationInstanceMetadataOptionsPtrOutput {
 	return o
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InfrastructureConfigurationInstanceMetadataOptions] {
+	return pulumix.Output[*InfrastructureConfigurationInstanceMetadataOptions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) Elem() InfrastructureConfigurationInstanceMetadataOptionsOutput {
@@ -4224,6 +5231,12 @@ func (i InfrastructureConfigurationLoggingArgs) ToInfrastructureConfigurationLog
 	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationLoggingOutput)
 }
 
+func (i InfrastructureConfigurationLoggingArgs) ToOutput(ctx context.Context) pulumix.Output[InfrastructureConfigurationLogging] {
+	return pulumix.Output[InfrastructureConfigurationLogging]{
+		OutputState: i.ToInfrastructureConfigurationLoggingOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i InfrastructureConfigurationLoggingArgs) ToInfrastructureConfigurationLoggingPtrOutput() InfrastructureConfigurationLoggingPtrOutput {
 	return i.ToInfrastructureConfigurationLoggingPtrOutputWithContext(context.Background())
 }
@@ -4265,6 +5278,12 @@ func (i *infrastructureConfigurationLoggingPtrType) ToInfrastructureConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationLoggingPtrOutput)
 }
 
+func (i *infrastructureConfigurationLoggingPtrType) ToOutput(ctx context.Context) pulumix.Output[*InfrastructureConfigurationLogging] {
+	return pulumix.Output[*InfrastructureConfigurationLogging]{
+		OutputState: i.ToInfrastructureConfigurationLoggingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InfrastructureConfigurationLoggingOutput struct{ *pulumi.OutputState }
 
 func (InfrastructureConfigurationLoggingOutput) ElementType() reflect.Type {
@@ -4289,6 +5308,12 @@ func (o InfrastructureConfigurationLoggingOutput) ToInfrastructureConfigurationL
 	}).(InfrastructureConfigurationLoggingPtrOutput)
 }
 
+func (o InfrastructureConfigurationLoggingOutput) ToOutput(ctx context.Context) pulumix.Output[InfrastructureConfigurationLogging] {
+	return pulumix.Output[InfrastructureConfigurationLogging]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Configuration block with S3 logging settings. Detailed below.
 func (o InfrastructureConfigurationLoggingOutput) S3Logs() InfrastructureConfigurationLoggingS3LogsOutput {
 	return o.ApplyT(func(v InfrastructureConfigurationLogging) InfrastructureConfigurationLoggingS3Logs { return v.S3Logs }).(InfrastructureConfigurationLoggingS3LogsOutput)
@@ -4306,6 +5331,12 @@ func (o InfrastructureConfigurationLoggingPtrOutput) ToInfrastructureConfigurati
 
 func (o InfrastructureConfigurationLoggingPtrOutput) ToInfrastructureConfigurationLoggingPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationLoggingPtrOutput {
 	return o
+}
+
+func (o InfrastructureConfigurationLoggingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InfrastructureConfigurationLogging] {
+	return pulumix.Output[*InfrastructureConfigurationLogging]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InfrastructureConfigurationLoggingPtrOutput) Elem() InfrastructureConfigurationLoggingOutput {
@@ -4369,6 +5400,12 @@ func (i InfrastructureConfigurationLoggingS3LogsArgs) ToInfrastructureConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationLoggingS3LogsOutput)
 }
 
+func (i InfrastructureConfigurationLoggingS3LogsArgs) ToOutput(ctx context.Context) pulumix.Output[InfrastructureConfigurationLoggingS3Logs] {
+	return pulumix.Output[InfrastructureConfigurationLoggingS3Logs]{
+		OutputState: i.ToInfrastructureConfigurationLoggingS3LogsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i InfrastructureConfigurationLoggingS3LogsArgs) ToInfrastructureConfigurationLoggingS3LogsPtrOutput() InfrastructureConfigurationLoggingS3LogsPtrOutput {
 	return i.ToInfrastructureConfigurationLoggingS3LogsPtrOutputWithContext(context.Background())
 }
@@ -4410,6 +5447,12 @@ func (i *infrastructureConfigurationLoggingS3LogsPtrType) ToInfrastructureConfig
 	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationLoggingS3LogsPtrOutput)
 }
 
+func (i *infrastructureConfigurationLoggingS3LogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*InfrastructureConfigurationLoggingS3Logs] {
+	return pulumix.Output[*InfrastructureConfigurationLoggingS3Logs]{
+		OutputState: i.ToInfrastructureConfigurationLoggingS3LogsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InfrastructureConfigurationLoggingS3LogsOutput struct{ *pulumi.OutputState }
 
 func (InfrastructureConfigurationLoggingS3LogsOutput) ElementType() reflect.Type {
@@ -4432,6 +5475,12 @@ func (o InfrastructureConfigurationLoggingS3LogsOutput) ToInfrastructureConfigur
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfrastructureConfigurationLoggingS3Logs) *InfrastructureConfigurationLoggingS3Logs {
 		return &v
 	}).(InfrastructureConfigurationLoggingS3LogsPtrOutput)
+}
+
+func (o InfrastructureConfigurationLoggingS3LogsOutput) ToOutput(ctx context.Context) pulumix.Output[InfrastructureConfigurationLoggingS3Logs] {
+	return pulumix.Output[InfrastructureConfigurationLoggingS3Logs]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the S3 Bucket.
@@ -4458,6 +5507,12 @@ func (o InfrastructureConfigurationLoggingS3LogsPtrOutput) ToInfrastructureConfi
 
 func (o InfrastructureConfigurationLoggingS3LogsPtrOutput) ToInfrastructureConfigurationLoggingS3LogsPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationLoggingS3LogsPtrOutput {
 	return o
+}
+
+func (o InfrastructureConfigurationLoggingS3LogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InfrastructureConfigurationLoggingS3Logs] {
+	return pulumix.Output[*InfrastructureConfigurationLoggingS3Logs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InfrastructureConfigurationLoggingS3LogsPtrOutput) Elem() InfrastructureConfigurationLoggingS3LogsOutput {
@@ -4529,6 +5584,12 @@ func (i GetComponentsFilterArgs) ToGetComponentsFilterOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetComponentsFilterOutput)
 }
 
+func (i GetComponentsFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetComponentsFilter] {
+	return pulumix.Output[GetComponentsFilter]{
+		OutputState: i.ToGetComponentsFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetComponentsFilterArrayInput is an input type that accepts GetComponentsFilterArray and GetComponentsFilterArrayOutput values.
 // You can construct a concrete instance of `GetComponentsFilterArrayInput` via:
 //
@@ -4554,6 +5615,12 @@ func (i GetComponentsFilterArray) ToGetComponentsFilterArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetComponentsFilterArrayOutput)
 }
 
+func (i GetComponentsFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetComponentsFilter] {
+	return pulumix.Output[[]GetComponentsFilter]{
+		OutputState: i.ToGetComponentsFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetComponentsFilterOutput struct{ *pulumi.OutputState }
 
 func (GetComponentsFilterOutput) ElementType() reflect.Type {
@@ -4566,6 +5633,12 @@ func (o GetComponentsFilterOutput) ToGetComponentsFilterOutput() GetComponentsFi
 
 func (o GetComponentsFilterOutput) ToGetComponentsFilterOutputWithContext(ctx context.Context) GetComponentsFilterOutput {
 	return o
+}
+
+func (o GetComponentsFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetComponentsFilter] {
+	return pulumix.Output[GetComponentsFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
@@ -4590,6 +5663,12 @@ func (o GetComponentsFilterArrayOutput) ToGetComponentsFilterArrayOutput() GetCo
 
 func (o GetComponentsFilterArrayOutput) ToGetComponentsFilterArrayOutputWithContext(ctx context.Context) GetComponentsFilterArrayOutput {
 	return o
+}
+
+func (o GetComponentsFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetComponentsFilter] {
+	return pulumix.Output[[]GetComponentsFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetComponentsFilterArrayOutput) Index(i pulumi.IntInput) GetComponentsFilterOutput {
@@ -4635,6 +5714,12 @@ func (i GetContainerRecipeComponentArgs) ToGetContainerRecipeComponentOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipeComponentOutput)
 }
 
+func (i GetContainerRecipeComponentArgs) ToOutput(ctx context.Context) pulumix.Output[GetContainerRecipeComponent] {
+	return pulumix.Output[GetContainerRecipeComponent]{
+		OutputState: i.ToGetContainerRecipeComponentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetContainerRecipeComponentArrayInput is an input type that accepts GetContainerRecipeComponentArray and GetContainerRecipeComponentArrayOutput values.
 // You can construct a concrete instance of `GetContainerRecipeComponentArrayInput` via:
 //
@@ -4660,6 +5745,12 @@ func (i GetContainerRecipeComponentArray) ToGetContainerRecipeComponentArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipeComponentArrayOutput)
 }
 
+func (i GetContainerRecipeComponentArray) ToOutput(ctx context.Context) pulumix.Output[[]GetContainerRecipeComponent] {
+	return pulumix.Output[[]GetContainerRecipeComponent]{
+		OutputState: i.ToGetContainerRecipeComponentArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetContainerRecipeComponentOutput struct{ *pulumi.OutputState }
 
 func (GetContainerRecipeComponentOutput) ElementType() reflect.Type {
@@ -4672,6 +5763,12 @@ func (o GetContainerRecipeComponentOutput) ToGetContainerRecipeComponentOutput()
 
 func (o GetContainerRecipeComponentOutput) ToGetContainerRecipeComponentOutputWithContext(ctx context.Context) GetContainerRecipeComponentOutput {
 	return o
+}
+
+func (o GetContainerRecipeComponentOutput) ToOutput(ctx context.Context) pulumix.Output[GetContainerRecipeComponent] {
+	return pulumix.Output[GetContainerRecipeComponent]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Image Builder Component.
@@ -4696,6 +5793,12 @@ func (o GetContainerRecipeComponentArrayOutput) ToGetContainerRecipeComponentArr
 
 func (o GetContainerRecipeComponentArrayOutput) ToGetContainerRecipeComponentArrayOutputWithContext(ctx context.Context) GetContainerRecipeComponentArrayOutput {
 	return o
+}
+
+func (o GetContainerRecipeComponentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetContainerRecipeComponent] {
+	return pulumix.Output[[]GetContainerRecipeComponent]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetContainerRecipeComponentArrayOutput) Index(i pulumi.IntInput) GetContainerRecipeComponentOutput {
@@ -4741,6 +5844,12 @@ func (i GetContainerRecipeComponentParameterArgs) ToGetContainerRecipeComponentP
 	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipeComponentParameterOutput)
 }
 
+func (i GetContainerRecipeComponentParameterArgs) ToOutput(ctx context.Context) pulumix.Output[GetContainerRecipeComponentParameter] {
+	return pulumix.Output[GetContainerRecipeComponentParameter]{
+		OutputState: i.ToGetContainerRecipeComponentParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetContainerRecipeComponentParameterArrayInput is an input type that accepts GetContainerRecipeComponentParameterArray and GetContainerRecipeComponentParameterArrayOutput values.
 // You can construct a concrete instance of `GetContainerRecipeComponentParameterArrayInput` via:
 //
@@ -4766,6 +5875,12 @@ func (i GetContainerRecipeComponentParameterArray) ToGetContainerRecipeComponent
 	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipeComponentParameterArrayOutput)
 }
 
+func (i GetContainerRecipeComponentParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetContainerRecipeComponentParameter] {
+	return pulumix.Output[[]GetContainerRecipeComponentParameter]{
+		OutputState: i.ToGetContainerRecipeComponentParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetContainerRecipeComponentParameterOutput struct{ *pulumi.OutputState }
 
 func (GetContainerRecipeComponentParameterOutput) ElementType() reflect.Type {
@@ -4778,6 +5893,12 @@ func (o GetContainerRecipeComponentParameterOutput) ToGetContainerRecipeComponen
 
 func (o GetContainerRecipeComponentParameterOutput) ToGetContainerRecipeComponentParameterOutputWithContext(ctx context.Context) GetContainerRecipeComponentParameterOutput {
 	return o
+}
+
+func (o GetContainerRecipeComponentParameterOutput) ToOutput(ctx context.Context) pulumix.Output[GetContainerRecipeComponentParameter] {
+	return pulumix.Output[GetContainerRecipeComponentParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the container recipe.
@@ -4802,6 +5923,12 @@ func (o GetContainerRecipeComponentParameterArrayOutput) ToGetContainerRecipeCom
 
 func (o GetContainerRecipeComponentParameterArrayOutput) ToGetContainerRecipeComponentParameterArrayOutputWithContext(ctx context.Context) GetContainerRecipeComponentParameterArrayOutput {
 	return o
+}
+
+func (o GetContainerRecipeComponentParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetContainerRecipeComponentParameter] {
+	return pulumix.Output[[]GetContainerRecipeComponentParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetContainerRecipeComponentParameterArrayOutput) Index(i pulumi.IntInput) GetContainerRecipeComponentParameterOutput {
@@ -4847,6 +5974,12 @@ func (i GetContainerRecipeInstanceConfigurationArgs) ToGetContainerRecipeInstanc
 	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipeInstanceConfigurationOutput)
 }
 
+func (i GetContainerRecipeInstanceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetContainerRecipeInstanceConfiguration] {
+	return pulumix.Output[GetContainerRecipeInstanceConfiguration]{
+		OutputState: i.ToGetContainerRecipeInstanceConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetContainerRecipeInstanceConfigurationArrayInput is an input type that accepts GetContainerRecipeInstanceConfigurationArray and GetContainerRecipeInstanceConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetContainerRecipeInstanceConfigurationArrayInput` via:
 //
@@ -4872,6 +6005,12 @@ func (i GetContainerRecipeInstanceConfigurationArray) ToGetContainerRecipeInstan
 	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipeInstanceConfigurationArrayOutput)
 }
 
+func (i GetContainerRecipeInstanceConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetContainerRecipeInstanceConfiguration] {
+	return pulumix.Output[[]GetContainerRecipeInstanceConfiguration]{
+		OutputState: i.ToGetContainerRecipeInstanceConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetContainerRecipeInstanceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetContainerRecipeInstanceConfigurationOutput) ElementType() reflect.Type {
@@ -4884,6 +6023,12 @@ func (o GetContainerRecipeInstanceConfigurationOutput) ToGetContainerRecipeInsta
 
 func (o GetContainerRecipeInstanceConfigurationOutput) ToGetContainerRecipeInstanceConfigurationOutputWithContext(ctx context.Context) GetContainerRecipeInstanceConfigurationOutput {
 	return o
+}
+
+func (o GetContainerRecipeInstanceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetContainerRecipeInstanceConfiguration] {
+	return pulumix.Output[GetContainerRecipeInstanceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of objects with block device mappings for the instance configuration.
@@ -4910,6 +6055,12 @@ func (o GetContainerRecipeInstanceConfigurationArrayOutput) ToGetContainerRecipe
 
 func (o GetContainerRecipeInstanceConfigurationArrayOutput) ToGetContainerRecipeInstanceConfigurationArrayOutputWithContext(ctx context.Context) GetContainerRecipeInstanceConfigurationArrayOutput {
 	return o
+}
+
+func (o GetContainerRecipeInstanceConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetContainerRecipeInstanceConfiguration] {
+	return pulumix.Output[[]GetContainerRecipeInstanceConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetContainerRecipeInstanceConfigurationArrayOutput) Index(i pulumi.IntInput) GetContainerRecipeInstanceConfigurationOutput {
@@ -4963,6 +6114,12 @@ func (i GetContainerRecipeInstanceConfigurationBlockDeviceMappingArgs) ToGetCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput)
 }
 
+func (i GetContainerRecipeInstanceConfigurationBlockDeviceMappingArgs) ToOutput(ctx context.Context) pulumix.Output[GetContainerRecipeInstanceConfigurationBlockDeviceMapping] {
+	return pulumix.Output[GetContainerRecipeInstanceConfigurationBlockDeviceMapping]{
+		OutputState: i.ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayInput is an input type that accepts GetContainerRecipeInstanceConfigurationBlockDeviceMappingArray and GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput values.
 // You can construct a concrete instance of `GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayInput` via:
 //
@@ -4988,6 +6145,12 @@ func (i GetContainerRecipeInstanceConfigurationBlockDeviceMappingArray) ToGetCon
 	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput)
 }
 
+func (i GetContainerRecipeInstanceConfigurationBlockDeviceMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetContainerRecipeInstanceConfigurationBlockDeviceMapping] {
+	return pulumix.Output[[]GetContainerRecipeInstanceConfigurationBlockDeviceMapping]{
+		OutputState: i.ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput struct{ *pulumi.OutputState }
 
 func (GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) ElementType() reflect.Type {
@@ -5000,6 +6163,12 @@ func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) ToGetCo
 
 func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingOutputWithContext(ctx context.Context) GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput {
 	return o
+}
+
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput) ToOutput(ctx context.Context) pulumix.Output[GetContainerRecipeInstanceConfigurationBlockDeviceMapping] {
+	return pulumix.Output[GetContainerRecipeInstanceConfigurationBlockDeviceMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
@@ -5036,6 +6205,12 @@ func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput) To
 
 func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput) ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutputWithContext(ctx context.Context) GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput {
 	return o
+}
+
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetContainerRecipeInstanceConfigurationBlockDeviceMapping] {
+	return pulumix.Output[[]GetContainerRecipeInstanceConfigurationBlockDeviceMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) GetContainerRecipeInstanceConfigurationBlockDeviceMappingOutput {
@@ -5105,6 +6280,12 @@ func (i GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArgs) ToGetCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput)
 }
 
+func (i GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArgs) ToOutput(ctx context.Context) pulumix.Output[GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb] {
+	return pulumix.Output[GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb]{
+		OutputState: i.ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayInput is an input type that accepts GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArray and GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput values.
 // You can construct a concrete instance of `GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayInput` via:
 //
@@ -5130,6 +6311,12 @@ func (i GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArray) ToGetC
 	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput)
 }
 
+func (i GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArray) ToOutput(ctx context.Context) pulumix.Output[[]GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb] {
+	return pulumix.Output[[]GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb]{
+		OutputState: i.ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput struct{ *pulumi.OutputState }
 
 func (GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) ElementType() reflect.Type {
@@ -5142,6 +6329,12 @@ func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) ToGet
 
 func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) ToGetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutputWithContext(ctx context.Context) GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput {
 	return o
+}
+
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput) ToOutput(ctx context.Context) pulumix.Output[GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb] {
+	return pulumix.Output[GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
@@ -5198,6 +6391,12 @@ func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput) 
 	return o
 }
 
+func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb] {
+	return pulumix.Output[[]GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrayOutput) Index(i pulumi.IntInput) GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb {
 		return vs[0].([]GetContainerRecipeInstanceConfigurationBlockDeviceMappingEb)[vs[1].(int)]
@@ -5241,6 +6440,12 @@ func (i GetContainerRecipeTargetRepositoryArgs) ToGetContainerRecipeTargetReposi
 	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipeTargetRepositoryOutput)
 }
 
+func (i GetContainerRecipeTargetRepositoryArgs) ToOutput(ctx context.Context) pulumix.Output[GetContainerRecipeTargetRepository] {
+	return pulumix.Output[GetContainerRecipeTargetRepository]{
+		OutputState: i.ToGetContainerRecipeTargetRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetContainerRecipeTargetRepositoryArrayInput is an input type that accepts GetContainerRecipeTargetRepositoryArray and GetContainerRecipeTargetRepositoryArrayOutput values.
 // You can construct a concrete instance of `GetContainerRecipeTargetRepositoryArrayInput` via:
 //
@@ -5266,6 +6471,12 @@ func (i GetContainerRecipeTargetRepositoryArray) ToGetContainerRecipeTargetRepos
 	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipeTargetRepositoryArrayOutput)
 }
 
+func (i GetContainerRecipeTargetRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]GetContainerRecipeTargetRepository] {
+	return pulumix.Output[[]GetContainerRecipeTargetRepository]{
+		OutputState: i.ToGetContainerRecipeTargetRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetContainerRecipeTargetRepositoryOutput struct{ *pulumi.OutputState }
 
 func (GetContainerRecipeTargetRepositoryOutput) ElementType() reflect.Type {
@@ -5278,6 +6489,12 @@ func (o GetContainerRecipeTargetRepositoryOutput) ToGetContainerRecipeTargetRepo
 
 func (o GetContainerRecipeTargetRepositoryOutput) ToGetContainerRecipeTargetRepositoryOutputWithContext(ctx context.Context) GetContainerRecipeTargetRepositoryOutput {
 	return o
+}
+
+func (o GetContainerRecipeTargetRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[GetContainerRecipeTargetRepository] {
+	return pulumix.Output[GetContainerRecipeTargetRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the container repository where the output container image is stored. The name is prefixed by the repository location.
@@ -5302,6 +6519,12 @@ func (o GetContainerRecipeTargetRepositoryArrayOutput) ToGetContainerRecipeTarge
 
 func (o GetContainerRecipeTargetRepositoryArrayOutput) ToGetContainerRecipeTargetRepositoryArrayOutputWithContext(ctx context.Context) GetContainerRecipeTargetRepositoryArrayOutput {
 	return o
+}
+
+func (o GetContainerRecipeTargetRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetContainerRecipeTargetRepository] {
+	return pulumix.Output[[]GetContainerRecipeTargetRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetContainerRecipeTargetRepositoryArrayOutput) Index(i pulumi.IntInput) GetContainerRecipeTargetRepositoryOutput {
@@ -5347,6 +6570,12 @@ func (i GetContainerRecipesFilterArgs) ToGetContainerRecipesFilterOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipesFilterOutput)
 }
 
+func (i GetContainerRecipesFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetContainerRecipesFilter] {
+	return pulumix.Output[GetContainerRecipesFilter]{
+		OutputState: i.ToGetContainerRecipesFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetContainerRecipesFilterArrayInput is an input type that accepts GetContainerRecipesFilterArray and GetContainerRecipesFilterArrayOutput values.
 // You can construct a concrete instance of `GetContainerRecipesFilterArrayInput` via:
 //
@@ -5372,6 +6601,12 @@ func (i GetContainerRecipesFilterArray) ToGetContainerRecipesFilterArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetContainerRecipesFilterArrayOutput)
 }
 
+func (i GetContainerRecipesFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetContainerRecipesFilter] {
+	return pulumix.Output[[]GetContainerRecipesFilter]{
+		OutputState: i.ToGetContainerRecipesFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetContainerRecipesFilterOutput struct{ *pulumi.OutputState }
 
 func (GetContainerRecipesFilterOutput) ElementType() reflect.Type {
@@ -5384,6 +6619,12 @@ func (o GetContainerRecipesFilterOutput) ToGetContainerRecipesFilterOutput() Get
 
 func (o GetContainerRecipesFilterOutput) ToGetContainerRecipesFilterOutputWithContext(ctx context.Context) GetContainerRecipesFilterOutput {
 	return o
+}
+
+func (o GetContainerRecipesFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetContainerRecipesFilter] {
+	return pulumix.Output[GetContainerRecipesFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
@@ -5408,6 +6649,12 @@ func (o GetContainerRecipesFilterArrayOutput) ToGetContainerRecipesFilterArrayOu
 
 func (o GetContainerRecipesFilterArrayOutput) ToGetContainerRecipesFilterArrayOutputWithContext(ctx context.Context) GetContainerRecipesFilterArrayOutput {
 	return o
+}
+
+func (o GetContainerRecipesFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetContainerRecipesFilter] {
+	return pulumix.Output[[]GetContainerRecipesFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetContainerRecipesFilterArrayOutput) Index(i pulumi.IntInput) GetContainerRecipesFilterOutput {
@@ -5469,6 +6716,12 @@ func (i GetDistributionConfigurationDistributionArgs) ToGetDistributionConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionOutput)
 }
 
+func (i GetDistributionConfigurationDistributionArgs) ToOutput(ctx context.Context) pulumix.Output[GetDistributionConfigurationDistribution] {
+	return pulumix.Output[GetDistributionConfigurationDistribution]{
+		OutputState: i.ToGetDistributionConfigurationDistributionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDistributionConfigurationDistributionArrayInput is an input type that accepts GetDistributionConfigurationDistributionArray and GetDistributionConfigurationDistributionArrayOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionArrayInput` via:
 //
@@ -5494,6 +6747,12 @@ func (i GetDistributionConfigurationDistributionArray) ToGetDistributionConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionArrayOutput)
 }
 
+func (i GetDistributionConfigurationDistributionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDistributionConfigurationDistribution] {
+	return pulumix.Output[[]GetDistributionConfigurationDistribution]{
+		OutputState: i.ToGetDistributionConfigurationDistributionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDistributionConfigurationDistributionOutput struct{ *pulumi.OutputState }
 
 func (GetDistributionConfigurationDistributionOutput) ElementType() reflect.Type {
@@ -5506,6 +6765,12 @@ func (o GetDistributionConfigurationDistributionOutput) ToGetDistributionConfigu
 
 func (o GetDistributionConfigurationDistributionOutput) ToGetDistributionConfigurationDistributionOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionOutput {
 	return o
+}
+
+func (o GetDistributionConfigurationDistributionOutput) ToOutput(ctx context.Context) pulumix.Output[GetDistributionConfigurationDistribution] {
+	return pulumix.Output[GetDistributionConfigurationDistribution]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Nested list of AMI distribution configuration.
@@ -5558,6 +6823,12 @@ func (o GetDistributionConfigurationDistributionArrayOutput) ToGetDistributionCo
 
 func (o GetDistributionConfigurationDistributionArrayOutput) ToGetDistributionConfigurationDistributionArrayOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionArrayOutput {
 	return o
+}
+
+func (o GetDistributionConfigurationDistributionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDistributionConfigurationDistribution] {
+	return pulumix.Output[[]GetDistributionConfigurationDistribution]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDistributionConfigurationDistributionArrayOutput) Index(i pulumi.IntInput) GetDistributionConfigurationDistributionOutput {
@@ -5619,6 +6890,12 @@ func (i GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs
 	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput)
 }
 
+func (i GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetDistributionConfigurationDistributionAmiDistributionConfiguration] {
+	return pulumix.Output[GetDistributionConfigurationDistributionAmiDistributionConfiguration]{
+		OutputState: i.ToGetDistributionConfigurationDistributionAmiDistributionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayInput is an input type that accepts GetDistributionConfigurationDistributionAmiDistributionConfigurationArray and GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayInput` via:
 //
@@ -5644,6 +6921,12 @@ func (i GetDistributionConfigurationDistributionAmiDistributionConfigurationArra
 	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayOutput)
 }
 
+func (i GetDistributionConfigurationDistributionAmiDistributionConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDistributionConfigurationDistributionAmiDistributionConfiguration] {
+	return pulumix.Output[[]GetDistributionConfigurationDistributionAmiDistributionConfiguration]{
+		OutputState: i.ToGetDistributionConfigurationDistributionAmiDistributionConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput) ElementType() reflect.Type {
@@ -5656,6 +6939,12 @@ func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationOutp
 
 func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput) ToGetDistributionConfigurationDistributionAmiDistributionConfigurationOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput {
 	return o
+}
+
+func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetDistributionConfigurationDistributionAmiDistributionConfiguration] {
+	return pulumix.Output[GetDistributionConfigurationDistributionAmiDistributionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Key-value map of tags to apply to distributed AMI.
@@ -5710,6 +6999,12 @@ func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationArra
 	return o
 }
 
+func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDistributionConfigurationDistributionAmiDistributionConfiguration] {
+	return pulumix.Output[[]GetDistributionConfigurationDistributionAmiDistributionConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayOutput) Index(i pulumi.IntInput) GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDistributionConfigurationDistributionAmiDistributionConfiguration {
 		return vs[0].([]GetDistributionConfigurationDistributionAmiDistributionConfiguration)[vs[1].(int)]
@@ -5761,6 +7056,12 @@ func (i GetDistributionConfigurationDistributionAmiDistributionConfigurationLaun
 	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput)
 }
 
+func (i GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs) ToOutput(ctx context.Context) pulumix.Output[GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission] {
+	return pulumix.Output[GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission]{
+		OutputState: i.ToGetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayInput is an input type that accepts GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArray and GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayInput` via:
 //
@@ -5786,6 +7087,12 @@ func (i GetDistributionConfigurationDistributionAmiDistributionConfigurationLaun
 	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutput)
 }
 
+func (i GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission] {
+	return pulumix.Output[[]GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission]{
+		OutputState: i.ToGetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput struct{ *pulumi.OutputState }
 
 func (GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput) ElementType() reflect.Type {
@@ -5798,6 +7105,12 @@ func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationLaun
 
 func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput) ToGetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput {
 	return o
+}
+
+func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput) ToOutput(ctx context.Context) pulumix.Output[GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission] {
+	return pulumix.Output[GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of AWS Organization ARNs.
@@ -5840,6 +7153,12 @@ func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationLaun
 
 func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutput) ToGetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutput {
 	return o
+}
+
+func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission] {
+	return pulumix.Output[[]GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutput) Index(i pulumi.IntInput) GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput {
@@ -5889,6 +7208,12 @@ func (i GetDistributionConfigurationDistributionContainerDistributionConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionContainerDistributionConfigurationOutput)
 }
 
+func (i GetDistributionConfigurationDistributionContainerDistributionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetDistributionConfigurationDistributionContainerDistributionConfiguration] {
+	return pulumix.Output[GetDistributionConfigurationDistributionContainerDistributionConfiguration]{
+		OutputState: i.ToGetDistributionConfigurationDistributionContainerDistributionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDistributionConfigurationDistributionContainerDistributionConfigurationArrayInput is an input type that accepts GetDistributionConfigurationDistributionContainerDistributionConfigurationArray and GetDistributionConfigurationDistributionContainerDistributionConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionContainerDistributionConfigurationArrayInput` via:
 //
@@ -5914,6 +7239,12 @@ func (i GetDistributionConfigurationDistributionContainerDistributionConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionContainerDistributionConfigurationArrayOutput)
 }
 
+func (i GetDistributionConfigurationDistributionContainerDistributionConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDistributionConfigurationDistributionContainerDistributionConfiguration] {
+	return pulumix.Output[[]GetDistributionConfigurationDistributionContainerDistributionConfiguration]{
+		OutputState: i.ToGetDistributionConfigurationDistributionContainerDistributionConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDistributionConfigurationDistributionContainerDistributionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetDistributionConfigurationDistributionContainerDistributionConfigurationOutput) ElementType() reflect.Type {
@@ -5926,6 +7257,12 @@ func (o GetDistributionConfigurationDistributionContainerDistributionConfigurati
 
 func (o GetDistributionConfigurationDistributionContainerDistributionConfigurationOutput) ToGetDistributionConfigurationDistributionContainerDistributionConfigurationOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionContainerDistributionConfigurationOutput {
 	return o
+}
+
+func (o GetDistributionConfigurationDistributionContainerDistributionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetDistributionConfigurationDistributionContainerDistributionConfiguration] {
+	return pulumix.Output[GetDistributionConfigurationDistributionContainerDistributionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of tags that are attached to the container distribution configuration.
@@ -5961,6 +7298,12 @@ func (o GetDistributionConfigurationDistributionContainerDistributionConfigurati
 
 func (o GetDistributionConfigurationDistributionContainerDistributionConfigurationArrayOutput) ToGetDistributionConfigurationDistributionContainerDistributionConfigurationArrayOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionContainerDistributionConfigurationArrayOutput {
 	return o
+}
+
+func (o GetDistributionConfigurationDistributionContainerDistributionConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDistributionConfigurationDistributionContainerDistributionConfiguration] {
+	return pulumix.Output[[]GetDistributionConfigurationDistributionContainerDistributionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDistributionConfigurationDistributionContainerDistributionConfigurationArrayOutput) Index(i pulumi.IntInput) GetDistributionConfigurationDistributionContainerDistributionConfigurationOutput {
@@ -6006,6 +7349,12 @@ func (i GetDistributionConfigurationDistributionContainerDistributionConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput)
 }
 
+func (i GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs) ToOutput(ctx context.Context) pulumix.Output[GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository] {
+	return pulumix.Output[GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository]{
+		OutputState: i.ToGetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArrayInput is an input type that accepts GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArray and GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArrayOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArrayInput` via:
 //
@@ -6031,6 +7380,12 @@ func (i GetDistributionConfigurationDistributionContainerDistributionConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArrayOutput)
 }
 
+func (i GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository] {
+	return pulumix.Output[[]GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository]{
+		OutputState: i.ToGetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput struct{ *pulumi.OutputState }
 
 func (GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput) ElementType() reflect.Type {
@@ -6043,6 +7398,12 @@ func (o GetDistributionConfigurationDistributionContainerDistributionConfigurati
 
 func (o GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput) ToGetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput {
 	return o
+}
+
+func (o GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository] {
+	return pulumix.Output[GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the container repository where the output container image is stored.
@@ -6071,6 +7432,12 @@ func (o GetDistributionConfigurationDistributionContainerDistributionConfigurati
 
 func (o GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArrayOutput) ToGetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArrayOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArrayOutput {
 	return o
+}
+
+func (o GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository] {
+	return pulumix.Output[[]GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArrayOutput) Index(i pulumi.IntInput) GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput {
@@ -6128,6 +7495,12 @@ func (i GetDistributionConfigurationDistributionFastLaunchConfigurationArgs) ToG
 	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionFastLaunchConfigurationOutput)
 }
 
+func (i GetDistributionConfigurationDistributionFastLaunchConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetDistributionConfigurationDistributionFastLaunchConfiguration] {
+	return pulumix.Output[GetDistributionConfigurationDistributionFastLaunchConfiguration]{
+		OutputState: i.ToGetDistributionConfigurationDistributionFastLaunchConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDistributionConfigurationDistributionFastLaunchConfigurationArrayInput is an input type that accepts GetDistributionConfigurationDistributionFastLaunchConfigurationArray and GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionFastLaunchConfigurationArrayInput` via:
 //
@@ -6153,6 +7526,12 @@ func (i GetDistributionConfigurationDistributionFastLaunchConfigurationArray) To
 	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput)
 }
 
+func (i GetDistributionConfigurationDistributionFastLaunchConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDistributionConfigurationDistributionFastLaunchConfiguration] {
+	return pulumix.Output[[]GetDistributionConfigurationDistributionFastLaunchConfiguration]{
+		OutputState: i.ToGetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDistributionConfigurationDistributionFastLaunchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetDistributionConfigurationDistributionFastLaunchConfigurationOutput) ElementType() reflect.Type {
@@ -6165,6 +7544,12 @@ func (o GetDistributionConfigurationDistributionFastLaunchConfigurationOutput) T
 
 func (o GetDistributionConfigurationDistributionFastLaunchConfigurationOutput) ToGetDistributionConfigurationDistributionFastLaunchConfigurationOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionFastLaunchConfigurationOutput {
 	return o
+}
+
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetDistributionConfigurationDistributionFastLaunchConfiguration] {
+	return pulumix.Output[GetDistributionConfigurationDistributionFastLaunchConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The account ID that this configuration applies to.
@@ -6210,6 +7595,12 @@ func (o GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutp
 
 func (o GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput) ToGetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput {
 	return o
+}
+
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDistributionConfigurationDistributionFastLaunchConfiguration] {
+	return pulumix.Output[[]GetDistributionConfigurationDistributionFastLaunchConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput) Index(i pulumi.IntInput) GetDistributionConfigurationDistributionFastLaunchConfigurationOutput {
@@ -6259,6 +7650,12 @@ func (i GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTem
 	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput)
 }
 
+func (i GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate] {
+	return pulumix.Output[GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate]{
+		OutputState: i.ToGetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayInput is an input type that accepts GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArray and GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayInput` via:
 //
@@ -6284,6 +7681,12 @@ func (i GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTem
 	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput)
 }
 
+func (i GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate] {
+	return pulumix.Output[[]GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate]{
+		OutputState: i.ToGetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput struct{ *pulumi.OutputState }
 
 func (GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) ElementType() reflect.Type {
@@ -6296,6 +7699,12 @@ func (o GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTem
 
 func (o GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) ToGetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput {
 	return o
+}
+
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate] {
+	return pulumix.Output[GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the Amazon EC2 launch template.
@@ -6331,6 +7740,12 @@ func (o GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTem
 
 func (o GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput) ToGetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput {
 	return o
+}
+
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate] {
+	return pulumix.Output[[]GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput) Index(i pulumi.IntInput) GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput {
@@ -6372,6 +7787,12 @@ func (i GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotC
 	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput)
 }
 
+func (i GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration] {
+	return pulumix.Output[GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration]{
+		OutputState: i.ToGetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayInput is an input type that accepts GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArray and GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayInput` via:
 //
@@ -6397,6 +7818,12 @@ func (i GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotC
 	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput)
 }
 
+func (i GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration] {
+	return pulumix.Output[[]GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration]{
+		OutputState: i.ToGetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput) ElementType() reflect.Type {
@@ -6409,6 +7836,12 @@ func (o GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotC
 
 func (o GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput) ToGetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput {
 	return o
+}
+
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration] {
+	return pulumix.Output[GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
@@ -6430,6 +7863,12 @@ func (o GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotC
 
 func (o GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput) ToGetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput {
 	return o
+}
+
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration] {
+	return pulumix.Output[[]GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput) Index(i pulumi.IntInput) GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput {
@@ -6479,6 +7918,12 @@ func (i GetDistributionConfigurationDistributionLaunchTemplateConfigurationArgs)
 	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionLaunchTemplateConfigurationOutput)
 }
 
+func (i GetDistributionConfigurationDistributionLaunchTemplateConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetDistributionConfigurationDistributionLaunchTemplateConfiguration] {
+	return pulumix.Output[GetDistributionConfigurationDistributionLaunchTemplateConfiguration]{
+		OutputState: i.ToGetDistributionConfigurationDistributionLaunchTemplateConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput is an input type that accepts GetDistributionConfigurationDistributionLaunchTemplateConfigurationArray and GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput` via:
 //
@@ -6504,6 +7949,12 @@ func (i GetDistributionConfigurationDistributionLaunchTemplateConfigurationArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput)
 }
 
+func (i GetDistributionConfigurationDistributionLaunchTemplateConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDistributionConfigurationDistributionLaunchTemplateConfiguration] {
+	return pulumix.Output[[]GetDistributionConfigurationDistributionLaunchTemplateConfiguration]{
+		OutputState: i.ToGetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDistributionConfigurationDistributionLaunchTemplateConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetDistributionConfigurationDistributionLaunchTemplateConfigurationOutput) ElementType() reflect.Type {
@@ -6516,6 +7967,12 @@ func (o GetDistributionConfigurationDistributionLaunchTemplateConfigurationOutpu
 
 func (o GetDistributionConfigurationDistributionLaunchTemplateConfigurationOutput) ToGetDistributionConfigurationDistributionLaunchTemplateConfigurationOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionLaunchTemplateConfigurationOutput {
 	return o
+}
+
+func (o GetDistributionConfigurationDistributionLaunchTemplateConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetDistributionConfigurationDistributionLaunchTemplateConfiguration] {
+	return pulumix.Output[GetDistributionConfigurationDistributionLaunchTemplateConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The account ID that this configuration applies to.
@@ -6547,6 +8004,12 @@ func (o GetDistributionConfigurationDistributionLaunchTemplateConfigurationArray
 
 func (o GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput) ToGetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput {
 	return o
+}
+
+func (o GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDistributionConfigurationDistributionLaunchTemplateConfiguration] {
+	return pulumix.Output[[]GetDistributionConfigurationDistributionLaunchTemplateConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput) Index(i pulumi.IntInput) GetDistributionConfigurationDistributionLaunchTemplateConfigurationOutput {
@@ -6592,6 +8055,12 @@ func (i GetDistributionConfigurationsFilterArgs) ToGetDistributionConfigurations
 	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationsFilterOutput)
 }
 
+func (i GetDistributionConfigurationsFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetDistributionConfigurationsFilter] {
+	return pulumix.Output[GetDistributionConfigurationsFilter]{
+		OutputState: i.ToGetDistributionConfigurationsFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDistributionConfigurationsFilterArrayInput is an input type that accepts GetDistributionConfigurationsFilterArray and GetDistributionConfigurationsFilterArrayOutput values.
 // You can construct a concrete instance of `GetDistributionConfigurationsFilterArrayInput` via:
 //
@@ -6617,6 +8086,12 @@ func (i GetDistributionConfigurationsFilterArray) ToGetDistributionConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationsFilterArrayOutput)
 }
 
+func (i GetDistributionConfigurationsFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDistributionConfigurationsFilter] {
+	return pulumix.Output[[]GetDistributionConfigurationsFilter]{
+		OutputState: i.ToGetDistributionConfigurationsFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDistributionConfigurationsFilterOutput struct{ *pulumi.OutputState }
 
 func (GetDistributionConfigurationsFilterOutput) ElementType() reflect.Type {
@@ -6629,6 +8104,12 @@ func (o GetDistributionConfigurationsFilterOutput) ToGetDistributionConfiguratio
 
 func (o GetDistributionConfigurationsFilterOutput) ToGetDistributionConfigurationsFilterOutputWithContext(ctx context.Context) GetDistributionConfigurationsFilterOutput {
 	return o
+}
+
+func (o GetDistributionConfigurationsFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetDistributionConfigurationsFilter] {
+	return pulumix.Output[GetDistributionConfigurationsFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
@@ -6653,6 +8134,12 @@ func (o GetDistributionConfigurationsFilterArrayOutput) ToGetDistributionConfigu
 
 func (o GetDistributionConfigurationsFilterArrayOutput) ToGetDistributionConfigurationsFilterArrayOutputWithContext(ctx context.Context) GetDistributionConfigurationsFilterArrayOutput {
 	return o
+}
+
+func (o GetDistributionConfigurationsFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDistributionConfigurationsFilter] {
+	return pulumix.Output[[]GetDistributionConfigurationsFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDistributionConfigurationsFilterArrayOutput) Index(i pulumi.IntInput) GetDistributionConfigurationsFilterOutput {
@@ -6698,6 +8185,12 @@ func (i GetImageImageTestsConfigurationArgs) ToGetImageImageTestsConfigurationOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetImageImageTestsConfigurationOutput)
 }
 
+func (i GetImageImageTestsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetImageImageTestsConfiguration] {
+	return pulumix.Output[GetImageImageTestsConfiguration]{
+		OutputState: i.ToGetImageImageTestsConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetImageImageTestsConfigurationArrayInput is an input type that accepts GetImageImageTestsConfigurationArray and GetImageImageTestsConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetImageImageTestsConfigurationArrayInput` via:
 //
@@ -6723,6 +8216,12 @@ func (i GetImageImageTestsConfigurationArray) ToGetImageImageTestsConfigurationA
 	return pulumi.ToOutputWithContext(ctx, i).(GetImageImageTestsConfigurationArrayOutput)
 }
 
+func (i GetImageImageTestsConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetImageImageTestsConfiguration] {
+	return pulumix.Output[[]GetImageImageTestsConfiguration]{
+		OutputState: i.ToGetImageImageTestsConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetImageImageTestsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetImageImageTestsConfigurationOutput) ElementType() reflect.Type {
@@ -6735,6 +8234,12 @@ func (o GetImageImageTestsConfigurationOutput) ToGetImageImageTestsConfiguration
 
 func (o GetImageImageTestsConfigurationOutput) ToGetImageImageTestsConfigurationOutputWithContext(ctx context.Context) GetImageImageTestsConfigurationOutput {
 	return o
+}
+
+func (o GetImageImageTestsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetImageImageTestsConfiguration] {
+	return pulumix.Output[GetImageImageTestsConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether image tests are enabled.
@@ -6759,6 +8264,12 @@ func (o GetImageImageTestsConfigurationArrayOutput) ToGetImageImageTestsConfigur
 
 func (o GetImageImageTestsConfigurationArrayOutput) ToGetImageImageTestsConfigurationArrayOutputWithContext(ctx context.Context) GetImageImageTestsConfigurationArrayOutput {
 	return o
+}
+
+func (o GetImageImageTestsConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetImageImageTestsConfiguration] {
+	return pulumix.Output[[]GetImageImageTestsConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetImageImageTestsConfigurationArrayOutput) Index(i pulumi.IntInput) GetImageImageTestsConfigurationOutput {
@@ -6804,6 +8315,12 @@ func (i GetImageOutputResourceArgs) ToGetImageOutputResourceOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetImageOutputResourceOutput)
 }
 
+func (i GetImageOutputResourceArgs) ToOutput(ctx context.Context) pulumix.Output[GetImageOutputResource] {
+	return pulumix.Output[GetImageOutputResource]{
+		OutputState: i.ToGetImageOutputResourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetImageOutputResourceArrayInput is an input type that accepts GetImageOutputResourceArray and GetImageOutputResourceArrayOutput values.
 // You can construct a concrete instance of `GetImageOutputResourceArrayInput` via:
 //
@@ -6829,6 +8346,12 @@ func (i GetImageOutputResourceArray) ToGetImageOutputResourceArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetImageOutputResourceArrayOutput)
 }
 
+func (i GetImageOutputResourceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetImageOutputResource] {
+	return pulumix.Output[[]GetImageOutputResource]{
+		OutputState: i.ToGetImageOutputResourceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetImageOutputResourceOutput struct{ *pulumi.OutputState }
 
 func (GetImageOutputResourceOutput) ElementType() reflect.Type {
@@ -6841,6 +8364,12 @@ func (o GetImageOutputResourceOutput) ToGetImageOutputResourceOutput() GetImageO
 
 func (o GetImageOutputResourceOutput) ToGetImageOutputResourceOutputWithContext(ctx context.Context) GetImageOutputResourceOutput {
 	return o
+}
+
+func (o GetImageOutputResourceOutput) ToOutput(ctx context.Context) pulumix.Output[GetImageOutputResource] {
+	return pulumix.Output[GetImageOutputResource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of objects with each Amazon Machine Image (AMI) created.
@@ -6865,6 +8394,12 @@ func (o GetImageOutputResourceArrayOutput) ToGetImageOutputResourceArrayOutput()
 
 func (o GetImageOutputResourceArrayOutput) ToGetImageOutputResourceArrayOutputWithContext(ctx context.Context) GetImageOutputResourceArrayOutput {
 	return o
+}
+
+func (o GetImageOutputResourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetImageOutputResource] {
+	return pulumix.Output[[]GetImageOutputResource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetImageOutputResourceArrayOutput) Index(i pulumi.IntInput) GetImageOutputResourceOutput {
@@ -6922,6 +8457,12 @@ func (i GetImageOutputResourceAmiArgs) ToGetImageOutputResourceAmiOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetImageOutputResourceAmiOutput)
 }
 
+func (i GetImageOutputResourceAmiArgs) ToOutput(ctx context.Context) pulumix.Output[GetImageOutputResourceAmi] {
+	return pulumix.Output[GetImageOutputResourceAmi]{
+		OutputState: i.ToGetImageOutputResourceAmiOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetImageOutputResourceAmiArrayInput is an input type that accepts GetImageOutputResourceAmiArray and GetImageOutputResourceAmiArrayOutput values.
 // You can construct a concrete instance of `GetImageOutputResourceAmiArrayInput` via:
 //
@@ -6947,6 +8488,12 @@ func (i GetImageOutputResourceAmiArray) ToGetImageOutputResourceAmiArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetImageOutputResourceAmiArrayOutput)
 }
 
+func (i GetImageOutputResourceAmiArray) ToOutput(ctx context.Context) pulumix.Output[[]GetImageOutputResourceAmi] {
+	return pulumix.Output[[]GetImageOutputResourceAmi]{
+		OutputState: i.ToGetImageOutputResourceAmiArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetImageOutputResourceAmiOutput struct{ *pulumi.OutputState }
 
 func (GetImageOutputResourceAmiOutput) ElementType() reflect.Type {
@@ -6959,6 +8506,12 @@ func (o GetImageOutputResourceAmiOutput) ToGetImageOutputResourceAmiOutput() Get
 
 func (o GetImageOutputResourceAmiOutput) ToGetImageOutputResourceAmiOutputWithContext(ctx context.Context) GetImageOutputResourceAmiOutput {
 	return o
+}
+
+func (o GetImageOutputResourceAmiOutput) ToOutput(ctx context.Context) pulumix.Output[GetImageOutputResourceAmi] {
+	return pulumix.Output[GetImageOutputResourceAmi]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Account identifier of the AMI.
@@ -6998,6 +8551,12 @@ func (o GetImageOutputResourceAmiArrayOutput) ToGetImageOutputResourceAmiArrayOu
 
 func (o GetImageOutputResourceAmiArrayOutput) ToGetImageOutputResourceAmiArrayOutputWithContext(ctx context.Context) GetImageOutputResourceAmiArrayOutput {
 	return o
+}
+
+func (o GetImageOutputResourceAmiArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetImageOutputResourceAmi] {
+	return pulumix.Output[[]GetImageOutputResourceAmi]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetImageOutputResourceAmiArrayOutput) Index(i pulumi.IntInput) GetImageOutputResourceAmiOutput {
@@ -7043,6 +8602,12 @@ func (i GetImageOutputResourceContainerArgs) ToGetImageOutputResourceContainerOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetImageOutputResourceContainerOutput)
 }
 
+func (i GetImageOutputResourceContainerArgs) ToOutput(ctx context.Context) pulumix.Output[GetImageOutputResourceContainer] {
+	return pulumix.Output[GetImageOutputResourceContainer]{
+		OutputState: i.ToGetImageOutputResourceContainerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetImageOutputResourceContainerArrayInput is an input type that accepts GetImageOutputResourceContainerArray and GetImageOutputResourceContainerArrayOutput values.
 // You can construct a concrete instance of `GetImageOutputResourceContainerArrayInput` via:
 //
@@ -7068,6 +8633,12 @@ func (i GetImageOutputResourceContainerArray) ToGetImageOutputResourceContainerA
 	return pulumi.ToOutputWithContext(ctx, i).(GetImageOutputResourceContainerArrayOutput)
 }
 
+func (i GetImageOutputResourceContainerArray) ToOutput(ctx context.Context) pulumix.Output[[]GetImageOutputResourceContainer] {
+	return pulumix.Output[[]GetImageOutputResourceContainer]{
+		OutputState: i.ToGetImageOutputResourceContainerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetImageOutputResourceContainerOutput struct{ *pulumi.OutputState }
 
 func (GetImageOutputResourceContainerOutput) ElementType() reflect.Type {
@@ -7080,6 +8651,12 @@ func (o GetImageOutputResourceContainerOutput) ToGetImageOutputResourceContainer
 
 func (o GetImageOutputResourceContainerOutput) ToGetImageOutputResourceContainerOutputWithContext(ctx context.Context) GetImageOutputResourceContainerOutput {
 	return o
+}
+
+func (o GetImageOutputResourceContainerOutput) ToOutput(ctx context.Context) pulumix.Output[GetImageOutputResourceContainer] {
+	return pulumix.Output[GetImageOutputResourceContainer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of URIs for created containers.
@@ -7106,10 +8683,278 @@ func (o GetImageOutputResourceContainerArrayOutput) ToGetImageOutputResourceCont
 	return o
 }
 
+func (o GetImageOutputResourceContainerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetImageOutputResourceContainer] {
+	return pulumix.Output[[]GetImageOutputResourceContainer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetImageOutputResourceContainerArrayOutput) Index(i pulumi.IntInput) GetImageOutputResourceContainerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageOutputResourceContainer {
 		return vs[0].([]GetImageOutputResourceContainer)[vs[1].(int)]
 	}).(GetImageOutputResourceContainerOutput)
+}
+
+type GetImagePipelineImageScanningConfiguration struct {
+	// List if an object with ecr configuration for image scanning
+	EcrConfigurations []GetImagePipelineImageScanningConfigurationEcrConfiguration `pulumi:"ecrConfigurations"`
+	// Whether image scanning is enabled.
+	ImageScanningEnabled bool `pulumi:"imageScanningEnabled"`
+}
+
+// GetImagePipelineImageScanningConfigurationInput is an input type that accepts GetImagePipelineImageScanningConfigurationArgs and GetImagePipelineImageScanningConfigurationOutput values.
+// You can construct a concrete instance of `GetImagePipelineImageScanningConfigurationInput` via:
+//
+//	GetImagePipelineImageScanningConfigurationArgs{...}
+type GetImagePipelineImageScanningConfigurationInput interface {
+	pulumi.Input
+
+	ToGetImagePipelineImageScanningConfigurationOutput() GetImagePipelineImageScanningConfigurationOutput
+	ToGetImagePipelineImageScanningConfigurationOutputWithContext(context.Context) GetImagePipelineImageScanningConfigurationOutput
+}
+
+type GetImagePipelineImageScanningConfigurationArgs struct {
+	// List if an object with ecr configuration for image scanning
+	EcrConfigurations GetImagePipelineImageScanningConfigurationEcrConfigurationArrayInput `pulumi:"ecrConfigurations"`
+	// Whether image scanning is enabled.
+	ImageScanningEnabled pulumi.BoolInput `pulumi:"imageScanningEnabled"`
+}
+
+func (GetImagePipelineImageScanningConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagePipelineImageScanningConfiguration)(nil)).Elem()
+}
+
+func (i GetImagePipelineImageScanningConfigurationArgs) ToGetImagePipelineImageScanningConfigurationOutput() GetImagePipelineImageScanningConfigurationOutput {
+	return i.ToGetImagePipelineImageScanningConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetImagePipelineImageScanningConfigurationArgs) ToGetImagePipelineImageScanningConfigurationOutputWithContext(ctx context.Context) GetImagePipelineImageScanningConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagePipelineImageScanningConfigurationOutput)
+}
+
+func (i GetImagePipelineImageScanningConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetImagePipelineImageScanningConfiguration] {
+	return pulumix.Output[GetImagePipelineImageScanningConfiguration]{
+		OutputState: i.ToGetImagePipelineImageScanningConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetImagePipelineImageScanningConfigurationArrayInput is an input type that accepts GetImagePipelineImageScanningConfigurationArray and GetImagePipelineImageScanningConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetImagePipelineImageScanningConfigurationArrayInput` via:
+//
+//	GetImagePipelineImageScanningConfigurationArray{ GetImagePipelineImageScanningConfigurationArgs{...} }
+type GetImagePipelineImageScanningConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetImagePipelineImageScanningConfigurationArrayOutput() GetImagePipelineImageScanningConfigurationArrayOutput
+	ToGetImagePipelineImageScanningConfigurationArrayOutputWithContext(context.Context) GetImagePipelineImageScanningConfigurationArrayOutput
+}
+
+type GetImagePipelineImageScanningConfigurationArray []GetImagePipelineImageScanningConfigurationInput
+
+func (GetImagePipelineImageScanningConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagePipelineImageScanningConfiguration)(nil)).Elem()
+}
+
+func (i GetImagePipelineImageScanningConfigurationArray) ToGetImagePipelineImageScanningConfigurationArrayOutput() GetImagePipelineImageScanningConfigurationArrayOutput {
+	return i.ToGetImagePipelineImageScanningConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetImagePipelineImageScanningConfigurationArray) ToGetImagePipelineImageScanningConfigurationArrayOutputWithContext(ctx context.Context) GetImagePipelineImageScanningConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagePipelineImageScanningConfigurationArrayOutput)
+}
+
+func (i GetImagePipelineImageScanningConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetImagePipelineImageScanningConfiguration] {
+	return pulumix.Output[[]GetImagePipelineImageScanningConfiguration]{
+		OutputState: i.ToGetImagePipelineImageScanningConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetImagePipelineImageScanningConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetImagePipelineImageScanningConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagePipelineImageScanningConfiguration)(nil)).Elem()
+}
+
+func (o GetImagePipelineImageScanningConfigurationOutput) ToGetImagePipelineImageScanningConfigurationOutput() GetImagePipelineImageScanningConfigurationOutput {
+	return o
+}
+
+func (o GetImagePipelineImageScanningConfigurationOutput) ToGetImagePipelineImageScanningConfigurationOutputWithContext(ctx context.Context) GetImagePipelineImageScanningConfigurationOutput {
+	return o
+}
+
+func (o GetImagePipelineImageScanningConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetImagePipelineImageScanningConfiguration] {
+	return pulumix.Output[GetImagePipelineImageScanningConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// List if an object with ecr configuration for image scanning
+func (o GetImagePipelineImageScanningConfigurationOutput) EcrConfigurations() GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput {
+	return o.ApplyT(func(v GetImagePipelineImageScanningConfiguration) []GetImagePipelineImageScanningConfigurationEcrConfiguration {
+		return v.EcrConfigurations
+	}).(GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput)
+}
+
+// Whether image scanning is enabled.
+func (o GetImagePipelineImageScanningConfigurationOutput) ImageScanningEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetImagePipelineImageScanningConfiguration) bool { return v.ImageScanningEnabled }).(pulumi.BoolOutput)
+}
+
+type GetImagePipelineImageScanningConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImagePipelineImageScanningConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagePipelineImageScanningConfiguration)(nil)).Elem()
+}
+
+func (o GetImagePipelineImageScanningConfigurationArrayOutput) ToGetImagePipelineImageScanningConfigurationArrayOutput() GetImagePipelineImageScanningConfigurationArrayOutput {
+	return o
+}
+
+func (o GetImagePipelineImageScanningConfigurationArrayOutput) ToGetImagePipelineImageScanningConfigurationArrayOutputWithContext(ctx context.Context) GetImagePipelineImageScanningConfigurationArrayOutput {
+	return o
+}
+
+func (o GetImagePipelineImageScanningConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetImagePipelineImageScanningConfiguration] {
+	return pulumix.Output[[]GetImagePipelineImageScanningConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetImagePipelineImageScanningConfigurationArrayOutput) Index(i pulumi.IntInput) GetImagePipelineImageScanningConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImagePipelineImageScanningConfiguration {
+		return vs[0].([]GetImagePipelineImageScanningConfiguration)[vs[1].(int)]
+	}).(GetImagePipelineImageScanningConfigurationOutput)
+}
+
+type GetImagePipelineImageScanningConfigurationEcrConfiguration struct {
+	// Tags that are added to the output containers that are scanned
+	ContainerTags []string `pulumi:"containerTags"`
+	// The name of the container repository that Amazon Inspector scans
+	RepositoryName string `pulumi:"repositoryName"`
+}
+
+// GetImagePipelineImageScanningConfigurationEcrConfigurationInput is an input type that accepts GetImagePipelineImageScanningConfigurationEcrConfigurationArgs and GetImagePipelineImageScanningConfigurationEcrConfigurationOutput values.
+// You can construct a concrete instance of `GetImagePipelineImageScanningConfigurationEcrConfigurationInput` via:
+//
+//	GetImagePipelineImageScanningConfigurationEcrConfigurationArgs{...}
+type GetImagePipelineImageScanningConfigurationEcrConfigurationInput interface {
+	pulumi.Input
+
+	ToGetImagePipelineImageScanningConfigurationEcrConfigurationOutput() GetImagePipelineImageScanningConfigurationEcrConfigurationOutput
+	ToGetImagePipelineImageScanningConfigurationEcrConfigurationOutputWithContext(context.Context) GetImagePipelineImageScanningConfigurationEcrConfigurationOutput
+}
+
+type GetImagePipelineImageScanningConfigurationEcrConfigurationArgs struct {
+	// Tags that are added to the output containers that are scanned
+	ContainerTags pulumi.StringArrayInput `pulumi:"containerTags"`
+	// The name of the container repository that Amazon Inspector scans
+	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
+}
+
+func (GetImagePipelineImageScanningConfigurationEcrConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagePipelineImageScanningConfigurationEcrConfiguration)(nil)).Elem()
+}
+
+func (i GetImagePipelineImageScanningConfigurationEcrConfigurationArgs) ToGetImagePipelineImageScanningConfigurationEcrConfigurationOutput() GetImagePipelineImageScanningConfigurationEcrConfigurationOutput {
+	return i.ToGetImagePipelineImageScanningConfigurationEcrConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetImagePipelineImageScanningConfigurationEcrConfigurationArgs) ToGetImagePipelineImageScanningConfigurationEcrConfigurationOutputWithContext(ctx context.Context) GetImagePipelineImageScanningConfigurationEcrConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagePipelineImageScanningConfigurationEcrConfigurationOutput)
+}
+
+func (i GetImagePipelineImageScanningConfigurationEcrConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetImagePipelineImageScanningConfigurationEcrConfiguration] {
+	return pulumix.Output[GetImagePipelineImageScanningConfigurationEcrConfiguration]{
+		OutputState: i.ToGetImagePipelineImageScanningConfigurationEcrConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetImagePipelineImageScanningConfigurationEcrConfigurationArrayInput is an input type that accepts GetImagePipelineImageScanningConfigurationEcrConfigurationArray and GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetImagePipelineImageScanningConfigurationEcrConfigurationArrayInput` via:
+//
+//	GetImagePipelineImageScanningConfigurationEcrConfigurationArray{ GetImagePipelineImageScanningConfigurationEcrConfigurationArgs{...} }
+type GetImagePipelineImageScanningConfigurationEcrConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput() GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput
+	ToGetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutputWithContext(context.Context) GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput
+}
+
+type GetImagePipelineImageScanningConfigurationEcrConfigurationArray []GetImagePipelineImageScanningConfigurationEcrConfigurationInput
+
+func (GetImagePipelineImageScanningConfigurationEcrConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagePipelineImageScanningConfigurationEcrConfiguration)(nil)).Elem()
+}
+
+func (i GetImagePipelineImageScanningConfigurationEcrConfigurationArray) ToGetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput() GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput {
+	return i.ToGetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetImagePipelineImageScanningConfigurationEcrConfigurationArray) ToGetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutputWithContext(ctx context.Context) GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput)
+}
+
+func (i GetImagePipelineImageScanningConfigurationEcrConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetImagePipelineImageScanningConfigurationEcrConfiguration] {
+	return pulumix.Output[[]GetImagePipelineImageScanningConfigurationEcrConfiguration]{
+		OutputState: i.ToGetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetImagePipelineImageScanningConfigurationEcrConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetImagePipelineImageScanningConfigurationEcrConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagePipelineImageScanningConfigurationEcrConfiguration)(nil)).Elem()
+}
+
+func (o GetImagePipelineImageScanningConfigurationEcrConfigurationOutput) ToGetImagePipelineImageScanningConfigurationEcrConfigurationOutput() GetImagePipelineImageScanningConfigurationEcrConfigurationOutput {
+	return o
+}
+
+func (o GetImagePipelineImageScanningConfigurationEcrConfigurationOutput) ToGetImagePipelineImageScanningConfigurationEcrConfigurationOutputWithContext(ctx context.Context) GetImagePipelineImageScanningConfigurationEcrConfigurationOutput {
+	return o
+}
+
+func (o GetImagePipelineImageScanningConfigurationEcrConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetImagePipelineImageScanningConfigurationEcrConfiguration] {
+	return pulumix.Output[GetImagePipelineImageScanningConfigurationEcrConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Tags that are added to the output containers that are scanned
+func (o GetImagePipelineImageScanningConfigurationEcrConfigurationOutput) ContainerTags() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetImagePipelineImageScanningConfigurationEcrConfiguration) []string { return v.ContainerTags }).(pulumi.StringArrayOutput)
+}
+
+// The name of the container repository that Amazon Inspector scans
+func (o GetImagePipelineImageScanningConfigurationEcrConfigurationOutput) RepositoryName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagePipelineImageScanningConfigurationEcrConfiguration) string { return v.RepositoryName }).(pulumi.StringOutput)
+}
+
+type GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagePipelineImageScanningConfigurationEcrConfiguration)(nil)).Elem()
+}
+
+func (o GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput) ToGetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput() GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput {
+	return o
+}
+
+func (o GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput) ToGetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutputWithContext(ctx context.Context) GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput {
+	return o
+}
+
+func (o GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetImagePipelineImageScanningConfigurationEcrConfiguration] {
+	return pulumix.Output[[]GetImagePipelineImageScanningConfigurationEcrConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput) Index(i pulumi.IntInput) GetImagePipelineImageScanningConfigurationEcrConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImagePipelineImageScanningConfigurationEcrConfiguration {
+		return vs[0].([]GetImagePipelineImageScanningConfigurationEcrConfiguration)[vs[1].(int)]
+	}).(GetImagePipelineImageScanningConfigurationEcrConfigurationOutput)
 }
 
 type GetImagePipelineImageTestsConfiguration struct {
@@ -7149,6 +8994,12 @@ func (i GetImagePipelineImageTestsConfigurationArgs) ToGetImagePipelineImageTest
 	return pulumi.ToOutputWithContext(ctx, i).(GetImagePipelineImageTestsConfigurationOutput)
 }
 
+func (i GetImagePipelineImageTestsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetImagePipelineImageTestsConfiguration] {
+	return pulumix.Output[GetImagePipelineImageTestsConfiguration]{
+		OutputState: i.ToGetImagePipelineImageTestsConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetImagePipelineImageTestsConfigurationArrayInput is an input type that accepts GetImagePipelineImageTestsConfigurationArray and GetImagePipelineImageTestsConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetImagePipelineImageTestsConfigurationArrayInput` via:
 //
@@ -7174,6 +9025,12 @@ func (i GetImagePipelineImageTestsConfigurationArray) ToGetImagePipelineImageTes
 	return pulumi.ToOutputWithContext(ctx, i).(GetImagePipelineImageTestsConfigurationArrayOutput)
 }
 
+func (i GetImagePipelineImageTestsConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetImagePipelineImageTestsConfiguration] {
+	return pulumix.Output[[]GetImagePipelineImageTestsConfiguration]{
+		OutputState: i.ToGetImagePipelineImageTestsConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetImagePipelineImageTestsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetImagePipelineImageTestsConfigurationOutput) ElementType() reflect.Type {
@@ -7186,6 +9043,12 @@ func (o GetImagePipelineImageTestsConfigurationOutput) ToGetImagePipelineImageTe
 
 func (o GetImagePipelineImageTestsConfigurationOutput) ToGetImagePipelineImageTestsConfigurationOutputWithContext(ctx context.Context) GetImagePipelineImageTestsConfigurationOutput {
 	return o
+}
+
+func (o GetImagePipelineImageTestsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetImagePipelineImageTestsConfiguration] {
+	return pulumix.Output[GetImagePipelineImageTestsConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether image tests are enabled.
@@ -7210,6 +9073,12 @@ func (o GetImagePipelineImageTestsConfigurationArrayOutput) ToGetImagePipelineIm
 
 func (o GetImagePipelineImageTestsConfigurationArrayOutput) ToGetImagePipelineImageTestsConfigurationArrayOutputWithContext(ctx context.Context) GetImagePipelineImageTestsConfigurationArrayOutput {
 	return o
+}
+
+func (o GetImagePipelineImageTestsConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetImagePipelineImageTestsConfiguration] {
+	return pulumix.Output[[]GetImagePipelineImageTestsConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetImagePipelineImageTestsConfigurationArrayOutput) Index(i pulumi.IntInput) GetImagePipelineImageTestsConfigurationOutput {
@@ -7255,6 +9124,12 @@ func (i GetImagePipelineScheduleArgs) ToGetImagePipelineScheduleOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetImagePipelineScheduleOutput)
 }
 
+func (i GetImagePipelineScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[GetImagePipelineSchedule] {
+	return pulumix.Output[GetImagePipelineSchedule]{
+		OutputState: i.ToGetImagePipelineScheduleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetImagePipelineScheduleArrayInput is an input type that accepts GetImagePipelineScheduleArray and GetImagePipelineScheduleArrayOutput values.
 // You can construct a concrete instance of `GetImagePipelineScheduleArrayInput` via:
 //
@@ -7280,6 +9155,12 @@ func (i GetImagePipelineScheduleArray) ToGetImagePipelineScheduleArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetImagePipelineScheduleArrayOutput)
 }
 
+func (i GetImagePipelineScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetImagePipelineSchedule] {
+	return pulumix.Output[[]GetImagePipelineSchedule]{
+		OutputState: i.ToGetImagePipelineScheduleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetImagePipelineScheduleOutput struct{ *pulumi.OutputState }
 
 func (GetImagePipelineScheduleOutput) ElementType() reflect.Type {
@@ -7292,6 +9173,12 @@ func (o GetImagePipelineScheduleOutput) ToGetImagePipelineScheduleOutput() GetIm
 
 func (o GetImagePipelineScheduleOutput) ToGetImagePipelineScheduleOutputWithContext(ctx context.Context) GetImagePipelineScheduleOutput {
 	return o
+}
+
+func (o GetImagePipelineScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[GetImagePipelineSchedule] {
+	return pulumix.Output[GetImagePipelineSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Condition when the pipeline should trigger a new image build.
@@ -7316,6 +9203,12 @@ func (o GetImagePipelineScheduleArrayOutput) ToGetImagePipelineScheduleArrayOutp
 
 func (o GetImagePipelineScheduleArrayOutput) ToGetImagePipelineScheduleArrayOutputWithContext(ctx context.Context) GetImagePipelineScheduleArrayOutput {
 	return o
+}
+
+func (o GetImagePipelineScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetImagePipelineSchedule] {
+	return pulumix.Output[[]GetImagePipelineSchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetImagePipelineScheduleArrayOutput) Index(i pulumi.IntInput) GetImagePipelineScheduleOutput {
@@ -7361,6 +9254,12 @@ func (i GetImagePipelinesFilterArgs) ToGetImagePipelinesFilterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetImagePipelinesFilterOutput)
 }
 
+func (i GetImagePipelinesFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetImagePipelinesFilter] {
+	return pulumix.Output[GetImagePipelinesFilter]{
+		OutputState: i.ToGetImagePipelinesFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetImagePipelinesFilterArrayInput is an input type that accepts GetImagePipelinesFilterArray and GetImagePipelinesFilterArrayOutput values.
 // You can construct a concrete instance of `GetImagePipelinesFilterArrayInput` via:
 //
@@ -7386,6 +9285,12 @@ func (i GetImagePipelinesFilterArray) ToGetImagePipelinesFilterArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetImagePipelinesFilterArrayOutput)
 }
 
+func (i GetImagePipelinesFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetImagePipelinesFilter] {
+	return pulumix.Output[[]GetImagePipelinesFilter]{
+		OutputState: i.ToGetImagePipelinesFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetImagePipelinesFilterOutput struct{ *pulumi.OutputState }
 
 func (GetImagePipelinesFilterOutput) ElementType() reflect.Type {
@@ -7398,6 +9303,12 @@ func (o GetImagePipelinesFilterOutput) ToGetImagePipelinesFilterOutput() GetImag
 
 func (o GetImagePipelinesFilterOutput) ToGetImagePipelinesFilterOutputWithContext(ctx context.Context) GetImagePipelinesFilterOutput {
 	return o
+}
+
+func (o GetImagePipelinesFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetImagePipelinesFilter] {
+	return pulumix.Output[GetImagePipelinesFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
@@ -7422,6 +9333,12 @@ func (o GetImagePipelinesFilterArrayOutput) ToGetImagePipelinesFilterArrayOutput
 
 func (o GetImagePipelinesFilterArrayOutput) ToGetImagePipelinesFilterArrayOutputWithContext(ctx context.Context) GetImagePipelinesFilterArrayOutput {
 	return o
+}
+
+func (o GetImagePipelinesFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetImagePipelinesFilter] {
+	return pulumix.Output[[]GetImagePipelinesFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetImagePipelinesFilterArrayOutput) Index(i pulumi.IntInput) GetImagePipelinesFilterOutput {
@@ -7475,6 +9392,12 @@ func (i GetImageRecipeBlockDeviceMappingArgs) ToGetImageRecipeBlockDeviceMapping
 	return pulumi.ToOutputWithContext(ctx, i).(GetImageRecipeBlockDeviceMappingOutput)
 }
 
+func (i GetImageRecipeBlockDeviceMappingArgs) ToOutput(ctx context.Context) pulumix.Output[GetImageRecipeBlockDeviceMapping] {
+	return pulumix.Output[GetImageRecipeBlockDeviceMapping]{
+		OutputState: i.ToGetImageRecipeBlockDeviceMappingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetImageRecipeBlockDeviceMappingArrayInput is an input type that accepts GetImageRecipeBlockDeviceMappingArray and GetImageRecipeBlockDeviceMappingArrayOutput values.
 // You can construct a concrete instance of `GetImageRecipeBlockDeviceMappingArrayInput` via:
 //
@@ -7500,6 +9423,12 @@ func (i GetImageRecipeBlockDeviceMappingArray) ToGetImageRecipeBlockDeviceMappin
 	return pulumi.ToOutputWithContext(ctx, i).(GetImageRecipeBlockDeviceMappingArrayOutput)
 }
 
+func (i GetImageRecipeBlockDeviceMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetImageRecipeBlockDeviceMapping] {
+	return pulumix.Output[[]GetImageRecipeBlockDeviceMapping]{
+		OutputState: i.ToGetImageRecipeBlockDeviceMappingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetImageRecipeBlockDeviceMappingOutput struct{ *pulumi.OutputState }
 
 func (GetImageRecipeBlockDeviceMappingOutput) ElementType() reflect.Type {
@@ -7512,6 +9441,12 @@ func (o GetImageRecipeBlockDeviceMappingOutput) ToGetImageRecipeBlockDeviceMappi
 
 func (o GetImageRecipeBlockDeviceMappingOutput) ToGetImageRecipeBlockDeviceMappingOutputWithContext(ctx context.Context) GetImageRecipeBlockDeviceMappingOutput {
 	return o
+}
+
+func (o GetImageRecipeBlockDeviceMappingOutput) ToOutput(ctx context.Context) pulumix.Output[GetImageRecipeBlockDeviceMapping] {
+	return pulumix.Output[GetImageRecipeBlockDeviceMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
@@ -7546,6 +9481,12 @@ func (o GetImageRecipeBlockDeviceMappingArrayOutput) ToGetImageRecipeBlockDevice
 
 func (o GetImageRecipeBlockDeviceMappingArrayOutput) ToGetImageRecipeBlockDeviceMappingArrayOutputWithContext(ctx context.Context) GetImageRecipeBlockDeviceMappingArrayOutput {
 	return o
+}
+
+func (o GetImageRecipeBlockDeviceMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetImageRecipeBlockDeviceMapping] {
+	return pulumix.Output[[]GetImageRecipeBlockDeviceMapping]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetImageRecipeBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) GetImageRecipeBlockDeviceMappingOutput {
@@ -7615,6 +9556,12 @@ func (i GetImageRecipeBlockDeviceMappingEbArgs) ToGetImageRecipeBlockDeviceMappi
 	return pulumi.ToOutputWithContext(ctx, i).(GetImageRecipeBlockDeviceMappingEbOutput)
 }
 
+func (i GetImageRecipeBlockDeviceMappingEbArgs) ToOutput(ctx context.Context) pulumix.Output[GetImageRecipeBlockDeviceMappingEb] {
+	return pulumix.Output[GetImageRecipeBlockDeviceMappingEb]{
+		OutputState: i.ToGetImageRecipeBlockDeviceMappingEbOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetImageRecipeBlockDeviceMappingEbArrayInput is an input type that accepts GetImageRecipeBlockDeviceMappingEbArray and GetImageRecipeBlockDeviceMappingEbArrayOutput values.
 // You can construct a concrete instance of `GetImageRecipeBlockDeviceMappingEbArrayInput` via:
 //
@@ -7640,6 +9587,12 @@ func (i GetImageRecipeBlockDeviceMappingEbArray) ToGetImageRecipeBlockDeviceMapp
 	return pulumi.ToOutputWithContext(ctx, i).(GetImageRecipeBlockDeviceMappingEbArrayOutput)
 }
 
+func (i GetImageRecipeBlockDeviceMappingEbArray) ToOutput(ctx context.Context) pulumix.Output[[]GetImageRecipeBlockDeviceMappingEb] {
+	return pulumix.Output[[]GetImageRecipeBlockDeviceMappingEb]{
+		OutputState: i.ToGetImageRecipeBlockDeviceMappingEbArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetImageRecipeBlockDeviceMappingEbOutput struct{ *pulumi.OutputState }
 
 func (GetImageRecipeBlockDeviceMappingEbOutput) ElementType() reflect.Type {
@@ -7652,6 +9605,12 @@ func (o GetImageRecipeBlockDeviceMappingEbOutput) ToGetImageRecipeBlockDeviceMap
 
 func (o GetImageRecipeBlockDeviceMappingEbOutput) ToGetImageRecipeBlockDeviceMappingEbOutputWithContext(ctx context.Context) GetImageRecipeBlockDeviceMappingEbOutput {
 	return o
+}
+
+func (o GetImageRecipeBlockDeviceMappingEbOutput) ToOutput(ctx context.Context) pulumix.Output[GetImageRecipeBlockDeviceMappingEb] {
+	return pulumix.Output[GetImageRecipeBlockDeviceMappingEb]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
@@ -7708,6 +9667,12 @@ func (o GetImageRecipeBlockDeviceMappingEbArrayOutput) ToGetImageRecipeBlockDevi
 	return o
 }
 
+func (o GetImageRecipeBlockDeviceMappingEbArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetImageRecipeBlockDeviceMappingEb] {
+	return pulumix.Output[[]GetImageRecipeBlockDeviceMappingEb]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetImageRecipeBlockDeviceMappingEbArrayOutput) Index(i pulumi.IntInput) GetImageRecipeBlockDeviceMappingEbOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageRecipeBlockDeviceMappingEb {
 		return vs[0].([]GetImageRecipeBlockDeviceMappingEb)[vs[1].(int)]
@@ -7751,6 +9716,12 @@ func (i GetImageRecipeComponentArgs) ToGetImageRecipeComponentOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetImageRecipeComponentOutput)
 }
 
+func (i GetImageRecipeComponentArgs) ToOutput(ctx context.Context) pulumix.Output[GetImageRecipeComponent] {
+	return pulumix.Output[GetImageRecipeComponent]{
+		OutputState: i.ToGetImageRecipeComponentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetImageRecipeComponentArrayInput is an input type that accepts GetImageRecipeComponentArray and GetImageRecipeComponentArrayOutput values.
 // You can construct a concrete instance of `GetImageRecipeComponentArrayInput` via:
 //
@@ -7776,6 +9747,12 @@ func (i GetImageRecipeComponentArray) ToGetImageRecipeComponentArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetImageRecipeComponentArrayOutput)
 }
 
+func (i GetImageRecipeComponentArray) ToOutput(ctx context.Context) pulumix.Output[[]GetImageRecipeComponent] {
+	return pulumix.Output[[]GetImageRecipeComponent]{
+		OutputState: i.ToGetImageRecipeComponentArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetImageRecipeComponentOutput struct{ *pulumi.OutputState }
 
 func (GetImageRecipeComponentOutput) ElementType() reflect.Type {
@@ -7788,6 +9765,12 @@ func (o GetImageRecipeComponentOutput) ToGetImageRecipeComponentOutput() GetImag
 
 func (o GetImageRecipeComponentOutput) ToGetImageRecipeComponentOutputWithContext(ctx context.Context) GetImageRecipeComponentOutput {
 	return o
+}
+
+func (o GetImageRecipeComponentOutput) ToOutput(ctx context.Context) pulumix.Output[GetImageRecipeComponent] {
+	return pulumix.Output[GetImageRecipeComponent]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Image Builder Component.
@@ -7812,6 +9795,12 @@ func (o GetImageRecipeComponentArrayOutput) ToGetImageRecipeComponentArrayOutput
 
 func (o GetImageRecipeComponentArrayOutput) ToGetImageRecipeComponentArrayOutputWithContext(ctx context.Context) GetImageRecipeComponentArrayOutput {
 	return o
+}
+
+func (o GetImageRecipeComponentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetImageRecipeComponent] {
+	return pulumix.Output[[]GetImageRecipeComponent]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetImageRecipeComponentArrayOutput) Index(i pulumi.IntInput) GetImageRecipeComponentOutput {
@@ -7857,6 +9846,12 @@ func (i GetImageRecipeComponentParameterArgs) ToGetImageRecipeComponentParameter
 	return pulumi.ToOutputWithContext(ctx, i).(GetImageRecipeComponentParameterOutput)
 }
 
+func (i GetImageRecipeComponentParameterArgs) ToOutput(ctx context.Context) pulumix.Output[GetImageRecipeComponentParameter] {
+	return pulumix.Output[GetImageRecipeComponentParameter]{
+		OutputState: i.ToGetImageRecipeComponentParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetImageRecipeComponentParameterArrayInput is an input type that accepts GetImageRecipeComponentParameterArray and GetImageRecipeComponentParameterArrayOutput values.
 // You can construct a concrete instance of `GetImageRecipeComponentParameterArrayInput` via:
 //
@@ -7882,6 +9877,12 @@ func (i GetImageRecipeComponentParameterArray) ToGetImageRecipeComponentParamete
 	return pulumi.ToOutputWithContext(ctx, i).(GetImageRecipeComponentParameterArrayOutput)
 }
 
+func (i GetImageRecipeComponentParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetImageRecipeComponentParameter] {
+	return pulumix.Output[[]GetImageRecipeComponentParameter]{
+		OutputState: i.ToGetImageRecipeComponentParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetImageRecipeComponentParameterOutput struct{ *pulumi.OutputState }
 
 func (GetImageRecipeComponentParameterOutput) ElementType() reflect.Type {
@@ -7894,6 +9895,12 @@ func (o GetImageRecipeComponentParameterOutput) ToGetImageRecipeComponentParamet
 
 func (o GetImageRecipeComponentParameterOutput) ToGetImageRecipeComponentParameterOutputWithContext(ctx context.Context) GetImageRecipeComponentParameterOutput {
 	return o
+}
+
+func (o GetImageRecipeComponentParameterOutput) ToOutput(ctx context.Context) pulumix.Output[GetImageRecipeComponentParameter] {
+	return pulumix.Output[GetImageRecipeComponentParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the image recipe.
@@ -7918,6 +9925,12 @@ func (o GetImageRecipeComponentParameterArrayOutput) ToGetImageRecipeComponentPa
 
 func (o GetImageRecipeComponentParameterArrayOutput) ToGetImageRecipeComponentParameterArrayOutputWithContext(ctx context.Context) GetImageRecipeComponentParameterArrayOutput {
 	return o
+}
+
+func (o GetImageRecipeComponentParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetImageRecipeComponentParameter] {
+	return pulumix.Output[[]GetImageRecipeComponentParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetImageRecipeComponentParameterArrayOutput) Index(i pulumi.IntInput) GetImageRecipeComponentParameterOutput {
@@ -7963,6 +9976,12 @@ func (i GetImageRecipesFilterArgs) ToGetImageRecipesFilterOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetImageRecipesFilterOutput)
 }
 
+func (i GetImageRecipesFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetImageRecipesFilter] {
+	return pulumix.Output[GetImageRecipesFilter]{
+		OutputState: i.ToGetImageRecipesFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetImageRecipesFilterArrayInput is an input type that accepts GetImageRecipesFilterArray and GetImageRecipesFilterArrayOutput values.
 // You can construct a concrete instance of `GetImageRecipesFilterArrayInput` via:
 //
@@ -7988,6 +10007,12 @@ func (i GetImageRecipesFilterArray) ToGetImageRecipesFilterArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetImageRecipesFilterArrayOutput)
 }
 
+func (i GetImageRecipesFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetImageRecipesFilter] {
+	return pulumix.Output[[]GetImageRecipesFilter]{
+		OutputState: i.ToGetImageRecipesFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetImageRecipesFilterOutput struct{ *pulumi.OutputState }
 
 func (GetImageRecipesFilterOutput) ElementType() reflect.Type {
@@ -8000,6 +10025,12 @@ func (o GetImageRecipesFilterOutput) ToGetImageRecipesFilterOutput() GetImageRec
 
 func (o GetImageRecipesFilterOutput) ToGetImageRecipesFilterOutputWithContext(ctx context.Context) GetImageRecipesFilterOutput {
 	return o
+}
+
+func (o GetImageRecipesFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetImageRecipesFilter] {
+	return pulumix.Output[GetImageRecipesFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
@@ -8024,6 +10055,12 @@ func (o GetImageRecipesFilterArrayOutput) ToGetImageRecipesFilterArrayOutput() G
 
 func (o GetImageRecipesFilterArrayOutput) ToGetImageRecipesFilterArrayOutputWithContext(ctx context.Context) GetImageRecipesFilterArrayOutput {
 	return o
+}
+
+func (o GetImageRecipesFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetImageRecipesFilter] {
+	return pulumix.Output[[]GetImageRecipesFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetImageRecipesFilterArrayOutput) Index(i pulumi.IntInput) GetImageRecipesFilterOutput {
@@ -8069,6 +10106,12 @@ func (i GetInfrastructureConfigurationInstanceMetadataOptionArgs) ToGetInfrastru
 	return pulumi.ToOutputWithContext(ctx, i).(GetInfrastructureConfigurationInstanceMetadataOptionOutput)
 }
 
+func (i GetInfrastructureConfigurationInstanceMetadataOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetInfrastructureConfigurationInstanceMetadataOption] {
+	return pulumix.Output[GetInfrastructureConfigurationInstanceMetadataOption]{
+		OutputState: i.ToGetInfrastructureConfigurationInstanceMetadataOptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetInfrastructureConfigurationInstanceMetadataOptionArrayInput is an input type that accepts GetInfrastructureConfigurationInstanceMetadataOptionArray and GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput values.
 // You can construct a concrete instance of `GetInfrastructureConfigurationInstanceMetadataOptionArrayInput` via:
 //
@@ -8094,6 +10137,12 @@ func (i GetInfrastructureConfigurationInstanceMetadataOptionArray) ToGetInfrastr
 	return pulumi.ToOutputWithContext(ctx, i).(GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput)
 }
 
+func (i GetInfrastructureConfigurationInstanceMetadataOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetInfrastructureConfigurationInstanceMetadataOption] {
+	return pulumix.Output[[]GetInfrastructureConfigurationInstanceMetadataOption]{
+		OutputState: i.ToGetInfrastructureConfigurationInstanceMetadataOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetInfrastructureConfigurationInstanceMetadataOptionOutput struct{ *pulumi.OutputState }
 
 func (GetInfrastructureConfigurationInstanceMetadataOptionOutput) ElementType() reflect.Type {
@@ -8106,6 +10155,12 @@ func (o GetInfrastructureConfigurationInstanceMetadataOptionOutput) ToGetInfrast
 
 func (o GetInfrastructureConfigurationInstanceMetadataOptionOutput) ToGetInfrastructureConfigurationInstanceMetadataOptionOutputWithContext(ctx context.Context) GetInfrastructureConfigurationInstanceMetadataOptionOutput {
 	return o
+}
+
+func (o GetInfrastructureConfigurationInstanceMetadataOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetInfrastructureConfigurationInstanceMetadataOption] {
+	return pulumix.Output[GetInfrastructureConfigurationInstanceMetadataOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Number of hops that an instance can traverse to reach its destonation.
@@ -8130,6 +10185,12 @@ func (o GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput) ToGetIn
 
 func (o GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput) ToGetInfrastructureConfigurationInstanceMetadataOptionArrayOutputWithContext(ctx context.Context) GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput {
 	return o
+}
+
+func (o GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetInfrastructureConfigurationInstanceMetadataOption] {
+	return pulumix.Output[[]GetInfrastructureConfigurationInstanceMetadataOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput) Index(i pulumi.IntInput) GetInfrastructureConfigurationInstanceMetadataOptionOutput {
@@ -8171,6 +10232,12 @@ func (i GetInfrastructureConfigurationLoggingArgs) ToGetInfrastructureConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(GetInfrastructureConfigurationLoggingOutput)
 }
 
+func (i GetInfrastructureConfigurationLoggingArgs) ToOutput(ctx context.Context) pulumix.Output[GetInfrastructureConfigurationLogging] {
+	return pulumix.Output[GetInfrastructureConfigurationLogging]{
+		OutputState: i.ToGetInfrastructureConfigurationLoggingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetInfrastructureConfigurationLoggingArrayInput is an input type that accepts GetInfrastructureConfigurationLoggingArray and GetInfrastructureConfigurationLoggingArrayOutput values.
 // You can construct a concrete instance of `GetInfrastructureConfigurationLoggingArrayInput` via:
 //
@@ -8196,6 +10263,12 @@ func (i GetInfrastructureConfigurationLoggingArray) ToGetInfrastructureConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(GetInfrastructureConfigurationLoggingArrayOutput)
 }
 
+func (i GetInfrastructureConfigurationLoggingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetInfrastructureConfigurationLogging] {
+	return pulumix.Output[[]GetInfrastructureConfigurationLogging]{
+		OutputState: i.ToGetInfrastructureConfigurationLoggingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetInfrastructureConfigurationLoggingOutput struct{ *pulumi.OutputState }
 
 func (GetInfrastructureConfigurationLoggingOutput) ElementType() reflect.Type {
@@ -8208,6 +10281,12 @@ func (o GetInfrastructureConfigurationLoggingOutput) ToGetInfrastructureConfigur
 
 func (o GetInfrastructureConfigurationLoggingOutput) ToGetInfrastructureConfigurationLoggingOutputWithContext(ctx context.Context) GetInfrastructureConfigurationLoggingOutput {
 	return o
+}
+
+func (o GetInfrastructureConfigurationLoggingOutput) ToOutput(ctx context.Context) pulumix.Output[GetInfrastructureConfigurationLogging] {
+	return pulumix.Output[GetInfrastructureConfigurationLogging]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Nested list of S3 logs settings.
@@ -8229,6 +10308,12 @@ func (o GetInfrastructureConfigurationLoggingArrayOutput) ToGetInfrastructureCon
 
 func (o GetInfrastructureConfigurationLoggingArrayOutput) ToGetInfrastructureConfigurationLoggingArrayOutputWithContext(ctx context.Context) GetInfrastructureConfigurationLoggingArrayOutput {
 	return o
+}
+
+func (o GetInfrastructureConfigurationLoggingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetInfrastructureConfigurationLogging] {
+	return pulumix.Output[[]GetInfrastructureConfigurationLogging]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetInfrastructureConfigurationLoggingArrayOutput) Index(i pulumi.IntInput) GetInfrastructureConfigurationLoggingOutput {
@@ -8274,6 +10359,12 @@ func (i GetInfrastructureConfigurationLoggingS3LogArgs) ToGetInfrastructureConfi
 	return pulumi.ToOutputWithContext(ctx, i).(GetInfrastructureConfigurationLoggingS3LogOutput)
 }
 
+func (i GetInfrastructureConfigurationLoggingS3LogArgs) ToOutput(ctx context.Context) pulumix.Output[GetInfrastructureConfigurationLoggingS3Log] {
+	return pulumix.Output[GetInfrastructureConfigurationLoggingS3Log]{
+		OutputState: i.ToGetInfrastructureConfigurationLoggingS3LogOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetInfrastructureConfigurationLoggingS3LogArrayInput is an input type that accepts GetInfrastructureConfigurationLoggingS3LogArray and GetInfrastructureConfigurationLoggingS3LogArrayOutput values.
 // You can construct a concrete instance of `GetInfrastructureConfigurationLoggingS3LogArrayInput` via:
 //
@@ -8299,6 +10390,12 @@ func (i GetInfrastructureConfigurationLoggingS3LogArray) ToGetInfrastructureConf
 	return pulumi.ToOutputWithContext(ctx, i).(GetInfrastructureConfigurationLoggingS3LogArrayOutput)
 }
 
+func (i GetInfrastructureConfigurationLoggingS3LogArray) ToOutput(ctx context.Context) pulumix.Output[[]GetInfrastructureConfigurationLoggingS3Log] {
+	return pulumix.Output[[]GetInfrastructureConfigurationLoggingS3Log]{
+		OutputState: i.ToGetInfrastructureConfigurationLoggingS3LogArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetInfrastructureConfigurationLoggingS3LogOutput struct{ *pulumi.OutputState }
 
 func (GetInfrastructureConfigurationLoggingS3LogOutput) ElementType() reflect.Type {
@@ -8311,6 +10408,12 @@ func (o GetInfrastructureConfigurationLoggingS3LogOutput) ToGetInfrastructureCon
 
 func (o GetInfrastructureConfigurationLoggingS3LogOutput) ToGetInfrastructureConfigurationLoggingS3LogOutputWithContext(ctx context.Context) GetInfrastructureConfigurationLoggingS3LogOutput {
 	return o
+}
+
+func (o GetInfrastructureConfigurationLoggingS3LogOutput) ToOutput(ctx context.Context) pulumix.Output[GetInfrastructureConfigurationLoggingS3Log] {
+	return pulumix.Output[GetInfrastructureConfigurationLoggingS3Log]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the S3 Bucket for logging.
@@ -8335,6 +10438,12 @@ func (o GetInfrastructureConfigurationLoggingS3LogArrayOutput) ToGetInfrastructu
 
 func (o GetInfrastructureConfigurationLoggingS3LogArrayOutput) ToGetInfrastructureConfigurationLoggingS3LogArrayOutputWithContext(ctx context.Context) GetInfrastructureConfigurationLoggingS3LogArrayOutput {
 	return o
+}
+
+func (o GetInfrastructureConfigurationLoggingS3LogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetInfrastructureConfigurationLoggingS3Log] {
+	return pulumix.Output[[]GetInfrastructureConfigurationLoggingS3Log]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetInfrastructureConfigurationLoggingS3LogArrayOutput) Index(i pulumi.IntInput) GetInfrastructureConfigurationLoggingS3LogOutput {
@@ -8380,6 +10489,12 @@ func (i GetInfrastructureConfigurationsFilterArgs) ToGetInfrastructureConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(GetInfrastructureConfigurationsFilterOutput)
 }
 
+func (i GetInfrastructureConfigurationsFilterArgs) ToOutput(ctx context.Context) pulumix.Output[GetInfrastructureConfigurationsFilter] {
+	return pulumix.Output[GetInfrastructureConfigurationsFilter]{
+		OutputState: i.ToGetInfrastructureConfigurationsFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetInfrastructureConfigurationsFilterArrayInput is an input type that accepts GetInfrastructureConfigurationsFilterArray and GetInfrastructureConfigurationsFilterArrayOutput values.
 // You can construct a concrete instance of `GetInfrastructureConfigurationsFilterArrayInput` via:
 //
@@ -8405,6 +10520,12 @@ func (i GetInfrastructureConfigurationsFilterArray) ToGetInfrastructureConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(GetInfrastructureConfigurationsFilterArrayOutput)
 }
 
+func (i GetInfrastructureConfigurationsFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetInfrastructureConfigurationsFilter] {
+	return pulumix.Output[[]GetInfrastructureConfigurationsFilter]{
+		OutputState: i.ToGetInfrastructureConfigurationsFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetInfrastructureConfigurationsFilterOutput struct{ *pulumi.OutputState }
 
 func (GetInfrastructureConfigurationsFilterOutput) ElementType() reflect.Type {
@@ -8417,6 +10538,12 @@ func (o GetInfrastructureConfigurationsFilterOutput) ToGetInfrastructureConfigur
 
 func (o GetInfrastructureConfigurationsFilterOutput) ToGetInfrastructureConfigurationsFilterOutputWithContext(ctx context.Context) GetInfrastructureConfigurationsFilterOutput {
 	return o
+}
+
+func (o GetInfrastructureConfigurationsFilterOutput) ToOutput(ctx context.Context) pulumix.Output[GetInfrastructureConfigurationsFilter] {
+	return pulumix.Output[GetInfrastructureConfigurationsFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
@@ -8441,6 +10568,12 @@ func (o GetInfrastructureConfigurationsFilterArrayOutput) ToGetInfrastructureCon
 
 func (o GetInfrastructureConfigurationsFilterArrayOutput) ToGetInfrastructureConfigurationsFilterArrayOutputWithContext(ctx context.Context) GetInfrastructureConfigurationsFilterArrayOutput {
 	return o
+}
+
+func (o GetInfrastructureConfigurationsFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetInfrastructureConfigurationsFilter] {
+	return pulumix.Output[[]GetInfrastructureConfigurationsFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetInfrastructureConfigurationsFilterArrayOutput) Index(i pulumi.IntInput) GetInfrastructureConfigurationsFilterOutput {
@@ -8488,6 +10621,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageOutputResourceAmiArrayInput)(nil)).Elem(), ImageOutputResourceAmiArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageOutputResourceContainerInput)(nil)).Elem(), ImageOutputResourceContainerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageOutputResourceContainerArrayInput)(nil)).Elem(), ImageOutputResourceContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageScanningConfigurationInput)(nil)).Elem(), ImagePipelineImageScanningConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageScanningConfigurationPtrInput)(nil)).Elem(), ImagePipelineImageScanningConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageScanningConfigurationEcrConfigurationInput)(nil)).Elem(), ImagePipelineImageScanningConfigurationEcrConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageScanningConfigurationEcrConfigurationPtrInput)(nil)).Elem(), ImagePipelineImageScanningConfigurationEcrConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageTestsConfigurationInput)(nil)).Elem(), ImagePipelineImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageTestsConfigurationPtrInput)(nil)).Elem(), ImagePipelineImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineScheduleInput)(nil)).Elem(), ImagePipelineScheduleArgs{})
@@ -8552,6 +10689,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageOutputResourceAmiArrayInput)(nil)).Elem(), GetImageOutputResourceAmiArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageOutputResourceContainerInput)(nil)).Elem(), GetImageOutputResourceContainerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageOutputResourceContainerArrayInput)(nil)).Elem(), GetImageOutputResourceContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelineImageScanningConfigurationInput)(nil)).Elem(), GetImagePipelineImageScanningConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelineImageScanningConfigurationArrayInput)(nil)).Elem(), GetImagePipelineImageScanningConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelineImageScanningConfigurationEcrConfigurationInput)(nil)).Elem(), GetImagePipelineImageScanningConfigurationEcrConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelineImageScanningConfigurationEcrConfigurationArrayInput)(nil)).Elem(), GetImagePipelineImageScanningConfigurationEcrConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelineImageTestsConfigurationInput)(nil)).Elem(), GetImagePipelineImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelineImageTestsConfigurationArrayInput)(nil)).Elem(), GetImagePipelineImageTestsConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelineScheduleInput)(nil)).Elem(), GetImagePipelineScheduleArgs{})
@@ -8614,6 +10755,10 @@ func init() {
 	pulumi.RegisterOutputType(ImageOutputResourceAmiArrayOutput{})
 	pulumi.RegisterOutputType(ImageOutputResourceContainerOutput{})
 	pulumi.RegisterOutputType(ImageOutputResourceContainerArrayOutput{})
+	pulumi.RegisterOutputType(ImagePipelineImageScanningConfigurationOutput{})
+	pulumi.RegisterOutputType(ImagePipelineImageScanningConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ImagePipelineImageScanningConfigurationEcrConfigurationOutput{})
+	pulumi.RegisterOutputType(ImagePipelineImageScanningConfigurationEcrConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineImageTestsConfigurationOutput{})
 	pulumi.RegisterOutputType(ImagePipelineImageTestsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineScheduleOutput{})
@@ -8678,6 +10823,10 @@ func init() {
 	pulumi.RegisterOutputType(GetImageOutputResourceAmiArrayOutput{})
 	pulumi.RegisterOutputType(GetImageOutputResourceContainerOutput{})
 	pulumi.RegisterOutputType(GetImageOutputResourceContainerArrayOutput{})
+	pulumi.RegisterOutputType(GetImagePipelineImageScanningConfigurationOutput{})
+	pulumi.RegisterOutputType(GetImagePipelineImageScanningConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetImagePipelineImageScanningConfigurationEcrConfigurationOutput{})
+	pulumi.RegisterOutputType(GetImagePipelineImageScanningConfigurationEcrConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetImagePipelineImageTestsConfigurationOutput{})
 	pulumi.RegisterOutputType(GetImagePipelineImageTestsConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetImagePipelineScheduleOutput{})

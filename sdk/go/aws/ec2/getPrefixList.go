@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ec2.getPrefixList` provides details about a specific AWS prefix list (PL)
@@ -175,6 +176,12 @@ func (o GetPrefixListResultOutput) ToGetPrefixListResultOutput() GetPrefixListRe
 
 func (o GetPrefixListResultOutput) ToGetPrefixListResultOutputWithContext(ctx context.Context) GetPrefixListResultOutput {
 	return o
+}
+
+func (o GetPrefixListResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPrefixListResult] {
+	return pulumix.Output[GetPrefixListResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of CIDR blocks for the AWS service associated with the prefix list.

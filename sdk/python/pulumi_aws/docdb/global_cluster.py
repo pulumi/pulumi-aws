@@ -368,7 +368,8 @@ class GlobalCluster(pulumi.CustomResource):
             cluster_identifier="test-secondary-cluster",
             global_cluster_identifier=example.id,
             db_subnet_group_name="default",
-            opts=pulumi.ResourceOptions(provider=aws["secondary"]))
+            opts=pulumi.ResourceOptions(provider=aws["secondary"],
+                depends_on=[primary_cluster]))
         secondary_cluster_instance = aws.docdb.ClusterInstance("secondaryClusterInstance",
             engine=example.engine,
             identifier="test-secondary-cluster-instance",
@@ -455,7 +456,8 @@ class GlobalCluster(pulumi.CustomResource):
             cluster_identifier="test-secondary-cluster",
             global_cluster_identifier=example.id,
             db_subnet_group_name="default",
-            opts=pulumi.ResourceOptions(provider=aws["secondary"]))
+            opts=pulumi.ResourceOptions(provider=aws["secondary"],
+                depends_on=[primary_cluster]))
         secondary_cluster_instance = aws.docdb.ClusterInstance("secondaryClusterInstance",
             engine=example.engine,
             identifier="test-secondary-cluster-instance",

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS IVS (Interactive Video) Playback Key Pair.
@@ -195,6 +196,12 @@ func (i *PlaybackKeyPair) ToPlaybackKeyPairOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackKeyPairOutput)
 }
 
+func (i *PlaybackKeyPair) ToOutput(ctx context.Context) pulumix.Output[*PlaybackKeyPair] {
+	return pulumix.Output[*PlaybackKeyPair]{
+		OutputState: i.ToPlaybackKeyPairOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PlaybackKeyPairArrayInput is an input type that accepts PlaybackKeyPairArray and PlaybackKeyPairArrayOutput values.
 // You can construct a concrete instance of `PlaybackKeyPairArrayInput` via:
 //
@@ -218,6 +225,12 @@ func (i PlaybackKeyPairArray) ToPlaybackKeyPairArrayOutput() PlaybackKeyPairArra
 
 func (i PlaybackKeyPairArray) ToPlaybackKeyPairArrayOutputWithContext(ctx context.Context) PlaybackKeyPairArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackKeyPairArrayOutput)
+}
+
+func (i PlaybackKeyPairArray) ToOutput(ctx context.Context) pulumix.Output[[]*PlaybackKeyPair] {
+	return pulumix.Output[[]*PlaybackKeyPair]{
+		OutputState: i.ToPlaybackKeyPairArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PlaybackKeyPairMapInput is an input type that accepts PlaybackKeyPairMap and PlaybackKeyPairMapOutput values.
@@ -245,6 +258,12 @@ func (i PlaybackKeyPairMap) ToPlaybackKeyPairMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackKeyPairMapOutput)
 }
 
+func (i PlaybackKeyPairMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PlaybackKeyPair] {
+	return pulumix.Output[map[string]*PlaybackKeyPair]{
+		OutputState: i.ToPlaybackKeyPairMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PlaybackKeyPairOutput struct{ *pulumi.OutputState }
 
 func (PlaybackKeyPairOutput) ElementType() reflect.Type {
@@ -257,6 +276,12 @@ func (o PlaybackKeyPairOutput) ToPlaybackKeyPairOutput() PlaybackKeyPairOutput {
 
 func (o PlaybackKeyPairOutput) ToPlaybackKeyPairOutputWithContext(ctx context.Context) PlaybackKeyPairOutput {
 	return o
+}
+
+func (o PlaybackKeyPairOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackKeyPair] {
+	return pulumix.Output[*PlaybackKeyPair]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Playback Key Pair.
@@ -305,6 +330,12 @@ func (o PlaybackKeyPairArrayOutput) ToPlaybackKeyPairArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o PlaybackKeyPairArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PlaybackKeyPair] {
+	return pulumix.Output[[]*PlaybackKeyPair]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PlaybackKeyPairArrayOutput) Index(i pulumi.IntInput) PlaybackKeyPairOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PlaybackKeyPair {
 		return vs[0].([]*PlaybackKeyPair)[vs[1].(int)]
@@ -323,6 +354,12 @@ func (o PlaybackKeyPairMapOutput) ToPlaybackKeyPairMapOutput() PlaybackKeyPairMa
 
 func (o PlaybackKeyPairMapOutput) ToPlaybackKeyPairMapOutputWithContext(ctx context.Context) PlaybackKeyPairMapOutput {
 	return o
+}
+
+func (o PlaybackKeyPairMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PlaybackKeyPair] {
+	return pulumix.Output[map[string]*PlaybackKeyPair]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlaybackKeyPairMapOutput) MapIndex(k pulumi.StringInput) PlaybackKeyPairOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudWatch RUM Metrics Destination resource.
@@ -170,6 +171,12 @@ func (i *MetricsDestination) ToMetricsDestinationOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(MetricsDestinationOutput)
 }
 
+func (i *MetricsDestination) ToOutput(ctx context.Context) pulumix.Output[*MetricsDestination] {
+	return pulumix.Output[*MetricsDestination]{
+		OutputState: i.ToMetricsDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MetricsDestinationArrayInput is an input type that accepts MetricsDestinationArray and MetricsDestinationArrayOutput values.
 // You can construct a concrete instance of `MetricsDestinationArrayInput` via:
 //
@@ -193,6 +200,12 @@ func (i MetricsDestinationArray) ToMetricsDestinationArrayOutput() MetricsDestin
 
 func (i MetricsDestinationArray) ToMetricsDestinationArrayOutputWithContext(ctx context.Context) MetricsDestinationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MetricsDestinationArrayOutput)
+}
+
+func (i MetricsDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]*MetricsDestination] {
+	return pulumix.Output[[]*MetricsDestination]{
+		OutputState: i.ToMetricsDestinationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MetricsDestinationMapInput is an input type that accepts MetricsDestinationMap and MetricsDestinationMapOutput values.
@@ -220,6 +233,12 @@ func (i MetricsDestinationMap) ToMetricsDestinationMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(MetricsDestinationMapOutput)
 }
 
+func (i MetricsDestinationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MetricsDestination] {
+	return pulumix.Output[map[string]*MetricsDestination]{
+		OutputState: i.ToMetricsDestinationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MetricsDestinationOutput struct{ *pulumi.OutputState }
 
 func (MetricsDestinationOutput) ElementType() reflect.Type {
@@ -232,6 +251,12 @@ func (o MetricsDestinationOutput) ToMetricsDestinationOutput() MetricsDestinatio
 
 func (o MetricsDestinationOutput) ToMetricsDestinationOutputWithContext(ctx context.Context) MetricsDestinationOutput {
 	return o
+}
+
+func (o MetricsDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[*MetricsDestination] {
+	return pulumix.Output[*MetricsDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the CloudWatch RUM app monitor that will send the metrics.
@@ -268,6 +293,12 @@ func (o MetricsDestinationArrayOutput) ToMetricsDestinationArrayOutputWithContex
 	return o
 }
 
+func (o MetricsDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MetricsDestination] {
+	return pulumix.Output[[]*MetricsDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MetricsDestinationArrayOutput) Index(i pulumi.IntInput) MetricsDestinationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MetricsDestination {
 		return vs[0].([]*MetricsDestination)[vs[1].(int)]
@@ -286,6 +317,12 @@ func (o MetricsDestinationMapOutput) ToMetricsDestinationMapOutput() MetricsDest
 
 func (o MetricsDestinationMapOutput) ToMetricsDestinationMapOutputWithContext(ctx context.Context) MetricsDestinationMapOutput {
 	return o
+}
+
+func (o MetricsDestinationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MetricsDestination] {
+	return pulumix.Output[map[string]*MetricsDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MetricsDestinationMapOutput) MapIndex(k pulumi.StringInput) MetricsDestinationOutput {

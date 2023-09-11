@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an IoT fleet provisioning template. For more info, see the AWS documentation on [fleet provisioning](https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html).
@@ -308,6 +309,12 @@ func (i *ProvisioningTemplate) ToProvisioningTemplateOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningTemplateOutput)
 }
 
+func (i *ProvisioningTemplate) ToOutput(ctx context.Context) pulumix.Output[*ProvisioningTemplate] {
+	return pulumix.Output[*ProvisioningTemplate]{
+		OutputState: i.ToProvisioningTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProvisioningTemplateArrayInput is an input type that accepts ProvisioningTemplateArray and ProvisioningTemplateArrayOutput values.
 // You can construct a concrete instance of `ProvisioningTemplateArrayInput` via:
 //
@@ -331,6 +338,12 @@ func (i ProvisioningTemplateArray) ToProvisioningTemplateArrayOutput() Provision
 
 func (i ProvisioningTemplateArray) ToProvisioningTemplateArrayOutputWithContext(ctx context.Context) ProvisioningTemplateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningTemplateArrayOutput)
+}
+
+func (i ProvisioningTemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProvisioningTemplate] {
+	return pulumix.Output[[]*ProvisioningTemplate]{
+		OutputState: i.ToProvisioningTemplateArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProvisioningTemplateMapInput is an input type that accepts ProvisioningTemplateMap and ProvisioningTemplateMapOutput values.
@@ -358,6 +371,12 @@ func (i ProvisioningTemplateMap) ToProvisioningTemplateMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningTemplateMapOutput)
 }
 
+func (i ProvisioningTemplateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProvisioningTemplate] {
+	return pulumix.Output[map[string]*ProvisioningTemplate]{
+		OutputState: i.ToProvisioningTemplateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProvisioningTemplateOutput struct{ *pulumi.OutputState }
 
 func (ProvisioningTemplateOutput) ElementType() reflect.Type {
@@ -370,6 +389,12 @@ func (o ProvisioningTemplateOutput) ToProvisioningTemplateOutput() ProvisioningT
 
 func (o ProvisioningTemplateOutput) ToProvisioningTemplateOutputWithContext(ctx context.Context) ProvisioningTemplateOutput {
 	return o
+}
+
+func (o ProvisioningTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*ProvisioningTemplate] {
+	return pulumix.Output[*ProvisioningTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN that identifies the provisioning template.
@@ -438,6 +463,12 @@ func (o ProvisioningTemplateArrayOutput) ToProvisioningTemplateArrayOutputWithCo
 	return o
 }
 
+func (o ProvisioningTemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProvisioningTemplate] {
+	return pulumix.Output[[]*ProvisioningTemplate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProvisioningTemplateArrayOutput) Index(i pulumi.IntInput) ProvisioningTemplateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProvisioningTemplate {
 		return vs[0].([]*ProvisioningTemplate)[vs[1].(int)]
@@ -456,6 +487,12 @@ func (o ProvisioningTemplateMapOutput) ToProvisioningTemplateMapOutput() Provisi
 
 func (o ProvisioningTemplateMapOutput) ToProvisioningTemplateMapOutputWithContext(ctx context.Context) ProvisioningTemplateMapOutput {
 	return o
+}
+
+func (o ProvisioningTemplateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProvisioningTemplate] {
+	return pulumix.Output[map[string]*ProvisioningTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProvisioningTemplateMapOutput) MapIndex(k pulumi.StringInput) ProvisioningTemplateOutput {

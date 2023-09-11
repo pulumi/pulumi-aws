@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Imports a disk image from S3 as a Snapshot.
@@ -268,6 +269,12 @@ func (i *SnapshotImport) ToSnapshotImportOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotImportOutput)
 }
 
+func (i *SnapshotImport) ToOutput(ctx context.Context) pulumix.Output[*SnapshotImport] {
+	return pulumix.Output[*SnapshotImport]{
+		OutputState: i.ToSnapshotImportOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SnapshotImportArrayInput is an input type that accepts SnapshotImportArray and SnapshotImportArrayOutput values.
 // You can construct a concrete instance of `SnapshotImportArrayInput` via:
 //
@@ -291,6 +298,12 @@ func (i SnapshotImportArray) ToSnapshotImportArrayOutput() SnapshotImportArrayOu
 
 func (i SnapshotImportArray) ToSnapshotImportArrayOutputWithContext(ctx context.Context) SnapshotImportArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotImportArrayOutput)
+}
+
+func (i SnapshotImportArray) ToOutput(ctx context.Context) pulumix.Output[[]*SnapshotImport] {
+	return pulumix.Output[[]*SnapshotImport]{
+		OutputState: i.ToSnapshotImportArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SnapshotImportMapInput is an input type that accepts SnapshotImportMap and SnapshotImportMapOutput values.
@@ -318,6 +331,12 @@ func (i SnapshotImportMap) ToSnapshotImportMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotImportMapOutput)
 }
 
+func (i SnapshotImportMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SnapshotImport] {
+	return pulumix.Output[map[string]*SnapshotImport]{
+		OutputState: i.ToSnapshotImportMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SnapshotImportOutput struct{ *pulumi.OutputState }
 
 func (SnapshotImportOutput) ElementType() reflect.Type {
@@ -330,6 +349,12 @@ func (o SnapshotImportOutput) ToSnapshotImportOutput() SnapshotImportOutput {
 
 func (o SnapshotImportOutput) ToSnapshotImportOutputWithContext(ctx context.Context) SnapshotImportOutput {
 	return o
+}
+
+func (o SnapshotImportOutput) ToOutput(ctx context.Context) pulumix.Output[*SnapshotImport] {
+	return pulumix.Output[*SnapshotImport]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the EBS Snapshot.
@@ -434,6 +459,12 @@ func (o SnapshotImportArrayOutput) ToSnapshotImportArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o SnapshotImportArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SnapshotImport] {
+	return pulumix.Output[[]*SnapshotImport]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SnapshotImportArrayOutput) Index(i pulumi.IntInput) SnapshotImportOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SnapshotImport {
 		return vs[0].([]*SnapshotImport)[vs[1].(int)]
@@ -452,6 +483,12 @@ func (o SnapshotImportMapOutput) ToSnapshotImportMapOutput() SnapshotImportMapOu
 
 func (o SnapshotImportMapOutput) ToSnapshotImportMapOutputWithContext(ctx context.Context) SnapshotImportMapOutput {
 	return o
+}
+
+func (o SnapshotImportMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SnapshotImport] {
+	return pulumix.Output[map[string]*SnapshotImport]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SnapshotImportMapOutput) MapIndex(k pulumi.StringInput) SnapshotImportOutput {

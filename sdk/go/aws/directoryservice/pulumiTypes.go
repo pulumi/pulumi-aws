@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -64,6 +65,12 @@ func (i DirectoryConnectSettingsArgs) ToDirectoryConnectSettingsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryConnectSettingsOutput)
 }
 
+func (i DirectoryConnectSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[DirectoryConnectSettings] {
+	return pulumix.Output[DirectoryConnectSettings]{
+		OutputState: i.ToDirectoryConnectSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DirectoryConnectSettingsArgs) ToDirectoryConnectSettingsPtrOutput() DirectoryConnectSettingsPtrOutput {
 	return i.ToDirectoryConnectSettingsPtrOutputWithContext(context.Background())
 }
@@ -105,6 +112,12 @@ func (i *directoryConnectSettingsPtrType) ToDirectoryConnectSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryConnectSettingsPtrOutput)
 }
 
+func (i *directoryConnectSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DirectoryConnectSettings] {
+	return pulumix.Output[*DirectoryConnectSettings]{
+		OutputState: i.ToDirectoryConnectSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DirectoryConnectSettingsOutput struct{ *pulumi.OutputState }
 
 func (DirectoryConnectSettingsOutput) ElementType() reflect.Type {
@@ -127,6 +140,12 @@ func (o DirectoryConnectSettingsOutput) ToDirectoryConnectSettingsPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryConnectSettings) *DirectoryConnectSettings {
 		return &v
 	}).(DirectoryConnectSettingsPtrOutput)
+}
+
+func (o DirectoryConnectSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[DirectoryConnectSettings] {
+	return pulumix.Output[DirectoryConnectSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DirectoryConnectSettingsOutput) AvailabilityZones() pulumi.StringArrayOutput {
@@ -170,6 +189,12 @@ func (o DirectoryConnectSettingsPtrOutput) ToDirectoryConnectSettingsPtrOutput()
 
 func (o DirectoryConnectSettingsPtrOutput) ToDirectoryConnectSettingsPtrOutputWithContext(ctx context.Context) DirectoryConnectSettingsPtrOutput {
 	return o
+}
+
+func (o DirectoryConnectSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DirectoryConnectSettings] {
+	return pulumix.Output[*DirectoryConnectSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DirectoryConnectSettingsPtrOutput) Elem() DirectoryConnectSettingsOutput {
@@ -280,6 +305,12 @@ func (i DirectoryVpcSettingsArgs) ToDirectoryVpcSettingsOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryVpcSettingsOutput)
 }
 
+func (i DirectoryVpcSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[DirectoryVpcSettings] {
+	return pulumix.Output[DirectoryVpcSettings]{
+		OutputState: i.ToDirectoryVpcSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DirectoryVpcSettingsArgs) ToDirectoryVpcSettingsPtrOutput() DirectoryVpcSettingsPtrOutput {
 	return i.ToDirectoryVpcSettingsPtrOutputWithContext(context.Background())
 }
@@ -321,6 +352,12 @@ func (i *directoryVpcSettingsPtrType) ToDirectoryVpcSettingsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryVpcSettingsPtrOutput)
 }
 
+func (i *directoryVpcSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DirectoryVpcSettings] {
+	return pulumix.Output[*DirectoryVpcSettings]{
+		OutputState: i.ToDirectoryVpcSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DirectoryVpcSettingsOutput struct{ *pulumi.OutputState }
 
 func (DirectoryVpcSettingsOutput) ElementType() reflect.Type {
@@ -343,6 +380,12 @@ func (o DirectoryVpcSettingsOutput) ToDirectoryVpcSettingsPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryVpcSettings) *DirectoryVpcSettings {
 		return &v
 	}).(DirectoryVpcSettingsPtrOutput)
+}
+
+func (o DirectoryVpcSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[DirectoryVpcSettings] {
+	return pulumix.Output[DirectoryVpcSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DirectoryVpcSettingsOutput) AvailabilityZones() pulumi.StringArrayOutput {
@@ -371,6 +414,12 @@ func (o DirectoryVpcSettingsPtrOutput) ToDirectoryVpcSettingsPtrOutput() Directo
 
 func (o DirectoryVpcSettingsPtrOutput) ToDirectoryVpcSettingsPtrOutputWithContext(ctx context.Context) DirectoryVpcSettingsPtrOutput {
 	return o
+}
+
+func (o DirectoryVpcSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DirectoryVpcSettings] {
+	return pulumix.Output[*DirectoryVpcSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DirectoryVpcSettingsPtrOutput) Elem() DirectoryVpcSettingsOutput {
@@ -449,6 +498,12 @@ func (i ServiceRegionVpcSettingsArgs) ToServiceRegionVpcSettingsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceRegionVpcSettingsOutput)
 }
 
+func (i ServiceRegionVpcSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceRegionVpcSettings] {
+	return pulumix.Output[ServiceRegionVpcSettings]{
+		OutputState: i.ToServiceRegionVpcSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ServiceRegionVpcSettingsArgs) ToServiceRegionVpcSettingsPtrOutput() ServiceRegionVpcSettingsPtrOutput {
 	return i.ToServiceRegionVpcSettingsPtrOutputWithContext(context.Background())
 }
@@ -490,6 +545,12 @@ func (i *serviceRegionVpcSettingsPtrType) ToServiceRegionVpcSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceRegionVpcSettingsPtrOutput)
 }
 
+func (i *serviceRegionVpcSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceRegionVpcSettings] {
+	return pulumix.Output[*ServiceRegionVpcSettings]{
+		OutputState: i.ToServiceRegionVpcSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceRegionVpcSettingsOutput struct{ *pulumi.OutputState }
 
 func (ServiceRegionVpcSettingsOutput) ElementType() reflect.Type {
@@ -514,6 +575,12 @@ func (o ServiceRegionVpcSettingsOutput) ToServiceRegionVpcSettingsPtrOutputWithC
 	}).(ServiceRegionVpcSettingsPtrOutput)
 }
 
+func (o ServiceRegionVpcSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceRegionVpcSettings] {
+	return pulumix.Output[ServiceRegionVpcSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The identifiers of the subnets for the directory servers.
 func (o ServiceRegionVpcSettingsOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceRegionVpcSettings) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
@@ -536,6 +603,12 @@ func (o ServiceRegionVpcSettingsPtrOutput) ToServiceRegionVpcSettingsPtrOutput()
 
 func (o ServiceRegionVpcSettingsPtrOutput) ToServiceRegionVpcSettingsPtrOutputWithContext(ctx context.Context) ServiceRegionVpcSettingsPtrOutput {
 	return o
+}
+
+func (o ServiceRegionVpcSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceRegionVpcSettings] {
+	return pulumix.Output[*ServiceRegionVpcSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceRegionVpcSettingsPtrOutput) Elem() ServiceRegionVpcSettingsOutput {
@@ -605,6 +678,12 @@ func (i SharedDirectoryTargetArgs) ToSharedDirectoryTargetOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(SharedDirectoryTargetOutput)
 }
 
+func (i SharedDirectoryTargetArgs) ToOutput(ctx context.Context) pulumix.Output[SharedDirectoryTarget] {
+	return pulumix.Output[SharedDirectoryTarget]{
+		OutputState: i.ToSharedDirectoryTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SharedDirectoryTargetArgs) ToSharedDirectoryTargetPtrOutput() SharedDirectoryTargetPtrOutput {
 	return i.ToSharedDirectoryTargetPtrOutputWithContext(context.Background())
 }
@@ -646,6 +725,12 @@ func (i *sharedDirectoryTargetPtrType) ToSharedDirectoryTargetPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(SharedDirectoryTargetPtrOutput)
 }
 
+func (i *sharedDirectoryTargetPtrType) ToOutput(ctx context.Context) pulumix.Output[*SharedDirectoryTarget] {
+	return pulumix.Output[*SharedDirectoryTarget]{
+		OutputState: i.ToSharedDirectoryTargetPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SharedDirectoryTargetOutput struct{ *pulumi.OutputState }
 
 func (SharedDirectoryTargetOutput) ElementType() reflect.Type {
@@ -670,6 +755,12 @@ func (o SharedDirectoryTargetOutput) ToSharedDirectoryTargetPtrOutputWithContext
 	}).(SharedDirectoryTargetPtrOutput)
 }
 
+func (o SharedDirectoryTargetOutput) ToOutput(ctx context.Context) pulumix.Output[SharedDirectoryTarget] {
+	return pulumix.Output[SharedDirectoryTarget]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Identifier of the directory consumer account.
 func (o SharedDirectoryTargetOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v SharedDirectoryTarget) string { return v.Id }).(pulumi.StringOutput)
@@ -692,6 +783,12 @@ func (o SharedDirectoryTargetPtrOutput) ToSharedDirectoryTargetPtrOutput() Share
 
 func (o SharedDirectoryTargetPtrOutput) ToSharedDirectoryTargetPtrOutputWithContext(ctx context.Context) SharedDirectoryTargetPtrOutput {
 	return o
+}
+
+func (o SharedDirectoryTargetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SharedDirectoryTarget] {
+	return pulumix.Output[*SharedDirectoryTarget]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SharedDirectoryTargetPtrOutput) Elem() SharedDirectoryTargetOutput {
@@ -775,6 +872,12 @@ func (i GetDirectoryConnectSettingArgs) ToGetDirectoryConnectSettingOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryConnectSettingOutput)
 }
 
+func (i GetDirectoryConnectSettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetDirectoryConnectSetting] {
+	return pulumix.Output[GetDirectoryConnectSetting]{
+		OutputState: i.ToGetDirectoryConnectSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDirectoryConnectSettingArrayInput is an input type that accepts GetDirectoryConnectSettingArray and GetDirectoryConnectSettingArrayOutput values.
 // You can construct a concrete instance of `GetDirectoryConnectSettingArrayInput` via:
 //
@@ -800,6 +903,12 @@ func (i GetDirectoryConnectSettingArray) ToGetDirectoryConnectSettingArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryConnectSettingArrayOutput)
 }
 
+func (i GetDirectoryConnectSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDirectoryConnectSetting] {
+	return pulumix.Output[[]GetDirectoryConnectSetting]{
+		OutputState: i.ToGetDirectoryConnectSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDirectoryConnectSettingOutput struct{ *pulumi.OutputState }
 
 func (GetDirectoryConnectSettingOutput) ElementType() reflect.Type {
@@ -812,6 +921,12 @@ func (o GetDirectoryConnectSettingOutput) ToGetDirectoryConnectSettingOutput() G
 
 func (o GetDirectoryConnectSettingOutput) ToGetDirectoryConnectSettingOutputWithContext(ctx context.Context) GetDirectoryConnectSettingOutput {
 	return o
+}
+
+func (o GetDirectoryConnectSettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetDirectoryConnectSetting] {
+	return pulumix.Output[GetDirectoryConnectSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDirectoryConnectSettingOutput) AvailabilityZones() pulumi.StringArrayOutput {
@@ -855,6 +970,12 @@ func (o GetDirectoryConnectSettingArrayOutput) ToGetDirectoryConnectSettingArray
 
 func (o GetDirectoryConnectSettingArrayOutput) ToGetDirectoryConnectSettingArrayOutputWithContext(ctx context.Context) GetDirectoryConnectSettingArrayOutput {
 	return o
+}
+
+func (o GetDirectoryConnectSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDirectoryConnectSetting] {
+	return pulumix.Output[[]GetDirectoryConnectSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDirectoryConnectSettingArrayOutput) Index(i pulumi.IntInput) GetDirectoryConnectSettingOutput {
@@ -920,6 +1041,12 @@ func (i GetDirectoryRadiusSettingArgs) ToGetDirectoryRadiusSettingOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryRadiusSettingOutput)
 }
 
+func (i GetDirectoryRadiusSettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetDirectoryRadiusSetting] {
+	return pulumix.Output[GetDirectoryRadiusSetting]{
+		OutputState: i.ToGetDirectoryRadiusSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDirectoryRadiusSettingArrayInput is an input type that accepts GetDirectoryRadiusSettingArray and GetDirectoryRadiusSettingArrayOutput values.
 // You can construct a concrete instance of `GetDirectoryRadiusSettingArrayInput` via:
 //
@@ -945,6 +1072,12 @@ func (i GetDirectoryRadiusSettingArray) ToGetDirectoryRadiusSettingArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryRadiusSettingArrayOutput)
 }
 
+func (i GetDirectoryRadiusSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDirectoryRadiusSetting] {
+	return pulumix.Output[[]GetDirectoryRadiusSetting]{
+		OutputState: i.ToGetDirectoryRadiusSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDirectoryRadiusSettingOutput struct{ *pulumi.OutputState }
 
 func (GetDirectoryRadiusSettingOutput) ElementType() reflect.Type {
@@ -957,6 +1090,12 @@ func (o GetDirectoryRadiusSettingOutput) ToGetDirectoryRadiusSettingOutput() Get
 
 func (o GetDirectoryRadiusSettingOutput) ToGetDirectoryRadiusSettingOutputWithContext(ctx context.Context) GetDirectoryRadiusSettingOutput {
 	return o
+}
+
+func (o GetDirectoryRadiusSettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetDirectoryRadiusSetting] {
+	return pulumix.Output[GetDirectoryRadiusSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The protocol specified for your RADIUS endpoints.
@@ -1008,6 +1147,12 @@ func (o GetDirectoryRadiusSettingArrayOutput) ToGetDirectoryRadiusSettingArrayOu
 	return o
 }
 
+func (o GetDirectoryRadiusSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDirectoryRadiusSetting] {
+	return pulumix.Output[[]GetDirectoryRadiusSetting]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetDirectoryRadiusSettingArrayOutput) Index(i pulumi.IntInput) GetDirectoryRadiusSettingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDirectoryRadiusSetting {
 		return vs[0].([]GetDirectoryRadiusSetting)[vs[1].(int)]
@@ -1053,6 +1198,12 @@ func (i GetDirectoryVpcSettingArgs) ToGetDirectoryVpcSettingOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryVpcSettingOutput)
 }
 
+func (i GetDirectoryVpcSettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetDirectoryVpcSetting] {
+	return pulumix.Output[GetDirectoryVpcSetting]{
+		OutputState: i.ToGetDirectoryVpcSettingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetDirectoryVpcSettingArrayInput is an input type that accepts GetDirectoryVpcSettingArray and GetDirectoryVpcSettingArrayOutput values.
 // You can construct a concrete instance of `GetDirectoryVpcSettingArrayInput` via:
 //
@@ -1078,6 +1229,12 @@ func (i GetDirectoryVpcSettingArray) ToGetDirectoryVpcSettingArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryVpcSettingArrayOutput)
 }
 
+func (i GetDirectoryVpcSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDirectoryVpcSetting] {
+	return pulumix.Output[[]GetDirectoryVpcSetting]{
+		OutputState: i.ToGetDirectoryVpcSettingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetDirectoryVpcSettingOutput struct{ *pulumi.OutputState }
 
 func (GetDirectoryVpcSettingOutput) ElementType() reflect.Type {
@@ -1090,6 +1247,12 @@ func (o GetDirectoryVpcSettingOutput) ToGetDirectoryVpcSettingOutput() GetDirect
 
 func (o GetDirectoryVpcSettingOutput) ToGetDirectoryVpcSettingOutputWithContext(ctx context.Context) GetDirectoryVpcSettingOutput {
 	return o
+}
+
+func (o GetDirectoryVpcSettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetDirectoryVpcSetting] {
+	return pulumix.Output[GetDirectoryVpcSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDirectoryVpcSettingOutput) AvailabilityZones() pulumi.StringArrayOutput {
@@ -1118,6 +1281,12 @@ func (o GetDirectoryVpcSettingArrayOutput) ToGetDirectoryVpcSettingArrayOutput()
 
 func (o GetDirectoryVpcSettingArrayOutput) ToGetDirectoryVpcSettingArrayOutputWithContext(ctx context.Context) GetDirectoryVpcSettingArrayOutput {
 	return o
+}
+
+func (o GetDirectoryVpcSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDirectoryVpcSetting] {
+	return pulumix.Output[[]GetDirectoryVpcSetting]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDirectoryVpcSettingArrayOutput) Index(i pulumi.IntInput) GetDirectoryVpcSettingOutput {

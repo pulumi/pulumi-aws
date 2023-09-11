@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a SageMaker data quality job definition resource.
@@ -276,6 +277,12 @@ func (i *DataQualityJobDefinition) ToDataQualityJobDefinitionOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionOutput)
 }
 
+func (i *DataQualityJobDefinition) ToOutput(ctx context.Context) pulumix.Output[*DataQualityJobDefinition] {
+	return pulumix.Output[*DataQualityJobDefinition]{
+		OutputState: i.ToDataQualityJobDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataQualityJobDefinitionArrayInput is an input type that accepts DataQualityJobDefinitionArray and DataQualityJobDefinitionArrayOutput values.
 // You can construct a concrete instance of `DataQualityJobDefinitionArrayInput` via:
 //
@@ -299,6 +306,12 @@ func (i DataQualityJobDefinitionArray) ToDataQualityJobDefinitionArrayOutput() D
 
 func (i DataQualityJobDefinitionArray) ToDataQualityJobDefinitionArrayOutputWithContext(ctx context.Context) DataQualityJobDefinitionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionArrayOutput)
+}
+
+func (i DataQualityJobDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataQualityJobDefinition] {
+	return pulumix.Output[[]*DataQualityJobDefinition]{
+		OutputState: i.ToDataQualityJobDefinitionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DataQualityJobDefinitionMapInput is an input type that accepts DataQualityJobDefinitionMap and DataQualityJobDefinitionMapOutput values.
@@ -326,6 +339,12 @@ func (i DataQualityJobDefinitionMap) ToDataQualityJobDefinitionMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionMapOutput)
 }
 
+func (i DataQualityJobDefinitionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataQualityJobDefinition] {
+	return pulumix.Output[map[string]*DataQualityJobDefinition]{
+		OutputState: i.ToDataQualityJobDefinitionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataQualityJobDefinitionOutput struct{ *pulumi.OutputState }
 
 func (DataQualityJobDefinitionOutput) ElementType() reflect.Type {
@@ -338,6 +357,12 @@ func (o DataQualityJobDefinitionOutput) ToDataQualityJobDefinitionOutput() DataQ
 
 func (o DataQualityJobDefinitionOutput) ToDataQualityJobDefinitionOutputWithContext(ctx context.Context) DataQualityJobDefinitionOutput {
 	return o
+}
+
+func (o DataQualityJobDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*DataQualityJobDefinition] {
+	return pulumix.Output[*DataQualityJobDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
@@ -426,6 +451,12 @@ func (o DataQualityJobDefinitionArrayOutput) ToDataQualityJobDefinitionArrayOutp
 	return o
 }
 
+func (o DataQualityJobDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataQualityJobDefinition] {
+	return pulumix.Output[[]*DataQualityJobDefinition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataQualityJobDefinitionArrayOutput) Index(i pulumi.IntInput) DataQualityJobDefinitionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataQualityJobDefinition {
 		return vs[0].([]*DataQualityJobDefinition)[vs[1].(int)]
@@ -444,6 +475,12 @@ func (o DataQualityJobDefinitionMapOutput) ToDataQualityJobDefinitionMapOutput()
 
 func (o DataQualityJobDefinitionMapOutput) ToDataQualityJobDefinitionMapOutputWithContext(ctx context.Context) DataQualityJobDefinitionMapOutput {
 	return o
+}
+
+func (o DataQualityJobDefinitionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataQualityJobDefinition] {
+	return pulumix.Output[map[string]*DataQualityJobDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataQualityJobDefinitionMapOutput) MapIndex(k pulumi.StringInput) DataQualityJobDefinitionOutput {

@@ -34,12 +34,12 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettings {
      */
     private @Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings burnInDestinationSettings;
     /**
-     * @return Dvb Sub Destination Settings. See Dvb Sub Destination Settings for more details.
+     * @return DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
      * 
      */
     private @Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings dvbSubDestinationSettings;
     /**
-     * @return Ebu Tt D Destination Settings. See Ebu Tt D Destination Settings for more details.
+     * @return EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
      * 
      */
     private @Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings ebuTtDDestinationSettings;
@@ -49,25 +49,29 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettings {
      */
     private @Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings embeddedDestinationSettings;
     /**
-     * @return Embedded Plus Scte20 Destination Settings.
+     * @return Embedded Plus SCTE20 Destination Settings.
      * 
      */
     private @Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings embeddedPlusScte20DestinationSettings;
     /**
-     * @return Rtmp Caption Info Destination Settings.
+     * @return RTMP Caption Info Destination Settings.
      * 
      */
     private @Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings rtmpCaptionInfoDestinationSettings;
     /**
-     * @return Scte20 Plus Embedded Destination Settings.
+     * @return SCTE20 Plus Embedded Destination Settings.
      * 
      */
     private @Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings scte20PlusEmbeddedDestinationSettings;
     /**
-     * @return Scte27 Destination Settings.
+     * @return SCTE27 Destination Settings.
      * 
      */
     private @Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings scte27DestinationSettings;
+    /**
+     * @return SMPTE TT Destination Settings.
+     * 
+     */
     private @Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings smpteTtDestinationSettings;
     /**
      * @return Teletext Destination Settings.
@@ -75,12 +79,12 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettings {
      */
     private @Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings teletextDestinationSettings;
     /**
-     * @return Ttml Destination Settings. See Ttml Destination Settings for more details.
+     * @return TTML Destination Settings. See TTML Destination Settings for more details.
      * 
      */
     private @Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings ttmlDestinationSettings;
     /**
-     * @return Webvtt Destination Settings. See Webvtt Destination Settings for more details.
+     * @return WebVTT Destination Settings. See WebVTT Destination Settings for more details.
      * 
      */
     private @Nullable ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings webvttDestinationSettings;
@@ -101,14 +105,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettings {
         return Optional.ofNullable(this.burnInDestinationSettings);
     }
     /**
-     * @return Dvb Sub Destination Settings. See Dvb Sub Destination Settings for more details.
+     * @return DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
      * 
      */
     public Optional<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings> dvbSubDestinationSettings() {
         return Optional.ofNullable(this.dvbSubDestinationSettings);
     }
     /**
-     * @return Ebu Tt D Destination Settings. See Ebu Tt D Destination Settings for more details.
+     * @return EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
      * 
      */
     public Optional<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings> ebuTtDDestinationSettings() {
@@ -122,33 +126,37 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettings {
         return Optional.ofNullable(this.embeddedDestinationSettings);
     }
     /**
-     * @return Embedded Plus Scte20 Destination Settings.
+     * @return Embedded Plus SCTE20 Destination Settings.
      * 
      */
     public Optional<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings> embeddedPlusScte20DestinationSettings() {
         return Optional.ofNullable(this.embeddedPlusScte20DestinationSettings);
     }
     /**
-     * @return Rtmp Caption Info Destination Settings.
+     * @return RTMP Caption Info Destination Settings.
      * 
      */
     public Optional<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings> rtmpCaptionInfoDestinationSettings() {
         return Optional.ofNullable(this.rtmpCaptionInfoDestinationSettings);
     }
     /**
-     * @return Scte20 Plus Embedded Destination Settings.
+     * @return SCTE20 Plus Embedded Destination Settings.
      * 
      */
     public Optional<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings> scte20PlusEmbeddedDestinationSettings() {
         return Optional.ofNullable(this.scte20PlusEmbeddedDestinationSettings);
     }
     /**
-     * @return Scte27 Destination Settings.
+     * @return SCTE27 Destination Settings.
      * 
      */
     public Optional<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings> scte27DestinationSettings() {
         return Optional.ofNullable(this.scte27DestinationSettings);
     }
+    /**
+     * @return SMPTE TT Destination Settings.
+     * 
+     */
     public Optional<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings> smpteTtDestinationSettings() {
         return Optional.ofNullable(this.smpteTtDestinationSettings);
     }
@@ -160,14 +168,14 @@ public final class ChannelEncoderSettingsCaptionDescriptionDestinationSettings {
         return Optional.ofNullable(this.teletextDestinationSettings);
     }
     /**
-     * @return Ttml Destination Settings. See Ttml Destination Settings for more details.
+     * @return TTML Destination Settings. See TTML Destination Settings for more details.
      * 
      */
     public Optional<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings> ttmlDestinationSettings() {
         return Optional.ofNullable(this.ttmlDestinationSettings);
     }
     /**
-     * @return Webvtt Destination Settings. See Webvtt Destination Settings for more details.
+     * @return WebVTT Destination Settings. See WebVTT Destination Settings for more details.
      * 
      */
     public Optional<ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings> webvttDestinationSettings() {

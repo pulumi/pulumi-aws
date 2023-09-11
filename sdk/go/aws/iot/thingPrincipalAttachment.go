@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Attaches Principal to AWS IoT Thing.
@@ -161,6 +162,12 @@ func (i *ThingPrincipalAttachment) ToThingPrincipalAttachmentOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ThingPrincipalAttachmentOutput)
 }
 
+func (i *ThingPrincipalAttachment) ToOutput(ctx context.Context) pulumix.Output[*ThingPrincipalAttachment] {
+	return pulumix.Output[*ThingPrincipalAttachment]{
+		OutputState: i.ToThingPrincipalAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ThingPrincipalAttachmentArrayInput is an input type that accepts ThingPrincipalAttachmentArray and ThingPrincipalAttachmentArrayOutput values.
 // You can construct a concrete instance of `ThingPrincipalAttachmentArrayInput` via:
 //
@@ -184,6 +191,12 @@ func (i ThingPrincipalAttachmentArray) ToThingPrincipalAttachmentArrayOutput() T
 
 func (i ThingPrincipalAttachmentArray) ToThingPrincipalAttachmentArrayOutputWithContext(ctx context.Context) ThingPrincipalAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThingPrincipalAttachmentArrayOutput)
+}
+
+func (i ThingPrincipalAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*ThingPrincipalAttachment] {
+	return pulumix.Output[[]*ThingPrincipalAttachment]{
+		OutputState: i.ToThingPrincipalAttachmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ThingPrincipalAttachmentMapInput is an input type that accepts ThingPrincipalAttachmentMap and ThingPrincipalAttachmentMapOutput values.
@@ -211,6 +224,12 @@ func (i ThingPrincipalAttachmentMap) ToThingPrincipalAttachmentMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ThingPrincipalAttachmentMapOutput)
 }
 
+func (i ThingPrincipalAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ThingPrincipalAttachment] {
+	return pulumix.Output[map[string]*ThingPrincipalAttachment]{
+		OutputState: i.ToThingPrincipalAttachmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ThingPrincipalAttachmentOutput struct{ *pulumi.OutputState }
 
 func (ThingPrincipalAttachmentOutput) ElementType() reflect.Type {
@@ -223,6 +242,12 @@ func (o ThingPrincipalAttachmentOutput) ToThingPrincipalAttachmentOutput() Thing
 
 func (o ThingPrincipalAttachmentOutput) ToThingPrincipalAttachmentOutputWithContext(ctx context.Context) ThingPrincipalAttachmentOutput {
 	return o
+}
+
+func (o ThingPrincipalAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*ThingPrincipalAttachment] {
+	return pulumix.Output[*ThingPrincipalAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
@@ -249,6 +274,12 @@ func (o ThingPrincipalAttachmentArrayOutput) ToThingPrincipalAttachmentArrayOutp
 	return o
 }
 
+func (o ThingPrincipalAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ThingPrincipalAttachment] {
+	return pulumix.Output[[]*ThingPrincipalAttachment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ThingPrincipalAttachmentArrayOutput) Index(i pulumi.IntInput) ThingPrincipalAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ThingPrincipalAttachment {
 		return vs[0].([]*ThingPrincipalAttachment)[vs[1].(int)]
@@ -267,6 +298,12 @@ func (o ThingPrincipalAttachmentMapOutput) ToThingPrincipalAttachmentMapOutput()
 
 func (o ThingPrincipalAttachmentMapOutput) ToThingPrincipalAttachmentMapOutputWithContext(ctx context.Context) ThingPrincipalAttachmentMapOutput {
 	return o
+}
+
+func (o ThingPrincipalAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ThingPrincipalAttachment] {
+	return pulumix.Output[map[string]*ThingPrincipalAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ThingPrincipalAttachmentMapOutput) MapIndex(k pulumi.StringInput) ThingPrincipalAttachmentOutput {

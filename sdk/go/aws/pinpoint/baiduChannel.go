@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Pinpoint Baidu Channel resource.
@@ -189,6 +190,12 @@ func (i *BaiduChannel) ToBaiduChannelOutputWithContext(ctx context.Context) Baid
 	return pulumi.ToOutputWithContext(ctx, i).(BaiduChannelOutput)
 }
 
+func (i *BaiduChannel) ToOutput(ctx context.Context) pulumix.Output[*BaiduChannel] {
+	return pulumix.Output[*BaiduChannel]{
+		OutputState: i.ToBaiduChannelOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BaiduChannelArrayInput is an input type that accepts BaiduChannelArray and BaiduChannelArrayOutput values.
 // You can construct a concrete instance of `BaiduChannelArrayInput` via:
 //
@@ -212,6 +219,12 @@ func (i BaiduChannelArray) ToBaiduChannelArrayOutput() BaiduChannelArrayOutput {
 
 func (i BaiduChannelArray) ToBaiduChannelArrayOutputWithContext(ctx context.Context) BaiduChannelArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BaiduChannelArrayOutput)
+}
+
+func (i BaiduChannelArray) ToOutput(ctx context.Context) pulumix.Output[[]*BaiduChannel] {
+	return pulumix.Output[[]*BaiduChannel]{
+		OutputState: i.ToBaiduChannelArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BaiduChannelMapInput is an input type that accepts BaiduChannelMap and BaiduChannelMapOutput values.
@@ -239,6 +252,12 @@ func (i BaiduChannelMap) ToBaiduChannelMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BaiduChannelMapOutput)
 }
 
+func (i BaiduChannelMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BaiduChannel] {
+	return pulumix.Output[map[string]*BaiduChannel]{
+		OutputState: i.ToBaiduChannelMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BaiduChannelOutput struct{ *pulumi.OutputState }
 
 func (BaiduChannelOutput) ElementType() reflect.Type {
@@ -251,6 +270,12 @@ func (o BaiduChannelOutput) ToBaiduChannelOutput() BaiduChannelOutput {
 
 func (o BaiduChannelOutput) ToBaiduChannelOutputWithContext(ctx context.Context) BaiduChannelOutput {
 	return o
+}
+
+func (o BaiduChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*BaiduChannel] {
+	return pulumix.Output[*BaiduChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Platform credential API key from Baidu.
@@ -287,6 +312,12 @@ func (o BaiduChannelArrayOutput) ToBaiduChannelArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o BaiduChannelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BaiduChannel] {
+	return pulumix.Output[[]*BaiduChannel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BaiduChannelArrayOutput) Index(i pulumi.IntInput) BaiduChannelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BaiduChannel {
 		return vs[0].([]*BaiduChannel)[vs[1].(int)]
@@ -305,6 +336,12 @@ func (o BaiduChannelMapOutput) ToBaiduChannelMapOutput() BaiduChannelMapOutput {
 
 func (o BaiduChannelMapOutput) ToBaiduChannelMapOutputWithContext(ctx context.Context) BaiduChannelMapOutput {
 	return o
+}
+
+func (o BaiduChannelMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BaiduChannel] {
+	return pulumix.Output[map[string]*BaiduChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BaiduChannelMapOutput) MapIndex(k pulumi.StringInput) BaiduChannelOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
@@ -114,6 +115,12 @@ func (o GetHostedZoneIdResultOutput) ToGetHostedZoneIdResultOutput() GetHostedZo
 
 func (o GetHostedZoneIdResultOutput) ToGetHostedZoneIdResultOutputWithContext(ctx context.Context) GetHostedZoneIdResultOutput {
 	return o
+}
+
+func (o GetHostedZoneIdResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetHostedZoneIdResult] {
+	return pulumix.Output[GetHostedZoneIdResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

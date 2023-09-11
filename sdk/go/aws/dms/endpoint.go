@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a DMS (Data Migration Service) endpoint resource. DMS endpoints can be created, updated, deleted, and imported.
@@ -82,7 +83,7 @@ type Endpoint struct {
 	EndpointId pulumi.StringOutput `pulumi:"endpointId"`
 	// Type of endpoint. Valid values are `source`, `target`.
 	EndpointType pulumi.StringOutput `pulumi:"endpointType"`
-	// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
+	// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
 	EngineName pulumi.StringOutput `pulumi:"engineName"`
 	// Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
 	ExtraConnectionAttributes pulumi.StringOutput `pulumi:"extraConnectionAttributes"`
@@ -181,7 +182,7 @@ type endpointState struct {
 	EndpointId *string `pulumi:"endpointId"`
 	// Type of endpoint. Valid values are `source`, `target`.
 	EndpointType *string `pulumi:"endpointType"`
-	// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
+	// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
 	EngineName *string `pulumi:"engineName"`
 	// Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
 	ExtraConnectionAttributes *string `pulumi:"extraConnectionAttributes"`
@@ -235,7 +236,7 @@ type EndpointState struct {
 	EndpointId pulumi.StringPtrInput
 	// Type of endpoint. Valid values are `source`, `target`.
 	EndpointType pulumi.StringPtrInput
-	// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
+	// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
 	EngineName pulumi.StringPtrInput
 	// Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
 	ExtraConnectionAttributes pulumi.StringPtrInput
@@ -291,7 +292,7 @@ type endpointArgs struct {
 	EndpointId string `pulumi:"endpointId"`
 	// Type of endpoint. Valid values are `source`, `target`.
 	EndpointType string `pulumi:"endpointType"`
-	// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
+	// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
 	EngineName string `pulumi:"engineName"`
 	// Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
 	ExtraConnectionAttributes *string `pulumi:"extraConnectionAttributes"`
@@ -342,7 +343,7 @@ type EndpointArgs struct {
 	EndpointId pulumi.StringInput
 	// Type of endpoint. Valid values are `source`, `target`.
 	EndpointType pulumi.StringInput
-	// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
+	// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
 	EngineName pulumi.StringInput
 	// Additional attributes associated with the connection. For available attributes for a `source` Endpoint, see [Sources for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.html). For available attributes for a `target` Endpoint, see [Targets for data migration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.html).
 	ExtraConnectionAttributes pulumi.StringPtrInput
@@ -404,6 +405,12 @@ func (i *Endpoint) ToEndpointOutputWithContext(ctx context.Context) EndpointOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointOutput)
 }
 
+func (i *Endpoint) ToOutput(ctx context.Context) pulumix.Output[*Endpoint] {
+	return pulumix.Output[*Endpoint]{
+		OutputState: i.ToEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EndpointArrayInput is an input type that accepts EndpointArray and EndpointArrayOutput values.
 // You can construct a concrete instance of `EndpointArrayInput` via:
 //
@@ -427,6 +434,12 @@ func (i EndpointArray) ToEndpointArrayOutput() EndpointArrayOutput {
 
 func (i EndpointArray) ToEndpointArrayOutputWithContext(ctx context.Context) EndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointArrayOutput)
+}
+
+func (i EndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*Endpoint] {
+	return pulumix.Output[[]*Endpoint]{
+		OutputState: i.ToEndpointArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EndpointMapInput is an input type that accepts EndpointMap and EndpointMapOutput values.
@@ -454,6 +467,12 @@ func (i EndpointMap) ToEndpointMapOutputWithContext(ctx context.Context) Endpoin
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointMapOutput)
 }
 
+func (i EndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Endpoint] {
+	return pulumix.Output[map[string]*Endpoint]{
+		OutputState: i.ToEndpointMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EndpointOutput struct{ *pulumi.OutputState }
 
 func (EndpointOutput) ElementType() reflect.Type {
@@ -466,6 +485,12 @@ func (o EndpointOutput) ToEndpointOutput() EndpointOutput {
 
 func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) EndpointOutput {
 	return o
+}
+
+func (o EndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*Endpoint] {
+	return pulumix.Output[*Endpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN for the certificate.
@@ -498,7 +523,7 @@ func (o EndpointOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
+// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `azure-sql-managed-instance`, `babelfish`, `db2`, `db2-zos`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
 func (o EndpointOutput) EngineName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.EngineName }).(pulumi.StringOutput)
 }
@@ -608,6 +633,12 @@ func (o EndpointArrayOutput) ToEndpointArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o EndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Endpoint] {
+	return pulumix.Output[[]*Endpoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EndpointArrayOutput) Index(i pulumi.IntInput) EndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Endpoint {
 		return vs[0].([]*Endpoint)[vs[1].(int)]
@@ -626,6 +657,12 @@ func (o EndpointMapOutput) ToEndpointMapOutput() EndpointMapOutput {
 
 func (o EndpointMapOutput) ToEndpointMapOutputWithContext(ctx context.Context) EndpointMapOutput {
 	return o
+}
+
+func (o EndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Endpoint] {
+	return pulumix.Output[map[string]*Endpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EndpointMapOutput) MapIndex(k pulumi.StringInput) EndpointOutput {

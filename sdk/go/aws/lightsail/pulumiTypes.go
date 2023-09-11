@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -52,6 +53,12 @@ func (i CertificateDomainValidationOptionArgs) ToCertificateDomainValidationOpti
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateDomainValidationOptionOutput)
 }
 
+func (i CertificateDomainValidationOptionArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateDomainValidationOption] {
+	return pulumix.Output[CertificateDomainValidationOption]{
+		OutputState: i.ToCertificateDomainValidationOptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CertificateDomainValidationOptionArrayInput is an input type that accepts CertificateDomainValidationOptionArray and CertificateDomainValidationOptionArrayOutput values.
 // You can construct a concrete instance of `CertificateDomainValidationOptionArrayInput` via:
 //
@@ -77,6 +84,12 @@ func (i CertificateDomainValidationOptionArray) ToCertificateDomainValidationOpt
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateDomainValidationOptionArrayOutput)
 }
 
+func (i CertificateDomainValidationOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]CertificateDomainValidationOption] {
+	return pulumix.Output[[]CertificateDomainValidationOption]{
+		OutputState: i.ToCertificateDomainValidationOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CertificateDomainValidationOptionOutput struct{ *pulumi.OutputState }
 
 func (CertificateDomainValidationOptionOutput) ElementType() reflect.Type {
@@ -89,6 +102,12 @@ func (o CertificateDomainValidationOptionOutput) ToCertificateDomainValidationOp
 
 func (o CertificateDomainValidationOptionOutput) ToCertificateDomainValidationOptionOutputWithContext(ctx context.Context) CertificateDomainValidationOptionOutput {
 	return o
+}
+
+func (o CertificateDomainValidationOptionOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateDomainValidationOption] {
+	return pulumix.Output[CertificateDomainValidationOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A domain name for which the certificate should be issued.
@@ -120,6 +139,12 @@ func (o CertificateDomainValidationOptionArrayOutput) ToCertificateDomainValidat
 
 func (o CertificateDomainValidationOptionArrayOutput) ToCertificateDomainValidationOptionArrayOutputWithContext(ctx context.Context) CertificateDomainValidationOptionArrayOutput {
 	return o
+}
+
+func (o CertificateDomainValidationOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertificateDomainValidationOption] {
+	return pulumix.Output[[]CertificateDomainValidationOption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CertificateDomainValidationOptionArrayOutput) Index(i pulumi.IntInput) CertificateDomainValidationOptionOutput {
@@ -177,6 +202,12 @@ func (i ContainerServiceDeploymentVersionContainerArgs) ToContainerServiceDeploy
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDeploymentVersionContainerOutput)
 }
 
+func (i ContainerServiceDeploymentVersionContainerArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerServiceDeploymentVersionContainer] {
+	return pulumix.Output[ContainerServiceDeploymentVersionContainer]{
+		OutputState: i.ToContainerServiceDeploymentVersionContainerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ContainerServiceDeploymentVersionContainerArrayInput is an input type that accepts ContainerServiceDeploymentVersionContainerArray and ContainerServiceDeploymentVersionContainerArrayOutput values.
 // You can construct a concrete instance of `ContainerServiceDeploymentVersionContainerArrayInput` via:
 //
@@ -202,6 +233,12 @@ func (i ContainerServiceDeploymentVersionContainerArray) ToContainerServiceDeplo
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDeploymentVersionContainerArrayOutput)
 }
 
+func (i ContainerServiceDeploymentVersionContainerArray) ToOutput(ctx context.Context) pulumix.Output[[]ContainerServiceDeploymentVersionContainer] {
+	return pulumix.Output[[]ContainerServiceDeploymentVersionContainer]{
+		OutputState: i.ToContainerServiceDeploymentVersionContainerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ContainerServiceDeploymentVersionContainerOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceDeploymentVersionContainerOutput) ElementType() reflect.Type {
@@ -214,6 +251,12 @@ func (o ContainerServiceDeploymentVersionContainerOutput) ToContainerServiceDepl
 
 func (o ContainerServiceDeploymentVersionContainerOutput) ToContainerServiceDeploymentVersionContainerOutputWithContext(ctx context.Context) ContainerServiceDeploymentVersionContainerOutput {
 	return o
+}
+
+func (o ContainerServiceDeploymentVersionContainerOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerServiceDeploymentVersionContainer] {
+	return pulumix.Output[ContainerServiceDeploymentVersionContainer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The launch command for the container. A list of string.
@@ -253,6 +296,12 @@ func (o ContainerServiceDeploymentVersionContainerArrayOutput) ToContainerServic
 
 func (o ContainerServiceDeploymentVersionContainerArrayOutput) ToContainerServiceDeploymentVersionContainerArrayOutputWithContext(ctx context.Context) ContainerServiceDeploymentVersionContainerArrayOutput {
 	return o
+}
+
+func (o ContainerServiceDeploymentVersionContainerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContainerServiceDeploymentVersionContainer] {
+	return pulumix.Output[[]ContainerServiceDeploymentVersionContainer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContainerServiceDeploymentVersionContainerArrayOutput) Index(i pulumi.IntInput) ContainerServiceDeploymentVersionContainerOutput {
@@ -302,6 +351,12 @@ func (i ContainerServiceDeploymentVersionPublicEndpointArgs) ToContainerServiceD
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDeploymentVersionPublicEndpointOutput)
 }
 
+func (i ContainerServiceDeploymentVersionPublicEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerServiceDeploymentVersionPublicEndpoint] {
+	return pulumix.Output[ContainerServiceDeploymentVersionPublicEndpoint]{
+		OutputState: i.ToContainerServiceDeploymentVersionPublicEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ContainerServiceDeploymentVersionPublicEndpointArgs) ToContainerServiceDeploymentVersionPublicEndpointPtrOutput() ContainerServiceDeploymentVersionPublicEndpointPtrOutput {
 	return i.ToContainerServiceDeploymentVersionPublicEndpointPtrOutputWithContext(context.Background())
 }
@@ -343,6 +398,12 @@ func (i *containerServiceDeploymentVersionPublicEndpointPtrType) ToContainerServ
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDeploymentVersionPublicEndpointPtrOutput)
 }
 
+func (i *containerServiceDeploymentVersionPublicEndpointPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContainerServiceDeploymentVersionPublicEndpoint] {
+	return pulumix.Output[*ContainerServiceDeploymentVersionPublicEndpoint]{
+		OutputState: i.ToContainerServiceDeploymentVersionPublicEndpointPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ContainerServiceDeploymentVersionPublicEndpointOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceDeploymentVersionPublicEndpointOutput) ElementType() reflect.Type {
@@ -365,6 +426,12 @@ func (o ContainerServiceDeploymentVersionPublicEndpointOutput) ToContainerServic
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceDeploymentVersionPublicEndpoint) *ContainerServiceDeploymentVersionPublicEndpoint {
 		return &v
 	}).(ContainerServiceDeploymentVersionPublicEndpointPtrOutput)
+}
+
+func (o ContainerServiceDeploymentVersionPublicEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerServiceDeploymentVersionPublicEndpoint] {
+	return pulumix.Output[ContainerServiceDeploymentVersionPublicEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the container for the endpoint.
@@ -396,6 +463,12 @@ func (o ContainerServiceDeploymentVersionPublicEndpointPtrOutput) ToContainerSer
 
 func (o ContainerServiceDeploymentVersionPublicEndpointPtrOutput) ToContainerServiceDeploymentVersionPublicEndpointPtrOutputWithContext(ctx context.Context) ContainerServiceDeploymentVersionPublicEndpointPtrOutput {
 	return o
+}
+
+func (o ContainerServiceDeploymentVersionPublicEndpointPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerServiceDeploymentVersionPublicEndpoint] {
+	return pulumix.Output[*ContainerServiceDeploymentVersionPublicEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContainerServiceDeploymentVersionPublicEndpointPtrOutput) Elem() ContainerServiceDeploymentVersionPublicEndpointOutput {
@@ -491,6 +564,12 @@ func (i ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs) ToContai
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput)
 }
 
+func (i ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerServiceDeploymentVersionPublicEndpointHealthCheck] {
+	return pulumix.Output[ContainerServiceDeploymentVersionPublicEndpointHealthCheck]{
+		OutputState: i.ToContainerServiceDeploymentVersionPublicEndpointHealthCheckOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs) ToContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput() ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput {
 	return i.ToContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutputWithContext(context.Background())
 }
@@ -532,6 +611,12 @@ func (i *containerServiceDeploymentVersionPublicEndpointHealthCheckPtrType) ToCo
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput)
 }
 
+func (i *containerServiceDeploymentVersionPublicEndpointHealthCheckPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContainerServiceDeploymentVersionPublicEndpointHealthCheck] {
+	return pulumix.Output[*ContainerServiceDeploymentVersionPublicEndpointHealthCheck]{
+		OutputState: i.ToContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput struct{ *pulumi.OutputState }
 
 func (ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) ElementType() reflect.Type {
@@ -554,6 +639,12 @@ func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) ToCont
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *ContainerServiceDeploymentVersionPublicEndpointHealthCheck {
 		return &v
 	}).(ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput)
+}
+
+func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerServiceDeploymentVersionPublicEndpointHealthCheck] {
+	return pulumix.Output[ContainerServiceDeploymentVersionPublicEndpointHealthCheck]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
@@ -598,6 +689,12 @@ func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) ToC
 
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) ToContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutputWithContext(ctx context.Context) ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput {
 	return o
+}
+
+func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerServiceDeploymentVersionPublicEndpointHealthCheck] {
+	return pulumix.Output[*ContainerServiceDeploymentVersionPublicEndpointHealthCheck]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) Elem() ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput {
@@ -703,6 +800,12 @@ func (i ContainerServicePrivateRegistryAccessArgs) ToContainerServicePrivateRegi
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServicePrivateRegistryAccessOutput)
 }
 
+func (i ContainerServicePrivateRegistryAccessArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerServicePrivateRegistryAccess] {
+	return pulumix.Output[ContainerServicePrivateRegistryAccess]{
+		OutputState: i.ToContainerServicePrivateRegistryAccessOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ContainerServicePrivateRegistryAccessArgs) ToContainerServicePrivateRegistryAccessPtrOutput() ContainerServicePrivateRegistryAccessPtrOutput {
 	return i.ToContainerServicePrivateRegistryAccessPtrOutputWithContext(context.Background())
 }
@@ -744,6 +847,12 @@ func (i *containerServicePrivateRegistryAccessPtrType) ToContainerServicePrivate
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServicePrivateRegistryAccessPtrOutput)
 }
 
+func (i *containerServicePrivateRegistryAccessPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContainerServicePrivateRegistryAccess] {
+	return pulumix.Output[*ContainerServicePrivateRegistryAccess]{
+		OutputState: i.ToContainerServicePrivateRegistryAccessPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ContainerServicePrivateRegistryAccessOutput struct{ *pulumi.OutputState }
 
 func (ContainerServicePrivateRegistryAccessOutput) ElementType() reflect.Type {
@@ -768,6 +877,12 @@ func (o ContainerServicePrivateRegistryAccessOutput) ToContainerServicePrivateRe
 	}).(ContainerServicePrivateRegistryAccessPtrOutput)
 }
 
+func (o ContainerServicePrivateRegistryAccessOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerServicePrivateRegistryAccess] {
+	return pulumix.Output[ContainerServicePrivateRegistryAccess]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
 func (o ContainerServicePrivateRegistryAccessOutput) EcrImagePullerRole() ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput {
 	return o.ApplyT(func(v ContainerServicePrivateRegistryAccess) *ContainerServicePrivateRegistryAccessEcrImagePullerRole {
@@ -787,6 +902,12 @@ func (o ContainerServicePrivateRegistryAccessPtrOutput) ToContainerServicePrivat
 
 func (o ContainerServicePrivateRegistryAccessPtrOutput) ToContainerServicePrivateRegistryAccessPtrOutputWithContext(ctx context.Context) ContainerServicePrivateRegistryAccessPtrOutput {
 	return o
+}
+
+func (o ContainerServicePrivateRegistryAccessPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerServicePrivateRegistryAccess] {
+	return pulumix.Output[*ContainerServicePrivateRegistryAccess]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContainerServicePrivateRegistryAccessPtrOutput) Elem() ContainerServicePrivateRegistryAccessOutput {
@@ -850,6 +971,12 @@ func (i ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs) ToContainer
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput)
 }
 
+func (i ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerServicePrivateRegistryAccessEcrImagePullerRole] {
+	return pulumix.Output[ContainerServicePrivateRegistryAccessEcrImagePullerRole]{
+		OutputState: i.ToContainerServicePrivateRegistryAccessEcrImagePullerRoleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs) ToContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput() ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput {
 	return i.ToContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutputWithContext(context.Background())
 }
@@ -891,6 +1018,12 @@ func (i *containerServicePrivateRegistryAccessEcrImagePullerRolePtrType) ToConta
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput)
 }
 
+func (i *containerServicePrivateRegistryAccessEcrImagePullerRolePtrType) ToOutput(ctx context.Context) pulumix.Output[*ContainerServicePrivateRegistryAccessEcrImagePullerRole] {
+	return pulumix.Output[*ContainerServicePrivateRegistryAccessEcrImagePullerRole]{
+		OutputState: i.ToContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput struct{ *pulumi.OutputState }
 
 func (ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput) ElementType() reflect.Type {
@@ -913,6 +1046,12 @@ func (o ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput) ToContain
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServicePrivateRegistryAccessEcrImagePullerRole) *ContainerServicePrivateRegistryAccessEcrImagePullerRole {
 		return &v
 	}).(ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput)
+}
+
+func (o ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerServicePrivateRegistryAccessEcrImagePullerRole] {
+	return pulumix.Output[ContainerServicePrivateRegistryAccessEcrImagePullerRole]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A Boolean value that indicates whether to activate the role. The default is `false`.
@@ -939,6 +1078,12 @@ func (o ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput) ToCont
 
 func (o ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput) ToContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutputWithContext(ctx context.Context) ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput {
 	return o
+}
+
+func (o ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerServicePrivateRegistryAccessEcrImagePullerRole] {
+	return pulumix.Output[*ContainerServicePrivateRegistryAccessEcrImagePullerRole]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContainerServicePrivateRegistryAccessEcrImagePullerRolePtrOutput) Elem() ContainerServicePrivateRegistryAccessEcrImagePullerRoleOutput {
@@ -1004,6 +1149,12 @@ func (i ContainerServicePublicDomainNamesArgs) ToContainerServicePublicDomainNam
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServicePublicDomainNamesOutput)
 }
 
+func (i ContainerServicePublicDomainNamesArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerServicePublicDomainNames] {
+	return pulumix.Output[ContainerServicePublicDomainNames]{
+		OutputState: i.ToContainerServicePublicDomainNamesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ContainerServicePublicDomainNamesArgs) ToContainerServicePublicDomainNamesPtrOutput() ContainerServicePublicDomainNamesPtrOutput {
 	return i.ToContainerServicePublicDomainNamesPtrOutputWithContext(context.Background())
 }
@@ -1045,6 +1196,12 @@ func (i *containerServicePublicDomainNamesPtrType) ToContainerServicePublicDomai
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServicePublicDomainNamesPtrOutput)
 }
 
+func (i *containerServicePublicDomainNamesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContainerServicePublicDomainNames] {
+	return pulumix.Output[*ContainerServicePublicDomainNames]{
+		OutputState: i.ToContainerServicePublicDomainNamesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ContainerServicePublicDomainNamesOutput struct{ *pulumi.OutputState }
 
 func (ContainerServicePublicDomainNamesOutput) ElementType() reflect.Type {
@@ -1069,6 +1226,12 @@ func (o ContainerServicePublicDomainNamesOutput) ToContainerServicePublicDomainN
 	}).(ContainerServicePublicDomainNamesPtrOutput)
 }
 
+func (o ContainerServicePublicDomainNamesOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerServicePublicDomainNames] {
+	return pulumix.Output[ContainerServicePublicDomainNames]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ContainerServicePublicDomainNamesOutput) Certificates() ContainerServicePublicDomainNamesCertificateArrayOutput {
 	return o.ApplyT(func(v ContainerServicePublicDomainNames) []ContainerServicePublicDomainNamesCertificate {
 		return v.Certificates
@@ -1087,6 +1250,12 @@ func (o ContainerServicePublicDomainNamesPtrOutput) ToContainerServicePublicDoma
 
 func (o ContainerServicePublicDomainNamesPtrOutput) ToContainerServicePublicDomainNamesPtrOutputWithContext(ctx context.Context) ContainerServicePublicDomainNamesPtrOutput {
 	return o
+}
+
+func (o ContainerServicePublicDomainNamesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerServicePublicDomainNames] {
+	return pulumix.Output[*ContainerServicePublicDomainNames]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContainerServicePublicDomainNamesPtrOutput) Elem() ContainerServicePublicDomainNamesOutput {
@@ -1141,6 +1310,12 @@ func (i ContainerServicePublicDomainNamesCertificateArgs) ToContainerServicePubl
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServicePublicDomainNamesCertificateOutput)
 }
 
+func (i ContainerServicePublicDomainNamesCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerServicePublicDomainNamesCertificate] {
+	return pulumix.Output[ContainerServicePublicDomainNamesCertificate]{
+		OutputState: i.ToContainerServicePublicDomainNamesCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ContainerServicePublicDomainNamesCertificateArrayInput is an input type that accepts ContainerServicePublicDomainNamesCertificateArray and ContainerServicePublicDomainNamesCertificateArrayOutput values.
 // You can construct a concrete instance of `ContainerServicePublicDomainNamesCertificateArrayInput` via:
 //
@@ -1166,6 +1341,12 @@ func (i ContainerServicePublicDomainNamesCertificateArray) ToContainerServicePub
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServicePublicDomainNamesCertificateArrayOutput)
 }
 
+func (i ContainerServicePublicDomainNamesCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]ContainerServicePublicDomainNamesCertificate] {
+	return pulumix.Output[[]ContainerServicePublicDomainNamesCertificate]{
+		OutputState: i.ToContainerServicePublicDomainNamesCertificateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ContainerServicePublicDomainNamesCertificateOutput struct{ *pulumi.OutputState }
 
 func (ContainerServicePublicDomainNamesCertificateOutput) ElementType() reflect.Type {
@@ -1178,6 +1359,12 @@ func (o ContainerServicePublicDomainNamesCertificateOutput) ToContainerServicePu
 
 func (o ContainerServicePublicDomainNamesCertificateOutput) ToContainerServicePublicDomainNamesCertificateOutputWithContext(ctx context.Context) ContainerServicePublicDomainNamesCertificateOutput {
 	return o
+}
+
+func (o ContainerServicePublicDomainNamesCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerServicePublicDomainNamesCertificate] {
+	return pulumix.Output[ContainerServicePublicDomainNamesCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContainerServicePublicDomainNamesCertificateOutput) CertificateName() pulumi.StringOutput {
@@ -1200,6 +1387,12 @@ func (o ContainerServicePublicDomainNamesCertificateArrayOutput) ToContainerServ
 
 func (o ContainerServicePublicDomainNamesCertificateArrayOutput) ToContainerServicePublicDomainNamesCertificateArrayOutputWithContext(ctx context.Context) ContainerServicePublicDomainNamesCertificateArrayOutput {
 	return o
+}
+
+func (o ContainerServicePublicDomainNamesCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContainerServicePublicDomainNamesCertificate] {
+	return pulumix.Output[[]ContainerServicePublicDomainNamesCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ContainerServicePublicDomainNamesCertificateArrayOutput) Index(i pulumi.IntInput) ContainerServicePublicDomainNamesCertificateOutput {
@@ -1245,6 +1438,12 @@ func (i DistributionCacheBehaviorArgs) ToDistributionCacheBehaviorOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorOutput)
 }
 
+func (i DistributionCacheBehaviorArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionCacheBehavior] {
+	return pulumix.Output[DistributionCacheBehavior]{
+		OutputState: i.ToDistributionCacheBehaviorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DistributionCacheBehaviorArrayInput is an input type that accepts DistributionCacheBehaviorArray and DistributionCacheBehaviorArrayOutput values.
 // You can construct a concrete instance of `DistributionCacheBehaviorArrayInput` via:
 //
@@ -1270,6 +1469,12 @@ func (i DistributionCacheBehaviorArray) ToDistributionCacheBehaviorArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorArrayOutput)
 }
 
+func (i DistributionCacheBehaviorArray) ToOutput(ctx context.Context) pulumix.Output[[]DistributionCacheBehavior] {
+	return pulumix.Output[[]DistributionCacheBehavior]{
+		OutputState: i.ToDistributionCacheBehaviorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DistributionCacheBehaviorOutput struct{ *pulumi.OutputState }
 
 func (DistributionCacheBehaviorOutput) ElementType() reflect.Type {
@@ -1282,6 +1487,12 @@ func (o DistributionCacheBehaviorOutput) ToDistributionCacheBehaviorOutput() Dis
 
 func (o DistributionCacheBehaviorOutput) ToDistributionCacheBehaviorOutputWithContext(ctx context.Context) DistributionCacheBehaviorOutput {
 	return o
+}
+
+func (o DistributionCacheBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionCacheBehavior] {
+	return pulumix.Output[DistributionCacheBehavior]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The cache behavior for the specified path.
@@ -1306,6 +1517,12 @@ func (o DistributionCacheBehaviorArrayOutput) ToDistributionCacheBehaviorArrayOu
 
 func (o DistributionCacheBehaviorArrayOutput) ToDistributionCacheBehaviorArrayOutputWithContext(ctx context.Context) DistributionCacheBehaviorArrayOutput {
 	return o
+}
+
+func (o DistributionCacheBehaviorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DistributionCacheBehavior] {
+	return pulumix.Output[[]DistributionCacheBehavior]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DistributionCacheBehaviorArrayOutput) Index(i pulumi.IntInput) DistributionCacheBehaviorOutput {
@@ -1375,6 +1592,12 @@ func (i DistributionCacheBehaviorSettingsArgs) ToDistributionCacheBehaviorSettin
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorSettingsOutput)
 }
 
+func (i DistributionCacheBehaviorSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionCacheBehaviorSettings] {
+	return pulumix.Output[DistributionCacheBehaviorSettings]{
+		OutputState: i.ToDistributionCacheBehaviorSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DistributionCacheBehaviorSettingsArgs) ToDistributionCacheBehaviorSettingsPtrOutput() DistributionCacheBehaviorSettingsPtrOutput {
 	return i.ToDistributionCacheBehaviorSettingsPtrOutputWithContext(context.Background())
 }
@@ -1416,6 +1639,12 @@ func (i *distributionCacheBehaviorSettingsPtrType) ToDistributionCacheBehaviorSe
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorSettingsPtrOutput)
 }
 
+func (i *distributionCacheBehaviorSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DistributionCacheBehaviorSettings] {
+	return pulumix.Output[*DistributionCacheBehaviorSettings]{
+		OutputState: i.ToDistributionCacheBehaviorSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DistributionCacheBehaviorSettingsOutput struct{ *pulumi.OutputState }
 
 func (DistributionCacheBehaviorSettingsOutput) ElementType() reflect.Type {
@@ -1438,6 +1667,12 @@ func (o DistributionCacheBehaviorSettingsOutput) ToDistributionCacheBehaviorSett
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionCacheBehaviorSettings) *DistributionCacheBehaviorSettings {
 		return &v
 	}).(DistributionCacheBehaviorSettingsPtrOutput)
+}
+
+func (o DistributionCacheBehaviorSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionCacheBehaviorSettings] {
+	return pulumix.Output[DistributionCacheBehaviorSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The HTTP methods that are processed and forwarded to the distribution's origin.
@@ -1498,6 +1733,12 @@ func (o DistributionCacheBehaviorSettingsPtrOutput) ToDistributionCacheBehaviorS
 
 func (o DistributionCacheBehaviorSettingsPtrOutput) ToDistributionCacheBehaviorSettingsPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsPtrOutput {
 	return o
+}
+
+func (o DistributionCacheBehaviorSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionCacheBehaviorSettings] {
+	return pulumix.Output[*DistributionCacheBehaviorSettings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DistributionCacheBehaviorSettingsPtrOutput) Elem() DistributionCacheBehaviorSettingsOutput {
@@ -1627,6 +1868,12 @@ func (i DistributionCacheBehaviorSettingsForwardedCookiesArgs) ToDistributionCac
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorSettingsForwardedCookiesOutput)
 }
 
+func (i DistributionCacheBehaviorSettingsForwardedCookiesArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionCacheBehaviorSettingsForwardedCookies] {
+	return pulumix.Output[DistributionCacheBehaviorSettingsForwardedCookies]{
+		OutputState: i.ToDistributionCacheBehaviorSettingsForwardedCookiesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DistributionCacheBehaviorSettingsForwardedCookiesArgs) ToDistributionCacheBehaviorSettingsForwardedCookiesPtrOutput() DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput {
 	return i.ToDistributionCacheBehaviorSettingsForwardedCookiesPtrOutputWithContext(context.Background())
 }
@@ -1668,6 +1915,12 @@ func (i *distributionCacheBehaviorSettingsForwardedCookiesPtrType) ToDistributio
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput)
 }
 
+func (i *distributionCacheBehaviorSettingsForwardedCookiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*DistributionCacheBehaviorSettingsForwardedCookies] {
+	return pulumix.Output[*DistributionCacheBehaviorSettingsForwardedCookies]{
+		OutputState: i.ToDistributionCacheBehaviorSettingsForwardedCookiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DistributionCacheBehaviorSettingsForwardedCookiesOutput struct{ *pulumi.OutputState }
 
 func (DistributionCacheBehaviorSettingsForwardedCookiesOutput) ElementType() reflect.Type {
@@ -1692,6 +1945,12 @@ func (o DistributionCacheBehaviorSettingsForwardedCookiesOutput) ToDistributionC
 	}).(DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput)
 }
 
+func (o DistributionCacheBehaviorSettingsForwardedCookiesOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionCacheBehaviorSettingsForwardedCookies] {
+	return pulumix.Output[DistributionCacheBehaviorSettingsForwardedCookies]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The specific cookies to forward to your distribution's origin.
 func (o DistributionCacheBehaviorSettingsForwardedCookiesOutput) CookiesAllowLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionCacheBehaviorSettingsForwardedCookies) []string { return v.CookiesAllowLists }).(pulumi.StringArrayOutput)
@@ -1714,6 +1973,12 @@ func (o DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput) ToDistributi
 
 func (o DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput) ToDistributionCacheBehaviorSettingsForwardedCookiesPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput {
 	return o
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionCacheBehaviorSettingsForwardedCookies] {
+	return pulumix.Output[*DistributionCacheBehaviorSettingsForwardedCookies]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DistributionCacheBehaviorSettingsForwardedCookiesPtrOutput) Elem() DistributionCacheBehaviorSettingsForwardedCookiesOutput {
@@ -1783,6 +2048,12 @@ func (i DistributionCacheBehaviorSettingsForwardedHeadersArgs) ToDistributionCac
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorSettingsForwardedHeadersOutput)
 }
 
+func (i DistributionCacheBehaviorSettingsForwardedHeadersArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionCacheBehaviorSettingsForwardedHeaders] {
+	return pulumix.Output[DistributionCacheBehaviorSettingsForwardedHeaders]{
+		OutputState: i.ToDistributionCacheBehaviorSettingsForwardedHeadersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DistributionCacheBehaviorSettingsForwardedHeadersArgs) ToDistributionCacheBehaviorSettingsForwardedHeadersPtrOutput() DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput {
 	return i.ToDistributionCacheBehaviorSettingsForwardedHeadersPtrOutputWithContext(context.Background())
 }
@@ -1824,6 +2095,12 @@ func (i *distributionCacheBehaviorSettingsForwardedHeadersPtrType) ToDistributio
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput)
 }
 
+func (i *distributionCacheBehaviorSettingsForwardedHeadersPtrType) ToOutput(ctx context.Context) pulumix.Output[*DistributionCacheBehaviorSettingsForwardedHeaders] {
+	return pulumix.Output[*DistributionCacheBehaviorSettingsForwardedHeaders]{
+		OutputState: i.ToDistributionCacheBehaviorSettingsForwardedHeadersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DistributionCacheBehaviorSettingsForwardedHeadersOutput struct{ *pulumi.OutputState }
 
 func (DistributionCacheBehaviorSettingsForwardedHeadersOutput) ElementType() reflect.Type {
@@ -1848,6 +2125,12 @@ func (o DistributionCacheBehaviorSettingsForwardedHeadersOutput) ToDistributionC
 	}).(DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput)
 }
 
+func (o DistributionCacheBehaviorSettingsForwardedHeadersOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionCacheBehaviorSettingsForwardedHeaders] {
+	return pulumix.Output[DistributionCacheBehaviorSettingsForwardedHeaders]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The specific headers to forward to your distribution's origin.
 func (o DistributionCacheBehaviorSettingsForwardedHeadersOutput) HeadersAllowLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionCacheBehaviorSettingsForwardedHeaders) []string { return v.HeadersAllowLists }).(pulumi.StringArrayOutput)
@@ -1870,6 +2153,12 @@ func (o DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput) ToDistributi
 
 func (o DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput) ToDistributionCacheBehaviorSettingsForwardedHeadersPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput {
 	return o
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionCacheBehaviorSettingsForwardedHeaders] {
+	return pulumix.Output[*DistributionCacheBehaviorSettingsForwardedHeaders]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DistributionCacheBehaviorSettingsForwardedHeadersPtrOutput) Elem() DistributionCacheBehaviorSettingsForwardedHeadersOutput {
@@ -1939,6 +2228,12 @@ func (i DistributionCacheBehaviorSettingsForwardedQueryStringsArgs) ToDistributi
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorSettingsForwardedQueryStringsOutput)
 }
 
+func (i DistributionCacheBehaviorSettingsForwardedQueryStringsArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionCacheBehaviorSettingsForwardedQueryStrings] {
+	return pulumix.Output[DistributionCacheBehaviorSettingsForwardedQueryStrings]{
+		OutputState: i.ToDistributionCacheBehaviorSettingsForwardedQueryStringsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DistributionCacheBehaviorSettingsForwardedQueryStringsArgs) ToDistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput() DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput {
 	return i.ToDistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutputWithContext(context.Background())
 }
@@ -1980,6 +2275,12 @@ func (i *distributionCacheBehaviorSettingsForwardedQueryStringsPtrType) ToDistri
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput)
 }
 
+func (i *distributionCacheBehaviorSettingsForwardedQueryStringsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DistributionCacheBehaviorSettingsForwardedQueryStrings] {
+	return pulumix.Output[*DistributionCacheBehaviorSettingsForwardedQueryStrings]{
+		OutputState: i.ToDistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DistributionCacheBehaviorSettingsForwardedQueryStringsOutput struct{ *pulumi.OutputState }
 
 func (DistributionCacheBehaviorSettingsForwardedQueryStringsOutput) ElementType() reflect.Type {
@@ -2002,6 +2303,12 @@ func (o DistributionCacheBehaviorSettingsForwardedQueryStringsOutput) ToDistribu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionCacheBehaviorSettingsForwardedQueryStrings) *DistributionCacheBehaviorSettingsForwardedQueryStrings {
 		return &v
 	}).(DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput)
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedQueryStringsOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionCacheBehaviorSettingsForwardedQueryStrings] {
+	return pulumix.Output[DistributionCacheBehaviorSettingsForwardedQueryStrings]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether the distribution forwards and caches based on query strings.
@@ -2028,6 +2335,12 @@ func (o DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput) ToDistr
 
 func (o DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput) ToDistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput {
 	return o
+}
+
+func (o DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionCacheBehaviorSettingsForwardedQueryStrings] {
+	return pulumix.Output[*DistributionCacheBehaviorSettingsForwardedQueryStrings]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DistributionCacheBehaviorSettingsForwardedQueryStringsPtrOutput) Elem() DistributionCacheBehaviorSettingsForwardedQueryStringsOutput {
@@ -2093,6 +2406,12 @@ func (i DistributionDefaultCacheBehaviorArgs) ToDistributionDefaultCacheBehavior
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionDefaultCacheBehaviorOutput)
 }
 
+func (i DistributionDefaultCacheBehaviorArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionDefaultCacheBehavior] {
+	return pulumix.Output[DistributionDefaultCacheBehavior]{
+		OutputState: i.ToDistributionDefaultCacheBehaviorOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DistributionDefaultCacheBehaviorArgs) ToDistributionDefaultCacheBehaviorPtrOutput() DistributionDefaultCacheBehaviorPtrOutput {
 	return i.ToDistributionDefaultCacheBehaviorPtrOutputWithContext(context.Background())
 }
@@ -2134,6 +2453,12 @@ func (i *distributionDefaultCacheBehaviorPtrType) ToDistributionDefaultCacheBeha
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionDefaultCacheBehaviorPtrOutput)
 }
 
+func (i *distributionDefaultCacheBehaviorPtrType) ToOutput(ctx context.Context) pulumix.Output[*DistributionDefaultCacheBehavior] {
+	return pulumix.Output[*DistributionDefaultCacheBehavior]{
+		OutputState: i.ToDistributionDefaultCacheBehaviorPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DistributionDefaultCacheBehaviorOutput struct{ *pulumi.OutputState }
 
 func (DistributionDefaultCacheBehaviorOutput) ElementType() reflect.Type {
@@ -2158,6 +2483,12 @@ func (o DistributionDefaultCacheBehaviorOutput) ToDistributionDefaultCacheBehavi
 	}).(DistributionDefaultCacheBehaviorPtrOutput)
 }
 
+func (o DistributionDefaultCacheBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionDefaultCacheBehavior] {
+	return pulumix.Output[DistributionDefaultCacheBehavior]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The cache behavior of the distribution. Valid values: `cache` and `dont-cache`.
 func (o DistributionDefaultCacheBehaviorOutput) Behavior() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) string { return v.Behavior }).(pulumi.StringOutput)
@@ -2175,6 +2506,12 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) ToDistributionDefaultCacheBeh
 
 func (o DistributionDefaultCacheBehaviorPtrOutput) ToDistributionDefaultCacheBehaviorPtrOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorPtrOutput {
 	return o
+}
+
+func (o DistributionDefaultCacheBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionDefaultCacheBehavior] {
+	return pulumix.Output[*DistributionDefaultCacheBehavior]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DistributionDefaultCacheBehaviorPtrOutput) Elem() DistributionDefaultCacheBehaviorOutput {
@@ -2234,6 +2571,12 @@ func (i DistributionLocationArgs) ToDistributionLocationOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionLocationOutput)
 }
 
+func (i DistributionLocationArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionLocation] {
+	return pulumix.Output[DistributionLocation]{
+		OutputState: i.ToDistributionLocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DistributionLocationArrayInput is an input type that accepts DistributionLocationArray and DistributionLocationArrayOutput values.
 // You can construct a concrete instance of `DistributionLocationArrayInput` via:
 //
@@ -2259,6 +2602,12 @@ func (i DistributionLocationArray) ToDistributionLocationArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionLocationArrayOutput)
 }
 
+func (i DistributionLocationArray) ToOutput(ctx context.Context) pulumix.Output[[]DistributionLocation] {
+	return pulumix.Output[[]DistributionLocation]{
+		OutputState: i.ToDistributionLocationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DistributionLocationOutput struct{ *pulumi.OutputState }
 
 func (DistributionLocationOutput) ElementType() reflect.Type {
@@ -2271,6 +2620,12 @@ func (o DistributionLocationOutput) ToDistributionLocationOutput() DistributionL
 
 func (o DistributionLocationOutput) ToDistributionLocationOutputWithContext(ctx context.Context) DistributionLocationOutput {
 	return o
+}
+
+func (o DistributionLocationOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionLocation] {
+	return pulumix.Output[DistributionLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Availability Zone. Follows the format us-east-2a (case-sensitive).
@@ -2295,6 +2650,12 @@ func (o DistributionLocationArrayOutput) ToDistributionLocationArrayOutput() Dis
 
 func (o DistributionLocationArrayOutput) ToDistributionLocationArrayOutputWithContext(ctx context.Context) DistributionLocationArrayOutput {
 	return o
+}
+
+func (o DistributionLocationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DistributionLocation] {
+	return pulumix.Output[[]DistributionLocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DistributionLocationArrayOutput) Index(i pulumi.IntInput) DistributionLocationOutput {
@@ -2348,6 +2709,12 @@ func (i DistributionOriginArgs) ToDistributionOriginOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginOutput)
 }
 
+func (i DistributionOriginArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionOrigin] {
+	return pulumix.Output[DistributionOrigin]{
+		OutputState: i.ToDistributionOriginOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i DistributionOriginArgs) ToDistributionOriginPtrOutput() DistributionOriginPtrOutput {
 	return i.ToDistributionOriginPtrOutputWithContext(context.Background())
 }
@@ -2389,6 +2756,12 @@ func (i *distributionOriginPtrType) ToDistributionOriginPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginPtrOutput)
 }
 
+func (i *distributionOriginPtrType) ToOutput(ctx context.Context) pulumix.Output[*DistributionOrigin] {
+	return pulumix.Output[*DistributionOrigin]{
+		OutputState: i.ToDistributionOriginPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DistributionOriginOutput struct{ *pulumi.OutputState }
 
 func (DistributionOriginOutput) ElementType() reflect.Type {
@@ -2411,6 +2784,12 @@ func (o DistributionOriginOutput) ToDistributionOriginPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionOrigin) *DistributionOrigin {
 		return &v
 	}).(DistributionOriginPtrOutput)
+}
+
+func (o DistributionOriginOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionOrigin] {
+	return pulumix.Output[DistributionOrigin]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the origin resource. Your origin can be an instance with an attached static IP, a bucket, or a load balancer that has at least one instance attached to it.
@@ -2445,6 +2824,12 @@ func (o DistributionOriginPtrOutput) ToDistributionOriginPtrOutput() Distributio
 
 func (o DistributionOriginPtrOutput) ToDistributionOriginPtrOutputWithContext(ctx context.Context) DistributionOriginPtrOutput {
 	return o
+}
+
+func (o DistributionOriginPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionOrigin] {
+	return pulumix.Output[*DistributionOrigin]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DistributionOriginPtrOutput) Elem() DistributionOriginOutput {
@@ -2538,6 +2923,12 @@ func (i InstanceAddOnArgs) ToInstanceAddOnOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceAddOnOutput)
 }
 
+func (i InstanceAddOnArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceAddOn] {
+	return pulumix.Output[InstanceAddOn]{
+		OutputState: i.ToInstanceAddOnOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i InstanceAddOnArgs) ToInstanceAddOnPtrOutput() InstanceAddOnPtrOutput {
 	return i.ToInstanceAddOnPtrOutputWithContext(context.Background())
 }
@@ -2579,6 +2970,12 @@ func (i *instanceAddOnPtrType) ToInstanceAddOnPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceAddOnPtrOutput)
 }
 
+func (i *instanceAddOnPtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceAddOn] {
+	return pulumix.Output[*InstanceAddOn]{
+		OutputState: i.ToInstanceAddOnPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstanceAddOnOutput struct{ *pulumi.OutputState }
 
 func (InstanceAddOnOutput) ElementType() reflect.Type {
@@ -2601,6 +2998,12 @@ func (o InstanceAddOnOutput) ToInstanceAddOnPtrOutputWithContext(ctx context.Con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceAddOn) *InstanceAddOn {
 		return &v
 	}).(InstanceAddOnPtrOutput)
+}
+
+func (o InstanceAddOnOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceAddOn] {
+	return pulumix.Output[InstanceAddOn]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The daily time when an automatic snapshot will be created. Must be in HH:00 format, and in an hourly increment and specified in Coordinated Universal Time (UTC). The snapshot will be automatically created between the time specified and up to 45 minutes after.
@@ -2630,6 +3033,12 @@ func (o InstanceAddOnPtrOutput) ToInstanceAddOnPtrOutput() InstanceAddOnPtrOutpu
 
 func (o InstanceAddOnPtrOutput) ToInstanceAddOnPtrOutputWithContext(ctx context.Context) InstanceAddOnPtrOutput {
 	return o
+}
+
+func (o InstanceAddOnPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceAddOn] {
+	return pulumix.Output[*InstanceAddOn]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceAddOnPtrOutput) Elem() InstanceAddOnOutput {
@@ -2727,6 +3136,12 @@ func (i InstancePublicPortsPortInfoArgs) ToInstancePublicPortsPortInfoOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(InstancePublicPortsPortInfoOutput)
 }
 
+func (i InstancePublicPortsPortInfoArgs) ToOutput(ctx context.Context) pulumix.Output[InstancePublicPortsPortInfo] {
+	return pulumix.Output[InstancePublicPortsPortInfo]{
+		OutputState: i.ToInstancePublicPortsPortInfoOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InstancePublicPortsPortInfoArrayInput is an input type that accepts InstancePublicPortsPortInfoArray and InstancePublicPortsPortInfoArrayOutput values.
 // You can construct a concrete instance of `InstancePublicPortsPortInfoArrayInput` via:
 //
@@ -2752,6 +3167,12 @@ func (i InstancePublicPortsPortInfoArray) ToInstancePublicPortsPortInfoArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(InstancePublicPortsPortInfoArrayOutput)
 }
 
+func (i InstancePublicPortsPortInfoArray) ToOutput(ctx context.Context) pulumix.Output[[]InstancePublicPortsPortInfo] {
+	return pulumix.Output[[]InstancePublicPortsPortInfo]{
+		OutputState: i.ToInstancePublicPortsPortInfoArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InstancePublicPortsPortInfoOutput struct{ *pulumi.OutputState }
 
 func (InstancePublicPortsPortInfoOutput) ElementType() reflect.Type {
@@ -2764,6 +3185,12 @@ func (o InstancePublicPortsPortInfoOutput) ToInstancePublicPortsPortInfoOutput()
 
 func (o InstancePublicPortsPortInfoOutput) ToInstancePublicPortsPortInfoOutputWithContext(ctx context.Context) InstancePublicPortsPortInfoOutput {
 	return o
+}
+
+func (o InstancePublicPortsPortInfoOutput) ToOutput(ctx context.Context) pulumix.Output[InstancePublicPortsPortInfo] {
+	return pulumix.Output[InstancePublicPortsPortInfo]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of CIDR aliases that define access for a preconfigured range of IP addresses.
@@ -2811,6 +3238,12 @@ func (o InstancePublicPortsPortInfoArrayOutput) ToInstancePublicPortsPortInfoArr
 	return o
 }
 
+func (o InstancePublicPortsPortInfoArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstancePublicPortsPortInfo] {
+	return pulumix.Output[[]InstancePublicPortsPortInfo]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InstancePublicPortsPortInfoArrayOutput) Index(i pulumi.IntInput) InstancePublicPortsPortInfoOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstancePublicPortsPortInfo {
 		return vs[0].([]InstancePublicPortsPortInfo)[vs[1].(int)]
@@ -2856,6 +3289,12 @@ func (i LbCertificateDomainValidationRecordArgs) ToLbCertificateDomainValidation
 	return pulumi.ToOutputWithContext(ctx, i).(LbCertificateDomainValidationRecordOutput)
 }
 
+func (i LbCertificateDomainValidationRecordArgs) ToOutput(ctx context.Context) pulumix.Output[LbCertificateDomainValidationRecord] {
+	return pulumix.Output[LbCertificateDomainValidationRecord]{
+		OutputState: i.ToLbCertificateDomainValidationRecordOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LbCertificateDomainValidationRecordArrayInput is an input type that accepts LbCertificateDomainValidationRecordArray and LbCertificateDomainValidationRecordArrayOutput values.
 // You can construct a concrete instance of `LbCertificateDomainValidationRecordArrayInput` via:
 //
@@ -2881,6 +3320,12 @@ func (i LbCertificateDomainValidationRecordArray) ToLbCertificateDomainValidatio
 	return pulumi.ToOutputWithContext(ctx, i).(LbCertificateDomainValidationRecordArrayOutput)
 }
 
+func (i LbCertificateDomainValidationRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]LbCertificateDomainValidationRecord] {
+	return pulumix.Output[[]LbCertificateDomainValidationRecord]{
+		OutputState: i.ToLbCertificateDomainValidationRecordArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LbCertificateDomainValidationRecordOutput struct{ *pulumi.OutputState }
 
 func (LbCertificateDomainValidationRecordOutput) ElementType() reflect.Type {
@@ -2893,6 +3338,12 @@ func (o LbCertificateDomainValidationRecordOutput) ToLbCertificateDomainValidati
 
 func (o LbCertificateDomainValidationRecordOutput) ToLbCertificateDomainValidationRecordOutputWithContext(ctx context.Context) LbCertificateDomainValidationRecordOutput {
 	return o
+}
+
+func (o LbCertificateDomainValidationRecordOutput) ToOutput(ctx context.Context) pulumix.Output[LbCertificateDomainValidationRecord] {
+	return pulumix.Output[LbCertificateDomainValidationRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The domain name (e.g., example.com) for your SSL/TLS certificate.
@@ -2924,6 +3375,12 @@ func (o LbCertificateDomainValidationRecordArrayOutput) ToLbCertificateDomainVal
 
 func (o LbCertificateDomainValidationRecordArrayOutput) ToLbCertificateDomainValidationRecordArrayOutputWithContext(ctx context.Context) LbCertificateDomainValidationRecordArrayOutput {
 	return o
+}
+
+func (o LbCertificateDomainValidationRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LbCertificateDomainValidationRecord] {
+	return pulumix.Output[[]LbCertificateDomainValidationRecord]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LbCertificateDomainValidationRecordArrayOutput) Index(i pulumi.IntInput) LbCertificateDomainValidationRecordOutput {

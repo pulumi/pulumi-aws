@@ -35,8 +35,8 @@ namespace Pulumi.Aws.LB
     ///         },
     ///         Subnets = .Select(subnet =&gt; 
     ///         {
-    ///             return  subnet.Id;
-    ///         }),
+    ///             return subnet.Id;
+    ///         }).ToList(),
     ///         EnableDeletionProtection = true,
     ///         AccessLogs = new Aws.LB.Inputs.LoadBalancerAccessLogsArgs
     ///         {
@@ -68,8 +68,8 @@ namespace Pulumi.Aws.LB
     ///         LoadBalancerType = "network",
     ///         Subnets = .Select(subnet =&gt; 
     ///         {
-    ///             return  subnet.Id;
-    ///         }),
+    ///             return subnet.Id;
+    ///         }).ToList(),
     ///         EnableDeletionProtection = true,
     ///         Tags = 
     ///         {
@@ -274,7 +274,7 @@ namespace Pulumi.Aws.LB
         public Output<bool?> PreserveHostHeader { get; private set; } = null!;
 
         /// <summary>
-        /// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+        /// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
         /// </summary>
         [Output("securityGroups")]
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
@@ -478,7 +478,7 @@ namespace Pulumi.Aws.LB
         private InputList<string>? _securityGroups;
 
         /// <summary>
-        /// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+        /// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
         /// </summary>
         public InputList<string> SecurityGroups
         {
@@ -664,7 +664,7 @@ namespace Pulumi.Aws.LB
         private InputList<string>? _securityGroups;
 
         /// <summary>
-        /// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application`.
+        /// A list of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
         /// </summary>
         public InputList<string> SecurityGroups
         {

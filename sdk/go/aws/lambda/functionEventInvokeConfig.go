@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an asynchronous invocation configuration for a Lambda Function or Alias. More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
@@ -336,6 +337,12 @@ func (i *FunctionEventInvokeConfig) ToFunctionEventInvokeConfigOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEventInvokeConfigOutput)
 }
 
+func (i *FunctionEventInvokeConfig) ToOutput(ctx context.Context) pulumix.Output[*FunctionEventInvokeConfig] {
+	return pulumix.Output[*FunctionEventInvokeConfig]{
+		OutputState: i.ToFunctionEventInvokeConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FunctionEventInvokeConfigArrayInput is an input type that accepts FunctionEventInvokeConfigArray and FunctionEventInvokeConfigArrayOutput values.
 // You can construct a concrete instance of `FunctionEventInvokeConfigArrayInput` via:
 //
@@ -359,6 +366,12 @@ func (i FunctionEventInvokeConfigArray) ToFunctionEventInvokeConfigArrayOutput()
 
 func (i FunctionEventInvokeConfigArray) ToFunctionEventInvokeConfigArrayOutputWithContext(ctx context.Context) FunctionEventInvokeConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEventInvokeConfigArrayOutput)
+}
+
+func (i FunctionEventInvokeConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*FunctionEventInvokeConfig] {
+	return pulumix.Output[[]*FunctionEventInvokeConfig]{
+		OutputState: i.ToFunctionEventInvokeConfigArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FunctionEventInvokeConfigMapInput is an input type that accepts FunctionEventInvokeConfigMap and FunctionEventInvokeConfigMapOutput values.
@@ -386,6 +399,12 @@ func (i FunctionEventInvokeConfigMap) ToFunctionEventInvokeConfigMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionEventInvokeConfigMapOutput)
 }
 
+func (i FunctionEventInvokeConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FunctionEventInvokeConfig] {
+	return pulumix.Output[map[string]*FunctionEventInvokeConfig]{
+		OutputState: i.ToFunctionEventInvokeConfigMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FunctionEventInvokeConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionEventInvokeConfigOutput) ElementType() reflect.Type {
@@ -398,6 +417,12 @@ func (o FunctionEventInvokeConfigOutput) ToFunctionEventInvokeConfigOutput() Fun
 
 func (o FunctionEventInvokeConfigOutput) ToFunctionEventInvokeConfigOutputWithContext(ctx context.Context) FunctionEventInvokeConfigOutput {
 	return o
+}
+
+func (o FunctionEventInvokeConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionEventInvokeConfig] {
+	return pulumix.Output[*FunctionEventInvokeConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block with destination configuration. See below for details.
@@ -443,6 +468,12 @@ func (o FunctionEventInvokeConfigArrayOutput) ToFunctionEventInvokeConfigArrayOu
 	return o
 }
 
+func (o FunctionEventInvokeConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FunctionEventInvokeConfig] {
+	return pulumix.Output[[]*FunctionEventInvokeConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FunctionEventInvokeConfigArrayOutput) Index(i pulumi.IntInput) FunctionEventInvokeConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FunctionEventInvokeConfig {
 		return vs[0].([]*FunctionEventInvokeConfig)[vs[1].(int)]
@@ -461,6 +492,12 @@ func (o FunctionEventInvokeConfigMapOutput) ToFunctionEventInvokeConfigMapOutput
 
 func (o FunctionEventInvokeConfigMapOutput) ToFunctionEventInvokeConfigMapOutputWithContext(ctx context.Context) FunctionEventInvokeConfigMapOutput {
 	return o
+}
+
+func (o FunctionEventInvokeConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FunctionEventInvokeConfig] {
+	return pulumix.Output[map[string]*FunctionEventInvokeConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FunctionEventInvokeConfigMapOutput) MapIndex(k pulumi.StringInput) FunctionEventInvokeConfigOutput {

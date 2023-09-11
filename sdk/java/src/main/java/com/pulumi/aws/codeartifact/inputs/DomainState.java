@@ -37,13 +37,13 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="assetSizeBytes")
-    private @Nullable Output<Integer> assetSizeBytes;
+    private @Nullable Output<String> assetSizeBytes;
 
     /**
      * @return The total size of all assets in the domain.
      * 
      */
-    public Optional<Output<Integer>> assetSizeBytes() {
+    public Optional<Output<String>> assetSizeBytes() {
         return Optional.ofNullable(this.assetSizeBytes);
     }
 
@@ -211,7 +211,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder assetSizeBytes(@Nullable Output<Integer> assetSizeBytes) {
+        public Builder assetSizeBytes(@Nullable Output<String> assetSizeBytes) {
             $.assetSizeBytes = assetSizeBytes;
             return this;
         }
@@ -222,7 +222,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder assetSizeBytes(Integer assetSizeBytes) {
+        public Builder assetSizeBytes(String assetSizeBytes) {
             return assetSizeBytes(Output.of(assetSizeBytes));
         }
 

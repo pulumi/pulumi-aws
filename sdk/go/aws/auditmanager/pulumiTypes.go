@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -48,6 +49,12 @@ func (i AssessmentAssessmentReportsDestinationArgs) ToAssessmentAssessmentReport
 
 func (i AssessmentAssessmentReportsDestinationArgs) ToAssessmentAssessmentReportsDestinationOutputWithContext(ctx context.Context) AssessmentAssessmentReportsDestinationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAssessmentReportsDestinationOutput)
+}
+
+func (i AssessmentAssessmentReportsDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[AssessmentAssessmentReportsDestination] {
+	return pulumix.Output[AssessmentAssessmentReportsDestination]{
+		OutputState: i.ToAssessmentAssessmentReportsDestinationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i AssessmentAssessmentReportsDestinationArgs) ToAssessmentAssessmentReportsDestinationPtrOutput() AssessmentAssessmentReportsDestinationPtrOutput {
@@ -91,6 +98,12 @@ func (i *assessmentAssessmentReportsDestinationPtrType) ToAssessmentAssessmentRe
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentAssessmentReportsDestinationPtrOutput)
 }
 
+func (i *assessmentAssessmentReportsDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AssessmentAssessmentReportsDestination] {
+	return pulumix.Output[*AssessmentAssessmentReportsDestination]{
+		OutputState: i.ToAssessmentAssessmentReportsDestinationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AssessmentAssessmentReportsDestinationOutput struct{ *pulumi.OutputState }
 
 func (AssessmentAssessmentReportsDestinationOutput) ElementType() reflect.Type {
@@ -115,6 +128,12 @@ func (o AssessmentAssessmentReportsDestinationOutput) ToAssessmentAssessmentRepo
 	}).(AssessmentAssessmentReportsDestinationPtrOutput)
 }
 
+func (o AssessmentAssessmentReportsDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentAssessmentReportsDestination] {
+	return pulumix.Output[AssessmentAssessmentReportsDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Destination of the assessment report. This value be in the form `s3://{bucket_name}`.
 func (o AssessmentAssessmentReportsDestinationOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v AssessmentAssessmentReportsDestination) string { return v.Destination }).(pulumi.StringOutput)
@@ -137,6 +156,12 @@ func (o AssessmentAssessmentReportsDestinationPtrOutput) ToAssessmentAssessmentR
 
 func (o AssessmentAssessmentReportsDestinationPtrOutput) ToAssessmentAssessmentReportsDestinationPtrOutputWithContext(ctx context.Context) AssessmentAssessmentReportsDestinationPtrOutput {
 	return o
+}
+
+func (o AssessmentAssessmentReportsDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssessmentAssessmentReportsDestination] {
+	return pulumix.Output[*AssessmentAssessmentReportsDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssessmentAssessmentReportsDestinationPtrOutput) Elem() AssessmentAssessmentReportsDestinationOutput {
@@ -206,6 +231,12 @@ func (i AssessmentRoleArgs) ToAssessmentRoleOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentRoleOutput)
 }
 
+func (i AssessmentRoleArgs) ToOutput(ctx context.Context) pulumix.Output[AssessmentRole] {
+	return pulumix.Output[AssessmentRole]{
+		OutputState: i.ToAssessmentRoleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AssessmentRoleArrayInput is an input type that accepts AssessmentRoleArray and AssessmentRoleArrayOutput values.
 // You can construct a concrete instance of `AssessmentRoleArrayInput` via:
 //
@@ -231,6 +262,12 @@ func (i AssessmentRoleArray) ToAssessmentRoleArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentRoleArrayOutput)
 }
 
+func (i AssessmentRoleArray) ToOutput(ctx context.Context) pulumix.Output[[]AssessmentRole] {
+	return pulumix.Output[[]AssessmentRole]{
+		OutputState: i.ToAssessmentRoleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AssessmentRoleOutput struct{ *pulumi.OutputState }
 
 func (AssessmentRoleOutput) ElementType() reflect.Type {
@@ -243,6 +280,12 @@ func (o AssessmentRoleOutput) ToAssessmentRoleOutput() AssessmentRoleOutput {
 
 func (o AssessmentRoleOutput) ToAssessmentRoleOutputWithContext(ctx context.Context) AssessmentRoleOutput {
 	return o
+}
+
+func (o AssessmentRoleOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentRole] {
+	return pulumix.Output[AssessmentRole]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the IAM role.
@@ -267,6 +310,12 @@ func (o AssessmentRoleArrayOutput) ToAssessmentRoleArrayOutput() AssessmentRoleA
 
 func (o AssessmentRoleArrayOutput) ToAssessmentRoleArrayOutputWithContext(ctx context.Context) AssessmentRoleArrayOutput {
 	return o
+}
+
+func (o AssessmentRoleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssessmentRole] {
+	return pulumix.Output[[]AssessmentRole]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssessmentRoleArrayOutput) Index(i pulumi.IntInput) AssessmentRoleOutput {
@@ -312,6 +361,12 @@ func (i AssessmentRolesAllArgs) ToAssessmentRolesAllOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentRolesAllOutput)
 }
 
+func (i AssessmentRolesAllArgs) ToOutput(ctx context.Context) pulumix.Output[AssessmentRolesAll] {
+	return pulumix.Output[AssessmentRolesAll]{
+		OutputState: i.ToAssessmentRolesAllOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AssessmentRolesAllArrayInput is an input type that accepts AssessmentRolesAllArray and AssessmentRolesAllArrayOutput values.
 // You can construct a concrete instance of `AssessmentRolesAllArrayInput` via:
 //
@@ -337,6 +392,12 @@ func (i AssessmentRolesAllArray) ToAssessmentRolesAllArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentRolesAllArrayOutput)
 }
 
+func (i AssessmentRolesAllArray) ToOutput(ctx context.Context) pulumix.Output[[]AssessmentRolesAll] {
+	return pulumix.Output[[]AssessmentRolesAll]{
+		OutputState: i.ToAssessmentRolesAllArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AssessmentRolesAllOutput struct{ *pulumi.OutputState }
 
 func (AssessmentRolesAllOutput) ElementType() reflect.Type {
@@ -349,6 +410,12 @@ func (o AssessmentRolesAllOutput) ToAssessmentRolesAllOutput() AssessmentRolesAl
 
 func (o AssessmentRolesAllOutput) ToAssessmentRolesAllOutputWithContext(ctx context.Context) AssessmentRolesAllOutput {
 	return o
+}
+
+func (o AssessmentRolesAllOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentRolesAll] {
+	return pulumix.Output[AssessmentRolesAll]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the IAM role.
@@ -373,6 +440,12 @@ func (o AssessmentRolesAllArrayOutput) ToAssessmentRolesAllArrayOutput() Assessm
 
 func (o AssessmentRolesAllArrayOutput) ToAssessmentRolesAllArrayOutputWithContext(ctx context.Context) AssessmentRolesAllArrayOutput {
 	return o
+}
+
+func (o AssessmentRolesAllArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssessmentRolesAll] {
+	return pulumix.Output[[]AssessmentRolesAll]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssessmentRolesAllArrayOutput) Index(i pulumi.IntInput) AssessmentRolesAllOutput {
@@ -418,6 +491,12 @@ func (i AssessmentScopeArgs) ToAssessmentScopeOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentScopeOutput)
 }
 
+func (i AssessmentScopeArgs) ToOutput(ctx context.Context) pulumix.Output[AssessmentScope] {
+	return pulumix.Output[AssessmentScope]{
+		OutputState: i.ToAssessmentScopeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AssessmentScopeArgs) ToAssessmentScopePtrOutput() AssessmentScopePtrOutput {
 	return i.ToAssessmentScopePtrOutputWithContext(context.Background())
 }
@@ -459,6 +538,12 @@ func (i *assessmentScopePtrType) ToAssessmentScopePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentScopePtrOutput)
 }
 
+func (i *assessmentScopePtrType) ToOutput(ctx context.Context) pulumix.Output[*AssessmentScope] {
+	return pulumix.Output[*AssessmentScope]{
+		OutputState: i.ToAssessmentScopePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AssessmentScopeOutput struct{ *pulumi.OutputState }
 
 func (AssessmentScopeOutput) ElementType() reflect.Type {
@@ -483,6 +568,12 @@ func (o AssessmentScopeOutput) ToAssessmentScopePtrOutputWithContext(ctx context
 	}).(AssessmentScopePtrOutput)
 }
 
+func (o AssessmentScopeOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentScope] {
+	return pulumix.Output[AssessmentScope]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Amazon Web Services accounts that are in scope for the assessment. See `awsAccounts` below.
 func (o AssessmentScopeOutput) AwsAccounts() AssessmentScopeAwsAccountArrayOutput {
 	return o.ApplyT(func(v AssessmentScope) []AssessmentScopeAwsAccount { return v.AwsAccounts }).(AssessmentScopeAwsAccountArrayOutput)
@@ -505,6 +596,12 @@ func (o AssessmentScopePtrOutput) ToAssessmentScopePtrOutput() AssessmentScopePt
 
 func (o AssessmentScopePtrOutput) ToAssessmentScopePtrOutputWithContext(ctx context.Context) AssessmentScopePtrOutput {
 	return o
+}
+
+func (o AssessmentScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssessmentScope] {
+	return pulumix.Output[*AssessmentScope]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssessmentScopePtrOutput) Elem() AssessmentScopeOutput {
@@ -570,6 +667,12 @@ func (i AssessmentScopeAwsAccountArgs) ToAssessmentScopeAwsAccountOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentScopeAwsAccountOutput)
 }
 
+func (i AssessmentScopeAwsAccountArgs) ToOutput(ctx context.Context) pulumix.Output[AssessmentScopeAwsAccount] {
+	return pulumix.Output[AssessmentScopeAwsAccount]{
+		OutputState: i.ToAssessmentScopeAwsAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AssessmentScopeAwsAccountArrayInput is an input type that accepts AssessmentScopeAwsAccountArray and AssessmentScopeAwsAccountArrayOutput values.
 // You can construct a concrete instance of `AssessmentScopeAwsAccountArrayInput` via:
 //
@@ -595,6 +698,12 @@ func (i AssessmentScopeAwsAccountArray) ToAssessmentScopeAwsAccountArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentScopeAwsAccountArrayOutput)
 }
 
+func (i AssessmentScopeAwsAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]AssessmentScopeAwsAccount] {
+	return pulumix.Output[[]AssessmentScopeAwsAccount]{
+		OutputState: i.ToAssessmentScopeAwsAccountArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AssessmentScopeAwsAccountOutput struct{ *pulumi.OutputState }
 
 func (AssessmentScopeAwsAccountOutput) ElementType() reflect.Type {
@@ -607,6 +716,12 @@ func (o AssessmentScopeAwsAccountOutput) ToAssessmentScopeAwsAccountOutput() Ass
 
 func (o AssessmentScopeAwsAccountOutput) ToAssessmentScopeAwsAccountOutputWithContext(ctx context.Context) AssessmentScopeAwsAccountOutput {
 	return o
+}
+
+func (o AssessmentScopeAwsAccountOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentScopeAwsAccount] {
+	return pulumix.Output[AssessmentScopeAwsAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Identifier for the Amazon Web Services account.
@@ -626,6 +741,12 @@ func (o AssessmentScopeAwsAccountArrayOutput) ToAssessmentScopeAwsAccountArrayOu
 
 func (o AssessmentScopeAwsAccountArrayOutput) ToAssessmentScopeAwsAccountArrayOutputWithContext(ctx context.Context) AssessmentScopeAwsAccountArrayOutput {
 	return o
+}
+
+func (o AssessmentScopeAwsAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssessmentScopeAwsAccount] {
+	return pulumix.Output[[]AssessmentScopeAwsAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssessmentScopeAwsAccountArrayOutput) Index(i pulumi.IntInput) AssessmentScopeAwsAccountOutput {
@@ -667,6 +788,12 @@ func (i AssessmentScopeAwsServiceArgs) ToAssessmentScopeAwsServiceOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentScopeAwsServiceOutput)
 }
 
+func (i AssessmentScopeAwsServiceArgs) ToOutput(ctx context.Context) pulumix.Output[AssessmentScopeAwsService] {
+	return pulumix.Output[AssessmentScopeAwsService]{
+		OutputState: i.ToAssessmentScopeAwsServiceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AssessmentScopeAwsServiceArrayInput is an input type that accepts AssessmentScopeAwsServiceArray and AssessmentScopeAwsServiceArrayOutput values.
 // You can construct a concrete instance of `AssessmentScopeAwsServiceArrayInput` via:
 //
@@ -692,6 +819,12 @@ func (i AssessmentScopeAwsServiceArray) ToAssessmentScopeAwsServiceArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentScopeAwsServiceArrayOutput)
 }
 
+func (i AssessmentScopeAwsServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]AssessmentScopeAwsService] {
+	return pulumix.Output[[]AssessmentScopeAwsService]{
+		OutputState: i.ToAssessmentScopeAwsServiceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AssessmentScopeAwsServiceOutput struct{ *pulumi.OutputState }
 
 func (AssessmentScopeAwsServiceOutput) ElementType() reflect.Type {
@@ -704,6 +837,12 @@ func (o AssessmentScopeAwsServiceOutput) ToAssessmentScopeAwsServiceOutput() Ass
 
 func (o AssessmentScopeAwsServiceOutput) ToAssessmentScopeAwsServiceOutputWithContext(ctx context.Context) AssessmentScopeAwsServiceOutput {
 	return o
+}
+
+func (o AssessmentScopeAwsServiceOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentScopeAwsService] {
+	return pulumix.Output[AssessmentScopeAwsService]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the Amazon Web Service.
@@ -723,6 +862,12 @@ func (o AssessmentScopeAwsServiceArrayOutput) ToAssessmentScopeAwsServiceArrayOu
 
 func (o AssessmentScopeAwsServiceArrayOutput) ToAssessmentScopeAwsServiceArrayOutputWithContext(ctx context.Context) AssessmentScopeAwsServiceArrayOutput {
 	return o
+}
+
+func (o AssessmentScopeAwsServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssessmentScopeAwsService] {
+	return pulumix.Output[[]AssessmentScopeAwsService]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AssessmentScopeAwsServiceArrayOutput) Index(i pulumi.IntInput) AssessmentScopeAwsServiceOutput {
@@ -794,6 +939,12 @@ func (i ControlControlMappingSourceArgs) ToControlControlMappingSourceOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ControlControlMappingSourceOutput)
 }
 
+func (i ControlControlMappingSourceArgs) ToOutput(ctx context.Context) pulumix.Output[ControlControlMappingSource] {
+	return pulumix.Output[ControlControlMappingSource]{
+		OutputState: i.ToControlControlMappingSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ControlControlMappingSourceArrayInput is an input type that accepts ControlControlMappingSourceArray and ControlControlMappingSourceArrayOutput values.
 // You can construct a concrete instance of `ControlControlMappingSourceArrayInput` via:
 //
@@ -819,6 +970,12 @@ func (i ControlControlMappingSourceArray) ToControlControlMappingSourceArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ControlControlMappingSourceArrayOutput)
 }
 
+func (i ControlControlMappingSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]ControlControlMappingSource] {
+	return pulumix.Output[[]ControlControlMappingSource]{
+		OutputState: i.ToControlControlMappingSourceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ControlControlMappingSourceOutput struct{ *pulumi.OutputState }
 
 func (ControlControlMappingSourceOutput) ElementType() reflect.Type {
@@ -831,6 +988,12 @@ func (o ControlControlMappingSourceOutput) ToControlControlMappingSourceOutput()
 
 func (o ControlControlMappingSourceOutput) ToControlControlMappingSourceOutputWithContext(ctx context.Context) ControlControlMappingSourceOutput {
 	return o
+}
+
+func (o ControlControlMappingSourceOutput) ToOutput(ctx context.Context) pulumix.Output[ControlControlMappingSource] {
+	return pulumix.Output[ControlControlMappingSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Description of the source.
@@ -888,6 +1051,12 @@ func (o ControlControlMappingSourceArrayOutput) ToControlControlMappingSourceArr
 	return o
 }
 
+func (o ControlControlMappingSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ControlControlMappingSource] {
+	return pulumix.Output[[]ControlControlMappingSource]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ControlControlMappingSourceArrayOutput) Index(i pulumi.IntInput) ControlControlMappingSourceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ControlControlMappingSource {
 		return vs[0].([]ControlControlMappingSource)[vs[1].(int)]
@@ -931,6 +1100,12 @@ func (i ControlControlMappingSourceSourceKeywordArgs) ToControlControlMappingSou
 	return pulumi.ToOutputWithContext(ctx, i).(ControlControlMappingSourceSourceKeywordOutput)
 }
 
+func (i ControlControlMappingSourceSourceKeywordArgs) ToOutput(ctx context.Context) pulumix.Output[ControlControlMappingSourceSourceKeyword] {
+	return pulumix.Output[ControlControlMappingSourceSourceKeyword]{
+		OutputState: i.ToControlControlMappingSourceSourceKeywordOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i ControlControlMappingSourceSourceKeywordArgs) ToControlControlMappingSourceSourceKeywordPtrOutput() ControlControlMappingSourceSourceKeywordPtrOutput {
 	return i.ToControlControlMappingSourceSourceKeywordPtrOutputWithContext(context.Background())
 }
@@ -972,6 +1147,12 @@ func (i *controlControlMappingSourceSourceKeywordPtrType) ToControlControlMappin
 	return pulumi.ToOutputWithContext(ctx, i).(ControlControlMappingSourceSourceKeywordPtrOutput)
 }
 
+func (i *controlControlMappingSourceSourceKeywordPtrType) ToOutput(ctx context.Context) pulumix.Output[*ControlControlMappingSourceSourceKeyword] {
+	return pulumix.Output[*ControlControlMappingSourceSourceKeyword]{
+		OutputState: i.ToControlControlMappingSourceSourceKeywordPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ControlControlMappingSourceSourceKeywordOutput struct{ *pulumi.OutputState }
 
 func (ControlControlMappingSourceSourceKeywordOutput) ElementType() reflect.Type {
@@ -996,6 +1177,12 @@ func (o ControlControlMappingSourceSourceKeywordOutput) ToControlControlMappingS
 	}).(ControlControlMappingSourceSourceKeywordPtrOutput)
 }
 
+func (o ControlControlMappingSourceSourceKeywordOutput) ToOutput(ctx context.Context) pulumix.Output[ControlControlMappingSourceSourceKeyword] {
+	return pulumix.Output[ControlControlMappingSourceSourceKeyword]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Input method for the keyword. Valid values are `SELECT_FROM_LIST`.
 func (o ControlControlMappingSourceSourceKeywordOutput) KeywordInputType() pulumi.StringOutput {
 	return o.ApplyT(func(v ControlControlMappingSourceSourceKeyword) string { return v.KeywordInputType }).(pulumi.StringOutput)
@@ -1018,6 +1205,12 @@ func (o ControlControlMappingSourceSourceKeywordPtrOutput) ToControlControlMappi
 
 func (o ControlControlMappingSourceSourceKeywordPtrOutput) ToControlControlMappingSourceSourceKeywordPtrOutputWithContext(ctx context.Context) ControlControlMappingSourceSourceKeywordPtrOutput {
 	return o
+}
+
+func (o ControlControlMappingSourceSourceKeywordPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ControlControlMappingSourceSourceKeyword] {
+	return pulumix.Output[*ControlControlMappingSourceSourceKeyword]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ControlControlMappingSourceSourceKeywordPtrOutput) Elem() ControlControlMappingSourceSourceKeywordOutput {
@@ -1091,6 +1284,12 @@ func (i FrameworkControlSetArgs) ToFrameworkControlSetOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkControlSetOutput)
 }
 
+func (i FrameworkControlSetArgs) ToOutput(ctx context.Context) pulumix.Output[FrameworkControlSet] {
+	return pulumix.Output[FrameworkControlSet]{
+		OutputState: i.ToFrameworkControlSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FrameworkControlSetArrayInput is an input type that accepts FrameworkControlSetArray and FrameworkControlSetArrayOutput values.
 // You can construct a concrete instance of `FrameworkControlSetArrayInput` via:
 //
@@ -1116,6 +1315,12 @@ func (i FrameworkControlSetArray) ToFrameworkControlSetArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkControlSetArrayOutput)
 }
 
+func (i FrameworkControlSetArray) ToOutput(ctx context.Context) pulumix.Output[[]FrameworkControlSet] {
+	return pulumix.Output[[]FrameworkControlSet]{
+		OutputState: i.ToFrameworkControlSetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FrameworkControlSetOutput struct{ *pulumi.OutputState }
 
 func (FrameworkControlSetOutput) ElementType() reflect.Type {
@@ -1128,6 +1333,12 @@ func (o FrameworkControlSetOutput) ToFrameworkControlSetOutput() FrameworkContro
 
 func (o FrameworkControlSetOutput) ToFrameworkControlSetOutputWithContext(ctx context.Context) FrameworkControlSetOutput {
 	return o
+}
+
+func (o FrameworkControlSetOutput) ToOutput(ctx context.Context) pulumix.Output[FrameworkControlSet] {
+	return pulumix.Output[FrameworkControlSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of controls within the control set. See `controls` below.
@@ -1157,6 +1368,12 @@ func (o FrameworkControlSetArrayOutput) ToFrameworkControlSetArrayOutput() Frame
 
 func (o FrameworkControlSetArrayOutput) ToFrameworkControlSetArrayOutputWithContext(ctx context.Context) FrameworkControlSetArrayOutput {
 	return o
+}
+
+func (o FrameworkControlSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FrameworkControlSet] {
+	return pulumix.Output[[]FrameworkControlSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FrameworkControlSetArrayOutput) Index(i pulumi.IntInput) FrameworkControlSetOutput {
@@ -1198,6 +1415,12 @@ func (i FrameworkControlSetControlArgs) ToFrameworkControlSetControlOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkControlSetControlOutput)
 }
 
+func (i FrameworkControlSetControlArgs) ToOutput(ctx context.Context) pulumix.Output[FrameworkControlSetControl] {
+	return pulumix.Output[FrameworkControlSetControl]{
+		OutputState: i.ToFrameworkControlSetControlOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FrameworkControlSetControlArrayInput is an input type that accepts FrameworkControlSetControlArray and FrameworkControlSetControlArrayOutput values.
 // You can construct a concrete instance of `FrameworkControlSetControlArrayInput` via:
 //
@@ -1223,6 +1446,12 @@ func (i FrameworkControlSetControlArray) ToFrameworkControlSetControlArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkControlSetControlArrayOutput)
 }
 
+func (i FrameworkControlSetControlArray) ToOutput(ctx context.Context) pulumix.Output[[]FrameworkControlSetControl] {
+	return pulumix.Output[[]FrameworkControlSetControl]{
+		OutputState: i.ToFrameworkControlSetControlArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FrameworkControlSetControlOutput struct{ *pulumi.OutputState }
 
 func (FrameworkControlSetControlOutput) ElementType() reflect.Type {
@@ -1235,6 +1464,12 @@ func (o FrameworkControlSetControlOutput) ToFrameworkControlSetControlOutput() F
 
 func (o FrameworkControlSetControlOutput) ToFrameworkControlSetControlOutputWithContext(ctx context.Context) FrameworkControlSetControlOutput {
 	return o
+}
+
+func (o FrameworkControlSetControlOutput) ToOutput(ctx context.Context) pulumix.Output[FrameworkControlSetControl] {
+	return pulumix.Output[FrameworkControlSetControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Unique identifier of the control.
@@ -1254,6 +1489,12 @@ func (o FrameworkControlSetControlArrayOutput) ToFrameworkControlSetControlArray
 
 func (o FrameworkControlSetControlArrayOutput) ToFrameworkControlSetControlArrayOutputWithContext(ctx context.Context) FrameworkControlSetControlArrayOutput {
 	return o
+}
+
+func (o FrameworkControlSetControlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FrameworkControlSetControl] {
+	return pulumix.Output[[]FrameworkControlSetControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FrameworkControlSetControlArrayOutput) Index(i pulumi.IntInput) FrameworkControlSetControlOutput {
@@ -1307,6 +1548,12 @@ func (i GetControlControlMappingSourceArgs) ToGetControlControlMappingSourceOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetControlControlMappingSourceOutput)
 }
 
+func (i GetControlControlMappingSourceArgs) ToOutput(ctx context.Context) pulumix.Output[GetControlControlMappingSource] {
+	return pulumix.Output[GetControlControlMappingSource]{
+		OutputState: i.ToGetControlControlMappingSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetControlControlMappingSourceArrayInput is an input type that accepts GetControlControlMappingSourceArray and GetControlControlMappingSourceArrayOutput values.
 // You can construct a concrete instance of `GetControlControlMappingSourceArrayInput` via:
 //
@@ -1332,6 +1579,12 @@ func (i GetControlControlMappingSourceArray) ToGetControlControlMappingSourceArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetControlControlMappingSourceArrayOutput)
 }
 
+func (i GetControlControlMappingSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetControlControlMappingSource] {
+	return pulumix.Output[[]GetControlControlMappingSource]{
+		OutputState: i.ToGetControlControlMappingSourceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetControlControlMappingSourceOutput struct{ *pulumi.OutputState }
 
 func (GetControlControlMappingSourceOutput) ElementType() reflect.Type {
@@ -1344,6 +1597,12 @@ func (o GetControlControlMappingSourceOutput) ToGetControlControlMappingSourceOu
 
 func (o GetControlControlMappingSourceOutput) ToGetControlControlMappingSourceOutputWithContext(ctx context.Context) GetControlControlMappingSourceOutput {
 	return o
+}
+
+func (o GetControlControlMappingSourceOutput) ToOutput(ctx context.Context) pulumix.Output[GetControlControlMappingSource] {
+	return pulumix.Output[GetControlControlMappingSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetControlControlMappingSourceOutput) SourceDescription() pulumi.StringOutput {
@@ -1394,6 +1653,12 @@ func (o GetControlControlMappingSourceArrayOutput) ToGetControlControlMappingSou
 	return o
 }
 
+func (o GetControlControlMappingSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetControlControlMappingSource] {
+	return pulumix.Output[[]GetControlControlMappingSource]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetControlControlMappingSourceArrayOutput) Index(i pulumi.IntInput) GetControlControlMappingSourceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetControlControlMappingSource {
 		return vs[0].([]GetControlControlMappingSource)[vs[1].(int)]
@@ -1431,6 +1696,12 @@ func (i GetControlControlMappingSourceSourceKeywordArgs) ToGetControlControlMapp
 
 func (i GetControlControlMappingSourceSourceKeywordArgs) ToGetControlControlMappingSourceSourceKeywordOutputWithContext(ctx context.Context) GetControlControlMappingSourceSourceKeywordOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetControlControlMappingSourceSourceKeywordOutput)
+}
+
+func (i GetControlControlMappingSourceSourceKeywordArgs) ToOutput(ctx context.Context) pulumix.Output[GetControlControlMappingSourceSourceKeyword] {
+	return pulumix.Output[GetControlControlMappingSourceSourceKeyword]{
+		OutputState: i.ToGetControlControlMappingSourceSourceKeywordOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i GetControlControlMappingSourceSourceKeywordArgs) ToGetControlControlMappingSourceSourceKeywordPtrOutput() GetControlControlMappingSourceSourceKeywordPtrOutput {
@@ -1474,6 +1745,12 @@ func (i *getControlControlMappingSourceSourceKeywordPtrType) ToGetControlControl
 	return pulumi.ToOutputWithContext(ctx, i).(GetControlControlMappingSourceSourceKeywordPtrOutput)
 }
 
+func (i *getControlControlMappingSourceSourceKeywordPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetControlControlMappingSourceSourceKeyword] {
+	return pulumix.Output[*GetControlControlMappingSourceSourceKeyword]{
+		OutputState: i.ToGetControlControlMappingSourceSourceKeywordPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetControlControlMappingSourceSourceKeywordOutput struct{ *pulumi.OutputState }
 
 func (GetControlControlMappingSourceSourceKeywordOutput) ElementType() reflect.Type {
@@ -1498,6 +1775,12 @@ func (o GetControlControlMappingSourceSourceKeywordOutput) ToGetControlControlMa
 	}).(GetControlControlMappingSourceSourceKeywordPtrOutput)
 }
 
+func (o GetControlControlMappingSourceSourceKeywordOutput) ToOutput(ctx context.Context) pulumix.Output[GetControlControlMappingSourceSourceKeyword] {
+	return pulumix.Output[GetControlControlMappingSourceSourceKeyword]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetControlControlMappingSourceSourceKeywordOutput) KeywordInputType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetControlControlMappingSourceSourceKeyword) string { return v.KeywordInputType }).(pulumi.StringOutput)
 }
@@ -1518,6 +1801,12 @@ func (o GetControlControlMappingSourceSourceKeywordPtrOutput) ToGetControlContro
 
 func (o GetControlControlMappingSourceSourceKeywordPtrOutput) ToGetControlControlMappingSourceSourceKeywordPtrOutputWithContext(ctx context.Context) GetControlControlMappingSourceSourceKeywordPtrOutput {
 	return o
+}
+
+func (o GetControlControlMappingSourceSourceKeywordPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetControlControlMappingSourceSourceKeyword] {
+	return pulumix.Output[*GetControlControlMappingSourceSourceKeyword]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetControlControlMappingSourceSourceKeywordPtrOutput) Elem() GetControlControlMappingSourceSourceKeywordOutput {
@@ -1585,6 +1874,12 @@ func (i GetFrameworkControlSetArgs) ToGetFrameworkControlSetOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetFrameworkControlSetOutput)
 }
 
+func (i GetFrameworkControlSetArgs) ToOutput(ctx context.Context) pulumix.Output[GetFrameworkControlSet] {
+	return pulumix.Output[GetFrameworkControlSet]{
+		OutputState: i.ToGetFrameworkControlSetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFrameworkControlSetArrayInput is an input type that accepts GetFrameworkControlSetArray and GetFrameworkControlSetArrayOutput values.
 // You can construct a concrete instance of `GetFrameworkControlSetArrayInput` via:
 //
@@ -1610,6 +1905,12 @@ func (i GetFrameworkControlSetArray) ToGetFrameworkControlSetArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetFrameworkControlSetArrayOutput)
 }
 
+func (i GetFrameworkControlSetArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFrameworkControlSet] {
+	return pulumix.Output[[]GetFrameworkControlSet]{
+		OutputState: i.ToGetFrameworkControlSetArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFrameworkControlSetOutput struct{ *pulumi.OutputState }
 
 func (GetFrameworkControlSetOutput) ElementType() reflect.Type {
@@ -1622,6 +1923,12 @@ func (o GetFrameworkControlSetOutput) ToGetFrameworkControlSetOutput() GetFramew
 
 func (o GetFrameworkControlSetOutput) ToGetFrameworkControlSetOutputWithContext(ctx context.Context) GetFrameworkControlSetOutput {
 	return o
+}
+
+func (o GetFrameworkControlSetOutput) ToOutput(ctx context.Context) pulumix.Output[GetFrameworkControlSet] {
+	return pulumix.Output[GetFrameworkControlSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFrameworkControlSetOutput) Controls() GetFrameworkControlSetControlArrayOutput {
@@ -1649,6 +1956,12 @@ func (o GetFrameworkControlSetArrayOutput) ToGetFrameworkControlSetArrayOutput()
 
 func (o GetFrameworkControlSetArrayOutput) ToGetFrameworkControlSetArrayOutputWithContext(ctx context.Context) GetFrameworkControlSetArrayOutput {
 	return o
+}
+
+func (o GetFrameworkControlSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFrameworkControlSet] {
+	return pulumix.Output[[]GetFrameworkControlSet]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFrameworkControlSetArrayOutput) Index(i pulumi.IntInput) GetFrameworkControlSetOutput {
@@ -1688,6 +2001,12 @@ func (i GetFrameworkControlSetControlArgs) ToGetFrameworkControlSetControlOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetFrameworkControlSetControlOutput)
 }
 
+func (i GetFrameworkControlSetControlArgs) ToOutput(ctx context.Context) pulumix.Output[GetFrameworkControlSetControl] {
+	return pulumix.Output[GetFrameworkControlSetControl]{
+		OutputState: i.ToGetFrameworkControlSetControlOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetFrameworkControlSetControlArrayInput is an input type that accepts GetFrameworkControlSetControlArray and GetFrameworkControlSetControlArrayOutput values.
 // You can construct a concrete instance of `GetFrameworkControlSetControlArrayInput` via:
 //
@@ -1713,6 +2032,12 @@ func (i GetFrameworkControlSetControlArray) ToGetFrameworkControlSetControlArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetFrameworkControlSetControlArrayOutput)
 }
 
+func (i GetFrameworkControlSetControlArray) ToOutput(ctx context.Context) pulumix.Output[[]GetFrameworkControlSetControl] {
+	return pulumix.Output[[]GetFrameworkControlSetControl]{
+		OutputState: i.ToGetFrameworkControlSetControlArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetFrameworkControlSetControlOutput struct{ *pulumi.OutputState }
 
 func (GetFrameworkControlSetControlOutput) ElementType() reflect.Type {
@@ -1725,6 +2050,12 @@ func (o GetFrameworkControlSetControlOutput) ToGetFrameworkControlSetControlOutp
 
 func (o GetFrameworkControlSetControlOutput) ToGetFrameworkControlSetControlOutputWithContext(ctx context.Context) GetFrameworkControlSetControlOutput {
 	return o
+}
+
+func (o GetFrameworkControlSetControlOutput) ToOutput(ctx context.Context) pulumix.Output[GetFrameworkControlSetControl] {
+	return pulumix.Output[GetFrameworkControlSetControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFrameworkControlSetControlOutput) Id() pulumi.StringOutput {
@@ -1743,6 +2074,12 @@ func (o GetFrameworkControlSetControlArrayOutput) ToGetFrameworkControlSetContro
 
 func (o GetFrameworkControlSetControlArrayOutput) ToGetFrameworkControlSetControlArrayOutputWithContext(ctx context.Context) GetFrameworkControlSetControlArrayOutput {
 	return o
+}
+
+func (o GetFrameworkControlSetControlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetFrameworkControlSetControl] {
+	return pulumix.Output[[]GetFrameworkControlSetControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetFrameworkControlSetControlArrayOutput) Index(i pulumi.IntInput) GetFrameworkControlSetControlOutput {

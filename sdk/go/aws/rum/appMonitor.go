@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudWatch RUM App Monitor resource.
@@ -210,6 +211,12 @@ func (i *AppMonitor) ToAppMonitorOutputWithContext(ctx context.Context) AppMonit
 	return pulumi.ToOutputWithContext(ctx, i).(AppMonitorOutput)
 }
 
+func (i *AppMonitor) ToOutput(ctx context.Context) pulumix.Output[*AppMonitor] {
+	return pulumix.Output[*AppMonitor]{
+		OutputState: i.ToAppMonitorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AppMonitorArrayInput is an input type that accepts AppMonitorArray and AppMonitorArrayOutput values.
 // You can construct a concrete instance of `AppMonitorArrayInput` via:
 //
@@ -233,6 +240,12 @@ func (i AppMonitorArray) ToAppMonitorArrayOutput() AppMonitorArrayOutput {
 
 func (i AppMonitorArray) ToAppMonitorArrayOutputWithContext(ctx context.Context) AppMonitorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AppMonitorArrayOutput)
+}
+
+func (i AppMonitorArray) ToOutput(ctx context.Context) pulumix.Output[[]*AppMonitor] {
+	return pulumix.Output[[]*AppMonitor]{
+		OutputState: i.ToAppMonitorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AppMonitorMapInput is an input type that accepts AppMonitorMap and AppMonitorMapOutput values.
@@ -260,6 +273,12 @@ func (i AppMonitorMap) ToAppMonitorMapOutputWithContext(ctx context.Context) App
 	return pulumi.ToOutputWithContext(ctx, i).(AppMonitorMapOutput)
 }
 
+func (i AppMonitorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AppMonitor] {
+	return pulumix.Output[map[string]*AppMonitor]{
+		OutputState: i.ToAppMonitorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AppMonitorOutput struct{ *pulumi.OutputState }
 
 func (AppMonitorOutput) ElementType() reflect.Type {
@@ -272,6 +291,12 @@ func (o AppMonitorOutput) ToAppMonitorOutput() AppMonitorOutput {
 
 func (o AppMonitorOutput) ToAppMonitorOutputWithContext(ctx context.Context) AppMonitorOutput {
 	return o
+}
+
+func (o AppMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[*AppMonitor] {
+	return pulumix.Output[*AppMonitor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // configuration data for the app monitor. See appMonitorConfiguration below.
@@ -338,6 +363,12 @@ func (o AppMonitorArrayOutput) ToAppMonitorArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o AppMonitorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AppMonitor] {
+	return pulumix.Output[[]*AppMonitor]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AppMonitorArrayOutput) Index(i pulumi.IntInput) AppMonitorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AppMonitor {
 		return vs[0].([]*AppMonitor)[vs[1].(int)]
@@ -356,6 +387,12 @@ func (o AppMonitorMapOutput) ToAppMonitorMapOutput() AppMonitorMapOutput {
 
 func (o AppMonitorMapOutput) ToAppMonitorMapOutputWithContext(ctx context.Context) AppMonitorMapOutput {
 	return o
+}
+
+func (o AppMonitorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AppMonitor] {
+	return pulumix.Output[map[string]*AppMonitor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AppMonitorMapOutput) MapIndex(k pulumi.StringInput) AppMonitorOutput {

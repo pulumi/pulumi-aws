@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudWatch Log Stream resource.
@@ -156,6 +157,12 @@ func (i *LogStream) ToLogStreamOutputWithContext(ctx context.Context) LogStreamO
 	return pulumi.ToOutputWithContext(ctx, i).(LogStreamOutput)
 }
 
+func (i *LogStream) ToOutput(ctx context.Context) pulumix.Output[*LogStream] {
+	return pulumix.Output[*LogStream]{
+		OutputState: i.ToLogStreamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LogStreamArrayInput is an input type that accepts LogStreamArray and LogStreamArrayOutput values.
 // You can construct a concrete instance of `LogStreamArrayInput` via:
 //
@@ -179,6 +186,12 @@ func (i LogStreamArray) ToLogStreamArrayOutput() LogStreamArrayOutput {
 
 func (i LogStreamArray) ToLogStreamArrayOutputWithContext(ctx context.Context) LogStreamArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogStreamArrayOutput)
+}
+
+func (i LogStreamArray) ToOutput(ctx context.Context) pulumix.Output[[]*LogStream] {
+	return pulumix.Output[[]*LogStream]{
+		OutputState: i.ToLogStreamArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LogStreamMapInput is an input type that accepts LogStreamMap and LogStreamMapOutput values.
@@ -206,6 +219,12 @@ func (i LogStreamMap) ToLogStreamMapOutputWithContext(ctx context.Context) LogSt
 	return pulumi.ToOutputWithContext(ctx, i).(LogStreamMapOutput)
 }
 
+func (i LogStreamMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogStream] {
+	return pulumix.Output[map[string]*LogStream]{
+		OutputState: i.ToLogStreamMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LogStreamOutput struct{ *pulumi.OutputState }
 
 func (LogStreamOutput) ElementType() reflect.Type {
@@ -218,6 +237,12 @@ func (o LogStreamOutput) ToLogStreamOutput() LogStreamOutput {
 
 func (o LogStreamOutput) ToLogStreamOutputWithContext(ctx context.Context) LogStreamOutput {
 	return o
+}
+
+func (o LogStreamOutput) ToOutput(ctx context.Context) pulumix.Output[*LogStream] {
+	return pulumix.Output[*LogStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) specifying the log stream.
@@ -249,6 +274,12 @@ func (o LogStreamArrayOutput) ToLogStreamArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o LogStreamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LogStream] {
+	return pulumix.Output[[]*LogStream]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LogStreamArrayOutput) Index(i pulumi.IntInput) LogStreamOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogStream {
 		return vs[0].([]*LogStream)[vs[1].(int)]
@@ -267,6 +298,12 @@ func (o LogStreamMapOutput) ToLogStreamMapOutput() LogStreamMapOutput {
 
 func (o LogStreamMapOutput) ToLogStreamMapOutputWithContext(ctx context.Context) LogStreamMapOutput {
 	return o
+}
+
+func (o LogStreamMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogStream] {
+	return pulumix.Output[map[string]*LogStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LogStreamMapOutput) MapIndex(k pulumi.StringInput) LogStreamOutput {

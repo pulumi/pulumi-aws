@@ -120,6 +120,12 @@ namespace Pulumi.Aws.Efs
         public Output<ImmutableArray<Outputs.FileSystemLifecyclePolicy>> LifecyclePolicies { get; private set; } = null!;
 
         /// <summary>
+        /// The value of the file system's `Name` tag.
+        /// </summary>
+        [Output("name")]
+        public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
         /// The current number of mount targets that the file system has.
         /// </summary>
         [Output("numberOfMountTargets")]
@@ -346,6 +352,12 @@ namespace Pulumi.Aws.Efs
             get => _lifecyclePolicies ?? (_lifecyclePolicies = new InputList<Inputs.FileSystemLifecyclePolicyGetArgs>());
             set => _lifecyclePolicies = value;
         }
+
+        /// <summary>
+        /// The value of the file system's `Name` tag.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The current number of mount targets that the file system has.

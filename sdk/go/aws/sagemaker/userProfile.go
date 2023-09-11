@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a SageMaker User Profile resource.
@@ -209,6 +210,12 @@ func (i *UserProfile) ToUserProfileOutputWithContext(ctx context.Context) UserPr
 	return pulumi.ToOutputWithContext(ctx, i).(UserProfileOutput)
 }
 
+func (i *UserProfile) ToOutput(ctx context.Context) pulumix.Output[*UserProfile] {
+	return pulumix.Output[*UserProfile]{
+		OutputState: i.ToUserProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserProfileArrayInput is an input type that accepts UserProfileArray and UserProfileArrayOutput values.
 // You can construct a concrete instance of `UserProfileArrayInput` via:
 //
@@ -232,6 +239,12 @@ func (i UserProfileArray) ToUserProfileArrayOutput() UserProfileArrayOutput {
 
 func (i UserProfileArray) ToUserProfileArrayOutputWithContext(ctx context.Context) UserProfileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserProfileArrayOutput)
+}
+
+func (i UserProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserProfile] {
+	return pulumix.Output[[]*UserProfile]{
+		OutputState: i.ToUserProfileArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // UserProfileMapInput is an input type that accepts UserProfileMap and UserProfileMapOutput values.
@@ -259,6 +272,12 @@ func (i UserProfileMap) ToUserProfileMapOutputWithContext(ctx context.Context) U
 	return pulumi.ToOutputWithContext(ctx, i).(UserProfileMapOutput)
 }
 
+func (i UserProfileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserProfile] {
+	return pulumix.Output[map[string]*UserProfile]{
+		OutputState: i.ToUserProfileMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserProfileOutput struct{ *pulumi.OutputState }
 
 func (UserProfileOutput) ElementType() reflect.Type {
@@ -271,6 +290,12 @@ func (o UserProfileOutput) ToUserProfileOutput() UserProfileOutput {
 
 func (o UserProfileOutput) ToUserProfileOutputWithContext(ctx context.Context) UserProfileOutput {
 	return o
+}
+
+func (o UserProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*UserProfile] {
+	return pulumix.Output[*UserProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The user profile Amazon Resource Name (ARN).
@@ -332,6 +357,12 @@ func (o UserProfileArrayOutput) ToUserProfileArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o UserProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserProfile] {
+	return pulumix.Output[[]*UserProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o UserProfileArrayOutput) Index(i pulumi.IntInput) UserProfileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserProfile {
 		return vs[0].([]*UserProfile)[vs[1].(int)]
@@ -350,6 +381,12 @@ func (o UserProfileMapOutput) ToUserProfileMapOutput() UserProfileMapOutput {
 
 func (o UserProfileMapOutput) ToUserProfileMapOutputWithContext(ctx context.Context) UserProfileMapOutput {
 	return o
+}
+
+func (o UserProfileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserProfile] {
+	return pulumix.Output[map[string]*UserProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserProfileMapOutput) MapIndex(k pulumi.StringInput) UserProfileOutput {

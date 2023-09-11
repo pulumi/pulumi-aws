@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a SageMaker Studio Lifecycle Config resource.
@@ -160,6 +161,12 @@ func (i *StudioLifecycleConfig) ToStudioLifecycleConfigOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(StudioLifecycleConfigOutput)
 }
 
+func (i *StudioLifecycleConfig) ToOutput(ctx context.Context) pulumix.Output[*StudioLifecycleConfig] {
+	return pulumix.Output[*StudioLifecycleConfig]{
+		OutputState: i.ToStudioLifecycleConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StudioLifecycleConfigArrayInput is an input type that accepts StudioLifecycleConfigArray and StudioLifecycleConfigArrayOutput values.
 // You can construct a concrete instance of `StudioLifecycleConfigArrayInput` via:
 //
@@ -183,6 +190,12 @@ func (i StudioLifecycleConfigArray) ToStudioLifecycleConfigArrayOutput() StudioL
 
 func (i StudioLifecycleConfigArray) ToStudioLifecycleConfigArrayOutputWithContext(ctx context.Context) StudioLifecycleConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StudioLifecycleConfigArrayOutput)
+}
+
+func (i StudioLifecycleConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*StudioLifecycleConfig] {
+	return pulumix.Output[[]*StudioLifecycleConfig]{
+		OutputState: i.ToStudioLifecycleConfigArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StudioLifecycleConfigMapInput is an input type that accepts StudioLifecycleConfigMap and StudioLifecycleConfigMapOutput values.
@@ -210,6 +223,12 @@ func (i StudioLifecycleConfigMap) ToStudioLifecycleConfigMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(StudioLifecycleConfigMapOutput)
 }
 
+func (i StudioLifecycleConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StudioLifecycleConfig] {
+	return pulumix.Output[map[string]*StudioLifecycleConfig]{
+		OutputState: i.ToStudioLifecycleConfigMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StudioLifecycleConfigOutput struct{ *pulumi.OutputState }
 
 func (StudioLifecycleConfigOutput) ElementType() reflect.Type {
@@ -222,6 +241,12 @@ func (o StudioLifecycleConfigOutput) ToStudioLifecycleConfigOutput() StudioLifec
 
 func (o StudioLifecycleConfigOutput) ToStudioLifecycleConfigOutputWithContext(ctx context.Context) StudioLifecycleConfigOutput {
 	return o
+}
+
+func (o StudioLifecycleConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*StudioLifecycleConfig] {
+	return pulumix.Output[*StudioLifecycleConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
@@ -268,6 +293,12 @@ func (o StudioLifecycleConfigArrayOutput) ToStudioLifecycleConfigArrayOutputWith
 	return o
 }
 
+func (o StudioLifecycleConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StudioLifecycleConfig] {
+	return pulumix.Output[[]*StudioLifecycleConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StudioLifecycleConfigArrayOutput) Index(i pulumi.IntInput) StudioLifecycleConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StudioLifecycleConfig {
 		return vs[0].([]*StudioLifecycleConfig)[vs[1].(int)]
@@ -286,6 +317,12 @@ func (o StudioLifecycleConfigMapOutput) ToStudioLifecycleConfigMapOutput() Studi
 
 func (o StudioLifecycleConfigMapOutput) ToStudioLifecycleConfigMapOutputWithContext(ctx context.Context) StudioLifecycleConfigMapOutput {
 	return o
+}
+
+func (o StudioLifecycleConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StudioLifecycleConfig] {
+	return pulumix.Output[map[string]*StudioLifecycleConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StudioLifecycleConfigMapOutput) MapIndex(k pulumi.StringInput) StudioLifecycleConfigOutput {

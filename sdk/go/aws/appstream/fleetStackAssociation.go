@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an AppStream Fleet Stack association.
@@ -29,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			exampleFleet, err := appstream.NewFleet(ctx, "exampleFleet", &appstream.FleetArgs{
-//				ImageName:    pulumi.String("Amazon-AppStream2-Sample-Image-02-04-2019"),
+//				ImageName:    pulumi.String("Amazon-AppStream2-Sample-Image-03-11-2023"),
 //				InstanceType: pulumi.String("stream.standard.small"),
 //				ComputeCapacity: &appstream.FleetComputeCapacityArgs{
 //					DesiredInstances: pulumi.Int(1),
@@ -164,6 +165,12 @@ func (i *FleetStackAssociation) ToFleetStackAssociationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(FleetStackAssociationOutput)
 }
 
+func (i *FleetStackAssociation) ToOutput(ctx context.Context) pulumix.Output[*FleetStackAssociation] {
+	return pulumix.Output[*FleetStackAssociation]{
+		OutputState: i.ToFleetStackAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FleetStackAssociationArrayInput is an input type that accepts FleetStackAssociationArray and FleetStackAssociationArrayOutput values.
 // You can construct a concrete instance of `FleetStackAssociationArrayInput` via:
 //
@@ -187,6 +194,12 @@ func (i FleetStackAssociationArray) ToFleetStackAssociationArrayOutput() FleetSt
 
 func (i FleetStackAssociationArray) ToFleetStackAssociationArrayOutputWithContext(ctx context.Context) FleetStackAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FleetStackAssociationArrayOutput)
+}
+
+func (i FleetStackAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*FleetStackAssociation] {
+	return pulumix.Output[[]*FleetStackAssociation]{
+		OutputState: i.ToFleetStackAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FleetStackAssociationMapInput is an input type that accepts FleetStackAssociationMap and FleetStackAssociationMapOutput values.
@@ -214,6 +227,12 @@ func (i FleetStackAssociationMap) ToFleetStackAssociationMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(FleetStackAssociationMapOutput)
 }
 
+func (i FleetStackAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FleetStackAssociation] {
+	return pulumix.Output[map[string]*FleetStackAssociation]{
+		OutputState: i.ToFleetStackAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FleetStackAssociationOutput struct{ *pulumi.OutputState }
 
 func (FleetStackAssociationOutput) ElementType() reflect.Type {
@@ -226,6 +245,12 @@ func (o FleetStackAssociationOutput) ToFleetStackAssociationOutput() FleetStackA
 
 func (o FleetStackAssociationOutput) ToFleetStackAssociationOutputWithContext(ctx context.Context) FleetStackAssociationOutput {
 	return o
+}
+
+func (o FleetStackAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetStackAssociation] {
+	return pulumix.Output[*FleetStackAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the fleet.
@@ -252,6 +277,12 @@ func (o FleetStackAssociationArrayOutput) ToFleetStackAssociationArrayOutputWith
 	return o
 }
 
+func (o FleetStackAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FleetStackAssociation] {
+	return pulumix.Output[[]*FleetStackAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FleetStackAssociationArrayOutput) Index(i pulumi.IntInput) FleetStackAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FleetStackAssociation {
 		return vs[0].([]*FleetStackAssociation)[vs[1].(int)]
@@ -270,6 +301,12 @@ func (o FleetStackAssociationMapOutput) ToFleetStackAssociationMapOutput() Fleet
 
 func (o FleetStackAssociationMapOutput) ToFleetStackAssociationMapOutputWithContext(ctx context.Context) FleetStackAssociationMapOutput {
 	return o
+}
+
+func (o FleetStackAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FleetStackAssociation] {
+	return pulumix.Output[map[string]*FleetStackAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FleetStackAssociationMapOutput) MapIndex(k pulumi.StringInput) FleetStackAssociationOutput {

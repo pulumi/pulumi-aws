@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Runs a simulation of the IAM policies of a particular principal against a given hypothetical request.
@@ -154,6 +155,12 @@ func (o LookupPrincipalPolicySimulationResultOutput) ToLookupPrincipalPolicySimu
 
 func (o LookupPrincipalPolicySimulationResultOutput) ToLookupPrincipalPolicySimulationResultOutputWithContext(ctx context.Context) LookupPrincipalPolicySimulationResultOutput {
 	return o
+}
+
+func (o LookupPrincipalPolicySimulationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPrincipalPolicySimulationResult] {
+	return pulumix.Output[LookupPrincipalPolicySimulationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupPrincipalPolicySimulationResultOutput) ActionNames() pulumi.StringArrayOutput {

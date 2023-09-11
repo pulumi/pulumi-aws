@@ -161,6 +161,9 @@ class GetServerResult:
     @property
     @pulumi.getter(name="structuredLogDestinations")
     def structured_log_destinations(self) -> Sequence[str]:
+        """
+        A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs.
+        """
         return pulumi.get(self, "structured_log_destinations")
 
     @property

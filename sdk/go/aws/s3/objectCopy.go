@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource for copying an S3 object.
@@ -54,7 +55,7 @@ type ObjectCopy struct {
 	pulumi.CustomResourceState
 
 	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
-	Acl pulumi.StringPtrOutput `pulumi:"acl"`
+	Acl pulumi.StringOutput `pulumi:"acl"`
 	// Name of the bucket to put the file in.
 	Bucket           pulumi.StringOutput `pulumi:"bucket"`
 	BucketKeyEnabled pulumi.BoolOutput   `pulumi:"bucketKeyEnabled"`
@@ -579,6 +580,12 @@ func (i *ObjectCopy) ToObjectCopyOutputWithContext(ctx context.Context) ObjectCo
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectCopyOutput)
 }
 
+func (i *ObjectCopy) ToOutput(ctx context.Context) pulumix.Output[*ObjectCopy] {
+	return pulumix.Output[*ObjectCopy]{
+		OutputState: i.ToObjectCopyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ObjectCopyArrayInput is an input type that accepts ObjectCopyArray and ObjectCopyArrayOutput values.
 // You can construct a concrete instance of `ObjectCopyArrayInput` via:
 //
@@ -602,6 +609,12 @@ func (i ObjectCopyArray) ToObjectCopyArrayOutput() ObjectCopyArrayOutput {
 
 func (i ObjectCopyArray) ToObjectCopyArrayOutputWithContext(ctx context.Context) ObjectCopyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectCopyArrayOutput)
+}
+
+func (i ObjectCopyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ObjectCopy] {
+	return pulumix.Output[[]*ObjectCopy]{
+		OutputState: i.ToObjectCopyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ObjectCopyMapInput is an input type that accepts ObjectCopyMap and ObjectCopyMapOutput values.
@@ -629,6 +642,12 @@ func (i ObjectCopyMap) ToObjectCopyMapOutputWithContext(ctx context.Context) Obj
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectCopyMapOutput)
 }
 
+func (i ObjectCopyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ObjectCopy] {
+	return pulumix.Output[map[string]*ObjectCopy]{
+		OutputState: i.ToObjectCopyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ObjectCopyOutput struct{ *pulumi.OutputState }
 
 func (ObjectCopyOutput) ElementType() reflect.Type {
@@ -643,9 +662,15 @@ func (o ObjectCopyOutput) ToObjectCopyOutputWithContext(ctx context.Context) Obj
 	return o
 }
 
+func (o ObjectCopyOutput) ToOutput(ctx context.Context) pulumix.Output[*ObjectCopy] {
+	return pulumix.Output[*ObjectCopy]{
+		OutputState: o.OutputState,
+	}
+}
+
 // [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
-func (o ObjectCopyOutput) Acl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObjectCopy) pulumi.StringPtrOutput { return v.Acl }).(pulumi.StringPtrOutput)
+func (o ObjectCopyOutput) Acl() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.Acl }).(pulumi.StringOutput)
 }
 
 // Name of the bucket to put the file in.
@@ -883,6 +908,12 @@ func (o ObjectCopyArrayOutput) ToObjectCopyArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ObjectCopyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ObjectCopy] {
+	return pulumix.Output[[]*ObjectCopy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ObjectCopyArrayOutput) Index(i pulumi.IntInput) ObjectCopyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ObjectCopy {
 		return vs[0].([]*ObjectCopy)[vs[1].(int)]
@@ -901,6 +932,12 @@ func (o ObjectCopyMapOutput) ToObjectCopyMapOutput() ObjectCopyMapOutput {
 
 func (o ObjectCopyMapOutput) ToObjectCopyMapOutputWithContext(ctx context.Context) ObjectCopyMapOutput {
 	return o
+}
+
+func (o ObjectCopyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ObjectCopy] {
+	return pulumix.Output[map[string]*ObjectCopy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ObjectCopyMapOutput) MapIndex(k pulumi.StringInput) ObjectCopyOutput {

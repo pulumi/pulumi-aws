@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get an existing AWS Customer Gateway.
@@ -145,6 +146,12 @@ func (o LookupCustomerGatewayResultOutput) ToLookupCustomerGatewayResultOutput()
 
 func (o LookupCustomerGatewayResultOutput) ToLookupCustomerGatewayResultOutputWithContext(ctx context.Context) LookupCustomerGatewayResultOutput {
 	return o
+}
+
+func (o LookupCustomerGatewayResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCustomerGatewayResult] {
+	return pulumix.Output[LookupCustomerGatewayResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the customer gateway.

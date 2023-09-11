@@ -7,7 +7,8 @@ import * as utilities from "../utilities";
 // Export members:
 export { GetAuthorizationTokenResult } from "./getAuthorizationToken";
 export const getAuthorizationToken: typeof import("./getAuthorizationToken").getAuthorizationToken = null as any;
-utilities.lazyLoad(exports, ["getAuthorizationToken"], () => require("./getAuthorizationToken"));
+export const getAuthorizationTokenOutput: typeof import("./getAuthorizationToken").getAuthorizationTokenOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthorizationToken","getAuthorizationTokenOutput"], () => require("./getAuthorizationToken"));
 
 export { RepositoryArgs, RepositoryState } from "./repository";
 export type Repository = import("./repository").Repository;

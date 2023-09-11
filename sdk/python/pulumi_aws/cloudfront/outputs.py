@@ -18,6 +18,11 @@ __all__ = [
     'CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders',
     'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig',
     'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings',
+    'ContinuousDeploymentPolicyStagingDistributionDnsNames',
+    'ContinuousDeploymentPolicyTrafficConfig',
+    'ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig',
+    'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig',
+    'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig',
     'DistributionCustomErrorResponse',
     'DistributionDefaultCacheBehavior',
     'DistributionDefaultCacheBehaviorForwardedValues',
@@ -385,6 +390,221 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQuery
     @pulumi.getter
     def items(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class ContinuousDeploymentPolicyStagingDistributionDnsNames(dict):
+    def __init__(__self__, *,
+                 quantity: int,
+                 items: Optional[Sequence[str]] = None):
+        """
+        :param int quantity: Number of CloudFront domain names in the staging distribution.
+        :param Sequence[str] items: A list of CloudFront domain names for the staging distribution.
+        """
+        pulumi.set(__self__, "quantity", quantity)
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def quantity(self) -> int:
+        """
+        Number of CloudFront domain names in the staging distribution.
+        """
+        return pulumi.get(self, "quantity")
+
+    @property
+    @pulumi.getter
+    def items(self) -> Optional[Sequence[str]]:
+        """
+        A list of CloudFront domain names for the staging distribution.
+        """
+        return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class ContinuousDeploymentPolicyTrafficConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "singleHeaderConfig":
+            suggest = "single_header_config"
+        elif key == "singleWeightConfig":
+            suggest = "single_weight_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContinuousDeploymentPolicyTrafficConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContinuousDeploymentPolicyTrafficConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContinuousDeploymentPolicyTrafficConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 single_header_config: Optional['outputs.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig'] = None,
+                 single_weight_config: Optional['outputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig'] = None):
+        """
+        :param str type: Type of traffic configuration. Valid values are `SingleWeight` and `SingleHeader`.
+        :param 'ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs' single_header_config: Determines which HTTP requests are sent to the staging distribution. See `single_header_config`.
+        :param 'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs' single_weight_config: Contains the percentage of traffic to send to the staging distribution. See `single_weight_config`.
+        """
+        pulumi.set(__self__, "type", type)
+        if single_header_config is not None:
+            pulumi.set(__self__, "single_header_config", single_header_config)
+        if single_weight_config is not None:
+            pulumi.set(__self__, "single_weight_config", single_weight_config)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of traffic configuration. Valid values are `SingleWeight` and `SingleHeader`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="singleHeaderConfig")
+    def single_header_config(self) -> Optional['outputs.ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig']:
+        """
+        Determines which HTTP requests are sent to the staging distribution. See `single_header_config`.
+        """
+        return pulumi.get(self, "single_header_config")
+
+    @property
+    @pulumi.getter(name="singleWeightConfig")
+    def single_weight_config(self) -> Optional['outputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig']:
+        """
+        Contains the percentage of traffic to send to the staging distribution. See `single_weight_config`.
+        """
+        return pulumi.get(self, "single_weight_config")
+
+
+@pulumi.output_type
+class ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig(dict):
+    def __init__(__self__, *,
+                 header: str,
+                 value: str):
+        """
+        :param str header: Request header name to send to the staging distribution. The header must contain the prefix `aws-cf-cd-`.
+        :param str value: Request header value.
+        """
+        pulumi.set(__self__, "header", header)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def header(self) -> str:
+        """
+        Request header name to send to the staging distribution. The header must contain the prefix `aws-cf-cd-`.
+        """
+        return pulumi.get(self, "header")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Request header value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sessionStickinessConfig":
+            suggest = "session_stickiness_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 weight: float,
+                 session_stickiness_config: Optional['outputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig'] = None):
+        """
+        :param float weight: The percentage of traffic to send to a staging distribution, expressed as a decimal number between `0` and `.15`.
+        :param 'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs' session_stickiness_config: Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `session_stickiness_config`.
+        """
+        pulumi.set(__self__, "weight", weight)
+        if session_stickiness_config is not None:
+            pulumi.set(__self__, "session_stickiness_config", session_stickiness_config)
+
+    @property
+    @pulumi.getter
+    def weight(self) -> float:
+        """
+        The percentage of traffic to send to a staging distribution, expressed as a decimal number between `0` and `.15`.
+        """
+        return pulumi.get(self, "weight")
+
+    @property
+    @pulumi.getter(name="sessionStickinessConfig")
+    def session_stickiness_config(self) -> Optional['outputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig']:
+        """
+        Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `session_stickiness_config`.
+        """
+        return pulumi.get(self, "session_stickiness_config")
+
+
+@pulumi.output_type
+class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleTtl":
+            suggest = "idle_ttl"
+        elif key == "maximumTtl":
+            suggest = "maximum_ttl"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_ttl: int,
+                 maximum_ttl: int):
+        """
+        :param int idle_ttl: The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` – `3600` (5–60 minutes). The value must be less than or equal to `maximum_ttl`.
+        :param int maximum_ttl: The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` – `3600` (5–60 minutes). The value must be greater than or equal to `idle_ttl`.
+        """
+        pulumi.set(__self__, "idle_ttl", idle_ttl)
+        pulumi.set(__self__, "maximum_ttl", maximum_ttl)
+
+    @property
+    @pulumi.getter(name="idleTtl")
+    def idle_ttl(self) -> int:
+        """
+        The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` – `3600` (5–60 minutes). The value must be less than or equal to `maximum_ttl`.
+        """
+        return pulumi.get(self, "idle_ttl")
+
+    @property
+    @pulumi.getter(name="maximumTtl")
+    def maximum_ttl(self) -> int:
+        """
+        The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` – `3600` (5–60 minutes). The value must be greater than or equal to `idle_ttl`.
+        """
+        return pulumi.get(self, "maximum_ttl")
 
 
 @pulumi.output_type

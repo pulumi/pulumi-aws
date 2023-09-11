@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CodeArtifact Domain Resource.
@@ -55,7 +56,7 @@ type Domain struct {
 	// The ARN of the Domain.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The total size of all assets in the domain.
-	AssetSizeBytes pulumi.IntOutput `pulumi:"assetSizeBytes"`
+	AssetSizeBytes pulumi.StringOutput `pulumi:"assetSizeBytes"`
 	// A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
@@ -108,7 +109,7 @@ type domainState struct {
 	// The ARN of the Domain.
 	Arn *string `pulumi:"arn"`
 	// The total size of all assets in the domain.
-	AssetSizeBytes *int `pulumi:"assetSizeBytes"`
+	AssetSizeBytes *string `pulumi:"assetSizeBytes"`
 	// A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	CreatedTime *string `pulumi:"createdTime"`
 	// The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
@@ -129,7 +130,7 @@ type DomainState struct {
 	// The ARN of the Domain.
 	Arn pulumi.StringPtrInput
 	// The total size of all assets in the domain.
-	AssetSizeBytes pulumi.IntPtrInput
+	AssetSizeBytes pulumi.StringPtrInput
 	// A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
 	CreatedTime pulumi.StringPtrInput
 	// The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
@@ -192,6 +193,12 @@ func (i *Domain) ToDomainOutputWithContext(ctx context.Context) DomainOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainOutput)
 }
 
+func (i *Domain) ToOutput(ctx context.Context) pulumix.Output[*Domain] {
+	return pulumix.Output[*Domain]{
+		OutputState: i.ToDomainOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DomainArrayInput is an input type that accepts DomainArray and DomainArrayOutput values.
 // You can construct a concrete instance of `DomainArrayInput` via:
 //
@@ -215,6 +222,12 @@ func (i DomainArray) ToDomainArrayOutput() DomainArrayOutput {
 
 func (i DomainArray) ToDomainArrayOutputWithContext(ctx context.Context) DomainArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DomainArrayOutput)
+}
+
+func (i DomainArray) ToOutput(ctx context.Context) pulumix.Output[[]*Domain] {
+	return pulumix.Output[[]*Domain]{
+		OutputState: i.ToDomainArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DomainMapInput is an input type that accepts DomainMap and DomainMapOutput values.
@@ -242,6 +255,12 @@ func (i DomainMap) ToDomainMapOutputWithContext(ctx context.Context) DomainMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(DomainMapOutput)
 }
 
+func (i DomainMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Domain] {
+	return pulumix.Output[map[string]*Domain]{
+		OutputState: i.ToDomainMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DomainOutput struct{ *pulumi.OutputState }
 
 func (DomainOutput) ElementType() reflect.Type {
@@ -256,14 +275,20 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 	return o
 }
 
+func (o DomainOutput) ToOutput(ctx context.Context) pulumix.Output[*Domain] {
+	return pulumix.Output[*Domain]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the Domain.
 func (o DomainOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // The total size of all assets in the domain.
-func (o DomainOutput) AssetSizeBytes() pulumi.IntOutput {
-	return o.ApplyT(func(v *Domain) pulumi.IntOutput { return v.AssetSizeBytes }).(pulumi.IntOutput)
+func (o DomainOutput) AssetSizeBytes() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.AssetSizeBytes }).(pulumi.StringOutput)
 }
 
 // A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
@@ -315,6 +340,12 @@ func (o DomainArrayOutput) ToDomainArrayOutputWithContext(ctx context.Context) D
 	return o
 }
 
+func (o DomainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Domain] {
+	return pulumix.Output[[]*Domain]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DomainArrayOutput) Index(i pulumi.IntInput) DomainOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Domain {
 		return vs[0].([]*Domain)[vs[1].(int)]
@@ -333,6 +364,12 @@ func (o DomainMapOutput) ToDomainMapOutput() DomainMapOutput {
 
 func (o DomainMapOutput) ToDomainMapOutputWithContext(ctx context.Context) DomainMapOutput {
 	return o
+}
+
+func (o DomainMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Domain] {
+	return pulumix.Output[map[string]*Domain]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DomainMapOutput) MapIndex(k pulumi.StringInput) DomainOutput {

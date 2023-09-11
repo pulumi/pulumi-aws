@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a SES Identity Policy. More information about SES Sending Authorization Policies can be found in the [SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html).
@@ -190,6 +191,12 @@ func (i *IdentityPolicy) ToIdentityPolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPolicyOutput)
 }
 
+func (i *IdentityPolicy) ToOutput(ctx context.Context) pulumix.Output[*IdentityPolicy] {
+	return pulumix.Output[*IdentityPolicy]{
+		OutputState: i.ToIdentityPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IdentityPolicyArrayInput is an input type that accepts IdentityPolicyArray and IdentityPolicyArrayOutput values.
 // You can construct a concrete instance of `IdentityPolicyArrayInput` via:
 //
@@ -213,6 +220,12 @@ func (i IdentityPolicyArray) ToIdentityPolicyArrayOutput() IdentityPolicyArrayOu
 
 func (i IdentityPolicyArray) ToIdentityPolicyArrayOutputWithContext(ctx context.Context) IdentityPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPolicyArrayOutput)
+}
+
+func (i IdentityPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityPolicy] {
+	return pulumix.Output[[]*IdentityPolicy]{
+		OutputState: i.ToIdentityPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IdentityPolicyMapInput is an input type that accepts IdentityPolicyMap and IdentityPolicyMapOutput values.
@@ -240,6 +253,12 @@ func (i IdentityPolicyMap) ToIdentityPolicyMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPolicyMapOutput)
 }
 
+func (i IdentityPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityPolicy] {
+	return pulumix.Output[map[string]*IdentityPolicy]{
+		OutputState: i.ToIdentityPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IdentityPolicyOutput struct{ *pulumi.OutputState }
 
 func (IdentityPolicyOutput) ElementType() reflect.Type {
@@ -252,6 +271,12 @@ func (o IdentityPolicyOutput) ToIdentityPolicyOutput() IdentityPolicyOutput {
 
 func (o IdentityPolicyOutput) ToIdentityPolicyOutputWithContext(ctx context.Context) IdentityPolicyOutput {
 	return o
+}
+
+func (o IdentityPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityPolicy] {
+	return pulumix.Output[*IdentityPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name or Amazon Resource Name (ARN) of the SES Identity.
@@ -283,6 +308,12 @@ func (o IdentityPolicyArrayOutput) ToIdentityPolicyArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o IdentityPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityPolicy] {
+	return pulumix.Output[[]*IdentityPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IdentityPolicyArrayOutput) Index(i pulumi.IntInput) IdentityPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IdentityPolicy {
 		return vs[0].([]*IdentityPolicy)[vs[1].(int)]
@@ -301,6 +332,12 @@ func (o IdentityPolicyMapOutput) ToIdentityPolicyMapOutput() IdentityPolicyMapOu
 
 func (o IdentityPolicyMapOutput) ToIdentityPolicyMapOutputWithContext(ctx context.Context) IdentityPolicyMapOutput {
 	return o
+}
+
+func (o IdentityPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityPolicy] {
+	return pulumix.Output[map[string]*IdentityPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IdentityPolicyMapOutput) MapIndex(k pulumi.StringInput) IdentityPolicyOutput {

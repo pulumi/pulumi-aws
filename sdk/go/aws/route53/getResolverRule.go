@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `route53.ResolverRule` provides details about a specific Route53 Resolver rule.
@@ -133,6 +134,12 @@ func (o LookupResolverRuleResultOutput) ToLookupResolverRuleResultOutput() Looku
 
 func (o LookupResolverRuleResultOutput) ToLookupResolverRuleResultOutputWithContext(ctx context.Context) LookupResolverRuleResultOutput {
 	return o
+}
+
+func (o LookupResolverRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResolverRuleResult] {
+	return pulumix.Output[LookupResolverRuleResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN (Amazon Resource Name) for the resolver rule.

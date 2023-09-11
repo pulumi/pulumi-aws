@@ -15,7 +15,6 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
 
     /**
      * The default value of the dimension that is published to Amazon CloudWatch if you don&#39;t provide the value of the dimension when you send an email.
-     * ( `dimension_name` - (Required) The name of an Amazon CloudWatch dimension associated with an email sending metric.
      * 
      */
     @Import(name="defaultDimensionValue", required=true)
@@ -23,16 +22,23 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
 
     /**
      * @return The default value of the dimension that is published to Amazon CloudWatch if you don&#39;t provide the value of the dimension when you send an email.
-     * ( `dimension_name` - (Required) The name of an Amazon CloudWatch dimension associated with an email sending metric.
      * 
      */
     public Output<String> defaultDimensionValue() {
         return this.defaultDimensionValue;
     }
 
+    /**
+     * The name of an Amazon CloudWatch dimension associated with an email sending metric.
+     * 
+     */
     @Import(name="dimensionName", required=true)
     private Output<String> dimensionName;
 
+    /**
+     * @return The name of an Amazon CloudWatch dimension associated with an email sending metric.
+     * 
+     */
     public Output<String> dimensionName() {
         return this.dimensionName;
     }
@@ -80,7 +86,6 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
 
         /**
          * @param defaultDimensionValue The default value of the dimension that is published to Amazon CloudWatch if you don&#39;t provide the value of the dimension when you send an email.
-         * ( `dimension_name` - (Required) The name of an Amazon CloudWatch dimension associated with an email sending metric.
          * 
          * @return builder
          * 
@@ -92,7 +97,6 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
 
         /**
          * @param defaultDimensionValue The default value of the dimension that is published to Amazon CloudWatch if you don&#39;t provide the value of the dimension when you send an email.
-         * ( `dimension_name` - (Required) The name of an Amazon CloudWatch dimension associated with an email sending metric.
          * 
          * @return builder
          * 
@@ -101,11 +105,23 @@ public final class ConfigurationSetEventDestinationEventDestinationCloudWatchDes
             return defaultDimensionValue(Output.of(defaultDimensionValue));
         }
 
+        /**
+         * @param dimensionName The name of an Amazon CloudWatch dimension associated with an email sending metric.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dimensionName(Output<String> dimensionName) {
             $.dimensionName = dimensionName;
             return this;
         }
 
+        /**
+         * @param dimensionName The name of an Amazon CloudWatch dimension associated with an email sending metric.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dimensionName(String dimensionName) {
             return dimensionName(Output.of(dimensionName));
         }

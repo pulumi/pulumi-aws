@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage an S3 Control Bucket Lifecycle Configuration.
@@ -173,6 +174,12 @@ func (i *BucketLifecycleConfiguration) ToBucketLifecycleConfigurationOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationOutput)
 }
 
+func (i *BucketLifecycleConfiguration) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfiguration] {
+	return pulumix.Output[*BucketLifecycleConfiguration]{
+		OutputState: i.ToBucketLifecycleConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketLifecycleConfigurationArrayInput is an input type that accepts BucketLifecycleConfigurationArray and BucketLifecycleConfigurationArrayOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationArrayInput` via:
 //
@@ -196,6 +203,12 @@ func (i BucketLifecycleConfigurationArray) ToBucketLifecycleConfigurationArrayOu
 
 func (i BucketLifecycleConfigurationArray) ToBucketLifecycleConfigurationArrayOutputWithContext(ctx context.Context) BucketLifecycleConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationArrayOutput)
+}
+
+func (i BucketLifecycleConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*BucketLifecycleConfiguration] {
+	return pulumix.Output[[]*BucketLifecycleConfiguration]{
+		OutputState: i.ToBucketLifecycleConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BucketLifecycleConfigurationMapInput is an input type that accepts BucketLifecycleConfigurationMap and BucketLifecycleConfigurationMapOutput values.
@@ -223,6 +236,12 @@ func (i BucketLifecycleConfigurationMap) ToBucketLifecycleConfigurationMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationMapOutput)
 }
 
+func (i BucketLifecycleConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketLifecycleConfiguration] {
+	return pulumix.Output[map[string]*BucketLifecycleConfiguration]{
+		OutputState: i.ToBucketLifecycleConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketLifecycleConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketLifecycleConfigurationOutput) ElementType() reflect.Type {
@@ -235,6 +254,12 @@ func (o BucketLifecycleConfigurationOutput) ToBucketLifecycleConfigurationOutput
 
 func (o BucketLifecycleConfigurationOutput) ToBucketLifecycleConfigurationOutputWithContext(ctx context.Context) BucketLifecycleConfigurationOutput {
 	return o
+}
+
+func (o BucketLifecycleConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfiguration] {
+	return pulumix.Output[*BucketLifecycleConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the bucket.
@@ -261,6 +286,12 @@ func (o BucketLifecycleConfigurationArrayOutput) ToBucketLifecycleConfigurationA
 	return o
 }
 
+func (o BucketLifecycleConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BucketLifecycleConfiguration] {
+	return pulumix.Output[[]*BucketLifecycleConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketLifecycleConfigurationArrayOutput) Index(i pulumi.IntInput) BucketLifecycleConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketLifecycleConfiguration {
 		return vs[0].([]*BucketLifecycleConfiguration)[vs[1].(int)]
@@ -279,6 +310,12 @@ func (o BucketLifecycleConfigurationMapOutput) ToBucketLifecycleConfigurationMap
 
 func (o BucketLifecycleConfigurationMapOutput) ToBucketLifecycleConfigurationMapOutputWithContext(ctx context.Context) BucketLifecycleConfigurationMapOutput {
 	return o
+}
+
+func (o BucketLifecycleConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketLifecycleConfiguration] {
+	return pulumix.Output[map[string]*BucketLifecycleConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketLifecycleConfigurationMapOutput) MapIndex(k pulumi.StringInput) BucketLifecycleConfigurationOutput {

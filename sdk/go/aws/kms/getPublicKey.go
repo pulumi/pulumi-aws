@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
@@ -142,6 +143,12 @@ func (o GetPublicKeyResultOutput) ToGetPublicKeyResultOutput() GetPublicKeyResul
 
 func (o GetPublicKeyResultOutput) ToGetPublicKeyResultOutputWithContext(ctx context.Context) GetPublicKeyResultOutput {
 	return o
+}
+
+func (o GetPublicKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPublicKeyResult] {
+	return pulumix.Output[GetPublicKeyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Key ARN of the asymmetric CMK from which the public key was downloaded.

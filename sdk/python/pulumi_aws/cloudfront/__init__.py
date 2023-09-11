@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .cache_policy import *
+from .continuous_deployment_policy import *
 from .distribution import *
 from .field_level_encryption_config import *
 from .field_level_encryption_profile import *

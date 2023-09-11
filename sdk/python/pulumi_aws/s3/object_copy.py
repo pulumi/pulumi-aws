@@ -1763,7 +1763,7 @@ class ObjectCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def acl(self) -> pulumi.Output[Optional[str]]:
+    def acl(self) -> pulumi.Output[str]:
         """
         [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
         """

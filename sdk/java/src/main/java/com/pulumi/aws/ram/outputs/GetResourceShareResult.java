@@ -31,15 +31,20 @@ public final class GetResourceShareResult {
      * 
      */
     private String owningAccountId;
+    /**
+     * @return A list of resource ARNs associated with the resource share.
+     * 
+     */
+    private List<String> resourceArns;
     private String resourceOwner;
     private @Nullable String resourceShareStatus;
     /**
-     * @return Status of the RAM share.
+     * @return Status of the resource share.
      * 
      */
     private String status;
     /**
-     * @return Tags attached to the RAM share
+     * @return Tags attached to the resource share.
      * 
      */
     private Map<String,String> tags;
@@ -72,6 +77,13 @@ public final class GetResourceShareResult {
     public String owningAccountId() {
         return this.owningAccountId;
     }
+    /**
+     * @return A list of resource ARNs associated with the resource share.
+     * 
+     */
+    public List<String> resourceArns() {
+        return this.resourceArns;
+    }
     public String resourceOwner() {
         return this.resourceOwner;
     }
@@ -79,14 +91,14 @@ public final class GetResourceShareResult {
         return Optional.ofNullable(this.resourceShareStatus);
     }
     /**
-     * @return Status of the RAM share.
+     * @return Status of the resource share.
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return Tags attached to the RAM share
+     * @return Tags attached to the resource share.
      * 
      */
     public Map<String,String> tags() {
@@ -107,6 +119,7 @@ public final class GetResourceShareResult {
         private String id;
         private String name;
         private String owningAccountId;
+        private List<String> resourceArns;
         private String resourceOwner;
         private @Nullable String resourceShareStatus;
         private String status;
@@ -119,6 +132,7 @@ public final class GetResourceShareResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.owningAccountId = defaults.owningAccountId;
+    	      this.resourceArns = defaults.resourceArns;
     	      this.resourceOwner = defaults.resourceOwner;
     	      this.resourceShareStatus = defaults.resourceShareStatus;
     	      this.status = defaults.status;
@@ -154,6 +168,14 @@ public final class GetResourceShareResult {
             return this;
         }
         @CustomType.Setter
+        public Builder resourceArns(List<String> resourceArns) {
+            this.resourceArns = Objects.requireNonNull(resourceArns);
+            return this;
+        }
+        public Builder resourceArns(String... resourceArns) {
+            return resourceArns(List.of(resourceArns));
+        }
+        @CustomType.Setter
         public Builder resourceOwner(String resourceOwner) {
             this.resourceOwner = Objects.requireNonNull(resourceOwner);
             return this;
@@ -180,6 +202,7 @@ public final class GetResourceShareResult {
             o.id = id;
             o.name = name;
             o.owningAccountId = owningAccountId;
+            o.resourceArns = resourceArns;
             o.resourceOwner = resourceOwner;
             o.resourceShareStatus = resourceShareStatus;
             o.status = status;

@@ -41,3 +41,23 @@ export interface GetDefaultKmsKeyResult {
      */
     readonly keyArn: string;
 }
+/**
+ * Use this data source to get the default EBS encryption KMS key in the current region.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.ebs.getDefaultKmsKey({});
+ * const example = new aws.ebs.Volume("example", {
+ *     availabilityZone: "us-west-2a",
+ *     encrypted: true,
+ *     kmsKeyId: current.then(current => current.keyArn),
+ * });
+ * ```
+ */
+export function getDefaultKmsKeyOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultKmsKeyResult> {
+    return pulumi.output(getDefaultKmsKey(opts))
+}

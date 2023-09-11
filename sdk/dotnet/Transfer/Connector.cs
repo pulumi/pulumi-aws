@@ -61,13 +61,19 @@ namespace Pulumi.Aws.Transfer
         public Output<string> AccessRole { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the connector.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// The parameters to configure for the connector object. Fields documented below.
         /// </summary>
         [Output("as2Config")]
         public Output<Outputs.ConnectorAs2Config> As2Config { get; private set; } = null!;
 
         /// <summary>
-        /// The unique identifier for the AS2 profile
+        /// The unique identifier for the AS2 profile.
         /// </summary>
         [Output("connectorId")]
         public Output<string> ConnectorId { get; private set; } = null!;
@@ -190,13 +196,19 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? AccessRole { get; set; }
 
         /// <summary>
+        /// The ARN of the connector.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
         /// The parameters to configure for the connector object. Fields documented below.
         /// </summary>
         [Input("as2Config")]
         public Input<Inputs.ConnectorAs2ConfigGetArgs>? As2Config { get; set; }
 
         /// <summary>
-        /// The unique identifier for the AS2 profile
+        /// The unique identifier for the AS2 profile.
         /// </summary>
         [Input("connectorId")]
         public Input<string>? ConnectorId { get; set; }

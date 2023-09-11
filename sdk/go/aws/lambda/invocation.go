@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this resource to invoke a lambda function. The lambda function is invoked with the [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
@@ -324,6 +325,12 @@ func (i *Invocation) ToInvocationOutputWithContext(ctx context.Context) Invocati
 	return pulumi.ToOutputWithContext(ctx, i).(InvocationOutput)
 }
 
+func (i *Invocation) ToOutput(ctx context.Context) pulumix.Output[*Invocation] {
+	return pulumix.Output[*Invocation]{
+		OutputState: i.ToInvocationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InvocationArrayInput is an input type that accepts InvocationArray and InvocationArrayOutput values.
 // You can construct a concrete instance of `InvocationArrayInput` via:
 //
@@ -347,6 +354,12 @@ func (i InvocationArray) ToInvocationArrayOutput() InvocationArrayOutput {
 
 func (i InvocationArray) ToInvocationArrayOutputWithContext(ctx context.Context) InvocationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InvocationArrayOutput)
+}
+
+func (i InvocationArray) ToOutput(ctx context.Context) pulumix.Output[[]*Invocation] {
+	return pulumix.Output[[]*Invocation]{
+		OutputState: i.ToInvocationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // InvocationMapInput is an input type that accepts InvocationMap and InvocationMapOutput values.
@@ -374,6 +387,12 @@ func (i InvocationMap) ToInvocationMapOutputWithContext(ctx context.Context) Inv
 	return pulumi.ToOutputWithContext(ctx, i).(InvocationMapOutput)
 }
 
+func (i InvocationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Invocation] {
+	return pulumix.Output[map[string]*Invocation]{
+		OutputState: i.ToInvocationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InvocationOutput struct{ *pulumi.OutputState }
 
 func (InvocationOutput) ElementType() reflect.Type {
@@ -386,6 +405,12 @@ func (o InvocationOutput) ToInvocationOutput() InvocationOutput {
 
 func (o InvocationOutput) ToInvocationOutputWithContext(ctx context.Context) InvocationOutput {
 	return o
+}
+
+func (o InvocationOutput) ToOutput(ctx context.Context) pulumix.Output[*Invocation] {
+	return pulumix.Output[*Invocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the lambda function.
@@ -438,6 +463,12 @@ func (o InvocationArrayOutput) ToInvocationArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o InvocationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Invocation] {
+	return pulumix.Output[[]*Invocation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InvocationArrayOutput) Index(i pulumi.IntInput) InvocationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Invocation {
 		return vs[0].([]*Invocation)[vs[1].(int)]
@@ -456,6 +487,12 @@ func (o InvocationMapOutput) ToInvocationMapOutput() InvocationMapOutput {
 
 func (o InvocationMapOutput) ToInvocationMapOutputWithContext(ctx context.Context) InvocationMapOutput {
 	return o
+}
+
+func (o InvocationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Invocation] {
+	return pulumix.Output[map[string]*Invocation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InvocationMapOutput) MapIndex(k pulumi.StringInput) InvocationOutput {

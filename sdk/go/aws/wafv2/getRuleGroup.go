@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves the summary of a WAFv2 Rule Group.
@@ -107,6 +108,12 @@ func (o LookupRuleGroupResultOutput) ToLookupRuleGroupResultOutput() LookupRuleG
 
 func (o LookupRuleGroupResultOutput) ToLookupRuleGroupResultOutputWithContext(ctx context.Context) LookupRuleGroupResultOutput {
 	return o
+}
+
+func (o LookupRuleGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRuleGroupResult] {
+	return pulumix.Output[LookupRuleGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the entity.

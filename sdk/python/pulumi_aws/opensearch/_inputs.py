@@ -36,6 +36,7 @@ __all__ = [
     'ServerlessCollectionTimeoutsArgs',
     'ServerlessSecurityConfigSamlOptionsArgs',
     'ServerlessVpcEndpointTimeoutsArgs',
+    'VpcEndpointVpcOptionsArgs',
     'GetDomainOffPeakWindowOptionsArgs',
     'GetDomainOffPeakWindowOptionsOffPeakWindowArgs',
     'GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs',
@@ -319,6 +320,7 @@ class DomainClusterConfigArgs:
                  dedicated_master_type: Optional[pulumi.Input[str]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
+                 multi_az_with_standby_enabled: Optional[pulumi.Input[bool]] = None,
                  warm_count: Optional[pulumi.Input[int]] = None,
                  warm_enabled: Optional[pulumi.Input[bool]] = None,
                  warm_type: Optional[pulumi.Input[str]] = None,
@@ -349,6 +351,8 @@ class DomainClusterConfigArgs:
             pulumi.set(__self__, "instance_count", instance_count)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if multi_az_with_standby_enabled is not None:
+            pulumi.set(__self__, "multi_az_with_standby_enabled", multi_az_with_standby_enabled)
         if warm_count is not None:
             pulumi.set(__self__, "warm_count", warm_count)
         if warm_enabled is not None:
@@ -431,6 +435,15 @@ class DomainClusterConfigArgs:
     @instance_type.setter
     def instance_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="multiAzWithStandbyEnabled")
+    def multi_az_with_standby_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "multi_az_with_standby_enabled")
+
+    @multi_az_with_standby_enabled.setter
+    def multi_az_with_standby_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "multi_az_with_standby_enabled", value)
 
     @property
     @pulumi.getter(name="warmCount")
@@ -1473,6 +1486,68 @@ class ServerlessVpcEndpointTimeoutsArgs:
     @update.setter
     def update(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "update", value)
+
+
+@pulumi.input_type
+class VpcEndpointVpcOptionsArgs:
+    def __init__(__self__, *,
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, OpenSearch Service uses the default security group for the VPC.
+        """
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "availability_zones")
+
+    @availability_zones.setter
+    def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "availability_zones", value)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of security group IDs associated with the VPC endpoints for the domain. If you do not provide a security group ID, OpenSearch Service uses the default security group for the VPC.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_id", value)
 
 
 @pulumi.input_type

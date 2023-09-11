@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Elastic Beanstalk Configuration Template, which are associated with
@@ -208,6 +209,12 @@ func (i *ConfigurationTemplate) ToConfigurationTemplateOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationTemplateOutput)
 }
 
+func (i *ConfigurationTemplate) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationTemplate] {
+	return pulumix.Output[*ConfigurationTemplate]{
+		OutputState: i.ToConfigurationTemplateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConfigurationTemplateArrayInput is an input type that accepts ConfigurationTemplateArray and ConfigurationTemplateArrayOutput values.
 // You can construct a concrete instance of `ConfigurationTemplateArrayInput` via:
 //
@@ -231,6 +238,12 @@ func (i ConfigurationTemplateArray) ToConfigurationTemplateArrayOutput() Configu
 
 func (i ConfigurationTemplateArray) ToConfigurationTemplateArrayOutputWithContext(ctx context.Context) ConfigurationTemplateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationTemplateArrayOutput)
+}
+
+func (i ConfigurationTemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConfigurationTemplate] {
+	return pulumix.Output[[]*ConfigurationTemplate]{
+		OutputState: i.ToConfigurationTemplateArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ConfigurationTemplateMapInput is an input type that accepts ConfigurationTemplateMap and ConfigurationTemplateMapOutput values.
@@ -258,6 +271,12 @@ func (i ConfigurationTemplateMap) ToConfigurationTemplateMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationTemplateMapOutput)
 }
 
+func (i ConfigurationTemplateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConfigurationTemplate] {
+	return pulumix.Output[map[string]*ConfigurationTemplate]{
+		OutputState: i.ToConfigurationTemplateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConfigurationTemplateOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationTemplateOutput) ElementType() reflect.Type {
@@ -270,6 +289,12 @@ func (o ConfigurationTemplateOutput) ToConfigurationTemplateOutput() Configurati
 
 func (o ConfigurationTemplateOutput) ToConfigurationTemplateOutputWithContext(ctx context.Context) ConfigurationTemplateOutput {
 	return o
+}
+
+func (o ConfigurationTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationTemplate] {
+	return pulumix.Output[*ConfigurationTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // name of the application to associate with this configuration template
@@ -319,6 +344,12 @@ func (o ConfigurationTemplateArrayOutput) ToConfigurationTemplateArrayOutputWith
 	return o
 }
 
+func (o ConfigurationTemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConfigurationTemplate] {
+	return pulumix.Output[[]*ConfigurationTemplate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConfigurationTemplateArrayOutput) Index(i pulumi.IntInput) ConfigurationTemplateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConfigurationTemplate {
 		return vs[0].([]*ConfigurationTemplate)[vs[1].(int)]
@@ -337,6 +368,12 @@ func (o ConfigurationTemplateMapOutput) ToConfigurationTemplateMapOutput() Confi
 
 func (o ConfigurationTemplateMapOutput) ToConfigurationTemplateMapOutputWithContext(ctx context.Context) ConfigurationTemplateMapOutput {
 	return o
+}
+
+func (o ConfigurationTemplateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConfigurationTemplate] {
+	return pulumix.Output[map[string]*ConfigurationTemplate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConfigurationTemplateMapOutput) MapIndex(k pulumi.StringInput) ConfigurationTemplateOutput {

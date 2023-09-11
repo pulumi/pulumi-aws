@@ -25,7 +25,7 @@ class ContactChannelArgs:
         :param pulumi.Input[str] contact_id: Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
         :param pulumi.Input['ContactChannelDeliveryAddressArgs'] delivery_address: Block that contains contact engagement details. See details below.
         :param pulumi.Input[str] type: Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
-        :param pulumi.Input[str] name: Name of the contact channel.
+        :param pulumi.Input[str] name: Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         """
         pulumi.set(__self__, "contact_id", contact_id)
         pulumi.set(__self__, "delivery_address", delivery_address)
@@ -73,7 +73,7 @@ class ContactChannelArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the contact channel.
+        Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         """
         return pulumi.get(self, "name")
 
@@ -97,7 +97,7 @@ class _ContactChannelState:
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the contact channel.
         :param pulumi.Input[str] contact_id: Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
         :param pulumi.Input['ContactChannelDeliveryAddressArgs'] delivery_address: Block that contains contact engagement details. See details below.
-        :param pulumi.Input[str] name: Name of the contact channel.
+        :param pulumi.Input[str] name: Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         :param pulumi.Input[str] type: Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
         """
         if activation_status is not None:
@@ -165,7 +165,7 @@ class _ContactChannelState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the contact channel.
+        Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         """
         return pulumi.get(self, "name")
 
@@ -242,7 +242,7 @@ class ContactChannel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] contact_id: Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
         :param pulumi.Input[pulumi.InputType['ContactChannelDeliveryAddressArgs']] delivery_address: Block that contains contact engagement details. See details below.
-        :param pulumi.Input[str] name: Name of the contact channel.
+        :param pulumi.Input[str] name: Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         :param pulumi.Input[str] type: Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
         """
         ...
@@ -360,7 +360,7 @@ class ContactChannel(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the contact channel.
         :param pulumi.Input[str] contact_id: Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
         :param pulumi.Input[pulumi.InputType['ContactChannelDeliveryAddressArgs']] delivery_address: Block that contains contact engagement details. See details below.
-        :param pulumi.Input[str] name: Name of the contact channel.
+        :param pulumi.Input[str] name: Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         :param pulumi.Input[str] type: Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -411,7 +411,7 @@ class ContactChannel(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the contact channel.
+        Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
         """
         return pulumi.get(self, "name")
 

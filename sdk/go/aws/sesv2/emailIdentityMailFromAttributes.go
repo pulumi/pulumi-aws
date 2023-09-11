@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
@@ -169,6 +170,12 @@ func (i *EmailIdentityMailFromAttributes) ToEmailIdentityMailFromAttributesOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityMailFromAttributesOutput)
 }
 
+func (i *EmailIdentityMailFromAttributes) ToOutput(ctx context.Context) pulumix.Output[*EmailIdentityMailFromAttributes] {
+	return pulumix.Output[*EmailIdentityMailFromAttributes]{
+		OutputState: i.ToEmailIdentityMailFromAttributesOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EmailIdentityMailFromAttributesArrayInput is an input type that accepts EmailIdentityMailFromAttributesArray and EmailIdentityMailFromAttributesArrayOutput values.
 // You can construct a concrete instance of `EmailIdentityMailFromAttributesArrayInput` via:
 //
@@ -192,6 +199,12 @@ func (i EmailIdentityMailFromAttributesArray) ToEmailIdentityMailFromAttributesA
 
 func (i EmailIdentityMailFromAttributesArray) ToEmailIdentityMailFromAttributesArrayOutputWithContext(ctx context.Context) EmailIdentityMailFromAttributesArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityMailFromAttributesArrayOutput)
+}
+
+func (i EmailIdentityMailFromAttributesArray) ToOutput(ctx context.Context) pulumix.Output[[]*EmailIdentityMailFromAttributes] {
+	return pulumix.Output[[]*EmailIdentityMailFromAttributes]{
+		OutputState: i.ToEmailIdentityMailFromAttributesArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EmailIdentityMailFromAttributesMapInput is an input type that accepts EmailIdentityMailFromAttributesMap and EmailIdentityMailFromAttributesMapOutput values.
@@ -219,6 +232,12 @@ func (i EmailIdentityMailFromAttributesMap) ToEmailIdentityMailFromAttributesMap
 	return pulumi.ToOutputWithContext(ctx, i).(EmailIdentityMailFromAttributesMapOutput)
 }
 
+func (i EmailIdentityMailFromAttributesMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmailIdentityMailFromAttributes] {
+	return pulumix.Output[map[string]*EmailIdentityMailFromAttributes]{
+		OutputState: i.ToEmailIdentityMailFromAttributesMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EmailIdentityMailFromAttributesOutput struct{ *pulumi.OutputState }
 
 func (EmailIdentityMailFromAttributesOutput) ElementType() reflect.Type {
@@ -231,6 +250,12 @@ func (o EmailIdentityMailFromAttributesOutput) ToEmailIdentityMailFromAttributes
 
 func (o EmailIdentityMailFromAttributesOutput) ToEmailIdentityMailFromAttributesOutputWithContext(ctx context.Context) EmailIdentityMailFromAttributesOutput {
 	return o
+}
+
+func (o EmailIdentityMailFromAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[*EmailIdentityMailFromAttributes] {
+	return pulumix.Output[*EmailIdentityMailFromAttributes]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
@@ -262,6 +287,12 @@ func (o EmailIdentityMailFromAttributesArrayOutput) ToEmailIdentityMailFromAttri
 	return o
 }
 
+func (o EmailIdentityMailFromAttributesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EmailIdentityMailFromAttributes] {
+	return pulumix.Output[[]*EmailIdentityMailFromAttributes]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EmailIdentityMailFromAttributesArrayOutput) Index(i pulumi.IntInput) EmailIdentityMailFromAttributesOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EmailIdentityMailFromAttributes {
 		return vs[0].([]*EmailIdentityMailFromAttributes)[vs[1].(int)]
@@ -280,6 +311,12 @@ func (o EmailIdentityMailFromAttributesMapOutput) ToEmailIdentityMailFromAttribu
 
 func (o EmailIdentityMailFromAttributesMapOutput) ToEmailIdentityMailFromAttributesMapOutputWithContext(ctx context.Context) EmailIdentityMailFromAttributesMapOutput {
 	return o
+}
+
+func (o EmailIdentityMailFromAttributesMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EmailIdentityMailFromAttributes] {
+	return pulumix.Output[map[string]*EmailIdentityMailFromAttributes]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EmailIdentityMailFromAttributesMapOutput) MapIndex(k pulumi.StringInput) EmailIdentityMailFromAttributesOutput {

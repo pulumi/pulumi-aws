@@ -3863,6 +3863,8 @@ class InstanceMetadataOptions(dict):
         suggest = None
         if key == "httpEndpoint":
             suggest = "http_endpoint"
+        elif key == "httpProtocolIpv6":
+            suggest = "http_protocol_ipv6"
         elif key == "httpPutResponseHopLimit":
             suggest = "http_put_response_hop_limit"
         elif key == "httpTokens":
@@ -3883,11 +3885,13 @@ class InstanceMetadataOptions(dict):
 
     def __init__(__self__, *,
                  http_endpoint: Optional[str] = None,
+                 http_protocol_ipv6: Optional[str] = None,
                  http_put_response_hop_limit: Optional[int] = None,
                  http_tokens: Optional[str] = None,
                  instance_metadata_tags: Optional[str] = None):
         """
         :param str http_endpoint: Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
+        :param str http_protocol_ipv6: Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
         :param int http_put_response_hop_limit: Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
         :param str http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
         :param str instance_metadata_tags: Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
@@ -3896,6 +3900,8 @@ class InstanceMetadataOptions(dict):
         """
         if http_endpoint is not None:
             pulumi.set(__self__, "http_endpoint", http_endpoint)
+        if http_protocol_ipv6 is not None:
+            pulumi.set(__self__, "http_protocol_ipv6", http_protocol_ipv6)
         if http_put_response_hop_limit is not None:
             pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
         if http_tokens is not None:
@@ -3910,6 +3916,14 @@ class InstanceMetadataOptions(dict):
         Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
         """
         return pulumi.get(self, "http_endpoint")
+
+    @property
+    @pulumi.getter(name="httpProtocolIpv6")
+    def http_protocol_ipv6(self) -> Optional[str]:
+        """
+        Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+        """
+        return pulumi.get(self, "http_protocol_ipv6")
 
     @property
     @pulumi.getter(name="httpPutResponseHopLimit")
@@ -14080,6 +14094,8 @@ class SpotInstanceRequestMetadataOptions(dict):
         suggest = None
         if key == "httpEndpoint":
             suggest = "http_endpoint"
+        elif key == "httpProtocolIpv6":
+            suggest = "http_protocol_ipv6"
         elif key == "httpPutResponseHopLimit":
             suggest = "http_put_response_hop_limit"
         elif key == "httpTokens":
@@ -14100,11 +14116,13 @@ class SpotInstanceRequestMetadataOptions(dict):
 
     def __init__(__self__, *,
                  http_endpoint: Optional[str] = None,
+                 http_protocol_ipv6: Optional[str] = None,
                  http_put_response_hop_limit: Optional[int] = None,
                  http_tokens: Optional[str] = None,
                  instance_metadata_tags: Optional[str] = None):
         """
         :param str http_endpoint: Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
+        :param str http_protocol_ipv6: Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
         :param int http_put_response_hop_limit: Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
         :param str http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Valid values include `optional` or `required`. Defaults to `optional`.
         :param str instance_metadata_tags: Enables or disables access to instance tags from the instance metadata service. Valid values include `enabled` or `disabled`. Defaults to `disabled`.
@@ -14113,6 +14131,8 @@ class SpotInstanceRequestMetadataOptions(dict):
         """
         if http_endpoint is not None:
             pulumi.set(__self__, "http_endpoint", http_endpoint)
+        if http_protocol_ipv6 is not None:
+            pulumi.set(__self__, "http_protocol_ipv6", http_protocol_ipv6)
         if http_put_response_hop_limit is not None:
             pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
         if http_tokens is not None:
@@ -14127,6 +14147,14 @@ class SpotInstanceRequestMetadataOptions(dict):
         Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
         """
         return pulumi.get(self, "http_endpoint")
+
+    @property
+    @pulumi.getter(name="httpProtocolIpv6")
+    def http_protocol_ipv6(self) -> Optional[str]:
+        """
+        Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+        """
+        return pulumi.get(self, "http_protocol_ipv6")
 
     @property
     @pulumi.getter(name="httpPutResponseHopLimit")
@@ -15832,16 +15860,19 @@ class GetInstanceMaintenanceOptionResult(dict):
 class GetInstanceMetadataOptionResult(dict):
     def __init__(__self__, *,
                  http_endpoint: str,
+                 http_protocol_ipv6: str,
                  http_put_response_hop_limit: int,
                  http_tokens: str,
                  instance_metadata_tags: str):
         """
         :param str http_endpoint: State of the metadata service: `enabled`, `disabled`.
+        :param str http_protocol_ipv6: Whether the IPv6 endpoint for the instance metadata service is `enabled` or `disabled`
         :param int http_put_response_hop_limit: Desired HTTP PUT response hop limit for instance metadata requests.
         :param str http_tokens: If session tokens are required: `optional`, `required`.
         :param str instance_metadata_tags: If access to instance tags is allowed from the metadata service: `enabled`, `disabled`.
         """
         pulumi.set(__self__, "http_endpoint", http_endpoint)
+        pulumi.set(__self__, "http_protocol_ipv6", http_protocol_ipv6)
         pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
         pulumi.set(__self__, "http_tokens", http_tokens)
         pulumi.set(__self__, "instance_metadata_tags", instance_metadata_tags)
@@ -15853,6 +15884,14 @@ class GetInstanceMetadataOptionResult(dict):
         State of the metadata service: `enabled`, `disabled`.
         """
         return pulumi.get(self, "http_endpoint")
+
+    @property
+    @pulumi.getter(name="httpProtocolIpv6")
+    def http_protocol_ipv6(self) -> str:
+        """
+        Whether the IPv6 endpoint for the instance metadata service is `enabled` or `disabled`
+        """
+        return pulumi.get(self, "http_protocol_ipv6")
 
     @property
     @pulumi.getter(name="httpPutResponseHopLimit")

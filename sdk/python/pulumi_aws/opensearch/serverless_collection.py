@@ -118,6 +118,7 @@ class _ServerlessCollectionState:
         Input properties used for looking up and filtering ServerlessCollection resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the collection.
         :param pulumi.Input[str] collection_endpoint: Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
+        :param pulumi.Input[str] dashboard_endpoint: Collection-specific endpoint used to access OpenSearch Dashboards.
         :param pulumi.Input[str] description: Description of the collection.
         :param pulumi.Input[str] kms_key_arn: The ARN of the Amazon Web Services KMS key used to encrypt the collection.
         :param pulumi.Input[str] name: Name of the collection.
@@ -174,6 +175,9 @@ class _ServerlessCollectionState:
     @property
     @pulumi.getter(name="dashboardEndpoint")
     def dashboard_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        Collection-specific endpoint used to access OpenSearch Dashboards.
+        """
         return pulumi.get(self, "dashboard_endpoint")
 
     @dashboard_endpoint.setter
@@ -425,6 +429,7 @@ class ServerlessCollection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the collection.
         :param pulumi.Input[str] collection_endpoint: Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
+        :param pulumi.Input[str] dashboard_endpoint: Collection-specific endpoint used to access OpenSearch Dashboards.
         :param pulumi.Input[str] description: Description of the collection.
         :param pulumi.Input[str] kms_key_arn: The ARN of the Amazon Web Services KMS key used to encrypt the collection.
         :param pulumi.Input[str] name: Name of the collection.
@@ -468,6 +473,9 @@ class ServerlessCollection(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dashboardEndpoint")
     def dashboard_endpoint(self) -> pulumi.Output[str]:
+        """
+        Collection-specific endpoint used to access OpenSearch Dashboards.
+        """
         return pulumi.get(self, "dashboard_endpoint")
 
     @property

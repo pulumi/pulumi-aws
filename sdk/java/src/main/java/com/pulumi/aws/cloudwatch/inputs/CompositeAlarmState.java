@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.cloudwatch.inputs;
 
+import com.pulumi.aws.cloudwatch.inputs.CompositeAlarmActionsSuppressorArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -31,6 +32,21 @@ public final class CompositeAlarmState extends com.pulumi.resources.ResourceArgs
      */
     public Optional<Output<Boolean>> actionsEnabled() {
         return Optional.ofNullable(this.actionsEnabled);
+    }
+
+    /**
+     * Actions will be suppressed if the suppressor alarm is in the ALARM state.
+     * 
+     */
+    @Import(name="actionsSuppressor")
+    private @Nullable Output<CompositeAlarmActionsSuppressorArgs> actionsSuppressor;
+
+    /**
+     * @return Actions will be suppressed if the suppressor alarm is in the ALARM state.
+     * 
+     */
+    public Optional<Output<CompositeAlarmActionsSuppressorArgs>> actionsSuppressor() {
+        return Optional.ofNullable(this.actionsSuppressor);
     }
 
     /**
@@ -172,6 +188,7 @@ public final class CompositeAlarmState extends com.pulumi.resources.ResourceArgs
 
     private CompositeAlarmState(CompositeAlarmState $) {
         this.actionsEnabled = $.actionsEnabled;
+        this.actionsSuppressor = $.actionsSuppressor;
         this.alarmActions = $.alarmActions;
         this.alarmDescription = $.alarmDescription;
         this.alarmName = $.alarmName;
@@ -220,6 +237,27 @@ public final class CompositeAlarmState extends com.pulumi.resources.ResourceArgs
          */
         public Builder actionsEnabled(Boolean actionsEnabled) {
             return actionsEnabled(Output.of(actionsEnabled));
+        }
+
+        /**
+         * @param actionsSuppressor Actions will be suppressed if the suppressor alarm is in the ALARM state.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder actionsSuppressor(@Nullable Output<CompositeAlarmActionsSuppressorArgs> actionsSuppressor) {
+            $.actionsSuppressor = actionsSuppressor;
+            return this;
+        }
+
+        /**
+         * @param actionsSuppressor Actions will be suppressed if the suppressor alarm is in the ALARM state.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder actionsSuppressor(CompositeAlarmActionsSuppressorArgs actionsSuppressor) {
+            return actionsSuppressor(Output.of(actionsSuppressor));
         }
 
         /**

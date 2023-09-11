@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific CostExplorer Cost Category.
@@ -116,6 +117,12 @@ func (o LookupCostCategoryResultOutput) ToLookupCostCategoryResultOutput() Looku
 
 func (o LookupCostCategoryResultOutput) ToLookupCostCategoryResultOutputWithContext(ctx context.Context) LookupCostCategoryResultOutput {
 	return o
+}
+
+func (o LookupCostCategoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCostCategoryResult] {
+	return pulumix.Output[LookupCostCategoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupCostCategoryResultOutput) CostCategoryArn() pulumi.StringOutput {

@@ -42,7 +42,8 @@ utilities.lazyLoad(exports, ["EventDestination"], () => require("./eventDestinat
 
 export { GetActiveReceiptRuleSetResult } from "./getActiveReceiptRuleSet";
 export const getActiveReceiptRuleSet: typeof import("./getActiveReceiptRuleSet").getActiveReceiptRuleSet = null as any;
-utilities.lazyLoad(exports, ["getActiveReceiptRuleSet"], () => require("./getActiveReceiptRuleSet"));
+export const getActiveReceiptRuleSetOutput: typeof import("./getActiveReceiptRuleSet").getActiveReceiptRuleSetOutput = null as any;
+utilities.lazyLoad(exports, ["getActiveReceiptRuleSet","getActiveReceiptRuleSetOutput"], () => require("./getActiveReceiptRuleSet"));
 
 export { GetDomainIdentityArgs, GetDomainIdentityResult, GetDomainIdentityOutputArgs } from "./getDomainIdentity";
 export const getDomainIdentity: typeof import("./getDomainIdentity").getDomainIdentity = null as any;

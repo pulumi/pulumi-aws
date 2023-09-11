@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Managed Grafana workspace data source.
@@ -139,6 +140,12 @@ func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutput() LookupWorks
 
 func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutputWithContext(ctx context.Context) LookupWorkspaceResultOutput {
 	return o
+}
+
+func (o LookupWorkspaceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupWorkspaceResult] {
+	return pulumix.Output[LookupWorkspaceResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // (Required) Type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.

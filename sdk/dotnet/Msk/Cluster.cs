@@ -304,6 +304,24 @@ namespace Pulumi.Aws.Msk
         public Output<string> BootstrapBrokersTls { get; private set; } = null!;
 
         /// <summary>
+        /// A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// </summary>
+        [Output("bootstrapBrokersVpcConnectivitySaslIam")]
+        public Output<string> BootstrapBrokersVpcConnectivitySaslIam { get; private set; } = null!;
+
+        /// <summary>
+        /// A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// </summary>
+        [Output("bootstrapBrokersVpcConnectivitySaslScram")]
+        public Output<string> BootstrapBrokersVpcConnectivitySaslScram { get; private set; } = null!;
+
+        /// <summary>
+        /// A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// </summary>
+        [Output("bootstrapBrokersVpcConnectivityTls")]
+        public Output<string> BootstrapBrokersVpcConnectivityTls { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for the broker nodes of the Kafka cluster.
         /// </summary>
         [Output("brokerNodeGroupInfo")]
@@ -579,6 +597,24 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         [Input("bootstrapBrokersTls")]
         public Input<string>? BootstrapBrokersTls { get; set; }
+
+        /// <summary>
+        /// A string containing one or more DNS names (or IP addresses) and SASL IAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// </summary>
+        [Input("bootstrapBrokersVpcConnectivitySaslIam")]
+        public Input<string>? BootstrapBrokersVpcConnectivitySaslIam { get; set; }
+
+        /// <summary>
+        /// A string containing one or more DNS names (or IP addresses) and SASL SCRAM port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// </summary>
+        [Input("bootstrapBrokersVpcConnectivitySaslScram")]
+        public Input<string>? BootstrapBrokersVpcConnectivitySaslScram { get; set; }
+
+        /// <summary>
+        /// A string containing one or more DNS names (or IP addresses) and TLS port pairs for VPC connectivity. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// </summary>
+        [Input("bootstrapBrokersVpcConnectivityTls")]
+        public Input<string>? BootstrapBrokersVpcConnectivityTls { get; set; }
 
         /// <summary>
         /// Configuration block for the broker nodes of the Kafka cluster.

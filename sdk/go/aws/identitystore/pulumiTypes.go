@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -50,6 +51,12 @@ func (i GroupExternalIdArgs) ToGroupExternalIdOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GroupExternalIdOutput)
 }
 
+func (i GroupExternalIdArgs) ToOutput(ctx context.Context) pulumix.Output[GroupExternalId] {
+	return pulumix.Output[GroupExternalId]{
+		OutputState: i.ToGroupExternalIdOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GroupExternalIdArrayInput is an input type that accepts GroupExternalIdArray and GroupExternalIdArrayOutput values.
 // You can construct a concrete instance of `GroupExternalIdArrayInput` via:
 //
@@ -75,6 +82,12 @@ func (i GroupExternalIdArray) ToGroupExternalIdArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GroupExternalIdArrayOutput)
 }
 
+func (i GroupExternalIdArray) ToOutput(ctx context.Context) pulumix.Output[[]GroupExternalId] {
+	return pulumix.Output[[]GroupExternalId]{
+		OutputState: i.ToGroupExternalIdArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GroupExternalIdOutput struct{ *pulumi.OutputState }
 
 func (GroupExternalIdOutput) ElementType() reflect.Type {
@@ -87,6 +100,12 @@ func (o GroupExternalIdOutput) ToGroupExternalIdOutput() GroupExternalIdOutput {
 
 func (o GroupExternalIdOutput) ToGroupExternalIdOutputWithContext(ctx context.Context) GroupExternalIdOutput {
 	return o
+}
+
+func (o GroupExternalIdOutput) ToOutput(ctx context.Context) pulumix.Output[GroupExternalId] {
+	return pulumix.Output[GroupExternalId]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifier issued to this resource by an external identity provider.
@@ -111,6 +130,12 @@ func (o GroupExternalIdArrayOutput) ToGroupExternalIdArrayOutput() GroupExternal
 
 func (o GroupExternalIdArrayOutput) ToGroupExternalIdArrayOutputWithContext(ctx context.Context) GroupExternalIdArrayOutput {
 	return o
+}
+
+func (o GroupExternalIdArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GroupExternalId] {
+	return pulumix.Output[[]GroupExternalId]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GroupExternalIdArrayOutput) Index(i pulumi.IntInput) GroupExternalIdOutput {
@@ -180,6 +205,12 @@ func (i UserAddressesArgs) ToUserAddressesOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(UserAddressesOutput)
 }
 
+func (i UserAddressesArgs) ToOutput(ctx context.Context) pulumix.Output[UserAddresses] {
+	return pulumix.Output[UserAddresses]{
+		OutputState: i.ToUserAddressesOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i UserAddressesArgs) ToUserAddressesPtrOutput() UserAddressesPtrOutput {
 	return i.ToUserAddressesPtrOutputWithContext(context.Background())
 }
@@ -221,6 +252,12 @@ func (i *userAddressesPtrType) ToUserAddressesPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(UserAddressesPtrOutput)
 }
 
+func (i *userAddressesPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserAddresses] {
+	return pulumix.Output[*UserAddresses]{
+		OutputState: i.ToUserAddressesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserAddressesOutput struct{ *pulumi.OutputState }
 
 func (UserAddressesOutput) ElementType() reflect.Type {
@@ -243,6 +280,12 @@ func (o UserAddressesOutput) ToUserAddressesPtrOutputWithContext(ctx context.Con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserAddresses) *UserAddresses {
 		return &v
 	}).(UserAddressesPtrOutput)
+}
+
+func (o UserAddressesOutput) ToOutput(ctx context.Context) pulumix.Output[UserAddresses] {
+	return pulumix.Output[UserAddresses]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The country that this address is in.
@@ -297,6 +340,12 @@ func (o UserAddressesPtrOutput) ToUserAddressesPtrOutput() UserAddressesPtrOutpu
 
 func (o UserAddressesPtrOutput) ToUserAddressesPtrOutputWithContext(ctx context.Context) UserAddressesPtrOutput {
 	return o
+}
+
+func (o UserAddressesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserAddresses] {
+	return pulumix.Output[*UserAddresses]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserAddressesPtrOutput) Elem() UserAddressesOutput {
@@ -430,6 +479,12 @@ func (i UserEmailsArgs) ToUserEmailsOutputWithContext(ctx context.Context) UserE
 	return pulumi.ToOutputWithContext(ctx, i).(UserEmailsOutput)
 }
 
+func (i UserEmailsArgs) ToOutput(ctx context.Context) pulumix.Output[UserEmails] {
+	return pulumix.Output[UserEmails]{
+		OutputState: i.ToUserEmailsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i UserEmailsArgs) ToUserEmailsPtrOutput() UserEmailsPtrOutput {
 	return i.ToUserEmailsPtrOutputWithContext(context.Background())
 }
@@ -471,6 +526,12 @@ func (i *userEmailsPtrType) ToUserEmailsPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(UserEmailsPtrOutput)
 }
 
+func (i *userEmailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserEmails] {
+	return pulumix.Output[*UserEmails]{
+		OutputState: i.ToUserEmailsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserEmailsOutput struct{ *pulumi.OutputState }
 
 func (UserEmailsOutput) ElementType() reflect.Type {
@@ -493,6 +554,12 @@ func (o UserEmailsOutput) ToUserEmailsPtrOutputWithContext(ctx context.Context) 
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserEmails) *UserEmails {
 		return &v
 	}).(UserEmailsPtrOutput)
+}
+
+func (o UserEmailsOutput) ToOutput(ctx context.Context) pulumix.Output[UserEmails] {
+	return pulumix.Output[UserEmails]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When `true`, this is the primary email associated with the user.
@@ -522,6 +589,12 @@ func (o UserEmailsPtrOutput) ToUserEmailsPtrOutput() UserEmailsPtrOutput {
 
 func (o UserEmailsPtrOutput) ToUserEmailsPtrOutputWithContext(ctx context.Context) UserEmailsPtrOutput {
 	return o
+}
+
+func (o UserEmailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserEmails] {
+	return pulumix.Output[*UserEmails]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserEmailsPtrOutput) Elem() UserEmailsOutput {
@@ -601,6 +674,12 @@ func (i UserExternalIdArgs) ToUserExternalIdOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(UserExternalIdOutput)
 }
 
+func (i UserExternalIdArgs) ToOutput(ctx context.Context) pulumix.Output[UserExternalId] {
+	return pulumix.Output[UserExternalId]{
+		OutputState: i.ToUserExternalIdOutputWithContext(ctx).OutputState,
+	}
+}
+
 // UserExternalIdArrayInput is an input type that accepts UserExternalIdArray and UserExternalIdArrayOutput values.
 // You can construct a concrete instance of `UserExternalIdArrayInput` via:
 //
@@ -626,6 +705,12 @@ func (i UserExternalIdArray) ToUserExternalIdArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(UserExternalIdArrayOutput)
 }
 
+func (i UserExternalIdArray) ToOutput(ctx context.Context) pulumix.Output[[]UserExternalId] {
+	return pulumix.Output[[]UserExternalId]{
+		OutputState: i.ToUserExternalIdArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserExternalIdOutput struct{ *pulumi.OutputState }
 
 func (UserExternalIdOutput) ElementType() reflect.Type {
@@ -638,6 +723,12 @@ func (o UserExternalIdOutput) ToUserExternalIdOutput() UserExternalIdOutput {
 
 func (o UserExternalIdOutput) ToUserExternalIdOutputWithContext(ctx context.Context) UserExternalIdOutput {
 	return o
+}
+
+func (o UserExternalIdOutput) ToOutput(ctx context.Context) pulumix.Output[UserExternalId] {
+	return pulumix.Output[UserExternalId]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifier issued to this resource by an external identity provider.
@@ -662,6 +753,12 @@ func (o UserExternalIdArrayOutput) ToUserExternalIdArrayOutput() UserExternalIdA
 
 func (o UserExternalIdArrayOutput) ToUserExternalIdArrayOutputWithContext(ctx context.Context) UserExternalIdArrayOutput {
 	return o
+}
+
+func (o UserExternalIdArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]UserExternalId] {
+	return pulumix.Output[[]UserExternalId]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserExternalIdArrayOutput) Index(i pulumi.IntInput) UserExternalIdOutput {
@@ -727,6 +824,12 @@ func (i UserNameArgs) ToUserNameOutputWithContext(ctx context.Context) UserNameO
 	return pulumi.ToOutputWithContext(ctx, i).(UserNameOutput)
 }
 
+func (i UserNameArgs) ToOutput(ctx context.Context) pulumix.Output[UserName] {
+	return pulumix.Output[UserName]{
+		OutputState: i.ToUserNameOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i UserNameArgs) ToUserNamePtrOutput() UserNamePtrOutput {
 	return i.ToUserNamePtrOutputWithContext(context.Background())
 }
@@ -768,6 +871,12 @@ func (i *userNamePtrType) ToUserNamePtrOutputWithContext(ctx context.Context) Us
 	return pulumi.ToOutputWithContext(ctx, i).(UserNamePtrOutput)
 }
 
+func (i *userNamePtrType) ToOutput(ctx context.Context) pulumix.Output[*UserName] {
+	return pulumix.Output[*UserName]{
+		OutputState: i.ToUserNamePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserNameOutput struct{ *pulumi.OutputState }
 
 func (UserNameOutput) ElementType() reflect.Type {
@@ -790,6 +899,12 @@ func (o UserNameOutput) ToUserNamePtrOutputWithContext(ctx context.Context) User
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserName) *UserName {
 		return &v
 	}).(UserNamePtrOutput)
+}
+
+func (o UserNameOutput) ToOutput(ctx context.Context) pulumix.Output[UserName] {
+	return pulumix.Output[UserName]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The family name of the user.
@@ -836,6 +951,12 @@ func (o UserNamePtrOutput) ToUserNamePtrOutput() UserNamePtrOutput {
 
 func (o UserNamePtrOutput) ToUserNamePtrOutputWithContext(ctx context.Context) UserNamePtrOutput {
 	return o
+}
+
+func (o UserNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserName] {
+	return pulumix.Output[*UserName]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserNamePtrOutput) Elem() UserNameOutput {
@@ -951,6 +1072,12 @@ func (i UserPhoneNumbersArgs) ToUserPhoneNumbersOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(UserPhoneNumbersOutput)
 }
 
+func (i UserPhoneNumbersArgs) ToOutput(ctx context.Context) pulumix.Output[UserPhoneNumbers] {
+	return pulumix.Output[UserPhoneNumbers]{
+		OutputState: i.ToUserPhoneNumbersOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i UserPhoneNumbersArgs) ToUserPhoneNumbersPtrOutput() UserPhoneNumbersPtrOutput {
 	return i.ToUserPhoneNumbersPtrOutputWithContext(context.Background())
 }
@@ -992,6 +1119,12 @@ func (i *userPhoneNumbersPtrType) ToUserPhoneNumbersPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(UserPhoneNumbersPtrOutput)
 }
 
+func (i *userPhoneNumbersPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPhoneNumbers] {
+	return pulumix.Output[*UserPhoneNumbers]{
+		OutputState: i.ToUserPhoneNumbersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type UserPhoneNumbersOutput struct{ *pulumi.OutputState }
 
 func (UserPhoneNumbersOutput) ElementType() reflect.Type {
@@ -1014,6 +1147,12 @@ func (o UserPhoneNumbersOutput) ToUserPhoneNumbersPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPhoneNumbers) *UserPhoneNumbers {
 		return &v
 	}).(UserPhoneNumbersPtrOutput)
+}
+
+func (o UserPhoneNumbersOutput) ToOutput(ctx context.Context) pulumix.Output[UserPhoneNumbers] {
+	return pulumix.Output[UserPhoneNumbers]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When `true`, this is the primary phone number associated with the user.
@@ -1043,6 +1182,12 @@ func (o UserPhoneNumbersPtrOutput) ToUserPhoneNumbersPtrOutput() UserPhoneNumber
 
 func (o UserPhoneNumbersPtrOutput) ToUserPhoneNumbersPtrOutputWithContext(ctx context.Context) UserPhoneNumbersPtrOutput {
 	return o
+}
+
+func (o UserPhoneNumbersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPhoneNumbers] {
+	return pulumix.Output[*UserPhoneNumbers]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o UserPhoneNumbersPtrOutput) Elem() UserPhoneNumbersOutput {
@@ -1126,6 +1271,12 @@ func (i GetGroupAlternateIdentifierArgs) ToGetGroupAlternateIdentifierOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupAlternateIdentifierOutput)
 }
 
+func (i GetGroupAlternateIdentifierArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupAlternateIdentifier] {
+	return pulumix.Output[GetGroupAlternateIdentifier]{
+		OutputState: i.ToGetGroupAlternateIdentifierOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetGroupAlternateIdentifierArgs) ToGetGroupAlternateIdentifierPtrOutput() GetGroupAlternateIdentifierPtrOutput {
 	return i.ToGetGroupAlternateIdentifierPtrOutputWithContext(context.Background())
 }
@@ -1167,6 +1318,12 @@ func (i *getGroupAlternateIdentifierPtrType) ToGetGroupAlternateIdentifierPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupAlternateIdentifierPtrOutput)
 }
 
+func (i *getGroupAlternateIdentifierPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetGroupAlternateIdentifier] {
+	return pulumix.Output[*GetGroupAlternateIdentifier]{
+		OutputState: i.ToGetGroupAlternateIdentifierPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupAlternateIdentifierOutput struct{ *pulumi.OutputState }
 
 func (GetGroupAlternateIdentifierOutput) ElementType() reflect.Type {
@@ -1189,6 +1346,12 @@ func (o GetGroupAlternateIdentifierOutput) ToGetGroupAlternateIdentifierPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetGroupAlternateIdentifier) *GetGroupAlternateIdentifier {
 		return &v
 	}).(GetGroupAlternateIdentifierPtrOutput)
+}
+
+func (o GetGroupAlternateIdentifierOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupAlternateIdentifier] {
+	return pulumix.Output[GetGroupAlternateIdentifier]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
@@ -1217,6 +1380,12 @@ func (o GetGroupAlternateIdentifierPtrOutput) ToGetGroupAlternateIdentifierPtrOu
 
 func (o GetGroupAlternateIdentifierPtrOutput) ToGetGroupAlternateIdentifierPtrOutputWithContext(ctx context.Context) GetGroupAlternateIdentifierPtrOutput {
 	return o
+}
+
+func (o GetGroupAlternateIdentifierPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetGroupAlternateIdentifier] {
+	return pulumix.Output[*GetGroupAlternateIdentifier]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupAlternateIdentifierPtrOutput) Elem() GetGroupAlternateIdentifierOutput {
@@ -1288,6 +1457,12 @@ func (i GetGroupAlternateIdentifierExternalIdArgs) ToGetGroupAlternateIdentifier
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupAlternateIdentifierExternalIdOutput)
 }
 
+func (i GetGroupAlternateIdentifierExternalIdArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupAlternateIdentifierExternalId] {
+	return pulumix.Output[GetGroupAlternateIdentifierExternalId]{
+		OutputState: i.ToGetGroupAlternateIdentifierExternalIdOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetGroupAlternateIdentifierExternalIdArgs) ToGetGroupAlternateIdentifierExternalIdPtrOutput() GetGroupAlternateIdentifierExternalIdPtrOutput {
 	return i.ToGetGroupAlternateIdentifierExternalIdPtrOutputWithContext(context.Background())
 }
@@ -1329,6 +1504,12 @@ func (i *getGroupAlternateIdentifierExternalIdPtrType) ToGetGroupAlternateIdenti
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupAlternateIdentifierExternalIdPtrOutput)
 }
 
+func (i *getGroupAlternateIdentifierExternalIdPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetGroupAlternateIdentifierExternalId] {
+	return pulumix.Output[*GetGroupAlternateIdentifierExternalId]{
+		OutputState: i.ToGetGroupAlternateIdentifierExternalIdPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupAlternateIdentifierExternalIdOutput struct{ *pulumi.OutputState }
 
 func (GetGroupAlternateIdentifierExternalIdOutput) ElementType() reflect.Type {
@@ -1353,6 +1534,12 @@ func (o GetGroupAlternateIdentifierExternalIdOutput) ToGetGroupAlternateIdentifi
 	}).(GetGroupAlternateIdentifierExternalIdPtrOutput)
 }
 
+func (o GetGroupAlternateIdentifierExternalIdOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupAlternateIdentifierExternalId] {
+	return pulumix.Output[GetGroupAlternateIdentifierExternalId]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The identifier issued to this resource by an external identity provider.
 func (o GetGroupAlternateIdentifierExternalIdOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupAlternateIdentifierExternalId) string { return v.Id }).(pulumi.StringOutput)
@@ -1375,6 +1562,12 @@ func (o GetGroupAlternateIdentifierExternalIdPtrOutput) ToGetGroupAlternateIdent
 
 func (o GetGroupAlternateIdentifierExternalIdPtrOutput) ToGetGroupAlternateIdentifierExternalIdPtrOutputWithContext(ctx context.Context) GetGroupAlternateIdentifierExternalIdPtrOutput {
 	return o
+}
+
+func (o GetGroupAlternateIdentifierExternalIdPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetGroupAlternateIdentifierExternalId] {
+	return pulumix.Output[*GetGroupAlternateIdentifierExternalId]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupAlternateIdentifierExternalIdPtrOutput) Elem() GetGroupAlternateIdentifierExternalIdOutput {
@@ -1444,6 +1637,12 @@ func (i GetGroupAlternateIdentifierUniqueAttributeArgs) ToGetGroupAlternateIdent
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupAlternateIdentifierUniqueAttributeOutput)
 }
 
+func (i GetGroupAlternateIdentifierUniqueAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupAlternateIdentifierUniqueAttribute] {
+	return pulumix.Output[GetGroupAlternateIdentifierUniqueAttribute]{
+		OutputState: i.ToGetGroupAlternateIdentifierUniqueAttributeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetGroupAlternateIdentifierUniqueAttributeArgs) ToGetGroupAlternateIdentifierUniqueAttributePtrOutput() GetGroupAlternateIdentifierUniqueAttributePtrOutput {
 	return i.ToGetGroupAlternateIdentifierUniqueAttributePtrOutputWithContext(context.Background())
 }
@@ -1485,6 +1684,12 @@ func (i *getGroupAlternateIdentifierUniqueAttributePtrType) ToGetGroupAlternateI
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupAlternateIdentifierUniqueAttributePtrOutput)
 }
 
+func (i *getGroupAlternateIdentifierUniqueAttributePtrType) ToOutput(ctx context.Context) pulumix.Output[*GetGroupAlternateIdentifierUniqueAttribute] {
+	return pulumix.Output[*GetGroupAlternateIdentifierUniqueAttribute]{
+		OutputState: i.ToGetGroupAlternateIdentifierUniqueAttributePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupAlternateIdentifierUniqueAttributeOutput struct{ *pulumi.OutputState }
 
 func (GetGroupAlternateIdentifierUniqueAttributeOutput) ElementType() reflect.Type {
@@ -1509,6 +1714,12 @@ func (o GetGroupAlternateIdentifierUniqueAttributeOutput) ToGetGroupAlternateIde
 	}).(GetGroupAlternateIdentifierUniqueAttributePtrOutput)
 }
 
+func (o GetGroupAlternateIdentifierUniqueAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupAlternateIdentifierUniqueAttribute] {
+	return pulumix.Output[GetGroupAlternateIdentifierUniqueAttribute]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
 func (o GetGroupAlternateIdentifierUniqueAttributeOutput) AttributePath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupAlternateIdentifierUniqueAttribute) string { return v.AttributePath }).(pulumi.StringOutput)
@@ -1531,6 +1742,12 @@ func (o GetGroupAlternateIdentifierUniqueAttributePtrOutput) ToGetGroupAlternate
 
 func (o GetGroupAlternateIdentifierUniqueAttributePtrOutput) ToGetGroupAlternateIdentifierUniqueAttributePtrOutputWithContext(ctx context.Context) GetGroupAlternateIdentifierUniqueAttributePtrOutput {
 	return o
+}
+
+func (o GetGroupAlternateIdentifierUniqueAttributePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetGroupAlternateIdentifierUniqueAttribute] {
+	return pulumix.Output[*GetGroupAlternateIdentifierUniqueAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupAlternateIdentifierUniqueAttributePtrOutput) Elem() GetGroupAlternateIdentifierUniqueAttributeOutput {
@@ -1600,6 +1817,12 @@ func (i GetGroupExternalIdArgs) ToGetGroupExternalIdOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupExternalIdOutput)
 }
 
+func (i GetGroupExternalIdArgs) ToOutput(ctx context.Context) pulumix.Output[GetGroupExternalId] {
+	return pulumix.Output[GetGroupExternalId]{
+		OutputState: i.ToGetGroupExternalIdOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetGroupExternalIdArrayInput is an input type that accepts GetGroupExternalIdArray and GetGroupExternalIdArrayOutput values.
 // You can construct a concrete instance of `GetGroupExternalIdArrayInput` via:
 //
@@ -1625,6 +1848,12 @@ func (i GetGroupExternalIdArray) ToGetGroupExternalIdArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetGroupExternalIdArrayOutput)
 }
 
+func (i GetGroupExternalIdArray) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupExternalId] {
+	return pulumix.Output[[]GetGroupExternalId]{
+		OutputState: i.ToGetGroupExternalIdArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetGroupExternalIdOutput struct{ *pulumi.OutputState }
 
 func (GetGroupExternalIdOutput) ElementType() reflect.Type {
@@ -1637,6 +1866,12 @@ func (o GetGroupExternalIdOutput) ToGetGroupExternalIdOutput() GetGroupExternalI
 
 func (o GetGroupExternalIdOutput) ToGetGroupExternalIdOutputWithContext(ctx context.Context) GetGroupExternalIdOutput {
 	return o
+}
+
+func (o GetGroupExternalIdOutput) ToOutput(ctx context.Context) pulumix.Output[GetGroupExternalId] {
+	return pulumix.Output[GetGroupExternalId]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifier issued to this resource by an external identity provider.
@@ -1661,6 +1896,12 @@ func (o GetGroupExternalIdArrayOutput) ToGetGroupExternalIdArrayOutput() GetGrou
 
 func (o GetGroupExternalIdArrayOutput) ToGetGroupExternalIdArrayOutputWithContext(ctx context.Context) GetGroupExternalIdArrayOutput {
 	return o
+}
+
+func (o GetGroupExternalIdArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetGroupExternalId] {
+	return pulumix.Output[[]GetGroupExternalId]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetGroupExternalIdArrayOutput) Index(i pulumi.IntInput) GetGroupExternalIdOutput {
@@ -1730,6 +1971,12 @@ func (i GetUserAddressArgs) ToGetUserAddressOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetUserAddressOutput)
 }
 
+func (i GetUserAddressArgs) ToOutput(ctx context.Context) pulumix.Output[GetUserAddress] {
+	return pulumix.Output[GetUserAddress]{
+		OutputState: i.ToGetUserAddressOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetUserAddressArrayInput is an input type that accepts GetUserAddressArray and GetUserAddressArrayOutput values.
 // You can construct a concrete instance of `GetUserAddressArrayInput` via:
 //
@@ -1755,6 +2002,12 @@ func (i GetUserAddressArray) ToGetUserAddressArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetUserAddressArrayOutput)
 }
 
+func (i GetUserAddressArray) ToOutput(ctx context.Context) pulumix.Output[[]GetUserAddress] {
+	return pulumix.Output[[]GetUserAddress]{
+		OutputState: i.ToGetUserAddressArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetUserAddressOutput struct{ *pulumi.OutputState }
 
 func (GetUserAddressOutput) ElementType() reflect.Type {
@@ -1767,6 +2020,12 @@ func (o GetUserAddressOutput) ToGetUserAddressOutput() GetUserAddressOutput {
 
 func (o GetUserAddressOutput) ToGetUserAddressOutputWithContext(ctx context.Context) GetUserAddressOutput {
 	return o
+}
+
+func (o GetUserAddressOutput) ToOutput(ctx context.Context) pulumix.Output[GetUserAddress] {
+	return pulumix.Output[GetUserAddress]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The country that this address is in.
@@ -1823,6 +2082,12 @@ func (o GetUserAddressArrayOutput) ToGetUserAddressArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o GetUserAddressArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetUserAddress] {
+	return pulumix.Output[[]GetUserAddress]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GetUserAddressArrayOutput) Index(i pulumi.IntInput) GetUserAddressOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetUserAddress {
 		return vs[0].([]GetUserAddress)[vs[1].(int)]
@@ -1870,6 +2135,12 @@ func (i GetUserAlternateIdentifierArgs) ToGetUserAlternateIdentifierOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetUserAlternateIdentifierOutput)
 }
 
+func (i GetUserAlternateIdentifierArgs) ToOutput(ctx context.Context) pulumix.Output[GetUserAlternateIdentifier] {
+	return pulumix.Output[GetUserAlternateIdentifier]{
+		OutputState: i.ToGetUserAlternateIdentifierOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetUserAlternateIdentifierArgs) ToGetUserAlternateIdentifierPtrOutput() GetUserAlternateIdentifierPtrOutput {
 	return i.ToGetUserAlternateIdentifierPtrOutputWithContext(context.Background())
 }
@@ -1911,6 +2182,12 @@ func (i *getUserAlternateIdentifierPtrType) ToGetUserAlternateIdentifierPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(GetUserAlternateIdentifierPtrOutput)
 }
 
+func (i *getUserAlternateIdentifierPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetUserAlternateIdentifier] {
+	return pulumix.Output[*GetUserAlternateIdentifier]{
+		OutputState: i.ToGetUserAlternateIdentifierPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetUserAlternateIdentifierOutput struct{ *pulumi.OutputState }
 
 func (GetUserAlternateIdentifierOutput) ElementType() reflect.Type {
@@ -1933,6 +2210,12 @@ func (o GetUserAlternateIdentifierOutput) ToGetUserAlternateIdentifierPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetUserAlternateIdentifier) *GetUserAlternateIdentifier {
 		return &v
 	}).(GetUserAlternateIdentifierPtrOutput)
+}
+
+func (o GetUserAlternateIdentifierOutput) ToOutput(ctx context.Context) pulumix.Output[GetUserAlternateIdentifier] {
+	return pulumix.Output[GetUserAlternateIdentifier]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
@@ -1961,6 +2244,12 @@ func (o GetUserAlternateIdentifierPtrOutput) ToGetUserAlternateIdentifierPtrOutp
 
 func (o GetUserAlternateIdentifierPtrOutput) ToGetUserAlternateIdentifierPtrOutputWithContext(ctx context.Context) GetUserAlternateIdentifierPtrOutput {
 	return o
+}
+
+func (o GetUserAlternateIdentifierPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetUserAlternateIdentifier] {
+	return pulumix.Output[*GetUserAlternateIdentifier]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetUserAlternateIdentifierPtrOutput) Elem() GetUserAlternateIdentifierOutput {
@@ -2032,6 +2321,12 @@ func (i GetUserAlternateIdentifierExternalIdArgs) ToGetUserAlternateIdentifierEx
 	return pulumi.ToOutputWithContext(ctx, i).(GetUserAlternateIdentifierExternalIdOutput)
 }
 
+func (i GetUserAlternateIdentifierExternalIdArgs) ToOutput(ctx context.Context) pulumix.Output[GetUserAlternateIdentifierExternalId] {
+	return pulumix.Output[GetUserAlternateIdentifierExternalId]{
+		OutputState: i.ToGetUserAlternateIdentifierExternalIdOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetUserAlternateIdentifierExternalIdArgs) ToGetUserAlternateIdentifierExternalIdPtrOutput() GetUserAlternateIdentifierExternalIdPtrOutput {
 	return i.ToGetUserAlternateIdentifierExternalIdPtrOutputWithContext(context.Background())
 }
@@ -2073,6 +2368,12 @@ func (i *getUserAlternateIdentifierExternalIdPtrType) ToGetUserAlternateIdentifi
 	return pulumi.ToOutputWithContext(ctx, i).(GetUserAlternateIdentifierExternalIdPtrOutput)
 }
 
+func (i *getUserAlternateIdentifierExternalIdPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetUserAlternateIdentifierExternalId] {
+	return pulumix.Output[*GetUserAlternateIdentifierExternalId]{
+		OutputState: i.ToGetUserAlternateIdentifierExternalIdPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetUserAlternateIdentifierExternalIdOutput struct{ *pulumi.OutputState }
 
 func (GetUserAlternateIdentifierExternalIdOutput) ElementType() reflect.Type {
@@ -2097,6 +2398,12 @@ func (o GetUserAlternateIdentifierExternalIdOutput) ToGetUserAlternateIdentifier
 	}).(GetUserAlternateIdentifierExternalIdPtrOutput)
 }
 
+func (o GetUserAlternateIdentifierExternalIdOutput) ToOutput(ctx context.Context) pulumix.Output[GetUserAlternateIdentifierExternalId] {
+	return pulumix.Output[GetUserAlternateIdentifierExternalId]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The identifier issued to this resource by an external identity provider.
 func (o GetUserAlternateIdentifierExternalIdOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserAlternateIdentifierExternalId) string { return v.Id }).(pulumi.StringOutput)
@@ -2119,6 +2426,12 @@ func (o GetUserAlternateIdentifierExternalIdPtrOutput) ToGetUserAlternateIdentif
 
 func (o GetUserAlternateIdentifierExternalIdPtrOutput) ToGetUserAlternateIdentifierExternalIdPtrOutputWithContext(ctx context.Context) GetUserAlternateIdentifierExternalIdPtrOutput {
 	return o
+}
+
+func (o GetUserAlternateIdentifierExternalIdPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetUserAlternateIdentifierExternalId] {
+	return pulumix.Output[*GetUserAlternateIdentifierExternalId]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetUserAlternateIdentifierExternalIdPtrOutput) Elem() GetUserAlternateIdentifierExternalIdOutput {
@@ -2188,6 +2501,12 @@ func (i GetUserAlternateIdentifierUniqueAttributeArgs) ToGetUserAlternateIdentif
 	return pulumi.ToOutputWithContext(ctx, i).(GetUserAlternateIdentifierUniqueAttributeOutput)
 }
 
+func (i GetUserAlternateIdentifierUniqueAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[GetUserAlternateIdentifierUniqueAttribute] {
+	return pulumix.Output[GetUserAlternateIdentifierUniqueAttribute]{
+		OutputState: i.ToGetUserAlternateIdentifierUniqueAttributeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GetUserAlternateIdentifierUniqueAttributeArgs) ToGetUserAlternateIdentifierUniqueAttributePtrOutput() GetUserAlternateIdentifierUniqueAttributePtrOutput {
 	return i.ToGetUserAlternateIdentifierUniqueAttributePtrOutputWithContext(context.Background())
 }
@@ -2229,6 +2548,12 @@ func (i *getUserAlternateIdentifierUniqueAttributePtrType) ToGetUserAlternateIde
 	return pulumi.ToOutputWithContext(ctx, i).(GetUserAlternateIdentifierUniqueAttributePtrOutput)
 }
 
+func (i *getUserAlternateIdentifierUniqueAttributePtrType) ToOutput(ctx context.Context) pulumix.Output[*GetUserAlternateIdentifierUniqueAttribute] {
+	return pulumix.Output[*GetUserAlternateIdentifierUniqueAttribute]{
+		OutputState: i.ToGetUserAlternateIdentifierUniqueAttributePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetUserAlternateIdentifierUniqueAttributeOutput struct{ *pulumi.OutputState }
 
 func (GetUserAlternateIdentifierUniqueAttributeOutput) ElementType() reflect.Type {
@@ -2253,6 +2578,12 @@ func (o GetUserAlternateIdentifierUniqueAttributeOutput) ToGetUserAlternateIdent
 	}).(GetUserAlternateIdentifierUniqueAttributePtrOutput)
 }
 
+func (o GetUserAlternateIdentifierUniqueAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[GetUserAlternateIdentifierUniqueAttribute] {
+	return pulumix.Output[GetUserAlternateIdentifierUniqueAttribute]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
 func (o GetUserAlternateIdentifierUniqueAttributeOutput) AttributePath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserAlternateIdentifierUniqueAttribute) string { return v.AttributePath }).(pulumi.StringOutput)
@@ -2275,6 +2606,12 @@ func (o GetUserAlternateIdentifierUniqueAttributePtrOutput) ToGetUserAlternateId
 
 func (o GetUserAlternateIdentifierUniqueAttributePtrOutput) ToGetUserAlternateIdentifierUniqueAttributePtrOutputWithContext(ctx context.Context) GetUserAlternateIdentifierUniqueAttributePtrOutput {
 	return o
+}
+
+func (o GetUserAlternateIdentifierUniqueAttributePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetUserAlternateIdentifierUniqueAttribute] {
+	return pulumix.Output[*GetUserAlternateIdentifierUniqueAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetUserAlternateIdentifierUniqueAttributePtrOutput) Elem() GetUserAlternateIdentifierUniqueAttributeOutput {
@@ -2348,6 +2685,12 @@ func (i GetUserEmailArgs) ToGetUserEmailOutputWithContext(ctx context.Context) G
 	return pulumi.ToOutputWithContext(ctx, i).(GetUserEmailOutput)
 }
 
+func (i GetUserEmailArgs) ToOutput(ctx context.Context) pulumix.Output[GetUserEmail] {
+	return pulumix.Output[GetUserEmail]{
+		OutputState: i.ToGetUserEmailOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetUserEmailArrayInput is an input type that accepts GetUserEmailArray and GetUserEmailArrayOutput values.
 // You can construct a concrete instance of `GetUserEmailArrayInput` via:
 //
@@ -2373,6 +2716,12 @@ func (i GetUserEmailArray) ToGetUserEmailArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetUserEmailArrayOutput)
 }
 
+func (i GetUserEmailArray) ToOutput(ctx context.Context) pulumix.Output[[]GetUserEmail] {
+	return pulumix.Output[[]GetUserEmail]{
+		OutputState: i.ToGetUserEmailArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetUserEmailOutput struct{ *pulumi.OutputState }
 
 func (GetUserEmailOutput) ElementType() reflect.Type {
@@ -2385,6 +2734,12 @@ func (o GetUserEmailOutput) ToGetUserEmailOutput() GetUserEmailOutput {
 
 func (o GetUserEmailOutput) ToGetUserEmailOutputWithContext(ctx context.Context) GetUserEmailOutput {
 	return o
+}
+
+func (o GetUserEmailOutput) ToOutput(ctx context.Context) pulumix.Output[GetUserEmail] {
+	return pulumix.Output[GetUserEmail]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When `true`, this is the primary phone number associated with the user.
@@ -2414,6 +2769,12 @@ func (o GetUserEmailArrayOutput) ToGetUserEmailArrayOutput() GetUserEmailArrayOu
 
 func (o GetUserEmailArrayOutput) ToGetUserEmailArrayOutputWithContext(ctx context.Context) GetUserEmailArrayOutput {
 	return o
+}
+
+func (o GetUserEmailArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetUserEmail] {
+	return pulumix.Output[[]GetUserEmail]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetUserEmailArrayOutput) Index(i pulumi.IntInput) GetUserEmailOutput {
@@ -2459,6 +2820,12 @@ func (i GetUserExternalIdArgs) ToGetUserExternalIdOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetUserExternalIdOutput)
 }
 
+func (i GetUserExternalIdArgs) ToOutput(ctx context.Context) pulumix.Output[GetUserExternalId] {
+	return pulumix.Output[GetUserExternalId]{
+		OutputState: i.ToGetUserExternalIdOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetUserExternalIdArrayInput is an input type that accepts GetUserExternalIdArray and GetUserExternalIdArrayOutput values.
 // You can construct a concrete instance of `GetUserExternalIdArrayInput` via:
 //
@@ -2484,6 +2851,12 @@ func (i GetUserExternalIdArray) ToGetUserExternalIdArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetUserExternalIdArrayOutput)
 }
 
+func (i GetUserExternalIdArray) ToOutput(ctx context.Context) pulumix.Output[[]GetUserExternalId] {
+	return pulumix.Output[[]GetUserExternalId]{
+		OutputState: i.ToGetUserExternalIdArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetUserExternalIdOutput struct{ *pulumi.OutputState }
 
 func (GetUserExternalIdOutput) ElementType() reflect.Type {
@@ -2496,6 +2869,12 @@ func (o GetUserExternalIdOutput) ToGetUserExternalIdOutput() GetUserExternalIdOu
 
 func (o GetUserExternalIdOutput) ToGetUserExternalIdOutputWithContext(ctx context.Context) GetUserExternalIdOutput {
 	return o
+}
+
+func (o GetUserExternalIdOutput) ToOutput(ctx context.Context) pulumix.Output[GetUserExternalId] {
+	return pulumix.Output[GetUserExternalId]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The identifier issued to this resource by an external identity provider.
@@ -2520,6 +2899,12 @@ func (o GetUserExternalIdArrayOutput) ToGetUserExternalIdArrayOutput() GetUserEx
 
 func (o GetUserExternalIdArrayOutput) ToGetUserExternalIdArrayOutputWithContext(ctx context.Context) GetUserExternalIdArrayOutput {
 	return o
+}
+
+func (o GetUserExternalIdArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetUserExternalId] {
+	return pulumix.Output[[]GetUserExternalId]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetUserExternalIdArrayOutput) Index(i pulumi.IntInput) GetUserExternalIdOutput {
@@ -2581,6 +2966,12 @@ func (i GetUserNameArgs) ToGetUserNameOutputWithContext(ctx context.Context) Get
 	return pulumi.ToOutputWithContext(ctx, i).(GetUserNameOutput)
 }
 
+func (i GetUserNameArgs) ToOutput(ctx context.Context) pulumix.Output[GetUserName] {
+	return pulumix.Output[GetUserName]{
+		OutputState: i.ToGetUserNameOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetUserNameArrayInput is an input type that accepts GetUserNameArray and GetUserNameArrayOutput values.
 // You can construct a concrete instance of `GetUserNameArrayInput` via:
 //
@@ -2606,6 +2997,12 @@ func (i GetUserNameArray) ToGetUserNameArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetUserNameArrayOutput)
 }
 
+func (i GetUserNameArray) ToOutput(ctx context.Context) pulumix.Output[[]GetUserName] {
+	return pulumix.Output[[]GetUserName]{
+		OutputState: i.ToGetUserNameArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetUserNameOutput struct{ *pulumi.OutputState }
 
 func (GetUserNameOutput) ElementType() reflect.Type {
@@ -2618,6 +3015,12 @@ func (o GetUserNameOutput) ToGetUserNameOutput() GetUserNameOutput {
 
 func (o GetUserNameOutput) ToGetUserNameOutputWithContext(ctx context.Context) GetUserNameOutput {
 	return o
+}
+
+func (o GetUserNameOutput) ToOutput(ctx context.Context) pulumix.Output[GetUserName] {
+	return pulumix.Output[GetUserName]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The family name of the user.
@@ -2662,6 +3065,12 @@ func (o GetUserNameArrayOutput) ToGetUserNameArrayOutput() GetUserNameArrayOutpu
 
 func (o GetUserNameArrayOutput) ToGetUserNameArrayOutputWithContext(ctx context.Context) GetUserNameArrayOutput {
 	return o
+}
+
+func (o GetUserNameArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetUserName] {
+	return pulumix.Output[[]GetUserName]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetUserNameArrayOutput) Index(i pulumi.IntInput) GetUserNameOutput {
@@ -2711,6 +3120,12 @@ func (i GetUserPhoneNumberArgs) ToGetUserPhoneNumberOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetUserPhoneNumberOutput)
 }
 
+func (i GetUserPhoneNumberArgs) ToOutput(ctx context.Context) pulumix.Output[GetUserPhoneNumber] {
+	return pulumix.Output[GetUserPhoneNumber]{
+		OutputState: i.ToGetUserPhoneNumberOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetUserPhoneNumberArrayInput is an input type that accepts GetUserPhoneNumberArray and GetUserPhoneNumberArrayOutput values.
 // You can construct a concrete instance of `GetUserPhoneNumberArrayInput` via:
 //
@@ -2736,6 +3151,12 @@ func (i GetUserPhoneNumberArray) ToGetUserPhoneNumberArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetUserPhoneNumberArrayOutput)
 }
 
+func (i GetUserPhoneNumberArray) ToOutput(ctx context.Context) pulumix.Output[[]GetUserPhoneNumber] {
+	return pulumix.Output[[]GetUserPhoneNumber]{
+		OutputState: i.ToGetUserPhoneNumberArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetUserPhoneNumberOutput struct{ *pulumi.OutputState }
 
 func (GetUserPhoneNumberOutput) ElementType() reflect.Type {
@@ -2748,6 +3169,12 @@ func (o GetUserPhoneNumberOutput) ToGetUserPhoneNumberOutput() GetUserPhoneNumbe
 
 func (o GetUserPhoneNumberOutput) ToGetUserPhoneNumberOutputWithContext(ctx context.Context) GetUserPhoneNumberOutput {
 	return o
+}
+
+func (o GetUserPhoneNumberOutput) ToOutput(ctx context.Context) pulumix.Output[GetUserPhoneNumber] {
+	return pulumix.Output[GetUserPhoneNumber]{
+		OutputState: o.OutputState,
+	}
 }
 
 // When `true`, this is the primary phone number associated with the user.
@@ -2777,6 +3204,12 @@ func (o GetUserPhoneNumberArrayOutput) ToGetUserPhoneNumberArrayOutput() GetUser
 
 func (o GetUserPhoneNumberArrayOutput) ToGetUserPhoneNumberArrayOutputWithContext(ctx context.Context) GetUserPhoneNumberArrayOutput {
 	return o
+}
+
+func (o GetUserPhoneNumberArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetUserPhoneNumber] {
+	return pulumix.Output[[]GetUserPhoneNumber]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetUserPhoneNumberArrayOutput) Index(i pulumi.IntInput) GetUserPhoneNumberOutput {

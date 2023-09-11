@@ -6,6 +6,7 @@ package com.pulumi.aws.imagebuilder;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.imagebuilder.ImagePipelineArgs;
 import com.pulumi.aws.imagebuilder.inputs.ImagePipelineState;
+import com.pulumi.aws.imagebuilder.outputs.ImagePipelineImageScanningConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.ImagePipelineImageTestsConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.ImagePipelineSchedule;
 import com.pulumi.core.Output;
@@ -206,6 +207,20 @@ public class ImagePipeline extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> imageRecipeArn() {
         return Codegen.optional(this.imageRecipeArn);
+    }
+    /**
+     * Configuration block with image scanning configuration. Detailed below.
+     * 
+     */
+    @Export(name="imageScanningConfiguration", refs={ImagePipelineImageScanningConfiguration.class}, tree="[0]")
+    private Output<ImagePipelineImageScanningConfiguration> imageScanningConfiguration;
+
+    /**
+     * @return Configuration block with image scanning configuration. Detailed below.
+     * 
+     */
+    public Output<ImagePipelineImageScanningConfiguration> imageScanningConfiguration() {
+        return this.imageScanningConfiguration;
     }
     /**
      * Configuration block with image tests configuration. Detailed below.

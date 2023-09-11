@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides information about a MemoryDB Subnet Group.
@@ -111,6 +112,12 @@ func (o LookupSubnetGroupResultOutput) ToLookupSubnetGroupResultOutput() LookupS
 
 func (o LookupSubnetGroupResultOutput) ToLookupSubnetGroupResultOutputWithContext(ctx context.Context) LookupSubnetGroupResultOutput {
 	return o
+}
+
+func (o LookupSubnetGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSubnetGroupResult] {
+	return pulumix.Output[LookupSubnetGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the subnet group.

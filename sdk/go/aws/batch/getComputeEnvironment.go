@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The Batch Compute Environment data source allows access to details of a specific
@@ -118,6 +119,12 @@ func (o LookupComputeEnvironmentResultOutput) ToLookupComputeEnvironmentResultOu
 
 func (o LookupComputeEnvironmentResultOutput) ToLookupComputeEnvironmentResultOutputWithContext(ctx context.Context) LookupComputeEnvironmentResultOutput {
 	return o
+}
+
+func (o LookupComputeEnvironmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupComputeEnvironmentResult] {
+	return pulumix.Output[LookupComputeEnvironmentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the compute environment.

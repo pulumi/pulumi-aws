@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS Transcribe Vocabulary.
@@ -234,6 +235,12 @@ func (i *Vocabulary) ToVocabularyOutputWithContext(ctx context.Context) Vocabula
 	return pulumi.ToOutputWithContext(ctx, i).(VocabularyOutput)
 }
 
+func (i *Vocabulary) ToOutput(ctx context.Context) pulumix.Output[*Vocabulary] {
+	return pulumix.Output[*Vocabulary]{
+		OutputState: i.ToVocabularyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VocabularyArrayInput is an input type that accepts VocabularyArray and VocabularyArrayOutput values.
 // You can construct a concrete instance of `VocabularyArrayInput` via:
 //
@@ -257,6 +264,12 @@ func (i VocabularyArray) ToVocabularyArrayOutput() VocabularyArrayOutput {
 
 func (i VocabularyArray) ToVocabularyArrayOutputWithContext(ctx context.Context) VocabularyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VocabularyArrayOutput)
+}
+
+func (i VocabularyArray) ToOutput(ctx context.Context) pulumix.Output[[]*Vocabulary] {
+	return pulumix.Output[[]*Vocabulary]{
+		OutputState: i.ToVocabularyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VocabularyMapInput is an input type that accepts VocabularyMap and VocabularyMapOutput values.
@@ -284,6 +297,12 @@ func (i VocabularyMap) ToVocabularyMapOutputWithContext(ctx context.Context) Voc
 	return pulumi.ToOutputWithContext(ctx, i).(VocabularyMapOutput)
 }
 
+func (i VocabularyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Vocabulary] {
+	return pulumix.Output[map[string]*Vocabulary]{
+		OutputState: i.ToVocabularyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VocabularyOutput struct{ *pulumi.OutputState }
 
 func (VocabularyOutput) ElementType() reflect.Type {
@@ -296,6 +315,12 @@ func (o VocabularyOutput) ToVocabularyOutput() VocabularyOutput {
 
 func (o VocabularyOutput) ToVocabularyOutputWithContext(ctx context.Context) VocabularyOutput {
 	return o
+}
+
+func (o VocabularyOutput) ToOutput(ctx context.Context) pulumix.Output[*Vocabulary] {
+	return pulumix.Output[*Vocabulary]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Vocabulary.
@@ -353,6 +378,12 @@ func (o VocabularyArrayOutput) ToVocabularyArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o VocabularyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Vocabulary] {
+	return pulumix.Output[[]*Vocabulary]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VocabularyArrayOutput) Index(i pulumi.IntInput) VocabularyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Vocabulary {
 		return vs[0].([]*Vocabulary)[vs[1].(int)]
@@ -371,6 +402,12 @@ func (o VocabularyMapOutput) ToVocabularyMapOutput() VocabularyMapOutput {
 
 func (o VocabularyMapOutput) ToVocabularyMapOutputWithContext(ctx context.Context) VocabularyMapOutput {
 	return o
+}
+
+func (o VocabularyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Vocabulary] {
+	return pulumix.Output[map[string]*Vocabulary]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VocabularyMapOutput) MapIndex(k pulumi.StringInput) VocabularyOutput {

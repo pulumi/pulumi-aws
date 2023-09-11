@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
@@ -115,6 +116,12 @@ func (o GetDirectConnectGatewayAttachmentResultOutput) ToGetDirectConnectGateway
 
 func (o GetDirectConnectGatewayAttachmentResultOutput) ToGetDirectConnectGatewayAttachmentResultOutputWithContext(ctx context.Context) GetDirectConnectGatewayAttachmentResultOutput {
 	return o
+}
+
+func (o GetDirectConnectGatewayAttachmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDirectConnectGatewayAttachmentResult] {
+	return pulumix.Output[GetDirectConnectGatewayAttachmentResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDirectConnectGatewayAttachmentResultOutput) DxGatewayId() pulumi.StringPtrOutput {

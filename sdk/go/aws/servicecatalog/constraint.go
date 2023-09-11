@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Service Catalog Constraint.
@@ -230,6 +231,12 @@ func (i *Constraint) ToConstraintOutputWithContext(ctx context.Context) Constrai
 	return pulumi.ToOutputWithContext(ctx, i).(ConstraintOutput)
 }
 
+func (i *Constraint) ToOutput(ctx context.Context) pulumix.Output[*Constraint] {
+	return pulumix.Output[*Constraint]{
+		OutputState: i.ToConstraintOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ConstraintArrayInput is an input type that accepts ConstraintArray and ConstraintArrayOutput values.
 // You can construct a concrete instance of `ConstraintArrayInput` via:
 //
@@ -253,6 +260,12 @@ func (i ConstraintArray) ToConstraintArrayOutput() ConstraintArrayOutput {
 
 func (i ConstraintArray) ToConstraintArrayOutputWithContext(ctx context.Context) ConstraintArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConstraintArrayOutput)
+}
+
+func (i ConstraintArray) ToOutput(ctx context.Context) pulumix.Output[[]*Constraint] {
+	return pulumix.Output[[]*Constraint]{
+		OutputState: i.ToConstraintArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ConstraintMapInput is an input type that accepts ConstraintMap and ConstraintMapOutput values.
@@ -280,6 +293,12 @@ func (i ConstraintMap) ToConstraintMapOutputWithContext(ctx context.Context) Con
 	return pulumi.ToOutputWithContext(ctx, i).(ConstraintMapOutput)
 }
 
+func (i ConstraintMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Constraint] {
+	return pulumix.Output[map[string]*Constraint]{
+		OutputState: i.ToConstraintMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ConstraintOutput struct{ *pulumi.OutputState }
 
 func (ConstraintOutput) ElementType() reflect.Type {
@@ -292,6 +311,12 @@ func (o ConstraintOutput) ToConstraintOutput() ConstraintOutput {
 
 func (o ConstraintOutput) ToConstraintOutputWithContext(ctx context.Context) ConstraintOutput {
 	return o
+}
+
+func (o ConstraintOutput) ToOutput(ctx context.Context) pulumix.Output[*Constraint] {
+	return pulumix.Output[*Constraint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
@@ -349,6 +374,12 @@ func (o ConstraintArrayOutput) ToConstraintArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ConstraintArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Constraint] {
+	return pulumix.Output[[]*Constraint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ConstraintArrayOutput) Index(i pulumi.IntInput) ConstraintOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Constraint {
 		return vs[0].([]*Constraint)[vs[1].(int)]
@@ -367,6 +398,12 @@ func (o ConstraintMapOutput) ToConstraintMapOutput() ConstraintMapOutput {
 
 func (o ConstraintMapOutput) ToConstraintMapOutputWithContext(ctx context.Context) ConstraintMapOutput {
 	return o
+}
+
+func (o ConstraintMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Constraint] {
+	return pulumix.Output[map[string]*Constraint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ConstraintMapOutput) MapIndex(k pulumi.StringInput) ConstraintOutput {

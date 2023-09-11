@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to retrieve information about a CloudFront cache policy.
@@ -140,6 +141,12 @@ func (o LookupCachePolicyResultOutput) ToLookupCachePolicyResultOutput() LookupC
 
 func (o LookupCachePolicyResultOutput) ToLookupCachePolicyResultOutputWithContext(ctx context.Context) LookupCachePolicyResultOutput {
 	return o
+}
+
+func (o LookupCachePolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCachePolicyResult] {
+	return pulumix.Output[LookupCachePolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Comment to describe the cache policy.

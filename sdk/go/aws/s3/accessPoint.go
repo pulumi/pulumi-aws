@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a resource to manage an S3 Access Point.
@@ -310,6 +311,12 @@ func (i *AccessPoint) ToAccessPointOutputWithContext(ctx context.Context) Access
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointOutput)
 }
 
+func (i *AccessPoint) ToOutput(ctx context.Context) pulumix.Output[*AccessPoint] {
+	return pulumix.Output[*AccessPoint]{
+		OutputState: i.ToAccessPointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // AccessPointArrayInput is an input type that accepts AccessPointArray and AccessPointArrayOutput values.
 // You can construct a concrete instance of `AccessPointArrayInput` via:
 //
@@ -333,6 +340,12 @@ func (i AccessPointArray) ToAccessPointArrayOutput() AccessPointArrayOutput {
 
 func (i AccessPointArray) ToAccessPointArrayOutputWithContext(ctx context.Context) AccessPointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointArrayOutput)
+}
+
+func (i AccessPointArray) ToOutput(ctx context.Context) pulumix.Output[[]*AccessPoint] {
+	return pulumix.Output[[]*AccessPoint]{
+		OutputState: i.ToAccessPointArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // AccessPointMapInput is an input type that accepts AccessPointMap and AccessPointMapOutput values.
@@ -360,6 +373,12 @@ func (i AccessPointMap) ToAccessPointMapOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointMapOutput)
 }
 
+func (i AccessPointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccessPoint] {
+	return pulumix.Output[map[string]*AccessPoint]{
+		OutputState: i.ToAccessPointMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccessPointOutput struct{ *pulumi.OutputState }
 
 func (AccessPointOutput) ElementType() reflect.Type {
@@ -372,6 +391,12 @@ func (o AccessPointOutput) ToAccessPointOutput() AccessPointOutput {
 
 func (o AccessPointOutput) ToAccessPointOutputWithContext(ctx context.Context) AccessPointOutput {
 	return o
+}
+
+func (o AccessPointOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPoint] {
+	return pulumix.Output[*AccessPoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
@@ -458,6 +483,12 @@ func (o AccessPointArrayOutput) ToAccessPointArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o AccessPointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AccessPoint] {
+	return pulumix.Output[[]*AccessPoint]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o AccessPointArrayOutput) Index(i pulumi.IntInput) AccessPointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccessPoint {
 		return vs[0].([]*AccessPoint)[vs[1].(int)]
@@ -476,6 +507,12 @@ func (o AccessPointMapOutput) ToAccessPointMapOutput() AccessPointMapOutput {
 
 func (o AccessPointMapOutput) ToAccessPointMapOutputWithContext(ctx context.Context) AccessPointMapOutput {
 	return o
+}
+
+func (o AccessPointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccessPoint] {
+	return pulumix.Output[map[string]*AccessPoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessPointMapOutput) MapIndex(k pulumi.StringInput) AccessPointOutput {

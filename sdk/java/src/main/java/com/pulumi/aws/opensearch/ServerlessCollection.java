@@ -109,9 +109,17 @@ public class ServerlessCollection extends com.pulumi.resources.CustomResource {
     public Output<String> collectionEndpoint() {
         return this.collectionEndpoint;
     }
+    /**
+     * Collection-specific endpoint used to access OpenSearch Dashboards.
+     * 
+     */
     @Export(name="dashboardEndpoint", refs={String.class}, tree="[0]")
     private Output<String> dashboardEndpoint;
 
+    /**
+     * @return Collection-specific endpoint used to access OpenSearch Dashboards.
+     * 
+     */
     public Output<String> dashboardEndpoint() {
         return this.dashboardEndpoint;
     }

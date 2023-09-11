@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a SMB Location within AWS DataSync.
@@ -248,6 +249,12 @@ func (i *LocationSmb) ToLocationSmbOutputWithContext(ctx context.Context) Locati
 	return pulumi.ToOutputWithContext(ctx, i).(LocationSmbOutput)
 }
 
+func (i *LocationSmb) ToOutput(ctx context.Context) pulumix.Output[*LocationSmb] {
+	return pulumix.Output[*LocationSmb]{
+		OutputState: i.ToLocationSmbOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LocationSmbArrayInput is an input type that accepts LocationSmbArray and LocationSmbArrayOutput values.
 // You can construct a concrete instance of `LocationSmbArrayInput` via:
 //
@@ -271,6 +278,12 @@ func (i LocationSmbArray) ToLocationSmbArrayOutput() LocationSmbArrayOutput {
 
 func (i LocationSmbArray) ToLocationSmbArrayOutputWithContext(ctx context.Context) LocationSmbArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocationSmbArrayOutput)
+}
+
+func (i LocationSmbArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocationSmb] {
+	return pulumix.Output[[]*LocationSmb]{
+		OutputState: i.ToLocationSmbArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LocationSmbMapInput is an input type that accepts LocationSmbMap and LocationSmbMapOutput values.
@@ -298,6 +311,12 @@ func (i LocationSmbMap) ToLocationSmbMapOutputWithContext(ctx context.Context) L
 	return pulumi.ToOutputWithContext(ctx, i).(LocationSmbMapOutput)
 }
 
+func (i LocationSmbMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocationSmb] {
+	return pulumix.Output[map[string]*LocationSmb]{
+		OutputState: i.ToLocationSmbMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LocationSmbOutput struct{ *pulumi.OutputState }
 
 func (LocationSmbOutput) ElementType() reflect.Type {
@@ -310,6 +329,12 @@ func (o LocationSmbOutput) ToLocationSmbOutput() LocationSmbOutput {
 
 func (o LocationSmbOutput) ToLocationSmbOutputWithContext(ctx context.Context) LocationSmbOutput {
 	return o
+}
+
+func (o LocationSmbOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationSmb] {
+	return pulumix.Output[*LocationSmb]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of DataSync Agent ARNs with which this location will be associated.
@@ -380,6 +405,12 @@ func (o LocationSmbArrayOutput) ToLocationSmbArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o LocationSmbArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocationSmb] {
+	return pulumix.Output[[]*LocationSmb]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LocationSmbArrayOutput) Index(i pulumi.IntInput) LocationSmbOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocationSmb {
 		return vs[0].([]*LocationSmb)[vs[1].(int)]
@@ -398,6 +429,12 @@ func (o LocationSmbMapOutput) ToLocationSmbMapOutput() LocationSmbMapOutput {
 
 func (o LocationSmbMapOutput) ToLocationSmbMapOutputWithContext(ctx context.Context) LocationSmbMapOutput {
 	return o
+}
+
+func (o LocationSmbMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocationSmb] {
+	return pulumix.Output[map[string]*LocationSmb]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LocationSmbMapOutput) MapIndex(k pulumi.StringInput) LocationSmbOutput {

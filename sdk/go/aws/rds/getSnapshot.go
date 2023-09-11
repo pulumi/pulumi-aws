@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information about a DB Snapshot for use when provisioning DB instances
@@ -199,6 +200,12 @@ func (o LookupSnapshotResultOutput) ToLookupSnapshotResultOutput() LookupSnapsho
 
 func (o LookupSnapshotResultOutput) ToLookupSnapshotResultOutputWithContext(ctx context.Context) LookupSnapshotResultOutput {
 	return o
+}
+
+func (o LookupSnapshotResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSnapshotResult] {
+	return pulumix.Output[LookupSnapshotResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Allocated storage size in gigabytes (GB).

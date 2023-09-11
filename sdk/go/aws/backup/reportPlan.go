@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Backup Report Plan resource.
@@ -216,6 +217,12 @@ func (i *ReportPlan) ToReportPlanOutputWithContext(ctx context.Context) ReportPl
 	return pulumi.ToOutputWithContext(ctx, i).(ReportPlanOutput)
 }
 
+func (i *ReportPlan) ToOutput(ctx context.Context) pulumix.Output[*ReportPlan] {
+	return pulumix.Output[*ReportPlan]{
+		OutputState: i.ToReportPlanOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ReportPlanArrayInput is an input type that accepts ReportPlanArray and ReportPlanArrayOutput values.
 // You can construct a concrete instance of `ReportPlanArrayInput` via:
 //
@@ -239,6 +246,12 @@ func (i ReportPlanArray) ToReportPlanArrayOutput() ReportPlanArrayOutput {
 
 func (i ReportPlanArray) ToReportPlanArrayOutputWithContext(ctx context.Context) ReportPlanArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReportPlanArrayOutput)
+}
+
+func (i ReportPlanArray) ToOutput(ctx context.Context) pulumix.Output[[]*ReportPlan] {
+	return pulumix.Output[[]*ReportPlan]{
+		OutputState: i.ToReportPlanArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ReportPlanMapInput is an input type that accepts ReportPlanMap and ReportPlanMapOutput values.
@@ -266,6 +279,12 @@ func (i ReportPlanMap) ToReportPlanMapOutputWithContext(ctx context.Context) Rep
 	return pulumi.ToOutputWithContext(ctx, i).(ReportPlanMapOutput)
 }
 
+func (i ReportPlanMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReportPlan] {
+	return pulumix.Output[map[string]*ReportPlan]{
+		OutputState: i.ToReportPlanMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ReportPlanOutput struct{ *pulumi.OutputState }
 
 func (ReportPlanOutput) ElementType() reflect.Type {
@@ -278,6 +297,12 @@ func (o ReportPlanOutput) ToReportPlanOutput() ReportPlanOutput {
 
 func (o ReportPlanOutput) ToReportPlanOutputWithContext(ctx context.Context) ReportPlanOutput {
 	return o
+}
+
+func (o ReportPlanOutput) ToOutput(ctx context.Context) pulumix.Output[*ReportPlan] {
+	return pulumix.Output[*ReportPlan]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the backup report plan.
@@ -339,6 +364,12 @@ func (o ReportPlanArrayOutput) ToReportPlanArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ReportPlanArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ReportPlan] {
+	return pulumix.Output[[]*ReportPlan]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ReportPlanArrayOutput) Index(i pulumi.IntInput) ReportPlanOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReportPlan {
 		return vs[0].([]*ReportPlan)[vs[1].(int)]
@@ -357,6 +388,12 @@ func (o ReportPlanMapOutput) ToReportPlanMapOutput() ReportPlanMapOutput {
 
 func (o ReportPlanMapOutput) ToReportPlanMapOutputWithContext(ctx context.Context) ReportPlanMapOutput {
 	return o
+}
+
+func (o ReportPlanMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ReportPlan] {
+	return pulumix.Output[map[string]*ReportPlan]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ReportPlanMapOutput) MapIndex(k pulumi.StringInput) ReportPlanOutput {

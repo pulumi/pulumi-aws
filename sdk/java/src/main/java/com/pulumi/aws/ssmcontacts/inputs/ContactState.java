@@ -17,14 +17,14 @@ public final class ContactState extends com.pulumi.resources.ResourceArgs {
     public static final ContactState Empty = new ContactState();
 
     /**
-     * A unique and identifiable alias for the contact or escalation plan.
+     * A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
      * 
      */
     @Import(name="alias")
     private @Nullable Output<String> alias;
 
     /**
-     * @return A unique and identifiable alias for the contact or escalation plan.
+     * @return A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
      * 
      */
     public Optional<Output<String>> alias() {
@@ -47,14 +47,14 @@ public final class ContactState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Full friendly name of the contact or escalation plan.
+     * Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      * 
      */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
     /**
-     * @return Full friendly name of the contact or escalation plan.
+     * @return Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      * 
      */
     public Optional<Output<String>> displayName() {
@@ -142,7 +142,7 @@ public final class ContactState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alias A unique and identifiable alias for the contact or escalation plan.
+         * @param alias A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class ContactState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alias A unique and identifiable alias for the contact or escalation plan.
+         * @param alias A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class ContactState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName Full friendly name of the contact or escalation plan.
+         * @param displayName Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class ContactState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param displayName Full friendly name of the contact or escalation plan.
+         * @param displayName Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
          * 
          * @return builder
          * 

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a AWS Transfer AS2 Profile resource.
@@ -28,11 +29,13 @@ import (
 type Profile struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the profile.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
 	As2Id pulumi.StringOutput `pulumi:"as2Id"`
 	// The list of certificate Ids from the imported certificate operation.
 	CertificateIds pulumi.StringArrayOutput `pulumi:"certificateIds"`
-	// The unique identifier for the AS2 profile
+	// The unique identifier for the AS2 profile.
 	ProfileId pulumi.StringOutput `pulumi:"profileId"`
 	// The profile type should be LOCAL or PARTNER.
 	ProfileType pulumi.StringOutput `pulumi:"profileType"`
@@ -77,11 +80,13 @@ func GetProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Profile resources.
 type profileState struct {
+	// The ARN of the profile.
+	Arn *string `pulumi:"arn"`
 	// The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
 	As2Id *string `pulumi:"as2Id"`
 	// The list of certificate Ids from the imported certificate operation.
 	CertificateIds []string `pulumi:"certificateIds"`
-	// The unique identifier for the AS2 profile
+	// The unique identifier for the AS2 profile.
 	ProfileId *string `pulumi:"profileId"`
 	// The profile type should be LOCAL or PARTNER.
 	ProfileType *string `pulumi:"profileType"`
@@ -91,11 +96,13 @@ type profileState struct {
 }
 
 type ProfileState struct {
+	// The ARN of the profile.
+	Arn pulumi.StringPtrInput
 	// The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
 	As2Id pulumi.StringPtrInput
 	// The list of certificate Ids from the imported certificate operation.
 	CertificateIds pulumi.StringArrayInput
-	// The unique identifier for the AS2 profile
+	// The unique identifier for the AS2 profile.
 	ProfileId pulumi.StringPtrInput
 	// The profile type should be LOCAL or PARTNER.
 	ProfileType pulumi.StringPtrInput
@@ -154,6 +161,12 @@ func (i *Profile) ToProfileOutputWithContext(ctx context.Context) ProfileOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileOutput)
 }
 
+func (i *Profile) ToOutput(ctx context.Context) pulumix.Output[*Profile] {
+	return pulumix.Output[*Profile]{
+		OutputState: i.ToProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProfileArrayInput is an input type that accepts ProfileArray and ProfileArrayOutput values.
 // You can construct a concrete instance of `ProfileArrayInput` via:
 //
@@ -177,6 +190,12 @@ func (i ProfileArray) ToProfileArrayOutput() ProfileArrayOutput {
 
 func (i ProfileArray) ToProfileArrayOutputWithContext(ctx context.Context) ProfileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileArrayOutput)
+}
+
+func (i ProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]*Profile] {
+	return pulumix.Output[[]*Profile]{
+		OutputState: i.ToProfileArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProfileMapInput is an input type that accepts ProfileMap and ProfileMapOutput values.
@@ -204,6 +223,12 @@ func (i ProfileMap) ToProfileMapOutputWithContext(ctx context.Context) ProfileMa
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileMapOutput)
 }
 
+func (i ProfileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Profile] {
+	return pulumix.Output[map[string]*Profile]{
+		OutputState: i.ToProfileMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProfileOutput struct{ *pulumi.OutputState }
 
 func (ProfileOutput) ElementType() reflect.Type {
@@ -218,6 +243,17 @@ func (o ProfileOutput) ToProfileOutputWithContext(ctx context.Context) ProfileOu
 	return o
 }
 
+func (o ProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*Profile] {
+	return pulumix.Output[*Profile]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The ARN of the profile.
+func (o ProfileOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
 // The As2Id is the AS2 name as defined in the RFC 4130. For inbound ttransfers this is the AS2 From Header for the AS2 messages sent from the partner. For Outbound messages this is the AS2 To Header for the AS2 messages sent to the partner. his ID cannot include spaces.
 func (o ProfileOutput) As2Id() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.As2Id }).(pulumi.StringOutput)
@@ -228,7 +264,7 @@ func (o ProfileOutput) CertificateIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringArrayOutput { return v.CertificateIds }).(pulumi.StringArrayOutput)
 }
 
-// The unique identifier for the AS2 profile
+// The unique identifier for the AS2 profile.
 func (o ProfileOutput) ProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.ProfileId }).(pulumi.StringOutput)
 }
@@ -261,6 +297,12 @@ func (o ProfileArrayOutput) ToProfileArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Profile] {
+	return pulumix.Output[[]*Profile]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProfileArrayOutput) Index(i pulumi.IntInput) ProfileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Profile {
 		return vs[0].([]*Profile)[vs[1].(int)]
@@ -279,6 +321,12 @@ func (o ProfileMapOutput) ToProfileMapOutput() ProfileMapOutput {
 
 func (o ProfileMapOutput) ToProfileMapOutputWithContext(ctx context.Context) ProfileMapOutput {
 	return o
+}
+
+func (o ProfileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Profile] {
+	return pulumix.Output[map[string]*Profile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProfileMapOutput) MapIndex(k pulumi.StringInput) ProfileOutput {

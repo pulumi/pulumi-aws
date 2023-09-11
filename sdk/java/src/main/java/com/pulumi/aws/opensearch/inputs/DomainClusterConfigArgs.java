@@ -109,6 +109,13 @@ public final class DomainClusterConfigArgs extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.instanceType);
     }
 
+    @Import(name="multiAzWithStandbyEnabled")
+    private @Nullable Output<Boolean> multiAzWithStandbyEnabled;
+
+    public Optional<Output<Boolean>> multiAzWithStandbyEnabled() {
+        return Optional.ofNullable(this.multiAzWithStandbyEnabled);
+    }
+
     /**
      * Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
      * 
@@ -193,6 +200,7 @@ public final class DomainClusterConfigArgs extends com.pulumi.resources.Resource
         this.dedicatedMasterType = $.dedicatedMasterType;
         this.instanceCount = $.instanceCount;
         this.instanceType = $.instanceType;
+        this.multiAzWithStandbyEnabled = $.multiAzWithStandbyEnabled;
         this.warmCount = $.warmCount;
         this.warmEnabled = $.warmEnabled;
         this.warmType = $.warmType;
@@ -342,6 +350,15 @@ public final class DomainClusterConfigArgs extends com.pulumi.resources.Resource
          */
         public Builder instanceType(String instanceType) {
             return instanceType(Output.of(instanceType));
+        }
+
+        public Builder multiAzWithStandbyEnabled(@Nullable Output<Boolean> multiAzWithStandbyEnabled) {
+            $.multiAzWithStandbyEnabled = multiAzWithStandbyEnabled;
+            return this;
+        }
+
+        public Builder multiAzWithStandbyEnabled(Boolean multiAzWithStandbyEnabled) {
+            return multiAzWithStandbyEnabled(Output.of(multiAzWithStandbyEnabled));
         }
 
         /**

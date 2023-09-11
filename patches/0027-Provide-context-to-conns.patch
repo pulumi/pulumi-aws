@@ -1,4 +1,4 @@
-From f2b28defbc9ec23cf67958487eefea6a8a858dcb Mon Sep 17 00:00:00 2001
+From 098b72c2fa6ff8aa0bbe19ddfc83730bfb8932b0 Mon Sep 17 00:00:00 2001
 From: Ian Wahbe <ian@wahbe.com>
 Date: Mon, 10 Jul 2023 11:51:24 +0200
 Subject: [PATCH 27/29] Provide context to conns
@@ -312,5 +312,5 @@ index ba95f6c2b6..0563bd3a25 100644
  				Bucket: aws.String(bucket),
  			},
 -- 
-2.40.0
+2.41.0
 

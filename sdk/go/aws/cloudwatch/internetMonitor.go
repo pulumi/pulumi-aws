@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Internet Monitor Monitor resource.
@@ -228,6 +229,12 @@ func (i *InternetMonitor) ToInternetMonitorOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(InternetMonitorOutput)
 }
 
+func (i *InternetMonitor) ToOutput(ctx context.Context) pulumix.Output[*InternetMonitor] {
+	return pulumix.Output[*InternetMonitor]{
+		OutputState: i.ToInternetMonitorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InternetMonitorArrayInput is an input type that accepts InternetMonitorArray and InternetMonitorArrayOutput values.
 // You can construct a concrete instance of `InternetMonitorArrayInput` via:
 //
@@ -251,6 +258,12 @@ func (i InternetMonitorArray) ToInternetMonitorArrayOutput() InternetMonitorArra
 
 func (i InternetMonitorArray) ToInternetMonitorArrayOutputWithContext(ctx context.Context) InternetMonitorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InternetMonitorArrayOutput)
+}
+
+func (i InternetMonitorArray) ToOutput(ctx context.Context) pulumix.Output[[]*InternetMonitor] {
+	return pulumix.Output[[]*InternetMonitor]{
+		OutputState: i.ToInternetMonitorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // InternetMonitorMapInput is an input type that accepts InternetMonitorMap and InternetMonitorMapOutput values.
@@ -278,6 +291,12 @@ func (i InternetMonitorMap) ToInternetMonitorMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(InternetMonitorMapOutput)
 }
 
+func (i InternetMonitorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InternetMonitor] {
+	return pulumix.Output[map[string]*InternetMonitor]{
+		OutputState: i.ToInternetMonitorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InternetMonitorOutput struct{ *pulumi.OutputState }
 
 func (InternetMonitorOutput) ElementType() reflect.Type {
@@ -290,6 +309,12 @@ func (o InternetMonitorOutput) ToInternetMonitorOutput() InternetMonitorOutput {
 
 func (o InternetMonitorOutput) ToInternetMonitorOutputWithContext(ctx context.Context) InternetMonitorOutput {
 	return o
+}
+
+func (o InternetMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[*InternetMonitor] {
+	return pulumix.Output[*InternetMonitor]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Monitor.
@@ -360,6 +385,12 @@ func (o InternetMonitorArrayOutput) ToInternetMonitorArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o InternetMonitorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InternetMonitor] {
+	return pulumix.Output[[]*InternetMonitor]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InternetMonitorArrayOutput) Index(i pulumi.IntInput) InternetMonitorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InternetMonitor {
 		return vs[0].([]*InternetMonitor)[vs[1].(int)]
@@ -378,6 +409,12 @@ func (o InternetMonitorMapOutput) ToInternetMonitorMapOutput() InternetMonitorMa
 
 func (o InternetMonitorMapOutput) ToInternetMonitorMapOutputWithContext(ctx context.Context) InternetMonitorMapOutput {
 	return o
+}
+
+func (o InternetMonitorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InternetMonitor] {
+	return pulumix.Output[map[string]*InternetMonitor]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InternetMonitorMapOutput) MapIndex(k pulumi.StringInput) InternetMonitorOutput {

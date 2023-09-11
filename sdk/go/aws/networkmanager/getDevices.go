@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about devices.
@@ -112,6 +113,12 @@ func (o GetDevicesResultOutput) ToGetDevicesResultOutput() GetDevicesResultOutpu
 
 func (o GetDevicesResultOutput) ToGetDevicesResultOutputWithContext(ctx context.Context) GetDevicesResultOutput {
 	return o
+}
+
+func (o GetDevicesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDevicesResult] {
+	return pulumix.Output[GetDevicesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetDevicesResultOutput) GlobalNetworkId() pulumi.StringOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a DynamoDB table item resource
@@ -195,6 +196,12 @@ func (i *TableItem) ToTableItemOutputWithContext(ctx context.Context) TableItemO
 	return pulumi.ToOutputWithContext(ctx, i).(TableItemOutput)
 }
 
+func (i *TableItem) ToOutput(ctx context.Context) pulumix.Output[*TableItem] {
+	return pulumix.Output[*TableItem]{
+		OutputState: i.ToTableItemOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TableItemArrayInput is an input type that accepts TableItemArray and TableItemArrayOutput values.
 // You can construct a concrete instance of `TableItemArrayInput` via:
 //
@@ -218,6 +225,12 @@ func (i TableItemArray) ToTableItemArrayOutput() TableItemArrayOutput {
 
 func (i TableItemArray) ToTableItemArrayOutputWithContext(ctx context.Context) TableItemArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableItemArrayOutput)
+}
+
+func (i TableItemArray) ToOutput(ctx context.Context) pulumix.Output[[]*TableItem] {
+	return pulumix.Output[[]*TableItem]{
+		OutputState: i.ToTableItemArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TableItemMapInput is an input type that accepts TableItemMap and TableItemMapOutput values.
@@ -245,6 +258,12 @@ func (i TableItemMap) ToTableItemMapOutputWithContext(ctx context.Context) Table
 	return pulumi.ToOutputWithContext(ctx, i).(TableItemMapOutput)
 }
 
+func (i TableItemMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TableItem] {
+	return pulumix.Output[map[string]*TableItem]{
+		OutputState: i.ToTableItemMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableItemOutput struct{ *pulumi.OutputState }
 
 func (TableItemOutput) ElementType() reflect.Type {
@@ -257,6 +276,12 @@ func (o TableItemOutput) ToTableItemOutput() TableItemOutput {
 
 func (o TableItemOutput) ToTableItemOutputWithContext(ctx context.Context) TableItemOutput {
 	return o
+}
+
+func (o TableItemOutput) ToOutput(ctx context.Context) pulumix.Output[*TableItem] {
+	return pulumix.Output[*TableItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Hash key to use for lookups and identification of the item
@@ -293,6 +318,12 @@ func (o TableItemArrayOutput) ToTableItemArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o TableItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TableItem] {
+	return pulumix.Output[[]*TableItem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TableItemArrayOutput) Index(i pulumi.IntInput) TableItemOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TableItem {
 		return vs[0].([]*TableItem)[vs[1].(int)]
@@ -311,6 +342,12 @@ func (o TableItemMapOutput) ToTableItemMapOutput() TableItemMapOutput {
 
 func (o TableItemMapOutput) ToTableItemMapOutputWithContext(ctx context.Context) TableItemMapOutput {
 	return o
+}
+
+func (o TableItemMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TableItem] {
+	return pulumix.Output[map[string]*TableItem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TableItemMapOutput) MapIndex(k pulumi.StringInput) TableItemOutput {

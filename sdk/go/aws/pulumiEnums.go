@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A Region represents any valid Amazon region that may be targeted with deployments.
@@ -107,6 +108,12 @@ func (o RegionOutput) ToRegionPtrOutputWithContext(ctx context.Context) RegionPt
 	}).(RegionPtrOutput)
 }
 
+func (o RegionOutput) ToOutput(ctx context.Context) pulumix.Output[Region] {
+	return pulumix.Output[Region]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RegionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -140,6 +147,12 @@ func (o RegionPtrOutput) ToRegionPtrOutput() RegionPtrOutput {
 
 func (o RegionPtrOutput) ToRegionPtrOutputWithContext(ctx context.Context) RegionPtrOutput {
 	return o
+}
+
+func (o RegionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*Region] {
+	return pulumix.Output[*Region]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RegionPtrOutput) Elem() RegionOutput {
@@ -202,6 +215,12 @@ func (in *regionPtr) ToRegionPtrOutput() RegionPtrOutput {
 
 func (in *regionPtr) ToRegionPtrOutputWithContext(ctx context.Context) RegionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RegionPtrOutput)
+}
+
+func (in *regionPtr) ToOutput(ctx context.Context) pulumix.Output[*Region] {
+	return pulumix.Output[*Region]{
+		OutputState: in.ToRegionPtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

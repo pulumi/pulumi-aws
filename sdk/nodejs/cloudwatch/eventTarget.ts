@@ -408,6 +408,10 @@ export class EventTarget extends pulumi.CustomResource {
      */
     public readonly runCommandTargets!: pulumi.Output<outputs.cloudwatch.EventTargetRunCommandTarget[] | undefined>;
     /**
+     * Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+     */
+    public readonly sagemakerPipelineTarget!: pulumi.Output<outputs.cloudwatch.EventTargetSagemakerPipelineTarget | undefined>;
+    /**
      * Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
      */
     public readonly sqsTarget!: pulumi.Output<outputs.cloudwatch.EventTargetSqsTarget | undefined>;
@@ -444,6 +448,7 @@ export class EventTarget extends pulumi.CustomResource {
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["rule"] = state ? state.rule : undefined;
             resourceInputs["runCommandTargets"] = state ? state.runCommandTargets : undefined;
+            resourceInputs["sagemakerPipelineTarget"] = state ? state.sagemakerPipelineTarget : undefined;
             resourceInputs["sqsTarget"] = state ? state.sqsTarget : undefined;
             resourceInputs["targetId"] = state ? state.targetId : undefined;
         } else {
@@ -469,6 +474,7 @@ export class EventTarget extends pulumi.CustomResource {
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["rule"] = args ? args.rule : undefined;
             resourceInputs["runCommandTargets"] = args ? args.runCommandTargets : undefined;
+            resourceInputs["sagemakerPipelineTarget"] = args ? args.sagemakerPipelineTarget : undefined;
             resourceInputs["sqsTarget"] = args ? args.sqsTarget : undefined;
             resourceInputs["targetId"] = args ? args.targetId : undefined;
         }
@@ -544,6 +550,10 @@ export interface EventTargetState {
      * Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
      */
     runCommandTargets?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventTargetRunCommandTarget>[]>;
+    /**
+     * Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+     */
+    sagemakerPipelineTarget?: pulumi.Input<inputs.cloudwatch.EventTargetSagemakerPipelineTarget>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
      */
@@ -621,6 +631,10 @@ export interface EventTargetArgs {
      * Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
      */
     runCommandTargets?: pulumi.Input<pulumi.Input<inputs.cloudwatch.EventTargetRunCommandTarget>[]>;
+    /**
+     * Parameters used when you are using the rule to invoke an Amazon SageMaker Pipeline. Documented below. A maximum of 1 are allowed.
+     */
+    sagemakerPipelineTarget?: pulumi.Input<inputs.cloudwatch.EventTargetSagemakerPipelineTarget>;
     /**
      * Parameters used when you are using the rule to invoke an Amazon SQS Queue. Documented below. A maximum of 1 are allowed.
      */

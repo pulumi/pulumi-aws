@@ -59,6 +59,9 @@ export interface GetServerlessCollectionResult {
      * Date the Collection was created.
      */
     readonly createdDate: string;
+    /**
+     * Collection-specific endpoint used to access OpenSearch Dashboards.
+     */
     readonly dashboardEndpoint: string;
     /**
      * Description of the collection.

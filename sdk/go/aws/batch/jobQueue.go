@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Batch Job Queue resource.
@@ -122,7 +123,8 @@ type JobQueue struct {
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TagsAll  pulumi.StringMapOutput    `pulumi:"tagsAll"`
+	Timeouts JobQueueTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewJobQueue registers a new resource with the given unique name, arguments, and options.
@@ -182,7 +184,8 @@ type jobQueueState struct {
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	TagsAll  map[string]string `pulumi:"tagsAll"`
+	Timeouts *JobQueueTimeouts `pulumi:"timeouts"`
 }
 
 type JobQueueState struct {
@@ -204,7 +207,8 @@ type JobQueueState struct {
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	TagsAll pulumi.StringMapInput
+	TagsAll  pulumi.StringMapInput
+	Timeouts JobQueueTimeoutsPtrInput
 }
 
 func (JobQueueState) ElementType() reflect.Type {
@@ -226,7 +230,8 @@ type jobQueueArgs struct {
 	// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
 	State string `pulumi:"state"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags     map[string]string `pulumi:"tags"`
+	Timeouts *JobQueueTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a JobQueue resource.
@@ -245,7 +250,8 @@ type JobQueueArgs struct {
 	// The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
 	State pulumi.StringInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags     pulumi.StringMapInput
+	Timeouts JobQueueTimeoutsPtrInput
 }
 
 func (JobQueueArgs) ElementType() reflect.Type {
@@ -269,6 +275,12 @@ func (i *JobQueue) ToJobQueueOutput() JobQueueOutput {
 
 func (i *JobQueue) ToJobQueueOutputWithContext(ctx context.Context) JobQueueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobQueueOutput)
+}
+
+func (i *JobQueue) ToOutput(ctx context.Context) pulumix.Output[*JobQueue] {
+	return pulumix.Output[*JobQueue]{
+		OutputState: i.ToJobQueueOutputWithContext(ctx).OutputState,
+	}
 }
 
 // JobQueueArrayInput is an input type that accepts JobQueueArray and JobQueueArrayOutput values.
@@ -296,6 +308,12 @@ func (i JobQueueArray) ToJobQueueArrayOutputWithContext(ctx context.Context) Job
 	return pulumi.ToOutputWithContext(ctx, i).(JobQueueArrayOutput)
 }
 
+func (i JobQueueArray) ToOutput(ctx context.Context) pulumix.Output[[]*JobQueue] {
+	return pulumix.Output[[]*JobQueue]{
+		OutputState: i.ToJobQueueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 // JobQueueMapInput is an input type that accepts JobQueueMap and JobQueueMapOutput values.
 // You can construct a concrete instance of `JobQueueMapInput` via:
 //
@@ -321,6 +339,12 @@ func (i JobQueueMap) ToJobQueueMapOutputWithContext(ctx context.Context) JobQueu
 	return pulumi.ToOutputWithContext(ctx, i).(JobQueueMapOutput)
 }
 
+func (i JobQueueMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*JobQueue] {
+	return pulumix.Output[map[string]*JobQueue]{
+		OutputState: i.ToJobQueueMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type JobQueueOutput struct{ *pulumi.OutputState }
 
 func (JobQueueOutput) ElementType() reflect.Type {
@@ -333,6 +357,12 @@ func (o JobQueueOutput) ToJobQueueOutput() JobQueueOutput {
 
 func (o JobQueueOutput) ToJobQueueOutputWithContext(ctx context.Context) JobQueueOutput {
 	return o
+}
+
+func (o JobQueueOutput) ToOutput(ctx context.Context) pulumix.Output[*JobQueue] {
+	return pulumix.Output[*JobQueue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name of the job queue.
@@ -378,6 +408,10 @@ func (o JobQueueOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *JobQueue) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
+func (o JobQueueOutput) Timeouts() JobQueueTimeoutsPtrOutput {
+	return o.ApplyT(func(v *JobQueue) JobQueueTimeoutsPtrOutput { return v.Timeouts }).(JobQueueTimeoutsPtrOutput)
+}
+
 type JobQueueArrayOutput struct{ *pulumi.OutputState }
 
 func (JobQueueArrayOutput) ElementType() reflect.Type {
@@ -390,6 +424,12 @@ func (o JobQueueArrayOutput) ToJobQueueArrayOutput() JobQueueArrayOutput {
 
 func (o JobQueueArrayOutput) ToJobQueueArrayOutputWithContext(ctx context.Context) JobQueueArrayOutput {
 	return o
+}
+
+func (o JobQueueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*JobQueue] {
+	return pulumix.Output[[]*JobQueue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o JobQueueArrayOutput) Index(i pulumi.IntInput) JobQueueOutput {
@@ -410,6 +450,12 @@ func (o JobQueueMapOutput) ToJobQueueMapOutput() JobQueueMapOutput {
 
 func (o JobQueueMapOutput) ToJobQueueMapOutputWithContext(ctx context.Context) JobQueueMapOutput {
 	return o
+}
+
+func (o JobQueueMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*JobQueue] {
+	return pulumix.Output[map[string]*JobQueue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o JobQueueMapOutput) MapIndex(k pulumi.StringInput) JobQueueOutput {

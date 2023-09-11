@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a grouping of protected resources so they can be handled as a collective.
@@ -297,6 +298,12 @@ func (i *ProtectionGroup) ToProtectionGroupOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionGroupOutput)
 }
 
+func (i *ProtectionGroup) ToOutput(ctx context.Context) pulumix.Output[*ProtectionGroup] {
+	return pulumix.Output[*ProtectionGroup]{
+		OutputState: i.ToProtectionGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProtectionGroupArrayInput is an input type that accepts ProtectionGroupArray and ProtectionGroupArrayOutput values.
 // You can construct a concrete instance of `ProtectionGroupArrayInput` via:
 //
@@ -320,6 +327,12 @@ func (i ProtectionGroupArray) ToProtectionGroupArrayOutput() ProtectionGroupArra
 
 func (i ProtectionGroupArray) ToProtectionGroupArrayOutputWithContext(ctx context.Context) ProtectionGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionGroupArrayOutput)
+}
+
+func (i ProtectionGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProtectionGroup] {
+	return pulumix.Output[[]*ProtectionGroup]{
+		OutputState: i.ToProtectionGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProtectionGroupMapInput is an input type that accepts ProtectionGroupMap and ProtectionGroupMapOutput values.
@@ -347,6 +360,12 @@ func (i ProtectionGroupMap) ToProtectionGroupMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionGroupMapOutput)
 }
 
+func (i ProtectionGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProtectionGroup] {
+	return pulumix.Output[map[string]*ProtectionGroup]{
+		OutputState: i.ToProtectionGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProtectionGroupOutput struct{ *pulumi.OutputState }
 
 func (ProtectionGroupOutput) ElementType() reflect.Type {
@@ -359,6 +378,12 @@ func (o ProtectionGroupOutput) ToProtectionGroupOutput() ProtectionGroupOutput {
 
 func (o ProtectionGroupOutput) ToProtectionGroupOutputWithContext(ctx context.Context) ProtectionGroupOutput {
 	return o
+}
+
+func (o ProtectionGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectionGroup] {
+	return pulumix.Output[*ProtectionGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
@@ -415,6 +440,12 @@ func (o ProtectionGroupArrayOutput) ToProtectionGroupArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o ProtectionGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProtectionGroup] {
+	return pulumix.Output[[]*ProtectionGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProtectionGroupArrayOutput) Index(i pulumi.IntInput) ProtectionGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProtectionGroup {
 		return vs[0].([]*ProtectionGroup)[vs[1].(int)]
@@ -433,6 +464,12 @@ func (o ProtectionGroupMapOutput) ToProtectionGroupMapOutput() ProtectionGroupMa
 
 func (o ProtectionGroupMapOutput) ToProtectionGroupMapOutputWithContext(ctx context.Context) ProtectionGroupMapOutput {
 	return o
+}
+
+func (o ProtectionGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProtectionGroup] {
+	return pulumix.Output[map[string]*ProtectionGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProtectionGroupMapOutput) MapIndex(k pulumi.StringInput) ProtectionGroupOutput {

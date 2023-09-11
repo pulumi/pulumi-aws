@@ -53,13 +53,13 @@ namespace Pulumi.Aws.Ec2
     ///     var secondaryCidr = new Aws.Ec2.VpcIpv4CidrBlockAssociation("secondaryCidr", new()
     ///     {
     ///         VpcId = aws_vpc.Main.Id,
-    ///         CidrBlock = "172.2.0.0/16",
+    ///         CidrBlock = "172.20.0.0/16",
     ///     });
     /// 
     ///     var inSecondaryCidr = new Aws.Ec2.Subnet("inSecondaryCidr", new()
     ///     {
     ///         VpcId = secondaryCidr.VpcId,
-    ///         CidrBlock = "172.2.0.0/24",
+    ///         CidrBlock = "172.20.0.0/24",
     ///     });
     /// 
     /// });

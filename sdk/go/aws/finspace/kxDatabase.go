@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS FinSpace Kx Database.
@@ -216,6 +217,12 @@ func (i *KxDatabase) ToKxDatabaseOutputWithContext(ctx context.Context) KxDataba
 	return pulumi.ToOutputWithContext(ctx, i).(KxDatabaseOutput)
 }
 
+func (i *KxDatabase) ToOutput(ctx context.Context) pulumix.Output[*KxDatabase] {
+	return pulumix.Output[*KxDatabase]{
+		OutputState: i.ToKxDatabaseOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KxDatabaseArrayInput is an input type that accepts KxDatabaseArray and KxDatabaseArrayOutput values.
 // You can construct a concrete instance of `KxDatabaseArrayInput` via:
 //
@@ -239,6 +246,12 @@ func (i KxDatabaseArray) ToKxDatabaseArrayOutput() KxDatabaseArrayOutput {
 
 func (i KxDatabaseArray) ToKxDatabaseArrayOutputWithContext(ctx context.Context) KxDatabaseArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KxDatabaseArrayOutput)
+}
+
+func (i KxDatabaseArray) ToOutput(ctx context.Context) pulumix.Output[[]*KxDatabase] {
+	return pulumix.Output[[]*KxDatabase]{
+		OutputState: i.ToKxDatabaseArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // KxDatabaseMapInput is an input type that accepts KxDatabaseMap and KxDatabaseMapOutput values.
@@ -266,6 +279,12 @@ func (i KxDatabaseMap) ToKxDatabaseMapOutputWithContext(ctx context.Context) KxD
 	return pulumi.ToOutputWithContext(ctx, i).(KxDatabaseMapOutput)
 }
 
+func (i KxDatabaseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*KxDatabase] {
+	return pulumix.Output[map[string]*KxDatabase]{
+		OutputState: i.ToKxDatabaseMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KxDatabaseOutput struct{ *pulumi.OutputState }
 
 func (KxDatabaseOutput) ElementType() reflect.Type {
@@ -278,6 +297,12 @@ func (o KxDatabaseOutput) ToKxDatabaseOutput() KxDatabaseOutput {
 
 func (o KxDatabaseOutput) ToKxDatabaseOutputWithContext(ctx context.Context) KxDatabaseOutput {
 	return o
+}
+
+func (o KxDatabaseOutput) ToOutput(ctx context.Context) pulumix.Output[*KxDatabase] {
+	return pulumix.Output[*KxDatabase]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) identifier of the KX database.
@@ -336,6 +361,12 @@ func (o KxDatabaseArrayOutput) ToKxDatabaseArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o KxDatabaseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*KxDatabase] {
+	return pulumix.Output[[]*KxDatabase]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KxDatabaseArrayOutput) Index(i pulumi.IntInput) KxDatabaseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *KxDatabase {
 		return vs[0].([]*KxDatabase)[vs[1].(int)]
@@ -354,6 +385,12 @@ func (o KxDatabaseMapOutput) ToKxDatabaseMapOutput() KxDatabaseMapOutput {
 
 func (o KxDatabaseMapOutput) ToKxDatabaseMapOutputWithContext(ctx context.Context) KxDatabaseMapOutput {
 	return o
+}
+
+func (o KxDatabaseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*KxDatabase] {
+	return pulumix.Output[map[string]*KxDatabase]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KxDatabaseMapOutput) MapIndex(k pulumi.StringInput) KxDatabaseOutput {

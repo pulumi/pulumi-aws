@@ -12,6 +12,18 @@ namespace Pulumi.Aws.FinSpace.Inputs
 
     public sealed class KxEnvironmentTransitGatewayConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("attachmentNetworkAclConfigurations")]
+        private InputList<Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationGetArgs>? _attachmentNetworkAclConfigurations;
+
+        /// <summary>
+        /// Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
+        /// </summary>
+        public InputList<Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationGetArgs> AttachmentNetworkAclConfigurations
+        {
+            get => _attachmentNetworkAclConfigurations ?? (_attachmentNetworkAclConfigurations = new InputList<Inputs.KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationGetArgs>());
+            set => _attachmentNetworkAclConfigurations = value;
+        }
+
         /// <summary>
         /// Routing CIDR on behalf of KX environment. It could be any “/26 range in the 100.64.0.0 CIDR space. After providing, it will be added to the customer’s transit gateway routing table so that the traffics could be routed to KX network.
         /// </summary>

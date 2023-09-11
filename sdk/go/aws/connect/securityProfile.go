@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Amazon Connect Security Profile resource. For more information see
@@ -214,6 +215,12 @@ func (i *SecurityProfile) ToSecurityProfileOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileOutput)
 }
 
+func (i *SecurityProfile) ToOutput(ctx context.Context) pulumix.Output[*SecurityProfile] {
+	return pulumix.Output[*SecurityProfile]{
+		OutputState: i.ToSecurityProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SecurityProfileArrayInput is an input type that accepts SecurityProfileArray and SecurityProfileArrayOutput values.
 // You can construct a concrete instance of `SecurityProfileArrayInput` via:
 //
@@ -237,6 +244,12 @@ func (i SecurityProfileArray) ToSecurityProfileArrayOutput() SecurityProfileArra
 
 func (i SecurityProfileArray) ToSecurityProfileArrayOutputWithContext(ctx context.Context) SecurityProfileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileArrayOutput)
+}
+
+func (i SecurityProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityProfile] {
+	return pulumix.Output[[]*SecurityProfile]{
+		OutputState: i.ToSecurityProfileArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SecurityProfileMapInput is an input type that accepts SecurityProfileMap and SecurityProfileMapOutput values.
@@ -264,6 +277,12 @@ func (i SecurityProfileMap) ToSecurityProfileMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityProfileMapOutput)
 }
 
+func (i SecurityProfileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityProfile] {
+	return pulumix.Output[map[string]*SecurityProfile]{
+		OutputState: i.ToSecurityProfileMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SecurityProfileOutput struct{ *pulumi.OutputState }
 
 func (SecurityProfileOutput) ElementType() reflect.Type {
@@ -276,6 +295,12 @@ func (o SecurityProfileOutput) ToSecurityProfileOutput() SecurityProfileOutput {
 
 func (o SecurityProfileOutput) ToSecurityProfileOutputWithContext(ctx context.Context) SecurityProfileOutput {
 	return o
+}
+
+func (o SecurityProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityProfile] {
+	return pulumix.Output[*SecurityProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) of the Security Profile.
@@ -338,6 +363,12 @@ func (o SecurityProfileArrayOutput) ToSecurityProfileArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o SecurityProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SecurityProfile] {
+	return pulumix.Output[[]*SecurityProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SecurityProfileArrayOutput) Index(i pulumi.IntInput) SecurityProfileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SecurityProfile {
 		return vs[0].([]*SecurityProfile)[vs[1].(int)]
@@ -356,6 +387,12 @@ func (o SecurityProfileMapOutput) ToSecurityProfileMapOutput() SecurityProfileMa
 
 func (o SecurityProfileMapOutput) ToSecurityProfileMapOutputWithContext(ctx context.Context) SecurityProfileMapOutput {
 	return o
+}
+
+func (o SecurityProfileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecurityProfile] {
+	return pulumix.Output[map[string]*SecurityProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SecurityProfileMapOutput) MapIndex(k pulumi.StringInput) SecurityProfileOutput {

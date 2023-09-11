@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about Location Service Tracker Associations.
@@ -100,6 +101,12 @@ func (o GetTrackerAssociationsResultOutput) ToGetTrackerAssociationsResultOutput
 
 func (o GetTrackerAssociationsResultOutput) ToGetTrackerAssociationsResultOutputWithContext(ctx context.Context) GetTrackerAssociationsResultOutput {
 	return o
+}
+
+func (o GetTrackerAssociationsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetTrackerAssociationsResult] {
+	return pulumix.Output[GetTrackerAssociationsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of geofence collection ARNs associated to the tracker resource.

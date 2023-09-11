@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
@@ -202,6 +203,12 @@ func (i *DedicatedIpPool) ToDedicatedIpPoolOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedIpPoolOutput)
 }
 
+func (i *DedicatedIpPool) ToOutput(ctx context.Context) pulumix.Output[*DedicatedIpPool] {
+	return pulumix.Output[*DedicatedIpPool]{
+		OutputState: i.ToDedicatedIpPoolOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DedicatedIpPoolArrayInput is an input type that accepts DedicatedIpPoolArray and DedicatedIpPoolArrayOutput values.
 // You can construct a concrete instance of `DedicatedIpPoolArrayInput` via:
 //
@@ -225,6 +232,12 @@ func (i DedicatedIpPoolArray) ToDedicatedIpPoolArrayOutput() DedicatedIpPoolArra
 
 func (i DedicatedIpPoolArray) ToDedicatedIpPoolArrayOutputWithContext(ctx context.Context) DedicatedIpPoolArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedIpPoolArrayOutput)
+}
+
+func (i DedicatedIpPoolArray) ToOutput(ctx context.Context) pulumix.Output[[]*DedicatedIpPool] {
+	return pulumix.Output[[]*DedicatedIpPool]{
+		OutputState: i.ToDedicatedIpPoolArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DedicatedIpPoolMapInput is an input type that accepts DedicatedIpPoolMap and DedicatedIpPoolMapOutput values.
@@ -252,6 +265,12 @@ func (i DedicatedIpPoolMap) ToDedicatedIpPoolMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(DedicatedIpPoolMapOutput)
 }
 
+func (i DedicatedIpPoolMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DedicatedIpPool] {
+	return pulumix.Output[map[string]*DedicatedIpPool]{
+		OutputState: i.ToDedicatedIpPoolMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DedicatedIpPoolOutput struct{ *pulumi.OutputState }
 
 func (DedicatedIpPoolOutput) ElementType() reflect.Type {
@@ -264,6 +283,12 @@ func (o DedicatedIpPoolOutput) ToDedicatedIpPoolOutput() DedicatedIpPoolOutput {
 
 func (o DedicatedIpPoolOutput) ToDedicatedIpPoolOutputWithContext(ctx context.Context) DedicatedIpPoolOutput {
 	return o
+}
+
+func (o DedicatedIpPoolOutput) ToOutput(ctx context.Context) pulumix.Output[*DedicatedIpPool] {
+	return pulumix.Output[*DedicatedIpPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the Dedicated IP Pool.
@@ -306,6 +331,12 @@ func (o DedicatedIpPoolArrayOutput) ToDedicatedIpPoolArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o DedicatedIpPoolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DedicatedIpPool] {
+	return pulumix.Output[[]*DedicatedIpPool]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DedicatedIpPoolArrayOutput) Index(i pulumi.IntInput) DedicatedIpPoolOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DedicatedIpPool {
 		return vs[0].([]*DedicatedIpPool)[vs[1].(int)]
@@ -324,6 +355,12 @@ func (o DedicatedIpPoolMapOutput) ToDedicatedIpPoolMapOutput() DedicatedIpPoolMa
 
 func (o DedicatedIpPoolMapOutput) ToDedicatedIpPoolMapOutputWithContext(ctx context.Context) DedicatedIpPoolMapOutput {
 	return o
+}
+
+func (o DedicatedIpPoolMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DedicatedIpPool] {
+	return pulumix.Output[map[string]*DedicatedIpPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DedicatedIpPoolMapOutput) MapIndex(k pulumi.StringInput) DedicatedIpPoolOutput {

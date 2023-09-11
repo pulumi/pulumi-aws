@@ -111,6 +111,21 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+     * 
+     */
+    @Import(name="customIamInstanceProfile")
+    private @Nullable Output<String> customIamInstanceProfile;
+
+    /**
+     * @return Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+     * 
+     */
+    public Optional<Output<String>> customIamInstanceProfile() {
+        return Optional.ofNullable(this.customIamInstanceProfile);
+    }
+
+    /**
      * Name of the DB parameter group to associate with this instance.
      * 
      */
@@ -374,6 +389,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         this.caCertIdentifier = $.caCertIdentifier;
         this.clusterIdentifier = $.clusterIdentifier;
         this.copyTagsToSnapshot = $.copyTagsToSnapshot;
+        this.customIamInstanceProfile = $.customIamInstanceProfile;
         this.dbParameterGroupName = $.dbParameterGroupName;
         this.dbSubnetGroupName = $.dbSubnetGroupName;
         this.engine = $.engine;
@@ -535,6 +551,27 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder copyTagsToSnapshot(Boolean copyTagsToSnapshot) {
             return copyTagsToSnapshot(Output.of(copyTagsToSnapshot));
+        }
+
+        /**
+         * @param customIamInstanceProfile Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customIamInstanceProfile(@Nullable Output<String> customIamInstanceProfile) {
+            $.customIamInstanceProfile = customIamInstanceProfile;
+            return this;
+        }
+
+        /**
+         * @param customIamInstanceProfile Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customIamInstanceProfile(String customIamInstanceProfile) {
+            return customIamInstanceProfile(Output.of(customIamInstanceProfile));
         }
 
         /**

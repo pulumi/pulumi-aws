@@ -145,6 +145,24 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.retryMode);
     }
     /**
+     * Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+     * values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+     * variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+     * 
+     */
+    @Export(name="s3UsEast1RegionalEndpoint", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> s3UsEast1RegionalEndpoint;
+
+    /**
+     * @return Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+     * values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+     * variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+     * 
+     */
+    public Output<Optional<String>> s3UsEast1RegionalEndpoint() {
+        return Codegen.optional(this.s3UsEast1RegionalEndpoint);
+    }
+    /**
      * The secret key for API operations. You can retrieve this from the &#39;Security &amp; Credentials&#39; section of the AWS console.
      * 
      */

@@ -18,6 +18,11 @@ public final class SpotInstanceRequestMetadataOptions {
      */
     private @Nullable String httpEndpoint;
     /**
+     * @return Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+     * 
+     */
+    private @Nullable String httpProtocolIpv6;
+    /**
      * @return Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
      * 
      */
@@ -42,6 +47,13 @@ public final class SpotInstanceRequestMetadataOptions {
      */
     public Optional<String> httpEndpoint() {
         return Optional.ofNullable(this.httpEndpoint);
+    }
+    /**
+     * @return Whether the IPv6 endpoint for the instance metadata service is enabled. Defaults to `disabled`.
+     * 
+     */
+    public Optional<String> httpProtocolIpv6() {
+        return Optional.ofNullable(this.httpProtocolIpv6);
     }
     /**
      * @return Desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Valid values are integer from `1` to `64`. Defaults to `1`.
@@ -77,6 +89,7 @@ public final class SpotInstanceRequestMetadataOptions {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String httpEndpoint;
+        private @Nullable String httpProtocolIpv6;
         private @Nullable Integer httpPutResponseHopLimit;
         private @Nullable String httpTokens;
         private @Nullable String instanceMetadataTags;
@@ -84,6 +97,7 @@ public final class SpotInstanceRequestMetadataOptions {
         public Builder(SpotInstanceRequestMetadataOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.httpEndpoint = defaults.httpEndpoint;
+    	      this.httpProtocolIpv6 = defaults.httpProtocolIpv6;
     	      this.httpPutResponseHopLimit = defaults.httpPutResponseHopLimit;
     	      this.httpTokens = defaults.httpTokens;
     	      this.instanceMetadataTags = defaults.instanceMetadataTags;
@@ -92,6 +106,11 @@ public final class SpotInstanceRequestMetadataOptions {
         @CustomType.Setter
         public Builder httpEndpoint(@Nullable String httpEndpoint) {
             this.httpEndpoint = httpEndpoint;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder httpProtocolIpv6(@Nullable String httpProtocolIpv6) {
+            this.httpProtocolIpv6 = httpProtocolIpv6;
             return this;
         }
         @CustomType.Setter
@@ -112,6 +131,7 @@ public final class SpotInstanceRequestMetadataOptions {
         public SpotInstanceRequestMetadataOptions build() {
             final var o = new SpotInstanceRequestMetadataOptions();
             o.httpEndpoint = httpEndpoint;
+            o.httpProtocolIpv6 = httpProtocolIpv6;
             o.httpPutResponseHopLimit = httpPutResponseHopLimit;
             o.httpTokens = httpTokens;
             o.instanceMetadataTags = instanceMetadataTags;

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a core network resource.
@@ -573,6 +574,12 @@ func (i *CoreNetwork) ToCoreNetworkOutputWithContext(ctx context.Context) CoreNe
 	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkOutput)
 }
 
+func (i *CoreNetwork) ToOutput(ctx context.Context) pulumix.Output[*CoreNetwork] {
+	return pulumix.Output[*CoreNetwork]{
+		OutputState: i.ToCoreNetworkOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CoreNetworkArrayInput is an input type that accepts CoreNetworkArray and CoreNetworkArrayOutput values.
 // You can construct a concrete instance of `CoreNetworkArrayInput` via:
 //
@@ -596,6 +603,12 @@ func (i CoreNetworkArray) ToCoreNetworkArrayOutput() CoreNetworkArrayOutput {
 
 func (i CoreNetworkArray) ToCoreNetworkArrayOutputWithContext(ctx context.Context) CoreNetworkArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkArrayOutput)
+}
+
+func (i CoreNetworkArray) ToOutput(ctx context.Context) pulumix.Output[[]*CoreNetwork] {
+	return pulumix.Output[[]*CoreNetwork]{
+		OutputState: i.ToCoreNetworkArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CoreNetworkMapInput is an input type that accepts CoreNetworkMap and CoreNetworkMapOutput values.
@@ -623,6 +636,12 @@ func (i CoreNetworkMap) ToCoreNetworkMapOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(CoreNetworkMapOutput)
 }
 
+func (i CoreNetworkMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CoreNetwork] {
+	return pulumix.Output[map[string]*CoreNetwork]{
+		OutputState: i.ToCoreNetworkMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CoreNetworkOutput struct{ *pulumi.OutputState }
 
 func (CoreNetworkOutput) ElementType() reflect.Type {
@@ -635,6 +654,12 @@ func (o CoreNetworkOutput) ToCoreNetworkOutput() CoreNetworkOutput {
 
 func (o CoreNetworkOutput) ToCoreNetworkOutputWithContext(ctx context.Context) CoreNetworkOutput {
 	return o
+}
+
+func (o CoreNetworkOutput) ToOutput(ctx context.Context) pulumix.Output[*CoreNetwork] {
+	return pulumix.Output[*CoreNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Core Network Amazon Resource Name (ARN).
@@ -730,6 +755,12 @@ func (o CoreNetworkArrayOutput) ToCoreNetworkArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o CoreNetworkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CoreNetwork] {
+	return pulumix.Output[[]*CoreNetwork]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CoreNetworkArrayOutput) Index(i pulumi.IntInput) CoreNetworkOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CoreNetwork {
 		return vs[0].([]*CoreNetwork)[vs[1].(int)]
@@ -748,6 +779,12 @@ func (o CoreNetworkMapOutput) ToCoreNetworkMapOutput() CoreNetworkMapOutput {
 
 func (o CoreNetworkMapOutput) ToCoreNetworkMapOutputWithContext(ctx context.Context) CoreNetworkMapOutput {
 	return o
+}
+
+func (o CoreNetworkMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CoreNetwork] {
+	return pulumix.Output[map[string]*CoreNetwork]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CoreNetworkMapOutput) MapIndex(k pulumi.StringInput) CoreNetworkOutput {

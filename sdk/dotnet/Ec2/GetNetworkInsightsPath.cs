@@ -158,6 +158,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Destination;
         /// <summary>
+        /// ARN of the destination.
+        /// </summary>
+        public readonly string DestinationArn;
+        /// <summary>
         /// IP address of the AWS resource that is the destination of the path.
         /// </summary>
         public readonly string DestinationIp;
@@ -180,6 +184,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Source;
         /// <summary>
+        /// ARN of the source.
+        /// </summary>
+        public readonly string SourceArn;
+        /// <summary>
         /// IP address of the AWS resource that is the source of the path.
         /// </summary>
         public readonly string SourceIp;
@@ -193,6 +201,8 @@ namespace Pulumi.Aws.Ec2
             string arn,
 
             string destination,
+
+            string destinationArn,
 
             string destinationIp,
 
@@ -208,12 +218,15 @@ namespace Pulumi.Aws.Ec2
 
             string source,
 
+            string sourceArn,
+
             string sourceIp,
 
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             Destination = destination;
+            DestinationArn = destinationArn;
             DestinationIp = destinationIp;
             DestinationPort = destinationPort;
             Filters = filters;
@@ -221,6 +234,7 @@ namespace Pulumi.Aws.Ec2
             NetworkInsightsPathId = networkInsightsPathId;
             Protocol = protocol;
             Source = source;
+            SourceArn = sourceArn;
             SourceIp = sourceIp;
             Tags = tags;
         }

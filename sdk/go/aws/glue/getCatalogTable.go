@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This data source can be used to fetch information about an AWS Glue Data Catalog Table.
@@ -145,6 +146,12 @@ func (o LookupCatalogTableResultOutput) ToLookupCatalogTableResultOutput() Looku
 
 func (o LookupCatalogTableResultOutput) ToLookupCatalogTableResultOutputWithContext(ctx context.Context) LookupCatalogTableResultOutput {
 	return o
+}
+
+func (o LookupCatalogTableResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCatalogTableResult] {
+	return pulumix.Output[LookupCatalogTableResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the Glue Table.

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get information on an existing backup report plan.
@@ -115,6 +116,12 @@ func (o LookupReportPlanResultOutput) ToLookupReportPlanResultOutput() LookupRep
 
 func (o LookupReportPlanResultOutput) ToLookupReportPlanResultOutputWithContext(ctx context.Context) LookupReportPlanResultOutput {
 	return o
+}
+
+func (o LookupReportPlanResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupReportPlanResult] {
+	return pulumix.Output[LookupReportPlanResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the backup report plan.

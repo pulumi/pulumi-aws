@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS OpenSearch Serverless Collection.
@@ -64,7 +65,8 @@ type LookupServerlessCollectionResult struct {
 	// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
 	CollectionEndpoint string `pulumi:"collectionEndpoint"`
 	// Date the Collection was created.
-	CreatedDate       string `pulumi:"createdDate"`
+	CreatedDate string `pulumi:"createdDate"`
+	// Collection-specific endpoint used to access OpenSearch Dashboards.
 	DashboardEndpoint string `pulumi:"dashboardEndpoint"`
 	// Description of the collection.
 	Description string `pulumi:"description"`
@@ -120,6 +122,12 @@ func (o LookupServerlessCollectionResultOutput) ToLookupServerlessCollectionResu
 	return o
 }
 
+func (o LookupServerlessCollectionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServerlessCollectionResult] {
+	return pulumix.Output[LookupServerlessCollectionResult]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Amazon Resource Name (ARN) of the collection.
 func (o LookupServerlessCollectionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.Arn }).(pulumi.StringOutput)
@@ -135,6 +143,7 @@ func (o LookupServerlessCollectionResultOutput) CreatedDate() pulumi.StringOutpu
 	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
+// Collection-specific endpoint used to access OpenSearch Dashboards.
 func (o LookupServerlessCollectionResultOutput) DashboardEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.DashboardEndpoint }).(pulumi.StringOutput)
 }

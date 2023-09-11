@@ -29,6 +29,8 @@ __all__ = [
     'ImageOutputResourceArgs',
     'ImageOutputResourceAmiArgs',
     'ImageOutputResourceContainerArgs',
+    'ImagePipelineImageScanningConfigurationArgs',
+    'ImagePipelineImageScanningConfigurationEcrConfigurationArgs',
     'ImagePipelineImageTestsConfigurationArgs',
     'ImagePipelineScheduleArgs',
     'ImageRecipeBlockDeviceMappingArgs',
@@ -1194,6 +1196,80 @@ class ImageOutputResourceContainerArgs:
     @region.setter
     def region(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "region", value)
+
+
+@pulumi.input_type
+class ImagePipelineImageScanningConfigurationArgs:
+    def __init__(__self__, *,
+                 ecr_configuration: Optional[pulumi.Input['ImagePipelineImageScanningConfigurationEcrConfigurationArgs']] = None,
+                 image_scanning_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input['ImagePipelineImageScanningConfigurationEcrConfigurationArgs'] ecr_configuration: Configuration block with ECR configuration for image scanning. Detailed below.
+        :param pulumi.Input[bool] image_scanning_enabled: Whether image scans are enabled. Defaults to `false`.
+        """
+        if ecr_configuration is not None:
+            pulumi.set(__self__, "ecr_configuration", ecr_configuration)
+        if image_scanning_enabled is not None:
+            pulumi.set(__self__, "image_scanning_enabled", image_scanning_enabled)
+
+    @property
+    @pulumi.getter(name="ecrConfiguration")
+    def ecr_configuration(self) -> Optional[pulumi.Input['ImagePipelineImageScanningConfigurationEcrConfigurationArgs']]:
+        """
+        Configuration block with ECR configuration for image scanning. Detailed below.
+        """
+        return pulumi.get(self, "ecr_configuration")
+
+    @ecr_configuration.setter
+    def ecr_configuration(self, value: Optional[pulumi.Input['ImagePipelineImageScanningConfigurationEcrConfigurationArgs']]):
+        pulumi.set(self, "ecr_configuration", value)
+
+    @property
+    @pulumi.getter(name="imageScanningEnabled")
+    def image_scanning_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether image scans are enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "image_scanning_enabled")
+
+    @image_scanning_enabled.setter
+    def image_scanning_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "image_scanning_enabled", value)
+
+
+@pulumi.input_type
+class ImagePipelineImageScanningConfigurationEcrConfigurationArgs:
+    def __init__(__self__, *,
+                 container_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 repository_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] repository_name: The name of the repository to scan
+        """
+        if container_tags is not None:
+            pulumi.set(__self__, "container_tags", container_tags)
+        if repository_name is not None:
+            pulumi.set(__self__, "repository_name", repository_name)
+
+    @property
+    @pulumi.getter(name="containerTags")
+    def container_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "container_tags")
+
+    @container_tags.setter
+    def container_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "container_tags", value)
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the repository to scan
+        """
+        return pulumi.get(self, "repository_name")
+
+    @repository_name.setter
+    def repository_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_name", value)
 
 
 @pulumi.input_type

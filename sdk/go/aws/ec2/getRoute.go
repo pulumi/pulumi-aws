@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ec2.Route` provides details about a specific Route.
@@ -186,6 +187,12 @@ func (o LookupRouteResultOutput) ToLookupRouteResultOutput() LookupRouteResultOu
 
 func (o LookupRouteResultOutput) ToLookupRouteResultOutputWithContext(ctx context.Context) LookupRouteResultOutput {
 	return o
+}
+
+func (o LookupRouteResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRouteResult] {
+	return pulumix.Output[LookupRouteResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupRouteResultOutput) CarrierGatewayId() pulumi.StringOutput {

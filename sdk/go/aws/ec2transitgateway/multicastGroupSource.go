@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Registers sources (network interfaces) with the transit gateway multicast group.
@@ -155,6 +156,12 @@ func (i *MulticastGroupSource) ToMulticastGroupSourceOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(MulticastGroupSourceOutput)
 }
 
+func (i *MulticastGroupSource) ToOutput(ctx context.Context) pulumix.Output[*MulticastGroupSource] {
+	return pulumix.Output[*MulticastGroupSource]{
+		OutputState: i.ToMulticastGroupSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MulticastGroupSourceArrayInput is an input type that accepts MulticastGroupSourceArray and MulticastGroupSourceArrayOutput values.
 // You can construct a concrete instance of `MulticastGroupSourceArrayInput` via:
 //
@@ -178,6 +185,12 @@ func (i MulticastGroupSourceArray) ToMulticastGroupSourceArrayOutput() Multicast
 
 func (i MulticastGroupSourceArray) ToMulticastGroupSourceArrayOutputWithContext(ctx context.Context) MulticastGroupSourceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MulticastGroupSourceArrayOutput)
+}
+
+func (i MulticastGroupSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]*MulticastGroupSource] {
+	return pulumix.Output[[]*MulticastGroupSource]{
+		OutputState: i.ToMulticastGroupSourceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MulticastGroupSourceMapInput is an input type that accepts MulticastGroupSourceMap and MulticastGroupSourceMapOutput values.
@@ -205,6 +218,12 @@ func (i MulticastGroupSourceMap) ToMulticastGroupSourceMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(MulticastGroupSourceMapOutput)
 }
 
+func (i MulticastGroupSourceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MulticastGroupSource] {
+	return pulumix.Output[map[string]*MulticastGroupSource]{
+		OutputState: i.ToMulticastGroupSourceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MulticastGroupSourceOutput struct{ *pulumi.OutputState }
 
 func (MulticastGroupSourceOutput) ElementType() reflect.Type {
@@ -217,6 +236,12 @@ func (o MulticastGroupSourceOutput) ToMulticastGroupSourceOutput() MulticastGrou
 
 func (o MulticastGroupSourceOutput) ToMulticastGroupSourceOutputWithContext(ctx context.Context) MulticastGroupSourceOutput {
 	return o
+}
+
+func (o MulticastGroupSourceOutput) ToOutput(ctx context.Context) pulumix.Output[*MulticastGroupSource] {
+	return pulumix.Output[*MulticastGroupSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The IP address assigned to the transit gateway multicast group.
@@ -248,6 +273,12 @@ func (o MulticastGroupSourceArrayOutput) ToMulticastGroupSourceArrayOutputWithCo
 	return o
 }
 
+func (o MulticastGroupSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MulticastGroupSource] {
+	return pulumix.Output[[]*MulticastGroupSource]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MulticastGroupSourceArrayOutput) Index(i pulumi.IntInput) MulticastGroupSourceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MulticastGroupSource {
 		return vs[0].([]*MulticastGroupSource)[vs[1].(int)]
@@ -266,6 +297,12 @@ func (o MulticastGroupSourceMapOutput) ToMulticastGroupSourceMapOutput() Multica
 
 func (o MulticastGroupSourceMapOutput) ToMulticastGroupSourceMapOutputWithContext(ctx context.Context) MulticastGroupSourceMapOutput {
 	return o
+}
+
+func (o MulticastGroupSourceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MulticastGroupSource] {
+	return pulumix.Output[map[string]*MulticastGroupSource]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MulticastGroupSourceMapOutput) MapIndex(k pulumi.StringInput) MulticastGroupSourceOutput {

@@ -1,4 +1,4 @@
-From 7ee6ea91ab8ea671a013473202f087c9b8cc1718 Mon Sep 17 00:00:00 2001
+From 568c6ba004737a1e77e4bdaf501e88f070b427ce Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:24:42 +0000
 Subject: [PATCH 07/29] Workaround SSM Parameter tier bug
@@ -57,5 +57,5 @@ index 544385cfa6..6f72ffec7a 100644
  		if d.HasChange("data_type") {
  			paramInput.DataType = aws.String(d.Get("data_type").(string))
 -- 
-2.40.0
+2.41.0
 

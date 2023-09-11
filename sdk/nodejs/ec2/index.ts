@@ -322,7 +322,8 @@ utilities.lazyLoad(exports, ["getSecurityGroups","getSecurityGroupsOutput"], () 
 
 export { GetSerialConsoleAccessResult } from "./getSerialConsoleAccess";
 export const getSerialConsoleAccess: typeof import("./getSerialConsoleAccess").getSerialConsoleAccess = null as any;
-utilities.lazyLoad(exports, ["getSerialConsoleAccess"], () => require("./getSerialConsoleAccess"));
+export const getSerialConsoleAccessOutput: typeof import("./getSerialConsoleAccess").getSerialConsoleAccessOutput = null as any;
+utilities.lazyLoad(exports, ["getSerialConsoleAccess","getSerialConsoleAccessOutput"], () => require("./getSerialConsoleAccess"));
 
 export { GetSpotPriceArgs, GetSpotPriceResult, GetSpotPriceOutputArgs } from "./getSpotPrice";
 export const getSpotPrice: typeof import("./getSpotPrice").getSpotPrice = null as any;

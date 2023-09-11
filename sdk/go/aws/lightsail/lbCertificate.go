@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a Lightsail load balancer Certificate resource.
@@ -195,6 +196,12 @@ func (i *LbCertificate) ToLbCertificateOutputWithContext(ctx context.Context) Lb
 	return pulumi.ToOutputWithContext(ctx, i).(LbCertificateOutput)
 }
 
+func (i *LbCertificate) ToOutput(ctx context.Context) pulumix.Output[*LbCertificate] {
+	return pulumix.Output[*LbCertificate]{
+		OutputState: i.ToLbCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LbCertificateArrayInput is an input type that accepts LbCertificateArray and LbCertificateArrayOutput values.
 // You can construct a concrete instance of `LbCertificateArrayInput` via:
 //
@@ -218,6 +225,12 @@ func (i LbCertificateArray) ToLbCertificateArrayOutput() LbCertificateArrayOutpu
 
 func (i LbCertificateArray) ToLbCertificateArrayOutputWithContext(ctx context.Context) LbCertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LbCertificateArrayOutput)
+}
+
+func (i LbCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*LbCertificate] {
+	return pulumix.Output[[]*LbCertificate]{
+		OutputState: i.ToLbCertificateArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // LbCertificateMapInput is an input type that accepts LbCertificateMap and LbCertificateMapOutput values.
@@ -245,6 +258,12 @@ func (i LbCertificateMap) ToLbCertificateMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(LbCertificateMapOutput)
 }
 
+func (i LbCertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LbCertificate] {
+	return pulumix.Output[map[string]*LbCertificate]{
+		OutputState: i.ToLbCertificateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LbCertificateOutput struct{ *pulumi.OutputState }
 
 func (LbCertificateOutput) ElementType() reflect.Type {
@@ -257,6 +276,12 @@ func (o LbCertificateOutput) ToLbCertificateOutput() LbCertificateOutput {
 
 func (o LbCertificateOutput) ToLbCertificateOutputWithContext(ctx context.Context) LbCertificateOutput {
 	return o
+}
+
+func (o LbCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*LbCertificate] {
+	return pulumix.Output[*LbCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the lightsail certificate.
@@ -313,6 +338,12 @@ func (o LbCertificateArrayOutput) ToLbCertificateArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o LbCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LbCertificate] {
+	return pulumix.Output[[]*LbCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LbCertificateArrayOutput) Index(i pulumi.IntInput) LbCertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LbCertificate {
 		return vs[0].([]*LbCertificate)[vs[1].(int)]
@@ -331,6 +362,12 @@ func (o LbCertificateMapOutput) ToLbCertificateMapOutput() LbCertificateMapOutpu
 
 func (o LbCertificateMapOutput) ToLbCertificateMapOutputWithContext(ctx context.Context) LbCertificateMapOutput {
 	return o
+}
+
+func (o LbCertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LbCertificate] {
+	return pulumix.Output[map[string]*LbCertificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LbCertificateMapOutput) MapIndex(k pulumi.StringInput) LbCertificateOutput {

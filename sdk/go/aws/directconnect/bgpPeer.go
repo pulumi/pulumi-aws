@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Direct Connect BGP peer resource.
@@ -212,6 +213,12 @@ func (i *BgpPeer) ToBgpPeerOutputWithContext(ctx context.Context) BgpPeerOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(BgpPeerOutput)
 }
 
+func (i *BgpPeer) ToOutput(ctx context.Context) pulumix.Output[*BgpPeer] {
+	return pulumix.Output[*BgpPeer]{
+		OutputState: i.ToBgpPeerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BgpPeerArrayInput is an input type that accepts BgpPeerArray and BgpPeerArrayOutput values.
 // You can construct a concrete instance of `BgpPeerArrayInput` via:
 //
@@ -235,6 +242,12 @@ func (i BgpPeerArray) ToBgpPeerArrayOutput() BgpPeerArrayOutput {
 
 func (i BgpPeerArray) ToBgpPeerArrayOutputWithContext(ctx context.Context) BgpPeerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BgpPeerArrayOutput)
+}
+
+func (i BgpPeerArray) ToOutput(ctx context.Context) pulumix.Output[[]*BgpPeer] {
+	return pulumix.Output[[]*BgpPeer]{
+		OutputState: i.ToBgpPeerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BgpPeerMapInput is an input type that accepts BgpPeerMap and BgpPeerMapOutput values.
@@ -262,6 +275,12 @@ func (i BgpPeerMap) ToBgpPeerMapOutputWithContext(ctx context.Context) BgpPeerMa
 	return pulumi.ToOutputWithContext(ctx, i).(BgpPeerMapOutput)
 }
 
+func (i BgpPeerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BgpPeer] {
+	return pulumix.Output[map[string]*BgpPeer]{
+		OutputState: i.ToBgpPeerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BgpPeerOutput struct{ *pulumi.OutputState }
 
 func (BgpPeerOutput) ElementType() reflect.Type {
@@ -274,6 +293,12 @@ func (o BgpPeerOutput) ToBgpPeerOutput() BgpPeerOutput {
 
 func (o BgpPeerOutput) ToBgpPeerOutputWithContext(ctx context.Context) BgpPeerOutput {
 	return o
+}
+
+func (o BgpPeerOutput) ToOutput(ctx context.Context) pulumix.Output[*BgpPeer] {
+	return pulumix.Output[*BgpPeer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The address family for the BGP peer. ` ipv4  ` or `ipv6`.
@@ -337,6 +362,12 @@ func (o BgpPeerArrayOutput) ToBgpPeerArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o BgpPeerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BgpPeer] {
+	return pulumix.Output[[]*BgpPeer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BgpPeerArrayOutput) Index(i pulumi.IntInput) BgpPeerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BgpPeer {
 		return vs[0].([]*BgpPeer)[vs[1].(int)]
@@ -355,6 +386,12 @@ func (o BgpPeerMapOutput) ToBgpPeerMapOutput() BgpPeerMapOutput {
 
 func (o BgpPeerMapOutput) ToBgpPeerMapOutputWithContext(ctx context.Context) BgpPeerMapOutput {
 	return o
+}
+
+func (o BgpPeerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BgpPeer] {
+	return pulumix.Output[map[string]*BgpPeer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BgpPeerMapOutput) MapIndex(k pulumi.StringInput) BgpPeerOutput {

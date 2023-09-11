@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i StatementParameterArgs) ToStatementParameterOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(StatementParameterOutput)
 }
 
+func (i StatementParameterArgs) ToOutput(ctx context.Context) pulumix.Output[StatementParameter] {
+	return pulumix.Output[StatementParameter]{
+		OutputState: i.ToStatementParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StatementParameterArrayInput is an input type that accepts StatementParameterArray and StatementParameterArrayOutput values.
 // You can construct a concrete instance of `StatementParameterArrayInput` via:
 //
@@ -71,6 +78,12 @@ func (i StatementParameterArray) ToStatementParameterArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(StatementParameterArrayOutput)
 }
 
+func (i StatementParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]StatementParameter] {
+	return pulumix.Output[[]StatementParameter]{
+		OutputState: i.ToStatementParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StatementParameterOutput struct{ *pulumi.OutputState }
 
 func (StatementParameterOutput) ElementType() reflect.Type {
@@ -83,6 +96,12 @@ func (o StatementParameterOutput) ToStatementParameterOutput() StatementParamete
 
 func (o StatementParameterOutput) ToStatementParameterOutputWithContext(ctx context.Context) StatementParameterOutput {
 	return o
+}
+
+func (o StatementParameterOutput) ToOutput(ctx context.Context) pulumix.Output[StatementParameter] {
+	return pulumix.Output[StatementParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StatementParameterOutput) Name() pulumi.StringOutput {
@@ -105,6 +124,12 @@ func (o StatementParameterArrayOutput) ToStatementParameterArrayOutput() Stateme
 
 func (o StatementParameterArrayOutput) ToStatementParameterArrayOutputWithContext(ctx context.Context) StatementParameterArrayOutput {
 	return o
+}
+
+func (o StatementParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StatementParameter] {
+	return pulumix.Output[[]StatementParameter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StatementParameterArrayOutput) Index(i pulumi.IntInput) StatementParameterOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Service Catalog Budget Resource Association.
@@ -153,6 +154,12 @@ func (i *BudgetResourceAssociation) ToBudgetResourceAssociationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceAssociationOutput)
 }
 
+func (i *BudgetResourceAssociation) ToOutput(ctx context.Context) pulumix.Output[*BudgetResourceAssociation] {
+	return pulumix.Output[*BudgetResourceAssociation]{
+		OutputState: i.ToBudgetResourceAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BudgetResourceAssociationArrayInput is an input type that accepts BudgetResourceAssociationArray and BudgetResourceAssociationArrayOutput values.
 // You can construct a concrete instance of `BudgetResourceAssociationArrayInput` via:
 //
@@ -176,6 +183,12 @@ func (i BudgetResourceAssociationArray) ToBudgetResourceAssociationArrayOutput()
 
 func (i BudgetResourceAssociationArray) ToBudgetResourceAssociationArrayOutputWithContext(ctx context.Context) BudgetResourceAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceAssociationArrayOutput)
+}
+
+func (i BudgetResourceAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*BudgetResourceAssociation] {
+	return pulumix.Output[[]*BudgetResourceAssociation]{
+		OutputState: i.ToBudgetResourceAssociationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BudgetResourceAssociationMapInput is an input type that accepts BudgetResourceAssociationMap and BudgetResourceAssociationMapOutput values.
@@ -203,6 +216,12 @@ func (i BudgetResourceAssociationMap) ToBudgetResourceAssociationMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetResourceAssociationMapOutput)
 }
 
+func (i BudgetResourceAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BudgetResourceAssociation] {
+	return pulumix.Output[map[string]*BudgetResourceAssociation]{
+		OutputState: i.ToBudgetResourceAssociationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BudgetResourceAssociationOutput struct{ *pulumi.OutputState }
 
 func (BudgetResourceAssociationOutput) ElementType() reflect.Type {
@@ -215,6 +234,12 @@ func (o BudgetResourceAssociationOutput) ToBudgetResourceAssociationOutput() Bud
 
 func (o BudgetResourceAssociationOutput) ToBudgetResourceAssociationOutputWithContext(ctx context.Context) BudgetResourceAssociationOutput {
 	return o
+}
+
+func (o BudgetResourceAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetResourceAssociation] {
+	return pulumix.Output[*BudgetResourceAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Budget name.
@@ -241,6 +266,12 @@ func (o BudgetResourceAssociationArrayOutput) ToBudgetResourceAssociationArrayOu
 	return o
 }
 
+func (o BudgetResourceAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BudgetResourceAssociation] {
+	return pulumix.Output[[]*BudgetResourceAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BudgetResourceAssociationArrayOutput) Index(i pulumi.IntInput) BudgetResourceAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BudgetResourceAssociation {
 		return vs[0].([]*BudgetResourceAssociation)[vs[1].(int)]
@@ -259,6 +290,12 @@ func (o BudgetResourceAssociationMapOutput) ToBudgetResourceAssociationMapOutput
 
 func (o BudgetResourceAssociationMapOutput) ToBudgetResourceAssociationMapOutputWithContext(ctx context.Context) BudgetResourceAssociationMapOutput {
 	return o
+}
+
+func (o BudgetResourceAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BudgetResourceAssociation] {
+	return pulumix.Output[map[string]*BudgetResourceAssociation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BudgetResourceAssociationMapOutput) MapIndex(k pulumi.StringInput) BudgetResourceAssociationOutput {

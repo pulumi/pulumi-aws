@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleVpcIpamPoolCidr = new VpcIpamPoolCidr(&#34;exampleVpcIpamPoolCidr&#34;, VpcIpamPoolCidrArgs.builder()        
  *             .ipamPoolId(exampleVpcIpamPool.id())
- *             .cidr(&#34;172.2.0.0/16&#34;)
+ *             .cidr(&#34;172.20.0.0/16&#34;)
  *             .build());
  * 
  *         var exampleVpcIpamPreviewNextCidr = new VpcIpamPreviewNextCidr(&#34;exampleVpcIpamPreviewNextCidr&#34;, VpcIpamPreviewNextCidrArgs.builder()        

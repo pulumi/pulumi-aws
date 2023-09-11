@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific API Gateway Authorizer.
@@ -121,6 +122,12 @@ func (o LookupAuthorizerResultOutput) ToLookupAuthorizerResultOutput() LookupAut
 
 func (o LookupAuthorizerResultOutput) ToLookupAuthorizerResultOutputWithContext(ctx context.Context) LookupAuthorizerResultOutput {
 	return o
+}
+
+func (o LookupAuthorizerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAuthorizerResult] {
+	return pulumix.Output[LookupAuthorizerResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the API Gateway Authorizer.

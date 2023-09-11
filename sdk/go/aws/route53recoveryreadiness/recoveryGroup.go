@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an AWS Route 53 Recovery Readiness Recovery Group.
@@ -178,6 +179,12 @@ func (i *RecoveryGroup) ToRecoveryGroupOutputWithContext(ctx context.Context) Re
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryGroupOutput)
 }
 
+func (i *RecoveryGroup) ToOutput(ctx context.Context) pulumix.Output[*RecoveryGroup] {
+	return pulumix.Output[*RecoveryGroup]{
+		OutputState: i.ToRecoveryGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RecoveryGroupArrayInput is an input type that accepts RecoveryGroupArray and RecoveryGroupArrayOutput values.
 // You can construct a concrete instance of `RecoveryGroupArrayInput` via:
 //
@@ -201,6 +208,12 @@ func (i RecoveryGroupArray) ToRecoveryGroupArrayOutput() RecoveryGroupArrayOutpu
 
 func (i RecoveryGroupArray) ToRecoveryGroupArrayOutputWithContext(ctx context.Context) RecoveryGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryGroupArrayOutput)
+}
+
+func (i RecoveryGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*RecoveryGroup] {
+	return pulumix.Output[[]*RecoveryGroup]{
+		OutputState: i.ToRecoveryGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RecoveryGroupMapInput is an input type that accepts RecoveryGroupMap and RecoveryGroupMapOutput values.
@@ -228,6 +241,12 @@ func (i RecoveryGroupMap) ToRecoveryGroupMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RecoveryGroupMapOutput)
 }
 
+func (i RecoveryGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RecoveryGroup] {
+	return pulumix.Output[map[string]*RecoveryGroup]{
+		OutputState: i.ToRecoveryGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RecoveryGroupOutput struct{ *pulumi.OutputState }
 
 func (RecoveryGroupOutput) ElementType() reflect.Type {
@@ -240,6 +259,12 @@ func (o RecoveryGroupOutput) ToRecoveryGroupOutput() RecoveryGroupOutput {
 
 func (o RecoveryGroupOutput) ToRecoveryGroupOutputWithContext(ctx context.Context) RecoveryGroupOutput {
 	return o
+}
+
+func (o RecoveryGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*RecoveryGroup] {
+	return pulumix.Output[*RecoveryGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the recovery group
@@ -283,6 +308,12 @@ func (o RecoveryGroupArrayOutput) ToRecoveryGroupArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o RecoveryGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RecoveryGroup] {
+	return pulumix.Output[[]*RecoveryGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RecoveryGroupArrayOutput) Index(i pulumi.IntInput) RecoveryGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RecoveryGroup {
 		return vs[0].([]*RecoveryGroup)[vs[1].(int)]
@@ -301,6 +332,12 @@ func (o RecoveryGroupMapOutput) ToRecoveryGroupMapOutput() RecoveryGroupMapOutpu
 
 func (o RecoveryGroupMapOutput) ToRecoveryGroupMapOutputWithContext(ctx context.Context) RecoveryGroupMapOutput {
 	return o
+}
+
+func (o RecoveryGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RecoveryGroup] {
+	return pulumix.Output[map[string]*RecoveryGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RecoveryGroupMapOutput) MapIndex(k pulumi.StringInput) RecoveryGroupOutput {

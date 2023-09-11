@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Location Service Place Index.
@@ -214,6 +215,12 @@ func (i *PlaceIndex) ToPlaceIndexOutputWithContext(ctx context.Context) PlaceInd
 	return pulumi.ToOutputWithContext(ctx, i).(PlaceIndexOutput)
 }
 
+func (i *PlaceIndex) ToOutput(ctx context.Context) pulumix.Output[*PlaceIndex] {
+	return pulumix.Output[*PlaceIndex]{
+		OutputState: i.ToPlaceIndexOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PlaceIndexArrayInput is an input type that accepts PlaceIndexArray and PlaceIndexArrayOutput values.
 // You can construct a concrete instance of `PlaceIndexArrayInput` via:
 //
@@ -237,6 +244,12 @@ func (i PlaceIndexArray) ToPlaceIndexArrayOutput() PlaceIndexArrayOutput {
 
 func (i PlaceIndexArray) ToPlaceIndexArrayOutputWithContext(ctx context.Context) PlaceIndexArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PlaceIndexArrayOutput)
+}
+
+func (i PlaceIndexArray) ToOutput(ctx context.Context) pulumix.Output[[]*PlaceIndex] {
+	return pulumix.Output[[]*PlaceIndex]{
+		OutputState: i.ToPlaceIndexArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PlaceIndexMapInput is an input type that accepts PlaceIndexMap and PlaceIndexMapOutput values.
@@ -264,6 +277,12 @@ func (i PlaceIndexMap) ToPlaceIndexMapOutputWithContext(ctx context.Context) Pla
 	return pulumi.ToOutputWithContext(ctx, i).(PlaceIndexMapOutput)
 }
 
+func (i PlaceIndexMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PlaceIndex] {
+	return pulumix.Output[map[string]*PlaceIndex]{
+		OutputState: i.ToPlaceIndexMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PlaceIndexOutput struct{ *pulumi.OutputState }
 
 func (PlaceIndexOutput) ElementType() reflect.Type {
@@ -276,6 +295,12 @@ func (o PlaceIndexOutput) ToPlaceIndexOutput() PlaceIndexOutput {
 
 func (o PlaceIndexOutput) ToPlaceIndexOutputWithContext(ctx context.Context) PlaceIndexOutput {
 	return o
+}
+
+func (o PlaceIndexOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaceIndex] {
+	return pulumix.Output[*PlaceIndex]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The timestamp for when the place index resource was created in ISO 8601 format.
@@ -339,6 +364,12 @@ func (o PlaceIndexArrayOutput) ToPlaceIndexArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o PlaceIndexArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PlaceIndex] {
+	return pulumix.Output[[]*PlaceIndex]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PlaceIndexArrayOutput) Index(i pulumi.IntInput) PlaceIndexOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PlaceIndex {
 		return vs[0].([]*PlaceIndex)[vs[1].(int)]
@@ -357,6 +388,12 @@ func (o PlaceIndexMapOutput) ToPlaceIndexMapOutput() PlaceIndexMapOutput {
 
 func (o PlaceIndexMapOutput) ToPlaceIndexMapOutputWithContext(ctx context.Context) PlaceIndexMapOutput {
 	return o
+}
+
+func (o PlaceIndexMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PlaceIndex] {
+	return pulumix.Output[map[string]*PlaceIndex]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PlaceIndexMapOutput) MapIndex(k pulumi.StringInput) PlaceIndexOutput {

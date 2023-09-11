@@ -53,6 +53,7 @@ import * as utilities from "../utilities";
  *     dbSubnetGroupName: "default",
  * }, {
  *     provider: aws.secondary,
+ *     dependsOn: [primaryCluster],
  * });
  * const secondaryClusterInstance = new aws.docdb.ClusterInstance("secondaryClusterInstance", {
  *     engine: example.engine,

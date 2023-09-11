@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an Application AutoScaling ScalableTarget resource. To manage policies which get attached to the target, see the `appautoscaling.Policy` resource.
@@ -384,6 +385,12 @@ func (i *Target) ToTargetOutputWithContext(ctx context.Context) TargetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TargetOutput)
 }
 
+func (i *Target) ToOutput(ctx context.Context) pulumix.Output[*Target] {
+	return pulumix.Output[*Target]{
+		OutputState: i.ToTargetOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TargetArrayInput is an input type that accepts TargetArray and TargetArrayOutput values.
 // You can construct a concrete instance of `TargetArrayInput` via:
 //
@@ -407,6 +414,12 @@ func (i TargetArray) ToTargetArrayOutput() TargetArrayOutput {
 
 func (i TargetArray) ToTargetArrayOutputWithContext(ctx context.Context) TargetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TargetArrayOutput)
+}
+
+func (i TargetArray) ToOutput(ctx context.Context) pulumix.Output[[]*Target] {
+	return pulumix.Output[[]*Target]{
+		OutputState: i.ToTargetArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TargetMapInput is an input type that accepts TargetMap and TargetMapOutput values.
@@ -434,6 +447,12 @@ func (i TargetMap) ToTargetMapOutputWithContext(ctx context.Context) TargetMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(TargetMapOutput)
 }
 
+func (i TargetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Target] {
+	return pulumix.Output[map[string]*Target]{
+		OutputState: i.ToTargetMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TargetOutput struct{ *pulumi.OutputState }
 
 func (TargetOutput) ElementType() reflect.Type {
@@ -446,6 +465,12 @@ func (o TargetOutput) ToTargetOutput() TargetOutput {
 
 func (o TargetOutput) ToTargetOutputWithContext(ctx context.Context) TargetOutput {
 	return o
+}
+
+func (o TargetOutput) ToOutput(ctx context.Context) pulumix.Output[*Target] {
+	return pulumix.Output[*Target]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the scalable target.
@@ -507,6 +532,12 @@ func (o TargetArrayOutput) ToTargetArrayOutputWithContext(ctx context.Context) T
 	return o
 }
 
+func (o TargetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Target] {
+	return pulumix.Output[[]*Target]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TargetArrayOutput) Index(i pulumi.IntInput) TargetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Target {
 		return vs[0].([]*Target)[vs[1].(int)]
@@ -525,6 +556,12 @@ func (o TargetMapOutput) ToTargetMapOutput() TargetMapOutput {
 
 func (o TargetMapOutput) ToTargetMapOutputWithContext(ctx context.Context) TargetMapOutput {
 	return o
+}
+
+func (o TargetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Target] {
+	return pulumix.Output[map[string]*Target]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TargetMapOutput) MapIndex(k pulumi.StringInput) TargetOutput {

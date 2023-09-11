@@ -185,14 +185,14 @@ public class EventRule extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
     /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
      * 
      */
     public Output<String> namePrefix() {

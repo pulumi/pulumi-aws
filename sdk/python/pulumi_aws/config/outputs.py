@@ -222,6 +222,7 @@ class Endpoints(dict):
                  cloudwatchrum: Optional[str] = None,
                  codeartifact: Optional[str] = None,
                  codebuild: Optional[str] = None,
+                 codecatalyst: Optional[str] = None,
                  codecommit: Optional[str] = None,
                  codedeploy: Optional[str] = None,
                  codegurureviewer: Optional[str] = None,
@@ -319,6 +320,8 @@ class Endpoints(dict):
                  lexmodelbuilding: Optional[str] = None,
                  lexmodelbuildingservice: Optional[str] = None,
                  lexmodels: Optional[str] = None,
+                 lexmodelsv2: Optional[str] = None,
+                 lexv2models: Optional[str] = None,
                  licensemanager: Optional[str] = None,
                  lightsail: Optional[str] = None,
                  location: Optional[str] = None,
@@ -519,6 +522,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "codeartifact", codeartifact)
         if codebuild is not None:
             pulumi.set(__self__, "codebuild", codebuild)
+        if codecatalyst is not None:
+            pulumi.set(__self__, "codecatalyst", codecatalyst)
         if codecommit is not None:
             pulumi.set(__self__, "codecommit", codecommit)
         if codedeploy is not None:
@@ -713,6 +718,10 @@ class Endpoints(dict):
             pulumi.set(__self__, "lexmodelbuildingservice", lexmodelbuildingservice)
         if lexmodels is not None:
             pulumi.set(__self__, "lexmodels", lexmodels)
+        if lexmodelsv2 is not None:
+            pulumi.set(__self__, "lexmodelsv2", lexmodelsv2)
+        if lexv2models is not None:
+            pulumi.set(__self__, "lexv2models", lexv2models)
         if licensemanager is not None:
             pulumi.set(__self__, "licensemanager", licensemanager)
         if lightsail is not None:
@@ -1164,6 +1173,11 @@ class Endpoints(dict):
     @pulumi.getter
     def codebuild(self) -> Optional[str]:
         return pulumi.get(self, "codebuild")
+
+    @property
+    @pulumi.getter
+    def codecatalyst(self) -> Optional[str]:
+        return pulumi.get(self, "codecatalyst")
 
     @property
     @pulumi.getter
@@ -1649,6 +1663,16 @@ class Endpoints(dict):
     @pulumi.getter
     def lexmodels(self) -> Optional[str]:
         return pulumi.get(self, "lexmodels")
+
+    @property
+    @pulumi.getter
+    def lexmodelsv2(self) -> Optional[str]:
+        return pulumi.get(self, "lexmodelsv2")
+
+    @property
+    @pulumi.getter
+    def lexv2models(self) -> Optional[str]:
+        return pulumi.get(self, "lexv2models")
 
     @property
     @pulumi.getter

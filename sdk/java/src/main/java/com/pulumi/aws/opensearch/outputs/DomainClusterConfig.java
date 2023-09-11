@@ -45,6 +45,7 @@ public final class DomainClusterConfig {
      * 
      */
     private @Nullable String instanceType;
+    private @Nullable Boolean multiAzWithStandbyEnabled;
     /**
      * @return Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
      * 
@@ -114,6 +115,9 @@ public final class DomainClusterConfig {
     public Optional<String> instanceType() {
         return Optional.ofNullable(this.instanceType);
     }
+    public Optional<Boolean> multiAzWithStandbyEnabled() {
+        return Optional.ofNullable(this.multiAzWithStandbyEnabled);
+    }
     /**
      * @return Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
      * 
@@ -165,6 +169,7 @@ public final class DomainClusterConfig {
         private @Nullable String dedicatedMasterType;
         private @Nullable Integer instanceCount;
         private @Nullable String instanceType;
+        private @Nullable Boolean multiAzWithStandbyEnabled;
         private @Nullable Integer warmCount;
         private @Nullable Boolean warmEnabled;
         private @Nullable String warmType;
@@ -179,6 +184,7 @@ public final class DomainClusterConfig {
     	      this.dedicatedMasterType = defaults.dedicatedMasterType;
     	      this.instanceCount = defaults.instanceCount;
     	      this.instanceType = defaults.instanceType;
+    	      this.multiAzWithStandbyEnabled = defaults.multiAzWithStandbyEnabled;
     	      this.warmCount = defaults.warmCount;
     	      this.warmEnabled = defaults.warmEnabled;
     	      this.warmType = defaults.warmType;
@@ -217,6 +223,11 @@ public final class DomainClusterConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder multiAzWithStandbyEnabled(@Nullable Boolean multiAzWithStandbyEnabled) {
+            this.multiAzWithStandbyEnabled = multiAzWithStandbyEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder warmCount(@Nullable Integer warmCount) {
             this.warmCount = warmCount;
             return this;
@@ -249,6 +260,7 @@ public final class DomainClusterConfig {
             o.dedicatedMasterType = dedicatedMasterType;
             o.instanceCount = instanceCount;
             o.instanceType = instanceType;
+            o.multiAzWithStandbyEnabled = multiAzWithStandbyEnabled;
             o.warmCount = warmCount;
             o.warmEnabled = warmEnabled;
             o.warmType = warmType;

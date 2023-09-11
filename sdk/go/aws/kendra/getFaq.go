@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Kendra Faq.
@@ -131,6 +132,12 @@ func (o LookupFaqResultOutput) ToLookupFaqResultOutput() LookupFaqResultOutput {
 
 func (o LookupFaqResultOutput) ToLookupFaqResultOutputWithContext(ctx context.Context) LookupFaqResultOutput {
 	return o
+}
+
+func (o LookupFaqResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFaqResult] {
+	return pulumix.Output[LookupFaqResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the FAQ.

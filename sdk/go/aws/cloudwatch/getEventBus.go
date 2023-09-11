@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This data source can be used to fetch information about a specific
@@ -101,6 +102,12 @@ func (o LookupEventBusResultOutput) ToLookupEventBusResultOutput() LookupEventBu
 
 func (o LookupEventBusResultOutput) ToLookupEventBusResultOutputWithContext(ctx context.Context) LookupEventBusResultOutput {
 	return o
+}
+
+func (o LookupEventBusResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEventBusResult] {
+	return pulumix.Output[LookupEventBusResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN.

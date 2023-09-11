@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BucketLifecycleConfigurationV2RuleExpiration {
     /**
-     * @return Date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * @return Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
      * 
      */
     private @Nullable String date;
@@ -31,7 +31,7 @@ public final class BucketLifecycleConfigurationV2RuleExpiration {
 
     private BucketLifecycleConfigurationV2RuleExpiration() {}
     /**
-     * @return Date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+     * @return Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
      * 
      */
     public Optional<String> date() {

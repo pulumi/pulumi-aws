@@ -87,17 +87,21 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
      */
     public readonly dailyAutomaticBackupStartTime!: pulumi.Output<string>;
     /**
-     * The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
+     * The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
      */
     public readonly deploymentType!: pulumi.Output<string>;
     /**
-     * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration Below.
+     * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
      */
     public readonly diskIopsConfiguration!: pulumi.Output<outputs.fsx.OpenZfsFileSystemDiskIopsConfiguration>;
     /**
      * DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    /**
+     * (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
+     */
+    public readonly endpointIpAddressRange!: pulumi.Output<string>;
     /**
      * ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
      */
@@ -111,13 +115,21 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
-     * The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration Below.
+     * (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
+     */
+    public readonly preferredSubnetId!: pulumi.Output<string | undefined>;
+    /**
+     * The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
      */
     public readonly rootVolumeConfiguration!: pulumi.Output<outputs.fsx.OpenZfsFileSystemRootVolumeConfiguration>;
     /**
      * Identifier of the root volume, e.g., `fsvol-12345678`
      */
     public /*out*/ readonly rootVolumeId!: pulumi.Output<string>;
+    /**
+     * (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
+     */
+    public readonly routeTableIds!: pulumi.Output<string[]>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
@@ -131,7 +143,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
      */
     public readonly storageType!: pulumi.Output<string | undefined>;
     /**
-     * A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
+     * A list of IDs for the subnets that the file system will be accessible from.
      */
     public readonly subnetIds!: pulumi.Output<string>;
     /**
@@ -177,11 +189,14 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
             resourceInputs["deploymentType"] = state ? state.deploymentType : undefined;
             resourceInputs["diskIopsConfiguration"] = state ? state.diskIopsConfiguration : undefined;
             resourceInputs["dnsName"] = state ? state.dnsName : undefined;
+            resourceInputs["endpointIpAddressRange"] = state ? state.endpointIpAddressRange : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["preferredSubnetId"] = state ? state.preferredSubnetId : undefined;
             resourceInputs["rootVolumeConfiguration"] = state ? state.rootVolumeConfiguration : undefined;
             resourceInputs["rootVolumeId"] = state ? state.rootVolumeId : undefined;
+            resourceInputs["routeTableIds"] = state ? state.routeTableIds : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["storageCapacity"] = state ? state.storageCapacity : undefined;
             resourceInputs["storageType"] = state ? state.storageType : undefined;
@@ -209,8 +224,11 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
             resourceInputs["dailyAutomaticBackupStartTime"] = args ? args.dailyAutomaticBackupStartTime : undefined;
             resourceInputs["deploymentType"] = args ? args.deploymentType : undefined;
             resourceInputs["diskIopsConfiguration"] = args ? args.diskIopsConfiguration : undefined;
+            resourceInputs["endpointIpAddressRange"] = args ? args.endpointIpAddressRange : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["preferredSubnetId"] = args ? args.preferredSubnetId : undefined;
             resourceInputs["rootVolumeConfiguration"] = args ? args.rootVolumeConfiguration : undefined;
+            resourceInputs["routeTableIds"] = args ? args.routeTableIds : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["storageCapacity"] = args ? args.storageCapacity : undefined;
             resourceInputs["storageType"] = args ? args.storageType : undefined;
@@ -260,17 +278,21 @@ export interface OpenZfsFileSystemState {
      */
     dailyAutomaticBackupStartTime?: pulumi.Input<string>;
     /**
-     * The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
+     * The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
      */
     deploymentType?: pulumi.Input<string>;
     /**
-     * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration Below.
+     * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
      */
     diskIopsConfiguration?: pulumi.Input<inputs.fsx.OpenZfsFileSystemDiskIopsConfiguration>;
     /**
      * DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
      */
     dnsName?: pulumi.Input<string>;
+    /**
+     * (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
+     */
+    endpointIpAddressRange?: pulumi.Input<string>;
     /**
      * ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
      */
@@ -284,13 +306,21 @@ export interface OpenZfsFileSystemState {
      */
     ownerId?: pulumi.Input<string>;
     /**
-     * The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration Below.
+     * (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
+     */
+    preferredSubnetId?: pulumi.Input<string>;
+    /**
+     * The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
      */
     rootVolumeConfiguration?: pulumi.Input<inputs.fsx.OpenZfsFileSystemRootVolumeConfiguration>;
     /**
      * Identifier of the root volume, e.g., `fsvol-12345678`
      */
     rootVolumeId?: pulumi.Input<string>;
+    /**
+     * (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
+     */
+    routeTableIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
@@ -304,7 +334,7 @@ export interface OpenZfsFileSystemState {
      */
     storageType?: pulumi.Input<string>;
     /**
-     * A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
+     * A list of IDs for the subnets that the file system will be accessible from.
      */
     subnetIds?: pulumi.Input<string>;
     /**
@@ -354,21 +384,33 @@ export interface OpenZfsFileSystemArgs {
      */
     dailyAutomaticBackupStartTime?: pulumi.Input<string>;
     /**
-     * The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
+     * The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
      */
     deploymentType: pulumi.Input<string>;
     /**
-     * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration Below.
+     * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
      */
     diskIopsConfiguration?: pulumi.Input<inputs.fsx.OpenZfsFileSystemDiskIopsConfiguration>;
+    /**
+     * (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
+     */
+    endpointIpAddressRange?: pulumi.Input<string>;
     /**
      * ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration Below.
+     * (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
+     */
+    preferredSubnetId?: pulumi.Input<string>;
+    /**
+     * The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
      */
     rootVolumeConfiguration?: pulumi.Input<inputs.fsx.OpenZfsFileSystemRootVolumeConfiguration>;
+    /**
+     * (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
+     */
+    routeTableIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */
@@ -382,7 +424,7 @@ export interface OpenZfsFileSystemArgs {
      */
     storageType?: pulumi.Input<string>;
     /**
-     * A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
+     * A list of IDs for the subnets that the file system will be accessible from.
      */
     subnetIds: pulumi.Input<string>;
     /**

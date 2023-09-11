@@ -14,6 +14,10 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet
     {
         /// <summary>
+        /// Whether or not to allow the use of regular expressions in the login page path.
+        /// </summary>
+        public readonly bool? EnableRegexInPath;
+        /// <summary>
         /// The path of the login endpoint for your application.
         /// </summary>
         public readonly string LoginPath;
@@ -28,12 +32,15 @@ namespace Pulumi.Aws.WafV2.Outputs
 
         [OutputConstructor]
         private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet(
+            bool? enableRegexInPath,
+
             string loginPath,
 
             Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection? requestInspection,
 
             Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection? responseInspection)
         {
+            EnableRegexInPath = enableRegexInPath;
             LoginPath = loginPath;
             RequestInspection = requestInspection;
             ResponseInspection = responseInspection;

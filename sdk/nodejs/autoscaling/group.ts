@@ -421,6 +421,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly healthCheckType!: pulumi.Output<string>;
     /**
+     * Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+     */
+    public readonly ignoreFailedScalingActivities!: pulumi.Output<boolean | undefined>;
+    /**
      * One or more
      * [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
      * to attach to the Auto Scaling Group **before** instances are launched. The
@@ -583,6 +587,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["forceDeleteWarmPool"] = state ? state.forceDeleteWarmPool : undefined;
             resourceInputs["healthCheckGracePeriod"] = state ? state.healthCheckGracePeriod : undefined;
             resourceInputs["healthCheckType"] = state ? state.healthCheckType : undefined;
+            resourceInputs["ignoreFailedScalingActivities"] = state ? state.ignoreFailedScalingActivities : undefined;
             resourceInputs["initialLifecycleHooks"] = state ? state.initialLifecycleHooks : undefined;
             resourceInputs["instanceRefresh"] = state ? state.instanceRefresh : undefined;
             resourceInputs["launchConfiguration"] = state ? state.launchConfiguration : undefined;
@@ -630,6 +635,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["forceDeleteWarmPool"] = args ? args.forceDeleteWarmPool : undefined;
             resourceInputs["healthCheckGracePeriod"] = args ? args.healthCheckGracePeriod : undefined;
             resourceInputs["healthCheckType"] = args ? args.healthCheckType : undefined;
+            resourceInputs["ignoreFailedScalingActivities"] = args ? args.ignoreFailedScalingActivities : undefined;
             resourceInputs["initialLifecycleHooks"] = args ? args.initialLifecycleHooks : undefined;
             resourceInputs["instanceRefresh"] = args ? args.instanceRefresh : undefined;
             resourceInputs["launchConfiguration"] = args ? args.launchConfiguration : undefined;
@@ -723,6 +729,10 @@ export interface GroupState {
      * "EC2" or "ELB". Controls how health checking is done.
      */
     healthCheckType?: pulumi.Input<string>;
+    /**
+     * Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+     */
+    ignoreFailedScalingActivities?: pulumi.Input<boolean>;
     /**
      * One or more
      * [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
@@ -916,6 +926,10 @@ export interface GroupArgs {
      * "EC2" or "ELB". Controls how health checking is done.
      */
     healthCheckType?: pulumi.Input<string>;
+    /**
+     * Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
+     */
+    ignoreFailedScalingActivities?: pulumi.Input<boolean>;
     /**
      * One or more
      * [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)

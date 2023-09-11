@@ -49,7 +49,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<Inputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs>? CodecSettings { get; set; }
 
         /// <summary>
-        /// When specified this field indicates the three letter language code of the caption track to extract from the source.
+        /// Selects a specific three-letter language code from within an audio source.
         /// </summary>
         [Input("languageCode")]
         public Input<string>? LanguageCode { get; set; }

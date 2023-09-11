@@ -22,6 +22,7 @@ class RuleGroupArgs:
                  custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomResponseBodyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -44,6 +45,8 @@ class RuleGroupArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if name_prefix is not None:
+            pulumi.set(__self__, "name_prefix", name_prefix)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
         if tags is not None:
@@ -122,6 +125,15 @@ class RuleGroupArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name_prefix")
+
+    @name_prefix.setter
+    def name_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name_prefix", value)
+
+    @property
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]]:
         """
@@ -155,6 +167,7 @@ class _RuleGroupState:
                  description: Optional[pulumi.Input[str]] = None,
                  lock_token: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -185,6 +198,8 @@ class _RuleGroupState:
             pulumi.set(__self__, "lock_token", lock_token)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if name_prefix is not None:
+            pulumi.set(__self__, "name_prefix", name_prefix)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
         if scope is not None:
@@ -266,6 +281,15 @@ class _RuleGroupState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name_prefix")
+
+    @name_prefix.setter
+    def name_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name_prefix", value)
+
+    @property
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleArgs']]]]:
         """
@@ -335,6 +359,7 @@ class RuleGroup(pulumi.CustomResource):
                  custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodyArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -380,6 +405,7 @@ class RuleGroup(pulumi.CustomResource):
                  custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupCustomResponseBodyArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 name_prefix: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -399,6 +425,7 @@ class RuleGroup(pulumi.CustomResource):
             __props__.__dict__["custom_response_bodies"] = custom_response_bodies
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["name_prefix"] = name_prefix
             __props__.__dict__["rules"] = rules
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
@@ -426,6 +453,7 @@ class RuleGroup(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             lock_token: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            name_prefix: Optional[pulumi.Input[str]] = None,
             rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleGroupRuleArgs']]]]] = None,
             scope: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -459,6 +487,7 @@ class RuleGroup(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["lock_token"] = lock_token
         __props__.__dict__["name"] = name
+        __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["rules"] = rules
         __props__.__dict__["scope"] = scope
         __props__.__dict__["tags"] = tags
@@ -510,6 +539,11 @@ class RuleGroup(pulumi.CustomResource):
         A friendly name of the rule group.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="namePrefix")
+    def name_prefix(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "name_prefix")
 
     @property
     @pulumi.getter

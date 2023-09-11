@@ -256,6 +256,12 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableArray<Outputs.CrawlerDynamodbTarget>> DynamodbTargets { get; private set; } = null!;
 
         /// <summary>
+        /// List nested Hudi target arguments. See Iceberg Target below.
+        /// </summary>
+        [Output("hudiTargets")]
+        public Output<ImmutableArray<Outputs.CrawlerHudiTarget>> HudiTargets { get; private set; } = null!;
+
+        /// <summary>
         /// List nested Iceberg target arguments. See Iceberg Target below.
         /// </summary>
         [Output("icebergTargets")]
@@ -453,6 +459,18 @@ namespace Pulumi.Aws.Glue
             set => _dynamodbTargets = value;
         }
 
+        [Input("hudiTargets")]
+        private InputList<Inputs.CrawlerHudiTargetArgs>? _hudiTargets;
+
+        /// <summary>
+        /// List nested Hudi target arguments. See Iceberg Target below.
+        /// </summary>
+        public InputList<Inputs.CrawlerHudiTargetArgs> HudiTargets
+        {
+            get => _hudiTargets ?? (_hudiTargets = new InputList<Inputs.CrawlerHudiTargetArgs>());
+            set => _hudiTargets = value;
+        }
+
         [Input("icebergTargets")]
         private InputList<Inputs.CrawlerIcebergTargetArgs>? _icebergTargets;
 
@@ -641,6 +659,18 @@ namespace Pulumi.Aws.Glue
         {
             get => _dynamodbTargets ?? (_dynamodbTargets = new InputList<Inputs.CrawlerDynamodbTargetGetArgs>());
             set => _dynamodbTargets = value;
+        }
+
+        [Input("hudiTargets")]
+        private InputList<Inputs.CrawlerHudiTargetGetArgs>? _hudiTargets;
+
+        /// <summary>
+        /// List nested Hudi target arguments. See Iceberg Target below.
+        /// </summary>
+        public InputList<Inputs.CrawlerHudiTargetGetArgs> HudiTargets
+        {
+            get => _hudiTargets ?? (_hudiTargets = new InputList<Inputs.CrawlerHudiTargetGetArgs>());
+            set => _hudiTargets = value;
         }
 
         [Input("icebergTargets")]

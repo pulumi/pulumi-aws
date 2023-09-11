@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -58,6 +59,12 @@ func (i LoadBalancerAccessLogsArgs) ToLoadBalancerAccessLogsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerAccessLogsOutput)
 }
 
+func (i LoadBalancerAccessLogsArgs) ToOutput(ctx context.Context) pulumix.Output[LoadBalancerAccessLogs] {
+	return pulumix.Output[LoadBalancerAccessLogs]{
+		OutputState: i.ToLoadBalancerAccessLogsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LoadBalancerAccessLogsArgs) ToLoadBalancerAccessLogsPtrOutput() LoadBalancerAccessLogsPtrOutput {
 	return i.ToLoadBalancerAccessLogsPtrOutputWithContext(context.Background())
 }
@@ -99,6 +106,12 @@ func (i *loadBalancerAccessLogsPtrType) ToLoadBalancerAccessLogsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerAccessLogsPtrOutput)
 }
 
+func (i *loadBalancerAccessLogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancerAccessLogs] {
+	return pulumix.Output[*LoadBalancerAccessLogs]{
+		OutputState: i.ToLoadBalancerAccessLogsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LoadBalancerAccessLogsOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerAccessLogsOutput) ElementType() reflect.Type {
@@ -121,6 +134,12 @@ func (o LoadBalancerAccessLogsOutput) ToLoadBalancerAccessLogsPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerAccessLogs) *LoadBalancerAccessLogs {
 		return &v
 	}).(LoadBalancerAccessLogsPtrOutput)
+}
+
+func (o LoadBalancerAccessLogsOutput) ToOutput(ctx context.Context) pulumix.Output[LoadBalancerAccessLogs] {
+	return pulumix.Output[LoadBalancerAccessLogs]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The S3 bucket name to store the logs in.
@@ -155,6 +174,12 @@ func (o LoadBalancerAccessLogsPtrOutput) ToLoadBalancerAccessLogsPtrOutput() Loa
 
 func (o LoadBalancerAccessLogsPtrOutput) ToLoadBalancerAccessLogsPtrOutputWithContext(ctx context.Context) LoadBalancerAccessLogsPtrOutput {
 	return o
+}
+
+func (o LoadBalancerAccessLogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancerAccessLogs] {
+	return pulumix.Output[*LoadBalancerAccessLogs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoadBalancerAccessLogsPtrOutput) Elem() LoadBalancerAccessLogsOutput {
@@ -258,6 +283,12 @@ func (i LoadBalancerHealthCheckArgs) ToLoadBalancerHealthCheckOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerHealthCheckOutput)
 }
 
+func (i LoadBalancerHealthCheckArgs) ToOutput(ctx context.Context) pulumix.Output[LoadBalancerHealthCheck] {
+	return pulumix.Output[LoadBalancerHealthCheck]{
+		OutputState: i.ToLoadBalancerHealthCheckOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LoadBalancerHealthCheckArgs) ToLoadBalancerHealthCheckPtrOutput() LoadBalancerHealthCheckPtrOutput {
 	return i.ToLoadBalancerHealthCheckPtrOutputWithContext(context.Background())
 }
@@ -299,6 +330,12 @@ func (i *loadBalancerHealthCheckPtrType) ToLoadBalancerHealthCheckPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerHealthCheckPtrOutput)
 }
 
+func (i *loadBalancerHealthCheckPtrType) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancerHealthCheck] {
+	return pulumix.Output[*LoadBalancerHealthCheck]{
+		OutputState: i.ToLoadBalancerHealthCheckPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LoadBalancerHealthCheckOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerHealthCheckOutput) ElementType() reflect.Type {
@@ -321,6 +358,12 @@ func (o LoadBalancerHealthCheckOutput) ToLoadBalancerHealthCheckPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerHealthCheck) *LoadBalancerHealthCheck {
 		return &v
 	}).(LoadBalancerHealthCheckPtrOutput)
+}
+
+func (o LoadBalancerHealthCheckOutput) ToOutput(ctx context.Context) pulumix.Output[LoadBalancerHealthCheck] {
+	return pulumix.Output[LoadBalancerHealthCheck]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number of checks before the instance is declared healthy.
@@ -361,6 +404,12 @@ func (o LoadBalancerHealthCheckPtrOutput) ToLoadBalancerHealthCheckPtrOutput() L
 
 func (o LoadBalancerHealthCheckPtrOutput) ToLoadBalancerHealthCheckPtrOutputWithContext(ctx context.Context) LoadBalancerHealthCheckPtrOutput {
 	return o
+}
+
+func (o LoadBalancerHealthCheckPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancerHealthCheck] {
+	return pulumix.Output[*LoadBalancerHealthCheck]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoadBalancerHealthCheckPtrOutput) Elem() LoadBalancerHealthCheckOutput {
@@ -479,6 +528,12 @@ func (i LoadBalancerListenerArgs) ToLoadBalancerListenerOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerListenerOutput)
 }
 
+func (i LoadBalancerListenerArgs) ToOutput(ctx context.Context) pulumix.Output[LoadBalancerListener] {
+	return pulumix.Output[LoadBalancerListener]{
+		OutputState: i.ToLoadBalancerListenerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LoadBalancerListenerArrayInput is an input type that accepts LoadBalancerListenerArray and LoadBalancerListenerArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerListenerArrayInput` via:
 //
@@ -504,6 +559,12 @@ func (i LoadBalancerListenerArray) ToLoadBalancerListenerArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerListenerArrayOutput)
 }
 
+func (i LoadBalancerListenerArray) ToOutput(ctx context.Context) pulumix.Output[[]LoadBalancerListener] {
+	return pulumix.Output[[]LoadBalancerListener]{
+		OutputState: i.ToLoadBalancerListenerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LoadBalancerListenerOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerListenerOutput) ElementType() reflect.Type {
@@ -516,6 +577,12 @@ func (o LoadBalancerListenerOutput) ToLoadBalancerListenerOutput() LoadBalancerL
 
 func (o LoadBalancerListenerOutput) ToLoadBalancerListenerOutputWithContext(ctx context.Context) LoadBalancerListenerOutput {
 	return o
+}
+
+func (o LoadBalancerListenerOutput) ToOutput(ctx context.Context) pulumix.Output[LoadBalancerListener] {
+	return pulumix.Output[LoadBalancerListener]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The port on the instance to route to
@@ -560,6 +627,12 @@ func (o LoadBalancerListenerArrayOutput) ToLoadBalancerListenerArrayOutputWithCo
 	return o
 }
 
+func (o LoadBalancerListenerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LoadBalancerListener] {
+	return pulumix.Output[[]LoadBalancerListener]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o LoadBalancerListenerArrayOutput) Index(i pulumi.IntInput) LoadBalancerListenerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerListener {
 		return vs[0].([]LoadBalancerListener)[vs[1].(int)]
@@ -599,6 +672,12 @@ func (i LoadBalancerPolicyPolicyAttributeArgs) ToLoadBalancerPolicyPolicyAttribu
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerPolicyPolicyAttributeOutput)
 }
 
+func (i LoadBalancerPolicyPolicyAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[LoadBalancerPolicyPolicyAttribute] {
+	return pulumix.Output[LoadBalancerPolicyPolicyAttribute]{
+		OutputState: i.ToLoadBalancerPolicyPolicyAttributeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // LoadBalancerPolicyPolicyAttributeArrayInput is an input type that accepts LoadBalancerPolicyPolicyAttributeArray and LoadBalancerPolicyPolicyAttributeArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerPolicyPolicyAttributeArrayInput` via:
 //
@@ -624,6 +703,12 @@ func (i LoadBalancerPolicyPolicyAttributeArray) ToLoadBalancerPolicyPolicyAttrib
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerPolicyPolicyAttributeArrayOutput)
 }
 
+func (i LoadBalancerPolicyPolicyAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]LoadBalancerPolicyPolicyAttribute] {
+	return pulumix.Output[[]LoadBalancerPolicyPolicyAttribute]{
+		OutputState: i.ToLoadBalancerPolicyPolicyAttributeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LoadBalancerPolicyPolicyAttributeOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerPolicyPolicyAttributeOutput) ElementType() reflect.Type {
@@ -636,6 +721,12 @@ func (o LoadBalancerPolicyPolicyAttributeOutput) ToLoadBalancerPolicyPolicyAttri
 
 func (o LoadBalancerPolicyPolicyAttributeOutput) ToLoadBalancerPolicyPolicyAttributeOutputWithContext(ctx context.Context) LoadBalancerPolicyPolicyAttributeOutput {
 	return o
+}
+
+func (o LoadBalancerPolicyPolicyAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[LoadBalancerPolicyPolicyAttribute] {
+	return pulumix.Output[LoadBalancerPolicyPolicyAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoadBalancerPolicyPolicyAttributeOutput) Name() pulumi.StringPtrOutput {
@@ -658,6 +749,12 @@ func (o LoadBalancerPolicyPolicyAttributeArrayOutput) ToLoadBalancerPolicyPolicy
 
 func (o LoadBalancerPolicyPolicyAttributeArrayOutput) ToLoadBalancerPolicyPolicyAttributeArrayOutputWithContext(ctx context.Context) LoadBalancerPolicyPolicyAttributeArrayOutput {
 	return o
+}
+
+func (o LoadBalancerPolicyPolicyAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LoadBalancerPolicyPolicyAttribute] {
+	return pulumix.Output[[]LoadBalancerPolicyPolicyAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LoadBalancerPolicyPolicyAttributeArrayOutput) Index(i pulumi.IntInput) LoadBalancerPolicyPolicyAttributeOutput {
@@ -703,6 +800,12 @@ func (i SslNegotiationPolicyAttributeArgs) ToSslNegotiationPolicyAttributeOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SslNegotiationPolicyAttributeOutput)
 }
 
+func (i SslNegotiationPolicyAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[SslNegotiationPolicyAttribute] {
+	return pulumix.Output[SslNegotiationPolicyAttribute]{
+		OutputState: i.ToSslNegotiationPolicyAttributeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SslNegotiationPolicyAttributeArrayInput is an input type that accepts SslNegotiationPolicyAttributeArray and SslNegotiationPolicyAttributeArrayOutput values.
 // You can construct a concrete instance of `SslNegotiationPolicyAttributeArrayInput` via:
 //
@@ -728,6 +831,12 @@ func (i SslNegotiationPolicyAttributeArray) ToSslNegotiationPolicyAttributeArray
 	return pulumi.ToOutputWithContext(ctx, i).(SslNegotiationPolicyAttributeArrayOutput)
 }
 
+func (i SslNegotiationPolicyAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]SslNegotiationPolicyAttribute] {
+	return pulumix.Output[[]SslNegotiationPolicyAttribute]{
+		OutputState: i.ToSslNegotiationPolicyAttributeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SslNegotiationPolicyAttributeOutput struct{ *pulumi.OutputState }
 
 func (SslNegotiationPolicyAttributeOutput) ElementType() reflect.Type {
@@ -740,6 +849,12 @@ func (o SslNegotiationPolicyAttributeOutput) ToSslNegotiationPolicyAttributeOutp
 
 func (o SslNegotiationPolicyAttributeOutput) ToSslNegotiationPolicyAttributeOutputWithContext(ctx context.Context) SslNegotiationPolicyAttributeOutput {
 	return o
+}
+
+func (o SslNegotiationPolicyAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[SslNegotiationPolicyAttribute] {
+	return pulumix.Output[SslNegotiationPolicyAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the attribute
@@ -764,6 +879,12 @@ func (o SslNegotiationPolicyAttributeArrayOutput) ToSslNegotiationPolicyAttribut
 
 func (o SslNegotiationPolicyAttributeArrayOutput) ToSslNegotiationPolicyAttributeArrayOutputWithContext(ctx context.Context) SslNegotiationPolicyAttributeArrayOutput {
 	return o
+}
+
+func (o SslNegotiationPolicyAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SslNegotiationPolicyAttribute] {
+	return pulumix.Output[[]SslNegotiationPolicyAttribute]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SslNegotiationPolicyAttributeArrayOutput) Index(i pulumi.IntInput) SslNegotiationPolicyAttributeOutput {
@@ -809,6 +930,12 @@ func (i GetLoadBalancerAccessLogsArgs) ToGetLoadBalancerAccessLogsOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerAccessLogsOutput)
 }
 
+func (i GetLoadBalancerAccessLogsArgs) ToOutput(ctx context.Context) pulumix.Output[GetLoadBalancerAccessLogs] {
+	return pulumix.Output[GetLoadBalancerAccessLogs]{
+		OutputState: i.ToGetLoadBalancerAccessLogsOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetLoadBalancerAccessLogsOutput struct{ *pulumi.OutputState }
 
 func (GetLoadBalancerAccessLogsOutput) ElementType() reflect.Type {
@@ -821,6 +948,12 @@ func (o GetLoadBalancerAccessLogsOutput) ToGetLoadBalancerAccessLogsOutput() Get
 
 func (o GetLoadBalancerAccessLogsOutput) ToGetLoadBalancerAccessLogsOutputWithContext(ctx context.Context) GetLoadBalancerAccessLogsOutput {
 	return o
+}
+
+func (o GetLoadBalancerAccessLogsOutput) ToOutput(ctx context.Context) pulumix.Output[GetLoadBalancerAccessLogs] {
+	return pulumix.Output[GetLoadBalancerAccessLogs]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLoadBalancerAccessLogsOutput) Bucket() pulumi.StringOutput {
@@ -878,6 +1011,12 @@ func (i GetLoadBalancerHealthCheckArgs) ToGetLoadBalancerHealthCheckOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerHealthCheckOutput)
 }
 
+func (i GetLoadBalancerHealthCheckArgs) ToOutput(ctx context.Context) pulumix.Output[GetLoadBalancerHealthCheck] {
+	return pulumix.Output[GetLoadBalancerHealthCheck]{
+		OutputState: i.ToGetLoadBalancerHealthCheckOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetLoadBalancerHealthCheckOutput struct{ *pulumi.OutputState }
 
 func (GetLoadBalancerHealthCheckOutput) ElementType() reflect.Type {
@@ -890,6 +1029,12 @@ func (o GetLoadBalancerHealthCheckOutput) ToGetLoadBalancerHealthCheckOutput() G
 
 func (o GetLoadBalancerHealthCheckOutput) ToGetLoadBalancerHealthCheckOutputWithContext(ctx context.Context) GetLoadBalancerHealthCheckOutput {
 	return o
+}
+
+func (o GetLoadBalancerHealthCheckOutput) ToOutput(ctx context.Context) pulumix.Output[GetLoadBalancerHealthCheck] {
+	return pulumix.Output[GetLoadBalancerHealthCheck]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLoadBalancerHealthCheckOutput) HealthyThreshold() pulumi.IntOutput {
@@ -951,6 +1096,12 @@ func (i GetLoadBalancerListenerArgs) ToGetLoadBalancerListenerOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerListenerOutput)
 }
 
+func (i GetLoadBalancerListenerArgs) ToOutput(ctx context.Context) pulumix.Output[GetLoadBalancerListener] {
+	return pulumix.Output[GetLoadBalancerListener]{
+		OutputState: i.ToGetLoadBalancerListenerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetLoadBalancerListenerArrayInput is an input type that accepts GetLoadBalancerListenerArray and GetLoadBalancerListenerArrayOutput values.
 // You can construct a concrete instance of `GetLoadBalancerListenerArrayInput` via:
 //
@@ -976,6 +1127,12 @@ func (i GetLoadBalancerListenerArray) ToGetLoadBalancerListenerArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerListenerArrayOutput)
 }
 
+func (i GetLoadBalancerListenerArray) ToOutput(ctx context.Context) pulumix.Output[[]GetLoadBalancerListener] {
+	return pulumix.Output[[]GetLoadBalancerListener]{
+		OutputState: i.ToGetLoadBalancerListenerArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetLoadBalancerListenerOutput struct{ *pulumi.OutputState }
 
 func (GetLoadBalancerListenerOutput) ElementType() reflect.Type {
@@ -988,6 +1145,12 @@ func (o GetLoadBalancerListenerOutput) ToGetLoadBalancerListenerOutput() GetLoad
 
 func (o GetLoadBalancerListenerOutput) ToGetLoadBalancerListenerOutputWithContext(ctx context.Context) GetLoadBalancerListenerOutput {
 	return o
+}
+
+func (o GetLoadBalancerListenerOutput) ToOutput(ctx context.Context) pulumix.Output[GetLoadBalancerListener] {
+	return pulumix.Output[GetLoadBalancerListener]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLoadBalancerListenerOutput) InstancePort() pulumi.IntOutput {
@@ -1022,6 +1185,12 @@ func (o GetLoadBalancerListenerArrayOutput) ToGetLoadBalancerListenerArrayOutput
 
 func (o GetLoadBalancerListenerArrayOutput) ToGetLoadBalancerListenerArrayOutputWithContext(ctx context.Context) GetLoadBalancerListenerArrayOutput {
 	return o
+}
+
+func (o GetLoadBalancerListenerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetLoadBalancerListener] {
+	return pulumix.Output[[]GetLoadBalancerListener]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetLoadBalancerListenerArrayOutput) Index(i pulumi.IntInput) GetLoadBalancerListenerOutput {

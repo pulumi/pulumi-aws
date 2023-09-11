@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a managed prefix list resource.
@@ -231,6 +232,12 @@ func (i *ManagedPrefixList) ToManagedPrefixListOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrefixListOutput)
 }
 
+func (i *ManagedPrefixList) ToOutput(ctx context.Context) pulumix.Output[*ManagedPrefixList] {
+	return pulumix.Output[*ManagedPrefixList]{
+		OutputState: i.ToManagedPrefixListOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ManagedPrefixListArrayInput is an input type that accepts ManagedPrefixListArray and ManagedPrefixListArrayOutput values.
 // You can construct a concrete instance of `ManagedPrefixListArrayInput` via:
 //
@@ -254,6 +261,12 @@ func (i ManagedPrefixListArray) ToManagedPrefixListArrayOutput() ManagedPrefixLi
 
 func (i ManagedPrefixListArray) ToManagedPrefixListArrayOutputWithContext(ctx context.Context) ManagedPrefixListArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrefixListArrayOutput)
+}
+
+func (i ManagedPrefixListArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedPrefixList] {
+	return pulumix.Output[[]*ManagedPrefixList]{
+		OutputState: i.ToManagedPrefixListArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ManagedPrefixListMapInput is an input type that accepts ManagedPrefixListMap and ManagedPrefixListMapOutput values.
@@ -281,6 +294,12 @@ func (i ManagedPrefixListMap) ToManagedPrefixListMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrefixListMapOutput)
 }
 
+func (i ManagedPrefixListMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedPrefixList] {
+	return pulumix.Output[map[string]*ManagedPrefixList]{
+		OutputState: i.ToManagedPrefixListMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ManagedPrefixListOutput struct{ *pulumi.OutputState }
 
 func (ManagedPrefixListOutput) ElementType() reflect.Type {
@@ -293,6 +312,12 @@ func (o ManagedPrefixListOutput) ToManagedPrefixListOutput() ManagedPrefixListOu
 
 func (o ManagedPrefixListOutput) ToManagedPrefixListOutputWithContext(ctx context.Context) ManagedPrefixListOutput {
 	return o
+}
+
+func (o ManagedPrefixListOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedPrefixList] {
+	return pulumix.Output[*ManagedPrefixList]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Address family (`IPv4` or `IPv6`) of this prefix list.
@@ -354,6 +379,12 @@ func (o ManagedPrefixListArrayOutput) ToManagedPrefixListArrayOutputWithContext(
 	return o
 }
 
+func (o ManagedPrefixListArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedPrefixList] {
+	return pulumix.Output[[]*ManagedPrefixList]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ManagedPrefixListArrayOutput) Index(i pulumi.IntInput) ManagedPrefixListOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedPrefixList {
 		return vs[0].([]*ManagedPrefixList)[vs[1].(int)]
@@ -372,6 +403,12 @@ func (o ManagedPrefixListMapOutput) ToManagedPrefixListMapOutput() ManagedPrefix
 
 func (o ManagedPrefixListMapOutput) ToManagedPrefixListMapOutputWithContext(ctx context.Context) ManagedPrefixListMapOutput {
 	return o
+}
+
+func (o ManagedPrefixListMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedPrefixList] {
+	return pulumix.Output[map[string]*ManagedPrefixList]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ManagedPrefixListMapOutput) MapIndex(k pulumi.StringInput) ManagedPrefixListOutput {

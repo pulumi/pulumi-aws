@@ -73,38 +73,11 @@ namespace Pulumi.Aws.Dms
 
     public sealed class GetEndpointArgs : global::Pulumi.InvokeArgs
     {
-        [Input("elasticsearchSettings")]
-        private List<Inputs.GetEndpointElasticsearchSettingArgs>? _elasticsearchSettings;
-        public List<Inputs.GetEndpointElasticsearchSettingArgs> ElasticsearchSettings
-        {
-            get => _elasticsearchSettings ?? (_elasticsearchSettings = new List<Inputs.GetEndpointElasticsearchSettingArgs>());
-            set => _elasticsearchSettings = value;
-        }
-
         /// <summary>
         /// Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
         /// </summary>
         [Input("endpointId", required: true)]
         public string EndpointId { get; set; } = null!;
-
-        [Input("extraConnectionAttributes")]
-        public string? ExtraConnectionAttributes { get; set; }
-
-        [Input("kafkaSettings")]
-        private List<Inputs.GetEndpointKafkaSettingArgs>? _kafkaSettings;
-        public List<Inputs.GetEndpointKafkaSettingArgs> KafkaSettings
-        {
-            get => _kafkaSettings ?? (_kafkaSettings = new List<Inputs.GetEndpointKafkaSettingArgs>());
-            set => _kafkaSettings = value;
-        }
-
-        [Input("mongodbSettings")]
-        private List<Inputs.GetEndpointMongodbSettingArgs>? _mongodbSettings;
-        public List<Inputs.GetEndpointMongodbSettingArgs> MongodbSettings
-        {
-            get => _mongodbSettings ?? (_mongodbSettings = new List<Inputs.GetEndpointMongodbSettingArgs>());
-            set => _mongodbSettings = value;
-        }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
@@ -122,38 +95,11 @@ namespace Pulumi.Aws.Dms
 
     public sealed class GetEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("elasticsearchSettings")]
-        private InputList<Inputs.GetEndpointElasticsearchSettingInputArgs>? _elasticsearchSettings;
-        public InputList<Inputs.GetEndpointElasticsearchSettingInputArgs> ElasticsearchSettings
-        {
-            get => _elasticsearchSettings ?? (_elasticsearchSettings = new InputList<Inputs.GetEndpointElasticsearchSettingInputArgs>());
-            set => _elasticsearchSettings = value;
-        }
-
         /// <summary>
         /// Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
         /// </summary>
         [Input("endpointId", required: true)]
         public Input<string> EndpointId { get; set; } = null!;
-
-        [Input("extraConnectionAttributes")]
-        public Input<string>? ExtraConnectionAttributes { get; set; }
-
-        [Input("kafkaSettings")]
-        private InputList<Inputs.GetEndpointKafkaSettingInputArgs>? _kafkaSettings;
-        public InputList<Inputs.GetEndpointKafkaSettingInputArgs> KafkaSettings
-        {
-            get => _kafkaSettings ?? (_kafkaSettings = new InputList<Inputs.GetEndpointKafkaSettingInputArgs>());
-            set => _kafkaSettings = value;
-        }
-
-        [Input("mongodbSettings")]
-        private InputList<Inputs.GetEndpointMongodbSettingInputArgs>? _mongodbSettings;
-        public InputList<Inputs.GetEndpointMongodbSettingInputArgs> MongodbSettings
-        {
-            get => _mongodbSettings ?? (_mongodbSettings = new InputList<Inputs.GetEndpointMongodbSettingInputArgs>());
-            set => _mongodbSettings = value;
-        }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -180,7 +126,7 @@ namespace Pulumi.Aws.Dms
         public readonly string EndpointId;
         public readonly string EndpointType;
         public readonly string EngineName;
-        public readonly string? ExtraConnectionAttributes;
+        public readonly string ExtraConnectionAttributes;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -218,7 +164,7 @@ namespace Pulumi.Aws.Dms
 
             string engineName,
 
-            string? extraConnectionAttributes,
+            string extraConnectionAttributes,
 
             string id,
 

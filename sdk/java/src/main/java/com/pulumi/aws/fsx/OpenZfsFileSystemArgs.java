@@ -97,14 +97,14 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
+     * The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
      * 
      */
     @Import(name="deploymentType", required=true)
     private Output<String> deploymentType;
 
     /**
-     * @return The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
+     * @return The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
      * 
      */
     public Output<String> deploymentType() {
@@ -112,18 +112,33 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration Below.
+     * The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
      * 
      */
     @Import(name="diskIopsConfiguration")
     private @Nullable Output<OpenZfsFileSystemDiskIopsConfigurationArgs> diskIopsConfiguration;
 
     /**
-     * @return The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration Below.
+     * @return The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
      * 
      */
     public Optional<Output<OpenZfsFileSystemDiskIopsConfigurationArgs>> diskIopsConfiguration() {
         return Optional.ofNullable(this.diskIopsConfiguration);
+    }
+
+    /**
+     * (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
+     * 
+     */
+    @Import(name="endpointIpAddressRange")
+    private @Nullable Output<String> endpointIpAddressRange;
+
+    /**
+     * @return (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
+     * 
+     */
+    public Optional<Output<String>> endpointIpAddressRange() {
+        return Optional.ofNullable(this.endpointIpAddressRange);
     }
 
     /**
@@ -142,18 +157,48 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration Below.
+     * (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
+     * 
+     */
+    @Import(name="preferredSubnetId")
+    private @Nullable Output<String> preferredSubnetId;
+
+    /**
+     * @return (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
+     * 
+     */
+    public Optional<Output<String>> preferredSubnetId() {
+        return Optional.ofNullable(this.preferredSubnetId);
+    }
+
+    /**
+     * The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
      * 
      */
     @Import(name="rootVolumeConfiguration")
     private @Nullable Output<OpenZfsFileSystemRootVolumeConfigurationArgs> rootVolumeConfiguration;
 
     /**
-     * @return The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration Below.
+     * @return The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
      * 
      */
     public Optional<Output<OpenZfsFileSystemRootVolumeConfigurationArgs>> rootVolumeConfiguration() {
         return Optional.ofNullable(this.rootVolumeConfiguration);
+    }
+
+    /**
+     * (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
+     * 
+     */
+    @Import(name="routeTableIds")
+    private @Nullable Output<List<String>> routeTableIds;
+
+    /**
+     * @return (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
+     * 
+     */
+    public Optional<Output<List<String>>> routeTableIds() {
+        return Optional.ofNullable(this.routeTableIds);
     }
 
     /**
@@ -202,14 +247,14 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
+     * A list of IDs for the subnets that the file system will be accessible from.
      * 
      */
     @Import(name="subnetIds", required=true)
     private Output<String> subnetIds;
 
     /**
-     * @return A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
+     * @return A list of IDs for the subnets that the file system will be accessible from.
      * 
      */
     public Output<String> subnetIds() {
@@ -271,8 +316,11 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         this.dailyAutomaticBackupStartTime = $.dailyAutomaticBackupStartTime;
         this.deploymentType = $.deploymentType;
         this.diskIopsConfiguration = $.diskIopsConfiguration;
+        this.endpointIpAddressRange = $.endpointIpAddressRange;
         this.kmsKeyId = $.kmsKeyId;
+        this.preferredSubnetId = $.preferredSubnetId;
         this.rootVolumeConfiguration = $.rootVolumeConfiguration;
+        this.routeTableIds = $.routeTableIds;
         this.securityGroupIds = $.securityGroupIds;
         this.storageCapacity = $.storageCapacity;
         this.storageType = $.storageType;
@@ -406,7 +454,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param deploymentType The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
+         * @param deploymentType The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
          * 
          * @return builder
          * 
@@ -417,7 +465,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param deploymentType The filesystem deployment type. Valid values: `SINGLE_AZ_1` and `SINGLE_AZ_2`.
+         * @param deploymentType The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
          * 
          * @return builder
          * 
@@ -427,7 +475,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration Below.
+         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
          * 
          * @return builder
          * 
@@ -438,13 +486,34 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration Below.
+         * @param diskIopsConfiguration The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
          * 
          * @return builder
          * 
          */
         public Builder diskIopsConfiguration(OpenZfsFileSystemDiskIopsConfigurationArgs diskIopsConfiguration) {
             return diskIopsConfiguration(Output.of(diskIopsConfiguration));
+        }
+
+        /**
+         * @param endpointIpAddressRange (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointIpAddressRange(@Nullable Output<String> endpointIpAddressRange) {
+            $.endpointIpAddressRange = endpointIpAddressRange;
+            return this;
+        }
+
+        /**
+         * @param endpointIpAddressRange (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointIpAddressRange(String endpointIpAddressRange) {
+            return endpointIpAddressRange(Output.of(endpointIpAddressRange));
         }
 
         /**
@@ -469,7 +538,28 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param rootVolumeConfiguration The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration Below.
+         * @param preferredSubnetId (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preferredSubnetId(@Nullable Output<String> preferredSubnetId) {
+            $.preferredSubnetId = preferredSubnetId;
+            return this;
+        }
+
+        /**
+         * @param preferredSubnetId (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder preferredSubnetId(String preferredSubnetId) {
+            return preferredSubnetId(Output.of(preferredSubnetId));
+        }
+
+        /**
+         * @param rootVolumeConfiguration The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
          * 
          * @return builder
          * 
@@ -480,13 +570,44 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param rootVolumeConfiguration The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration Below.
+         * @param rootVolumeConfiguration The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
          * 
          * @return builder
          * 
          */
         public Builder rootVolumeConfiguration(OpenZfsFileSystemRootVolumeConfigurationArgs rootVolumeConfiguration) {
             return rootVolumeConfiguration(Output.of(rootVolumeConfiguration));
+        }
+
+        /**
+         * @param routeTableIds (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routeTableIds(@Nullable Output<List<String>> routeTableIds) {
+            $.routeTableIds = routeTableIds;
+            return this;
+        }
+
+        /**
+         * @param routeTableIds (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routeTableIds(List<String> routeTableIds) {
+            return routeTableIds(Output.of(routeTableIds));
+        }
+
+        /**
+         * @param routeTableIds (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routeTableIds(String... routeTableIds) {
+            return routeTableIds(List.of(routeTableIds));
         }
 
         /**
@@ -563,7 +684,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
+         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from.
          * 
          * @return builder
          * 
@@ -574,7 +695,7 @@ public final class OpenZfsFileSystemArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from. Exactly 1 subnet need to be provided.
+         * @param subnetIds A list of IDs for the subnets that the file system will be accessible from.
          * 
          * @return builder
          * 

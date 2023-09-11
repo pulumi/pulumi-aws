@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     enableDefaultInternetAccess: false,
  *     fleetType: "ON_DEMAND",
  *     idleDisconnectTimeoutInSeconds: 60,
- *     imageName: "Amazon-AppStream2-Sample-Image-02-04-2019",
+ *     imageName: "Amazon-AppStream2-Sample-Image-03-11-2023",
  *     instanceType: "stream.standard.large",
  *     maxUserDurationInSeconds: 600,
  *     tags: {

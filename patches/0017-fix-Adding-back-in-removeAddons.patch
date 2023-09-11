@@ -1,4 +1,4 @@
-From 92d43b0cf0f4493d4bcb9a00b7a90bebb01e8d1f Mon Sep 17 00:00:00 2001
+From cc29c8a3b4bfa7dc6716b004e21c8962099f9a32 Mon Sep 17 00:00:00 2001
 From: Richard Shade <richard@pulumi.com>
 Date: Fri, 6 Jan 2023 15:31:22 -0600
 Subject: [PATCH 17/29] fix: Adding back in removeAddons
@@ -8,7 +8,7 @@ Subject: [PATCH 17/29] fix: Adding back in removeAddons
  1 file changed, 4 insertions(+)
 
 diff --git a/internal/service/eks/cluster.go b/internal/service/eks/cluster.go
-index bdb7dc949a..924964ae65 100644
+index 01c6b3caa0..4d7e5760fd 100644
 --- a/internal/service/eks/cluster.go
 +++ b/internal/service/eks/cluster.go
 @@ -381,6 +381,10 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta int
@@ -23,5 +23,5 @@ index bdb7dc949a..924964ae65 100644
  }
  
 -- 
-2.40.0
+2.41.0
 

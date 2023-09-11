@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -50,6 +51,12 @@ func (i ClusterClusterEndpointArgs) ToClusterClusterEndpointOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterEndpointOutput)
 }
 
+func (i ClusterClusterEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterClusterEndpoint] {
+	return pulumix.Output[ClusterClusterEndpoint]{
+		OutputState: i.ToClusterClusterEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ClusterClusterEndpointArrayInput is an input type that accepts ClusterClusterEndpointArray and ClusterClusterEndpointArrayOutput values.
 // You can construct a concrete instance of `ClusterClusterEndpointArrayInput` via:
 //
@@ -75,6 +82,12 @@ func (i ClusterClusterEndpointArray) ToClusterClusterEndpointArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterEndpointArrayOutput)
 }
 
+func (i ClusterClusterEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterClusterEndpoint] {
+	return pulumix.Output[[]ClusterClusterEndpoint]{
+		OutputState: i.ToClusterClusterEndpointArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ClusterClusterEndpointOutput struct{ *pulumi.OutputState }
 
 func (ClusterClusterEndpointOutput) ElementType() reflect.Type {
@@ -87,6 +100,12 @@ func (o ClusterClusterEndpointOutput) ToClusterClusterEndpointOutput() ClusterCl
 
 func (o ClusterClusterEndpointOutput) ToClusterClusterEndpointOutputWithContext(ctx context.Context) ClusterClusterEndpointOutput {
 	return o
+}
+
+func (o ClusterClusterEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterClusterEndpoint] {
+	return pulumix.Output[ClusterClusterEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Cluster endpoint.
@@ -111,6 +130,12 @@ func (o ClusterClusterEndpointArrayOutput) ToClusterClusterEndpointArrayOutput()
 
 func (o ClusterClusterEndpointArrayOutput) ToClusterClusterEndpointArrayOutputWithContext(ctx context.Context) ClusterClusterEndpointArrayOutput {
 	return o
+}
+
+func (o ClusterClusterEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterClusterEndpoint] {
+	return pulumix.Output[[]ClusterClusterEndpoint]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ClusterClusterEndpointArrayOutput) Index(i pulumi.IntInput) ClusterClusterEndpointOutput {
@@ -160,6 +185,12 @@ func (i SafetyRuleRuleConfigArgs) ToSafetyRuleRuleConfigOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SafetyRuleRuleConfigOutput)
 }
 
+func (i SafetyRuleRuleConfigArgs) ToOutput(ctx context.Context) pulumix.Output[SafetyRuleRuleConfig] {
+	return pulumix.Output[SafetyRuleRuleConfig]{
+		OutputState: i.ToSafetyRuleRuleConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i SafetyRuleRuleConfigArgs) ToSafetyRuleRuleConfigPtrOutput() SafetyRuleRuleConfigPtrOutput {
 	return i.ToSafetyRuleRuleConfigPtrOutputWithContext(context.Background())
 }
@@ -201,6 +232,12 @@ func (i *safetyRuleRuleConfigPtrType) ToSafetyRuleRuleConfigPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SafetyRuleRuleConfigPtrOutput)
 }
 
+func (i *safetyRuleRuleConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*SafetyRuleRuleConfig] {
+	return pulumix.Output[*SafetyRuleRuleConfig]{
+		OutputState: i.ToSafetyRuleRuleConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SafetyRuleRuleConfigOutput struct{ *pulumi.OutputState }
 
 func (SafetyRuleRuleConfigOutput) ElementType() reflect.Type {
@@ -223,6 +260,12 @@ func (o SafetyRuleRuleConfigOutput) ToSafetyRuleRuleConfigPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SafetyRuleRuleConfig) *SafetyRuleRuleConfig {
 		return &v
 	}).(SafetyRuleRuleConfigPtrOutput)
+}
+
+func (o SafetyRuleRuleConfigOutput) ToOutput(ctx context.Context) pulumix.Output[SafetyRuleRuleConfig] {
+	return pulumix.Output[SafetyRuleRuleConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Logical negation of the rule.
@@ -252,6 +295,12 @@ func (o SafetyRuleRuleConfigPtrOutput) ToSafetyRuleRuleConfigPtrOutput() SafetyR
 
 func (o SafetyRuleRuleConfigPtrOutput) ToSafetyRuleRuleConfigPtrOutputWithContext(ctx context.Context) SafetyRuleRuleConfigPtrOutput {
 	return o
+}
+
+func (o SafetyRuleRuleConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SafetyRuleRuleConfig] {
+	return pulumix.Output[*SafetyRuleRuleConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SafetyRuleRuleConfigPtrOutput) Elem() SafetyRuleRuleConfigOutput {

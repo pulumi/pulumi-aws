@@ -36,3 +36,18 @@ export interface GetSitesResult {
      */
     readonly ids: string[];
 }
+/**
+ * Provides details about multiple Outposts Sites.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const all = aws.outposts.getSites({});
+ * ```
+ */
+export function getSitesOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetSitesResult> {
+    return pulumi.output(getSites(opts))
+}

@@ -10,6 +10,11 @@ export type CachePolicy = import("./cachePolicy").CachePolicy;
 export const CachePolicy: typeof import("./cachePolicy").CachePolicy = null as any;
 utilities.lazyLoad(exports, ["CachePolicy"], () => require("./cachePolicy"));
 
+export { ContinuousDeploymentPolicyArgs, ContinuousDeploymentPolicyState } from "./continuousDeploymentPolicy";
+export type ContinuousDeploymentPolicy = import("./continuousDeploymentPolicy").ContinuousDeploymentPolicy;
+export const ContinuousDeploymentPolicy: typeof import("./continuousDeploymentPolicy").ContinuousDeploymentPolicy = null as any;
+utilities.lazyLoad(exports, ["ContinuousDeploymentPolicy"], () => require("./continuousDeploymentPolicy"));
+
 export { DistributionArgs, DistributionState } from "./distribution";
 export type Distribution = import("./distribution").Distribution;
 export const Distribution: typeof import("./distribution").Distribution = null as any;
@@ -122,6 +127,8 @@ const _module = {
         switch (type) {
             case "aws:cloudfront/cachePolicy:CachePolicy":
                 return new CachePolicy(name, <any>undefined, { urn })
+            case "aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy":
+                return new ContinuousDeploymentPolicy(name, <any>undefined, { urn })
             case "aws:cloudfront/distribution:Distribution":
                 return new Distribution(name, <any>undefined, { urn })
             case "aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig":
@@ -152,6 +159,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "cloudfront/cachePolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudfront/continuousDeploymentPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/distribution", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/fieldLevelEncryptionConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/fieldLevelEncryptionProfile", _module)

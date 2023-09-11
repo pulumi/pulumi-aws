@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -58,6 +59,12 @@ func (i LanguageModelInputDataConfigArgs) ToLanguageModelInputDataConfigOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(LanguageModelInputDataConfigOutput)
 }
 
+func (i LanguageModelInputDataConfigArgs) ToOutput(ctx context.Context) pulumix.Output[LanguageModelInputDataConfig] {
+	return pulumix.Output[LanguageModelInputDataConfig]{
+		OutputState: i.ToLanguageModelInputDataConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i LanguageModelInputDataConfigArgs) ToLanguageModelInputDataConfigPtrOutput() LanguageModelInputDataConfigPtrOutput {
 	return i.ToLanguageModelInputDataConfigPtrOutputWithContext(context.Background())
 }
@@ -99,6 +106,12 @@ func (i *languageModelInputDataConfigPtrType) ToLanguageModelInputDataConfigPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(LanguageModelInputDataConfigPtrOutput)
 }
 
+func (i *languageModelInputDataConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*LanguageModelInputDataConfig] {
+	return pulumix.Output[*LanguageModelInputDataConfig]{
+		OutputState: i.ToLanguageModelInputDataConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type LanguageModelInputDataConfigOutput struct{ *pulumi.OutputState }
 
 func (LanguageModelInputDataConfigOutput) ElementType() reflect.Type {
@@ -121,6 +134,12 @@ func (o LanguageModelInputDataConfigOutput) ToLanguageModelInputDataConfigPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LanguageModelInputDataConfig) *LanguageModelInputDataConfig {
 		return &v
 	}).(LanguageModelInputDataConfigPtrOutput)
+}
+
+func (o LanguageModelInputDataConfigOutput) ToOutput(ctx context.Context) pulumix.Output[LanguageModelInputDataConfig] {
+	return pulumix.Output[LanguageModelInputDataConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // IAM role with access to S3 bucket.
@@ -152,6 +171,12 @@ func (o LanguageModelInputDataConfigPtrOutput) ToLanguageModelInputDataConfigPtr
 
 func (o LanguageModelInputDataConfigPtrOutput) ToLanguageModelInputDataConfigPtrOutputWithContext(ctx context.Context) LanguageModelInputDataConfigPtrOutput {
 	return o
+}
+
+func (o LanguageModelInputDataConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LanguageModelInputDataConfig] {
+	return pulumix.Output[*LanguageModelInputDataConfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LanguageModelInputDataConfigPtrOutput) Elem() LanguageModelInputDataConfigOutput {

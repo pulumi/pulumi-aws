@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -199,6 +200,12 @@ func (i *PublicKey) ToPublicKeyOutputWithContext(ctx context.Context) PublicKeyO
 	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyOutput)
 }
 
+func (i *PublicKey) ToOutput(ctx context.Context) pulumix.Output[*PublicKey] {
+	return pulumix.Output[*PublicKey]{
+		OutputState: i.ToPublicKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PublicKeyArrayInput is an input type that accepts PublicKeyArray and PublicKeyArrayOutput values.
 // You can construct a concrete instance of `PublicKeyArrayInput` via:
 //
@@ -222,6 +229,12 @@ func (i PublicKeyArray) ToPublicKeyArrayOutput() PublicKeyArrayOutput {
 
 func (i PublicKeyArray) ToPublicKeyArrayOutputWithContext(ctx context.Context) PublicKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyArrayOutput)
+}
+
+func (i PublicKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*PublicKey] {
+	return pulumix.Output[[]*PublicKey]{
+		OutputState: i.ToPublicKeyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PublicKeyMapInput is an input type that accepts PublicKeyMap and PublicKeyMapOutput values.
@@ -249,6 +262,12 @@ func (i PublicKeyMap) ToPublicKeyMapOutputWithContext(ctx context.Context) Publi
 	return pulumi.ToOutputWithContext(ctx, i).(PublicKeyMapOutput)
 }
 
+func (i PublicKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PublicKey] {
+	return pulumix.Output[map[string]*PublicKey]{
+		OutputState: i.ToPublicKeyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PublicKeyOutput struct{ *pulumi.OutputState }
 
 func (PublicKeyOutput) ElementType() reflect.Type {
@@ -261,6 +280,12 @@ func (o PublicKeyOutput) ToPublicKeyOutput() PublicKeyOutput {
 
 func (o PublicKeyOutput) ToPublicKeyOutputWithContext(ctx context.Context) PublicKeyOutput {
 	return o
+}
+
+func (o PublicKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*PublicKey] {
+	return pulumix.Output[*PublicKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Internal value used by CloudFront to allow future updates to the public key configuration.
@@ -309,6 +334,12 @@ func (o PublicKeyArrayOutput) ToPublicKeyArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o PublicKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PublicKey] {
+	return pulumix.Output[[]*PublicKey]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PublicKeyArrayOutput) Index(i pulumi.IntInput) PublicKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PublicKey {
 		return vs[0].([]*PublicKey)[vs[1].(int)]
@@ -327,6 +358,12 @@ func (o PublicKeyMapOutput) ToPublicKeyMapOutput() PublicKeyMapOutput {
 
 func (o PublicKeyMapOutput) ToPublicKeyMapOutputWithContext(ctx context.Context) PublicKeyMapOutput {
 	return o
+}
+
+func (o PublicKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PublicKey] {
+	return pulumix.Output[map[string]*PublicKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PublicKeyMapOutput) MapIndex(k pulumi.StringInput) PublicKeyOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a CloudFormation StackSet Instance. Instances are managed in the account and region of the StackSet after the target account permissions have been configured. Additional information about StackSets can be found in the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
@@ -149,9 +150,11 @@ import (
 //
 // ## Import
 //
-// Import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`):
+// In TODO v1.5.0 and later, use an `import` block to import CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS Region separated by commas (`,`). For example:
 //
-// __Using `pulumi import` to import__ CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`). For example:
+// Import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS Region separated by commas (`,`). For example:
+//
+// Using `TODO import`, import CloudFormation StackSet Instances that target an AWS Account ID using the StackSet name, target AWS account ID, and target AWS Region separated by commas (`,`). For example:
 //
 // ```sh
 //
@@ -159,11 +162,19 @@ import (
 //
 // ```
 //
-//	Import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`):
+//	Using `TODO import`, import CloudFormation StackSet Instances that target AWS Organizational Units using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS Region separated by commas (`,`). For example:
 //
 // ```sh
 //
 //	$ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1
+//
+// ```
+//
+//	Using `TODO import`, import CloudFormation StackSet Instances when acting a delegated administrator in a member account using the StackSet name, target AWS account ID or slash (`/`) separated list of organizational unit IDs, target AWS Region and `call_as` value separated by commas (`,`). For example:
+//
+// ```sh
+//
+//	$ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1,DELEGATED_ADMIN
 //
 // ```
 type StackSetInstance struct {
@@ -341,6 +352,12 @@ func (i *StackSetInstance) ToStackSetInstanceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceOutput)
 }
 
+func (i *StackSetInstance) ToOutput(ctx context.Context) pulumix.Output[*StackSetInstance] {
+	return pulumix.Output[*StackSetInstance]{
+		OutputState: i.ToStackSetInstanceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // StackSetInstanceArrayInput is an input type that accepts StackSetInstanceArray and StackSetInstanceArrayOutput values.
 // You can construct a concrete instance of `StackSetInstanceArrayInput` via:
 //
@@ -364,6 +381,12 @@ func (i StackSetInstanceArray) ToStackSetInstanceArrayOutput() StackSetInstanceA
 
 func (i StackSetInstanceArray) ToStackSetInstanceArrayOutputWithContext(ctx context.Context) StackSetInstanceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceArrayOutput)
+}
+
+func (i StackSetInstanceArray) ToOutput(ctx context.Context) pulumix.Output[[]*StackSetInstance] {
+	return pulumix.Output[[]*StackSetInstance]{
+		OutputState: i.ToStackSetInstanceArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // StackSetInstanceMapInput is an input type that accepts StackSetInstanceMap and StackSetInstanceMapOutput values.
@@ -391,6 +414,12 @@ func (i StackSetInstanceMap) ToStackSetInstanceMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceMapOutput)
 }
 
+func (i StackSetInstanceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StackSetInstance] {
+	return pulumix.Output[map[string]*StackSetInstance]{
+		OutputState: i.ToStackSetInstanceMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type StackSetInstanceOutput struct{ *pulumi.OutputState }
 
 func (StackSetInstanceOutput) ElementType() reflect.Type {
@@ -403,6 +432,12 @@ func (o StackSetInstanceOutput) ToStackSetInstanceOutput() StackSetInstanceOutpu
 
 func (o StackSetInstanceOutput) ToStackSetInstanceOutputWithContext(ctx context.Context) StackSetInstanceOutput {
 	return o
+}
+
+func (o StackSetInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*StackSetInstance] {
+	return pulumix.Output[*StackSetInstance]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
@@ -476,6 +511,12 @@ func (o StackSetInstanceArrayOutput) ToStackSetInstanceArrayOutputWithContext(ct
 	return o
 }
 
+func (o StackSetInstanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StackSetInstance] {
+	return pulumix.Output[[]*StackSetInstance]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StackSetInstanceArrayOutput) Index(i pulumi.IntInput) StackSetInstanceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StackSetInstance {
 		return vs[0].([]*StackSetInstance)[vs[1].(int)]
@@ -494,6 +535,12 @@ func (o StackSetInstanceMapOutput) ToStackSetInstanceMapOutput() StackSetInstanc
 
 func (o StackSetInstanceMapOutput) ToStackSetInstanceMapOutputWithContext(ctx context.Context) StackSetInstanceMapOutput {
 	return o
+}
+
+func (o StackSetInstanceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StackSetInstance] {
+	return pulumix.Output[map[string]*StackSetInstance]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StackSetInstanceMapOutput) MapIndex(k pulumi.StringInput) StackSetInstanceOutput {

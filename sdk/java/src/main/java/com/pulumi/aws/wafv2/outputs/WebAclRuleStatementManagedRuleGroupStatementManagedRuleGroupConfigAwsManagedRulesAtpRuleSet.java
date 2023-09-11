@@ -6,6 +6,7 @@ package com.pulumi.aws.wafv2.outputs;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -13,6 +14,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet {
+    /**
+     * @return Whether or not to allow the use of regular expressions in the login page path.
+     * 
+     */
+    private @Nullable Boolean enableRegexInPath;
     /**
      * @return The path of the login endpoint for your application.
      * 
@@ -30,6 +36,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection responseInspection;
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet() {}
+    /**
+     * @return Whether or not to allow the use of regular expressions in the login page path.
+     * 
+     */
+    public Optional<Boolean> enableRegexInPath() {
+        return Optional.ofNullable(this.enableRegexInPath);
+    }
     /**
      * @return The path of the login endpoint for your application.
      * 
@@ -61,17 +74,24 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean enableRegexInPath;
         private String loginPath;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection requestInspection;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection responseInspection;
         public Builder() {}
         public Builder(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.enableRegexInPath = defaults.enableRegexInPath;
     	      this.loginPath = defaults.loginPath;
     	      this.requestInspection = defaults.requestInspection;
     	      this.responseInspection = defaults.responseInspection;
         }
 
+        @CustomType.Setter
+        public Builder enableRegexInPath(@Nullable Boolean enableRegexInPath) {
+            this.enableRegexInPath = enableRegexInPath;
+            return this;
+        }
         @CustomType.Setter
         public Builder loginPath(String loginPath) {
             this.loginPath = Objects.requireNonNull(loginPath);
@@ -89,6 +109,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
         }
         public WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet build() {
             final var o = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet();
+            o.enableRegexInPath = enableRegexInPath;
             o.loginPath = loginPath;
             o.requestInspection = requestInspection;
             o.responseInspection = responseInspection;

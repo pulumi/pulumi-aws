@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Previews a CIDR from an IPAM address pool. Only works for private IPv4.
@@ -55,7 +56,7 @@ import (
 //			}
 //			exampleVpcIpamPoolCidr, err := ec2.NewVpcIpamPoolCidr(ctx, "exampleVpcIpamPoolCidr", &ec2.VpcIpamPoolCidrArgs{
 //				IpamPoolId: exampleVpcIpamPool.ID(),
-//				Cidr:       pulumi.String("172.2.0.0/16"),
+//				Cidr:       pulumi.String("172.20.0.0/16"),
 //			})
 //			if err != nil {
 //				return err
@@ -190,6 +191,12 @@ func (i *VpcIpamPreviewNextCidr) ToVpcIpamPreviewNextCidrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPreviewNextCidrOutput)
 }
 
+func (i *VpcIpamPreviewNextCidr) ToOutput(ctx context.Context) pulumix.Output[*VpcIpamPreviewNextCidr] {
+	return pulumix.Output[*VpcIpamPreviewNextCidr]{
+		OutputState: i.ToVpcIpamPreviewNextCidrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VpcIpamPreviewNextCidrArrayInput is an input type that accepts VpcIpamPreviewNextCidrArray and VpcIpamPreviewNextCidrArrayOutput values.
 // You can construct a concrete instance of `VpcIpamPreviewNextCidrArrayInput` via:
 //
@@ -213,6 +220,12 @@ func (i VpcIpamPreviewNextCidrArray) ToVpcIpamPreviewNextCidrArrayOutput() VpcIp
 
 func (i VpcIpamPreviewNextCidrArray) ToVpcIpamPreviewNextCidrArrayOutputWithContext(ctx context.Context) VpcIpamPreviewNextCidrArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPreviewNextCidrArrayOutput)
+}
+
+func (i VpcIpamPreviewNextCidrArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpcIpamPreviewNextCidr] {
+	return pulumix.Output[[]*VpcIpamPreviewNextCidr]{
+		OutputState: i.ToVpcIpamPreviewNextCidrArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VpcIpamPreviewNextCidrMapInput is an input type that accepts VpcIpamPreviewNextCidrMap and VpcIpamPreviewNextCidrMapOutput values.
@@ -240,6 +253,12 @@ func (i VpcIpamPreviewNextCidrMap) ToVpcIpamPreviewNextCidrMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPreviewNextCidrMapOutput)
 }
 
+func (i VpcIpamPreviewNextCidrMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcIpamPreviewNextCidr] {
+	return pulumix.Output[map[string]*VpcIpamPreviewNextCidr]{
+		OutputState: i.ToVpcIpamPreviewNextCidrMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VpcIpamPreviewNextCidrOutput struct{ *pulumi.OutputState }
 
 func (VpcIpamPreviewNextCidrOutput) ElementType() reflect.Type {
@@ -252,6 +271,12 @@ func (o VpcIpamPreviewNextCidrOutput) ToVpcIpamPreviewNextCidrOutput() VpcIpamPr
 
 func (o VpcIpamPreviewNextCidrOutput) ToVpcIpamPreviewNextCidrOutputWithContext(ctx context.Context) VpcIpamPreviewNextCidrOutput {
 	return o
+}
+
+func (o VpcIpamPreviewNextCidrOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcIpamPreviewNextCidr] {
+	return pulumix.Output[*VpcIpamPreviewNextCidr]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The previewed CIDR from the pool.
@@ -288,6 +313,12 @@ func (o VpcIpamPreviewNextCidrArrayOutput) ToVpcIpamPreviewNextCidrArrayOutputWi
 	return o
 }
 
+func (o VpcIpamPreviewNextCidrArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpcIpamPreviewNextCidr] {
+	return pulumix.Output[[]*VpcIpamPreviewNextCidr]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VpcIpamPreviewNextCidrArrayOutput) Index(i pulumi.IntInput) VpcIpamPreviewNextCidrOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcIpamPreviewNextCidr {
 		return vs[0].([]*VpcIpamPreviewNextCidr)[vs[1].(int)]
@@ -306,6 +337,12 @@ func (o VpcIpamPreviewNextCidrMapOutput) ToVpcIpamPreviewNextCidrMapOutput() Vpc
 
 func (o VpcIpamPreviewNextCidrMapOutput) ToVpcIpamPreviewNextCidrMapOutputWithContext(ctx context.Context) VpcIpamPreviewNextCidrMapOutput {
 	return o
+}
+
+func (o VpcIpamPreviewNextCidrMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpcIpamPreviewNextCidr] {
+	return pulumix.Output[map[string]*VpcIpamPreviewNextCidr]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VpcIpamPreviewNextCidrMapOutput) MapIndex(k pulumi.StringInput) VpcIpamPreviewNextCidrOutput {

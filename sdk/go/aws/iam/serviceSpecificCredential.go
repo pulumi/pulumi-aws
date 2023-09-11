@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an IAM Service Specific Credential.
@@ -186,6 +187,12 @@ func (i *ServiceSpecificCredential) ToServiceSpecificCredentialOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSpecificCredentialOutput)
 }
 
+func (i *ServiceSpecificCredential) ToOutput(ctx context.Context) pulumix.Output[*ServiceSpecificCredential] {
+	return pulumix.Output[*ServiceSpecificCredential]{
+		OutputState: i.ToServiceSpecificCredentialOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceSpecificCredentialArrayInput is an input type that accepts ServiceSpecificCredentialArray and ServiceSpecificCredentialArrayOutput values.
 // You can construct a concrete instance of `ServiceSpecificCredentialArrayInput` via:
 //
@@ -209,6 +216,12 @@ func (i ServiceSpecificCredentialArray) ToServiceSpecificCredentialArrayOutput()
 
 func (i ServiceSpecificCredentialArray) ToServiceSpecificCredentialArrayOutputWithContext(ctx context.Context) ServiceSpecificCredentialArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSpecificCredentialArrayOutput)
+}
+
+func (i ServiceSpecificCredentialArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceSpecificCredential] {
+	return pulumix.Output[[]*ServiceSpecificCredential]{
+		OutputState: i.ToServiceSpecificCredentialArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServiceSpecificCredentialMapInput is an input type that accepts ServiceSpecificCredentialMap and ServiceSpecificCredentialMapOutput values.
@@ -236,6 +249,12 @@ func (i ServiceSpecificCredentialMap) ToServiceSpecificCredentialMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSpecificCredentialMapOutput)
 }
 
+func (i ServiceSpecificCredentialMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceSpecificCredential] {
+	return pulumix.Output[map[string]*ServiceSpecificCredential]{
+		OutputState: i.ToServiceSpecificCredentialMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceSpecificCredentialOutput struct{ *pulumi.OutputState }
 
 func (ServiceSpecificCredentialOutput) ElementType() reflect.Type {
@@ -248,6 +267,12 @@ func (o ServiceSpecificCredentialOutput) ToServiceSpecificCredentialOutput() Ser
 
 func (o ServiceSpecificCredentialOutput) ToServiceSpecificCredentialOutputWithContext(ctx context.Context) ServiceSpecificCredentialOutput {
 	return o
+}
+
+func (o ServiceSpecificCredentialOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceSpecificCredential] {
+	return pulumix.Output[*ServiceSpecificCredential]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the AWS service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.
@@ -294,6 +319,12 @@ func (o ServiceSpecificCredentialArrayOutput) ToServiceSpecificCredentialArrayOu
 	return o
 }
 
+func (o ServiceSpecificCredentialArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceSpecificCredential] {
+	return pulumix.Output[[]*ServiceSpecificCredential]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceSpecificCredentialArrayOutput) Index(i pulumi.IntInput) ServiceSpecificCredentialOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceSpecificCredential {
 		return vs[0].([]*ServiceSpecificCredential)[vs[1].(int)]
@@ -312,6 +343,12 @@ func (o ServiceSpecificCredentialMapOutput) ToServiceSpecificCredentialMapOutput
 
 func (o ServiceSpecificCredentialMapOutput) ToServiceSpecificCredentialMapOutputWithContext(ctx context.Context) ServiceSpecificCredentialMapOutput {
 	return o
+}
+
+func (o ServiceSpecificCredentialMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceSpecificCredential] {
+	return pulumix.Output[map[string]*ServiceSpecificCredential]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceSpecificCredentialMapOutput) MapIndex(k pulumi.StringInput) ServiceSpecificCredentialOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides details about a specific Amazon Connect User Hierarchy Structure
@@ -99,6 +100,12 @@ func (o LookupUserHierarchyStructureResultOutput) ToLookupUserHierarchyStructure
 
 func (o LookupUserHierarchyStructureResultOutput) ToLookupUserHierarchyStructureResultOutputWithContext(ctx context.Context) LookupUserHierarchyStructureResultOutput {
 	return o
+}
+
+func (o LookupUserHierarchyStructureResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupUserHierarchyStructureResult] {
+	return pulumix.Output[LookupUserHierarchyStructureResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Block that defines the hierarchy structure's levels. The `hierarchyStructure` block is documented below.

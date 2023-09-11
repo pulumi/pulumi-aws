@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieve information about an EKS add-on.
@@ -122,6 +123,12 @@ func (o LookupAddonResultOutput) ToLookupAddonResultOutput() LookupAddonResultOu
 
 func (o LookupAddonResultOutput) ToLookupAddonResultOutputWithContext(ctx context.Context) LookupAddonResultOutput {
 	return o
+}
+
+func (o LookupAddonResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAddonResult] {
+	return pulumix.Output[LookupAddonResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o LookupAddonResultOutput) AddonName() pulumi.StringOutput {

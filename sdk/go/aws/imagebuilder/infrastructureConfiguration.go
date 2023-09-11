@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Image Builder Infrastructure Configuration.
@@ -311,6 +312,12 @@ func (i *InfrastructureConfiguration) ToInfrastructureConfigurationOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationOutput)
 }
 
+func (i *InfrastructureConfiguration) ToOutput(ctx context.Context) pulumix.Output[*InfrastructureConfiguration] {
+	return pulumix.Output[*InfrastructureConfiguration]{
+		OutputState: i.ToInfrastructureConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // InfrastructureConfigurationArrayInput is an input type that accepts InfrastructureConfigurationArray and InfrastructureConfigurationArrayOutput values.
 // You can construct a concrete instance of `InfrastructureConfigurationArrayInput` via:
 //
@@ -334,6 +341,12 @@ func (i InfrastructureConfigurationArray) ToInfrastructureConfigurationArrayOutp
 
 func (i InfrastructureConfigurationArray) ToInfrastructureConfigurationArrayOutputWithContext(ctx context.Context) InfrastructureConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationArrayOutput)
+}
+
+func (i InfrastructureConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*InfrastructureConfiguration] {
+	return pulumix.Output[[]*InfrastructureConfiguration]{
+		OutputState: i.ToInfrastructureConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // InfrastructureConfigurationMapInput is an input type that accepts InfrastructureConfigurationMap and InfrastructureConfigurationMapOutput values.
@@ -361,6 +374,12 @@ func (i InfrastructureConfigurationMap) ToInfrastructureConfigurationMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationMapOutput)
 }
 
+func (i InfrastructureConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InfrastructureConfiguration] {
+	return pulumix.Output[map[string]*InfrastructureConfiguration]{
+		OutputState: i.ToInfrastructureConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InfrastructureConfigurationOutput struct{ *pulumi.OutputState }
 
 func (InfrastructureConfigurationOutput) ElementType() reflect.Type {
@@ -373,6 +392,12 @@ func (o InfrastructureConfigurationOutput) ToInfrastructureConfigurationOutput()
 
 func (o InfrastructureConfigurationOutput) ToInfrastructureConfigurationOutputWithContext(ctx context.Context) InfrastructureConfigurationOutput {
 	return o
+}
+
+func (o InfrastructureConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*InfrastructureConfiguration] {
+	return pulumix.Output[*InfrastructureConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of the configuration.
@@ -478,6 +503,12 @@ func (o InfrastructureConfigurationArrayOutput) ToInfrastructureConfigurationArr
 	return o
 }
 
+func (o InfrastructureConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InfrastructureConfiguration] {
+	return pulumix.Output[[]*InfrastructureConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InfrastructureConfigurationArrayOutput) Index(i pulumi.IntInput) InfrastructureConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InfrastructureConfiguration {
 		return vs[0].([]*InfrastructureConfiguration)[vs[1].(int)]
@@ -496,6 +527,12 @@ func (o InfrastructureConfigurationMapOutput) ToInfrastructureConfigurationMapOu
 
 func (o InfrastructureConfigurationMapOutput) ToInfrastructureConfigurationMapOutputWithContext(ctx context.Context) InfrastructureConfigurationMapOutput {
 	return o
+}
+
+func (o InfrastructureConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InfrastructureConfiguration] {
+	return pulumix.Output[map[string]*InfrastructureConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InfrastructureConfigurationMapOutput) MapIndex(k pulumi.StringInput) InfrastructureConfigurationOutput {

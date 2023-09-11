@@ -23,7 +23,7 @@ class GetResourceShareResult:
     """
     A collection of values returned by getResourceShare.
     """
-    def __init__(__self__, arn=None, filters=None, id=None, name=None, owning_account_id=None, resource_owner=None, resource_share_status=None, status=None, tags=None):
+    def __init__(__self__, arn=None, filters=None, id=None, name=None, owning_account_id=None, resource_arns=None, resource_owner=None, resource_share_status=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,6 +39,9 @@ class GetResourceShareResult:
         if owning_account_id and not isinstance(owning_account_id, str):
             raise TypeError("Expected argument 'owning_account_id' to be a str")
         pulumi.set(__self__, "owning_account_id", owning_account_id)
+        if resource_arns and not isinstance(resource_arns, list):
+            raise TypeError("Expected argument 'resource_arns' to be a list")
+        pulumi.set(__self__, "resource_arns", resource_arns)
         if resource_owner and not isinstance(resource_owner, str):
             raise TypeError("Expected argument 'resource_owner' to be a str")
         pulumi.set(__self__, "resource_owner", resource_owner)
@@ -87,6 +90,14 @@ class GetResourceShareResult:
         return pulumi.get(self, "owning_account_id")
 
     @property
+    @pulumi.getter(name="resourceArns")
+    def resource_arns(self) -> Sequence[str]:
+        """
+        A list of resource ARNs associated with the resource share.
+        """
+        return pulumi.get(self, "resource_arns")
+
+    @property
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> str:
         return pulumi.get(self, "resource_owner")
@@ -100,7 +111,7 @@ class GetResourceShareResult:
     @pulumi.getter
     def status(self) -> str:
         """
-        Status of the RAM share.
+        Status of the resource share.
         """
         return pulumi.get(self, "status")
 
@@ -108,7 +119,7 @@ class GetResourceShareResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        Tags attached to the RAM share
+        Tags attached to the resource share.
         """
         return pulumi.get(self, "tags")
 
@@ -124,6 +135,7 @@ class AwaitableGetResourceShareResult(GetResourceShareResult):
             id=self.id,
             name=self.name,
             owning_account_id=self.owning_account_id,
+            resource_arns=self.resource_arns,
             resource_owner=self.resource_owner,
             resource_share_status=self.resource_share_status,
             status=self.status,
@@ -167,7 +179,7 @@ def get_resource_share(filters: Optional[Sequence[pulumi.InputType['GetResourceS
     :param str name: Name of the tag key to filter on.
     :param str resource_owner: Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
     :param str resource_share_status: Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
-    :param Mapping[str, str] tags: Tags attached to the RAM share
+    :param Mapping[str, str] tags: Tags attached to the resource share.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -184,6 +196,7 @@ def get_resource_share(filters: Optional[Sequence[pulumi.InputType['GetResourceS
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         owning_account_id=pulumi.get(__ret__, 'owning_account_id'),
+        resource_arns=pulumi.get(__ret__, 'resource_arns'),
         resource_owner=pulumi.get(__ret__, 'resource_owner'),
         resource_share_status=pulumi.get(__ret__, 'resource_share_status'),
         status=pulumi.get(__ret__, 'status'),
@@ -228,6 +241,6 @@ def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     :param str name: Name of the tag key to filter on.
     :param str resource_owner: Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
     :param str resource_share_status: Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
-    :param Mapping[str, str] tags: Tags attached to the RAM share
+    :param Mapping[str, str] tags: Tags attached to the resource share.
     """
     ...

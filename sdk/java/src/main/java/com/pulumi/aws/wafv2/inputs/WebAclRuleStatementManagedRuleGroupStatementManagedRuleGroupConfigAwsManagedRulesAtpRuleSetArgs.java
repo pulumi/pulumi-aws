@@ -7,6 +7,7 @@ import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementM
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs();
+
+    /**
+     * Whether or not to allow the use of regular expressions in the login page path.
+     * 
+     */
+    @Import(name="enableRegexInPath")
+    private @Nullable Output<Boolean> enableRegexInPath;
+
+    /**
+     * @return Whether or not to allow the use of regular expressions in the login page path.
+     * 
+     */
+    public Optional<Output<Boolean>> enableRegexInPath() {
+        return Optional.ofNullable(this.enableRegexInPath);
+    }
 
     /**
      * The path of the login endpoint for your application.
@@ -65,6 +81,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs() {}
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs $) {
+        this.enableRegexInPath = $.enableRegexInPath;
         this.loginPath = $.loginPath;
         this.requestInspection = $.requestInspection;
         this.responseInspection = $.responseInspection;
@@ -86,6 +103,27 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
         public Builder(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs defaults) {
             $ = new WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param enableRegexInPath Whether or not to allow the use of regular expressions in the login page path.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableRegexInPath(@Nullable Output<Boolean> enableRegexInPath) {
+            $.enableRegexInPath = enableRegexInPath;
+            return this;
+        }
+
+        /**
+         * @param enableRegexInPath Whether or not to allow the use of regular expressions in the login page path.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableRegexInPath(Boolean enableRegexInPath) {
+            return enableRegexInPath(Output.of(enableRegexInPath));
         }
 
         /**

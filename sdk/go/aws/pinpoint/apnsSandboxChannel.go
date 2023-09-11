@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Pinpoint APNs Sandbox Channel resource.
@@ -304,6 +305,12 @@ func (i *ApnsSandboxChannel) ToApnsSandboxChannelOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsSandboxChannelOutput)
 }
 
+func (i *ApnsSandboxChannel) ToOutput(ctx context.Context) pulumix.Output[*ApnsSandboxChannel] {
+	return pulumix.Output[*ApnsSandboxChannel]{
+		OutputState: i.ToApnsSandboxChannelOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ApnsSandboxChannelArrayInput is an input type that accepts ApnsSandboxChannelArray and ApnsSandboxChannelArrayOutput values.
 // You can construct a concrete instance of `ApnsSandboxChannelArrayInput` via:
 //
@@ -327,6 +334,12 @@ func (i ApnsSandboxChannelArray) ToApnsSandboxChannelArrayOutput() ApnsSandboxCh
 
 func (i ApnsSandboxChannelArray) ToApnsSandboxChannelArrayOutputWithContext(ctx context.Context) ApnsSandboxChannelArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsSandboxChannelArrayOutput)
+}
+
+func (i ApnsSandboxChannelArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApnsSandboxChannel] {
+	return pulumix.Output[[]*ApnsSandboxChannel]{
+		OutputState: i.ToApnsSandboxChannelArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ApnsSandboxChannelMapInput is an input type that accepts ApnsSandboxChannelMap and ApnsSandboxChannelMapOutput values.
@@ -354,6 +367,12 @@ func (i ApnsSandboxChannelMap) ToApnsSandboxChannelMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ApnsSandboxChannelMapOutput)
 }
 
+func (i ApnsSandboxChannelMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApnsSandboxChannel] {
+	return pulumix.Output[map[string]*ApnsSandboxChannel]{
+		OutputState: i.ToApnsSandboxChannelMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ApnsSandboxChannelOutput struct{ *pulumi.OutputState }
 
 func (ApnsSandboxChannelOutput) ElementType() reflect.Type {
@@ -366,6 +385,12 @@ func (o ApnsSandboxChannelOutput) ToApnsSandboxChannelOutput() ApnsSandboxChanne
 
 func (o ApnsSandboxChannelOutput) ToApnsSandboxChannelOutputWithContext(ctx context.Context) ApnsSandboxChannelOutput {
 	return o
+}
+
+func (o ApnsSandboxChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*ApnsSandboxChannel] {
+	return pulumix.Output[*ApnsSandboxChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The application ID.
@@ -436,6 +461,12 @@ func (o ApnsSandboxChannelArrayOutput) ToApnsSandboxChannelArrayOutputWithContex
 	return o
 }
 
+func (o ApnsSandboxChannelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApnsSandboxChannel] {
+	return pulumix.Output[[]*ApnsSandboxChannel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ApnsSandboxChannelArrayOutput) Index(i pulumi.IntInput) ApnsSandboxChannelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApnsSandboxChannel {
 		return vs[0].([]*ApnsSandboxChannel)[vs[1].(int)]
@@ -454,6 +485,12 @@ func (o ApnsSandboxChannelMapOutput) ToApnsSandboxChannelMapOutput() ApnsSandbox
 
 func (o ApnsSandboxChannelMapOutput) ToApnsSandboxChannelMapOutputWithContext(ctx context.Context) ApnsSandboxChannelMapOutput {
 	return o
+}
+
+func (o ApnsSandboxChannelMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApnsSandboxChannel] {
+	return pulumix.Output[map[string]*ApnsSandboxChannel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ApnsSandboxChannelMapOutput) MapIndex(k pulumi.StringInput) ApnsSandboxChannelOutput {

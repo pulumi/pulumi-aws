@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -70,6 +71,12 @@ func (i AccessPointPublicAccessBlockConfigurationArgs) ToAccessPointPublicAccess
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPublicAccessBlockConfigurationOutput)
 }
 
+func (i AccessPointPublicAccessBlockConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AccessPointPublicAccessBlockConfiguration] {
+	return pulumix.Output[AccessPointPublicAccessBlockConfiguration]{
+		OutputState: i.ToAccessPointPublicAccessBlockConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AccessPointPublicAccessBlockConfigurationArgs) ToAccessPointPublicAccessBlockConfigurationPtrOutput() AccessPointPublicAccessBlockConfigurationPtrOutput {
 	return i.ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(context.Background())
 }
@@ -111,6 +118,12 @@ func (i *accessPointPublicAccessBlockConfigurationPtrType) ToAccessPointPublicAc
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPublicAccessBlockConfigurationPtrOutput)
 }
 
+func (i *accessPointPublicAccessBlockConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccessPointPublicAccessBlockConfiguration] {
+	return pulumix.Output[*AccessPointPublicAccessBlockConfiguration]{
+		OutputState: i.ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccessPointPublicAccessBlockConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AccessPointPublicAccessBlockConfigurationOutput) ElementType() reflect.Type {
@@ -133,6 +146,12 @@ func (o AccessPointPublicAccessBlockConfigurationOutput) ToAccessPointPublicAcce
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPointPublicAccessBlockConfiguration) *AccessPointPublicAccessBlockConfiguration {
 		return &v
 	}).(AccessPointPublicAccessBlockConfigurationPtrOutput)
+}
+
+func (o AccessPointPublicAccessBlockConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPointPublicAccessBlockConfiguration] {
+	return pulumix.Output[AccessPointPublicAccessBlockConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
@@ -173,6 +192,12 @@ func (o AccessPointPublicAccessBlockConfigurationPtrOutput) ToAccessPointPublicA
 
 func (o AccessPointPublicAccessBlockConfigurationPtrOutput) ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) AccessPointPublicAccessBlockConfigurationPtrOutput {
 	return o
+}
+
+func (o AccessPointPublicAccessBlockConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPointPublicAccessBlockConfiguration] {
+	return pulumix.Output[*AccessPointPublicAccessBlockConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessPointPublicAccessBlockConfigurationPtrOutput) Elem() AccessPointPublicAccessBlockConfigurationOutput {
@@ -264,6 +289,12 @@ func (i AccessPointVpcConfigurationArgs) ToAccessPointVpcConfigurationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointVpcConfigurationOutput)
 }
 
+func (i AccessPointVpcConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AccessPointVpcConfiguration] {
+	return pulumix.Output[AccessPointVpcConfiguration]{
+		OutputState: i.ToAccessPointVpcConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AccessPointVpcConfigurationArgs) ToAccessPointVpcConfigurationPtrOutput() AccessPointVpcConfigurationPtrOutput {
 	return i.ToAccessPointVpcConfigurationPtrOutputWithContext(context.Background())
 }
@@ -305,6 +336,12 @@ func (i *accessPointVpcConfigurationPtrType) ToAccessPointVpcConfigurationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointVpcConfigurationPtrOutput)
 }
 
+func (i *accessPointVpcConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccessPointVpcConfiguration] {
+	return pulumix.Output[*AccessPointVpcConfiguration]{
+		OutputState: i.ToAccessPointVpcConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccessPointVpcConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AccessPointVpcConfigurationOutput) ElementType() reflect.Type {
@@ -329,6 +366,12 @@ func (o AccessPointVpcConfigurationOutput) ToAccessPointVpcConfigurationPtrOutpu
 	}).(AccessPointVpcConfigurationPtrOutput)
 }
 
+func (o AccessPointVpcConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPointVpcConfiguration] {
+	return pulumix.Output[AccessPointVpcConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // This access point will only allow connections from the specified VPC ID.
 func (o AccessPointVpcConfigurationOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessPointVpcConfiguration) string { return v.VpcId }).(pulumi.StringOutput)
@@ -346,6 +389,12 @@ func (o AccessPointVpcConfigurationPtrOutput) ToAccessPointVpcConfigurationPtrOu
 
 func (o AccessPointVpcConfigurationPtrOutput) ToAccessPointVpcConfigurationPtrOutputWithContext(ctx context.Context) AccessPointVpcConfigurationPtrOutput {
 	return o
+}
+
+func (o AccessPointVpcConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPointVpcConfiguration] {
+	return pulumix.Output[*AccessPointVpcConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AccessPointVpcConfigurationPtrOutput) Elem() AccessPointVpcConfigurationOutput {
@@ -405,6 +454,12 @@ func (i AnalyticsConfigurationFilterArgs) ToAnalyticsConfigurationFilterOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationFilterOutput)
 }
 
+func (i AnalyticsConfigurationFilterArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsConfigurationFilter] {
+	return pulumix.Output[AnalyticsConfigurationFilter]{
+		OutputState: i.ToAnalyticsConfigurationFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsConfigurationFilterArgs) ToAnalyticsConfigurationFilterPtrOutput() AnalyticsConfigurationFilterPtrOutput {
 	return i.ToAnalyticsConfigurationFilterPtrOutputWithContext(context.Background())
 }
@@ -446,6 +501,12 @@ func (i *analyticsConfigurationFilterPtrType) ToAnalyticsConfigurationFilterPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationFilterPtrOutput)
 }
 
+func (i *analyticsConfigurationFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsConfigurationFilter] {
+	return pulumix.Output[*AnalyticsConfigurationFilter]{
+		OutputState: i.ToAnalyticsConfigurationFilterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsConfigurationFilterOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsConfigurationFilterOutput) ElementType() reflect.Type {
@@ -470,6 +531,12 @@ func (o AnalyticsConfigurationFilterOutput) ToAnalyticsConfigurationFilterPtrOut
 	}).(AnalyticsConfigurationFilterPtrOutput)
 }
 
+func (o AnalyticsConfigurationFilterOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsConfigurationFilter] {
+	return pulumix.Output[AnalyticsConfigurationFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Object prefix for filtering.
 func (o AnalyticsConfigurationFilterOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalyticsConfigurationFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
@@ -492,6 +559,12 @@ func (o AnalyticsConfigurationFilterPtrOutput) ToAnalyticsConfigurationFilterPtr
 
 func (o AnalyticsConfigurationFilterPtrOutput) ToAnalyticsConfigurationFilterPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationFilterPtrOutput {
 	return o
+}
+
+func (o AnalyticsConfigurationFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsConfigurationFilter] {
+	return pulumix.Output[*AnalyticsConfigurationFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsConfigurationFilterPtrOutput) Elem() AnalyticsConfigurationFilterOutput {
@@ -557,6 +630,12 @@ func (i AnalyticsConfigurationStorageClassAnalysisArgs) ToAnalyticsConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationStorageClassAnalysisOutput)
 }
 
+func (i AnalyticsConfigurationStorageClassAnalysisArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsConfigurationStorageClassAnalysis] {
+	return pulumix.Output[AnalyticsConfigurationStorageClassAnalysis]{
+		OutputState: i.ToAnalyticsConfigurationStorageClassAnalysisOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsConfigurationStorageClassAnalysisArgs) ToAnalyticsConfigurationStorageClassAnalysisPtrOutput() AnalyticsConfigurationStorageClassAnalysisPtrOutput {
 	return i.ToAnalyticsConfigurationStorageClassAnalysisPtrOutputWithContext(context.Background())
 }
@@ -598,6 +677,12 @@ func (i *analyticsConfigurationStorageClassAnalysisPtrType) ToAnalyticsConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationStorageClassAnalysisPtrOutput)
 }
 
+func (i *analyticsConfigurationStorageClassAnalysisPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsConfigurationStorageClassAnalysis] {
+	return pulumix.Output[*AnalyticsConfigurationStorageClassAnalysis]{
+		OutputState: i.ToAnalyticsConfigurationStorageClassAnalysisPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsConfigurationStorageClassAnalysisOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsConfigurationStorageClassAnalysisOutput) ElementType() reflect.Type {
@@ -622,6 +707,12 @@ func (o AnalyticsConfigurationStorageClassAnalysisOutput) ToAnalyticsConfigurati
 	}).(AnalyticsConfigurationStorageClassAnalysisPtrOutput)
 }
 
+func (o AnalyticsConfigurationStorageClassAnalysisOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsConfigurationStorageClassAnalysis] {
+	return pulumix.Output[AnalyticsConfigurationStorageClassAnalysis]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Data export configuration (documented below).
 func (o AnalyticsConfigurationStorageClassAnalysisOutput) DataExport() AnalyticsConfigurationStorageClassAnalysisDataExportOutput {
 	return o.ApplyT(func(v AnalyticsConfigurationStorageClassAnalysis) AnalyticsConfigurationStorageClassAnalysisDataExport {
@@ -641,6 +732,12 @@ func (o AnalyticsConfigurationStorageClassAnalysisPtrOutput) ToAnalyticsConfigur
 
 func (o AnalyticsConfigurationStorageClassAnalysisPtrOutput) ToAnalyticsConfigurationStorageClassAnalysisPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationStorageClassAnalysisPtrOutput {
 	return o
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsConfigurationStorageClassAnalysis] {
+	return pulumix.Output[*AnalyticsConfigurationStorageClassAnalysis]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsConfigurationStorageClassAnalysisPtrOutput) Elem() AnalyticsConfigurationStorageClassAnalysisOutput {
@@ -700,6 +797,12 @@ func (i AnalyticsConfigurationStorageClassAnalysisDataExportArgs) ToAnalyticsCon
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationStorageClassAnalysisDataExportOutput)
 }
 
+func (i AnalyticsConfigurationStorageClassAnalysisDataExportArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsConfigurationStorageClassAnalysisDataExport] {
+	return pulumix.Output[AnalyticsConfigurationStorageClassAnalysisDataExport]{
+		OutputState: i.ToAnalyticsConfigurationStorageClassAnalysisDataExportOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsConfigurationStorageClassAnalysisDataExportArgs) ToAnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput() AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput {
 	return i.ToAnalyticsConfigurationStorageClassAnalysisDataExportPtrOutputWithContext(context.Background())
 }
@@ -741,6 +844,12 @@ func (i *analyticsConfigurationStorageClassAnalysisDataExportPtrType) ToAnalytic
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput)
 }
 
+func (i *analyticsConfigurationStorageClassAnalysisDataExportPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsConfigurationStorageClassAnalysisDataExport] {
+	return pulumix.Output[*AnalyticsConfigurationStorageClassAnalysisDataExport]{
+		OutputState: i.ToAnalyticsConfigurationStorageClassAnalysisDataExportPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsConfigurationStorageClassAnalysisDataExportOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsConfigurationStorageClassAnalysisDataExportOutput) ElementType() reflect.Type {
@@ -763,6 +872,12 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportOutput) ToAnalyticsC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsConfigurationStorageClassAnalysisDataExport) *AnalyticsConfigurationStorageClassAnalysisDataExport {
 		return &v
 	}).(AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput)
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisDataExportOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsConfigurationStorageClassAnalysisDataExport] {
+	return pulumix.Output[AnalyticsConfigurationStorageClassAnalysisDataExport]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the destination for the exported analytics data (documented below).
@@ -789,6 +904,12 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput) ToAnalyti
 
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput) ToAnalyticsConfigurationStorageClassAnalysisDataExportPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput {
 	return o
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsConfigurationStorageClassAnalysisDataExport] {
+	return pulumix.Output[*AnalyticsConfigurationStorageClassAnalysisDataExport]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportPtrOutput) Elem() AnalyticsConfigurationStorageClassAnalysisDataExportOutput {
@@ -858,6 +979,12 @@ func (i AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs) ToA
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput)
 }
 
+func (i AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsConfigurationStorageClassAnalysisDataExportDestination] {
+	return pulumix.Output[AnalyticsConfigurationStorageClassAnalysisDataExportDestination]{
+		OutputState: i.ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsConfigurationStorageClassAnalysisDataExportDestinationArgs) ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput {
 	return i.ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutputWithContext(context.Background())
 }
@@ -899,6 +1026,12 @@ func (i *analyticsConfigurationStorageClassAnalysisDataExportDestinationPtrType)
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput)
 }
 
+func (i *analyticsConfigurationStorageClassAnalysisDataExportDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsConfigurationStorageClassAnalysisDataExportDestination] {
+	return pulumix.Output[*AnalyticsConfigurationStorageClassAnalysisDataExportDestination]{
+		OutputState: i.ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput) ElementType() reflect.Type {
@@ -923,6 +1056,12 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput) T
 	}).(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput)
 }
 
+func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsConfigurationStorageClassAnalysisDataExportDestination] {
+	return pulumix.Output[AnalyticsConfigurationStorageClassAnalysisDataExportDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Analytics data export currently only supports an S3 bucket destination (documented below).
 //
 // The `s3BucketDestination` configuration supports the following:
@@ -944,6 +1083,12 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput
 
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput) ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput {
 	return o
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsConfigurationStorageClassAnalysisDataExportDestination] {
+	return pulumix.Output[*AnalyticsConfigurationStorageClassAnalysisDataExportDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationPtrOutput) Elem() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationOutput {
@@ -1013,6 +1158,12 @@ func (i AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketD
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput)
 }
 
+func (i AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination] {
+	return pulumix.Output[AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination]{
+		OutputState: i.ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs) ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutput() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutput {
 	return i.ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutputWithContext(context.Background())
 }
@@ -1054,6 +1205,12 @@ func (i *analyticsConfigurationStorageClassAnalysisDataExportDestinationS3Bucket
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutput)
 }
 
+func (i *analyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination] {
+	return pulumix.Output[*AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination]{
+		OutputState: i.ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput) ElementType() reflect.Type {
@@ -1076,6 +1233,12 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketD
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination) *AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination {
 		return &v
 	}).(AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutput)
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination] {
+	return pulumix.Output[AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Account ID that owns the destination bucket.
@@ -1118,6 +1281,12 @@ func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketD
 
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutput) ToAnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutputWithContext(ctx context.Context) AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutput {
 	return o
+}
+
+func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination] {
+	return pulumix.Output[*AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationPtrOutput) Elem() AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationOutput {
@@ -1207,6 +1376,12 @@ func (i BucketAclV2AccessControlPolicyArgs) ToBucketAclV2AccessControlPolicyOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAclV2AccessControlPolicyOutput)
 }
 
+func (i BucketAclV2AccessControlPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[BucketAclV2AccessControlPolicy] {
+	return pulumix.Output[BucketAclV2AccessControlPolicy]{
+		OutputState: i.ToBucketAclV2AccessControlPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketAclV2AccessControlPolicyArgs) ToBucketAclV2AccessControlPolicyPtrOutput() BucketAclV2AccessControlPolicyPtrOutput {
 	return i.ToBucketAclV2AccessControlPolicyPtrOutputWithContext(context.Background())
 }
@@ -1248,6 +1423,12 @@ func (i *bucketAclV2AccessControlPolicyPtrType) ToBucketAclV2AccessControlPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAclV2AccessControlPolicyPtrOutput)
 }
 
+func (i *bucketAclV2AccessControlPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketAclV2AccessControlPolicy] {
+	return pulumix.Output[*BucketAclV2AccessControlPolicy]{
+		OutputState: i.ToBucketAclV2AccessControlPolicyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketAclV2AccessControlPolicyOutput struct{ *pulumi.OutputState }
 
 func (BucketAclV2AccessControlPolicyOutput) ElementType() reflect.Type {
@@ -1272,6 +1453,12 @@ func (o BucketAclV2AccessControlPolicyOutput) ToBucketAclV2AccessControlPolicyPt
 	}).(BucketAclV2AccessControlPolicyPtrOutput)
 }
 
+func (o BucketAclV2AccessControlPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[BucketAclV2AccessControlPolicy] {
+	return pulumix.Output[BucketAclV2AccessControlPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Set of `grant` configuration blocks. See below.
 func (o BucketAclV2AccessControlPolicyOutput) Grants() BucketAclV2AccessControlPolicyGrantArrayOutput {
 	return o.ApplyT(func(v BucketAclV2AccessControlPolicy) []BucketAclV2AccessControlPolicyGrant { return v.Grants }).(BucketAclV2AccessControlPolicyGrantArrayOutput)
@@ -1294,6 +1481,12 @@ func (o BucketAclV2AccessControlPolicyPtrOutput) ToBucketAclV2AccessControlPolic
 
 func (o BucketAclV2AccessControlPolicyPtrOutput) ToBucketAclV2AccessControlPolicyPtrOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyPtrOutput {
 	return o
+}
+
+func (o BucketAclV2AccessControlPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketAclV2AccessControlPolicy] {
+	return pulumix.Output[*BucketAclV2AccessControlPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketAclV2AccessControlPolicyPtrOutput) Elem() BucketAclV2AccessControlPolicyOutput {
@@ -1363,6 +1556,12 @@ func (i BucketAclV2AccessControlPolicyGrantArgs) ToBucketAclV2AccessControlPolic
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAclV2AccessControlPolicyGrantOutput)
 }
 
+func (i BucketAclV2AccessControlPolicyGrantArgs) ToOutput(ctx context.Context) pulumix.Output[BucketAclV2AccessControlPolicyGrant] {
+	return pulumix.Output[BucketAclV2AccessControlPolicyGrant]{
+		OutputState: i.ToBucketAclV2AccessControlPolicyGrantOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketAclV2AccessControlPolicyGrantArrayInput is an input type that accepts BucketAclV2AccessControlPolicyGrantArray and BucketAclV2AccessControlPolicyGrantArrayOutput values.
 // You can construct a concrete instance of `BucketAclV2AccessControlPolicyGrantArrayInput` via:
 //
@@ -1388,6 +1587,12 @@ func (i BucketAclV2AccessControlPolicyGrantArray) ToBucketAclV2AccessControlPoli
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAclV2AccessControlPolicyGrantArrayOutput)
 }
 
+func (i BucketAclV2AccessControlPolicyGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketAclV2AccessControlPolicyGrant] {
+	return pulumix.Output[[]BucketAclV2AccessControlPolicyGrant]{
+		OutputState: i.ToBucketAclV2AccessControlPolicyGrantArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketAclV2AccessControlPolicyGrantOutput struct{ *pulumi.OutputState }
 
 func (BucketAclV2AccessControlPolicyGrantOutput) ElementType() reflect.Type {
@@ -1400,6 +1605,12 @@ func (o BucketAclV2AccessControlPolicyGrantOutput) ToBucketAclV2AccessControlPol
 
 func (o BucketAclV2AccessControlPolicyGrantOutput) ToBucketAclV2AccessControlPolicyGrantOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyGrantOutput {
 	return o
+}
+
+func (o BucketAclV2AccessControlPolicyGrantOutput) ToOutput(ctx context.Context) pulumix.Output[BucketAclV2AccessControlPolicyGrant] {
+	return pulumix.Output[BucketAclV2AccessControlPolicyGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block for the person being granted permissions. See below.
@@ -1426,6 +1637,12 @@ func (o BucketAclV2AccessControlPolicyGrantArrayOutput) ToBucketAclV2AccessContr
 
 func (o BucketAclV2AccessControlPolicyGrantArrayOutput) ToBucketAclV2AccessControlPolicyGrantArrayOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyGrantArrayOutput {
 	return o
+}
+
+func (o BucketAclV2AccessControlPolicyGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketAclV2AccessControlPolicyGrant] {
+	return pulumix.Output[[]BucketAclV2AccessControlPolicyGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketAclV2AccessControlPolicyGrantArrayOutput) Index(i pulumi.IntInput) BucketAclV2AccessControlPolicyGrantOutput {
@@ -1483,6 +1700,12 @@ func (i BucketAclV2AccessControlPolicyGrantGranteeArgs) ToBucketAclV2AccessContr
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAclV2AccessControlPolicyGrantGranteeOutput)
 }
 
+func (i BucketAclV2AccessControlPolicyGrantGranteeArgs) ToOutput(ctx context.Context) pulumix.Output[BucketAclV2AccessControlPolicyGrantGrantee] {
+	return pulumix.Output[BucketAclV2AccessControlPolicyGrantGrantee]{
+		OutputState: i.ToBucketAclV2AccessControlPolicyGrantGranteeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketAclV2AccessControlPolicyGrantGranteeArgs) ToBucketAclV2AccessControlPolicyGrantGranteePtrOutput() BucketAclV2AccessControlPolicyGrantGranteePtrOutput {
 	return i.ToBucketAclV2AccessControlPolicyGrantGranteePtrOutputWithContext(context.Background())
 }
@@ -1524,6 +1747,12 @@ func (i *bucketAclV2AccessControlPolicyGrantGranteePtrType) ToBucketAclV2AccessC
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAclV2AccessControlPolicyGrantGranteePtrOutput)
 }
 
+func (i *bucketAclV2AccessControlPolicyGrantGranteePtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketAclV2AccessControlPolicyGrantGrantee] {
+	return pulumix.Output[*BucketAclV2AccessControlPolicyGrantGrantee]{
+		OutputState: i.ToBucketAclV2AccessControlPolicyGrantGranteePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketAclV2AccessControlPolicyGrantGranteeOutput struct{ *pulumi.OutputState }
 
 func (BucketAclV2AccessControlPolicyGrantGranteeOutput) ElementType() reflect.Type {
@@ -1546,6 +1775,12 @@ func (o BucketAclV2AccessControlPolicyGrantGranteeOutput) ToBucketAclV2AccessCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketAclV2AccessControlPolicyGrantGrantee) *BucketAclV2AccessControlPolicyGrantGrantee {
 		return &v
 	}).(BucketAclV2AccessControlPolicyGrantGranteePtrOutput)
+}
+
+func (o BucketAclV2AccessControlPolicyGrantGranteeOutput) ToOutput(ctx context.Context) pulumix.Output[BucketAclV2AccessControlPolicyGrantGrantee] {
+	return pulumix.Output[BucketAclV2AccessControlPolicyGrantGrantee]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Display name of the owner.
@@ -1585,6 +1820,12 @@ func (o BucketAclV2AccessControlPolicyGrantGranteePtrOutput) ToBucketAclV2Access
 
 func (o BucketAclV2AccessControlPolicyGrantGranteePtrOutput) ToBucketAclV2AccessControlPolicyGrantGranteePtrOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyGrantGranteePtrOutput {
 	return o
+}
+
+func (o BucketAclV2AccessControlPolicyGrantGranteePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketAclV2AccessControlPolicyGrantGrantee] {
+	return pulumix.Output[*BucketAclV2AccessControlPolicyGrantGrantee]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketAclV2AccessControlPolicyGrantGranteePtrOutput) Elem() BucketAclV2AccessControlPolicyGrantGranteeOutput {
@@ -1684,6 +1925,12 @@ func (i BucketAclV2AccessControlPolicyOwnerArgs) ToBucketAclV2AccessControlPolic
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAclV2AccessControlPolicyOwnerOutput)
 }
 
+func (i BucketAclV2AccessControlPolicyOwnerArgs) ToOutput(ctx context.Context) pulumix.Output[BucketAclV2AccessControlPolicyOwner] {
+	return pulumix.Output[BucketAclV2AccessControlPolicyOwner]{
+		OutputState: i.ToBucketAclV2AccessControlPolicyOwnerOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketAclV2AccessControlPolicyOwnerArgs) ToBucketAclV2AccessControlPolicyOwnerPtrOutput() BucketAclV2AccessControlPolicyOwnerPtrOutput {
 	return i.ToBucketAclV2AccessControlPolicyOwnerPtrOutputWithContext(context.Background())
 }
@@ -1725,6 +1972,12 @@ func (i *bucketAclV2AccessControlPolicyOwnerPtrType) ToBucketAclV2AccessControlP
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAclV2AccessControlPolicyOwnerPtrOutput)
 }
 
+func (i *bucketAclV2AccessControlPolicyOwnerPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketAclV2AccessControlPolicyOwner] {
+	return pulumix.Output[*BucketAclV2AccessControlPolicyOwner]{
+		OutputState: i.ToBucketAclV2AccessControlPolicyOwnerPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketAclV2AccessControlPolicyOwnerOutput struct{ *pulumi.OutputState }
 
 func (BucketAclV2AccessControlPolicyOwnerOutput) ElementType() reflect.Type {
@@ -1749,6 +2002,12 @@ func (o BucketAclV2AccessControlPolicyOwnerOutput) ToBucketAclV2AccessControlPol
 	}).(BucketAclV2AccessControlPolicyOwnerPtrOutput)
 }
 
+func (o BucketAclV2AccessControlPolicyOwnerOutput) ToOutput(ctx context.Context) pulumix.Output[BucketAclV2AccessControlPolicyOwner] {
+	return pulumix.Output[BucketAclV2AccessControlPolicyOwner]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Display name of the owner.
 func (o BucketAclV2AccessControlPolicyOwnerOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketAclV2AccessControlPolicyOwner) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
@@ -1771,6 +2030,12 @@ func (o BucketAclV2AccessControlPolicyOwnerPtrOutput) ToBucketAclV2AccessControl
 
 func (o BucketAclV2AccessControlPolicyOwnerPtrOutput) ToBucketAclV2AccessControlPolicyOwnerPtrOutputWithContext(ctx context.Context) BucketAclV2AccessControlPolicyOwnerPtrOutput {
 	return o
+}
+
+func (o BucketAclV2AccessControlPolicyOwnerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketAclV2AccessControlPolicyOwner] {
+	return pulumix.Output[*BucketAclV2AccessControlPolicyOwner]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketAclV2AccessControlPolicyOwnerPtrOutput) Elem() BucketAclV2AccessControlPolicyOwnerOutput {
@@ -1856,6 +2121,12 @@ func (i BucketCorsConfigurationV2CorsRuleArgs) ToBucketCorsConfigurationV2CorsRu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketCorsConfigurationV2CorsRuleOutput)
 }
 
+func (i BucketCorsConfigurationV2CorsRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketCorsConfigurationV2CorsRule] {
+	return pulumix.Output[BucketCorsConfigurationV2CorsRule]{
+		OutputState: i.ToBucketCorsConfigurationV2CorsRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketCorsConfigurationV2CorsRuleArrayInput is an input type that accepts BucketCorsConfigurationV2CorsRuleArray and BucketCorsConfigurationV2CorsRuleArrayOutput values.
 // You can construct a concrete instance of `BucketCorsConfigurationV2CorsRuleArrayInput` via:
 //
@@ -1881,6 +2152,12 @@ func (i BucketCorsConfigurationV2CorsRuleArray) ToBucketCorsConfigurationV2CorsR
 	return pulumi.ToOutputWithContext(ctx, i).(BucketCorsConfigurationV2CorsRuleArrayOutput)
 }
 
+func (i BucketCorsConfigurationV2CorsRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketCorsConfigurationV2CorsRule] {
+	return pulumix.Output[[]BucketCorsConfigurationV2CorsRule]{
+		OutputState: i.ToBucketCorsConfigurationV2CorsRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketCorsConfigurationV2CorsRuleOutput struct{ *pulumi.OutputState }
 
 func (BucketCorsConfigurationV2CorsRuleOutput) ElementType() reflect.Type {
@@ -1893,6 +2170,12 @@ func (o BucketCorsConfigurationV2CorsRuleOutput) ToBucketCorsConfigurationV2Cors
 
 func (o BucketCorsConfigurationV2CorsRuleOutput) ToBucketCorsConfigurationV2CorsRuleOutputWithContext(ctx context.Context) BucketCorsConfigurationV2CorsRuleOutput {
 	return o
+}
+
+func (o BucketCorsConfigurationV2CorsRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketCorsConfigurationV2CorsRule] {
+	return pulumix.Output[BucketCorsConfigurationV2CorsRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set of Headers that are specified in the `Access-Control-Request-Headers` header.
@@ -1937,6 +2220,12 @@ func (o BucketCorsConfigurationV2CorsRuleArrayOutput) ToBucketCorsConfigurationV
 
 func (o BucketCorsConfigurationV2CorsRuleArrayOutput) ToBucketCorsConfigurationV2CorsRuleArrayOutputWithContext(ctx context.Context) BucketCorsConfigurationV2CorsRuleArrayOutput {
 	return o
+}
+
+func (o BucketCorsConfigurationV2CorsRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketCorsConfigurationV2CorsRule] {
+	return pulumix.Output[[]BucketCorsConfigurationV2CorsRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketCorsConfigurationV2CorsRuleArrayOutput) Index(i pulumi.IntInput) BucketCorsConfigurationV2CorsRuleOutput {
@@ -1994,6 +2283,12 @@ func (i BucketCorsRuleArgs) ToBucketCorsRuleOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(BucketCorsRuleOutput)
 }
 
+func (i BucketCorsRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketCorsRule] {
+	return pulumix.Output[BucketCorsRule]{
+		OutputState: i.ToBucketCorsRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketCorsRuleArrayInput is an input type that accepts BucketCorsRuleArray and BucketCorsRuleArrayOutput values.
 // You can construct a concrete instance of `BucketCorsRuleArrayInput` via:
 //
@@ -2019,6 +2314,12 @@ func (i BucketCorsRuleArray) ToBucketCorsRuleArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(BucketCorsRuleArrayOutput)
 }
 
+func (i BucketCorsRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketCorsRule] {
+	return pulumix.Output[[]BucketCorsRule]{
+		OutputState: i.ToBucketCorsRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketCorsRuleOutput struct{ *pulumi.OutputState }
 
 func (BucketCorsRuleOutput) ElementType() reflect.Type {
@@ -2031,6 +2332,12 @@ func (o BucketCorsRuleOutput) ToBucketCorsRuleOutput() BucketCorsRuleOutput {
 
 func (o BucketCorsRuleOutput) ToBucketCorsRuleOutputWithContext(ctx context.Context) BucketCorsRuleOutput {
 	return o
+}
+
+func (o BucketCorsRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketCorsRule] {
+	return pulumix.Output[BucketCorsRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies which headers are allowed.
@@ -2070,6 +2377,12 @@ func (o BucketCorsRuleArrayOutput) ToBucketCorsRuleArrayOutput() BucketCorsRuleA
 
 func (o BucketCorsRuleArrayOutput) ToBucketCorsRuleArrayOutputWithContext(ctx context.Context) BucketCorsRuleArrayOutput {
 	return o
+}
+
+func (o BucketCorsRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketCorsRule] {
+	return pulumix.Output[[]BucketCorsRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketCorsRuleArrayOutput) Index(i pulumi.IntInput) BucketCorsRuleOutput {
@@ -2123,6 +2436,12 @@ func (i BucketGrantArgs) ToBucketGrantOutputWithContext(ctx context.Context) Buc
 	return pulumi.ToOutputWithContext(ctx, i).(BucketGrantOutput)
 }
 
+func (i BucketGrantArgs) ToOutput(ctx context.Context) pulumix.Output[BucketGrant] {
+	return pulumix.Output[BucketGrant]{
+		OutputState: i.ToBucketGrantOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketGrantArrayInput is an input type that accepts BucketGrantArray and BucketGrantArrayOutput values.
 // You can construct a concrete instance of `BucketGrantArrayInput` via:
 //
@@ -2148,6 +2467,12 @@ func (i BucketGrantArray) ToBucketGrantArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(BucketGrantArrayOutput)
 }
 
+func (i BucketGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketGrant] {
+	return pulumix.Output[[]BucketGrant]{
+		OutputState: i.ToBucketGrantArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketGrantOutput struct{ *pulumi.OutputState }
 
 func (BucketGrantOutput) ElementType() reflect.Type {
@@ -2160,6 +2485,12 @@ func (o BucketGrantOutput) ToBucketGrantOutput() BucketGrantOutput {
 
 func (o BucketGrantOutput) ToBucketGrantOutputWithContext(ctx context.Context) BucketGrantOutput {
 	return o
+}
+
+func (o BucketGrantOutput) ToOutput(ctx context.Context) pulumix.Output[BucketGrant] {
+	return pulumix.Output[BucketGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
@@ -2194,6 +2525,12 @@ func (o BucketGrantArrayOutput) ToBucketGrantArrayOutput() BucketGrantArrayOutpu
 
 func (o BucketGrantArrayOutput) ToBucketGrantArrayOutputWithContext(ctx context.Context) BucketGrantArrayOutput {
 	return o
+}
+
+func (o BucketGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketGrant] {
+	return pulumix.Output[[]BucketGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketGrantArrayOutput) Index(i pulumi.IntInput) BucketGrantOutput {
@@ -2239,6 +2576,12 @@ func (i BucketIntelligentTieringConfigurationFilterArgs) ToBucketIntelligentTier
 	return pulumi.ToOutputWithContext(ctx, i).(BucketIntelligentTieringConfigurationFilterOutput)
 }
 
+func (i BucketIntelligentTieringConfigurationFilterArgs) ToOutput(ctx context.Context) pulumix.Output[BucketIntelligentTieringConfigurationFilter] {
+	return pulumix.Output[BucketIntelligentTieringConfigurationFilter]{
+		OutputState: i.ToBucketIntelligentTieringConfigurationFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketIntelligentTieringConfigurationFilterArgs) ToBucketIntelligentTieringConfigurationFilterPtrOutput() BucketIntelligentTieringConfigurationFilterPtrOutput {
 	return i.ToBucketIntelligentTieringConfigurationFilterPtrOutputWithContext(context.Background())
 }
@@ -2280,6 +2623,12 @@ func (i *bucketIntelligentTieringConfigurationFilterPtrType) ToBucketIntelligent
 	return pulumi.ToOutputWithContext(ctx, i).(BucketIntelligentTieringConfigurationFilterPtrOutput)
 }
 
+func (i *bucketIntelligentTieringConfigurationFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketIntelligentTieringConfigurationFilter] {
+	return pulumix.Output[*BucketIntelligentTieringConfigurationFilter]{
+		OutputState: i.ToBucketIntelligentTieringConfigurationFilterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketIntelligentTieringConfigurationFilterOutput struct{ *pulumi.OutputState }
 
 func (BucketIntelligentTieringConfigurationFilterOutput) ElementType() reflect.Type {
@@ -2304,6 +2653,12 @@ func (o BucketIntelligentTieringConfigurationFilterOutput) ToBucketIntelligentTi
 	}).(BucketIntelligentTieringConfigurationFilterPtrOutput)
 }
 
+func (o BucketIntelligentTieringConfigurationFilterOutput) ToOutput(ctx context.Context) pulumix.Output[BucketIntelligentTieringConfigurationFilter] {
+	return pulumix.Output[BucketIntelligentTieringConfigurationFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Object key name prefix that identifies the subset of objects to which the configuration applies.
 func (o BucketIntelligentTieringConfigurationFilterOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketIntelligentTieringConfigurationFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
@@ -2326,6 +2681,12 @@ func (o BucketIntelligentTieringConfigurationFilterPtrOutput) ToBucketIntelligen
 
 func (o BucketIntelligentTieringConfigurationFilterPtrOutput) ToBucketIntelligentTieringConfigurationFilterPtrOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationFilterPtrOutput {
 	return o
+}
+
+func (o BucketIntelligentTieringConfigurationFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketIntelligentTieringConfigurationFilter] {
+	return pulumix.Output[*BucketIntelligentTieringConfigurationFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketIntelligentTieringConfigurationFilterPtrOutput) Elem() BucketIntelligentTieringConfigurationFilterOutput {
@@ -2395,6 +2756,12 @@ func (i BucketIntelligentTieringConfigurationTieringArgs) ToBucketIntelligentTie
 	return pulumi.ToOutputWithContext(ctx, i).(BucketIntelligentTieringConfigurationTieringOutput)
 }
 
+func (i BucketIntelligentTieringConfigurationTieringArgs) ToOutput(ctx context.Context) pulumix.Output[BucketIntelligentTieringConfigurationTiering] {
+	return pulumix.Output[BucketIntelligentTieringConfigurationTiering]{
+		OutputState: i.ToBucketIntelligentTieringConfigurationTieringOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketIntelligentTieringConfigurationTieringArrayInput is an input type that accepts BucketIntelligentTieringConfigurationTieringArray and BucketIntelligentTieringConfigurationTieringArrayOutput values.
 // You can construct a concrete instance of `BucketIntelligentTieringConfigurationTieringArrayInput` via:
 //
@@ -2420,6 +2787,12 @@ func (i BucketIntelligentTieringConfigurationTieringArray) ToBucketIntelligentTi
 	return pulumi.ToOutputWithContext(ctx, i).(BucketIntelligentTieringConfigurationTieringArrayOutput)
 }
 
+func (i BucketIntelligentTieringConfigurationTieringArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketIntelligentTieringConfigurationTiering] {
+	return pulumix.Output[[]BucketIntelligentTieringConfigurationTiering]{
+		OutputState: i.ToBucketIntelligentTieringConfigurationTieringArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketIntelligentTieringConfigurationTieringOutput struct{ *pulumi.OutputState }
 
 func (BucketIntelligentTieringConfigurationTieringOutput) ElementType() reflect.Type {
@@ -2432,6 +2805,12 @@ func (o BucketIntelligentTieringConfigurationTieringOutput) ToBucketIntelligentT
 
 func (o BucketIntelligentTieringConfigurationTieringOutput) ToBucketIntelligentTieringConfigurationTieringOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationTieringOutput {
 	return o
+}
+
+func (o BucketIntelligentTieringConfigurationTieringOutput) ToOutput(ctx context.Context) pulumix.Output[BucketIntelligentTieringConfigurationTiering] {
+	return pulumix.Output[BucketIntelligentTieringConfigurationTiering]{
+		OutputState: o.OutputState,
+	}
 }
 
 // S3 Intelligent-Tiering access tier. Valid values: `ARCHIVE_ACCESS`, `DEEP_ARCHIVE_ACCESS`.
@@ -2456,6 +2835,12 @@ func (o BucketIntelligentTieringConfigurationTieringArrayOutput) ToBucketIntelli
 
 func (o BucketIntelligentTieringConfigurationTieringArrayOutput) ToBucketIntelligentTieringConfigurationTieringArrayOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationTieringArrayOutput {
 	return o
+}
+
+func (o BucketIntelligentTieringConfigurationTieringArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketIntelligentTieringConfigurationTiering] {
+	return pulumix.Output[[]BucketIntelligentTieringConfigurationTiering]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketIntelligentTieringConfigurationTieringArrayOutput) Index(i pulumi.IntInput) BucketIntelligentTieringConfigurationTieringOutput {
@@ -2533,6 +2918,12 @@ func (i BucketLifecycleConfigurationV2RuleArgs) ToBucketLifecycleConfigurationV2
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleOutput)
 }
 
+func (i BucketLifecycleConfigurationV2RuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationV2Rule] {
+	return pulumix.Output[BucketLifecycleConfigurationV2Rule]{
+		OutputState: i.ToBucketLifecycleConfigurationV2RuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketLifecycleConfigurationV2RuleArrayInput is an input type that accepts BucketLifecycleConfigurationV2RuleArray and BucketLifecycleConfigurationV2RuleArrayOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleArrayInput` via:
 //
@@ -2558,6 +2949,12 @@ func (i BucketLifecycleConfigurationV2RuleArray) ToBucketLifecycleConfigurationV
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleArrayOutput)
 }
 
+func (i BucketLifecycleConfigurationV2RuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketLifecycleConfigurationV2Rule] {
+	return pulumix.Output[[]BucketLifecycleConfigurationV2Rule]{
+		OutputState: i.ToBucketLifecycleConfigurationV2RuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketLifecycleConfigurationV2RuleOutput struct{ *pulumi.OutputState }
 
 func (BucketLifecycleConfigurationV2RuleOutput) ElementType() reflect.Type {
@@ -2570,6 +2967,12 @@ func (o BucketLifecycleConfigurationV2RuleOutput) ToBucketLifecycleConfiguration
 
 func (o BucketLifecycleConfigurationV2RuleOutput) ToBucketLifecycleConfigurationV2RuleOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleOutput {
 	return o
+}
+
+func (o BucketLifecycleConfigurationV2RuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationV2Rule] {
+	return pulumix.Output[BucketLifecycleConfigurationV2Rule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block that specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. See below.
@@ -2643,6 +3046,12 @@ func (o BucketLifecycleConfigurationV2RuleArrayOutput) ToBucketLifecycleConfigur
 	return o
 }
 
+func (o BucketLifecycleConfigurationV2RuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketLifecycleConfigurationV2Rule] {
+	return pulumix.Output[[]BucketLifecycleConfigurationV2Rule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketLifecycleConfigurationV2RuleArrayOutput) Index(i pulumi.IntInput) BucketLifecycleConfigurationV2RuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketLifecycleConfigurationV2Rule {
 		return vs[0].([]BucketLifecycleConfigurationV2Rule)[vs[1].(int)]
@@ -2680,6 +3089,12 @@ func (i BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs) To
 
 func (i BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs) ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput)
+}
+
+func (i BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload] {
+	return pulumix.Output[BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload]{
+		OutputState: i.ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs) ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput() BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput {
@@ -2723,6 +3138,12 @@ func (i *bucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrType
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput)
 }
 
+func (i *bucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload] {
+	return pulumix.Output[*BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload]{
+		OutputState: i.ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput struct{ *pulumi.OutputState }
 
 func (BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput) ElementType() reflect.Type {
@@ -2747,6 +3168,12 @@ func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput) 
 	}).(BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput)
 }
 
+func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload] {
+	return pulumix.Output[BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Number of days after which Amazon S3 aborts an incomplete multipart upload.
 func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput) DaysAfterInitiation() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload) *int {
@@ -2766,6 +3193,12 @@ func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutpu
 
 func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput) ToBucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput {
 	return o
+}
+
+func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload] {
+	return pulumix.Output[*BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUpload]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutput) Elem() BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadOutput {
@@ -2789,7 +3222,7 @@ func (o BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadPtrOutpu
 }
 
 type BucketLifecycleConfigurationV2RuleExpiration struct {
-	// Date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	// Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
 	Date *string `pulumi:"date"`
 	// Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
 	Days *int `pulumi:"days"`
@@ -2809,7 +3242,7 @@ type BucketLifecycleConfigurationV2RuleExpirationInput interface {
 }
 
 type BucketLifecycleConfigurationV2RuleExpirationArgs struct {
-	// Date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	// Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
 	Date pulumi.StringPtrInput `pulumi:"date"`
 	// Lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.
 	Days pulumi.IntPtrInput `pulumi:"days"`
@@ -2827,6 +3260,12 @@ func (i BucketLifecycleConfigurationV2RuleExpirationArgs) ToBucketLifecycleConfi
 
 func (i BucketLifecycleConfigurationV2RuleExpirationArgs) ToBucketLifecycleConfigurationV2RuleExpirationOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleExpirationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleExpirationOutput)
+}
+
+func (i BucketLifecycleConfigurationV2RuleExpirationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationV2RuleExpiration] {
+	return pulumix.Output[BucketLifecycleConfigurationV2RuleExpiration]{
+		OutputState: i.ToBucketLifecycleConfigurationV2RuleExpirationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i BucketLifecycleConfigurationV2RuleExpirationArgs) ToBucketLifecycleConfigurationV2RuleExpirationPtrOutput() BucketLifecycleConfigurationV2RuleExpirationPtrOutput {
@@ -2870,6 +3309,12 @@ func (i *bucketLifecycleConfigurationV2RuleExpirationPtrType) ToBucketLifecycleC
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleExpirationPtrOutput)
 }
 
+func (i *bucketLifecycleConfigurationV2RuleExpirationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfigurationV2RuleExpiration] {
+	return pulumix.Output[*BucketLifecycleConfigurationV2RuleExpiration]{
+		OutputState: i.ToBucketLifecycleConfigurationV2RuleExpirationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketLifecycleConfigurationV2RuleExpirationOutput struct{ *pulumi.OutputState }
 
 func (BucketLifecycleConfigurationV2RuleExpirationOutput) ElementType() reflect.Type {
@@ -2894,7 +3339,13 @@ func (o BucketLifecycleConfigurationV2RuleExpirationOutput) ToBucketLifecycleCon
 	}).(BucketLifecycleConfigurationV2RuleExpirationPtrOutput)
 }
 
-// Date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+func (o BucketLifecycleConfigurationV2RuleExpirationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationV2RuleExpiration] {
+	return pulumix.Output[BucketLifecycleConfigurationV2RuleExpiration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
 func (o BucketLifecycleConfigurationV2RuleExpirationOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleExpiration) *string { return v.Date }).(pulumi.StringPtrOutput)
 }
@@ -2923,6 +3374,12 @@ func (o BucketLifecycleConfigurationV2RuleExpirationPtrOutput) ToBucketLifecycle
 	return o
 }
 
+func (o BucketLifecycleConfigurationV2RuleExpirationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfigurationV2RuleExpiration] {
+	return pulumix.Output[*BucketLifecycleConfigurationV2RuleExpiration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketLifecycleConfigurationV2RuleExpirationPtrOutput) Elem() BucketLifecycleConfigurationV2RuleExpirationOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleExpiration) BucketLifecycleConfigurationV2RuleExpiration {
 		if v != nil {
@@ -2933,7 +3390,7 @@ func (o BucketLifecycleConfigurationV2RuleExpirationPtrOutput) Elem() BucketLife
 	}).(BucketLifecycleConfigurationV2RuleExpirationOutput)
 }
 
-// Date the object is to be moved or deleted. Should be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+// Date the object is to be moved or deleted. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
 func (o BucketLifecycleConfigurationV2RuleExpirationPtrOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationV2RuleExpiration) *string {
 		if v == nil {
@@ -3012,6 +3469,12 @@ func (i BucketLifecycleConfigurationV2RuleFilterArgs) ToBucketLifecycleConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleFilterOutput)
 }
 
+func (i BucketLifecycleConfigurationV2RuleFilterArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationV2RuleFilter] {
+	return pulumix.Output[BucketLifecycleConfigurationV2RuleFilter]{
+		OutputState: i.ToBucketLifecycleConfigurationV2RuleFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketLifecycleConfigurationV2RuleFilterArgs) ToBucketLifecycleConfigurationV2RuleFilterPtrOutput() BucketLifecycleConfigurationV2RuleFilterPtrOutput {
 	return i.ToBucketLifecycleConfigurationV2RuleFilterPtrOutputWithContext(context.Background())
 }
@@ -3053,6 +3516,12 @@ func (i *bucketLifecycleConfigurationV2RuleFilterPtrType) ToBucketLifecycleConfi
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleFilterPtrOutput)
 }
 
+func (i *bucketLifecycleConfigurationV2RuleFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfigurationV2RuleFilter] {
+	return pulumix.Output[*BucketLifecycleConfigurationV2RuleFilter]{
+		OutputState: i.ToBucketLifecycleConfigurationV2RuleFilterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketLifecycleConfigurationV2RuleFilterOutput struct{ *pulumi.OutputState }
 
 func (BucketLifecycleConfigurationV2RuleFilterOutput) ElementType() reflect.Type {
@@ -3075,6 +3544,12 @@ func (o BucketLifecycleConfigurationV2RuleFilterOutput) ToBucketLifecycleConfigu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleConfigurationV2RuleFilter) *BucketLifecycleConfigurationV2RuleFilter {
 		return &v
 	}).(BucketLifecycleConfigurationV2RuleFilterPtrOutput)
+}
+
+func (o BucketLifecycleConfigurationV2RuleFilterOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationV2RuleFilter] {
+	return pulumix.Output[BucketLifecycleConfigurationV2RuleFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
@@ -3118,6 +3593,12 @@ func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) ToBucketLifecycleConf
 
 func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) ToBucketLifecycleConfigurationV2RuleFilterPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleFilterPtrOutput {
 	return o
+}
+
+func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfigurationV2RuleFilter] {
+	return pulumix.Output[*BucketLifecycleConfigurationV2RuleFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketLifecycleConfigurationV2RuleFilterPtrOutput) Elem() BucketLifecycleConfigurationV2RuleFilterOutput {
@@ -3225,6 +3706,12 @@ func (i BucketLifecycleConfigurationV2RuleFilterAndArgs) ToBucketLifecycleConfig
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleFilterAndOutput)
 }
 
+func (i BucketLifecycleConfigurationV2RuleFilterAndArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationV2RuleFilterAnd] {
+	return pulumix.Output[BucketLifecycleConfigurationV2RuleFilterAnd]{
+		OutputState: i.ToBucketLifecycleConfigurationV2RuleFilterAndOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketLifecycleConfigurationV2RuleFilterAndArgs) ToBucketLifecycleConfigurationV2RuleFilterAndPtrOutput() BucketLifecycleConfigurationV2RuleFilterAndPtrOutput {
 	return i.ToBucketLifecycleConfigurationV2RuleFilterAndPtrOutputWithContext(context.Background())
 }
@@ -3266,6 +3753,12 @@ func (i *bucketLifecycleConfigurationV2RuleFilterAndPtrType) ToBucketLifecycleCo
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleFilterAndPtrOutput)
 }
 
+func (i *bucketLifecycleConfigurationV2RuleFilterAndPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfigurationV2RuleFilterAnd] {
+	return pulumix.Output[*BucketLifecycleConfigurationV2RuleFilterAnd]{
+		OutputState: i.ToBucketLifecycleConfigurationV2RuleFilterAndPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketLifecycleConfigurationV2RuleFilterAndOutput struct{ *pulumi.OutputState }
 
 func (BucketLifecycleConfigurationV2RuleFilterAndOutput) ElementType() reflect.Type {
@@ -3288,6 +3781,12 @@ func (o BucketLifecycleConfigurationV2RuleFilterAndOutput) ToBucketLifecycleConf
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleConfigurationV2RuleFilterAnd) *BucketLifecycleConfigurationV2RuleFilterAnd {
 		return &v
 	}).(BucketLifecycleConfigurationV2RuleFilterAndPtrOutput)
+}
+
+func (o BucketLifecycleConfigurationV2RuleFilterAndOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationV2RuleFilterAnd] {
+	return pulumix.Output[BucketLifecycleConfigurationV2RuleFilterAnd]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Minimum object size to which the rule applies. Value must be at least `0` if specified.
@@ -3322,6 +3821,12 @@ func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) ToBucketLifecycleC
 
 func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) ToBucketLifecycleConfigurationV2RuleFilterAndPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleFilterAndPtrOutput {
 	return o
+}
+
+func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfigurationV2RuleFilterAnd] {
+	return pulumix.Output[*BucketLifecycleConfigurationV2RuleFilterAnd]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketLifecycleConfigurationV2RuleFilterAndPtrOutput) Elem() BucketLifecycleConfigurationV2RuleFilterAndOutput {
@@ -3411,6 +3916,12 @@ func (i BucketLifecycleConfigurationV2RuleFilterTagArgs) ToBucketLifecycleConfig
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleFilterTagOutput)
 }
 
+func (i BucketLifecycleConfigurationV2RuleFilterTagArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationV2RuleFilterTag] {
+	return pulumix.Output[BucketLifecycleConfigurationV2RuleFilterTag]{
+		OutputState: i.ToBucketLifecycleConfigurationV2RuleFilterTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketLifecycleConfigurationV2RuleFilterTagArgs) ToBucketLifecycleConfigurationV2RuleFilterTagPtrOutput() BucketLifecycleConfigurationV2RuleFilterTagPtrOutput {
 	return i.ToBucketLifecycleConfigurationV2RuleFilterTagPtrOutputWithContext(context.Background())
 }
@@ -3452,6 +3963,12 @@ func (i *bucketLifecycleConfigurationV2RuleFilterTagPtrType) ToBucketLifecycleCo
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleFilterTagPtrOutput)
 }
 
+func (i *bucketLifecycleConfigurationV2RuleFilterTagPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfigurationV2RuleFilterTag] {
+	return pulumix.Output[*BucketLifecycleConfigurationV2RuleFilterTag]{
+		OutputState: i.ToBucketLifecycleConfigurationV2RuleFilterTagPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketLifecycleConfigurationV2RuleFilterTagOutput struct{ *pulumi.OutputState }
 
 func (BucketLifecycleConfigurationV2RuleFilterTagOutput) ElementType() reflect.Type {
@@ -3476,6 +3993,12 @@ func (o BucketLifecycleConfigurationV2RuleFilterTagOutput) ToBucketLifecycleConf
 	}).(BucketLifecycleConfigurationV2RuleFilterTagPtrOutput)
 }
 
+func (o BucketLifecycleConfigurationV2RuleFilterTagOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationV2RuleFilterTag] {
+	return pulumix.Output[BucketLifecycleConfigurationV2RuleFilterTag]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Name of the object key.
 func (o BucketLifecycleConfigurationV2RuleFilterTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleFilterTag) string { return v.Key }).(pulumi.StringOutput)
@@ -3498,6 +4021,12 @@ func (o BucketLifecycleConfigurationV2RuleFilterTagPtrOutput) ToBucketLifecycleC
 
 func (o BucketLifecycleConfigurationV2RuleFilterTagPtrOutput) ToBucketLifecycleConfigurationV2RuleFilterTagPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleFilterTagPtrOutput {
 	return o
+}
+
+func (o BucketLifecycleConfigurationV2RuleFilterTagPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfigurationV2RuleFilterTag] {
+	return pulumix.Output[*BucketLifecycleConfigurationV2RuleFilterTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketLifecycleConfigurationV2RuleFilterTagPtrOutput) Elem() BucketLifecycleConfigurationV2RuleFilterTagOutput {
@@ -3567,6 +4096,12 @@ func (i BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs) ToBuc
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput)
 }
 
+func (i BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration] {
+	return pulumix.Output[BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration]{
+		OutputState: i.ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs) ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput() BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput {
 	return i.ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutputWithContext(context.Background())
 }
@@ -3608,6 +4143,12 @@ func (i *bucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrType) T
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput)
 }
 
+func (i *bucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration] {
+	return pulumix.Output[*BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration]{
+		OutputState: i.ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput struct{ *pulumi.OutputState }
 
 func (BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput) ElementType() reflect.Type {
@@ -3630,6 +4171,12 @@ func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput) ToB
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration) *BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration {
 		return &v
 	}).(BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput)
+}
+
+func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration] {
+	return pulumix.Output[BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
@@ -3656,6 +4203,12 @@ func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput) 
 
 func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput) ToBucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput {
 	return o
+}
+
+func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration] {
+	return pulumix.Output[*BucketLifecycleConfigurationV2RuleNoncurrentVersionExpiration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationPtrOutput) Elem() BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationOutput {
@@ -3729,6 +4282,12 @@ func (i BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs) ToBuc
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput)
 }
 
+func (i BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition] {
+	return pulumix.Output[BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition]{
+		OutputState: i.ToBucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayInput is an input type that accepts BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArray and BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput values.
 // You can construct a concrete instance of `BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayInput` via:
 //
@@ -3754,6 +4313,12 @@ func (i BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArray) ToBu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput)
 }
 
+func (i BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition] {
+	return pulumix.Output[[]BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition]{
+		OutputState: i.ToBucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput struct{ *pulumi.OutputState }
 
 func (BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput) ElementType() reflect.Type {
@@ -3766,6 +4331,12 @@ func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput) ToB
 
 func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput) ToBucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput {
 	return o
+}
+
+func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition] {
+	return pulumix.Output[BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Number of noncurrent versions Amazon S3 will retain. Must be a non-zero positive integer.
@@ -3799,6 +4370,12 @@ func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput
 	return o
 }
 
+func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition] {
+	return pulumix.Output[[]BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput) Index(i pulumi.IntInput) BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition {
 		return vs[0].([]BucketLifecycleConfigurationV2RuleNoncurrentVersionTransition)[vs[1].(int)]
@@ -3806,7 +4383,7 @@ func (o BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArrayOutput
 }
 
 type BucketLifecycleConfigurationV2RuleTransition struct {
-	// Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) and set to midnight UTC e.g. `2023-01-13T00:00:00Z`.
+	// Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
 	Date *string `pulumi:"date"`
 	// Number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storageClass`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
 	Days *int `pulumi:"days"`
@@ -3826,7 +4403,7 @@ type BucketLifecycleConfigurationV2RuleTransitionInput interface {
 }
 
 type BucketLifecycleConfigurationV2RuleTransitionArgs struct {
-	// Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) and set to midnight UTC e.g. `2023-01-13T00:00:00Z`.
+	// Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
 	Date pulumi.StringPtrInput `pulumi:"date"`
 	// Number of days after creation when objects are transitioned to the specified storage class. The value must be a positive integer. If both `days` and `date` are not specified, defaults to `0`. Valid values depend on `storageClass`, see [Transition objects using Amazon S3 Lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html) for more details.
 	Days pulumi.IntPtrInput `pulumi:"days"`
@@ -3844,6 +4421,12 @@ func (i BucketLifecycleConfigurationV2RuleTransitionArgs) ToBucketLifecycleConfi
 
 func (i BucketLifecycleConfigurationV2RuleTransitionArgs) ToBucketLifecycleConfigurationV2RuleTransitionOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleTransitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleTransitionOutput)
+}
+
+func (i BucketLifecycleConfigurationV2RuleTransitionArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationV2RuleTransition] {
+	return pulumix.Output[BucketLifecycleConfigurationV2RuleTransition]{
+		OutputState: i.ToBucketLifecycleConfigurationV2RuleTransitionOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BucketLifecycleConfigurationV2RuleTransitionArrayInput is an input type that accepts BucketLifecycleConfigurationV2RuleTransitionArray and BucketLifecycleConfigurationV2RuleTransitionArrayOutput values.
@@ -3871,6 +4454,12 @@ func (i BucketLifecycleConfigurationV2RuleTransitionArray) ToBucketLifecycleConf
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationV2RuleTransitionArrayOutput)
 }
 
+func (i BucketLifecycleConfigurationV2RuleTransitionArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketLifecycleConfigurationV2RuleTransition] {
+	return pulumix.Output[[]BucketLifecycleConfigurationV2RuleTransition]{
+		OutputState: i.ToBucketLifecycleConfigurationV2RuleTransitionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketLifecycleConfigurationV2RuleTransitionOutput struct{ *pulumi.OutputState }
 
 func (BucketLifecycleConfigurationV2RuleTransitionOutput) ElementType() reflect.Type {
@@ -3885,7 +4474,13 @@ func (o BucketLifecycleConfigurationV2RuleTransitionOutput) ToBucketLifecycleCon
 	return o
 }
 
-// Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) and set to midnight UTC e.g. `2023-01-13T00:00:00Z`.
+func (o BucketLifecycleConfigurationV2RuleTransitionOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfigurationV2RuleTransition] {
+	return pulumix.Output[BucketLifecycleConfigurationV2RuleTransition]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Date objects are transitioned to the specified storage class. The date value must be in [RFC3339 full-date format](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) e.g. `2023-08-22`.
 func (o BucketLifecycleConfigurationV2RuleTransitionOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationV2RuleTransition) *string { return v.Date }).(pulumi.StringPtrOutput)
 }
@@ -3912,6 +4507,12 @@ func (o BucketLifecycleConfigurationV2RuleTransitionArrayOutput) ToBucketLifecyc
 
 func (o BucketLifecycleConfigurationV2RuleTransitionArrayOutput) ToBucketLifecycleConfigurationV2RuleTransitionArrayOutputWithContext(ctx context.Context) BucketLifecycleConfigurationV2RuleTransitionArrayOutput {
 	return o
+}
+
+func (o BucketLifecycleConfigurationV2RuleTransitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketLifecycleConfigurationV2RuleTransition] {
+	return pulumix.Output[[]BucketLifecycleConfigurationV2RuleTransition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketLifecycleConfigurationV2RuleTransitionArrayOutput) Index(i pulumi.IntInput) BucketLifecycleConfigurationV2RuleTransitionOutput {
@@ -3989,6 +4590,12 @@ func (i BucketLifecycleRuleArgs) ToBucketLifecycleRuleOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleRuleOutput)
 }
 
+func (i BucketLifecycleRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleRule] {
+	return pulumix.Output[BucketLifecycleRule]{
+		OutputState: i.ToBucketLifecycleRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketLifecycleRuleArrayInput is an input type that accepts BucketLifecycleRuleArray and BucketLifecycleRuleArrayOutput values.
 // You can construct a concrete instance of `BucketLifecycleRuleArrayInput` via:
 //
@@ -4014,6 +4621,12 @@ func (i BucketLifecycleRuleArray) ToBucketLifecycleRuleArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleRuleArrayOutput)
 }
 
+func (i BucketLifecycleRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketLifecycleRule] {
+	return pulumix.Output[[]BucketLifecycleRule]{
+		OutputState: i.ToBucketLifecycleRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketLifecycleRuleOutput struct{ *pulumi.OutputState }
 
 func (BucketLifecycleRuleOutput) ElementType() reflect.Type {
@@ -4026,6 +4639,12 @@ func (o BucketLifecycleRuleOutput) ToBucketLifecycleRuleOutput() BucketLifecycle
 
 func (o BucketLifecycleRuleOutput) ToBucketLifecycleRuleOutputWithContext(ctx context.Context) BucketLifecycleRuleOutput {
 	return o
+}
+
+func (o BucketLifecycleRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleRule] {
+	return pulumix.Output[BucketLifecycleRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
@@ -4093,6 +4712,12 @@ func (o BucketLifecycleRuleArrayOutput) ToBucketLifecycleRuleArrayOutputWithCont
 	return o
 }
 
+func (o BucketLifecycleRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketLifecycleRule] {
+	return pulumix.Output[[]BucketLifecycleRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketLifecycleRuleArrayOutput) Index(i pulumi.IntInput) BucketLifecycleRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketLifecycleRule {
 		return vs[0].([]BucketLifecycleRule)[vs[1].(int)]
@@ -4140,6 +4765,12 @@ func (i BucketLifecycleRuleExpirationArgs) ToBucketLifecycleRuleExpirationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleRuleExpirationOutput)
 }
 
+func (i BucketLifecycleRuleExpirationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleRuleExpiration] {
+	return pulumix.Output[BucketLifecycleRuleExpiration]{
+		OutputState: i.ToBucketLifecycleRuleExpirationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketLifecycleRuleExpirationArgs) ToBucketLifecycleRuleExpirationPtrOutput() BucketLifecycleRuleExpirationPtrOutput {
 	return i.ToBucketLifecycleRuleExpirationPtrOutputWithContext(context.Background())
 }
@@ -4181,6 +4812,12 @@ func (i *bucketLifecycleRuleExpirationPtrType) ToBucketLifecycleRuleExpirationPt
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleRuleExpirationPtrOutput)
 }
 
+func (i *bucketLifecycleRuleExpirationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleRuleExpiration] {
+	return pulumix.Output[*BucketLifecycleRuleExpiration]{
+		OutputState: i.ToBucketLifecycleRuleExpirationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketLifecycleRuleExpirationOutput struct{ *pulumi.OutputState }
 
 func (BucketLifecycleRuleExpirationOutput) ElementType() reflect.Type {
@@ -4203,6 +4840,12 @@ func (o BucketLifecycleRuleExpirationOutput) ToBucketLifecycleRuleExpirationPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketLifecycleRuleExpiration) *BucketLifecycleRuleExpiration {
 		return &v
 	}).(BucketLifecycleRuleExpirationPtrOutput)
+}
+
+func (o BucketLifecycleRuleExpirationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleRuleExpiration] {
+	return pulumix.Output[BucketLifecycleRuleExpiration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the date after which you want the corresponding action to take effect.
@@ -4232,6 +4875,12 @@ func (o BucketLifecycleRuleExpirationPtrOutput) ToBucketLifecycleRuleExpirationP
 
 func (o BucketLifecycleRuleExpirationPtrOutput) ToBucketLifecycleRuleExpirationPtrOutputWithContext(ctx context.Context) BucketLifecycleRuleExpirationPtrOutput {
 	return o
+}
+
+func (o BucketLifecycleRuleExpirationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleRuleExpiration] {
+	return pulumix.Output[*BucketLifecycleRuleExpiration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketLifecycleRuleExpirationPtrOutput) Elem() BucketLifecycleRuleExpirationOutput {
@@ -4307,6 +4956,12 @@ func (i BucketLifecycleRuleNoncurrentVersionExpirationArgs) ToBucketLifecycleRul
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleRuleNoncurrentVersionExpirationOutput)
 }
 
+func (i BucketLifecycleRuleNoncurrentVersionExpirationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleRuleNoncurrentVersionExpiration] {
+	return pulumix.Output[BucketLifecycleRuleNoncurrentVersionExpiration]{
+		OutputState: i.ToBucketLifecycleRuleNoncurrentVersionExpirationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketLifecycleRuleNoncurrentVersionExpirationArgs) ToBucketLifecycleRuleNoncurrentVersionExpirationPtrOutput() BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput {
 	return i.ToBucketLifecycleRuleNoncurrentVersionExpirationPtrOutputWithContext(context.Background())
 }
@@ -4348,6 +5003,12 @@ func (i *bucketLifecycleRuleNoncurrentVersionExpirationPtrType) ToBucketLifecycl
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput)
 }
 
+func (i *bucketLifecycleRuleNoncurrentVersionExpirationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleRuleNoncurrentVersionExpiration] {
+	return pulumix.Output[*BucketLifecycleRuleNoncurrentVersionExpiration]{
+		OutputState: i.ToBucketLifecycleRuleNoncurrentVersionExpirationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketLifecycleRuleNoncurrentVersionExpirationOutput struct{ *pulumi.OutputState }
 
 func (BucketLifecycleRuleNoncurrentVersionExpirationOutput) ElementType() reflect.Type {
@@ -4372,6 +5033,12 @@ func (o BucketLifecycleRuleNoncurrentVersionExpirationOutput) ToBucketLifecycleR
 	}).(BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput)
 }
 
+func (o BucketLifecycleRuleNoncurrentVersionExpirationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleRuleNoncurrentVersionExpiration] {
+	return pulumix.Output[BucketLifecycleRuleNoncurrentVersionExpiration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the number of days noncurrent object versions expire.
 func (o BucketLifecycleRuleNoncurrentVersionExpirationOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleNoncurrentVersionExpiration) *int { return v.Days }).(pulumi.IntPtrOutput)
@@ -4389,6 +5056,12 @@ func (o BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput) ToBucketLifecyc
 
 func (o BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput) ToBucketLifecycleRuleNoncurrentVersionExpirationPtrOutputWithContext(ctx context.Context) BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput {
 	return o
+}
+
+func (o BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleRuleNoncurrentVersionExpiration] {
+	return pulumix.Output[*BucketLifecycleRuleNoncurrentVersionExpiration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput) Elem() BucketLifecycleRuleNoncurrentVersionExpirationOutput {
@@ -4448,6 +5121,12 @@ func (i BucketLifecycleRuleNoncurrentVersionTransitionArgs) ToBucketLifecycleRul
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleRuleNoncurrentVersionTransitionOutput)
 }
 
+func (i BucketLifecycleRuleNoncurrentVersionTransitionArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleRuleNoncurrentVersionTransition] {
+	return pulumix.Output[BucketLifecycleRuleNoncurrentVersionTransition]{
+		OutputState: i.ToBucketLifecycleRuleNoncurrentVersionTransitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketLifecycleRuleNoncurrentVersionTransitionArrayInput is an input type that accepts BucketLifecycleRuleNoncurrentVersionTransitionArray and BucketLifecycleRuleNoncurrentVersionTransitionArrayOutput values.
 // You can construct a concrete instance of `BucketLifecycleRuleNoncurrentVersionTransitionArrayInput` via:
 //
@@ -4473,6 +5152,12 @@ func (i BucketLifecycleRuleNoncurrentVersionTransitionArray) ToBucketLifecycleRu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleRuleNoncurrentVersionTransitionArrayOutput)
 }
 
+func (i BucketLifecycleRuleNoncurrentVersionTransitionArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketLifecycleRuleNoncurrentVersionTransition] {
+	return pulumix.Output[[]BucketLifecycleRuleNoncurrentVersionTransition]{
+		OutputState: i.ToBucketLifecycleRuleNoncurrentVersionTransitionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketLifecycleRuleNoncurrentVersionTransitionOutput struct{ *pulumi.OutputState }
 
 func (BucketLifecycleRuleNoncurrentVersionTransitionOutput) ElementType() reflect.Type {
@@ -4485,6 +5170,12 @@ func (o BucketLifecycleRuleNoncurrentVersionTransitionOutput) ToBucketLifecycleR
 
 func (o BucketLifecycleRuleNoncurrentVersionTransitionOutput) ToBucketLifecycleRuleNoncurrentVersionTransitionOutputWithContext(ctx context.Context) BucketLifecycleRuleNoncurrentVersionTransitionOutput {
 	return o
+}
+
+func (o BucketLifecycleRuleNoncurrentVersionTransitionOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleRuleNoncurrentVersionTransition] {
+	return pulumix.Output[BucketLifecycleRuleNoncurrentVersionTransition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the number of days noncurrent object versions transition.
@@ -4509,6 +5200,12 @@ func (o BucketLifecycleRuleNoncurrentVersionTransitionArrayOutput) ToBucketLifec
 
 func (o BucketLifecycleRuleNoncurrentVersionTransitionArrayOutput) ToBucketLifecycleRuleNoncurrentVersionTransitionArrayOutputWithContext(ctx context.Context) BucketLifecycleRuleNoncurrentVersionTransitionArrayOutput {
 	return o
+}
+
+func (o BucketLifecycleRuleNoncurrentVersionTransitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketLifecycleRuleNoncurrentVersionTransition] {
+	return pulumix.Output[[]BucketLifecycleRuleNoncurrentVersionTransition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketLifecycleRuleNoncurrentVersionTransitionArrayOutput) Index(i pulumi.IntInput) BucketLifecycleRuleNoncurrentVersionTransitionOutput {
@@ -4558,6 +5255,12 @@ func (i BucketLifecycleRuleTransitionArgs) ToBucketLifecycleRuleTransitionOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleRuleTransitionOutput)
 }
 
+func (i BucketLifecycleRuleTransitionArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleRuleTransition] {
+	return pulumix.Output[BucketLifecycleRuleTransition]{
+		OutputState: i.ToBucketLifecycleRuleTransitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketLifecycleRuleTransitionArrayInput is an input type that accepts BucketLifecycleRuleTransitionArray and BucketLifecycleRuleTransitionArrayOutput values.
 // You can construct a concrete instance of `BucketLifecycleRuleTransitionArrayInput` via:
 //
@@ -4583,6 +5286,12 @@ func (i BucketLifecycleRuleTransitionArray) ToBucketLifecycleRuleTransitionArray
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleRuleTransitionArrayOutput)
 }
 
+func (i BucketLifecycleRuleTransitionArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketLifecycleRuleTransition] {
+	return pulumix.Output[[]BucketLifecycleRuleTransition]{
+		OutputState: i.ToBucketLifecycleRuleTransitionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketLifecycleRuleTransitionOutput struct{ *pulumi.OutputState }
 
 func (BucketLifecycleRuleTransitionOutput) ElementType() reflect.Type {
@@ -4595,6 +5304,12 @@ func (o BucketLifecycleRuleTransitionOutput) ToBucketLifecycleRuleTransitionOutp
 
 func (o BucketLifecycleRuleTransitionOutput) ToBucketLifecycleRuleTransitionOutputWithContext(ctx context.Context) BucketLifecycleRuleTransitionOutput {
 	return o
+}
+
+func (o BucketLifecycleRuleTransitionOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleRuleTransition] {
+	return pulumix.Output[BucketLifecycleRuleTransition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the date after which you want the corresponding action to take effect.
@@ -4624,6 +5339,12 @@ func (o BucketLifecycleRuleTransitionArrayOutput) ToBucketLifecycleRuleTransitio
 
 func (o BucketLifecycleRuleTransitionArrayOutput) ToBucketLifecycleRuleTransitionArrayOutputWithContext(ctx context.Context) BucketLifecycleRuleTransitionArrayOutput {
 	return o
+}
+
+func (o BucketLifecycleRuleTransitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketLifecycleRuleTransition] {
+	return pulumix.Output[[]BucketLifecycleRuleTransition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketLifecycleRuleTransitionArrayOutput) Index(i pulumi.IntInput) BucketLifecycleRuleTransitionOutput {
@@ -4669,6 +5390,12 @@ func (i BucketLoggingArgs) ToBucketLoggingOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingOutput)
 }
 
+func (i BucketLoggingArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLogging] {
+	return pulumix.Output[BucketLogging]{
+		OutputState: i.ToBucketLoggingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketLoggingArrayInput is an input type that accepts BucketLoggingArray and BucketLoggingArrayOutput values.
 // You can construct a concrete instance of `BucketLoggingArrayInput` via:
 //
@@ -4694,6 +5421,12 @@ func (i BucketLoggingArray) ToBucketLoggingArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingArrayOutput)
 }
 
+func (i BucketLoggingArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketLogging] {
+	return pulumix.Output[[]BucketLogging]{
+		OutputState: i.ToBucketLoggingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketLoggingOutput struct{ *pulumi.OutputState }
 
 func (BucketLoggingOutput) ElementType() reflect.Type {
@@ -4706,6 +5439,12 @@ func (o BucketLoggingOutput) ToBucketLoggingOutput() BucketLoggingOutput {
 
 func (o BucketLoggingOutput) ToBucketLoggingOutputWithContext(ctx context.Context) BucketLoggingOutput {
 	return o
+}
+
+func (o BucketLoggingOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLogging] {
+	return pulumix.Output[BucketLogging]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the bucket that will receive the log objects.
@@ -4730,6 +5469,12 @@ func (o BucketLoggingArrayOutput) ToBucketLoggingArrayOutput() BucketLoggingArra
 
 func (o BucketLoggingArrayOutput) ToBucketLoggingArrayOutputWithContext(ctx context.Context) BucketLoggingArrayOutput {
 	return o
+}
+
+func (o BucketLoggingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketLogging] {
+	return pulumix.Output[[]BucketLogging]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketLoggingArrayOutput) Index(i pulumi.IntInput) BucketLoggingOutput {
@@ -4775,6 +5520,12 @@ func (i BucketLoggingV2TargetGrantArgs) ToBucketLoggingV2TargetGrantOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2TargetGrantOutput)
 }
 
+func (i BucketLoggingV2TargetGrantArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLoggingV2TargetGrant] {
+	return pulumix.Output[BucketLoggingV2TargetGrant]{
+		OutputState: i.ToBucketLoggingV2TargetGrantOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketLoggingV2TargetGrantArrayInput is an input type that accepts BucketLoggingV2TargetGrantArray and BucketLoggingV2TargetGrantArrayOutput values.
 // You can construct a concrete instance of `BucketLoggingV2TargetGrantArrayInput` via:
 //
@@ -4800,6 +5551,12 @@ func (i BucketLoggingV2TargetGrantArray) ToBucketLoggingV2TargetGrantArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2TargetGrantArrayOutput)
 }
 
+func (i BucketLoggingV2TargetGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketLoggingV2TargetGrant] {
+	return pulumix.Output[[]BucketLoggingV2TargetGrant]{
+		OutputState: i.ToBucketLoggingV2TargetGrantArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketLoggingV2TargetGrantOutput struct{ *pulumi.OutputState }
 
 func (BucketLoggingV2TargetGrantOutput) ElementType() reflect.Type {
@@ -4812,6 +5569,12 @@ func (o BucketLoggingV2TargetGrantOutput) ToBucketLoggingV2TargetGrantOutput() B
 
 func (o BucketLoggingV2TargetGrantOutput) ToBucketLoggingV2TargetGrantOutputWithContext(ctx context.Context) BucketLoggingV2TargetGrantOutput {
 	return o
+}
+
+func (o BucketLoggingV2TargetGrantOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLoggingV2TargetGrant] {
+	return pulumix.Output[BucketLoggingV2TargetGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block for the person being granted permissions. See below.
@@ -4836,6 +5599,12 @@ func (o BucketLoggingV2TargetGrantArrayOutput) ToBucketLoggingV2TargetGrantArray
 
 func (o BucketLoggingV2TargetGrantArrayOutput) ToBucketLoggingV2TargetGrantArrayOutputWithContext(ctx context.Context) BucketLoggingV2TargetGrantArrayOutput {
 	return o
+}
+
+func (o BucketLoggingV2TargetGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketLoggingV2TargetGrant] {
+	return pulumix.Output[[]BucketLoggingV2TargetGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketLoggingV2TargetGrantArrayOutput) Index(i pulumi.IntInput) BucketLoggingV2TargetGrantOutput {
@@ -4891,6 +5660,12 @@ func (i BucketLoggingV2TargetGrantGranteeArgs) ToBucketLoggingV2TargetGrantGrant
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingV2TargetGrantGranteeOutput)
 }
 
+func (i BucketLoggingV2TargetGrantGranteeArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLoggingV2TargetGrantGrantee] {
+	return pulumix.Output[BucketLoggingV2TargetGrantGrantee]{
+		OutputState: i.ToBucketLoggingV2TargetGrantGranteeOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketLoggingV2TargetGrantGranteeOutput struct{ *pulumi.OutputState }
 
 func (BucketLoggingV2TargetGrantGranteeOutput) ElementType() reflect.Type {
@@ -4903,6 +5678,12 @@ func (o BucketLoggingV2TargetGrantGranteeOutput) ToBucketLoggingV2TargetGrantGra
 
 func (o BucketLoggingV2TargetGrantGranteeOutput) ToBucketLoggingV2TargetGrantGranteeOutputWithContext(ctx context.Context) BucketLoggingV2TargetGrantGranteeOutput {
 	return o
+}
+
+func (o BucketLoggingV2TargetGrantGranteeOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLoggingV2TargetGrantGrantee] {
+	return pulumix.Output[BucketLoggingV2TargetGrantGrantee]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketLoggingV2TargetGrantGranteeOutput) DisplayName() pulumi.StringPtrOutput {
@@ -4966,6 +5747,12 @@ func (i BucketMetricFilterArgs) ToBucketMetricFilterOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(BucketMetricFilterOutput)
 }
 
+func (i BucketMetricFilterArgs) ToOutput(ctx context.Context) pulumix.Output[BucketMetricFilter] {
+	return pulumix.Output[BucketMetricFilter]{
+		OutputState: i.ToBucketMetricFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketMetricFilterArgs) ToBucketMetricFilterPtrOutput() BucketMetricFilterPtrOutput {
 	return i.ToBucketMetricFilterPtrOutputWithContext(context.Background())
 }
@@ -5007,6 +5794,12 @@ func (i *bucketMetricFilterPtrType) ToBucketMetricFilterPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(BucketMetricFilterPtrOutput)
 }
 
+func (i *bucketMetricFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketMetricFilter] {
+	return pulumix.Output[*BucketMetricFilter]{
+		OutputState: i.ToBucketMetricFilterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketMetricFilterOutput struct{ *pulumi.OutputState }
 
 func (BucketMetricFilterOutput) ElementType() reflect.Type {
@@ -5031,6 +5824,12 @@ func (o BucketMetricFilterOutput) ToBucketMetricFilterPtrOutputWithContext(ctx c
 	}).(BucketMetricFilterPtrOutput)
 }
 
+func (o BucketMetricFilterOutput) ToOutput(ctx context.Context) pulumix.Output[BucketMetricFilter] {
+	return pulumix.Output[BucketMetricFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Object prefix for filtering (singular).
 func (o BucketMetricFilterOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketMetricFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
@@ -5053,6 +5852,12 @@ func (o BucketMetricFilterPtrOutput) ToBucketMetricFilterPtrOutput() BucketMetri
 
 func (o BucketMetricFilterPtrOutput) ToBucketMetricFilterPtrOutputWithContext(ctx context.Context) BucketMetricFilterPtrOutput {
 	return o
+}
+
+func (o BucketMetricFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketMetricFilter] {
+	return pulumix.Output[*BucketMetricFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketMetricFilterPtrOutput) Elem() BucketMetricFilterOutput {
@@ -5134,6 +5939,12 @@ func (i BucketNotificationLambdaFunctionArgs) ToBucketNotificationLambdaFunction
 	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationLambdaFunctionOutput)
 }
 
+func (i BucketNotificationLambdaFunctionArgs) ToOutput(ctx context.Context) pulumix.Output[BucketNotificationLambdaFunction] {
+	return pulumix.Output[BucketNotificationLambdaFunction]{
+		OutputState: i.ToBucketNotificationLambdaFunctionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketNotificationLambdaFunctionArrayInput is an input type that accepts BucketNotificationLambdaFunctionArray and BucketNotificationLambdaFunctionArrayOutput values.
 // You can construct a concrete instance of `BucketNotificationLambdaFunctionArrayInput` via:
 //
@@ -5159,6 +5970,12 @@ func (i BucketNotificationLambdaFunctionArray) ToBucketNotificationLambdaFunctio
 	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationLambdaFunctionArrayOutput)
 }
 
+func (i BucketNotificationLambdaFunctionArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketNotificationLambdaFunction] {
+	return pulumix.Output[[]BucketNotificationLambdaFunction]{
+		OutputState: i.ToBucketNotificationLambdaFunctionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketNotificationLambdaFunctionOutput struct{ *pulumi.OutputState }
 
 func (BucketNotificationLambdaFunctionOutput) ElementType() reflect.Type {
@@ -5171,6 +5988,12 @@ func (o BucketNotificationLambdaFunctionOutput) ToBucketNotificationLambdaFuncti
 
 func (o BucketNotificationLambdaFunctionOutput) ToBucketNotificationLambdaFunctionOutputWithContext(ctx context.Context) BucketNotificationLambdaFunctionOutput {
 	return o
+}
+
+func (o BucketNotificationLambdaFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[BucketNotificationLambdaFunction] {
+	return pulumix.Output[BucketNotificationLambdaFunction]{
+		OutputState: o.OutputState,
+	}
 }
 
 // [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
@@ -5210,6 +6033,12 @@ func (o BucketNotificationLambdaFunctionArrayOutput) ToBucketNotificationLambdaF
 
 func (o BucketNotificationLambdaFunctionArrayOutput) ToBucketNotificationLambdaFunctionArrayOutputWithContext(ctx context.Context) BucketNotificationLambdaFunctionArrayOutput {
 	return o
+}
+
+func (o BucketNotificationLambdaFunctionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketNotificationLambdaFunction] {
+	return pulumix.Output[[]BucketNotificationLambdaFunction]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketNotificationLambdaFunctionArrayOutput) Index(i pulumi.IntInput) BucketNotificationLambdaFunctionOutput {
@@ -5267,6 +6096,12 @@ func (i BucketNotificationQueueArgs) ToBucketNotificationQueueOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationQueueOutput)
 }
 
+func (i BucketNotificationQueueArgs) ToOutput(ctx context.Context) pulumix.Output[BucketNotificationQueue] {
+	return pulumix.Output[BucketNotificationQueue]{
+		OutputState: i.ToBucketNotificationQueueOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketNotificationQueueArrayInput is an input type that accepts BucketNotificationQueueArray and BucketNotificationQueueArrayOutput values.
 // You can construct a concrete instance of `BucketNotificationQueueArrayInput` via:
 //
@@ -5292,6 +6127,12 @@ func (i BucketNotificationQueueArray) ToBucketNotificationQueueArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationQueueArrayOutput)
 }
 
+func (i BucketNotificationQueueArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketNotificationQueue] {
+	return pulumix.Output[[]BucketNotificationQueue]{
+		OutputState: i.ToBucketNotificationQueueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketNotificationQueueOutput struct{ *pulumi.OutputState }
 
 func (BucketNotificationQueueOutput) ElementType() reflect.Type {
@@ -5304,6 +6145,12 @@ func (o BucketNotificationQueueOutput) ToBucketNotificationQueueOutput() BucketN
 
 func (o BucketNotificationQueueOutput) ToBucketNotificationQueueOutputWithContext(ctx context.Context) BucketNotificationQueueOutput {
 	return o
+}
+
+func (o BucketNotificationQueueOutput) ToOutput(ctx context.Context) pulumix.Output[BucketNotificationQueue] {
+	return pulumix.Output[BucketNotificationQueue]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies [event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
@@ -5343,6 +6190,12 @@ func (o BucketNotificationQueueArrayOutput) ToBucketNotificationQueueArrayOutput
 
 func (o BucketNotificationQueueArrayOutput) ToBucketNotificationQueueArrayOutputWithContext(ctx context.Context) BucketNotificationQueueArrayOutput {
 	return o
+}
+
+func (o BucketNotificationQueueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketNotificationQueue] {
+	return pulumix.Output[[]BucketNotificationQueue]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketNotificationQueueArrayOutput) Index(i pulumi.IntInput) BucketNotificationQueueOutput {
@@ -5400,6 +6253,12 @@ func (i BucketNotificationTopicArgs) ToBucketNotificationTopicOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationTopicOutput)
 }
 
+func (i BucketNotificationTopicArgs) ToOutput(ctx context.Context) pulumix.Output[BucketNotificationTopic] {
+	return pulumix.Output[BucketNotificationTopic]{
+		OutputState: i.ToBucketNotificationTopicOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketNotificationTopicArrayInput is an input type that accepts BucketNotificationTopicArray and BucketNotificationTopicArrayOutput values.
 // You can construct a concrete instance of `BucketNotificationTopicArrayInput` via:
 //
@@ -5425,6 +6284,12 @@ func (i BucketNotificationTopicArray) ToBucketNotificationTopicArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationTopicArrayOutput)
 }
 
+func (i BucketNotificationTopicArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketNotificationTopic] {
+	return pulumix.Output[[]BucketNotificationTopic]{
+		OutputState: i.ToBucketNotificationTopicArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketNotificationTopicOutput struct{ *pulumi.OutputState }
 
 func (BucketNotificationTopicOutput) ElementType() reflect.Type {
@@ -5437,6 +6302,12 @@ func (o BucketNotificationTopicOutput) ToBucketNotificationTopicOutput() BucketN
 
 func (o BucketNotificationTopicOutput) ToBucketNotificationTopicOutputWithContext(ctx context.Context) BucketNotificationTopicOutput {
 	return o
+}
+
+func (o BucketNotificationTopicOutput) ToOutput(ctx context.Context) pulumix.Output[BucketNotificationTopic] {
+	return pulumix.Output[BucketNotificationTopic]{
+		OutputState: o.OutputState,
+	}
 }
 
 // [Event](http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html#notification-how-to-event-types-and-destinations) for which to send notifications.
@@ -5476,6 +6347,12 @@ func (o BucketNotificationTopicArrayOutput) ToBucketNotificationTopicArrayOutput
 
 func (o BucketNotificationTopicArrayOutput) ToBucketNotificationTopicArrayOutputWithContext(ctx context.Context) BucketNotificationTopicArrayOutput {
 	return o
+}
+
+func (o BucketNotificationTopicArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketNotificationTopic] {
+	return pulumix.Output[[]BucketNotificationTopic]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketNotificationTopicArrayOutput) Index(i pulumi.IntInput) BucketNotificationTopicOutput {
@@ -5521,6 +6398,12 @@ func (i BucketObjectLockConfigurationArgs) ToBucketObjectLockConfigurationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationOutput)
 }
 
+func (i BucketObjectLockConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketObjectLockConfiguration] {
+	return pulumix.Output[BucketObjectLockConfiguration]{
+		OutputState: i.ToBucketObjectLockConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketObjectLockConfigurationArgs) ToBucketObjectLockConfigurationPtrOutput() BucketObjectLockConfigurationPtrOutput {
 	return i.ToBucketObjectLockConfigurationPtrOutputWithContext(context.Background())
 }
@@ -5562,6 +6445,12 @@ func (i *bucketObjectLockConfigurationPtrType) ToBucketObjectLockConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationPtrOutput)
 }
 
+func (i *bucketObjectLockConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketObjectLockConfiguration] {
+	return pulumix.Output[*BucketObjectLockConfiguration]{
+		OutputState: i.ToBucketObjectLockConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketObjectLockConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketObjectLockConfigurationOutput) ElementType() reflect.Type {
@@ -5586,6 +6475,12 @@ func (o BucketObjectLockConfigurationOutput) ToBucketObjectLockConfigurationPtrO
 	}).(BucketObjectLockConfigurationPtrOutput)
 }
 
+func (o BucketObjectLockConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketObjectLockConfiguration] {
+	return pulumix.Output[BucketObjectLockConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Indicates whether this bucket has an Object Lock configuration enabled. Valid value is `Enabled`.
 func (o BucketObjectLockConfigurationOutput) ObjectLockEnabled() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketObjectLockConfiguration) string { return v.ObjectLockEnabled }).(pulumi.StringOutput)
@@ -5608,6 +6503,12 @@ func (o BucketObjectLockConfigurationPtrOutput) ToBucketObjectLockConfigurationP
 
 func (o BucketObjectLockConfigurationPtrOutput) ToBucketObjectLockConfigurationPtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationPtrOutput {
 	return o
+}
+
+func (o BucketObjectLockConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketObjectLockConfiguration] {
+	return pulumix.Output[*BucketObjectLockConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketObjectLockConfigurationPtrOutput) Elem() BucketObjectLockConfigurationOutput {
@@ -5673,6 +6574,12 @@ func (i BucketObjectLockConfigurationRuleArgs) ToBucketObjectLockConfigurationRu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationRuleOutput)
 }
 
+func (i BucketObjectLockConfigurationRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketObjectLockConfigurationRule] {
+	return pulumix.Output[BucketObjectLockConfigurationRule]{
+		OutputState: i.ToBucketObjectLockConfigurationRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketObjectLockConfigurationRuleArgs) ToBucketObjectLockConfigurationRulePtrOutput() BucketObjectLockConfigurationRulePtrOutput {
 	return i.ToBucketObjectLockConfigurationRulePtrOutputWithContext(context.Background())
 }
@@ -5714,6 +6621,12 @@ func (i *bucketObjectLockConfigurationRulePtrType) ToBucketObjectLockConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationRulePtrOutput)
 }
 
+func (i *bucketObjectLockConfigurationRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketObjectLockConfigurationRule] {
+	return pulumix.Output[*BucketObjectLockConfigurationRule]{
+		OutputState: i.ToBucketObjectLockConfigurationRulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketObjectLockConfigurationRuleOutput struct{ *pulumi.OutputState }
 
 func (BucketObjectLockConfigurationRuleOutput) ElementType() reflect.Type {
@@ -5738,6 +6651,12 @@ func (o BucketObjectLockConfigurationRuleOutput) ToBucketObjectLockConfiguration
 	}).(BucketObjectLockConfigurationRulePtrOutput)
 }
 
+func (o BucketObjectLockConfigurationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketObjectLockConfigurationRule] {
+	return pulumix.Output[BucketObjectLockConfigurationRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The default retention period that you want to apply to new objects placed in this bucket.
 func (o BucketObjectLockConfigurationRuleOutput) DefaultRetention() BucketObjectLockConfigurationRuleDefaultRetentionOutput {
 	return o.ApplyT(func(v BucketObjectLockConfigurationRule) BucketObjectLockConfigurationRuleDefaultRetention {
@@ -5757,6 +6676,12 @@ func (o BucketObjectLockConfigurationRulePtrOutput) ToBucketObjectLockConfigurat
 
 func (o BucketObjectLockConfigurationRulePtrOutput) ToBucketObjectLockConfigurationRulePtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationRulePtrOutput {
 	return o
+}
+
+func (o BucketObjectLockConfigurationRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketObjectLockConfigurationRule] {
+	return pulumix.Output[*BucketObjectLockConfigurationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketObjectLockConfigurationRulePtrOutput) Elem() BucketObjectLockConfigurationRuleOutput {
@@ -5832,6 +6757,12 @@ func (i BucketObjectLockConfigurationRuleDefaultRetentionArgs) ToBucketObjectLoc
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationRuleDefaultRetentionOutput)
 }
 
+func (i BucketObjectLockConfigurationRuleDefaultRetentionArgs) ToOutput(ctx context.Context) pulumix.Output[BucketObjectLockConfigurationRuleDefaultRetention] {
+	return pulumix.Output[BucketObjectLockConfigurationRuleDefaultRetention]{
+		OutputState: i.ToBucketObjectLockConfigurationRuleDefaultRetentionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketObjectLockConfigurationRuleDefaultRetentionArgs) ToBucketObjectLockConfigurationRuleDefaultRetentionPtrOutput() BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput {
 	return i.ToBucketObjectLockConfigurationRuleDefaultRetentionPtrOutputWithContext(context.Background())
 }
@@ -5873,6 +6804,12 @@ func (i *bucketObjectLockConfigurationRuleDefaultRetentionPtrType) ToBucketObjec
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput)
 }
 
+func (i *bucketObjectLockConfigurationRuleDefaultRetentionPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketObjectLockConfigurationRuleDefaultRetention] {
+	return pulumix.Output[*BucketObjectLockConfigurationRuleDefaultRetention]{
+		OutputState: i.ToBucketObjectLockConfigurationRuleDefaultRetentionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketObjectLockConfigurationRuleDefaultRetentionOutput struct{ *pulumi.OutputState }
 
 func (BucketObjectLockConfigurationRuleDefaultRetentionOutput) ElementType() reflect.Type {
@@ -5895,6 +6832,12 @@ func (o BucketObjectLockConfigurationRuleDefaultRetentionOutput) ToBucketObjectL
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketObjectLockConfigurationRuleDefaultRetention) *BucketObjectLockConfigurationRuleDefaultRetention {
 		return &v
 	}).(BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput)
+}
+
+func (o BucketObjectLockConfigurationRuleDefaultRetentionOutput) ToOutput(ctx context.Context) pulumix.Output[BucketObjectLockConfigurationRuleDefaultRetention] {
+	return pulumix.Output[BucketObjectLockConfigurationRuleDefaultRetention]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The number of days that you want to specify for the default retention period.
@@ -5930,6 +6873,12 @@ func (o BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput) ToBucketObje
 
 func (o BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput) ToBucketObjectLockConfigurationRuleDefaultRetentionPtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput {
 	return o
+}
+
+func (o BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketObjectLockConfigurationRuleDefaultRetention] {
+	return pulumix.Output[*BucketObjectLockConfigurationRuleDefaultRetention]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput) Elem() BucketObjectLockConfigurationRuleDefaultRetentionOutput {
@@ -6011,6 +6960,12 @@ func (i BucketObjectLockConfigurationV2RuleArgs) ToBucketObjectLockConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationV2RuleOutput)
 }
 
+func (i BucketObjectLockConfigurationV2RuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketObjectLockConfigurationV2Rule] {
+	return pulumix.Output[BucketObjectLockConfigurationV2Rule]{
+		OutputState: i.ToBucketObjectLockConfigurationV2RuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketObjectLockConfigurationV2RuleArgs) ToBucketObjectLockConfigurationV2RulePtrOutput() BucketObjectLockConfigurationV2RulePtrOutput {
 	return i.ToBucketObjectLockConfigurationV2RulePtrOutputWithContext(context.Background())
 }
@@ -6052,6 +7007,12 @@ func (i *bucketObjectLockConfigurationV2RulePtrType) ToBucketObjectLockConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationV2RulePtrOutput)
 }
 
+func (i *bucketObjectLockConfigurationV2RulePtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketObjectLockConfigurationV2Rule] {
+	return pulumix.Output[*BucketObjectLockConfigurationV2Rule]{
+		OutputState: i.ToBucketObjectLockConfigurationV2RulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketObjectLockConfigurationV2RuleOutput struct{ *pulumi.OutputState }
 
 func (BucketObjectLockConfigurationV2RuleOutput) ElementType() reflect.Type {
@@ -6076,6 +7037,12 @@ func (o BucketObjectLockConfigurationV2RuleOutput) ToBucketObjectLockConfigurati
 	}).(BucketObjectLockConfigurationV2RulePtrOutput)
 }
 
+func (o BucketObjectLockConfigurationV2RuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketObjectLockConfigurationV2Rule] {
+	return pulumix.Output[BucketObjectLockConfigurationV2Rule]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
 func (o BucketObjectLockConfigurationV2RuleOutput) DefaultRetention() BucketObjectLockConfigurationV2RuleDefaultRetentionOutput {
 	return o.ApplyT(func(v BucketObjectLockConfigurationV2Rule) BucketObjectLockConfigurationV2RuleDefaultRetention {
@@ -6095,6 +7062,12 @@ func (o BucketObjectLockConfigurationV2RulePtrOutput) ToBucketObjectLockConfigur
 
 func (o BucketObjectLockConfigurationV2RulePtrOutput) ToBucketObjectLockConfigurationV2RulePtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationV2RulePtrOutput {
 	return o
+}
+
+func (o BucketObjectLockConfigurationV2RulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketObjectLockConfigurationV2Rule] {
+	return pulumix.Output[*BucketObjectLockConfigurationV2Rule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketObjectLockConfigurationV2RulePtrOutput) Elem() BucketObjectLockConfigurationV2RuleOutput {
@@ -6158,6 +7131,12 @@ func (i BucketObjectLockConfigurationV2RuleDefaultRetentionArgs) ToBucketObjectL
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationV2RuleDefaultRetentionOutput)
 }
 
+func (i BucketObjectLockConfigurationV2RuleDefaultRetentionArgs) ToOutput(ctx context.Context) pulumix.Output[BucketObjectLockConfigurationV2RuleDefaultRetention] {
+	return pulumix.Output[BucketObjectLockConfigurationV2RuleDefaultRetention]{
+		OutputState: i.ToBucketObjectLockConfigurationV2RuleDefaultRetentionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketObjectLockConfigurationV2RuleDefaultRetentionArgs) ToBucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput() BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput {
 	return i.ToBucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutputWithContext(context.Background())
 }
@@ -6199,6 +7178,12 @@ func (i *bucketObjectLockConfigurationV2RuleDefaultRetentionPtrType) ToBucketObj
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput)
 }
 
+func (i *bucketObjectLockConfigurationV2RuleDefaultRetentionPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketObjectLockConfigurationV2RuleDefaultRetention] {
+	return pulumix.Output[*BucketObjectLockConfigurationV2RuleDefaultRetention]{
+		OutputState: i.ToBucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketObjectLockConfigurationV2RuleDefaultRetentionOutput struct{ *pulumi.OutputState }
 
 func (BucketObjectLockConfigurationV2RuleDefaultRetentionOutput) ElementType() reflect.Type {
@@ -6221,6 +7206,12 @@ func (o BucketObjectLockConfigurationV2RuleDefaultRetentionOutput) ToBucketObjec
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketObjectLockConfigurationV2RuleDefaultRetention) *BucketObjectLockConfigurationV2RuleDefaultRetention {
 		return &v
 	}).(BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput)
+}
+
+func (o BucketObjectLockConfigurationV2RuleDefaultRetentionOutput) ToOutput(ctx context.Context) pulumix.Output[BucketObjectLockConfigurationV2RuleDefaultRetention] {
+	return pulumix.Output[BucketObjectLockConfigurationV2RuleDefaultRetention]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Number of days that you want to specify for the default retention period.
@@ -6250,6 +7241,12 @@ func (o BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput) ToBucketOb
 
 func (o BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput) ToBucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput {
 	return o
+}
+
+func (o BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketObjectLockConfigurationV2RuleDefaultRetention] {
+	return pulumix.Output[*BucketObjectLockConfigurationV2RuleDefaultRetention]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketObjectLockConfigurationV2RuleDefaultRetentionPtrOutput) Elem() BucketObjectLockConfigurationV2RuleDefaultRetentionOutput {
@@ -6325,6 +7322,12 @@ func (i BucketOwnershipControlsRuleArgs) ToBucketOwnershipControlsRuleOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsRuleOutput)
 }
 
+func (i BucketOwnershipControlsRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketOwnershipControlsRule] {
+	return pulumix.Output[BucketOwnershipControlsRule]{
+		OutputState: i.ToBucketOwnershipControlsRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketOwnershipControlsRuleArgs) ToBucketOwnershipControlsRulePtrOutput() BucketOwnershipControlsRulePtrOutput {
 	return i.ToBucketOwnershipControlsRulePtrOutputWithContext(context.Background())
 }
@@ -6366,6 +7369,12 @@ func (i *bucketOwnershipControlsRulePtrType) ToBucketOwnershipControlsRulePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsRulePtrOutput)
 }
 
+func (i *bucketOwnershipControlsRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketOwnershipControlsRule] {
+	return pulumix.Output[*BucketOwnershipControlsRule]{
+		OutputState: i.ToBucketOwnershipControlsRulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketOwnershipControlsRuleOutput struct{ *pulumi.OutputState }
 
 func (BucketOwnershipControlsRuleOutput) ElementType() reflect.Type {
@@ -6390,6 +7399,12 @@ func (o BucketOwnershipControlsRuleOutput) ToBucketOwnershipControlsRulePtrOutpu
 	}).(BucketOwnershipControlsRulePtrOutput)
 }
 
+func (o BucketOwnershipControlsRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketOwnershipControlsRule] {
+	return pulumix.Output[BucketOwnershipControlsRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
 func (o BucketOwnershipControlsRuleOutput) ObjectOwnership() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketOwnershipControlsRule) string { return v.ObjectOwnership }).(pulumi.StringOutput)
@@ -6407,6 +7422,12 @@ func (o BucketOwnershipControlsRulePtrOutput) ToBucketOwnershipControlsRulePtrOu
 
 func (o BucketOwnershipControlsRulePtrOutput) ToBucketOwnershipControlsRulePtrOutputWithContext(ctx context.Context) BucketOwnershipControlsRulePtrOutput {
 	return o
+}
+
+func (o BucketOwnershipControlsRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketOwnershipControlsRule] {
+	return pulumix.Output[*BucketOwnershipControlsRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketOwnershipControlsRulePtrOutput) Elem() BucketOwnershipControlsRuleOutput {
@@ -6498,6 +7519,12 @@ func (i BucketReplicationConfigRuleArgs) ToBucketReplicationConfigRuleOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleOutput)
 }
 
+func (i BucketReplicationConfigRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRule] {
+	return pulumix.Output[BucketReplicationConfigRule]{
+		OutputState: i.ToBucketReplicationConfigRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketReplicationConfigRuleArrayInput is an input type that accepts BucketReplicationConfigRuleArray and BucketReplicationConfigRuleArrayOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigRuleArrayInput` via:
 //
@@ -6523,6 +7550,12 @@ func (i BucketReplicationConfigRuleArray) ToBucketReplicationConfigRuleArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleArrayOutput)
 }
 
+func (i BucketReplicationConfigRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketReplicationConfigRule] {
+	return pulumix.Output[[]BucketReplicationConfigRule]{
+		OutputState: i.ToBucketReplicationConfigRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigRuleOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigRuleOutput) ElementType() reflect.Type {
@@ -6535,6 +7568,12 @@ func (o BucketReplicationConfigRuleOutput) ToBucketReplicationConfigRuleOutput()
 
 func (o BucketReplicationConfigRuleOutput) ToBucketReplicationConfigRuleOutputWithContext(ctx context.Context) BucketReplicationConfigRuleOutput {
 	return o
+}
+
+func (o BucketReplicationConfigRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRule] {
+	return pulumix.Output[BucketReplicationConfigRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether delete markers are replicated. This argument is only valid with V2 replication configurations (i.e., when `filter` is used)documented below.
@@ -6604,6 +7643,12 @@ func (o BucketReplicationConfigRuleArrayOutput) ToBucketReplicationConfigRuleArr
 	return o
 }
 
+func (o BucketReplicationConfigRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketReplicationConfigRule] {
+	return pulumix.Output[[]BucketReplicationConfigRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketReplicationConfigRuleArrayOutput) Index(i pulumi.IntInput) BucketReplicationConfigRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketReplicationConfigRule {
 		return vs[0].([]BucketReplicationConfigRule)[vs[1].(int)]
@@ -6641,6 +7686,12 @@ func (i BucketReplicationConfigRuleDeleteMarkerReplicationArgs) ToBucketReplicat
 
 func (i BucketReplicationConfigRuleDeleteMarkerReplicationArgs) ToBucketReplicationConfigRuleDeleteMarkerReplicationOutputWithContext(ctx context.Context) BucketReplicationConfigRuleDeleteMarkerReplicationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleDeleteMarkerReplicationOutput)
+}
+
+func (i BucketReplicationConfigRuleDeleteMarkerReplicationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleDeleteMarkerReplication] {
+	return pulumix.Output[BucketReplicationConfigRuleDeleteMarkerReplication]{
+		OutputState: i.ToBucketReplicationConfigRuleDeleteMarkerReplicationOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i BucketReplicationConfigRuleDeleteMarkerReplicationArgs) ToBucketReplicationConfigRuleDeleteMarkerReplicationPtrOutput() BucketReplicationConfigRuleDeleteMarkerReplicationPtrOutput {
@@ -6684,6 +7735,12 @@ func (i *bucketReplicationConfigRuleDeleteMarkerReplicationPtrType) ToBucketRepl
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleDeleteMarkerReplicationPtrOutput)
 }
 
+func (i *bucketReplicationConfigRuleDeleteMarkerReplicationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleDeleteMarkerReplication] {
+	return pulumix.Output[*BucketReplicationConfigRuleDeleteMarkerReplication]{
+		OutputState: i.ToBucketReplicationConfigRuleDeleteMarkerReplicationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigRuleDeleteMarkerReplicationOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigRuleDeleteMarkerReplicationOutput) ElementType() reflect.Type {
@@ -6708,6 +7765,12 @@ func (o BucketReplicationConfigRuleDeleteMarkerReplicationOutput) ToBucketReplic
 	}).(BucketReplicationConfigRuleDeleteMarkerReplicationPtrOutput)
 }
 
+func (o BucketReplicationConfigRuleDeleteMarkerReplicationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleDeleteMarkerReplication] {
+	return pulumix.Output[BucketReplicationConfigRuleDeleteMarkerReplication]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Whether delete markers should be replicated. Either `"Enabled"` or `"Disabled"`.
 func (o BucketReplicationConfigRuleDeleteMarkerReplicationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketReplicationConfigRuleDeleteMarkerReplication) string { return v.Status }).(pulumi.StringOutput)
@@ -6725,6 +7788,12 @@ func (o BucketReplicationConfigRuleDeleteMarkerReplicationPtrOutput) ToBucketRep
 
 func (o BucketReplicationConfigRuleDeleteMarkerReplicationPtrOutput) ToBucketReplicationConfigRuleDeleteMarkerReplicationPtrOutputWithContext(ctx context.Context) BucketReplicationConfigRuleDeleteMarkerReplicationPtrOutput {
 	return o
+}
+
+func (o BucketReplicationConfigRuleDeleteMarkerReplicationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleDeleteMarkerReplication] {
+	return pulumix.Output[*BucketReplicationConfigRuleDeleteMarkerReplication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketReplicationConfigRuleDeleteMarkerReplicationPtrOutput) Elem() BucketReplicationConfigRuleDeleteMarkerReplicationOutput {
@@ -6804,6 +7873,12 @@ func (i BucketReplicationConfigRuleDestinationArgs) ToBucketReplicationConfigRul
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleDestinationOutput)
 }
 
+func (i BucketReplicationConfigRuleDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleDestination] {
+	return pulumix.Output[BucketReplicationConfigRuleDestination]{
+		OutputState: i.ToBucketReplicationConfigRuleDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigRuleDestinationOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigRuleDestinationOutput) ElementType() reflect.Type {
@@ -6816,6 +7891,12 @@ func (o BucketReplicationConfigRuleDestinationOutput) ToBucketReplicationConfigR
 
 func (o BucketReplicationConfigRuleDestinationOutput) ToBucketReplicationConfigRuleDestinationOutputWithContext(ctx context.Context) BucketReplicationConfigRuleDestinationOutput {
 	return o
+}
+
+func (o BucketReplicationConfigRuleDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleDestination] {
+	return pulumix.Output[BucketReplicationConfigRuleDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block that specifies the overrides to use for object owners on replication. See below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.
@@ -6894,6 +7975,12 @@ func (i BucketReplicationConfigRuleDestinationAccessControlTranslationArgs) ToBu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleDestinationAccessControlTranslationOutput)
 }
 
+func (i BucketReplicationConfigRuleDestinationAccessControlTranslationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleDestinationAccessControlTranslation] {
+	return pulumix.Output[BucketReplicationConfigRuleDestinationAccessControlTranslation]{
+		OutputState: i.ToBucketReplicationConfigRuleDestinationAccessControlTranslationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketReplicationConfigRuleDestinationAccessControlTranslationArgs) ToBucketReplicationConfigRuleDestinationAccessControlTranslationPtrOutput() BucketReplicationConfigRuleDestinationAccessControlTranslationPtrOutput {
 	return i.ToBucketReplicationConfigRuleDestinationAccessControlTranslationPtrOutputWithContext(context.Background())
 }
@@ -6935,6 +8022,12 @@ func (i *bucketReplicationConfigRuleDestinationAccessControlTranslationPtrType) 
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleDestinationAccessControlTranslationPtrOutput)
 }
 
+func (i *bucketReplicationConfigRuleDestinationAccessControlTranslationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleDestinationAccessControlTranslation] {
+	return pulumix.Output[*BucketReplicationConfigRuleDestinationAccessControlTranslation]{
+		OutputState: i.ToBucketReplicationConfigRuleDestinationAccessControlTranslationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigRuleDestinationAccessControlTranslationOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigRuleDestinationAccessControlTranslationOutput) ElementType() reflect.Type {
@@ -6959,6 +8052,12 @@ func (o BucketReplicationConfigRuleDestinationAccessControlTranslationOutput) To
 	}).(BucketReplicationConfigRuleDestinationAccessControlTranslationPtrOutput)
 }
 
+func (o BucketReplicationConfigRuleDestinationAccessControlTranslationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleDestinationAccessControlTranslation] {
+	return pulumix.Output[BucketReplicationConfigRuleDestinationAccessControlTranslation]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
 func (o BucketReplicationConfigRuleDestinationAccessControlTranslationOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketReplicationConfigRuleDestinationAccessControlTranslation) string { return v.Owner }).(pulumi.StringOutput)
@@ -6976,6 +8075,12 @@ func (o BucketReplicationConfigRuleDestinationAccessControlTranslationPtrOutput)
 
 func (o BucketReplicationConfigRuleDestinationAccessControlTranslationPtrOutput) ToBucketReplicationConfigRuleDestinationAccessControlTranslationPtrOutputWithContext(ctx context.Context) BucketReplicationConfigRuleDestinationAccessControlTranslationPtrOutput {
 	return o
+}
+
+func (o BucketReplicationConfigRuleDestinationAccessControlTranslationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleDestinationAccessControlTranslation] {
+	return pulumix.Output[*BucketReplicationConfigRuleDestinationAccessControlTranslation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketReplicationConfigRuleDestinationAccessControlTranslationPtrOutput) Elem() BucketReplicationConfigRuleDestinationAccessControlTranslationOutput {
@@ -7031,6 +8136,12 @@ func (i BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs) ToBuc
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleDestinationEncryptionConfigurationOutput)
 }
 
+func (i BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleDestinationEncryptionConfiguration] {
+	return pulumix.Output[BucketReplicationConfigRuleDestinationEncryptionConfiguration]{
+		OutputState: i.ToBucketReplicationConfigRuleDestinationEncryptionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs) ToBucketReplicationConfigRuleDestinationEncryptionConfigurationPtrOutput() BucketReplicationConfigRuleDestinationEncryptionConfigurationPtrOutput {
 	return i.ToBucketReplicationConfigRuleDestinationEncryptionConfigurationPtrOutputWithContext(context.Background())
 }
@@ -7072,6 +8183,12 @@ func (i *bucketReplicationConfigRuleDestinationEncryptionConfigurationPtrType) T
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleDestinationEncryptionConfigurationPtrOutput)
 }
 
+func (i *bucketReplicationConfigRuleDestinationEncryptionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleDestinationEncryptionConfiguration] {
+	return pulumix.Output[*BucketReplicationConfigRuleDestinationEncryptionConfiguration]{
+		OutputState: i.ToBucketReplicationConfigRuleDestinationEncryptionConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigRuleDestinationEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigRuleDestinationEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -7096,6 +8213,12 @@ func (o BucketReplicationConfigRuleDestinationEncryptionConfigurationOutput) ToB
 	}).(BucketReplicationConfigRuleDestinationEncryptionConfigurationPtrOutput)
 }
 
+func (o BucketReplicationConfigRuleDestinationEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleDestinationEncryptionConfiguration] {
+	return pulumix.Output[BucketReplicationConfigRuleDestinationEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
 func (o BucketReplicationConfigRuleDestinationEncryptionConfigurationOutput) ReplicaKmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketReplicationConfigRuleDestinationEncryptionConfiguration) string { return v.ReplicaKmsKeyId }).(pulumi.StringOutput)
@@ -7113,6 +8236,12 @@ func (o BucketReplicationConfigRuleDestinationEncryptionConfigurationPtrOutput) 
 
 func (o BucketReplicationConfigRuleDestinationEncryptionConfigurationPtrOutput) ToBucketReplicationConfigRuleDestinationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) BucketReplicationConfigRuleDestinationEncryptionConfigurationPtrOutput {
 	return o
+}
+
+func (o BucketReplicationConfigRuleDestinationEncryptionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleDestinationEncryptionConfiguration] {
+	return pulumix.Output[*BucketReplicationConfigRuleDestinationEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketReplicationConfigRuleDestinationEncryptionConfigurationPtrOutput) Elem() BucketReplicationConfigRuleDestinationEncryptionConfigurationOutput {
@@ -7172,6 +8301,12 @@ func (i BucketReplicationConfigRuleDestinationMetricsArgs) ToBucketReplicationCo
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleDestinationMetricsOutput)
 }
 
+func (i BucketReplicationConfigRuleDestinationMetricsArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleDestinationMetrics] {
+	return pulumix.Output[BucketReplicationConfigRuleDestinationMetrics]{
+		OutputState: i.ToBucketReplicationConfigRuleDestinationMetricsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketReplicationConfigRuleDestinationMetricsArgs) ToBucketReplicationConfigRuleDestinationMetricsPtrOutput() BucketReplicationConfigRuleDestinationMetricsPtrOutput {
 	return i.ToBucketReplicationConfigRuleDestinationMetricsPtrOutputWithContext(context.Background())
 }
@@ -7213,6 +8348,12 @@ func (i *bucketReplicationConfigRuleDestinationMetricsPtrType) ToBucketReplicati
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleDestinationMetricsPtrOutput)
 }
 
+func (i *bucketReplicationConfigRuleDestinationMetricsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleDestinationMetrics] {
+	return pulumix.Output[*BucketReplicationConfigRuleDestinationMetrics]{
+		OutputState: i.ToBucketReplicationConfigRuleDestinationMetricsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigRuleDestinationMetricsOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigRuleDestinationMetricsOutput) ElementType() reflect.Type {
@@ -7235,6 +8376,12 @@ func (o BucketReplicationConfigRuleDestinationMetricsOutput) ToBucketReplication
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketReplicationConfigRuleDestinationMetrics) *BucketReplicationConfigRuleDestinationMetrics {
 		return &v
 	}).(BucketReplicationConfigRuleDestinationMetricsPtrOutput)
+}
+
+func (o BucketReplicationConfigRuleDestinationMetricsOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleDestinationMetrics] {
+	return pulumix.Output[BucketReplicationConfigRuleDestinationMetrics]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event. See below.
@@ -7261,6 +8408,12 @@ func (o BucketReplicationConfigRuleDestinationMetricsPtrOutput) ToBucketReplicat
 
 func (o BucketReplicationConfigRuleDestinationMetricsPtrOutput) ToBucketReplicationConfigRuleDestinationMetricsPtrOutputWithContext(ctx context.Context) BucketReplicationConfigRuleDestinationMetricsPtrOutput {
 	return o
+}
+
+func (o BucketReplicationConfigRuleDestinationMetricsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleDestinationMetrics] {
+	return pulumix.Output[*BucketReplicationConfigRuleDestinationMetrics]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketReplicationConfigRuleDestinationMetricsPtrOutput) Elem() BucketReplicationConfigRuleDestinationMetricsOutput {
@@ -7326,6 +8479,12 @@ func (i BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs) ToBucke
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleDestinationMetricsEventThresholdOutput)
 }
 
+func (i BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleDestinationMetricsEventThreshold] {
+	return pulumix.Output[BucketReplicationConfigRuleDestinationMetricsEventThreshold]{
+		OutputState: i.ToBucketReplicationConfigRuleDestinationMetricsEventThresholdOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs) ToBucketReplicationConfigRuleDestinationMetricsEventThresholdPtrOutput() BucketReplicationConfigRuleDestinationMetricsEventThresholdPtrOutput {
 	return i.ToBucketReplicationConfigRuleDestinationMetricsEventThresholdPtrOutputWithContext(context.Background())
 }
@@ -7367,6 +8526,12 @@ func (i *bucketReplicationConfigRuleDestinationMetricsEventThresholdPtrType) ToB
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleDestinationMetricsEventThresholdPtrOutput)
 }
 
+func (i *bucketReplicationConfigRuleDestinationMetricsEventThresholdPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleDestinationMetricsEventThreshold] {
+	return pulumix.Output[*BucketReplicationConfigRuleDestinationMetricsEventThreshold]{
+		OutputState: i.ToBucketReplicationConfigRuleDestinationMetricsEventThresholdPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigRuleDestinationMetricsEventThresholdOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigRuleDestinationMetricsEventThresholdOutput) ElementType() reflect.Type {
@@ -7391,6 +8556,12 @@ func (o BucketReplicationConfigRuleDestinationMetricsEventThresholdOutput) ToBuc
 	}).(BucketReplicationConfigRuleDestinationMetricsEventThresholdPtrOutput)
 }
 
+func (o BucketReplicationConfigRuleDestinationMetricsEventThresholdOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleDestinationMetricsEventThreshold] {
+	return pulumix.Output[BucketReplicationConfigRuleDestinationMetricsEventThreshold]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Time in minutes. Valid values: `15`.
 func (o BucketReplicationConfigRuleDestinationMetricsEventThresholdOutput) Minutes() pulumi.IntOutput {
 	return o.ApplyT(func(v BucketReplicationConfigRuleDestinationMetricsEventThreshold) int { return v.Minutes }).(pulumi.IntOutput)
@@ -7408,6 +8579,12 @@ func (o BucketReplicationConfigRuleDestinationMetricsEventThresholdPtrOutput) To
 
 func (o BucketReplicationConfigRuleDestinationMetricsEventThresholdPtrOutput) ToBucketReplicationConfigRuleDestinationMetricsEventThresholdPtrOutputWithContext(ctx context.Context) BucketReplicationConfigRuleDestinationMetricsEventThresholdPtrOutput {
 	return o
+}
+
+func (o BucketReplicationConfigRuleDestinationMetricsEventThresholdPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleDestinationMetricsEventThreshold] {
+	return pulumix.Output[*BucketReplicationConfigRuleDestinationMetricsEventThreshold]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketReplicationConfigRuleDestinationMetricsEventThresholdPtrOutput) Elem() BucketReplicationConfigRuleDestinationMetricsEventThresholdOutput {
@@ -7467,6 +8644,12 @@ func (i BucketReplicationConfigRuleDestinationReplicationTimeArgs) ToBucketRepli
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleDestinationReplicationTimeOutput)
 }
 
+func (i BucketReplicationConfigRuleDestinationReplicationTimeArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleDestinationReplicationTime] {
+	return pulumix.Output[BucketReplicationConfigRuleDestinationReplicationTime]{
+		OutputState: i.ToBucketReplicationConfigRuleDestinationReplicationTimeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketReplicationConfigRuleDestinationReplicationTimeArgs) ToBucketReplicationConfigRuleDestinationReplicationTimePtrOutput() BucketReplicationConfigRuleDestinationReplicationTimePtrOutput {
 	return i.ToBucketReplicationConfigRuleDestinationReplicationTimePtrOutputWithContext(context.Background())
 }
@@ -7508,6 +8691,12 @@ func (i *bucketReplicationConfigRuleDestinationReplicationTimePtrType) ToBucketR
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleDestinationReplicationTimePtrOutput)
 }
 
+func (i *bucketReplicationConfigRuleDestinationReplicationTimePtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleDestinationReplicationTime] {
+	return pulumix.Output[*BucketReplicationConfigRuleDestinationReplicationTime]{
+		OutputState: i.ToBucketReplicationConfigRuleDestinationReplicationTimePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigRuleDestinationReplicationTimeOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigRuleDestinationReplicationTimeOutput) ElementType() reflect.Type {
@@ -7530,6 +8719,12 @@ func (o BucketReplicationConfigRuleDestinationReplicationTimeOutput) ToBucketRep
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketReplicationConfigRuleDestinationReplicationTime) *BucketReplicationConfigRuleDestinationReplicationTime {
 		return &v
 	}).(BucketReplicationConfigRuleDestinationReplicationTimePtrOutput)
+}
+
+func (o BucketReplicationConfigRuleDestinationReplicationTimeOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleDestinationReplicationTime] {
+	return pulumix.Output[BucketReplicationConfigRuleDestinationReplicationTime]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Status of the Replication Time Control. Either `"Enabled"` or `"Disabled"`.
@@ -7556,6 +8751,12 @@ func (o BucketReplicationConfigRuleDestinationReplicationTimePtrOutput) ToBucket
 
 func (o BucketReplicationConfigRuleDestinationReplicationTimePtrOutput) ToBucketReplicationConfigRuleDestinationReplicationTimePtrOutputWithContext(ctx context.Context) BucketReplicationConfigRuleDestinationReplicationTimePtrOutput {
 	return o
+}
+
+func (o BucketReplicationConfigRuleDestinationReplicationTimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleDestinationReplicationTime] {
+	return pulumix.Output[*BucketReplicationConfigRuleDestinationReplicationTime]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketReplicationConfigRuleDestinationReplicationTimePtrOutput) Elem() BucketReplicationConfigRuleDestinationReplicationTimeOutput {
@@ -7621,6 +8822,12 @@ func (i BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs) ToBucketR
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleDestinationReplicationTimeTimeOutput)
 }
 
+func (i BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleDestinationReplicationTimeTime] {
+	return pulumix.Output[BucketReplicationConfigRuleDestinationReplicationTimeTime]{
+		OutputState: i.ToBucketReplicationConfigRuleDestinationReplicationTimeTimeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs) ToBucketReplicationConfigRuleDestinationReplicationTimeTimePtrOutput() BucketReplicationConfigRuleDestinationReplicationTimeTimePtrOutput {
 	return i.ToBucketReplicationConfigRuleDestinationReplicationTimeTimePtrOutputWithContext(context.Background())
 }
@@ -7662,6 +8869,12 @@ func (i *bucketReplicationConfigRuleDestinationReplicationTimeTimePtrType) ToBuc
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleDestinationReplicationTimeTimePtrOutput)
 }
 
+func (i *bucketReplicationConfigRuleDestinationReplicationTimeTimePtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleDestinationReplicationTimeTime] {
+	return pulumix.Output[*BucketReplicationConfigRuleDestinationReplicationTimeTime]{
+		OutputState: i.ToBucketReplicationConfigRuleDestinationReplicationTimeTimePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigRuleDestinationReplicationTimeTimeOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigRuleDestinationReplicationTimeTimeOutput) ElementType() reflect.Type {
@@ -7686,6 +8899,12 @@ func (o BucketReplicationConfigRuleDestinationReplicationTimeTimeOutput) ToBucke
 	}).(BucketReplicationConfigRuleDestinationReplicationTimeTimePtrOutput)
 }
 
+func (o BucketReplicationConfigRuleDestinationReplicationTimeTimeOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleDestinationReplicationTimeTime] {
+	return pulumix.Output[BucketReplicationConfigRuleDestinationReplicationTimeTime]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Time in minutes. Valid values: `15`.
 func (o BucketReplicationConfigRuleDestinationReplicationTimeTimeOutput) Minutes() pulumi.IntOutput {
 	return o.ApplyT(func(v BucketReplicationConfigRuleDestinationReplicationTimeTime) int { return v.Minutes }).(pulumi.IntOutput)
@@ -7703,6 +8922,12 @@ func (o BucketReplicationConfigRuleDestinationReplicationTimeTimePtrOutput) ToBu
 
 func (o BucketReplicationConfigRuleDestinationReplicationTimeTimePtrOutput) ToBucketReplicationConfigRuleDestinationReplicationTimeTimePtrOutputWithContext(ctx context.Context) BucketReplicationConfigRuleDestinationReplicationTimeTimePtrOutput {
 	return o
+}
+
+func (o BucketReplicationConfigRuleDestinationReplicationTimeTimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleDestinationReplicationTimeTime] {
+	return pulumix.Output[*BucketReplicationConfigRuleDestinationReplicationTimeTime]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketReplicationConfigRuleDestinationReplicationTimeTimePtrOutput) Elem() BucketReplicationConfigRuleDestinationReplicationTimeTimeOutput {
@@ -7758,6 +8983,12 @@ func (i BucketReplicationConfigRuleExistingObjectReplicationArgs) ToBucketReplic
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleExistingObjectReplicationOutput)
 }
 
+func (i BucketReplicationConfigRuleExistingObjectReplicationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleExistingObjectReplication] {
+	return pulumix.Output[BucketReplicationConfigRuleExistingObjectReplication]{
+		OutputState: i.ToBucketReplicationConfigRuleExistingObjectReplicationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketReplicationConfigRuleExistingObjectReplicationArgs) ToBucketReplicationConfigRuleExistingObjectReplicationPtrOutput() BucketReplicationConfigRuleExistingObjectReplicationPtrOutput {
 	return i.ToBucketReplicationConfigRuleExistingObjectReplicationPtrOutputWithContext(context.Background())
 }
@@ -7799,6 +9030,12 @@ func (i *bucketReplicationConfigRuleExistingObjectReplicationPtrType) ToBucketRe
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleExistingObjectReplicationPtrOutput)
 }
 
+func (i *bucketReplicationConfigRuleExistingObjectReplicationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleExistingObjectReplication] {
+	return pulumix.Output[*BucketReplicationConfigRuleExistingObjectReplication]{
+		OutputState: i.ToBucketReplicationConfigRuleExistingObjectReplicationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigRuleExistingObjectReplicationOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigRuleExistingObjectReplicationOutput) ElementType() reflect.Type {
@@ -7823,6 +9060,12 @@ func (o BucketReplicationConfigRuleExistingObjectReplicationOutput) ToBucketRepl
 	}).(BucketReplicationConfigRuleExistingObjectReplicationPtrOutput)
 }
 
+func (o BucketReplicationConfigRuleExistingObjectReplicationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleExistingObjectReplication] {
+	return pulumix.Output[BucketReplicationConfigRuleExistingObjectReplication]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Whether the existing objects should be replicated. Either `"Enabled"` or `"Disabled"`.
 func (o BucketReplicationConfigRuleExistingObjectReplicationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketReplicationConfigRuleExistingObjectReplication) string { return v.Status }).(pulumi.StringOutput)
@@ -7840,6 +9083,12 @@ func (o BucketReplicationConfigRuleExistingObjectReplicationPtrOutput) ToBucketR
 
 func (o BucketReplicationConfigRuleExistingObjectReplicationPtrOutput) ToBucketReplicationConfigRuleExistingObjectReplicationPtrOutputWithContext(ctx context.Context) BucketReplicationConfigRuleExistingObjectReplicationPtrOutput {
 	return o
+}
+
+func (o BucketReplicationConfigRuleExistingObjectReplicationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleExistingObjectReplication] {
+	return pulumix.Output[*BucketReplicationConfigRuleExistingObjectReplication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketReplicationConfigRuleExistingObjectReplicationPtrOutput) Elem() BucketReplicationConfigRuleExistingObjectReplicationOutput {
@@ -7903,6 +9152,12 @@ func (i BucketReplicationConfigRuleFilterArgs) ToBucketReplicationConfigRuleFilt
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleFilterOutput)
 }
 
+func (i BucketReplicationConfigRuleFilterArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleFilter] {
+	return pulumix.Output[BucketReplicationConfigRuleFilter]{
+		OutputState: i.ToBucketReplicationConfigRuleFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketReplicationConfigRuleFilterArgs) ToBucketReplicationConfigRuleFilterPtrOutput() BucketReplicationConfigRuleFilterPtrOutput {
 	return i.ToBucketReplicationConfigRuleFilterPtrOutputWithContext(context.Background())
 }
@@ -7944,6 +9199,12 @@ func (i *bucketReplicationConfigRuleFilterPtrType) ToBucketReplicationConfigRule
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleFilterPtrOutput)
 }
 
+func (i *bucketReplicationConfigRuleFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleFilter] {
+	return pulumix.Output[*BucketReplicationConfigRuleFilter]{
+		OutputState: i.ToBucketReplicationConfigRuleFilterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigRuleFilterOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigRuleFilterOutput) ElementType() reflect.Type {
@@ -7966,6 +9227,12 @@ func (o BucketReplicationConfigRuleFilterOutput) ToBucketReplicationConfigRuleFi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketReplicationConfigRuleFilter) *BucketReplicationConfigRuleFilter {
 		return &v
 	}).(BucketReplicationConfigRuleFilterPtrOutput)
+}
+
+func (o BucketReplicationConfigRuleFilterOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleFilter] {
+	return pulumix.Output[BucketReplicationConfigRuleFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
@@ -7995,6 +9262,12 @@ func (o BucketReplicationConfigRuleFilterPtrOutput) ToBucketReplicationConfigRul
 
 func (o BucketReplicationConfigRuleFilterPtrOutput) ToBucketReplicationConfigRuleFilterPtrOutputWithContext(ctx context.Context) BucketReplicationConfigRuleFilterPtrOutput {
 	return o
+}
+
+func (o BucketReplicationConfigRuleFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleFilter] {
+	return pulumix.Output[*BucketReplicationConfigRuleFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketReplicationConfigRuleFilterPtrOutput) Elem() BucketReplicationConfigRuleFilterOutput {
@@ -8074,6 +9347,12 @@ func (i BucketReplicationConfigRuleFilterAndArgs) ToBucketReplicationConfigRuleF
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleFilterAndOutput)
 }
 
+func (i BucketReplicationConfigRuleFilterAndArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleFilterAnd] {
+	return pulumix.Output[BucketReplicationConfigRuleFilterAnd]{
+		OutputState: i.ToBucketReplicationConfigRuleFilterAndOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketReplicationConfigRuleFilterAndArgs) ToBucketReplicationConfigRuleFilterAndPtrOutput() BucketReplicationConfigRuleFilterAndPtrOutput {
 	return i.ToBucketReplicationConfigRuleFilterAndPtrOutputWithContext(context.Background())
 }
@@ -8115,6 +9394,12 @@ func (i *bucketReplicationConfigRuleFilterAndPtrType) ToBucketReplicationConfigR
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleFilterAndPtrOutput)
 }
 
+func (i *bucketReplicationConfigRuleFilterAndPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleFilterAnd] {
+	return pulumix.Output[*BucketReplicationConfigRuleFilterAnd]{
+		OutputState: i.ToBucketReplicationConfigRuleFilterAndPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigRuleFilterAndOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigRuleFilterAndOutput) ElementType() reflect.Type {
@@ -8139,6 +9424,12 @@ func (o BucketReplicationConfigRuleFilterAndOutput) ToBucketReplicationConfigRul
 	}).(BucketReplicationConfigRuleFilterAndPtrOutput)
 }
 
+func (o BucketReplicationConfigRuleFilterAndOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleFilterAnd] {
+	return pulumix.Output[BucketReplicationConfigRuleFilterAnd]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
 func (o BucketReplicationConfigRuleFilterAndOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigRuleFilterAnd) *string { return v.Prefix }).(pulumi.StringPtrOutput)
@@ -8161,6 +9452,12 @@ func (o BucketReplicationConfigRuleFilterAndPtrOutput) ToBucketReplicationConfig
 
 func (o BucketReplicationConfigRuleFilterAndPtrOutput) ToBucketReplicationConfigRuleFilterAndPtrOutputWithContext(ctx context.Context) BucketReplicationConfigRuleFilterAndPtrOutput {
 	return o
+}
+
+func (o BucketReplicationConfigRuleFilterAndPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleFilterAnd] {
+	return pulumix.Output[*BucketReplicationConfigRuleFilterAnd]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketReplicationConfigRuleFilterAndPtrOutput) Elem() BucketReplicationConfigRuleFilterAndOutput {
@@ -8230,6 +9527,12 @@ func (i BucketReplicationConfigRuleFilterTagArgs) ToBucketReplicationConfigRuleF
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleFilterTagOutput)
 }
 
+func (i BucketReplicationConfigRuleFilterTagArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleFilterTag] {
+	return pulumix.Output[BucketReplicationConfigRuleFilterTag]{
+		OutputState: i.ToBucketReplicationConfigRuleFilterTagOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketReplicationConfigRuleFilterTagArgs) ToBucketReplicationConfigRuleFilterTagPtrOutput() BucketReplicationConfigRuleFilterTagPtrOutput {
 	return i.ToBucketReplicationConfigRuleFilterTagPtrOutputWithContext(context.Background())
 }
@@ -8271,6 +9574,12 @@ func (i *bucketReplicationConfigRuleFilterTagPtrType) ToBucketReplicationConfigR
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleFilterTagPtrOutput)
 }
 
+func (i *bucketReplicationConfigRuleFilterTagPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleFilterTag] {
+	return pulumix.Output[*BucketReplicationConfigRuleFilterTag]{
+		OutputState: i.ToBucketReplicationConfigRuleFilterTagPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigRuleFilterTagOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigRuleFilterTagOutput) ElementType() reflect.Type {
@@ -8295,6 +9604,12 @@ func (o BucketReplicationConfigRuleFilterTagOutput) ToBucketReplicationConfigRul
 	}).(BucketReplicationConfigRuleFilterTagPtrOutput)
 }
 
+func (o BucketReplicationConfigRuleFilterTagOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleFilterTag] {
+	return pulumix.Output[BucketReplicationConfigRuleFilterTag]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Name of the object key.
 func (o BucketReplicationConfigRuleFilterTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketReplicationConfigRuleFilterTag) string { return v.Key }).(pulumi.StringOutput)
@@ -8317,6 +9632,12 @@ func (o BucketReplicationConfigRuleFilterTagPtrOutput) ToBucketReplicationConfig
 
 func (o BucketReplicationConfigRuleFilterTagPtrOutput) ToBucketReplicationConfigRuleFilterTagPtrOutputWithContext(ctx context.Context) BucketReplicationConfigRuleFilterTagPtrOutput {
 	return o
+}
+
+func (o BucketReplicationConfigRuleFilterTagPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleFilterTag] {
+	return pulumix.Output[*BucketReplicationConfigRuleFilterTag]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketReplicationConfigRuleFilterTagPtrOutput) Elem() BucketReplicationConfigRuleFilterTagOutput {
@@ -8386,6 +9707,12 @@ func (i BucketReplicationConfigRuleSourceSelectionCriteriaArgs) ToBucketReplicat
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleSourceSelectionCriteriaOutput)
 }
 
+func (i BucketReplicationConfigRuleSourceSelectionCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleSourceSelectionCriteria] {
+	return pulumix.Output[BucketReplicationConfigRuleSourceSelectionCriteria]{
+		OutputState: i.ToBucketReplicationConfigRuleSourceSelectionCriteriaOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketReplicationConfigRuleSourceSelectionCriteriaArgs) ToBucketReplicationConfigRuleSourceSelectionCriteriaPtrOutput() BucketReplicationConfigRuleSourceSelectionCriteriaPtrOutput {
 	return i.ToBucketReplicationConfigRuleSourceSelectionCriteriaPtrOutputWithContext(context.Background())
 }
@@ -8427,6 +9754,12 @@ func (i *bucketReplicationConfigRuleSourceSelectionCriteriaPtrType) ToBucketRepl
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleSourceSelectionCriteriaPtrOutput)
 }
 
+func (i *bucketReplicationConfigRuleSourceSelectionCriteriaPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleSourceSelectionCriteria] {
+	return pulumix.Output[*BucketReplicationConfigRuleSourceSelectionCriteria]{
+		OutputState: i.ToBucketReplicationConfigRuleSourceSelectionCriteriaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigRuleSourceSelectionCriteriaOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigRuleSourceSelectionCriteriaOutput) ElementType() reflect.Type {
@@ -8449,6 +9782,12 @@ func (o BucketReplicationConfigRuleSourceSelectionCriteriaOutput) ToBucketReplic
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketReplicationConfigRuleSourceSelectionCriteria) *BucketReplicationConfigRuleSourceSelectionCriteria {
 		return &v
 	}).(BucketReplicationConfigRuleSourceSelectionCriteriaPtrOutput)
+}
+
+func (o BucketReplicationConfigRuleSourceSelectionCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleSourceSelectionCriteria] {
+	return pulumix.Output[BucketReplicationConfigRuleSourceSelectionCriteria]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block that you can specify for selections for modifications on replicas. Amazon S3 doesn't replicate replica modifications by default. In the latest version of replication configuration (when `filter` is specified), you can specify this element and set the status to `Enabled` to replicate modifications on replicas.
@@ -8477,6 +9816,12 @@ func (o BucketReplicationConfigRuleSourceSelectionCriteriaPtrOutput) ToBucketRep
 
 func (o BucketReplicationConfigRuleSourceSelectionCriteriaPtrOutput) ToBucketReplicationConfigRuleSourceSelectionCriteriaPtrOutputWithContext(ctx context.Context) BucketReplicationConfigRuleSourceSelectionCriteriaPtrOutput {
 	return o
+}
+
+func (o BucketReplicationConfigRuleSourceSelectionCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleSourceSelectionCriteria] {
+	return pulumix.Output[*BucketReplicationConfigRuleSourceSelectionCriteria]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketReplicationConfigRuleSourceSelectionCriteriaPtrOutput) Elem() BucketReplicationConfigRuleSourceSelectionCriteriaOutput {
@@ -8542,6 +9887,12 @@ func (i BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsAr
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsOutput)
 }
 
+func (i BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications] {
+	return pulumix.Output[BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications]{
+		OutputState: i.ToBucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs) ToBucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsPtrOutput() BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsPtrOutput {
 	return i.ToBucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsPtrOutputWithContext(context.Background())
 }
@@ -8583,6 +9934,12 @@ func (i *bucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsP
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsPtrOutput)
 }
 
+func (i *bucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications] {
+	return pulumix.Output[*BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications]{
+		OutputState: i.ToBucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsOutput) ElementType() reflect.Type {
@@ -8607,6 +9964,12 @@ func (o BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsOu
 	}).(BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsPtrOutput)
 }
 
+func (o BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications] {
+	return pulumix.Output[BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Whether the existing objects should be replicated. Either `"Enabled"` or `"Disabled"`.
 func (o BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications) string { return v.Status }).(pulumi.StringOutput)
@@ -8624,6 +9987,12 @@ func (o BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsPt
 
 func (o BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsPtrOutput) ToBucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsPtrOutputWithContext(ctx context.Context) BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsPtrOutput {
 	return o
+}
+
+func (o BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications] {
+	return pulumix.Output[*BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsPtrOutput) Elem() BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsOutput {
@@ -8679,6 +10048,12 @@ func (i BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsOutput)
 }
 
+func (i BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects] {
+	return pulumix.Output[BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects]{
+		OutputState: i.ToBucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs) ToBucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutput() BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutput {
 	return i.ToBucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutputWithContext(context.Background())
 }
@@ -8720,6 +10095,12 @@ func (i *bucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObject
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutput)
 }
 
+func (i *bucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects] {
+	return pulumix.Output[*BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects]{
+		OutputState: i.ToBucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsOutput) ElementType() reflect.Type {
@@ -8744,6 +10125,12 @@ func (o BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects
 	}).(BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutput)
 }
 
+func (o BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects] {
+	return pulumix.Output[BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Whether the existing objects should be replicated. Either `"Enabled"` or `"Disabled"`.
 func (o BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects) string {
@@ -8763,6 +10150,12 @@ func (o BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects
 
 func (o BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutput) ToBucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutputWithContext(ctx context.Context) BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutput {
 	return o
+}
+
+func (o BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects] {
+	return pulumix.Output[*BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutput) Elem() BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsOutput {
@@ -8822,6 +10215,12 @@ func (i BucketReplicationConfigurationArgs) ToBucketReplicationConfigurationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationOutput)
 }
 
+func (i BucketReplicationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfiguration] {
+	return pulumix.Output[BucketReplicationConfiguration]{
+		OutputState: i.ToBucketReplicationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketReplicationConfigurationArgs) ToBucketReplicationConfigurationPtrOutput() BucketReplicationConfigurationPtrOutput {
 	return i.ToBucketReplicationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -8863,6 +10262,12 @@ func (i *bucketReplicationConfigurationPtrType) ToBucketReplicationConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationPtrOutput)
 }
 
+func (i *bucketReplicationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfiguration] {
+	return pulumix.Output[*BucketReplicationConfiguration]{
+		OutputState: i.ToBucketReplicationConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigurationOutput) ElementType() reflect.Type {
@@ -8887,6 +10292,12 @@ func (o BucketReplicationConfigurationOutput) ToBucketReplicationConfigurationPt
 	}).(BucketReplicationConfigurationPtrOutput)
 }
 
+func (o BucketReplicationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfiguration] {
+	return pulumix.Output[BucketReplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 func (o BucketReplicationConfigurationOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketReplicationConfiguration) string { return v.Role }).(pulumi.StringOutput)
@@ -8909,6 +10320,12 @@ func (o BucketReplicationConfigurationPtrOutput) ToBucketReplicationConfiguratio
 
 func (o BucketReplicationConfigurationPtrOutput) ToBucketReplicationConfigurationPtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationPtrOutput {
 	return o
+}
+
+func (o BucketReplicationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfiguration] {
+	return pulumix.Output[*BucketReplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketReplicationConfigurationPtrOutput) Elem() BucketReplicationConfigurationOutput {
@@ -9006,6 +10423,12 @@ func (i BucketReplicationConfigurationRuleArgs) ToBucketReplicationConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationRuleOutput)
 }
 
+func (i BucketReplicationConfigurationRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigurationRule] {
+	return pulumix.Output[BucketReplicationConfigurationRule]{
+		OutputState: i.ToBucketReplicationConfigurationRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketReplicationConfigurationRuleArrayInput is an input type that accepts BucketReplicationConfigurationRuleArray and BucketReplicationConfigurationRuleArrayOutput values.
 // You can construct a concrete instance of `BucketReplicationConfigurationRuleArrayInput` via:
 //
@@ -9031,6 +10454,12 @@ func (i BucketReplicationConfigurationRuleArray) ToBucketReplicationConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationRuleArrayOutput)
 }
 
+func (i BucketReplicationConfigurationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketReplicationConfigurationRule] {
+	return pulumix.Output[[]BucketReplicationConfigurationRule]{
+		OutputState: i.ToBucketReplicationConfigurationRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigurationRuleOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigurationRuleOutput) ElementType() reflect.Type {
@@ -9043,6 +10472,12 @@ func (o BucketReplicationConfigurationRuleOutput) ToBucketReplicationConfigurati
 
 func (o BucketReplicationConfigurationRuleOutput) ToBucketReplicationConfigurationRuleOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleOutput {
 	return o
+}
+
+func (o BucketReplicationConfigurationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigurationRule] {
+	return pulumix.Output[BucketReplicationConfigurationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
@@ -9103,6 +10538,12 @@ func (o BucketReplicationConfigurationRuleArrayOutput) ToBucketReplicationConfig
 
 func (o BucketReplicationConfigurationRuleArrayOutput) ToBucketReplicationConfigurationRuleArrayOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleArrayOutput {
 	return o
+}
+
+func (o BucketReplicationConfigurationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketReplicationConfigurationRule] {
+	return pulumix.Output[[]BucketReplicationConfigurationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketReplicationConfigurationRuleArrayOutput) Index(i pulumi.IntInput) BucketReplicationConfigurationRuleOutput {
@@ -9170,6 +10611,12 @@ func (i BucketReplicationConfigurationRuleDestinationArgs) ToBucketReplicationCo
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationRuleDestinationOutput)
 }
 
+func (i BucketReplicationConfigurationRuleDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigurationRuleDestination] {
+	return pulumix.Output[BucketReplicationConfigurationRuleDestination]{
+		OutputState: i.ToBucketReplicationConfigurationRuleDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigurationRuleDestinationOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigurationRuleDestinationOutput) ElementType() reflect.Type {
@@ -9182,6 +10629,12 @@ func (o BucketReplicationConfigurationRuleDestinationOutput) ToBucketReplication
 
 func (o BucketReplicationConfigurationRuleDestinationOutput) ToBucketReplicationConfigurationRuleDestinationOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleDestinationOutput {
 	return o
+}
+
+func (o BucketReplicationConfigurationRuleDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigurationRuleDestination] {
+	return pulumix.Output[BucketReplicationConfigurationRuleDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the overrides to use for object owners on replication. Must be used in conjunction with `accountId` owner override configuration.
@@ -9259,6 +10712,12 @@ func (i BucketReplicationConfigurationRuleDestinationAccessControlTranslationArg
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput)
 }
 
+func (i BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigurationRuleDestinationAccessControlTranslation] {
+	return pulumix.Output[BucketReplicationConfigurationRuleDestinationAccessControlTranslation]{
+		OutputState: i.ToBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs) ToBucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrOutput() BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrOutput {
 	return i.ToBucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrOutputWithContext(context.Background())
 }
@@ -9300,6 +10759,12 @@ func (i *bucketReplicationConfigurationRuleDestinationAccessControlTranslationPt
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrOutput)
 }
 
+func (i *bucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigurationRuleDestinationAccessControlTranslation] {
+	return pulumix.Output[*BucketReplicationConfigurationRuleDestinationAccessControlTranslation]{
+		OutputState: i.ToBucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput) ElementType() reflect.Type {
@@ -9324,6 +10789,12 @@ func (o BucketReplicationConfigurationRuleDestinationAccessControlTranslationOut
 	}).(BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrOutput)
 }
 
+func (o BucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigurationRuleDestinationAccessControlTranslation] {
+	return pulumix.Output[BucketReplicationConfigurationRuleDestinationAccessControlTranslation]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The override value for the owner on replicated objects. Currently only `Destination` is supported.
 func (o BucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketReplicationConfigurationRuleDestinationAccessControlTranslation) string { return v.Owner }).(pulumi.StringOutput)
@@ -9341,6 +10812,12 @@ func (o BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtr
 
 func (o BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrOutput) ToBucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrOutput {
 	return o
+}
+
+func (o BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigurationRuleDestinationAccessControlTranslation] {
+	return pulumix.Output[*BucketReplicationConfigurationRuleDestinationAccessControlTranslation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrOutput) Elem() BucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput {
@@ -9400,6 +10877,12 @@ func (i BucketReplicationConfigurationRuleDestinationMetricsArgs) ToBucketReplic
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationRuleDestinationMetricsOutput)
 }
 
+func (i BucketReplicationConfigurationRuleDestinationMetricsArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigurationRuleDestinationMetrics] {
+	return pulumix.Output[BucketReplicationConfigurationRuleDestinationMetrics]{
+		OutputState: i.ToBucketReplicationConfigurationRuleDestinationMetricsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketReplicationConfigurationRuleDestinationMetricsArgs) ToBucketReplicationConfigurationRuleDestinationMetricsPtrOutput() BucketReplicationConfigurationRuleDestinationMetricsPtrOutput {
 	return i.ToBucketReplicationConfigurationRuleDestinationMetricsPtrOutputWithContext(context.Background())
 }
@@ -9441,6 +10924,12 @@ func (i *bucketReplicationConfigurationRuleDestinationMetricsPtrType) ToBucketRe
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationRuleDestinationMetricsPtrOutput)
 }
 
+func (i *bucketReplicationConfigurationRuleDestinationMetricsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigurationRuleDestinationMetrics] {
+	return pulumix.Output[*BucketReplicationConfigurationRuleDestinationMetrics]{
+		OutputState: i.ToBucketReplicationConfigurationRuleDestinationMetricsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigurationRuleDestinationMetricsOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigurationRuleDestinationMetricsOutput) ElementType() reflect.Type {
@@ -9465,6 +10954,12 @@ func (o BucketReplicationConfigurationRuleDestinationMetricsOutput) ToBucketRepl
 	}).(BucketReplicationConfigurationRuleDestinationMetricsPtrOutput)
 }
 
+func (o BucketReplicationConfigurationRuleDestinationMetricsOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigurationRuleDestinationMetrics] {
+	return pulumix.Output[BucketReplicationConfigurationRuleDestinationMetrics]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Threshold within which objects are to be replicated. The only valid value is `15`.
 func (o BucketReplicationConfigurationRuleDestinationMetricsOutput) Minutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigurationRuleDestinationMetrics) *int { return v.Minutes }).(pulumi.IntPtrOutput)
@@ -9487,6 +10982,12 @@ func (o BucketReplicationConfigurationRuleDestinationMetricsPtrOutput) ToBucketR
 
 func (o BucketReplicationConfigurationRuleDestinationMetricsPtrOutput) ToBucketReplicationConfigurationRuleDestinationMetricsPtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleDestinationMetricsPtrOutput {
 	return o
+}
+
+func (o BucketReplicationConfigurationRuleDestinationMetricsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigurationRuleDestinationMetrics] {
+	return pulumix.Output[*BucketReplicationConfigurationRuleDestinationMetrics]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketReplicationConfigurationRuleDestinationMetricsPtrOutput) Elem() BucketReplicationConfigurationRuleDestinationMetricsOutput {
@@ -9556,6 +11057,12 @@ func (i BucketReplicationConfigurationRuleDestinationReplicationTimeArgs) ToBuck
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationRuleDestinationReplicationTimeOutput)
 }
 
+func (i BucketReplicationConfigurationRuleDestinationReplicationTimeArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigurationRuleDestinationReplicationTime] {
+	return pulumix.Output[BucketReplicationConfigurationRuleDestinationReplicationTime]{
+		OutputState: i.ToBucketReplicationConfigurationRuleDestinationReplicationTimeOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketReplicationConfigurationRuleDestinationReplicationTimeArgs) ToBucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput() BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput {
 	return i.ToBucketReplicationConfigurationRuleDestinationReplicationTimePtrOutputWithContext(context.Background())
 }
@@ -9597,6 +11104,12 @@ func (i *bucketReplicationConfigurationRuleDestinationReplicationTimePtrType) To
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput)
 }
 
+func (i *bucketReplicationConfigurationRuleDestinationReplicationTimePtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigurationRuleDestinationReplicationTime] {
+	return pulumix.Output[*BucketReplicationConfigurationRuleDestinationReplicationTime]{
+		OutputState: i.ToBucketReplicationConfigurationRuleDestinationReplicationTimePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigurationRuleDestinationReplicationTimeOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigurationRuleDestinationReplicationTimeOutput) ElementType() reflect.Type {
@@ -9621,6 +11134,12 @@ func (o BucketReplicationConfigurationRuleDestinationReplicationTimeOutput) ToBu
 	}).(BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput)
 }
 
+func (o BucketReplicationConfigurationRuleDestinationReplicationTimeOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigurationRuleDestinationReplicationTime] {
+	return pulumix.Output[BucketReplicationConfigurationRuleDestinationReplicationTime]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Threshold within which objects are to be replicated. The only valid value is `15`.
 func (o BucketReplicationConfigurationRuleDestinationReplicationTimeOutput) Minutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigurationRuleDestinationReplicationTime) *int { return v.Minutes }).(pulumi.IntPtrOutput)
@@ -9643,6 +11162,12 @@ func (o BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput) T
 
 func (o BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput) ToBucketReplicationConfigurationRuleDestinationReplicationTimePtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput {
 	return o
+}
+
+func (o BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigurationRuleDestinationReplicationTime] {
+	return pulumix.Output[*BucketReplicationConfigurationRuleDestinationReplicationTime]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput) Elem() BucketReplicationConfigurationRuleDestinationReplicationTimeOutput {
@@ -9714,6 +11239,12 @@ func (i BucketReplicationConfigurationRuleFilterArgs) ToBucketReplicationConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationRuleFilterOutput)
 }
 
+func (i BucketReplicationConfigurationRuleFilterArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigurationRuleFilter] {
+	return pulumix.Output[BucketReplicationConfigurationRuleFilter]{
+		OutputState: i.ToBucketReplicationConfigurationRuleFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketReplicationConfigurationRuleFilterArgs) ToBucketReplicationConfigurationRuleFilterPtrOutput() BucketReplicationConfigurationRuleFilterPtrOutput {
 	return i.ToBucketReplicationConfigurationRuleFilterPtrOutputWithContext(context.Background())
 }
@@ -9755,6 +11286,12 @@ func (i *bucketReplicationConfigurationRuleFilterPtrType) ToBucketReplicationCon
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationRuleFilterPtrOutput)
 }
 
+func (i *bucketReplicationConfigurationRuleFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigurationRuleFilter] {
+	return pulumix.Output[*BucketReplicationConfigurationRuleFilter]{
+		OutputState: i.ToBucketReplicationConfigurationRuleFilterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigurationRuleFilterOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigurationRuleFilterOutput) ElementType() reflect.Type {
@@ -9777,6 +11314,12 @@ func (o BucketReplicationConfigurationRuleFilterOutput) ToBucketReplicationConfi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketReplicationConfigurationRuleFilter) *BucketReplicationConfigurationRuleFilter {
 		return &v
 	}).(BucketReplicationConfigurationRuleFilterPtrOutput)
+}
+
+func (o BucketReplicationConfigurationRuleFilterOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigurationRuleFilter] {
+	return pulumix.Output[BucketReplicationConfigurationRuleFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Object keyname prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
@@ -9802,6 +11345,12 @@ func (o BucketReplicationConfigurationRuleFilterPtrOutput) ToBucketReplicationCo
 
 func (o BucketReplicationConfigurationRuleFilterPtrOutput) ToBucketReplicationConfigurationRuleFilterPtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleFilterPtrOutput {
 	return o
+}
+
+func (o BucketReplicationConfigurationRuleFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigurationRuleFilter] {
+	return pulumix.Output[*BucketReplicationConfigurationRuleFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketReplicationConfigurationRuleFilterPtrOutput) Elem() BucketReplicationConfigurationRuleFilterOutput {
@@ -9870,6 +11419,12 @@ func (i BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs) ToBucketR
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationRuleSourceSelectionCriteriaOutput)
 }
 
+func (i BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigurationRuleSourceSelectionCriteria] {
+	return pulumix.Output[BucketReplicationConfigurationRuleSourceSelectionCriteria]{
+		OutputState: i.ToBucketReplicationConfigurationRuleSourceSelectionCriteriaOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs) ToBucketReplicationConfigurationRuleSourceSelectionCriteriaPtrOutput() BucketReplicationConfigurationRuleSourceSelectionCriteriaPtrOutput {
 	return i.ToBucketReplicationConfigurationRuleSourceSelectionCriteriaPtrOutputWithContext(context.Background())
 }
@@ -9911,6 +11466,12 @@ func (i *bucketReplicationConfigurationRuleSourceSelectionCriteriaPtrType) ToBuc
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationRuleSourceSelectionCriteriaPtrOutput)
 }
 
+func (i *bucketReplicationConfigurationRuleSourceSelectionCriteriaPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigurationRuleSourceSelectionCriteria] {
+	return pulumix.Output[*BucketReplicationConfigurationRuleSourceSelectionCriteria]{
+		OutputState: i.ToBucketReplicationConfigurationRuleSourceSelectionCriteriaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigurationRuleSourceSelectionCriteriaOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigurationRuleSourceSelectionCriteriaOutput) ElementType() reflect.Type {
@@ -9935,6 +11496,12 @@ func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaOutput) ToBucke
 	}).(BucketReplicationConfigurationRuleSourceSelectionCriteriaPtrOutput)
 }
 
+func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigurationRuleSourceSelectionCriteria] {
+	return pulumix.Output[BucketReplicationConfigurationRuleSourceSelectionCriteria]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Match SSE-KMS encrypted objects (documented below). If specified, `replicaKmsKeyId`
 // in `destination` must be specified as well.
 func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaOutput) SseKmsEncryptedObjects() BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutput {
@@ -9955,6 +11522,12 @@ func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaPtrOutput) ToBu
 
 func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaPtrOutput) ToBucketReplicationConfigurationRuleSourceSelectionCriteriaPtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleSourceSelectionCriteriaPtrOutput {
 	return o
+}
+
+func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigurationRuleSourceSelectionCriteria] {
+	return pulumix.Output[*BucketReplicationConfigurationRuleSourceSelectionCriteria]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaPtrOutput) Elem() BucketReplicationConfigurationRuleSourceSelectionCriteriaOutput {
@@ -10011,6 +11584,12 @@ func (i BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncrypted
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsOutput)
 }
 
+func (i BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects] {
+	return pulumix.Output[BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects]{
+		OutputState: i.ToBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs) ToBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutput() BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutput {
 	return i.ToBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutputWithContext(context.Background())
 }
@@ -10052,6 +11631,12 @@ func (i *bucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncrypte
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutput)
 }
 
+func (i *bucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects] {
+	return pulumix.Output[*BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects]{
+		OutputState: i.ToBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsOutput) ElementType() reflect.Type {
@@ -10076,6 +11661,12 @@ func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncrypted
 	}).(BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutput)
 }
 
+func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects] {
+	return pulumix.Output[BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Boolean which indicates if this criteria is enabled.
 func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects) bool {
@@ -10095,6 +11686,12 @@ func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncrypted
 
 func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutput) ToBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutput {
 	return o
+}
+
+func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects] {
+	return pulumix.Output[*BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjects]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsPtrOutput) Elem() BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsOutput {
@@ -10150,6 +11747,12 @@ func (i BucketServerSideEncryptionConfigurationArgs) ToBucketServerSideEncryptio
 	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationOutput)
 }
 
+func (i BucketServerSideEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketServerSideEncryptionConfiguration] {
+	return pulumix.Output[BucketServerSideEncryptionConfiguration]{
+		OutputState: i.ToBucketServerSideEncryptionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketServerSideEncryptionConfigurationArgs) ToBucketServerSideEncryptionConfigurationPtrOutput() BucketServerSideEncryptionConfigurationPtrOutput {
 	return i.ToBucketServerSideEncryptionConfigurationPtrOutputWithContext(context.Background())
 }
@@ -10191,6 +11794,12 @@ func (i *bucketServerSideEncryptionConfigurationPtrType) ToBucketServerSideEncry
 	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationPtrOutput)
 }
 
+func (i *bucketServerSideEncryptionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketServerSideEncryptionConfiguration] {
+	return pulumix.Output[*BucketServerSideEncryptionConfiguration]{
+		OutputState: i.ToBucketServerSideEncryptionConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketServerSideEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketServerSideEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -10215,6 +11824,12 @@ func (o BucketServerSideEncryptionConfigurationOutput) ToBucketServerSideEncrypt
 	}).(BucketServerSideEncryptionConfigurationPtrOutput)
 }
 
+func (o BucketServerSideEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketServerSideEncryptionConfiguration] {
+	return pulumix.Output[BucketServerSideEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A single object for server-side encryption by default configuration. (documented below)
 func (o BucketServerSideEncryptionConfigurationOutput) Rule() BucketServerSideEncryptionConfigurationRuleOutput {
 	return o.ApplyT(func(v BucketServerSideEncryptionConfiguration) BucketServerSideEncryptionConfigurationRule {
@@ -10234,6 +11849,12 @@ func (o BucketServerSideEncryptionConfigurationPtrOutput) ToBucketServerSideEncr
 
 func (o BucketServerSideEncryptionConfigurationPtrOutput) ToBucketServerSideEncryptionConfigurationPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationPtrOutput {
 	return o
+}
+
+func (o BucketServerSideEncryptionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketServerSideEncryptionConfiguration] {
+	return pulumix.Output[*BucketServerSideEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketServerSideEncryptionConfigurationPtrOutput) Elem() BucketServerSideEncryptionConfigurationOutput {
@@ -10293,6 +11914,12 @@ func (i BucketServerSideEncryptionConfigurationRuleArgs) ToBucketServerSideEncry
 	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationRuleOutput)
 }
 
+func (i BucketServerSideEncryptionConfigurationRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketServerSideEncryptionConfigurationRule] {
+	return pulumix.Output[BucketServerSideEncryptionConfigurationRule]{
+		OutputState: i.ToBucketServerSideEncryptionConfigurationRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketServerSideEncryptionConfigurationRuleArgs) ToBucketServerSideEncryptionConfigurationRulePtrOutput() BucketServerSideEncryptionConfigurationRulePtrOutput {
 	return i.ToBucketServerSideEncryptionConfigurationRulePtrOutputWithContext(context.Background())
 }
@@ -10334,6 +11961,12 @@ func (i *bucketServerSideEncryptionConfigurationRulePtrType) ToBucketServerSideE
 	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationRulePtrOutput)
 }
 
+func (i *bucketServerSideEncryptionConfigurationRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketServerSideEncryptionConfigurationRule] {
+	return pulumix.Output[*BucketServerSideEncryptionConfigurationRule]{
+		OutputState: i.ToBucketServerSideEncryptionConfigurationRulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketServerSideEncryptionConfigurationRuleOutput struct{ *pulumi.OutputState }
 
 func (BucketServerSideEncryptionConfigurationRuleOutput) ElementType() reflect.Type {
@@ -10356,6 +11989,12 @@ func (o BucketServerSideEncryptionConfigurationRuleOutput) ToBucketServerSideEnc
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketServerSideEncryptionConfigurationRule) *BucketServerSideEncryptionConfigurationRule {
 		return &v
 	}).(BucketServerSideEncryptionConfigurationRulePtrOutput)
+}
+
+func (o BucketServerSideEncryptionConfigurationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketServerSideEncryptionConfigurationRule] {
+	return pulumix.Output[BucketServerSideEncryptionConfigurationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A single object for setting server-side encryption by default. (documented below)
@@ -10382,6 +12021,12 @@ func (o BucketServerSideEncryptionConfigurationRulePtrOutput) ToBucketServerSide
 
 func (o BucketServerSideEncryptionConfigurationRulePtrOutput) ToBucketServerSideEncryptionConfigurationRulePtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationRulePtrOutput {
 	return o
+}
+
+func (o BucketServerSideEncryptionConfigurationRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketServerSideEncryptionConfigurationRule] {
+	return pulumix.Output[*BucketServerSideEncryptionConfigurationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketServerSideEncryptionConfigurationRulePtrOutput) Elem() BucketServerSideEncryptionConfigurationRuleOutput {
@@ -10451,6 +12096,12 @@ func (i BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDe
 	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput)
 }
 
+func (i BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs) ToOutput(ctx context.Context) pulumix.Output[BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault] {
+	return pulumix.Output[BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault]{
+		OutputState: i.ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs) ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput() BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput {
 	return i.ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutputWithContext(context.Background())
 }
@@ -10492,6 +12143,12 @@ func (i *bucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByD
 	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput)
 }
 
+func (i *bucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault] {
+	return pulumix.Output[*BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault]{
+		OutputState: i.ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput struct{ *pulumi.OutputState }
 
 func (BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput) ElementType() reflect.Type {
@@ -10514,6 +12171,12 @@ func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault) *BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault {
 		return &v
 	}).(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput)
+}
+
+func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput) ToOutput(ctx context.Context) pulumix.Output[BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault] {
+	return pulumix.Output[BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
@@ -10542,6 +12205,12 @@ func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDe
 
 func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput) ToBucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput {
 	return o
+}
+
+func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault] {
+	return pulumix.Output[*BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultPtrOutput) Elem() BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput {
@@ -10611,6 +12280,12 @@ func (i BucketServerSideEncryptionConfigurationV2RuleArgs) ToBucketServerSideEnc
 	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationV2RuleOutput)
 }
 
+func (i BucketServerSideEncryptionConfigurationV2RuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketServerSideEncryptionConfigurationV2Rule] {
+	return pulumix.Output[BucketServerSideEncryptionConfigurationV2Rule]{
+		OutputState: i.ToBucketServerSideEncryptionConfigurationV2RuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketServerSideEncryptionConfigurationV2RuleArrayInput is an input type that accepts BucketServerSideEncryptionConfigurationV2RuleArray and BucketServerSideEncryptionConfigurationV2RuleArrayOutput values.
 // You can construct a concrete instance of `BucketServerSideEncryptionConfigurationV2RuleArrayInput` via:
 //
@@ -10636,6 +12311,12 @@ func (i BucketServerSideEncryptionConfigurationV2RuleArray) ToBucketServerSideEn
 	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationV2RuleArrayOutput)
 }
 
+func (i BucketServerSideEncryptionConfigurationV2RuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketServerSideEncryptionConfigurationV2Rule] {
+	return pulumix.Output[[]BucketServerSideEncryptionConfigurationV2Rule]{
+		OutputState: i.ToBucketServerSideEncryptionConfigurationV2RuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketServerSideEncryptionConfigurationV2RuleOutput struct{ *pulumi.OutputState }
 
 func (BucketServerSideEncryptionConfigurationV2RuleOutput) ElementType() reflect.Type {
@@ -10648,6 +12329,12 @@ func (o BucketServerSideEncryptionConfigurationV2RuleOutput) ToBucketServerSideE
 
 func (o BucketServerSideEncryptionConfigurationV2RuleOutput) ToBucketServerSideEncryptionConfigurationV2RuleOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationV2RuleOutput {
 	return o
+}
+
+func (o BucketServerSideEncryptionConfigurationV2RuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketServerSideEncryptionConfigurationV2Rule] {
+	return pulumix.Output[BucketServerSideEncryptionConfigurationV2Rule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Single object for setting server-side encryption by default. See below.
@@ -10676,6 +12363,12 @@ func (o BucketServerSideEncryptionConfigurationV2RuleArrayOutput) ToBucketServer
 	return o
 }
 
+func (o BucketServerSideEncryptionConfigurationV2RuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketServerSideEncryptionConfigurationV2Rule] {
+	return pulumix.Output[[]BucketServerSideEncryptionConfigurationV2Rule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketServerSideEncryptionConfigurationV2RuleArrayOutput) Index(i pulumi.IntInput) BucketServerSideEncryptionConfigurationV2RuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketServerSideEncryptionConfigurationV2Rule {
 		return vs[0].([]BucketServerSideEncryptionConfigurationV2Rule)[vs[1].(int)]
@@ -10685,7 +12378,7 @@ func (o BucketServerSideEncryptionConfigurationV2RuleArrayOutput) Index(i pulumi
 type BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault struct {
 	// AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
 	KmsMasterKeyId *string `pulumi:"kmsMasterKeyId"`
-	// Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+	// Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
 	SseAlgorithm string `pulumi:"sseAlgorithm"`
 }
 
@@ -10703,7 +12396,7 @@ type BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDef
 type BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs struct {
 	// AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
 	KmsMasterKeyId pulumi.StringPtrInput `pulumi:"kmsMasterKeyId"`
-	// Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+	// Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
 	SseAlgorithm pulumi.StringInput `pulumi:"sseAlgorithm"`
 }
 
@@ -10717,6 +12410,12 @@ func (i BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionBy
 
 func (i BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs) ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput)
+}
+
+func (i BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs) ToOutput(ctx context.Context) pulumix.Output[BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault] {
+	return pulumix.Output[BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault]{
+		OutputState: i.ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs) ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput() BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput {
@@ -10760,6 +12459,12 @@ func (i *bucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionB
 	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput)
 }
 
+func (i *bucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault] {
+	return pulumix.Output[*BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault]{
+		OutputState: i.ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput struct{ *pulumi.OutputState }
 
 func (BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput) ElementType() reflect.Type {
@@ -10784,6 +12489,12 @@ func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionBy
 	}).(BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput)
 }
 
+func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput) ToOutput(ctx context.Context) pulumix.Output[BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault] {
+	return pulumix.Output[BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault]{
+		OutputState: o.OutputState,
+	}
+}
+
 // AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
 func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault) *string {
@@ -10791,7 +12502,7 @@ func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionBy
 	}).(pulumi.StringPtrOutput)
 }
 
-// Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+// Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
 func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput) SseAlgorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault) string {
 		return v.SseAlgorithm
@@ -10810,6 +12521,12 @@ func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionBy
 
 func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput) ToBucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput {
 	return o
+}
+
+func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault] {
+	return pulumix.Output[*BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput) Elem() BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultOutput {
@@ -10832,7 +12549,7 @@ func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionBy
 	}).(pulumi.StringPtrOutput)
 }
 
-// Server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
+// Server-side encryption algorithm to use. Valid values are `AES256`, `aws:kms`, and `aws:kms:dsse`
 func (o BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultPtrOutput) SseAlgorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefault) *string {
 		if v == nil {
@@ -10891,6 +12608,12 @@ func (i BucketV2CorsRuleArgs) ToBucketV2CorsRuleOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2CorsRuleOutput)
 }
 
+func (i BucketV2CorsRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2CorsRule] {
+	return pulumix.Output[BucketV2CorsRule]{
+		OutputState: i.ToBucketV2CorsRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2CorsRuleArrayInput is an input type that accepts BucketV2CorsRuleArray and BucketV2CorsRuleArrayOutput values.
 // You can construct a concrete instance of `BucketV2CorsRuleArrayInput` via:
 //
@@ -10916,6 +12639,12 @@ func (i BucketV2CorsRuleArray) ToBucketV2CorsRuleArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2CorsRuleArrayOutput)
 }
 
+func (i BucketV2CorsRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2CorsRule] {
+	return pulumix.Output[[]BucketV2CorsRule]{
+		OutputState: i.ToBucketV2CorsRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2CorsRuleOutput struct{ *pulumi.OutputState }
 
 func (BucketV2CorsRuleOutput) ElementType() reflect.Type {
@@ -10928,6 +12657,12 @@ func (o BucketV2CorsRuleOutput) ToBucketV2CorsRuleOutput() BucketV2CorsRuleOutpu
 
 func (o BucketV2CorsRuleOutput) ToBucketV2CorsRuleOutputWithContext(ctx context.Context) BucketV2CorsRuleOutput {
 	return o
+}
+
+func (o BucketV2CorsRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2CorsRule] {
+	return pulumix.Output[BucketV2CorsRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of headers allowed.
@@ -10967,6 +12702,12 @@ func (o BucketV2CorsRuleArrayOutput) ToBucketV2CorsRuleArrayOutput() BucketV2Cor
 
 func (o BucketV2CorsRuleArrayOutput) ToBucketV2CorsRuleArrayOutputWithContext(ctx context.Context) BucketV2CorsRuleArrayOutput {
 	return o
+}
+
+func (o BucketV2CorsRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2CorsRule] {
+	return pulumix.Output[[]BucketV2CorsRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2CorsRuleArrayOutput) Index(i pulumi.IntInput) BucketV2CorsRuleOutput {
@@ -11020,6 +12761,12 @@ func (i BucketV2GrantArgs) ToBucketV2GrantOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2GrantOutput)
 }
 
+func (i BucketV2GrantArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2Grant] {
+	return pulumix.Output[BucketV2Grant]{
+		OutputState: i.ToBucketV2GrantOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2GrantArrayInput is an input type that accepts BucketV2GrantArray and BucketV2GrantArrayOutput values.
 // You can construct a concrete instance of `BucketV2GrantArrayInput` via:
 //
@@ -11045,6 +12792,12 @@ func (i BucketV2GrantArray) ToBucketV2GrantArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2GrantArrayOutput)
 }
 
+func (i BucketV2GrantArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2Grant] {
+	return pulumix.Output[[]BucketV2Grant]{
+		OutputState: i.ToBucketV2GrantArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2GrantOutput struct{ *pulumi.OutputState }
 
 func (BucketV2GrantOutput) ElementType() reflect.Type {
@@ -11057,6 +12810,12 @@ func (o BucketV2GrantOutput) ToBucketV2GrantOutput() BucketV2GrantOutput {
 
 func (o BucketV2GrantOutput) ToBucketV2GrantOutputWithContext(ctx context.Context) BucketV2GrantOutput {
 	return o
+}
+
+func (o BucketV2GrantOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2Grant] {
+	return pulumix.Output[BucketV2Grant]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
@@ -11091,6 +12850,12 @@ func (o BucketV2GrantArrayOutput) ToBucketV2GrantArrayOutput() BucketV2GrantArra
 
 func (o BucketV2GrantArrayOutput) ToBucketV2GrantArrayOutputWithContext(ctx context.Context) BucketV2GrantArrayOutput {
 	return o
+}
+
+func (o BucketV2GrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2Grant] {
+	return pulumix.Output[[]BucketV2Grant]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2GrantArrayOutput) Index(i pulumi.IntInput) BucketV2GrantOutput {
@@ -11164,6 +12929,12 @@ func (i BucketV2LifecycleRuleArgs) ToBucketV2LifecycleRuleOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2LifecycleRuleOutput)
 }
 
+func (i BucketV2LifecycleRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2LifecycleRule] {
+	return pulumix.Output[BucketV2LifecycleRule]{
+		OutputState: i.ToBucketV2LifecycleRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2LifecycleRuleArrayInput is an input type that accepts BucketV2LifecycleRuleArray and BucketV2LifecycleRuleArrayOutput values.
 // You can construct a concrete instance of `BucketV2LifecycleRuleArrayInput` via:
 //
@@ -11189,6 +12960,12 @@ func (i BucketV2LifecycleRuleArray) ToBucketV2LifecycleRuleArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2LifecycleRuleArrayOutput)
 }
 
+func (i BucketV2LifecycleRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2LifecycleRule] {
+	return pulumix.Output[[]BucketV2LifecycleRule]{
+		OutputState: i.ToBucketV2LifecycleRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2LifecycleRuleOutput struct{ *pulumi.OutputState }
 
 func (BucketV2LifecycleRuleOutput) ElementType() reflect.Type {
@@ -11201,6 +12978,12 @@ func (o BucketV2LifecycleRuleOutput) ToBucketV2LifecycleRuleOutput() BucketV2Lif
 
 func (o BucketV2LifecycleRuleOutput) ToBucketV2LifecycleRuleOutputWithContext(ctx context.Context) BucketV2LifecycleRuleOutput {
 	return o
+}
+
+func (o BucketV2LifecycleRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2LifecycleRule] {
+	return pulumix.Output[BucketV2LifecycleRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
@@ -11266,6 +13049,12 @@ func (o BucketV2LifecycleRuleArrayOutput) ToBucketV2LifecycleRuleArrayOutputWith
 	return o
 }
 
+func (o BucketV2LifecycleRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2LifecycleRule] {
+	return pulumix.Output[[]BucketV2LifecycleRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketV2LifecycleRuleArrayOutput) Index(i pulumi.IntInput) BucketV2LifecycleRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketV2LifecycleRule {
 		return vs[0].([]BucketV2LifecycleRule)[vs[1].(int)]
@@ -11313,6 +13102,12 @@ func (i BucketV2LifecycleRuleExpirationArgs) ToBucketV2LifecycleRuleExpirationOu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2LifecycleRuleExpirationOutput)
 }
 
+func (i BucketV2LifecycleRuleExpirationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2LifecycleRuleExpiration] {
+	return pulumix.Output[BucketV2LifecycleRuleExpiration]{
+		OutputState: i.ToBucketV2LifecycleRuleExpirationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2LifecycleRuleExpirationArrayInput is an input type that accepts BucketV2LifecycleRuleExpirationArray and BucketV2LifecycleRuleExpirationArrayOutput values.
 // You can construct a concrete instance of `BucketV2LifecycleRuleExpirationArrayInput` via:
 //
@@ -11338,6 +13133,12 @@ func (i BucketV2LifecycleRuleExpirationArray) ToBucketV2LifecycleRuleExpirationA
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2LifecycleRuleExpirationArrayOutput)
 }
 
+func (i BucketV2LifecycleRuleExpirationArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2LifecycleRuleExpiration] {
+	return pulumix.Output[[]BucketV2LifecycleRuleExpiration]{
+		OutputState: i.ToBucketV2LifecycleRuleExpirationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2LifecycleRuleExpirationOutput struct{ *pulumi.OutputState }
 
 func (BucketV2LifecycleRuleExpirationOutput) ElementType() reflect.Type {
@@ -11350,6 +13151,12 @@ func (o BucketV2LifecycleRuleExpirationOutput) ToBucketV2LifecycleRuleExpiration
 
 func (o BucketV2LifecycleRuleExpirationOutput) ToBucketV2LifecycleRuleExpirationOutputWithContext(ctx context.Context) BucketV2LifecycleRuleExpirationOutput {
 	return o
+}
+
+func (o BucketV2LifecycleRuleExpirationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2LifecycleRuleExpiration] {
+	return pulumix.Output[BucketV2LifecycleRuleExpiration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the date after which you want the corresponding action to take effect.
@@ -11379,6 +13186,12 @@ func (o BucketV2LifecycleRuleExpirationArrayOutput) ToBucketV2LifecycleRuleExpir
 
 func (o BucketV2LifecycleRuleExpirationArrayOutput) ToBucketV2LifecycleRuleExpirationArrayOutputWithContext(ctx context.Context) BucketV2LifecycleRuleExpirationArrayOutput {
 	return o
+}
+
+func (o BucketV2LifecycleRuleExpirationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2LifecycleRuleExpiration] {
+	return pulumix.Output[[]BucketV2LifecycleRuleExpiration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2LifecycleRuleExpirationArrayOutput) Index(i pulumi.IntInput) BucketV2LifecycleRuleExpirationOutput {
@@ -11420,6 +13233,12 @@ func (i BucketV2LifecycleRuleNoncurrentVersionExpirationArgs) ToBucketV2Lifecycl
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2LifecycleRuleNoncurrentVersionExpirationOutput)
 }
 
+func (i BucketV2LifecycleRuleNoncurrentVersionExpirationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2LifecycleRuleNoncurrentVersionExpiration] {
+	return pulumix.Output[BucketV2LifecycleRuleNoncurrentVersionExpiration]{
+		OutputState: i.ToBucketV2LifecycleRuleNoncurrentVersionExpirationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2LifecycleRuleNoncurrentVersionExpirationArrayInput is an input type that accepts BucketV2LifecycleRuleNoncurrentVersionExpirationArray and BucketV2LifecycleRuleNoncurrentVersionExpirationArrayOutput values.
 // You can construct a concrete instance of `BucketV2LifecycleRuleNoncurrentVersionExpirationArrayInput` via:
 //
@@ -11445,6 +13264,12 @@ func (i BucketV2LifecycleRuleNoncurrentVersionExpirationArray) ToBucketV2Lifecyc
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2LifecycleRuleNoncurrentVersionExpirationArrayOutput)
 }
 
+func (i BucketV2LifecycleRuleNoncurrentVersionExpirationArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2LifecycleRuleNoncurrentVersionExpiration] {
+	return pulumix.Output[[]BucketV2LifecycleRuleNoncurrentVersionExpiration]{
+		OutputState: i.ToBucketV2LifecycleRuleNoncurrentVersionExpirationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2LifecycleRuleNoncurrentVersionExpirationOutput struct{ *pulumi.OutputState }
 
 func (BucketV2LifecycleRuleNoncurrentVersionExpirationOutput) ElementType() reflect.Type {
@@ -11457,6 +13282,12 @@ func (o BucketV2LifecycleRuleNoncurrentVersionExpirationOutput) ToBucketV2Lifecy
 
 func (o BucketV2LifecycleRuleNoncurrentVersionExpirationOutput) ToBucketV2LifecycleRuleNoncurrentVersionExpirationOutputWithContext(ctx context.Context) BucketV2LifecycleRuleNoncurrentVersionExpirationOutput {
 	return o
+}
+
+func (o BucketV2LifecycleRuleNoncurrentVersionExpirationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2LifecycleRuleNoncurrentVersionExpiration] {
+	return pulumix.Output[BucketV2LifecycleRuleNoncurrentVersionExpiration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the number of days noncurrent object versions expire.
@@ -11476,6 +13307,12 @@ func (o BucketV2LifecycleRuleNoncurrentVersionExpirationArrayOutput) ToBucketV2L
 
 func (o BucketV2LifecycleRuleNoncurrentVersionExpirationArrayOutput) ToBucketV2LifecycleRuleNoncurrentVersionExpirationArrayOutputWithContext(ctx context.Context) BucketV2LifecycleRuleNoncurrentVersionExpirationArrayOutput {
 	return o
+}
+
+func (o BucketV2LifecycleRuleNoncurrentVersionExpirationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2LifecycleRuleNoncurrentVersionExpiration] {
+	return pulumix.Output[[]BucketV2LifecycleRuleNoncurrentVersionExpiration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2LifecycleRuleNoncurrentVersionExpirationArrayOutput) Index(i pulumi.IntInput) BucketV2LifecycleRuleNoncurrentVersionExpirationOutput {
@@ -11521,6 +13358,12 @@ func (i BucketV2LifecycleRuleNoncurrentVersionTransitionArgs) ToBucketV2Lifecycl
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2LifecycleRuleNoncurrentVersionTransitionOutput)
 }
 
+func (i BucketV2LifecycleRuleNoncurrentVersionTransitionArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2LifecycleRuleNoncurrentVersionTransition] {
+	return pulumix.Output[BucketV2LifecycleRuleNoncurrentVersionTransition]{
+		OutputState: i.ToBucketV2LifecycleRuleNoncurrentVersionTransitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2LifecycleRuleNoncurrentVersionTransitionArrayInput is an input type that accepts BucketV2LifecycleRuleNoncurrentVersionTransitionArray and BucketV2LifecycleRuleNoncurrentVersionTransitionArrayOutput values.
 // You can construct a concrete instance of `BucketV2LifecycleRuleNoncurrentVersionTransitionArrayInput` via:
 //
@@ -11546,6 +13389,12 @@ func (i BucketV2LifecycleRuleNoncurrentVersionTransitionArray) ToBucketV2Lifecyc
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2LifecycleRuleNoncurrentVersionTransitionArrayOutput)
 }
 
+func (i BucketV2LifecycleRuleNoncurrentVersionTransitionArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2LifecycleRuleNoncurrentVersionTransition] {
+	return pulumix.Output[[]BucketV2LifecycleRuleNoncurrentVersionTransition]{
+		OutputState: i.ToBucketV2LifecycleRuleNoncurrentVersionTransitionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2LifecycleRuleNoncurrentVersionTransitionOutput struct{ *pulumi.OutputState }
 
 func (BucketV2LifecycleRuleNoncurrentVersionTransitionOutput) ElementType() reflect.Type {
@@ -11558,6 +13407,12 @@ func (o BucketV2LifecycleRuleNoncurrentVersionTransitionOutput) ToBucketV2Lifecy
 
 func (o BucketV2LifecycleRuleNoncurrentVersionTransitionOutput) ToBucketV2LifecycleRuleNoncurrentVersionTransitionOutputWithContext(ctx context.Context) BucketV2LifecycleRuleNoncurrentVersionTransitionOutput {
 	return o
+}
+
+func (o BucketV2LifecycleRuleNoncurrentVersionTransitionOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2LifecycleRuleNoncurrentVersionTransition] {
+	return pulumix.Output[BucketV2LifecycleRuleNoncurrentVersionTransition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the number of days noncurrent object versions transition.
@@ -11582,6 +13437,12 @@ func (o BucketV2LifecycleRuleNoncurrentVersionTransitionArrayOutput) ToBucketV2L
 
 func (o BucketV2LifecycleRuleNoncurrentVersionTransitionArrayOutput) ToBucketV2LifecycleRuleNoncurrentVersionTransitionArrayOutputWithContext(ctx context.Context) BucketV2LifecycleRuleNoncurrentVersionTransitionArrayOutput {
 	return o
+}
+
+func (o BucketV2LifecycleRuleNoncurrentVersionTransitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2LifecycleRuleNoncurrentVersionTransition] {
+	return pulumix.Output[[]BucketV2LifecycleRuleNoncurrentVersionTransition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2LifecycleRuleNoncurrentVersionTransitionArrayOutput) Index(i pulumi.IntInput) BucketV2LifecycleRuleNoncurrentVersionTransitionOutput {
@@ -11631,6 +13492,12 @@ func (i BucketV2LifecycleRuleTransitionArgs) ToBucketV2LifecycleRuleTransitionOu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2LifecycleRuleTransitionOutput)
 }
 
+func (i BucketV2LifecycleRuleTransitionArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2LifecycleRuleTransition] {
+	return pulumix.Output[BucketV2LifecycleRuleTransition]{
+		OutputState: i.ToBucketV2LifecycleRuleTransitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2LifecycleRuleTransitionArrayInput is an input type that accepts BucketV2LifecycleRuleTransitionArray and BucketV2LifecycleRuleTransitionArrayOutput values.
 // You can construct a concrete instance of `BucketV2LifecycleRuleTransitionArrayInput` via:
 //
@@ -11656,6 +13523,12 @@ func (i BucketV2LifecycleRuleTransitionArray) ToBucketV2LifecycleRuleTransitionA
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2LifecycleRuleTransitionArrayOutput)
 }
 
+func (i BucketV2LifecycleRuleTransitionArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2LifecycleRuleTransition] {
+	return pulumix.Output[[]BucketV2LifecycleRuleTransition]{
+		OutputState: i.ToBucketV2LifecycleRuleTransitionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2LifecycleRuleTransitionOutput struct{ *pulumi.OutputState }
 
 func (BucketV2LifecycleRuleTransitionOutput) ElementType() reflect.Type {
@@ -11668,6 +13541,12 @@ func (o BucketV2LifecycleRuleTransitionOutput) ToBucketV2LifecycleRuleTransition
 
 func (o BucketV2LifecycleRuleTransitionOutput) ToBucketV2LifecycleRuleTransitionOutputWithContext(ctx context.Context) BucketV2LifecycleRuleTransitionOutput {
 	return o
+}
+
+func (o BucketV2LifecycleRuleTransitionOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2LifecycleRuleTransition] {
+	return pulumix.Output[BucketV2LifecycleRuleTransition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the date after which you want the corresponding action to take effect.
@@ -11697,6 +13576,12 @@ func (o BucketV2LifecycleRuleTransitionArrayOutput) ToBucketV2LifecycleRuleTrans
 
 func (o BucketV2LifecycleRuleTransitionArrayOutput) ToBucketV2LifecycleRuleTransitionArrayOutputWithContext(ctx context.Context) BucketV2LifecycleRuleTransitionArrayOutput {
 	return o
+}
+
+func (o BucketV2LifecycleRuleTransitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2LifecycleRuleTransition] {
+	return pulumix.Output[[]BucketV2LifecycleRuleTransition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2LifecycleRuleTransitionArrayOutput) Index(i pulumi.IntInput) BucketV2LifecycleRuleTransitionOutput {
@@ -11742,6 +13627,12 @@ func (i BucketV2LoggingArgs) ToBucketV2LoggingOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2LoggingOutput)
 }
 
+func (i BucketV2LoggingArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2Logging] {
+	return pulumix.Output[BucketV2Logging]{
+		OutputState: i.ToBucketV2LoggingOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2LoggingArrayInput is an input type that accepts BucketV2LoggingArray and BucketV2LoggingArrayOutput values.
 // You can construct a concrete instance of `BucketV2LoggingArrayInput` via:
 //
@@ -11767,6 +13658,12 @@ func (i BucketV2LoggingArray) ToBucketV2LoggingArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2LoggingArrayOutput)
 }
 
+func (i BucketV2LoggingArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2Logging] {
+	return pulumix.Output[[]BucketV2Logging]{
+		OutputState: i.ToBucketV2LoggingArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2LoggingOutput struct{ *pulumi.OutputState }
 
 func (BucketV2LoggingOutput) ElementType() reflect.Type {
@@ -11779,6 +13676,12 @@ func (o BucketV2LoggingOutput) ToBucketV2LoggingOutput() BucketV2LoggingOutput {
 
 func (o BucketV2LoggingOutput) ToBucketV2LoggingOutputWithContext(ctx context.Context) BucketV2LoggingOutput {
 	return o
+}
+
+func (o BucketV2LoggingOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2Logging] {
+	return pulumix.Output[BucketV2Logging]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the bucket that will receive the log objects.
@@ -11803,6 +13706,12 @@ func (o BucketV2LoggingArrayOutput) ToBucketV2LoggingArrayOutput() BucketV2Loggi
 
 func (o BucketV2LoggingArrayOutput) ToBucketV2LoggingArrayOutputWithContext(ctx context.Context) BucketV2LoggingArrayOutput {
 	return o
+}
+
+func (o BucketV2LoggingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2Logging] {
+	return pulumix.Output[[]BucketV2Logging]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2LoggingArrayOutput) Index(i pulumi.IntInput) BucketV2LoggingOutput {
@@ -11856,6 +13765,12 @@ func (i BucketV2ObjectLockConfigurationArgs) ToBucketV2ObjectLockConfigurationOu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ObjectLockConfigurationOutput)
 }
 
+func (i BucketV2ObjectLockConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2ObjectLockConfiguration] {
+	return pulumix.Output[BucketV2ObjectLockConfiguration]{
+		OutputState: i.ToBucketV2ObjectLockConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketV2ObjectLockConfigurationArgs) ToBucketV2ObjectLockConfigurationPtrOutput() BucketV2ObjectLockConfigurationPtrOutput {
 	return i.ToBucketV2ObjectLockConfigurationPtrOutputWithContext(context.Background())
 }
@@ -11897,6 +13812,12 @@ func (i *bucketV2ObjectLockConfigurationPtrType) ToBucketV2ObjectLockConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ObjectLockConfigurationPtrOutput)
 }
 
+func (i *bucketV2ObjectLockConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketV2ObjectLockConfiguration] {
+	return pulumix.Output[*BucketV2ObjectLockConfiguration]{
+		OutputState: i.ToBucketV2ObjectLockConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2ObjectLockConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketV2ObjectLockConfigurationOutput) ElementType() reflect.Type {
@@ -11919,6 +13840,12 @@ func (o BucketV2ObjectLockConfigurationOutput) ToBucketV2ObjectLockConfiguration
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketV2ObjectLockConfiguration) *BucketV2ObjectLockConfiguration {
 		return &v
 	}).(BucketV2ObjectLockConfigurationPtrOutput)
+}
+
+func (o BucketV2ObjectLockConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2ObjectLockConfiguration] {
+	return pulumix.Output[BucketV2ObjectLockConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
@@ -11947,6 +13874,12 @@ func (o BucketV2ObjectLockConfigurationPtrOutput) ToBucketV2ObjectLockConfigurat
 
 func (o BucketV2ObjectLockConfigurationPtrOutput) ToBucketV2ObjectLockConfigurationPtrOutputWithContext(ctx context.Context) BucketV2ObjectLockConfigurationPtrOutput {
 	return o
+}
+
+func (o BucketV2ObjectLockConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketV2ObjectLockConfiguration] {
+	return pulumix.Output[*BucketV2ObjectLockConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2ObjectLockConfigurationPtrOutput) Elem() BucketV2ObjectLockConfigurationOutput {
@@ -12016,6 +13949,12 @@ func (i BucketV2ObjectLockConfigurationRuleArgs) ToBucketV2ObjectLockConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ObjectLockConfigurationRuleOutput)
 }
 
+func (i BucketV2ObjectLockConfigurationRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2ObjectLockConfigurationRule] {
+	return pulumix.Output[BucketV2ObjectLockConfigurationRule]{
+		OutputState: i.ToBucketV2ObjectLockConfigurationRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2ObjectLockConfigurationRuleArrayInput is an input type that accepts BucketV2ObjectLockConfigurationRuleArray and BucketV2ObjectLockConfigurationRuleArrayOutput values.
 // You can construct a concrete instance of `BucketV2ObjectLockConfigurationRuleArrayInput` via:
 //
@@ -12041,6 +13980,12 @@ func (i BucketV2ObjectLockConfigurationRuleArray) ToBucketV2ObjectLockConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ObjectLockConfigurationRuleArrayOutput)
 }
 
+func (i BucketV2ObjectLockConfigurationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ObjectLockConfigurationRule] {
+	return pulumix.Output[[]BucketV2ObjectLockConfigurationRule]{
+		OutputState: i.ToBucketV2ObjectLockConfigurationRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2ObjectLockConfigurationRuleOutput struct{ *pulumi.OutputState }
 
 func (BucketV2ObjectLockConfigurationRuleOutput) ElementType() reflect.Type {
@@ -12053,6 +13998,12 @@ func (o BucketV2ObjectLockConfigurationRuleOutput) ToBucketV2ObjectLockConfigura
 
 func (o BucketV2ObjectLockConfigurationRuleOutput) ToBucketV2ObjectLockConfigurationRuleOutputWithContext(ctx context.Context) BucketV2ObjectLockConfigurationRuleOutput {
 	return o
+}
+
+func (o BucketV2ObjectLockConfigurationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2ObjectLockConfigurationRule] {
+	return pulumix.Output[BucketV2ObjectLockConfigurationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Default retention period that you want to apply to new objects placed in this bucket (documented below).
@@ -12074,6 +14025,12 @@ func (o BucketV2ObjectLockConfigurationRuleArrayOutput) ToBucketV2ObjectLockConf
 
 func (o BucketV2ObjectLockConfigurationRuleArrayOutput) ToBucketV2ObjectLockConfigurationRuleArrayOutputWithContext(ctx context.Context) BucketV2ObjectLockConfigurationRuleArrayOutput {
 	return o
+}
+
+func (o BucketV2ObjectLockConfigurationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ObjectLockConfigurationRule] {
+	return pulumix.Output[[]BucketV2ObjectLockConfigurationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2ObjectLockConfigurationRuleArrayOutput) Index(i pulumi.IntInput) BucketV2ObjectLockConfigurationRuleOutput {
@@ -12123,6 +14080,12 @@ func (i BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs) ToBucketV2Objec
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ObjectLockConfigurationRuleDefaultRetentionOutput)
 }
 
+func (i BucketV2ObjectLockConfigurationRuleDefaultRetentionArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2ObjectLockConfigurationRuleDefaultRetention] {
+	return pulumix.Output[BucketV2ObjectLockConfigurationRuleDefaultRetention]{
+		OutputState: i.ToBucketV2ObjectLockConfigurationRuleDefaultRetentionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2ObjectLockConfigurationRuleDefaultRetentionArrayInput is an input type that accepts BucketV2ObjectLockConfigurationRuleDefaultRetentionArray and BucketV2ObjectLockConfigurationRuleDefaultRetentionArrayOutput values.
 // You can construct a concrete instance of `BucketV2ObjectLockConfigurationRuleDefaultRetentionArrayInput` via:
 //
@@ -12148,6 +14111,12 @@ func (i BucketV2ObjectLockConfigurationRuleDefaultRetentionArray) ToBucketV2Obje
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ObjectLockConfigurationRuleDefaultRetentionArrayOutput)
 }
 
+func (i BucketV2ObjectLockConfigurationRuleDefaultRetentionArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ObjectLockConfigurationRuleDefaultRetention] {
+	return pulumix.Output[[]BucketV2ObjectLockConfigurationRuleDefaultRetention]{
+		OutputState: i.ToBucketV2ObjectLockConfigurationRuleDefaultRetentionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2ObjectLockConfigurationRuleDefaultRetentionOutput struct{ *pulumi.OutputState }
 
 func (BucketV2ObjectLockConfigurationRuleDefaultRetentionOutput) ElementType() reflect.Type {
@@ -12160,6 +14129,12 @@ func (o BucketV2ObjectLockConfigurationRuleDefaultRetentionOutput) ToBucketV2Obj
 
 func (o BucketV2ObjectLockConfigurationRuleDefaultRetentionOutput) ToBucketV2ObjectLockConfigurationRuleDefaultRetentionOutputWithContext(ctx context.Context) BucketV2ObjectLockConfigurationRuleDefaultRetentionOutput {
 	return o
+}
+
+func (o BucketV2ObjectLockConfigurationRuleDefaultRetentionOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2ObjectLockConfigurationRuleDefaultRetention] {
+	return pulumix.Output[BucketV2ObjectLockConfigurationRuleDefaultRetention]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Number of days that you want to specify for the default retention period.
@@ -12189,6 +14164,12 @@ func (o BucketV2ObjectLockConfigurationRuleDefaultRetentionArrayOutput) ToBucket
 
 func (o BucketV2ObjectLockConfigurationRuleDefaultRetentionArrayOutput) ToBucketV2ObjectLockConfigurationRuleDefaultRetentionArrayOutputWithContext(ctx context.Context) BucketV2ObjectLockConfigurationRuleDefaultRetentionArrayOutput {
 	return o
+}
+
+func (o BucketV2ObjectLockConfigurationRuleDefaultRetentionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ObjectLockConfigurationRuleDefaultRetention] {
+	return pulumix.Output[[]BucketV2ObjectLockConfigurationRuleDefaultRetention]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2ObjectLockConfigurationRuleDefaultRetentionArrayOutput) Index(i pulumi.IntInput) BucketV2ObjectLockConfigurationRuleDefaultRetentionOutput {
@@ -12234,6 +14215,12 @@ func (i BucketV2ReplicationConfigurationArgs) ToBucketV2ReplicationConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ReplicationConfigurationOutput)
 }
 
+func (i BucketV2ReplicationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2ReplicationConfiguration] {
+	return pulumix.Output[BucketV2ReplicationConfiguration]{
+		OutputState: i.ToBucketV2ReplicationConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2ReplicationConfigurationArrayInput is an input type that accepts BucketV2ReplicationConfigurationArray and BucketV2ReplicationConfigurationArrayOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationArrayInput` via:
 //
@@ -12259,6 +14246,12 @@ func (i BucketV2ReplicationConfigurationArray) ToBucketV2ReplicationConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ReplicationConfigurationArrayOutput)
 }
 
+func (i BucketV2ReplicationConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ReplicationConfiguration] {
+	return pulumix.Output[[]BucketV2ReplicationConfiguration]{
+		OutputState: i.ToBucketV2ReplicationConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2ReplicationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketV2ReplicationConfigurationOutput) ElementType() reflect.Type {
@@ -12271,6 +14264,12 @@ func (o BucketV2ReplicationConfigurationOutput) ToBucketV2ReplicationConfigurati
 
 func (o BucketV2ReplicationConfigurationOutput) ToBucketV2ReplicationConfigurationOutputWithContext(ctx context.Context) BucketV2ReplicationConfigurationOutput {
 	return o
+}
+
+func (o BucketV2ReplicationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2ReplicationConfiguration] {
+	return pulumix.Output[BucketV2ReplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of the IAM role for Amazon S3 to assume when replicating the objects.
@@ -12295,6 +14294,12 @@ func (o BucketV2ReplicationConfigurationArrayOutput) ToBucketV2ReplicationConfig
 
 func (o BucketV2ReplicationConfigurationArrayOutput) ToBucketV2ReplicationConfigurationArrayOutputWithContext(ctx context.Context) BucketV2ReplicationConfigurationArrayOutput {
 	return o
+}
+
+func (o BucketV2ReplicationConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ReplicationConfiguration] {
+	return pulumix.Output[[]BucketV2ReplicationConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2ReplicationConfigurationArrayOutput) Index(i pulumi.IntInput) BucketV2ReplicationConfigurationOutput {
@@ -12364,6 +14369,12 @@ func (i BucketV2ReplicationConfigurationRuleArgs) ToBucketV2ReplicationConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ReplicationConfigurationRuleOutput)
 }
 
+func (i BucketV2ReplicationConfigurationRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2ReplicationConfigurationRule] {
+	return pulumix.Output[BucketV2ReplicationConfigurationRule]{
+		OutputState: i.ToBucketV2ReplicationConfigurationRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2ReplicationConfigurationRuleArrayInput is an input type that accepts BucketV2ReplicationConfigurationRuleArray and BucketV2ReplicationConfigurationRuleArrayOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationRuleArrayInput` via:
 //
@@ -12389,6 +14400,12 @@ func (i BucketV2ReplicationConfigurationRuleArray) ToBucketV2ReplicationConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ReplicationConfigurationRuleArrayOutput)
 }
 
+func (i BucketV2ReplicationConfigurationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ReplicationConfigurationRule] {
+	return pulumix.Output[[]BucketV2ReplicationConfigurationRule]{
+		OutputState: i.ToBucketV2ReplicationConfigurationRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2ReplicationConfigurationRuleOutput struct{ *pulumi.OutputState }
 
 func (BucketV2ReplicationConfigurationRuleOutput) ElementType() reflect.Type {
@@ -12401,6 +14418,12 @@ func (o BucketV2ReplicationConfigurationRuleOutput) ToBucketV2ReplicationConfigu
 
 func (o BucketV2ReplicationConfigurationRuleOutput) ToBucketV2ReplicationConfigurationRuleOutputWithContext(ctx context.Context) BucketV2ReplicationConfigurationRuleOutput {
 	return o
+}
+
+func (o BucketV2ReplicationConfigurationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2ReplicationConfigurationRule] {
+	return pulumix.Output[BucketV2ReplicationConfigurationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
@@ -12461,6 +14484,12 @@ func (o BucketV2ReplicationConfigurationRuleArrayOutput) ToBucketV2ReplicationCo
 
 func (o BucketV2ReplicationConfigurationRuleArrayOutput) ToBucketV2ReplicationConfigurationRuleArrayOutputWithContext(ctx context.Context) BucketV2ReplicationConfigurationRuleArrayOutput {
 	return o
+}
+
+func (o BucketV2ReplicationConfigurationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ReplicationConfigurationRule] {
+	return pulumix.Output[[]BucketV2ReplicationConfigurationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2ReplicationConfigurationRuleArrayOutput) Index(i pulumi.IntInput) BucketV2ReplicationConfigurationRuleOutput {
@@ -12528,6 +14557,12 @@ func (i BucketV2ReplicationConfigurationRuleDestinationArgs) ToBucketV2Replicati
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ReplicationConfigurationRuleDestinationOutput)
 }
 
+func (i BucketV2ReplicationConfigurationRuleDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2ReplicationConfigurationRuleDestination] {
+	return pulumix.Output[BucketV2ReplicationConfigurationRuleDestination]{
+		OutputState: i.ToBucketV2ReplicationConfigurationRuleDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2ReplicationConfigurationRuleDestinationArrayInput is an input type that accepts BucketV2ReplicationConfigurationRuleDestinationArray and BucketV2ReplicationConfigurationRuleDestinationArrayOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationRuleDestinationArrayInput` via:
 //
@@ -12553,6 +14588,12 @@ func (i BucketV2ReplicationConfigurationRuleDestinationArray) ToBucketV2Replicat
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ReplicationConfigurationRuleDestinationArrayOutput)
 }
 
+func (i BucketV2ReplicationConfigurationRuleDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ReplicationConfigurationRuleDestination] {
+	return pulumix.Output[[]BucketV2ReplicationConfigurationRuleDestination]{
+		OutputState: i.ToBucketV2ReplicationConfigurationRuleDestinationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2ReplicationConfigurationRuleDestinationOutput struct{ *pulumi.OutputState }
 
 func (BucketV2ReplicationConfigurationRuleDestinationOutput) ElementType() reflect.Type {
@@ -12565,6 +14606,12 @@ func (o BucketV2ReplicationConfigurationRuleDestinationOutput) ToBucketV2Replica
 
 func (o BucketV2ReplicationConfigurationRuleDestinationOutput) ToBucketV2ReplicationConfigurationRuleDestinationOutputWithContext(ctx context.Context) BucketV2ReplicationConfigurationRuleDestinationOutput {
 	return o
+}
+
+func (o BucketV2ReplicationConfigurationRuleDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2ReplicationConfigurationRuleDestination] {
+	return pulumix.Output[BucketV2ReplicationConfigurationRuleDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the overrides to use for object owners on replication. Must be used in conjunction with `accountId` owner override configuration.
@@ -12623,6 +14670,12 @@ func (o BucketV2ReplicationConfigurationRuleDestinationArrayOutput) ToBucketV2Re
 	return o
 }
 
+func (o BucketV2ReplicationConfigurationRuleDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ReplicationConfigurationRuleDestination] {
+	return pulumix.Output[[]BucketV2ReplicationConfigurationRuleDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketV2ReplicationConfigurationRuleDestinationArrayOutput) Index(i pulumi.IntInput) BucketV2ReplicationConfigurationRuleDestinationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketV2ReplicationConfigurationRuleDestination {
 		return vs[0].([]BucketV2ReplicationConfigurationRuleDestination)[vs[1].(int)]
@@ -12660,6 +14713,12 @@ func (i BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationA
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationOutput)
 }
 
+func (i BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation] {
+	return pulumix.Output[BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation]{
+		OutputState: i.ToBucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArrayInput is an input type that accepts BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArray and BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArrayInput` via:
 //
@@ -12685,6 +14744,12 @@ func (i BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationA
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput)
 }
 
+func (i BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation] {
+	return pulumix.Output[[]BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation]{
+		OutputState: i.ToBucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationOutput struct{ *pulumi.OutputState }
 
 func (BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationOutput) ElementType() reflect.Type {
@@ -12697,6 +14762,12 @@ func (o BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationO
 
 func (o BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationOutput) ToBucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationOutputWithContext(ctx context.Context) BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationOutput {
 	return o
+}
+
+func (o BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation] {
+	return pulumix.Output[BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationOutput) Owner() pulumi.StringOutput {
@@ -12715,6 +14786,12 @@ func (o BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationA
 
 func (o BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput) ToBucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutputWithContext(ctx context.Context) BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput {
 	return o
+}
+
+func (o BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation] {
+	return pulumix.Output[[]BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput) Index(i pulumi.IntInput) BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationOutput {
@@ -12760,6 +14837,12 @@ func (i BucketV2ReplicationConfigurationRuleDestinationMetricArgs) ToBucketV2Rep
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ReplicationConfigurationRuleDestinationMetricOutput)
 }
 
+func (i BucketV2ReplicationConfigurationRuleDestinationMetricArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2ReplicationConfigurationRuleDestinationMetric] {
+	return pulumix.Output[BucketV2ReplicationConfigurationRuleDestinationMetric]{
+		OutputState: i.ToBucketV2ReplicationConfigurationRuleDestinationMetricOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2ReplicationConfigurationRuleDestinationMetricArrayInput is an input type that accepts BucketV2ReplicationConfigurationRuleDestinationMetricArray and BucketV2ReplicationConfigurationRuleDestinationMetricArrayOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationRuleDestinationMetricArrayInput` via:
 //
@@ -12785,6 +14868,12 @@ func (i BucketV2ReplicationConfigurationRuleDestinationMetricArray) ToBucketV2Re
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ReplicationConfigurationRuleDestinationMetricArrayOutput)
 }
 
+func (i BucketV2ReplicationConfigurationRuleDestinationMetricArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ReplicationConfigurationRuleDestinationMetric] {
+	return pulumix.Output[[]BucketV2ReplicationConfigurationRuleDestinationMetric]{
+		OutputState: i.ToBucketV2ReplicationConfigurationRuleDestinationMetricArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2ReplicationConfigurationRuleDestinationMetricOutput struct{ *pulumi.OutputState }
 
 func (BucketV2ReplicationConfigurationRuleDestinationMetricOutput) ElementType() reflect.Type {
@@ -12797,6 +14886,12 @@ func (o BucketV2ReplicationConfigurationRuleDestinationMetricOutput) ToBucketV2R
 
 func (o BucketV2ReplicationConfigurationRuleDestinationMetricOutput) ToBucketV2ReplicationConfigurationRuleDestinationMetricOutputWithContext(ctx context.Context) BucketV2ReplicationConfigurationRuleDestinationMetricOutput {
 	return o
+}
+
+func (o BucketV2ReplicationConfigurationRuleDestinationMetricOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2ReplicationConfigurationRuleDestinationMetric] {
+	return pulumix.Output[BucketV2ReplicationConfigurationRuleDestinationMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Threshold within which objects are to be replicated. The only valid value is `15`.
@@ -12821,6 +14916,12 @@ func (o BucketV2ReplicationConfigurationRuleDestinationMetricArrayOutput) ToBuck
 
 func (o BucketV2ReplicationConfigurationRuleDestinationMetricArrayOutput) ToBucketV2ReplicationConfigurationRuleDestinationMetricArrayOutputWithContext(ctx context.Context) BucketV2ReplicationConfigurationRuleDestinationMetricArrayOutput {
 	return o
+}
+
+func (o BucketV2ReplicationConfigurationRuleDestinationMetricArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ReplicationConfigurationRuleDestinationMetric] {
+	return pulumix.Output[[]BucketV2ReplicationConfigurationRuleDestinationMetric]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2ReplicationConfigurationRuleDestinationMetricArrayOutput) Index(i pulumi.IntInput) BucketV2ReplicationConfigurationRuleDestinationMetricOutput {
@@ -12866,6 +14967,12 @@ func (i BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs) ToBu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ReplicationConfigurationRuleDestinationReplicationTimeOutput)
 }
 
+func (i BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2ReplicationConfigurationRuleDestinationReplicationTime] {
+	return pulumix.Output[BucketV2ReplicationConfigurationRuleDestinationReplicationTime]{
+		OutputState: i.ToBucketV2ReplicationConfigurationRuleDestinationReplicationTimeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArrayInput is an input type that accepts BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArray and BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArrayOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArrayInput` via:
 //
@@ -12891,6 +14998,12 @@ func (i BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArray) ToB
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArrayOutput)
 }
 
+func (i BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ReplicationConfigurationRuleDestinationReplicationTime] {
+	return pulumix.Output[[]BucketV2ReplicationConfigurationRuleDestinationReplicationTime]{
+		OutputState: i.ToBucketV2ReplicationConfigurationRuleDestinationReplicationTimeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2ReplicationConfigurationRuleDestinationReplicationTimeOutput struct{ *pulumi.OutputState }
 
 func (BucketV2ReplicationConfigurationRuleDestinationReplicationTimeOutput) ElementType() reflect.Type {
@@ -12903,6 +15016,12 @@ func (o BucketV2ReplicationConfigurationRuleDestinationReplicationTimeOutput) To
 
 func (o BucketV2ReplicationConfigurationRuleDestinationReplicationTimeOutput) ToBucketV2ReplicationConfigurationRuleDestinationReplicationTimeOutputWithContext(ctx context.Context) BucketV2ReplicationConfigurationRuleDestinationReplicationTimeOutput {
 	return o
+}
+
+func (o BucketV2ReplicationConfigurationRuleDestinationReplicationTimeOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2ReplicationConfigurationRuleDestinationReplicationTime] {
+	return pulumix.Output[BucketV2ReplicationConfigurationRuleDestinationReplicationTime]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Threshold within which objects are to be replicated. The only valid value is `15`.
@@ -12927,6 +15046,12 @@ func (o BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArrayOutpu
 
 func (o BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArrayOutput) ToBucketV2ReplicationConfigurationRuleDestinationReplicationTimeArrayOutputWithContext(ctx context.Context) BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArrayOutput {
 	return o
+}
+
+func (o BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ReplicationConfigurationRuleDestinationReplicationTime] {
+	return pulumix.Output[[]BucketV2ReplicationConfigurationRuleDestinationReplicationTime]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArrayOutput) Index(i pulumi.IntInput) BucketV2ReplicationConfigurationRuleDestinationReplicationTimeOutput {
@@ -12974,6 +15099,12 @@ func (i BucketV2ReplicationConfigurationRuleFilterArgs) ToBucketV2ReplicationCon
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ReplicationConfigurationRuleFilterOutput)
 }
 
+func (i BucketV2ReplicationConfigurationRuleFilterArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2ReplicationConfigurationRuleFilter] {
+	return pulumix.Output[BucketV2ReplicationConfigurationRuleFilter]{
+		OutputState: i.ToBucketV2ReplicationConfigurationRuleFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2ReplicationConfigurationRuleFilterArrayInput is an input type that accepts BucketV2ReplicationConfigurationRuleFilterArray and BucketV2ReplicationConfigurationRuleFilterArrayOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationRuleFilterArrayInput` via:
 //
@@ -12999,6 +15130,12 @@ func (i BucketV2ReplicationConfigurationRuleFilterArray) ToBucketV2ReplicationCo
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ReplicationConfigurationRuleFilterArrayOutput)
 }
 
+func (i BucketV2ReplicationConfigurationRuleFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ReplicationConfigurationRuleFilter] {
+	return pulumix.Output[[]BucketV2ReplicationConfigurationRuleFilter]{
+		OutputState: i.ToBucketV2ReplicationConfigurationRuleFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2ReplicationConfigurationRuleFilterOutput struct{ *pulumi.OutputState }
 
 func (BucketV2ReplicationConfigurationRuleFilterOutput) ElementType() reflect.Type {
@@ -13011,6 +15148,12 @@ func (o BucketV2ReplicationConfigurationRuleFilterOutput) ToBucketV2ReplicationC
 
 func (o BucketV2ReplicationConfigurationRuleFilterOutput) ToBucketV2ReplicationConfigurationRuleFilterOutputWithContext(ctx context.Context) BucketV2ReplicationConfigurationRuleFilterOutput {
 	return o
+}
+
+func (o BucketV2ReplicationConfigurationRuleFilterOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2ReplicationConfigurationRuleFilter] {
+	return pulumix.Output[BucketV2ReplicationConfigurationRuleFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Object keyname prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
@@ -13036,6 +15179,12 @@ func (o BucketV2ReplicationConfigurationRuleFilterArrayOutput) ToBucketV2Replica
 
 func (o BucketV2ReplicationConfigurationRuleFilterArrayOutput) ToBucketV2ReplicationConfigurationRuleFilterArrayOutputWithContext(ctx context.Context) BucketV2ReplicationConfigurationRuleFilterArrayOutput {
 	return o
+}
+
+func (o BucketV2ReplicationConfigurationRuleFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ReplicationConfigurationRuleFilter] {
+	return pulumix.Output[[]BucketV2ReplicationConfigurationRuleFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2ReplicationConfigurationRuleFilterArrayOutput) Index(i pulumi.IntInput) BucketV2ReplicationConfigurationRuleFilterOutput {
@@ -13079,6 +15228,12 @@ func (i BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs) ToBucke
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaOutput)
 }
 
+func (i BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2ReplicationConfigurationRuleSourceSelectionCriteria] {
+	return pulumix.Output[BucketV2ReplicationConfigurationRuleSourceSelectionCriteria]{
+		OutputState: i.ToBucketV2ReplicationConfigurationRuleSourceSelectionCriteriaOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArrayInput is an input type that accepts BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArray and BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArrayInput` via:
 //
@@ -13104,6 +15259,12 @@ func (i BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArray) ToBuck
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput)
 }
 
+func (i BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ReplicationConfigurationRuleSourceSelectionCriteria] {
+	return pulumix.Output[[]BucketV2ReplicationConfigurationRuleSourceSelectionCriteria]{
+		OutputState: i.ToBucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaOutput struct{ *pulumi.OutputState }
 
 func (BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaOutput) ElementType() reflect.Type {
@@ -13116,6 +15277,12 @@ func (o BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaOutput) ToBuc
 
 func (o BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaOutput) ToBucketV2ReplicationConfigurationRuleSourceSelectionCriteriaOutputWithContext(ctx context.Context) BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaOutput {
 	return o
+}
+
+func (o BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2ReplicationConfigurationRuleSourceSelectionCriteria] {
+	return pulumix.Output[BucketV2ReplicationConfigurationRuleSourceSelectionCriteria]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Match SSE-KMS encrypted objects (documented below). If specified, `replicaKmsKeyId`
@@ -13138,6 +15305,12 @@ func (o BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput) 
 
 func (o BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput) ToBucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArrayOutputWithContext(ctx context.Context) BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput {
 	return o
+}
+
+func (o BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ReplicationConfigurationRuleSourceSelectionCriteria] {
+	return pulumix.Output[[]BucketV2ReplicationConfigurationRuleSourceSelectionCriteria]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput) Index(i pulumi.IntInput) BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaOutput {
@@ -13179,6 +15352,12 @@ func (i BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncrypt
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput)
 }
 
+func (i BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject] {
+	return pulumix.Output[BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject]{
+		OutputState: i.ToBucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayInput is an input type that accepts BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArray and BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput values.
 // You can construct a concrete instance of `BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayInput` via:
 //
@@ -13204,6 +15383,12 @@ func (i BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncrypt
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput)
 }
 
+func (i BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject] {
+	return pulumix.Output[[]BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject]{
+		OutputState: i.ToBucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput struct{ *pulumi.OutputState }
 
 func (BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput) ElementType() reflect.Type {
@@ -13216,6 +15401,12 @@ func (o BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncrypt
 
 func (o BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput) ToBucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutputWithContext(ctx context.Context) BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput {
 	return o
+}
+
+func (o BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject] {
+	return pulumix.Output[BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Boolean which indicates if this criteria is enabled.
@@ -13237,6 +15428,12 @@ func (o BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncrypt
 
 func (o BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput) ToBucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutputWithContext(ctx context.Context) BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput {
 	return o
+}
+
+func (o BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject] {
+	return pulumix.Output[[]BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput) Index(i pulumi.IntInput) BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput {
@@ -13278,6 +15475,12 @@ func (i BucketV2ServerSideEncryptionConfigurationArgs) ToBucketV2ServerSideEncry
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ServerSideEncryptionConfigurationOutput)
 }
 
+func (i BucketV2ServerSideEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2ServerSideEncryptionConfiguration] {
+	return pulumix.Output[BucketV2ServerSideEncryptionConfiguration]{
+		OutputState: i.ToBucketV2ServerSideEncryptionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2ServerSideEncryptionConfigurationArrayInput is an input type that accepts BucketV2ServerSideEncryptionConfigurationArray and BucketV2ServerSideEncryptionConfigurationArrayOutput values.
 // You can construct a concrete instance of `BucketV2ServerSideEncryptionConfigurationArrayInput` via:
 //
@@ -13303,6 +15506,12 @@ func (i BucketV2ServerSideEncryptionConfigurationArray) ToBucketV2ServerSideEncr
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ServerSideEncryptionConfigurationArrayOutput)
 }
 
+func (i BucketV2ServerSideEncryptionConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ServerSideEncryptionConfiguration] {
+	return pulumix.Output[[]BucketV2ServerSideEncryptionConfiguration]{
+		OutputState: i.ToBucketV2ServerSideEncryptionConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2ServerSideEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketV2ServerSideEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -13315,6 +15524,12 @@ func (o BucketV2ServerSideEncryptionConfigurationOutput) ToBucketV2ServerSideEnc
 
 func (o BucketV2ServerSideEncryptionConfigurationOutput) ToBucketV2ServerSideEncryptionConfigurationOutputWithContext(ctx context.Context) BucketV2ServerSideEncryptionConfigurationOutput {
 	return o
+}
+
+func (o BucketV2ServerSideEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2ServerSideEncryptionConfiguration] {
+	return pulumix.Output[BucketV2ServerSideEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Single object for server-side encryption by default configuration. (documented below)
@@ -13336,6 +15551,12 @@ func (o BucketV2ServerSideEncryptionConfigurationArrayOutput) ToBucketV2ServerSi
 
 func (o BucketV2ServerSideEncryptionConfigurationArrayOutput) ToBucketV2ServerSideEncryptionConfigurationArrayOutputWithContext(ctx context.Context) BucketV2ServerSideEncryptionConfigurationArrayOutput {
 	return o
+}
+
+func (o BucketV2ServerSideEncryptionConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ServerSideEncryptionConfiguration] {
+	return pulumix.Output[[]BucketV2ServerSideEncryptionConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2ServerSideEncryptionConfigurationArrayOutput) Index(i pulumi.IntInput) BucketV2ServerSideEncryptionConfigurationOutput {
@@ -13381,6 +15602,12 @@ func (i BucketV2ServerSideEncryptionConfigurationRuleArgs) ToBucketV2ServerSideE
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ServerSideEncryptionConfigurationRuleOutput)
 }
 
+func (i BucketV2ServerSideEncryptionConfigurationRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2ServerSideEncryptionConfigurationRule] {
+	return pulumix.Output[BucketV2ServerSideEncryptionConfigurationRule]{
+		OutputState: i.ToBucketV2ServerSideEncryptionConfigurationRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2ServerSideEncryptionConfigurationRuleArrayInput is an input type that accepts BucketV2ServerSideEncryptionConfigurationRuleArray and BucketV2ServerSideEncryptionConfigurationRuleArrayOutput values.
 // You can construct a concrete instance of `BucketV2ServerSideEncryptionConfigurationRuleArrayInput` via:
 //
@@ -13406,6 +15633,12 @@ func (i BucketV2ServerSideEncryptionConfigurationRuleArray) ToBucketV2ServerSide
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ServerSideEncryptionConfigurationRuleArrayOutput)
 }
 
+func (i BucketV2ServerSideEncryptionConfigurationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ServerSideEncryptionConfigurationRule] {
+	return pulumix.Output[[]BucketV2ServerSideEncryptionConfigurationRule]{
+		OutputState: i.ToBucketV2ServerSideEncryptionConfigurationRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2ServerSideEncryptionConfigurationRuleOutput struct{ *pulumi.OutputState }
 
 func (BucketV2ServerSideEncryptionConfigurationRuleOutput) ElementType() reflect.Type {
@@ -13418,6 +15651,12 @@ func (o BucketV2ServerSideEncryptionConfigurationRuleOutput) ToBucketV2ServerSid
 
 func (o BucketV2ServerSideEncryptionConfigurationRuleOutput) ToBucketV2ServerSideEncryptionConfigurationRuleOutputWithContext(ctx context.Context) BucketV2ServerSideEncryptionConfigurationRuleOutput {
 	return o
+}
+
+func (o BucketV2ServerSideEncryptionConfigurationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2ServerSideEncryptionConfigurationRule] {
+	return pulumix.Output[BucketV2ServerSideEncryptionConfigurationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Single object for setting server-side encryption by default. (documented below)
@@ -13444,6 +15683,12 @@ func (o BucketV2ServerSideEncryptionConfigurationRuleArrayOutput) ToBucketV2Serv
 
 func (o BucketV2ServerSideEncryptionConfigurationRuleArrayOutput) ToBucketV2ServerSideEncryptionConfigurationRuleArrayOutputWithContext(ctx context.Context) BucketV2ServerSideEncryptionConfigurationRuleArrayOutput {
 	return o
+}
+
+func (o BucketV2ServerSideEncryptionConfigurationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ServerSideEncryptionConfigurationRule] {
+	return pulumix.Output[[]BucketV2ServerSideEncryptionConfigurationRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2ServerSideEncryptionConfigurationRuleArrayOutput) Index(i pulumi.IntInput) BucketV2ServerSideEncryptionConfigurationRuleOutput {
@@ -13489,6 +15734,12 @@ func (i BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionBy
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput)
 }
 
+func (i BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault] {
+	return pulumix.Output[BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault]{
+		OutputState: i.ToBucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayInput is an input type that accepts BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArray and BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput values.
 // You can construct a concrete instance of `BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayInput` via:
 //
@@ -13514,6 +15765,12 @@ func (i BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionBy
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput)
 }
 
+func (i BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault] {
+	return pulumix.Output[[]BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault]{
+		OutputState: i.ToBucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput struct{ *pulumi.OutputState }
 
 func (BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput) ElementType() reflect.Type {
@@ -13526,6 +15783,12 @@ func (o BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionBy
 
 func (o BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput) ToBucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutputWithContext(ctx context.Context) BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput {
 	return o
+}
+
+func (o BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault] {
+	return pulumix.Output[BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault]{
+		OutputState: o.OutputState,
+	}
 }
 
 // AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
@@ -13554,6 +15817,12 @@ func (o BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionBy
 
 func (o BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput) ToBucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutputWithContext(ctx context.Context) BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput {
 	return o
+}
+
+func (o BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault] {
+	return pulumix.Output[[]BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArrayOutput) Index(i pulumi.IntInput) BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultOutput {
@@ -13599,6 +15868,12 @@ func (i BucketV2VersioningArgs) ToBucketV2VersioningOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2VersioningOutput)
 }
 
+func (i BucketV2VersioningArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2Versioning] {
+	return pulumix.Output[BucketV2Versioning]{
+		OutputState: i.ToBucketV2VersioningOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2VersioningArrayInput is an input type that accepts BucketV2VersioningArray and BucketV2VersioningArrayOutput values.
 // You can construct a concrete instance of `BucketV2VersioningArrayInput` via:
 //
@@ -13624,6 +15899,12 @@ func (i BucketV2VersioningArray) ToBucketV2VersioningArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2VersioningArrayOutput)
 }
 
+func (i BucketV2VersioningArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2Versioning] {
+	return pulumix.Output[[]BucketV2Versioning]{
+		OutputState: i.ToBucketV2VersioningArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2VersioningOutput struct{ *pulumi.OutputState }
 
 func (BucketV2VersioningOutput) ElementType() reflect.Type {
@@ -13636,6 +15917,12 @@ func (o BucketV2VersioningOutput) ToBucketV2VersioningOutput() BucketV2Versionin
 
 func (o BucketV2VersioningOutput) ToBucketV2VersioningOutputWithContext(ctx context.Context) BucketV2VersioningOutput {
 	return o
+}
+
+func (o BucketV2VersioningOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2Versioning] {
+	return pulumix.Output[BucketV2Versioning]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
@@ -13660,6 +15947,12 @@ func (o BucketV2VersioningArrayOutput) ToBucketV2VersioningArrayOutput() BucketV
 
 func (o BucketV2VersioningArrayOutput) ToBucketV2VersioningArrayOutputWithContext(ctx context.Context) BucketV2VersioningArrayOutput {
 	return o
+}
+
+func (o BucketV2VersioningArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2Versioning] {
+	return pulumix.Output[[]BucketV2Versioning]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2VersioningArrayOutput) Index(i pulumi.IntInput) BucketV2VersioningOutput {
@@ -13715,6 +16008,12 @@ func (i BucketV2WebsiteArgs) ToBucketV2WebsiteOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2WebsiteOutput)
 }
 
+func (i BucketV2WebsiteArgs) ToOutput(ctx context.Context) pulumix.Output[BucketV2Website] {
+	return pulumix.Output[BucketV2Website]{
+		OutputState: i.ToBucketV2WebsiteOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketV2WebsiteArrayInput is an input type that accepts BucketV2WebsiteArray and BucketV2WebsiteArrayOutput values.
 // You can construct a concrete instance of `BucketV2WebsiteArrayInput` via:
 //
@@ -13740,6 +16039,12 @@ func (i BucketV2WebsiteArray) ToBucketV2WebsiteArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(BucketV2WebsiteArrayOutput)
 }
 
+func (i BucketV2WebsiteArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2Website] {
+	return pulumix.Output[[]BucketV2Website]{
+		OutputState: i.ToBucketV2WebsiteArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketV2WebsiteOutput struct{ *pulumi.OutputState }
 
 func (BucketV2WebsiteOutput) ElementType() reflect.Type {
@@ -13752,6 +16057,12 @@ func (o BucketV2WebsiteOutput) ToBucketV2WebsiteOutput() BucketV2WebsiteOutput {
 
 func (o BucketV2WebsiteOutput) ToBucketV2WebsiteOutputWithContext(ctx context.Context) BucketV2WebsiteOutput {
 	return o
+}
+
+func (o BucketV2WebsiteOutput) ToOutput(ctx context.Context) pulumix.Output[BucketV2Website] {
+	return pulumix.Output[BucketV2Website]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Absolute path to the document to return in case of a 4XX error.
@@ -13787,6 +16098,12 @@ func (o BucketV2WebsiteArrayOutput) ToBucketV2WebsiteArrayOutput() BucketV2Websi
 
 func (o BucketV2WebsiteArrayOutput) ToBucketV2WebsiteArrayOutputWithContext(ctx context.Context) BucketV2WebsiteArrayOutput {
 	return o
+}
+
+func (o BucketV2WebsiteArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketV2Website] {
+	return pulumix.Output[[]BucketV2Website]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketV2WebsiteArrayOutput) Index(i pulumi.IntInput) BucketV2WebsiteOutput {
@@ -13832,6 +16149,12 @@ func (i BucketVersioningArgs) ToBucketVersioningOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BucketVersioningOutput)
 }
 
+func (i BucketVersioningArgs) ToOutput(ctx context.Context) pulumix.Output[BucketVersioning] {
+	return pulumix.Output[BucketVersioning]{
+		OutputState: i.ToBucketVersioningOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketVersioningArgs) ToBucketVersioningPtrOutput() BucketVersioningPtrOutput {
 	return i.ToBucketVersioningPtrOutputWithContext(context.Background())
 }
@@ -13873,6 +16196,12 @@ func (i *bucketVersioningPtrType) ToBucketVersioningPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(BucketVersioningPtrOutput)
 }
 
+func (i *bucketVersioningPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketVersioning] {
+	return pulumix.Output[*BucketVersioning]{
+		OutputState: i.ToBucketVersioningPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketVersioningOutput struct{ *pulumi.OutputState }
 
 func (BucketVersioningOutput) ElementType() reflect.Type {
@@ -13897,6 +16226,12 @@ func (o BucketVersioningOutput) ToBucketVersioningPtrOutputWithContext(ctx conte
 	}).(BucketVersioningPtrOutput)
 }
 
+func (o BucketVersioningOutput) ToOutput(ctx context.Context) pulumix.Output[BucketVersioning] {
+	return pulumix.Output[BucketVersioning]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
 func (o BucketVersioningOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BucketVersioning) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
@@ -13919,6 +16254,12 @@ func (o BucketVersioningPtrOutput) ToBucketVersioningPtrOutput() BucketVersionin
 
 func (o BucketVersioningPtrOutput) ToBucketVersioningPtrOutputWithContext(ctx context.Context) BucketVersioningPtrOutput {
 	return o
+}
+
+func (o BucketVersioningPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketVersioning] {
+	return pulumix.Output[*BucketVersioning]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketVersioningPtrOutput) Elem() BucketVersioningOutput {
@@ -13988,6 +16329,12 @@ func (i BucketVersioningV2VersioningConfigurationArgs) ToBucketVersioningV2Versi
 	return pulumi.ToOutputWithContext(ctx, i).(BucketVersioningV2VersioningConfigurationOutput)
 }
 
+func (i BucketVersioningV2VersioningConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketVersioningV2VersioningConfiguration] {
+	return pulumix.Output[BucketVersioningV2VersioningConfiguration]{
+		OutputState: i.ToBucketVersioningV2VersioningConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketVersioningV2VersioningConfigurationArgs) ToBucketVersioningV2VersioningConfigurationPtrOutput() BucketVersioningV2VersioningConfigurationPtrOutput {
 	return i.ToBucketVersioningV2VersioningConfigurationPtrOutputWithContext(context.Background())
 }
@@ -14029,6 +16376,12 @@ func (i *bucketVersioningV2VersioningConfigurationPtrType) ToBucketVersioningV2V
 	return pulumi.ToOutputWithContext(ctx, i).(BucketVersioningV2VersioningConfigurationPtrOutput)
 }
 
+func (i *bucketVersioningV2VersioningConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketVersioningV2VersioningConfiguration] {
+	return pulumix.Output[*BucketVersioningV2VersioningConfiguration]{
+		OutputState: i.ToBucketVersioningV2VersioningConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketVersioningV2VersioningConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketVersioningV2VersioningConfigurationOutput) ElementType() reflect.Type {
@@ -14053,6 +16406,12 @@ func (o BucketVersioningV2VersioningConfigurationOutput) ToBucketVersioningV2Ver
 	}).(BucketVersioningV2VersioningConfigurationPtrOutput)
 }
 
+func (o BucketVersioningV2VersioningConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketVersioningV2VersioningConfiguration] {
+	return pulumix.Output[BucketVersioningV2VersioningConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies whether MFA delete is enabled in the bucket versioning configuration. Valid values: `Enabled` or `Disabled`.
 func (o BucketVersioningV2VersioningConfigurationOutput) MfaDelete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketVersioningV2VersioningConfiguration) *string { return v.MfaDelete }).(pulumi.StringPtrOutput)
@@ -14075,6 +16434,12 @@ func (o BucketVersioningV2VersioningConfigurationPtrOutput) ToBucketVersioningV2
 
 func (o BucketVersioningV2VersioningConfigurationPtrOutput) ToBucketVersioningV2VersioningConfigurationPtrOutputWithContext(ctx context.Context) BucketVersioningV2VersioningConfigurationPtrOutput {
 	return o
+}
+
+func (o BucketVersioningV2VersioningConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketVersioningV2VersioningConfiguration] {
+	return pulumix.Output[*BucketVersioningV2VersioningConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketVersioningV2VersioningConfigurationPtrOutput) Elem() BucketVersioningV2VersioningConfigurationOutput {
@@ -14158,6 +16523,12 @@ func (i BucketWebsiteArgs) ToBucketWebsiteOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteOutput)
 }
 
+func (i BucketWebsiteArgs) ToOutput(ctx context.Context) pulumix.Output[BucketWebsite] {
+	return pulumix.Output[BucketWebsite]{
+		OutputState: i.ToBucketWebsiteOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketWebsiteArgs) ToBucketWebsitePtrOutput() BucketWebsitePtrOutput {
 	return i.ToBucketWebsitePtrOutputWithContext(context.Background())
 }
@@ -14199,6 +16570,12 @@ func (i *bucketWebsitePtrType) ToBucketWebsitePtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsitePtrOutput)
 }
 
+func (i *bucketWebsitePtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketWebsite] {
+	return pulumix.Output[*BucketWebsite]{
+		OutputState: i.ToBucketWebsitePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketWebsiteOutput struct{ *pulumi.OutputState }
 
 func (BucketWebsiteOutput) ElementType() reflect.Type {
@@ -14221,6 +16598,12 @@ func (o BucketWebsiteOutput) ToBucketWebsitePtrOutputWithContext(ctx context.Con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketWebsite) *BucketWebsite {
 		return &v
 	}).(BucketWebsitePtrOutput)
+}
+
+func (o BucketWebsiteOutput) ToOutput(ctx context.Context) pulumix.Output[BucketWebsite] {
+	return pulumix.Output[BucketWebsite]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An absolute path to the document to return in case of a 4XX error.
@@ -14258,6 +16641,12 @@ func (o BucketWebsitePtrOutput) ToBucketWebsitePtrOutput() BucketWebsitePtrOutpu
 
 func (o BucketWebsitePtrOutput) ToBucketWebsitePtrOutputWithContext(ctx context.Context) BucketWebsitePtrOutput {
 	return o
+}
+
+func (o BucketWebsitePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketWebsite] {
+	return pulumix.Output[*BucketWebsite]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketWebsitePtrOutput) Elem() BucketWebsiteOutput {
@@ -14346,6 +16735,12 @@ func (i BucketWebsiteConfigurationV2ErrorDocumentArgs) ToBucketWebsiteConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2ErrorDocumentOutput)
 }
 
+func (i BucketWebsiteConfigurationV2ErrorDocumentArgs) ToOutput(ctx context.Context) pulumix.Output[BucketWebsiteConfigurationV2ErrorDocument] {
+	return pulumix.Output[BucketWebsiteConfigurationV2ErrorDocument]{
+		OutputState: i.ToBucketWebsiteConfigurationV2ErrorDocumentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketWebsiteConfigurationV2ErrorDocumentArgs) ToBucketWebsiteConfigurationV2ErrorDocumentPtrOutput() BucketWebsiteConfigurationV2ErrorDocumentPtrOutput {
 	return i.ToBucketWebsiteConfigurationV2ErrorDocumentPtrOutputWithContext(context.Background())
 }
@@ -14387,6 +16782,12 @@ func (i *bucketWebsiteConfigurationV2ErrorDocumentPtrType) ToBucketWebsiteConfig
 	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2ErrorDocumentPtrOutput)
 }
 
+func (i *bucketWebsiteConfigurationV2ErrorDocumentPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketWebsiteConfigurationV2ErrorDocument] {
+	return pulumix.Output[*BucketWebsiteConfigurationV2ErrorDocument]{
+		OutputState: i.ToBucketWebsiteConfigurationV2ErrorDocumentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketWebsiteConfigurationV2ErrorDocumentOutput struct{ *pulumi.OutputState }
 
 func (BucketWebsiteConfigurationV2ErrorDocumentOutput) ElementType() reflect.Type {
@@ -14411,6 +16812,12 @@ func (o BucketWebsiteConfigurationV2ErrorDocumentOutput) ToBucketWebsiteConfigur
 	}).(BucketWebsiteConfigurationV2ErrorDocumentPtrOutput)
 }
 
+func (o BucketWebsiteConfigurationV2ErrorDocumentOutput) ToOutput(ctx context.Context) pulumix.Output[BucketWebsiteConfigurationV2ErrorDocument] {
+	return pulumix.Output[BucketWebsiteConfigurationV2ErrorDocument]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Object key name to use when a 4XX class error occurs.
 func (o BucketWebsiteConfigurationV2ErrorDocumentOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketWebsiteConfigurationV2ErrorDocument) string { return v.Key }).(pulumi.StringOutput)
@@ -14428,6 +16835,12 @@ func (o BucketWebsiteConfigurationV2ErrorDocumentPtrOutput) ToBucketWebsiteConfi
 
 func (o BucketWebsiteConfigurationV2ErrorDocumentPtrOutput) ToBucketWebsiteConfigurationV2ErrorDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2ErrorDocumentPtrOutput {
 	return o
+}
+
+func (o BucketWebsiteConfigurationV2ErrorDocumentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketWebsiteConfigurationV2ErrorDocument] {
+	return pulumix.Output[*BucketWebsiteConfigurationV2ErrorDocument]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketWebsiteConfigurationV2ErrorDocumentPtrOutput) Elem() BucketWebsiteConfigurationV2ErrorDocumentOutput {
@@ -14487,6 +16900,12 @@ func (i BucketWebsiteConfigurationV2IndexDocumentArgs) ToBucketWebsiteConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2IndexDocumentOutput)
 }
 
+func (i BucketWebsiteConfigurationV2IndexDocumentArgs) ToOutput(ctx context.Context) pulumix.Output[BucketWebsiteConfigurationV2IndexDocument] {
+	return pulumix.Output[BucketWebsiteConfigurationV2IndexDocument]{
+		OutputState: i.ToBucketWebsiteConfigurationV2IndexDocumentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketWebsiteConfigurationV2IndexDocumentArgs) ToBucketWebsiteConfigurationV2IndexDocumentPtrOutput() BucketWebsiteConfigurationV2IndexDocumentPtrOutput {
 	return i.ToBucketWebsiteConfigurationV2IndexDocumentPtrOutputWithContext(context.Background())
 }
@@ -14528,6 +16947,12 @@ func (i *bucketWebsiteConfigurationV2IndexDocumentPtrType) ToBucketWebsiteConfig
 	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2IndexDocumentPtrOutput)
 }
 
+func (i *bucketWebsiteConfigurationV2IndexDocumentPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketWebsiteConfigurationV2IndexDocument] {
+	return pulumix.Output[*BucketWebsiteConfigurationV2IndexDocument]{
+		OutputState: i.ToBucketWebsiteConfigurationV2IndexDocumentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketWebsiteConfigurationV2IndexDocumentOutput struct{ *pulumi.OutputState }
 
 func (BucketWebsiteConfigurationV2IndexDocumentOutput) ElementType() reflect.Type {
@@ -14552,6 +16977,12 @@ func (o BucketWebsiteConfigurationV2IndexDocumentOutput) ToBucketWebsiteConfigur
 	}).(BucketWebsiteConfigurationV2IndexDocumentPtrOutput)
 }
 
+func (o BucketWebsiteConfigurationV2IndexDocumentOutput) ToOutput(ctx context.Context) pulumix.Output[BucketWebsiteConfigurationV2IndexDocument] {
+	return pulumix.Output[BucketWebsiteConfigurationV2IndexDocument]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Suffix that is appended to a request that is for a directory on the website endpoint.
 // For example, if the suffix is `index.html` and you make a request to `samplebucket/images/`, the data that is returned will be for the object with the key name `images/index.html`.
 // The suffix must not be empty and must not include a slash character.
@@ -14571,6 +17002,12 @@ func (o BucketWebsiteConfigurationV2IndexDocumentPtrOutput) ToBucketWebsiteConfi
 
 func (o BucketWebsiteConfigurationV2IndexDocumentPtrOutput) ToBucketWebsiteConfigurationV2IndexDocumentPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2IndexDocumentPtrOutput {
 	return o
+}
+
+func (o BucketWebsiteConfigurationV2IndexDocumentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketWebsiteConfigurationV2IndexDocument] {
+	return pulumix.Output[*BucketWebsiteConfigurationV2IndexDocument]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketWebsiteConfigurationV2IndexDocumentPtrOutput) Elem() BucketWebsiteConfigurationV2IndexDocumentOutput {
@@ -14632,6 +17069,12 @@ func (i BucketWebsiteConfigurationV2RedirectAllRequestsToArgs) ToBucketWebsiteCo
 	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2RedirectAllRequestsToOutput)
 }
 
+func (i BucketWebsiteConfigurationV2RedirectAllRequestsToArgs) ToOutput(ctx context.Context) pulumix.Output[BucketWebsiteConfigurationV2RedirectAllRequestsTo] {
+	return pulumix.Output[BucketWebsiteConfigurationV2RedirectAllRequestsTo]{
+		OutputState: i.ToBucketWebsiteConfigurationV2RedirectAllRequestsToOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketWebsiteConfigurationV2RedirectAllRequestsToArgs) ToBucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput() BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput {
 	return i.ToBucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutputWithContext(context.Background())
 }
@@ -14673,6 +17116,12 @@ func (i *bucketWebsiteConfigurationV2RedirectAllRequestsToPtrType) ToBucketWebsi
 	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput)
 }
 
+func (i *bucketWebsiteConfigurationV2RedirectAllRequestsToPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketWebsiteConfigurationV2RedirectAllRequestsTo] {
+	return pulumix.Output[*BucketWebsiteConfigurationV2RedirectAllRequestsTo]{
+		OutputState: i.ToBucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketWebsiteConfigurationV2RedirectAllRequestsToOutput struct{ *pulumi.OutputState }
 
 func (BucketWebsiteConfigurationV2RedirectAllRequestsToOutput) ElementType() reflect.Type {
@@ -14697,6 +17146,12 @@ func (o BucketWebsiteConfigurationV2RedirectAllRequestsToOutput) ToBucketWebsite
 	}).(BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput)
 }
 
+func (o BucketWebsiteConfigurationV2RedirectAllRequestsToOutput) ToOutput(ctx context.Context) pulumix.Output[BucketWebsiteConfigurationV2RedirectAllRequestsTo] {
+	return pulumix.Output[BucketWebsiteConfigurationV2RedirectAllRequestsTo]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Name of the host where requests are redirected.
 func (o BucketWebsiteConfigurationV2RedirectAllRequestsToOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketWebsiteConfigurationV2RedirectAllRequestsTo) string { return v.HostName }).(pulumi.StringOutput)
@@ -14719,6 +17174,12 @@ func (o BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput) ToBucketWebs
 
 func (o BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput) ToBucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput {
 	return o
+}
+
+func (o BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketWebsiteConfigurationV2RedirectAllRequestsTo] {
+	return pulumix.Output[*BucketWebsiteConfigurationV2RedirectAllRequestsTo]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketWebsiteConfigurationV2RedirectAllRequestsToPtrOutput) Elem() BucketWebsiteConfigurationV2RedirectAllRequestsToOutput {
@@ -14788,6 +17249,12 @@ func (i BucketWebsiteConfigurationV2RoutingRuleArgs) ToBucketWebsiteConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2RoutingRuleOutput)
 }
 
+func (i BucketWebsiteConfigurationV2RoutingRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketWebsiteConfigurationV2RoutingRule] {
+	return pulumix.Output[BucketWebsiteConfigurationV2RoutingRule]{
+		OutputState: i.ToBucketWebsiteConfigurationV2RoutingRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketWebsiteConfigurationV2RoutingRuleArrayInput is an input type that accepts BucketWebsiteConfigurationV2RoutingRuleArray and BucketWebsiteConfigurationV2RoutingRuleArrayOutput values.
 // You can construct a concrete instance of `BucketWebsiteConfigurationV2RoutingRuleArrayInput` via:
 //
@@ -14813,6 +17280,12 @@ func (i BucketWebsiteConfigurationV2RoutingRuleArray) ToBucketWebsiteConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2RoutingRuleArrayOutput)
 }
 
+func (i BucketWebsiteConfigurationV2RoutingRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketWebsiteConfigurationV2RoutingRule] {
+	return pulumix.Output[[]BucketWebsiteConfigurationV2RoutingRule]{
+		OutputState: i.ToBucketWebsiteConfigurationV2RoutingRuleArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketWebsiteConfigurationV2RoutingRuleOutput struct{ *pulumi.OutputState }
 
 func (BucketWebsiteConfigurationV2RoutingRuleOutput) ElementType() reflect.Type {
@@ -14825,6 +17298,12 @@ func (o BucketWebsiteConfigurationV2RoutingRuleOutput) ToBucketWebsiteConfigurat
 
 func (o BucketWebsiteConfigurationV2RoutingRuleOutput) ToBucketWebsiteConfigurationV2RoutingRuleOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2RoutingRuleOutput {
 	return o
+}
+
+func (o BucketWebsiteConfigurationV2RoutingRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketWebsiteConfigurationV2RoutingRule] {
+	return pulumix.Output[BucketWebsiteConfigurationV2RoutingRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configuration block for describing a condition that must be met for the specified redirect to apply. See below.
@@ -14853,6 +17332,12 @@ func (o BucketWebsiteConfigurationV2RoutingRuleArrayOutput) ToBucketWebsiteConfi
 
 func (o BucketWebsiteConfigurationV2RoutingRuleArrayOutput) ToBucketWebsiteConfigurationV2RoutingRuleArrayOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2RoutingRuleArrayOutput {
 	return o
+}
+
+func (o BucketWebsiteConfigurationV2RoutingRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketWebsiteConfigurationV2RoutingRule] {
+	return pulumix.Output[[]BucketWebsiteConfigurationV2RoutingRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketWebsiteConfigurationV2RoutingRuleArrayOutput) Index(i pulumi.IntInput) BucketWebsiteConfigurationV2RoutingRuleOutput {
@@ -14898,6 +17383,12 @@ func (i BucketWebsiteConfigurationV2RoutingRuleConditionArgs) ToBucketWebsiteCon
 	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2RoutingRuleConditionOutput)
 }
 
+func (i BucketWebsiteConfigurationV2RoutingRuleConditionArgs) ToOutput(ctx context.Context) pulumix.Output[BucketWebsiteConfigurationV2RoutingRuleCondition] {
+	return pulumix.Output[BucketWebsiteConfigurationV2RoutingRuleCondition]{
+		OutputState: i.ToBucketWebsiteConfigurationV2RoutingRuleConditionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i BucketWebsiteConfigurationV2RoutingRuleConditionArgs) ToBucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput() BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput {
 	return i.ToBucketWebsiteConfigurationV2RoutingRuleConditionPtrOutputWithContext(context.Background())
 }
@@ -14939,6 +17430,12 @@ func (i *bucketWebsiteConfigurationV2RoutingRuleConditionPtrType) ToBucketWebsit
 	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput)
 }
 
+func (i *bucketWebsiteConfigurationV2RoutingRuleConditionPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketWebsiteConfigurationV2RoutingRuleCondition] {
+	return pulumix.Output[*BucketWebsiteConfigurationV2RoutingRuleCondition]{
+		OutputState: i.ToBucketWebsiteConfigurationV2RoutingRuleConditionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketWebsiteConfigurationV2RoutingRuleConditionOutput struct{ *pulumi.OutputState }
 
 func (BucketWebsiteConfigurationV2RoutingRuleConditionOutput) ElementType() reflect.Type {
@@ -14963,6 +17460,12 @@ func (o BucketWebsiteConfigurationV2RoutingRuleConditionOutput) ToBucketWebsiteC
 	}).(BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput)
 }
 
+func (o BucketWebsiteConfigurationV2RoutingRuleConditionOutput) ToOutput(ctx context.Context) pulumix.Output[BucketWebsiteConfigurationV2RoutingRuleCondition] {
+	return pulumix.Output[BucketWebsiteConfigurationV2RoutingRuleCondition]{
+		OutputState: o.OutputState,
+	}
+}
+
 // HTTP error code when the redirect is applied. If specified with `keyPrefixEquals`, then both must be true for the redirect to be applied.
 func (o BucketWebsiteConfigurationV2RoutingRuleConditionOutput) HttpErrorCodeReturnedEquals() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketWebsiteConfigurationV2RoutingRuleCondition) *string { return v.HttpErrorCodeReturnedEquals }).(pulumi.StringPtrOutput)
@@ -14985,6 +17488,12 @@ func (o BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput) ToBucketWebsi
 
 func (o BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput) ToBucketWebsiteConfigurationV2RoutingRuleConditionPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput {
 	return o
+}
+
+func (o BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketWebsiteConfigurationV2RoutingRuleCondition] {
+	return pulumix.Output[*BucketWebsiteConfigurationV2RoutingRuleCondition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketWebsiteConfigurationV2RoutingRuleConditionPtrOutput) Elem() BucketWebsiteConfigurationV2RoutingRuleConditionOutput {
@@ -15066,6 +17575,12 @@ func (i BucketWebsiteConfigurationV2RoutingRuleRedirectArgs) ToBucketWebsiteConf
 	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2RoutingRuleRedirectOutput)
 }
 
+func (i BucketWebsiteConfigurationV2RoutingRuleRedirectArgs) ToOutput(ctx context.Context) pulumix.Output[BucketWebsiteConfigurationV2RoutingRuleRedirect] {
+	return pulumix.Output[BucketWebsiteConfigurationV2RoutingRuleRedirect]{
+		OutputState: i.ToBucketWebsiteConfigurationV2RoutingRuleRedirectOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketWebsiteConfigurationV2RoutingRuleRedirectOutput struct{ *pulumi.OutputState }
 
 func (BucketWebsiteConfigurationV2RoutingRuleRedirectOutput) ElementType() reflect.Type {
@@ -15078,6 +17593,12 @@ func (o BucketWebsiteConfigurationV2RoutingRuleRedirectOutput) ToBucketWebsiteCo
 
 func (o BucketWebsiteConfigurationV2RoutingRuleRedirectOutput) ToBucketWebsiteConfigurationV2RoutingRuleRedirectOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2RoutingRuleRedirectOutput {
 	return o
+}
+
+func (o BucketWebsiteConfigurationV2RoutingRuleRedirectOutput) ToOutput(ctx context.Context) pulumix.Output[BucketWebsiteConfigurationV2RoutingRuleRedirect] {
+	return pulumix.Output[BucketWebsiteConfigurationV2RoutingRuleRedirect]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Host name to use in the redirect request.
@@ -15138,6 +17659,12 @@ func (i InventoryDestinationArgs) ToInventoryDestinationOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(InventoryDestinationOutput)
 }
 
+func (i InventoryDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[InventoryDestination] {
+	return pulumix.Output[InventoryDestination]{
+		OutputState: i.ToInventoryDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i InventoryDestinationArgs) ToInventoryDestinationPtrOutput() InventoryDestinationPtrOutput {
 	return i.ToInventoryDestinationPtrOutputWithContext(context.Background())
 }
@@ -15179,6 +17706,12 @@ func (i *inventoryDestinationPtrType) ToInventoryDestinationPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(InventoryDestinationPtrOutput)
 }
 
+func (i *inventoryDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*InventoryDestination] {
+	return pulumix.Output[*InventoryDestination]{
+		OutputState: i.ToInventoryDestinationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InventoryDestinationOutput struct{ *pulumi.OutputState }
 
 func (InventoryDestinationOutput) ElementType() reflect.Type {
@@ -15203,6 +17736,12 @@ func (o InventoryDestinationOutput) ToInventoryDestinationPtrOutputWithContext(c
 	}).(InventoryDestinationPtrOutput)
 }
 
+func (o InventoryDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[InventoryDestination] {
+	return pulumix.Output[InventoryDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
 // S3 bucket configuration where inventory results are published (documented below).
 func (o InventoryDestinationOutput) Bucket() InventoryDestinationBucketOutput {
 	return o.ApplyT(func(v InventoryDestination) InventoryDestinationBucket { return v.Bucket }).(InventoryDestinationBucketOutput)
@@ -15220,6 +17759,12 @@ func (o InventoryDestinationPtrOutput) ToInventoryDestinationPtrOutput() Invento
 
 func (o InventoryDestinationPtrOutput) ToInventoryDestinationPtrOutputWithContext(ctx context.Context) InventoryDestinationPtrOutput {
 	return o
+}
+
+func (o InventoryDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InventoryDestination] {
+	return pulumix.Output[*InventoryDestination]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InventoryDestinationPtrOutput) Elem() InventoryDestinationOutput {
@@ -15291,6 +17836,12 @@ func (i InventoryDestinationBucketArgs) ToInventoryDestinationBucketOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(InventoryDestinationBucketOutput)
 }
 
+func (i InventoryDestinationBucketArgs) ToOutput(ctx context.Context) pulumix.Output[InventoryDestinationBucket] {
+	return pulumix.Output[InventoryDestinationBucket]{
+		OutputState: i.ToInventoryDestinationBucketOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i InventoryDestinationBucketArgs) ToInventoryDestinationBucketPtrOutput() InventoryDestinationBucketPtrOutput {
 	return i.ToInventoryDestinationBucketPtrOutputWithContext(context.Background())
 }
@@ -15332,6 +17883,12 @@ func (i *inventoryDestinationBucketPtrType) ToInventoryDestinationBucketPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(InventoryDestinationBucketPtrOutput)
 }
 
+func (i *inventoryDestinationBucketPtrType) ToOutput(ctx context.Context) pulumix.Output[*InventoryDestinationBucket] {
+	return pulumix.Output[*InventoryDestinationBucket]{
+		OutputState: i.ToInventoryDestinationBucketPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InventoryDestinationBucketOutput struct{ *pulumi.OutputState }
 
 func (InventoryDestinationBucketOutput) ElementType() reflect.Type {
@@ -15354,6 +17911,12 @@ func (o InventoryDestinationBucketOutput) ToInventoryDestinationBucketPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InventoryDestinationBucket) *InventoryDestinationBucket {
 		return &v
 	}).(InventoryDestinationBucketPtrOutput)
+}
+
+func (o InventoryDestinationBucketOutput) ToOutput(ctx context.Context) pulumix.Output[InventoryDestinationBucket] {
+	return pulumix.Output[InventoryDestinationBucket]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
@@ -15393,6 +17956,12 @@ func (o InventoryDestinationBucketPtrOutput) ToInventoryDestinationBucketPtrOutp
 
 func (o InventoryDestinationBucketPtrOutput) ToInventoryDestinationBucketPtrOutputWithContext(ctx context.Context) InventoryDestinationBucketPtrOutput {
 	return o
+}
+
+func (o InventoryDestinationBucketPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InventoryDestinationBucket] {
+	return pulumix.Output[*InventoryDestinationBucket]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InventoryDestinationBucketPtrOutput) Elem() InventoryDestinationBucketOutput {
@@ -15492,6 +18061,12 @@ func (i InventoryDestinationBucketEncryptionArgs) ToInventoryDestinationBucketEn
 	return pulumi.ToOutputWithContext(ctx, i).(InventoryDestinationBucketEncryptionOutput)
 }
 
+func (i InventoryDestinationBucketEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[InventoryDestinationBucketEncryption] {
+	return pulumix.Output[InventoryDestinationBucketEncryption]{
+		OutputState: i.ToInventoryDestinationBucketEncryptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i InventoryDestinationBucketEncryptionArgs) ToInventoryDestinationBucketEncryptionPtrOutput() InventoryDestinationBucketEncryptionPtrOutput {
 	return i.ToInventoryDestinationBucketEncryptionPtrOutputWithContext(context.Background())
 }
@@ -15533,6 +18108,12 @@ func (i *inventoryDestinationBucketEncryptionPtrType) ToInventoryDestinationBuck
 	return pulumi.ToOutputWithContext(ctx, i).(InventoryDestinationBucketEncryptionPtrOutput)
 }
 
+func (i *inventoryDestinationBucketEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*InventoryDestinationBucketEncryption] {
+	return pulumix.Output[*InventoryDestinationBucketEncryption]{
+		OutputState: i.ToInventoryDestinationBucketEncryptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InventoryDestinationBucketEncryptionOutput struct{ *pulumi.OutputState }
 
 func (InventoryDestinationBucketEncryptionOutput) ElementType() reflect.Type {
@@ -15555,6 +18136,12 @@ func (o InventoryDestinationBucketEncryptionOutput) ToInventoryDestinationBucket
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InventoryDestinationBucketEncryption) *InventoryDestinationBucketEncryption {
 		return &v
 	}).(InventoryDestinationBucketEncryptionPtrOutput)
+}
+
+func (o InventoryDestinationBucketEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[InventoryDestinationBucketEncryption] {
+	return pulumix.Output[InventoryDestinationBucketEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
@@ -15583,6 +18170,12 @@ func (o InventoryDestinationBucketEncryptionPtrOutput) ToInventoryDestinationBuc
 
 func (o InventoryDestinationBucketEncryptionPtrOutput) ToInventoryDestinationBucketEncryptionPtrOutputWithContext(ctx context.Context) InventoryDestinationBucketEncryptionPtrOutput {
 	return o
+}
+
+func (o InventoryDestinationBucketEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InventoryDestinationBucketEncryption] {
+	return pulumix.Output[*InventoryDestinationBucketEncryption]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InventoryDestinationBucketEncryptionPtrOutput) Elem() InventoryDestinationBucketEncryptionOutput {
@@ -15648,6 +18241,12 @@ func (i InventoryDestinationBucketEncryptionSseKmsArgs) ToInventoryDestinationBu
 	return pulumi.ToOutputWithContext(ctx, i).(InventoryDestinationBucketEncryptionSseKmsOutput)
 }
 
+func (i InventoryDestinationBucketEncryptionSseKmsArgs) ToOutput(ctx context.Context) pulumix.Output[InventoryDestinationBucketEncryptionSseKms] {
+	return pulumix.Output[InventoryDestinationBucketEncryptionSseKms]{
+		OutputState: i.ToInventoryDestinationBucketEncryptionSseKmsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i InventoryDestinationBucketEncryptionSseKmsArgs) ToInventoryDestinationBucketEncryptionSseKmsPtrOutput() InventoryDestinationBucketEncryptionSseKmsPtrOutput {
 	return i.ToInventoryDestinationBucketEncryptionSseKmsPtrOutputWithContext(context.Background())
 }
@@ -15689,6 +18288,12 @@ func (i *inventoryDestinationBucketEncryptionSseKmsPtrType) ToInventoryDestinati
 	return pulumi.ToOutputWithContext(ctx, i).(InventoryDestinationBucketEncryptionSseKmsPtrOutput)
 }
 
+func (i *inventoryDestinationBucketEncryptionSseKmsPtrType) ToOutput(ctx context.Context) pulumix.Output[*InventoryDestinationBucketEncryptionSseKms] {
+	return pulumix.Output[*InventoryDestinationBucketEncryptionSseKms]{
+		OutputState: i.ToInventoryDestinationBucketEncryptionSseKmsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InventoryDestinationBucketEncryptionSseKmsOutput struct{ *pulumi.OutputState }
 
 func (InventoryDestinationBucketEncryptionSseKmsOutput) ElementType() reflect.Type {
@@ -15713,6 +18318,12 @@ func (o InventoryDestinationBucketEncryptionSseKmsOutput) ToInventoryDestination
 	}).(InventoryDestinationBucketEncryptionSseKmsPtrOutput)
 }
 
+func (o InventoryDestinationBucketEncryptionSseKmsOutput) ToOutput(ctx context.Context) pulumix.Output[InventoryDestinationBucketEncryptionSseKms] {
+	return pulumix.Output[InventoryDestinationBucketEncryptionSseKms]{
+		OutputState: o.OutputState,
+	}
+}
+
 // ARN of the KMS customer master key (CMK) used to encrypt the inventory file.
 func (o InventoryDestinationBucketEncryptionSseKmsOutput) KeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v InventoryDestinationBucketEncryptionSseKms) string { return v.KeyId }).(pulumi.StringOutput)
@@ -15730,6 +18341,12 @@ func (o InventoryDestinationBucketEncryptionSseKmsPtrOutput) ToInventoryDestinat
 
 func (o InventoryDestinationBucketEncryptionSseKmsPtrOutput) ToInventoryDestinationBucketEncryptionSseKmsPtrOutputWithContext(ctx context.Context) InventoryDestinationBucketEncryptionSseKmsPtrOutput {
 	return o
+}
+
+func (o InventoryDestinationBucketEncryptionSseKmsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InventoryDestinationBucketEncryptionSseKms] {
+	return pulumix.Output[*InventoryDestinationBucketEncryptionSseKms]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InventoryDestinationBucketEncryptionSseKmsPtrOutput) Elem() InventoryDestinationBucketEncryptionSseKmsOutput {
@@ -15781,6 +18398,12 @@ func (i InventoryDestinationBucketEncryptionSseS3Args) ToInventoryDestinationBuc
 	return pulumi.ToOutputWithContext(ctx, i).(InventoryDestinationBucketEncryptionSseS3Output)
 }
 
+func (i InventoryDestinationBucketEncryptionSseS3Args) ToOutput(ctx context.Context) pulumix.Output[InventoryDestinationBucketEncryptionSseS3] {
+	return pulumix.Output[InventoryDestinationBucketEncryptionSseS3]{
+		OutputState: i.ToInventoryDestinationBucketEncryptionSseS3OutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i InventoryDestinationBucketEncryptionSseS3Args) ToInventoryDestinationBucketEncryptionSseS3PtrOutput() InventoryDestinationBucketEncryptionSseS3PtrOutput {
 	return i.ToInventoryDestinationBucketEncryptionSseS3PtrOutputWithContext(context.Background())
 }
@@ -15822,6 +18445,12 @@ func (i *inventoryDestinationBucketEncryptionSseS3PtrType) ToInventoryDestinatio
 	return pulumi.ToOutputWithContext(ctx, i).(InventoryDestinationBucketEncryptionSseS3PtrOutput)
 }
 
+func (i *inventoryDestinationBucketEncryptionSseS3PtrType) ToOutput(ctx context.Context) pulumix.Output[*InventoryDestinationBucketEncryptionSseS3] {
+	return pulumix.Output[*InventoryDestinationBucketEncryptionSseS3]{
+		OutputState: i.ToInventoryDestinationBucketEncryptionSseS3PtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InventoryDestinationBucketEncryptionSseS3Output struct{ *pulumi.OutputState }
 
 func (InventoryDestinationBucketEncryptionSseS3Output) ElementType() reflect.Type {
@@ -15846,6 +18475,12 @@ func (o InventoryDestinationBucketEncryptionSseS3Output) ToInventoryDestinationB
 	}).(InventoryDestinationBucketEncryptionSseS3PtrOutput)
 }
 
+func (o InventoryDestinationBucketEncryptionSseS3Output) ToOutput(ctx context.Context) pulumix.Output[InventoryDestinationBucketEncryptionSseS3] {
+	return pulumix.Output[InventoryDestinationBucketEncryptionSseS3]{
+		OutputState: o.OutputState,
+	}
+}
+
 type InventoryDestinationBucketEncryptionSseS3PtrOutput struct{ *pulumi.OutputState }
 
 func (InventoryDestinationBucketEncryptionSseS3PtrOutput) ElementType() reflect.Type {
@@ -15858,6 +18493,12 @@ func (o InventoryDestinationBucketEncryptionSseS3PtrOutput) ToInventoryDestinati
 
 func (o InventoryDestinationBucketEncryptionSseS3PtrOutput) ToInventoryDestinationBucketEncryptionSseS3PtrOutputWithContext(ctx context.Context) InventoryDestinationBucketEncryptionSseS3PtrOutput {
 	return o
+}
+
+func (o InventoryDestinationBucketEncryptionSseS3PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InventoryDestinationBucketEncryptionSseS3] {
+	return pulumix.Output[*InventoryDestinationBucketEncryptionSseS3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InventoryDestinationBucketEncryptionSseS3PtrOutput) Elem() InventoryDestinationBucketEncryptionSseS3Output {
@@ -15903,6 +18544,12 @@ func (i InventoryFilterArgs) ToInventoryFilterOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(InventoryFilterOutput)
 }
 
+func (i InventoryFilterArgs) ToOutput(ctx context.Context) pulumix.Output[InventoryFilter] {
+	return pulumix.Output[InventoryFilter]{
+		OutputState: i.ToInventoryFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i InventoryFilterArgs) ToInventoryFilterPtrOutput() InventoryFilterPtrOutput {
 	return i.ToInventoryFilterPtrOutputWithContext(context.Background())
 }
@@ -15944,6 +18591,12 @@ func (i *inventoryFilterPtrType) ToInventoryFilterPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(InventoryFilterPtrOutput)
 }
 
+func (i *inventoryFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*InventoryFilter] {
+	return pulumix.Output[*InventoryFilter]{
+		OutputState: i.ToInventoryFilterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InventoryFilterOutput struct{ *pulumi.OutputState }
 
 func (InventoryFilterOutput) ElementType() reflect.Type {
@@ -15968,6 +18621,12 @@ func (o InventoryFilterOutput) ToInventoryFilterPtrOutputWithContext(ctx context
 	}).(InventoryFilterPtrOutput)
 }
 
+func (o InventoryFilterOutput) ToOutput(ctx context.Context) pulumix.Output[InventoryFilter] {
+	return pulumix.Output[InventoryFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Prefix that an object must have to be included in the inventory results.
 func (o InventoryFilterOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InventoryFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
@@ -15985,6 +18644,12 @@ func (o InventoryFilterPtrOutput) ToInventoryFilterPtrOutput() InventoryFilterPt
 
 func (o InventoryFilterPtrOutput) ToInventoryFilterPtrOutputWithContext(ctx context.Context) InventoryFilterPtrOutput {
 	return o
+}
+
+func (o InventoryFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InventoryFilter] {
+	return pulumix.Output[*InventoryFilter]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InventoryFilterPtrOutput) Elem() InventoryFilterOutput {
@@ -16040,6 +18705,12 @@ func (i InventoryScheduleArgs) ToInventoryScheduleOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(InventoryScheduleOutput)
 }
 
+func (i InventoryScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[InventorySchedule] {
+	return pulumix.Output[InventorySchedule]{
+		OutputState: i.ToInventoryScheduleOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i InventoryScheduleArgs) ToInventorySchedulePtrOutput() InventorySchedulePtrOutput {
 	return i.ToInventorySchedulePtrOutputWithContext(context.Background())
 }
@@ -16081,6 +18752,12 @@ func (i *inventorySchedulePtrType) ToInventorySchedulePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(InventorySchedulePtrOutput)
 }
 
+func (i *inventorySchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*InventorySchedule] {
+	return pulumix.Output[*InventorySchedule]{
+		OutputState: i.ToInventorySchedulePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type InventoryScheduleOutput struct{ *pulumi.OutputState }
 
 func (InventoryScheduleOutput) ElementType() reflect.Type {
@@ -16105,6 +18782,12 @@ func (o InventoryScheduleOutput) ToInventorySchedulePtrOutputWithContext(ctx con
 	}).(InventorySchedulePtrOutput)
 }
 
+func (o InventoryScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[InventorySchedule] {
+	return pulumix.Output[InventorySchedule]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
 func (o InventoryScheduleOutput) Frequency() pulumi.StringOutput {
 	return o.ApplyT(func(v InventorySchedule) string { return v.Frequency }).(pulumi.StringOutput)
@@ -16122,6 +18805,12 @@ func (o InventorySchedulePtrOutput) ToInventorySchedulePtrOutput() InventorySche
 
 func (o InventorySchedulePtrOutput) ToInventorySchedulePtrOutputWithContext(ctx context.Context) InventorySchedulePtrOutput {
 	return o
+}
+
+func (o InventorySchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InventorySchedule] {
+	return pulumix.Output[*InventorySchedule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InventorySchedulePtrOutput) Elem() InventoryScheduleOutput {
@@ -16197,6 +18886,12 @@ func (i ObjectCopyGrantArgs) ToObjectCopyGrantOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectCopyGrantOutput)
 }
 
+func (i ObjectCopyGrantArgs) ToOutput(ctx context.Context) pulumix.Output[ObjectCopyGrant] {
+	return pulumix.Output[ObjectCopyGrant]{
+		OutputState: i.ToObjectCopyGrantOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ObjectCopyGrantArrayInput is an input type that accepts ObjectCopyGrantArray and ObjectCopyGrantArrayOutput values.
 // You can construct a concrete instance of `ObjectCopyGrantArrayInput` via:
 //
@@ -16222,6 +18917,12 @@ func (i ObjectCopyGrantArray) ToObjectCopyGrantArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectCopyGrantArrayOutput)
 }
 
+func (i ObjectCopyGrantArray) ToOutput(ctx context.Context) pulumix.Output[[]ObjectCopyGrant] {
+	return pulumix.Output[[]ObjectCopyGrant]{
+		OutputState: i.ToObjectCopyGrantArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ObjectCopyGrantOutput struct{ *pulumi.OutputState }
 
 func (ObjectCopyGrantOutput) ElementType() reflect.Type {
@@ -16234,6 +18935,12 @@ func (o ObjectCopyGrantOutput) ToObjectCopyGrantOutput() ObjectCopyGrantOutput {
 
 func (o ObjectCopyGrantOutput) ToObjectCopyGrantOutputWithContext(ctx context.Context) ObjectCopyGrantOutput {
 	return o
+}
+
+func (o ObjectCopyGrantOutput) ToOutput(ctx context.Context) pulumix.Output[ObjectCopyGrant] {
+	return pulumix.Output[ObjectCopyGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Email address of the grantee. Used only when `type` is `AmazonCustomerByEmail`.
@@ -16275,6 +18982,12 @@ func (o ObjectCopyGrantArrayOutput) ToObjectCopyGrantArrayOutput() ObjectCopyGra
 
 func (o ObjectCopyGrantArrayOutput) ToObjectCopyGrantArrayOutputWithContext(ctx context.Context) ObjectCopyGrantArrayOutput {
 	return o
+}
+
+func (o ObjectCopyGrantArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ObjectCopyGrant] {
+	return pulumix.Output[[]ObjectCopyGrant]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ObjectCopyGrantArrayOutput) Index(i pulumi.IntInput) ObjectCopyGrantOutput {

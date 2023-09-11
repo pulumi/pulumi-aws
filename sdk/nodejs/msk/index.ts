@@ -10,6 +10,11 @@ export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
 utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 
+export { ClusterPolicyArgs, ClusterPolicyState } from "./clusterPolicy";
+export type ClusterPolicy = import("./clusterPolicy").ClusterPolicy;
+export const ClusterPolicy: typeof import("./clusterPolicy").ClusterPolicy = null as any;
+utilities.lazyLoad(exports, ["ClusterPolicy"], () => require("./clusterPolicy"));
+
 export { ConfigurationArgs, ConfigurationState } from "./configuration";
 export type Configuration = import("./configuration").Configuration;
 export const Configuration: typeof import("./configuration").Configuration = null as any;
@@ -35,6 +40,11 @@ export const getKafkaVersion: typeof import("./getKafkaVersion").getKafkaVersion
 export const getKafkaVersionOutput: typeof import("./getKafkaVersion").getKafkaVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getKafkaVersion","getKafkaVersionOutput"], () => require("./getKafkaVersion"));
 
+export { GetVpcConnectionArgs, GetVpcConnectionResult, GetVpcConnectionOutputArgs } from "./getVpcConnection";
+export const getVpcConnection: typeof import("./getVpcConnection").getVpcConnection = null as any;
+export const getVpcConnectionOutput: typeof import("./getVpcConnection").getVpcConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcConnection","getVpcConnectionOutput"], () => require("./getVpcConnection"));
+
 export { ScramSecretAssociationArgs, ScramSecretAssociationState } from "./scramSecretAssociation";
 export type ScramSecretAssociation = import("./scramSecretAssociation").ScramSecretAssociation;
 export const ScramSecretAssociation: typeof import("./scramSecretAssociation").ScramSecretAssociation = null as any;
@@ -45,6 +55,11 @@ export type ServerlessCluster = import("./serverlessCluster").ServerlessCluster;
 export const ServerlessCluster: typeof import("./serverlessCluster").ServerlessCluster = null as any;
 utilities.lazyLoad(exports, ["ServerlessCluster"], () => require("./serverlessCluster"));
 
+export { VpcConnectionArgs, VpcConnectionState } from "./vpcConnection";
+export type VpcConnection = import("./vpcConnection").VpcConnection;
+export const VpcConnection: typeof import("./vpcConnection").VpcConnection = null as any;
+utilities.lazyLoad(exports, ["VpcConnection"], () => require("./vpcConnection"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -52,18 +67,24 @@ const _module = {
         switch (type) {
             case "aws:msk/cluster:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
+            case "aws:msk/clusterPolicy:ClusterPolicy":
+                return new ClusterPolicy(name, <any>undefined, { urn })
             case "aws:msk/configuration:Configuration":
                 return new Configuration(name, <any>undefined, { urn })
             case "aws:msk/scramSecretAssociation:ScramSecretAssociation":
                 return new ScramSecretAssociation(name, <any>undefined, { urn })
             case "aws:msk/serverlessCluster:ServerlessCluster":
                 return new ServerlessCluster(name, <any>undefined, { urn })
+            case "aws:msk/vpcConnection:VpcConnection":
+                return new VpcConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "msk/cluster", _module)
+pulumi.runtime.registerResourceModule("aws", "msk/clusterPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "msk/configuration", _module)
 pulumi.runtime.registerResourceModule("aws", "msk/scramSecretAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "msk/serverlessCluster", _module)
+pulumi.runtime.registerResourceModule("aws", "msk/vpcConnection", _module)

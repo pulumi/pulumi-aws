@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Kinesis Video Stream resource. Amazon Kinesis Video Streams makes it easy to securely stream video from connected devices to AWS for analytics, machine learning (ML), playback, and other processing.
@@ -218,6 +219,12 @@ func (i *VideoStream) ToVideoStreamOutputWithContext(ctx context.Context) VideoS
 	return pulumi.ToOutputWithContext(ctx, i).(VideoStreamOutput)
 }
 
+func (i *VideoStream) ToOutput(ctx context.Context) pulumix.Output[*VideoStream] {
+	return pulumix.Output[*VideoStream]{
+		OutputState: i.ToVideoStreamOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VideoStreamArrayInput is an input type that accepts VideoStreamArray and VideoStreamArrayOutput values.
 // You can construct a concrete instance of `VideoStreamArrayInput` via:
 //
@@ -241,6 +248,12 @@ func (i VideoStreamArray) ToVideoStreamArrayOutput() VideoStreamArrayOutput {
 
 func (i VideoStreamArray) ToVideoStreamArrayOutputWithContext(ctx context.Context) VideoStreamArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VideoStreamArrayOutput)
+}
+
+func (i VideoStreamArray) ToOutput(ctx context.Context) pulumix.Output[[]*VideoStream] {
+	return pulumix.Output[[]*VideoStream]{
+		OutputState: i.ToVideoStreamArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VideoStreamMapInput is an input type that accepts VideoStreamMap and VideoStreamMapOutput values.
@@ -268,6 +281,12 @@ func (i VideoStreamMap) ToVideoStreamMapOutputWithContext(ctx context.Context) V
 	return pulumi.ToOutputWithContext(ctx, i).(VideoStreamMapOutput)
 }
 
+func (i VideoStreamMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VideoStream] {
+	return pulumix.Output[map[string]*VideoStream]{
+		OutputState: i.ToVideoStreamMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VideoStreamOutput struct{ *pulumi.OutputState }
 
 func (VideoStreamOutput) ElementType() reflect.Type {
@@ -280,6 +299,12 @@ func (o VideoStreamOutput) ToVideoStreamOutput() VideoStreamOutput {
 
 func (o VideoStreamOutput) ToVideoStreamOutputWithContext(ctx context.Context) VideoStreamOutput {
 	return o
+}
+
+func (o VideoStreamOutput) ToOutput(ctx context.Context) pulumix.Output[*VideoStream] {
+	return pulumix.Output[*VideoStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
@@ -347,6 +372,12 @@ func (o VideoStreamArrayOutput) ToVideoStreamArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o VideoStreamArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VideoStream] {
+	return pulumix.Output[[]*VideoStream]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VideoStreamArrayOutput) Index(i pulumi.IntInput) VideoStreamOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VideoStream {
 		return vs[0].([]*VideoStream)[vs[1].(int)]
@@ -365,6 +396,12 @@ func (o VideoStreamMapOutput) ToVideoStreamMapOutput() VideoStreamMapOutput {
 
 func (o VideoStreamMapOutput) ToVideoStreamMapOutputWithContext(ctx context.Context) VideoStreamMapOutput {
 	return o
+}
+
+func (o VideoStreamMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VideoStream] {
+	return pulumix.Output[map[string]*VideoStream]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VideoStreamMapOutput) MapIndex(k pulumi.StringInput) VideoStreamOutput {

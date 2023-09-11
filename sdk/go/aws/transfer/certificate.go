@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a AWS Transfer AS2 Certificate resource.
@@ -70,6 +71,8 @@ type Certificate struct {
 
 	// An date when the certificate becomes active
 	ActiveDate pulumi.StringOutput `pulumi:"activeDate"`
+	// The ARN of the certificate
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The valid certificate file required for the transfer.
 	Certificate pulumi.StringOutput `pulumi:"certificate"`
 	// The optional list of certificate that make up the chain for the certificate that is being imported.
@@ -142,6 +145,8 @@ func GetCertificate(ctx *pulumi.Context,
 type certificateState struct {
 	// An date when the certificate becomes active
 	ActiveDate *string `pulumi:"activeDate"`
+	// The ARN of the certificate
+	Arn *string `pulumi:"arn"`
 	// The valid certificate file required for the transfer.
 	Certificate *string `pulumi:"certificate"`
 	// The optional list of certificate that make up the chain for the certificate that is being imported.
@@ -164,6 +169,8 @@ type certificateState struct {
 type CertificateState struct {
 	// An date when the certificate becomes active
 	ActiveDate pulumi.StringPtrInput
+	// The ARN of the certificate
+	Arn pulumi.StringPtrInput
 	// The valid certificate file required for the transfer.
 	Certificate pulumi.StringPtrInput
 	// The optional list of certificate that make up the chain for the certificate that is being imported.
@@ -241,6 +248,12 @@ func (i *Certificate) ToCertificateOutputWithContext(ctx context.Context) Certif
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOutput)
 }
 
+func (i *Certificate) ToOutput(ctx context.Context) pulumix.Output[*Certificate] {
+	return pulumix.Output[*Certificate]{
+		OutputState: i.ToCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CertificateArrayInput is an input type that accepts CertificateArray and CertificateArrayOutput values.
 // You can construct a concrete instance of `CertificateArrayInput` via:
 //
@@ -264,6 +277,12 @@ func (i CertificateArray) ToCertificateArrayOutput() CertificateArrayOutput {
 
 func (i CertificateArray) ToCertificateArrayOutputWithContext(ctx context.Context) CertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateArrayOutput)
+}
+
+func (i CertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*Certificate] {
+	return pulumix.Output[[]*Certificate]{
+		OutputState: i.ToCertificateArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CertificateMapInput is an input type that accepts CertificateMap and CertificateMapOutput values.
@@ -291,6 +310,12 @@ func (i CertificateMap) ToCertificateMapOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateMapOutput)
 }
 
+func (i CertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Certificate] {
+	return pulumix.Output[map[string]*Certificate]{
+		OutputState: i.ToCertificateMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CertificateOutput struct{ *pulumi.OutputState }
 
 func (CertificateOutput) ElementType() reflect.Type {
@@ -305,9 +330,20 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
+func (o CertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*Certificate] {
+	return pulumix.Output[*Certificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 // An date when the certificate becomes active
 func (o CertificateOutput) ActiveDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.ActiveDate }).(pulumi.StringOutput)
+}
+
+// The ARN of the certificate
+func (o CertificateOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // The valid certificate file required for the transfer.
@@ -368,6 +404,12 @@ func (o CertificateArrayOutput) ToCertificateArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o CertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Certificate] {
+	return pulumix.Output[[]*Certificate]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CertificateArrayOutput) Index(i pulumi.IntInput) CertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Certificate {
 		return vs[0].([]*Certificate)[vs[1].(int)]
@@ -386,6 +428,12 @@ func (o CertificateMapOutput) ToCertificateMapOutput() CertificateMapOutput {
 
 func (o CertificateMapOutput) ToCertificateMapOutputWithContext(ctx context.Context) CertificateMapOutput {
 	return o
+}
+
+func (o CertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Certificate] {
+	return pulumix.Output[map[string]*Certificate]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CertificateMapOutput) MapIndex(k pulumi.StringInput) CertificateOutput {

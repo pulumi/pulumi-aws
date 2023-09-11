@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Glue Catalog Table Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality.
@@ -352,6 +353,12 @@ func (i *CatalogTable) ToCatalogTableOutputWithContext(ctx context.Context) Cata
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOutput)
 }
 
+func (i *CatalogTable) ToOutput(ctx context.Context) pulumix.Output[*CatalogTable] {
+	return pulumix.Output[*CatalogTable]{
+		OutputState: i.ToCatalogTableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CatalogTableArrayInput is an input type that accepts CatalogTableArray and CatalogTableArrayOutput values.
 // You can construct a concrete instance of `CatalogTableArrayInput` via:
 //
@@ -375,6 +382,12 @@ func (i CatalogTableArray) ToCatalogTableArrayOutput() CatalogTableArrayOutput {
 
 func (i CatalogTableArray) ToCatalogTableArrayOutputWithContext(ctx context.Context) CatalogTableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableArrayOutput)
+}
+
+func (i CatalogTableArray) ToOutput(ctx context.Context) pulumix.Output[[]*CatalogTable] {
+	return pulumix.Output[[]*CatalogTable]{
+		OutputState: i.ToCatalogTableArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CatalogTableMapInput is an input type that accepts CatalogTableMap and CatalogTableMapOutput values.
@@ -402,6 +415,12 @@ func (i CatalogTableMap) ToCatalogTableMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableMapOutput)
 }
 
+func (i CatalogTableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CatalogTable] {
+	return pulumix.Output[map[string]*CatalogTable]{
+		OutputState: i.ToCatalogTableMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CatalogTableOutput struct{ *pulumi.OutputState }
 
 func (CatalogTableOutput) ElementType() reflect.Type {
@@ -414,6 +433,12 @@ func (o CatalogTableOutput) ToCatalogTableOutput() CatalogTableOutput {
 
 func (o CatalogTableOutput) ToCatalogTableOutputWithContext(ctx context.Context) CatalogTableOutput {
 	return o
+}
+
+func (o CatalogTableOutput) ToOutput(ctx context.Context) pulumix.Output[*CatalogTable] {
+	return pulumix.Output[*CatalogTable]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the Glue Table.
@@ -507,6 +532,12 @@ func (o CatalogTableArrayOutput) ToCatalogTableArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o CatalogTableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CatalogTable] {
+	return pulumix.Output[[]*CatalogTable]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CatalogTableArrayOutput) Index(i pulumi.IntInput) CatalogTableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CatalogTable {
 		return vs[0].([]*CatalogTable)[vs[1].(int)]
@@ -525,6 +556,12 @@ func (o CatalogTableMapOutput) ToCatalogTableMapOutput() CatalogTableMapOutput {
 
 func (o CatalogTableMapOutput) ToCatalogTableMapOutputWithContext(ctx context.Context) CatalogTableMapOutput {
 	return o
+}
+
+func (o CatalogTableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CatalogTable] {
+	return pulumix.Output[map[string]*CatalogTable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CatalogTableMapOutput) MapIndex(k pulumi.StringInput) CatalogTableOutput {

@@ -42,13 +42,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         ///         },
         ///     });
         /// 
-        ///     var unit = .Select(__index =&gt; 
-        ///     {
-        ///         return  Aws.Ec2TransitGateway.GetVpcAttachment.Invoke(new()
-        ///         {
-        ///             Id = _arg0_.Ids[__index],
-        ///         });
-        ///     });
+        ///     var unit = ;
         /// 
         /// });
         /// ```
@@ -89,13 +83,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         ///         },
         ///     });
         /// 
-        ///     var unit = .Select(__index =&gt; 
-        ///     {
-        ///         return  Aws.Ec2TransitGateway.GetVpcAttachment.Invoke(new()
-        ///         {
-        ///             Id = _arg0_.Ids[__index],
-        ///         });
-        ///     });
+        ///     var unit = ;
         /// 
         /// });
         /// ```

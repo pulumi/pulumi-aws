@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type EngineMode string
@@ -79,6 +80,12 @@ func (o EngineModeOutput) ToEngineModePtrOutputWithContext(ctx context.Context) 
 	}).(EngineModePtrOutput)
 }
 
+func (o EngineModeOutput) ToOutput(ctx context.Context) pulumix.Output[EngineMode] {
+	return pulumix.Output[EngineMode]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EngineModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -112,6 +119,12 @@ func (o EngineModePtrOutput) ToEngineModePtrOutput() EngineModePtrOutput {
 
 func (o EngineModePtrOutput) ToEngineModePtrOutputWithContext(ctx context.Context) EngineModePtrOutput {
 	return o
+}
+
+func (o EngineModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EngineMode] {
+	return pulumix.Output[*EngineMode]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EngineModePtrOutput) Elem() EngineModeOutput {
@@ -174,6 +187,12 @@ func (in *engineModePtr) ToEngineModePtrOutput() EngineModePtrOutput {
 
 func (in *engineModePtr) ToEngineModePtrOutputWithContext(ctx context.Context) EngineModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EngineModePtrOutput)
+}
+
+func (in *engineModePtr) ToOutput(ctx context.Context) pulumix.Output[*EngineMode] {
+	return pulumix.Output[*EngineMode]{
+		OutputState: in.ToEngineModePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type EngineType string
@@ -244,6 +263,12 @@ func (o EngineTypeOutput) ToEngineTypePtrOutputWithContext(ctx context.Context) 
 	}).(EngineTypePtrOutput)
 }
 
+func (o EngineTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EngineType] {
+	return pulumix.Output[EngineType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EngineTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -277,6 +302,12 @@ func (o EngineTypePtrOutput) ToEngineTypePtrOutput() EngineTypePtrOutput {
 
 func (o EngineTypePtrOutput) ToEngineTypePtrOutputWithContext(ctx context.Context) EngineTypePtrOutput {
 	return o
+}
+
+func (o EngineTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EngineType] {
+	return pulumix.Output[*EngineType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EngineTypePtrOutput) Elem() EngineTypeOutput {
@@ -339,6 +370,12 @@ func (in *engineTypePtr) ToEngineTypePtrOutput() EngineTypePtrOutput {
 
 func (in *engineTypePtr) ToEngineTypePtrOutputWithContext(ctx context.Context) EngineTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EngineTypePtrOutput)
+}
+
+func (in *engineTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EngineType] {
+	return pulumix.Output[*EngineType]{
+		OutputState: in.ToEngineTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type InstanceType string
@@ -485,6 +522,12 @@ func (o InstanceTypeOutput) ToInstanceTypePtrOutputWithContext(ctx context.Conte
 	}).(InstanceTypePtrOutput)
 }
 
+func (o InstanceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceType] {
+	return pulumix.Output[InstanceType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o InstanceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -518,6 +561,12 @@ func (o InstanceTypePtrOutput) ToInstanceTypePtrOutput() InstanceTypePtrOutput {
 
 func (o InstanceTypePtrOutput) ToInstanceTypePtrOutputWithContext(ctx context.Context) InstanceTypePtrOutput {
 	return o
+}
+
+func (o InstanceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceType] {
+	return pulumix.Output[*InstanceType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o InstanceTypePtrOutput) Elem() InstanceTypeOutput {
@@ -580,6 +629,12 @@ func (in *instanceTypePtr) ToInstanceTypePtrOutput() InstanceTypePtrOutput {
 
 func (in *instanceTypePtr) ToInstanceTypePtrOutputWithContext(ctx context.Context) InstanceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceTypePtrOutput)
+}
+
+func (in *instanceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceType] {
+	return pulumix.Output[*InstanceType]{
+		OutputState: in.ToInstanceTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 type StorageType string
@@ -651,6 +706,12 @@ func (o StorageTypeOutput) ToStorageTypePtrOutputWithContext(ctx context.Context
 	}).(StorageTypePtrOutput)
 }
 
+func (o StorageTypeOutput) ToOutput(ctx context.Context) pulumix.Output[StorageType] {
+	return pulumix.Output[StorageType]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o StorageTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -684,6 +745,12 @@ func (o StorageTypePtrOutput) ToStorageTypePtrOutput() StorageTypePtrOutput {
 
 func (o StorageTypePtrOutput) ToStorageTypePtrOutputWithContext(ctx context.Context) StorageTypePtrOutput {
 	return o
+}
+
+func (o StorageTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageType] {
+	return pulumix.Output[*StorageType]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o StorageTypePtrOutput) Elem() StorageTypeOutput {
@@ -746,6 +813,12 @@ func (in *storageTypePtr) ToStorageTypePtrOutput() StorageTypePtrOutput {
 
 func (in *storageTypePtr) ToStorageTypePtrOutputWithContext(ctx context.Context) StorageTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(StorageTypePtrOutput)
+}
+
+func (in *storageTypePtr) ToOutput(ctx context.Context) pulumix.Output[*StorageType] {
+	return pulumix.Output[*StorageType]{
+		OutputState: in.ToStorageTypePtrOutputWithContext(ctx).OutputState,
+	}
 }
 
 func init() {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an App Runner Observability Configuration.
@@ -192,6 +193,12 @@ func (i *ObservabilityConfiguration) ToObservabilityConfigurationOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityConfigurationOutput)
 }
 
+func (i *ObservabilityConfiguration) ToOutput(ctx context.Context) pulumix.Output[*ObservabilityConfiguration] {
+	return pulumix.Output[*ObservabilityConfiguration]{
+		OutputState: i.ToObservabilityConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ObservabilityConfigurationArrayInput is an input type that accepts ObservabilityConfigurationArray and ObservabilityConfigurationArrayOutput values.
 // You can construct a concrete instance of `ObservabilityConfigurationArrayInput` via:
 //
@@ -215,6 +222,12 @@ func (i ObservabilityConfigurationArray) ToObservabilityConfigurationArrayOutput
 
 func (i ObservabilityConfigurationArray) ToObservabilityConfigurationArrayOutputWithContext(ctx context.Context) ObservabilityConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityConfigurationArrayOutput)
+}
+
+func (i ObservabilityConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ObservabilityConfiguration] {
+	return pulumix.Output[[]*ObservabilityConfiguration]{
+		OutputState: i.ToObservabilityConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ObservabilityConfigurationMapInput is an input type that accepts ObservabilityConfigurationMap and ObservabilityConfigurationMapOutput values.
@@ -242,6 +255,12 @@ func (i ObservabilityConfigurationMap) ToObservabilityConfigurationMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityConfigurationMapOutput)
 }
 
+func (i ObservabilityConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ObservabilityConfiguration] {
+	return pulumix.Output[map[string]*ObservabilityConfiguration]{
+		OutputState: i.ToObservabilityConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ObservabilityConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ObservabilityConfigurationOutput) ElementType() reflect.Type {
@@ -254,6 +273,12 @@ func (o ObservabilityConfigurationOutput) ToObservabilityConfigurationOutput() O
 
 func (o ObservabilityConfigurationOutput) ToObservabilityConfigurationOutputWithContext(ctx context.Context) ObservabilityConfigurationOutput {
 	return o
+}
+
+func (o ObservabilityConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*ObservabilityConfiguration] {
+	return pulumix.Output[*ObservabilityConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARN of this observability configuration.
@@ -312,6 +337,12 @@ func (o ObservabilityConfigurationArrayOutput) ToObservabilityConfigurationArray
 	return o
 }
 
+func (o ObservabilityConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ObservabilityConfiguration] {
+	return pulumix.Output[[]*ObservabilityConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ObservabilityConfigurationArrayOutput) Index(i pulumi.IntInput) ObservabilityConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ObservabilityConfiguration {
 		return vs[0].([]*ObservabilityConfiguration)[vs[1].(int)]
@@ -330,6 +361,12 @@ func (o ObservabilityConfigurationMapOutput) ToObservabilityConfigurationMapOutp
 
 func (o ObservabilityConfigurationMapOutput) ToObservabilityConfigurationMapOutputWithContext(ctx context.Context) ObservabilityConfigurationMapOutput {
 	return o
+}
+
+func (o ObservabilityConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ObservabilityConfiguration] {
+	return pulumix.Output[map[string]*ObservabilityConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ObservabilityConfigurationMapOutput) MapIndex(k pulumi.StringInput) ObservabilityConfigurationOutput {

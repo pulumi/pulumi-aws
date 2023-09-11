@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -54,6 +55,12 @@ func (i TableCapacitySpecificationArgs) ToTableCapacitySpecificationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(TableCapacitySpecificationOutput)
 }
 
+func (i TableCapacitySpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[TableCapacitySpecification] {
+	return pulumix.Output[TableCapacitySpecification]{
+		OutputState: i.ToTableCapacitySpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TableCapacitySpecificationArgs) ToTableCapacitySpecificationPtrOutput() TableCapacitySpecificationPtrOutput {
 	return i.ToTableCapacitySpecificationPtrOutputWithContext(context.Background())
 }
@@ -95,6 +102,12 @@ func (i *tableCapacitySpecificationPtrType) ToTableCapacitySpecificationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TableCapacitySpecificationPtrOutput)
 }
 
+func (i *tableCapacitySpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableCapacitySpecification] {
+	return pulumix.Output[*TableCapacitySpecification]{
+		OutputState: i.ToTableCapacitySpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableCapacitySpecificationOutput struct{ *pulumi.OutputState }
 
 func (TableCapacitySpecificationOutput) ElementType() reflect.Type {
@@ -117,6 +130,12 @@ func (o TableCapacitySpecificationOutput) ToTableCapacitySpecificationPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableCapacitySpecification) *TableCapacitySpecification {
 		return &v
 	}).(TableCapacitySpecificationPtrOutput)
+}
+
+func (o TableCapacitySpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[TableCapacitySpecification] {
+	return pulumix.Output[TableCapacitySpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The throughput capacity specified for read operations defined in read capacity units (RCUs).
@@ -146,6 +165,12 @@ func (o TableCapacitySpecificationPtrOutput) ToTableCapacitySpecificationPtrOutp
 
 func (o TableCapacitySpecificationPtrOutput) ToTableCapacitySpecificationPtrOutputWithContext(ctx context.Context) TableCapacitySpecificationPtrOutput {
 	return o
+}
+
+func (o TableCapacitySpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableCapacitySpecification] {
+	return pulumix.Output[*TableCapacitySpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TableCapacitySpecificationPtrOutput) Elem() TableCapacitySpecificationOutput {
@@ -221,6 +246,12 @@ func (i TableClientSideTimestampsArgs) ToTableClientSideTimestampsOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(TableClientSideTimestampsOutput)
 }
 
+func (i TableClientSideTimestampsArgs) ToOutput(ctx context.Context) pulumix.Output[TableClientSideTimestamps] {
+	return pulumix.Output[TableClientSideTimestamps]{
+		OutputState: i.ToTableClientSideTimestampsOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TableClientSideTimestampsArgs) ToTableClientSideTimestampsPtrOutput() TableClientSideTimestampsPtrOutput {
 	return i.ToTableClientSideTimestampsPtrOutputWithContext(context.Background())
 }
@@ -262,6 +293,12 @@ func (i *tableClientSideTimestampsPtrType) ToTableClientSideTimestampsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(TableClientSideTimestampsPtrOutput)
 }
 
+func (i *tableClientSideTimestampsPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableClientSideTimestamps] {
+	return pulumix.Output[*TableClientSideTimestamps]{
+		OutputState: i.ToTableClientSideTimestampsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableClientSideTimestampsOutput struct{ *pulumi.OutputState }
 
 func (TableClientSideTimestampsOutput) ElementType() reflect.Type {
@@ -286,6 +323,12 @@ func (o TableClientSideTimestampsOutput) ToTableClientSideTimestampsPtrOutputWit
 	}).(TableClientSideTimestampsPtrOutput)
 }
 
+func (o TableClientSideTimestampsOutput) ToOutput(ctx context.Context) pulumix.Output[TableClientSideTimestamps] {
+	return pulumix.Output[TableClientSideTimestamps]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Shows how to enable client-side timestamps settings for the specified table. Valid values: `ENABLED`.
 func (o TableClientSideTimestampsOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v TableClientSideTimestamps) string { return v.Status }).(pulumi.StringOutput)
@@ -303,6 +346,12 @@ func (o TableClientSideTimestampsPtrOutput) ToTableClientSideTimestampsPtrOutput
 
 func (o TableClientSideTimestampsPtrOutput) ToTableClientSideTimestampsPtrOutputWithContext(ctx context.Context) TableClientSideTimestampsPtrOutput {
 	return o
+}
+
+func (o TableClientSideTimestampsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableClientSideTimestamps] {
+	return pulumix.Output[*TableClientSideTimestamps]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TableClientSideTimestampsPtrOutput) Elem() TableClientSideTimestampsOutput {
@@ -358,6 +407,12 @@ func (i TableCommentArgs) ToTableCommentOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(TableCommentOutput)
 }
 
+func (i TableCommentArgs) ToOutput(ctx context.Context) pulumix.Output[TableComment] {
+	return pulumix.Output[TableComment]{
+		OutputState: i.ToTableCommentOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TableCommentArgs) ToTableCommentPtrOutput() TableCommentPtrOutput {
 	return i.ToTableCommentPtrOutputWithContext(context.Background())
 }
@@ -399,6 +454,12 @@ func (i *tableCommentPtrType) ToTableCommentPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(TableCommentPtrOutput)
 }
 
+func (i *tableCommentPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableComment] {
+	return pulumix.Output[*TableComment]{
+		OutputState: i.ToTableCommentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableCommentOutput struct{ *pulumi.OutputState }
 
 func (TableCommentOutput) ElementType() reflect.Type {
@@ -423,6 +484,12 @@ func (o TableCommentOutput) ToTableCommentPtrOutputWithContext(ctx context.Conte
 	}).(TableCommentPtrOutput)
 }
 
+func (o TableCommentOutput) ToOutput(ctx context.Context) pulumix.Output[TableComment] {
+	return pulumix.Output[TableComment]{
+		OutputState: o.OutputState,
+	}
+}
+
 // A description of the table.
 func (o TableCommentOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableComment) *string { return v.Message }).(pulumi.StringPtrOutput)
@@ -440,6 +507,12 @@ func (o TableCommentPtrOutput) ToTableCommentPtrOutput() TableCommentPtrOutput {
 
 func (o TableCommentPtrOutput) ToTableCommentPtrOutputWithContext(ctx context.Context) TableCommentPtrOutput {
 	return o
+}
+
+func (o TableCommentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableComment] {
+	return pulumix.Output[*TableComment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TableCommentPtrOutput) Elem() TableCommentOutput {
@@ -499,6 +572,12 @@ func (i TableEncryptionSpecificationArgs) ToTableEncryptionSpecificationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TableEncryptionSpecificationOutput)
 }
 
+func (i TableEncryptionSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[TableEncryptionSpecification] {
+	return pulumix.Output[TableEncryptionSpecification]{
+		OutputState: i.ToTableEncryptionSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TableEncryptionSpecificationArgs) ToTableEncryptionSpecificationPtrOutput() TableEncryptionSpecificationPtrOutput {
 	return i.ToTableEncryptionSpecificationPtrOutputWithContext(context.Background())
 }
@@ -540,6 +619,12 @@ func (i *tableEncryptionSpecificationPtrType) ToTableEncryptionSpecificationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(TableEncryptionSpecificationPtrOutput)
 }
 
+func (i *tableEncryptionSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableEncryptionSpecification] {
+	return pulumix.Output[*TableEncryptionSpecification]{
+		OutputState: i.ToTableEncryptionSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableEncryptionSpecificationOutput struct{ *pulumi.OutputState }
 
 func (TableEncryptionSpecificationOutput) ElementType() reflect.Type {
@@ -564,6 +649,12 @@ func (o TableEncryptionSpecificationOutput) ToTableEncryptionSpecificationPtrOut
 	}).(TableEncryptionSpecificationPtrOutput)
 }
 
+func (o TableEncryptionSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[TableEncryptionSpecification] {
+	return pulumix.Output[TableEncryptionSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Amazon Resource Name (ARN) of the customer managed KMS key.
 func (o TableEncryptionSpecificationOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableEncryptionSpecification) *string { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
@@ -586,6 +677,12 @@ func (o TableEncryptionSpecificationPtrOutput) ToTableEncryptionSpecificationPtr
 
 func (o TableEncryptionSpecificationPtrOutput) ToTableEncryptionSpecificationPtrOutputWithContext(ctx context.Context) TableEncryptionSpecificationPtrOutput {
 	return o
+}
+
+func (o TableEncryptionSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableEncryptionSpecification] {
+	return pulumix.Output[*TableEncryptionSpecification]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TableEncryptionSpecificationPtrOutput) Elem() TableEncryptionSpecificationOutput {
@@ -651,6 +748,12 @@ func (i TablePointInTimeRecoveryArgs) ToTablePointInTimeRecoveryOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TablePointInTimeRecoveryOutput)
 }
 
+func (i TablePointInTimeRecoveryArgs) ToOutput(ctx context.Context) pulumix.Output[TablePointInTimeRecovery] {
+	return pulumix.Output[TablePointInTimeRecovery]{
+		OutputState: i.ToTablePointInTimeRecoveryOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TablePointInTimeRecoveryArgs) ToTablePointInTimeRecoveryPtrOutput() TablePointInTimeRecoveryPtrOutput {
 	return i.ToTablePointInTimeRecoveryPtrOutputWithContext(context.Background())
 }
@@ -692,6 +795,12 @@ func (i *tablePointInTimeRecoveryPtrType) ToTablePointInTimeRecoveryPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(TablePointInTimeRecoveryPtrOutput)
 }
 
+func (i *tablePointInTimeRecoveryPtrType) ToOutput(ctx context.Context) pulumix.Output[*TablePointInTimeRecovery] {
+	return pulumix.Output[*TablePointInTimeRecovery]{
+		OutputState: i.ToTablePointInTimeRecoveryPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TablePointInTimeRecoveryOutput struct{ *pulumi.OutputState }
 
 func (TablePointInTimeRecoveryOutput) ElementType() reflect.Type {
@@ -716,6 +825,12 @@ func (o TablePointInTimeRecoveryOutput) ToTablePointInTimeRecoveryPtrOutputWithC
 	}).(TablePointInTimeRecoveryPtrOutput)
 }
 
+func (o TablePointInTimeRecoveryOutput) ToOutput(ctx context.Context) pulumix.Output[TablePointInTimeRecovery] {
+	return pulumix.Output[TablePointInTimeRecovery]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Valid values: `ENABLED`, `DISABLED`. The default value is `DISABLED`.
 func (o TablePointInTimeRecoveryOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TablePointInTimeRecovery) *string { return v.Status }).(pulumi.StringPtrOutput)
@@ -733,6 +848,12 @@ func (o TablePointInTimeRecoveryPtrOutput) ToTablePointInTimeRecoveryPtrOutput()
 
 func (o TablePointInTimeRecoveryPtrOutput) ToTablePointInTimeRecoveryPtrOutputWithContext(ctx context.Context) TablePointInTimeRecoveryPtrOutput {
 	return o
+}
+
+func (o TablePointInTimeRecoveryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TablePointInTimeRecovery] {
+	return pulumix.Output[*TablePointInTimeRecovery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TablePointInTimeRecoveryPtrOutput) Elem() TablePointInTimeRecoveryOutput {
@@ -800,6 +921,12 @@ func (i TableSchemaDefinitionArgs) ToTableSchemaDefinitionOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaDefinitionOutput)
 }
 
+func (i TableSchemaDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[TableSchemaDefinition] {
+	return pulumix.Output[TableSchemaDefinition]{
+		OutputState: i.ToTableSchemaDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i TableSchemaDefinitionArgs) ToTableSchemaDefinitionPtrOutput() TableSchemaDefinitionPtrOutput {
 	return i.ToTableSchemaDefinitionPtrOutputWithContext(context.Background())
 }
@@ -841,6 +968,12 @@ func (i *tableSchemaDefinitionPtrType) ToTableSchemaDefinitionPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaDefinitionPtrOutput)
 }
 
+func (i *tableSchemaDefinitionPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableSchemaDefinition] {
+	return pulumix.Output[*TableSchemaDefinition]{
+		OutputState: i.ToTableSchemaDefinitionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableSchemaDefinitionOutput struct{ *pulumi.OutputState }
 
 func (TableSchemaDefinitionOutput) ElementType() reflect.Type {
@@ -863,6 +996,12 @@ func (o TableSchemaDefinitionOutput) ToTableSchemaDefinitionPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableSchemaDefinition) *TableSchemaDefinition {
 		return &v
 	}).(TableSchemaDefinitionPtrOutput)
+}
+
+func (o TableSchemaDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[TableSchemaDefinition] {
+	return pulumix.Output[TableSchemaDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The columns that are part of the clustering key of the table.
@@ -897,6 +1036,12 @@ func (o TableSchemaDefinitionPtrOutput) ToTableSchemaDefinitionPtrOutput() Table
 
 func (o TableSchemaDefinitionPtrOutput) ToTableSchemaDefinitionPtrOutputWithContext(ctx context.Context) TableSchemaDefinitionPtrOutput {
 	return o
+}
+
+func (o TableSchemaDefinitionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableSchemaDefinition] {
+	return pulumix.Output[*TableSchemaDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TableSchemaDefinitionPtrOutput) Elem() TableSchemaDefinitionOutput {
@@ -986,6 +1131,12 @@ func (i TableSchemaDefinitionClusteringKeyArgs) ToTableSchemaDefinitionClusterin
 	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaDefinitionClusteringKeyOutput)
 }
 
+func (i TableSchemaDefinitionClusteringKeyArgs) ToOutput(ctx context.Context) pulumix.Output[TableSchemaDefinitionClusteringKey] {
+	return pulumix.Output[TableSchemaDefinitionClusteringKey]{
+		OutputState: i.ToTableSchemaDefinitionClusteringKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TableSchemaDefinitionClusteringKeyArrayInput is an input type that accepts TableSchemaDefinitionClusteringKeyArray and TableSchemaDefinitionClusteringKeyArrayOutput values.
 // You can construct a concrete instance of `TableSchemaDefinitionClusteringKeyArrayInput` via:
 //
@@ -1011,6 +1162,12 @@ func (i TableSchemaDefinitionClusteringKeyArray) ToTableSchemaDefinitionClusteri
 	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaDefinitionClusteringKeyArrayOutput)
 }
 
+func (i TableSchemaDefinitionClusteringKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]TableSchemaDefinitionClusteringKey] {
+	return pulumix.Output[[]TableSchemaDefinitionClusteringKey]{
+		OutputState: i.ToTableSchemaDefinitionClusteringKeyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableSchemaDefinitionClusteringKeyOutput struct{ *pulumi.OutputState }
 
 func (TableSchemaDefinitionClusteringKeyOutput) ElementType() reflect.Type {
@@ -1023,6 +1180,12 @@ func (o TableSchemaDefinitionClusteringKeyOutput) ToTableSchemaDefinitionCluster
 
 func (o TableSchemaDefinitionClusteringKeyOutput) ToTableSchemaDefinitionClusteringKeyOutputWithContext(ctx context.Context) TableSchemaDefinitionClusteringKeyOutput {
 	return o
+}
+
+func (o TableSchemaDefinitionClusteringKeyOutput) ToOutput(ctx context.Context) pulumix.Output[TableSchemaDefinitionClusteringKey] {
+	return pulumix.Output[TableSchemaDefinitionClusteringKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the clustering key column.
@@ -1047,6 +1210,12 @@ func (o TableSchemaDefinitionClusteringKeyArrayOutput) ToTableSchemaDefinitionCl
 
 func (o TableSchemaDefinitionClusteringKeyArrayOutput) ToTableSchemaDefinitionClusteringKeyArrayOutputWithContext(ctx context.Context) TableSchemaDefinitionClusteringKeyArrayOutput {
 	return o
+}
+
+func (o TableSchemaDefinitionClusteringKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TableSchemaDefinitionClusteringKey] {
+	return pulumix.Output[[]TableSchemaDefinitionClusteringKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TableSchemaDefinitionClusteringKeyArrayOutput) Index(i pulumi.IntInput) TableSchemaDefinitionClusteringKeyOutput {
@@ -1092,6 +1261,12 @@ func (i TableSchemaDefinitionColumnArgs) ToTableSchemaDefinitionColumnOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaDefinitionColumnOutput)
 }
 
+func (i TableSchemaDefinitionColumnArgs) ToOutput(ctx context.Context) pulumix.Output[TableSchemaDefinitionColumn] {
+	return pulumix.Output[TableSchemaDefinitionColumn]{
+		OutputState: i.ToTableSchemaDefinitionColumnOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TableSchemaDefinitionColumnArrayInput is an input type that accepts TableSchemaDefinitionColumnArray and TableSchemaDefinitionColumnArrayOutput values.
 // You can construct a concrete instance of `TableSchemaDefinitionColumnArrayInput` via:
 //
@@ -1117,6 +1292,12 @@ func (i TableSchemaDefinitionColumnArray) ToTableSchemaDefinitionColumnArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaDefinitionColumnArrayOutput)
 }
 
+func (i TableSchemaDefinitionColumnArray) ToOutput(ctx context.Context) pulumix.Output[[]TableSchemaDefinitionColumn] {
+	return pulumix.Output[[]TableSchemaDefinitionColumn]{
+		OutputState: i.ToTableSchemaDefinitionColumnArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableSchemaDefinitionColumnOutput struct{ *pulumi.OutputState }
 
 func (TableSchemaDefinitionColumnOutput) ElementType() reflect.Type {
@@ -1129,6 +1310,12 @@ func (o TableSchemaDefinitionColumnOutput) ToTableSchemaDefinitionColumnOutput()
 
 func (o TableSchemaDefinitionColumnOutput) ToTableSchemaDefinitionColumnOutputWithContext(ctx context.Context) TableSchemaDefinitionColumnOutput {
 	return o
+}
+
+func (o TableSchemaDefinitionColumnOutput) ToOutput(ctx context.Context) pulumix.Output[TableSchemaDefinitionColumn] {
+	return pulumix.Output[TableSchemaDefinitionColumn]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the column.
@@ -1153,6 +1340,12 @@ func (o TableSchemaDefinitionColumnArrayOutput) ToTableSchemaDefinitionColumnArr
 
 func (o TableSchemaDefinitionColumnArrayOutput) ToTableSchemaDefinitionColumnArrayOutputWithContext(ctx context.Context) TableSchemaDefinitionColumnArrayOutput {
 	return o
+}
+
+func (o TableSchemaDefinitionColumnArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TableSchemaDefinitionColumn] {
+	return pulumix.Output[[]TableSchemaDefinitionColumn]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TableSchemaDefinitionColumnArrayOutput) Index(i pulumi.IntInput) TableSchemaDefinitionColumnOutput {
@@ -1194,6 +1387,12 @@ func (i TableSchemaDefinitionPartitionKeyArgs) ToTableSchemaDefinitionPartitionK
 	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaDefinitionPartitionKeyOutput)
 }
 
+func (i TableSchemaDefinitionPartitionKeyArgs) ToOutput(ctx context.Context) pulumix.Output[TableSchemaDefinitionPartitionKey] {
+	return pulumix.Output[TableSchemaDefinitionPartitionKey]{
+		OutputState: i.ToTableSchemaDefinitionPartitionKeyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TableSchemaDefinitionPartitionKeyArrayInput is an input type that accepts TableSchemaDefinitionPartitionKeyArray and TableSchemaDefinitionPartitionKeyArrayOutput values.
 // You can construct a concrete instance of `TableSchemaDefinitionPartitionKeyArrayInput` via:
 //
@@ -1219,6 +1418,12 @@ func (i TableSchemaDefinitionPartitionKeyArray) ToTableSchemaDefinitionPartition
 	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaDefinitionPartitionKeyArrayOutput)
 }
 
+func (i TableSchemaDefinitionPartitionKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]TableSchemaDefinitionPartitionKey] {
+	return pulumix.Output[[]TableSchemaDefinitionPartitionKey]{
+		OutputState: i.ToTableSchemaDefinitionPartitionKeyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableSchemaDefinitionPartitionKeyOutput struct{ *pulumi.OutputState }
 
 func (TableSchemaDefinitionPartitionKeyOutput) ElementType() reflect.Type {
@@ -1231,6 +1436,12 @@ func (o TableSchemaDefinitionPartitionKeyOutput) ToTableSchemaDefinitionPartitio
 
 func (o TableSchemaDefinitionPartitionKeyOutput) ToTableSchemaDefinitionPartitionKeyOutputWithContext(ctx context.Context) TableSchemaDefinitionPartitionKeyOutput {
 	return o
+}
+
+func (o TableSchemaDefinitionPartitionKeyOutput) ToOutput(ctx context.Context) pulumix.Output[TableSchemaDefinitionPartitionKey] {
+	return pulumix.Output[TableSchemaDefinitionPartitionKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the partition key column.
@@ -1250,6 +1461,12 @@ func (o TableSchemaDefinitionPartitionKeyArrayOutput) ToTableSchemaDefinitionPar
 
 func (o TableSchemaDefinitionPartitionKeyArrayOutput) ToTableSchemaDefinitionPartitionKeyArrayOutputWithContext(ctx context.Context) TableSchemaDefinitionPartitionKeyArrayOutput {
 	return o
+}
+
+func (o TableSchemaDefinitionPartitionKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TableSchemaDefinitionPartitionKey] {
+	return pulumix.Output[[]TableSchemaDefinitionPartitionKey]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TableSchemaDefinitionPartitionKeyArrayOutput) Index(i pulumi.IntInput) TableSchemaDefinitionPartitionKeyOutput {
@@ -1291,6 +1508,12 @@ func (i TableSchemaDefinitionStaticColumnArgs) ToTableSchemaDefinitionStaticColu
 	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaDefinitionStaticColumnOutput)
 }
 
+func (i TableSchemaDefinitionStaticColumnArgs) ToOutput(ctx context.Context) pulumix.Output[TableSchemaDefinitionStaticColumn] {
+	return pulumix.Output[TableSchemaDefinitionStaticColumn]{
+		OutputState: i.ToTableSchemaDefinitionStaticColumnOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TableSchemaDefinitionStaticColumnArrayInput is an input type that accepts TableSchemaDefinitionStaticColumnArray and TableSchemaDefinitionStaticColumnArrayOutput values.
 // You can construct a concrete instance of `TableSchemaDefinitionStaticColumnArrayInput` via:
 //
@@ -1316,6 +1539,12 @@ func (i TableSchemaDefinitionStaticColumnArray) ToTableSchemaDefinitionStaticCol
 	return pulumi.ToOutputWithContext(ctx, i).(TableSchemaDefinitionStaticColumnArrayOutput)
 }
 
+func (i TableSchemaDefinitionStaticColumnArray) ToOutput(ctx context.Context) pulumix.Output[[]TableSchemaDefinitionStaticColumn] {
+	return pulumix.Output[[]TableSchemaDefinitionStaticColumn]{
+		OutputState: i.ToTableSchemaDefinitionStaticColumnArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableSchemaDefinitionStaticColumnOutput struct{ *pulumi.OutputState }
 
 func (TableSchemaDefinitionStaticColumnOutput) ElementType() reflect.Type {
@@ -1328,6 +1557,12 @@ func (o TableSchemaDefinitionStaticColumnOutput) ToTableSchemaDefinitionStaticCo
 
 func (o TableSchemaDefinitionStaticColumnOutput) ToTableSchemaDefinitionStaticColumnOutputWithContext(ctx context.Context) TableSchemaDefinitionStaticColumnOutput {
 	return o
+}
+
+func (o TableSchemaDefinitionStaticColumnOutput) ToOutput(ctx context.Context) pulumix.Output[TableSchemaDefinitionStaticColumn] {
+	return pulumix.Output[TableSchemaDefinitionStaticColumn]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the static column.
@@ -1347,6 +1582,12 @@ func (o TableSchemaDefinitionStaticColumnArrayOutput) ToTableSchemaDefinitionSta
 
 func (o TableSchemaDefinitionStaticColumnArrayOutput) ToTableSchemaDefinitionStaticColumnArrayOutputWithContext(ctx context.Context) TableSchemaDefinitionStaticColumnArrayOutput {
 	return o
+}
+
+func (o TableSchemaDefinitionStaticColumnArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TableSchemaDefinitionStaticColumn] {
+	return pulumix.Output[[]TableSchemaDefinitionStaticColumn]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TableSchemaDefinitionStaticColumnArrayOutput) Index(i pulumi.IntInput) TableSchemaDefinitionStaticColumnOutput {
@@ -1386,6 +1627,12 @@ func (i TableTtlArgs) ToTableTtlOutput() TableTtlOutput {
 
 func (i TableTtlArgs) ToTableTtlOutputWithContext(ctx context.Context) TableTtlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TableTtlOutput)
+}
+
+func (i TableTtlArgs) ToOutput(ctx context.Context) pulumix.Output[TableTtl] {
+	return pulumix.Output[TableTtl]{
+		OutputState: i.ToTableTtlOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i TableTtlArgs) ToTableTtlPtrOutput() TableTtlPtrOutput {
@@ -1429,6 +1676,12 @@ func (i *tableTtlPtrType) ToTableTtlPtrOutputWithContext(ctx context.Context) Ta
 	return pulumi.ToOutputWithContext(ctx, i).(TableTtlPtrOutput)
 }
 
+func (i *tableTtlPtrType) ToOutput(ctx context.Context) pulumix.Output[*TableTtl] {
+	return pulumix.Output[*TableTtl]{
+		OutputState: i.ToTableTtlPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TableTtlOutput struct{ *pulumi.OutputState }
 
 func (TableTtlOutput) ElementType() reflect.Type {
@@ -1453,6 +1706,12 @@ func (o TableTtlOutput) ToTableTtlPtrOutputWithContext(ctx context.Context) Tabl
 	}).(TableTtlPtrOutput)
 }
 
+func (o TableTtlOutput) ToOutput(ctx context.Context) pulumix.Output[TableTtl] {
+	return pulumix.Output[TableTtl]{
+		OutputState: o.OutputState,
+	}
+}
+
 // Valid values: `ENABLED`.
 func (o TableTtlOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v TableTtl) string { return v.Status }).(pulumi.StringOutput)
@@ -1470,6 +1729,12 @@ func (o TableTtlPtrOutput) ToTableTtlPtrOutput() TableTtlPtrOutput {
 
 func (o TableTtlPtrOutput) ToTableTtlPtrOutputWithContext(ctx context.Context) TableTtlPtrOutput {
 	return o
+}
+
+func (o TableTtlPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableTtl] {
+	return pulumix.Output[*TableTtl]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TableTtlPtrOutput) Elem() TableTtlOutput {

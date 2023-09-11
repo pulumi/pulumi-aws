@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a Glue ML Transform resource.
@@ -373,6 +374,12 @@ func (i *MLTransform) ToMLTransformOutputWithContext(ctx context.Context) MLTran
 	return pulumi.ToOutputWithContext(ctx, i).(MLTransformOutput)
 }
 
+func (i *MLTransform) ToOutput(ctx context.Context) pulumix.Output[*MLTransform] {
+	return pulumix.Output[*MLTransform]{
+		OutputState: i.ToMLTransformOutputWithContext(ctx).OutputState,
+	}
+}
+
 // MLTransformArrayInput is an input type that accepts MLTransformArray and MLTransformArrayOutput values.
 // You can construct a concrete instance of `MLTransformArrayInput` via:
 //
@@ -396,6 +403,12 @@ func (i MLTransformArray) ToMLTransformArrayOutput() MLTransformArrayOutput {
 
 func (i MLTransformArray) ToMLTransformArrayOutputWithContext(ctx context.Context) MLTransformArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MLTransformArrayOutput)
+}
+
+func (i MLTransformArray) ToOutput(ctx context.Context) pulumix.Output[[]*MLTransform] {
+	return pulumix.Output[[]*MLTransform]{
+		OutputState: i.ToMLTransformArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // MLTransformMapInput is an input type that accepts MLTransformMap and MLTransformMapOutput values.
@@ -423,6 +436,12 @@ func (i MLTransformMap) ToMLTransformMapOutputWithContext(ctx context.Context) M
 	return pulumi.ToOutputWithContext(ctx, i).(MLTransformMapOutput)
 }
 
+func (i MLTransformMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MLTransform] {
+	return pulumix.Output[map[string]*MLTransform]{
+		OutputState: i.ToMLTransformMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type MLTransformOutput struct{ *pulumi.OutputState }
 
 func (MLTransformOutput) ElementType() reflect.Type {
@@ -435,6 +454,12 @@ func (o MLTransformOutput) ToMLTransformOutput() MLTransformOutput {
 
 func (o MLTransformOutput) ToMLTransformOutputWithContext(ctx context.Context) MLTransformOutput {
 	return o
+}
+
+func (o MLTransformOutput) ToOutput(ctx context.Context) pulumix.Output[*MLTransform] {
+	return pulumix.Output[*MLTransform]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Amazon Resource Name (ARN) of Glue ML Transform.
@@ -531,6 +556,12 @@ func (o MLTransformArrayOutput) ToMLTransformArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o MLTransformArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MLTransform] {
+	return pulumix.Output[[]*MLTransform]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o MLTransformArrayOutput) Index(i pulumi.IntInput) MLTransformOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MLTransform {
 		return vs[0].([]*MLTransform)[vs[1].(int)]
@@ -549,6 +580,12 @@ func (o MLTransformMapOutput) ToMLTransformMapOutput() MLTransformMapOutput {
 
 func (o MLTransformMapOutput) ToMLTransformMapOutputWithContext(ctx context.Context) MLTransformMapOutput {
 	return o
+}
+
+func (o MLTransformMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MLTransform] {
+	return pulumix.Output[map[string]*MLTransform]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o MLTransformMapOutput) MapIndex(k pulumi.StringInput) MLTransformOutput {

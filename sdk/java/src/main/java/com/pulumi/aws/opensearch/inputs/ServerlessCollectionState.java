@@ -47,9 +47,17 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.collectionEndpoint);
     }
 
+    /**
+     * Collection-specific endpoint used to access OpenSearch Dashboards.
+     * 
+     */
     @Import(name="dashboardEndpoint")
     private @Nullable Output<String> dashboardEndpoint;
 
+    /**
+     * @return Collection-specific endpoint used to access OpenSearch Dashboards.
+     * 
+     */
     public Optional<Output<String>> dashboardEndpoint() {
         return Optional.ofNullable(this.dashboardEndpoint);
     }
@@ -222,11 +230,23 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
             return collectionEndpoint(Output.of(collectionEndpoint));
         }
 
+        /**
+         * @param dashboardEndpoint Collection-specific endpoint used to access OpenSearch Dashboards.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dashboardEndpoint(@Nullable Output<String> dashboardEndpoint) {
             $.dashboardEndpoint = dashboardEndpoint;
             return this;
         }
 
+        /**
+         * @param dashboardEndpoint Collection-specific endpoint used to access OpenSearch Dashboards.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dashboardEndpoint(String dashboardEndpoint) {
             return dashboardEndpoint(Output.of(dashboardEndpoint));
         }

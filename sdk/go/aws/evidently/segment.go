@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a CloudWatch Evidently Segment resource.
@@ -269,6 +270,12 @@ func (i *Segment) ToSegmentOutputWithContext(ctx context.Context) SegmentOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentOutput)
 }
 
+func (i *Segment) ToOutput(ctx context.Context) pulumix.Output[*Segment] {
+	return pulumix.Output[*Segment]{
+		OutputState: i.ToSegmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SegmentArrayInput is an input type that accepts SegmentArray and SegmentArrayOutput values.
 // You can construct a concrete instance of `SegmentArrayInput` via:
 //
@@ -292,6 +299,12 @@ func (i SegmentArray) ToSegmentArrayOutput() SegmentArrayOutput {
 
 func (i SegmentArray) ToSegmentArrayOutputWithContext(ctx context.Context) SegmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentArrayOutput)
+}
+
+func (i SegmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*Segment] {
+	return pulumix.Output[[]*Segment]{
+		OutputState: i.ToSegmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SegmentMapInput is an input type that accepts SegmentMap and SegmentMapOutput values.
@@ -319,6 +332,12 @@ func (i SegmentMap) ToSegmentMapOutputWithContext(ctx context.Context) SegmentMa
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentMapOutput)
 }
 
+func (i SegmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Segment] {
+	return pulumix.Output[map[string]*Segment]{
+		OutputState: i.ToSegmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SegmentOutput struct{ *pulumi.OutputState }
 
 func (SegmentOutput) ElementType() reflect.Type {
@@ -331,6 +350,12 @@ func (o SegmentOutput) ToSegmentOutput() SegmentOutput {
 
 func (o SegmentOutput) ToSegmentOutputWithContext(ctx context.Context) SegmentOutput {
 	return o
+}
+
+func (o SegmentOutput) ToOutput(ctx context.Context) pulumix.Output[*Segment] {
+	return pulumix.Output[*Segment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ARN of the segment.
@@ -397,6 +422,12 @@ func (o SegmentArrayOutput) ToSegmentArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o SegmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Segment] {
+	return pulumix.Output[[]*Segment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SegmentArrayOutput) Index(i pulumi.IntInput) SegmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Segment {
 		return vs[0].([]*Segment)[vs[1].(int)]
@@ -415,6 +446,12 @@ func (o SegmentMapOutput) ToSegmentMapOutput() SegmentMapOutput {
 
 func (o SegmentMapOutput) ToSegmentMapOutputWithContext(ctx context.Context) SegmentMapOutput {
 	return o
+}
+
+func (o SegmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Segment] {
+	return pulumix.Output[map[string]*Segment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SegmentMapOutput) MapIndex(k pulumi.StringInput) SegmentOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get IDs and VPC membership of Security Groups that are created outside this provider.
@@ -146,6 +147,12 @@ func (o GetSecurityGroupsResultOutput) ToGetSecurityGroupsResultOutput() GetSecu
 
 func (o GetSecurityGroupsResultOutput) ToGetSecurityGroupsResultOutputWithContext(ctx context.Context) GetSecurityGroupsResultOutput {
 	return o
+}
+
+func (o GetSecurityGroupsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetSecurityGroupsResult] {
+	return pulumix.Output[GetSecurityGroupsResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // ARNs of the matched security groups.

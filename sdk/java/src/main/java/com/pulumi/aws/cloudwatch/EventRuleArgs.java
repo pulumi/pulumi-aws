@@ -95,14 +95,14 @@ public final class EventRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
      * 
      */
     @Import(name="namePrefix")
     private @Nullable Output<String> namePrefix;
 
     /**
-     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+     * @return Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
      * 
      */
     public Optional<Output<String>> namePrefix() {
@@ -294,7 +294,7 @@ public final class EventRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class EventRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`.
+         * @param namePrefix Creates a unique name beginning with the specified prefix. Conflicts with `name`. **Note**: Due to the length of the generated suffix, must be 38 characters or less.
          * 
          * @return builder
          * 

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides an S3 bucket website configuration resource. For more information, see [Hosting Websites on S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
@@ -286,6 +287,12 @@ func (i *BucketWebsiteConfigurationV2) ToBucketWebsiteConfigurationV2OutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2Output)
 }
 
+func (i *BucketWebsiteConfigurationV2) ToOutput(ctx context.Context) pulumix.Output[*BucketWebsiteConfigurationV2] {
+	return pulumix.Output[*BucketWebsiteConfigurationV2]{
+		OutputState: i.ToBucketWebsiteConfigurationV2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // BucketWebsiteConfigurationV2ArrayInput is an input type that accepts BucketWebsiteConfigurationV2Array and BucketWebsiteConfigurationV2ArrayOutput values.
 // You can construct a concrete instance of `BucketWebsiteConfigurationV2ArrayInput` via:
 //
@@ -309,6 +316,12 @@ func (i BucketWebsiteConfigurationV2Array) ToBucketWebsiteConfigurationV2ArrayOu
 
 func (i BucketWebsiteConfigurationV2Array) ToBucketWebsiteConfigurationV2ArrayOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2ArrayOutput)
+}
+
+func (i BucketWebsiteConfigurationV2Array) ToOutput(ctx context.Context) pulumix.Output[[]*BucketWebsiteConfigurationV2] {
+	return pulumix.Output[[]*BucketWebsiteConfigurationV2]{
+		OutputState: i.ToBucketWebsiteConfigurationV2ArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BucketWebsiteConfigurationV2MapInput is an input type that accepts BucketWebsiteConfigurationV2Map and BucketWebsiteConfigurationV2MapOutput values.
@@ -336,6 +349,12 @@ func (i BucketWebsiteConfigurationV2Map) ToBucketWebsiteConfigurationV2MapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationV2MapOutput)
 }
 
+func (i BucketWebsiteConfigurationV2Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketWebsiteConfigurationV2] {
+	return pulumix.Output[map[string]*BucketWebsiteConfigurationV2]{
+		OutputState: i.ToBucketWebsiteConfigurationV2MapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BucketWebsiteConfigurationV2Output struct{ *pulumi.OutputState }
 
 func (BucketWebsiteConfigurationV2Output) ElementType() reflect.Type {
@@ -348,6 +367,12 @@ func (o BucketWebsiteConfigurationV2Output) ToBucketWebsiteConfigurationV2Output
 
 func (o BucketWebsiteConfigurationV2Output) ToBucketWebsiteConfigurationV2OutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2Output {
 	return o
+}
+
+func (o BucketWebsiteConfigurationV2Output) ToOutput(ctx context.Context) pulumix.Output[*BucketWebsiteConfigurationV2] {
+	return pulumix.Output[*BucketWebsiteConfigurationV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the bucket.
@@ -418,6 +443,12 @@ func (o BucketWebsiteConfigurationV2ArrayOutput) ToBucketWebsiteConfigurationV2A
 	return o
 }
 
+func (o BucketWebsiteConfigurationV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BucketWebsiteConfigurationV2] {
+	return pulumix.Output[[]*BucketWebsiteConfigurationV2]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BucketWebsiteConfigurationV2ArrayOutput) Index(i pulumi.IntInput) BucketWebsiteConfigurationV2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketWebsiteConfigurationV2 {
 		return vs[0].([]*BucketWebsiteConfigurationV2)[vs[1].(int)]
@@ -436,6 +467,12 @@ func (o BucketWebsiteConfigurationV2MapOutput) ToBucketWebsiteConfigurationV2Map
 
 func (o BucketWebsiteConfigurationV2MapOutput) ToBucketWebsiteConfigurationV2MapOutputWithContext(ctx context.Context) BucketWebsiteConfigurationV2MapOutput {
 	return o
+}
+
+func (o BucketWebsiteConfigurationV2MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BucketWebsiteConfigurationV2] {
+	return pulumix.Output[map[string]*BucketWebsiteConfigurationV2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BucketWebsiteConfigurationV2MapOutput) MapIndex(k pulumi.StringInput) BucketWebsiteConfigurationV2Output {

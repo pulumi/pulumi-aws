@@ -21,7 +21,7 @@ class GetReplicationInstanceResult:
     """
     A collection of values returned by getReplicationInstance.
     """
-    def __init__(__self__, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, engine_version=None, id=None, kms_key_arn=None, multi_az=None, preferred_maintenance_window=None, publicly_accessible=None, replication_instance_arn=None, replication_instance_class=None, replication_instance_id=None, replication_instance_private_ips=None, replication_instance_public_ips=None, replication_subnet_group_id=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, engine_version=None, id=None, kms_key_arn=None, multi_az=None, network_type=None, preferred_maintenance_window=None, publicly_accessible=None, replication_instance_arn=None, replication_instance_class=None, replication_instance_id=None, replication_instance_private_ips=None, replication_instance_public_ips=None, replication_subnet_group_id=None, tags=None, vpc_security_group_ids=None):
         if allocated_storage and not isinstance(allocated_storage, int):
             raise TypeError("Expected argument 'allocated_storage' to be a int")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -43,6 +43,9 @@ class GetReplicationInstanceResult:
         if multi_az and not isinstance(multi_az, bool):
             raise TypeError("Expected argument 'multi_az' to be a bool")
         pulumi.set(__self__, "multi_az", multi_az)
+        if network_type and not isinstance(network_type, str):
+            raise TypeError("Expected argument 'network_type' to be a str")
+        pulumi.set(__self__, "network_type", network_type)
         if preferred_maintenance_window and not isinstance(preferred_maintenance_window, str):
             raise TypeError("Expected argument 'preferred_maintenance_window' to be a str")
         pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
@@ -129,6 +132,14 @@ class GetReplicationInstanceResult:
         Specifies if the replication instance is a multi-az deployment.
         """
         return pulumi.get(self, "multi_az")
+
+    @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> str:
+        """
+        The type of IP address protocol used by the replication instance.
+        """
+        return pulumi.get(self, "network_type")
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")
@@ -218,6 +229,7 @@ class AwaitableGetReplicationInstanceResult(GetReplicationInstanceResult):
             id=self.id,
             kms_key_arn=self.kms_key_arn,
             multi_az=self.multi_az,
+            network_type=self.network_type,
             preferred_maintenance_window=self.preferred_maintenance_window,
             publicly_accessible=self.publicly_accessible,
             replication_instance_arn=self.replication_instance_arn,
@@ -262,6 +274,7 @@ def get_replication_instance(replication_instance_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         multi_az=pulumi.get(__ret__, 'multi_az'),
+        network_type=pulumi.get(__ret__, 'network_type'),
         preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
         publicly_accessible=pulumi.get(__ret__, 'publicly_accessible'),
         replication_instance_arn=pulumi.get(__ret__, 'replication_instance_arn'),

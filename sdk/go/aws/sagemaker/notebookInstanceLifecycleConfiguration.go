@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides a lifecycle configuration for SageMaker Notebook Instances.
@@ -132,6 +133,12 @@ func (i *NotebookInstanceLifecycleConfiguration) ToNotebookInstanceLifecycleConf
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceLifecycleConfigurationOutput)
 }
 
+func (i *NotebookInstanceLifecycleConfiguration) ToOutput(ctx context.Context) pulumix.Output[*NotebookInstanceLifecycleConfiguration] {
+	return pulumix.Output[*NotebookInstanceLifecycleConfiguration]{
+		OutputState: i.ToNotebookInstanceLifecycleConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NotebookInstanceLifecycleConfigurationArrayInput is an input type that accepts NotebookInstanceLifecycleConfigurationArray and NotebookInstanceLifecycleConfigurationArrayOutput values.
 // You can construct a concrete instance of `NotebookInstanceLifecycleConfigurationArrayInput` via:
 //
@@ -155,6 +162,12 @@ func (i NotebookInstanceLifecycleConfigurationArray) ToNotebookInstanceLifecycle
 
 func (i NotebookInstanceLifecycleConfigurationArray) ToNotebookInstanceLifecycleConfigurationArrayOutputWithContext(ctx context.Context) NotebookInstanceLifecycleConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceLifecycleConfigurationArrayOutput)
+}
+
+func (i NotebookInstanceLifecycleConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*NotebookInstanceLifecycleConfiguration] {
+	return pulumix.Output[[]*NotebookInstanceLifecycleConfiguration]{
+		OutputState: i.ToNotebookInstanceLifecycleConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NotebookInstanceLifecycleConfigurationMapInput is an input type that accepts NotebookInstanceLifecycleConfigurationMap and NotebookInstanceLifecycleConfigurationMapOutput values.
@@ -182,6 +195,12 @@ func (i NotebookInstanceLifecycleConfigurationMap) ToNotebookInstanceLifecycleCo
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceLifecycleConfigurationMapOutput)
 }
 
+func (i NotebookInstanceLifecycleConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NotebookInstanceLifecycleConfiguration] {
+	return pulumix.Output[map[string]*NotebookInstanceLifecycleConfiguration]{
+		OutputState: i.ToNotebookInstanceLifecycleConfigurationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NotebookInstanceLifecycleConfigurationOutput struct{ *pulumi.OutputState }
 
 func (NotebookInstanceLifecycleConfigurationOutput) ElementType() reflect.Type {
@@ -194,6 +213,12 @@ func (o NotebookInstanceLifecycleConfigurationOutput) ToNotebookInstanceLifecycl
 
 func (o NotebookInstanceLifecycleConfigurationOutput) ToNotebookInstanceLifecycleConfigurationOutputWithContext(ctx context.Context) NotebookInstanceLifecycleConfigurationOutput {
 	return o
+}
+
+func (o NotebookInstanceLifecycleConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*NotebookInstanceLifecycleConfiguration] {
+	return pulumix.Output[*NotebookInstanceLifecycleConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
@@ -230,6 +255,12 @@ func (o NotebookInstanceLifecycleConfigurationArrayOutput) ToNotebookInstanceLif
 	return o
 }
 
+func (o NotebookInstanceLifecycleConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NotebookInstanceLifecycleConfiguration] {
+	return pulumix.Output[[]*NotebookInstanceLifecycleConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NotebookInstanceLifecycleConfigurationArrayOutput) Index(i pulumi.IntInput) NotebookInstanceLifecycleConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NotebookInstanceLifecycleConfiguration {
 		return vs[0].([]*NotebookInstanceLifecycleConfiguration)[vs[1].(int)]
@@ -248,6 +279,12 @@ func (o NotebookInstanceLifecycleConfigurationMapOutput) ToNotebookInstanceLifec
 
 func (o NotebookInstanceLifecycleConfigurationMapOutput) ToNotebookInstanceLifecycleConfigurationMapOutputWithContext(ctx context.Context) NotebookInstanceLifecycleConfigurationMapOutput {
 	return o
+}
+
+func (o NotebookInstanceLifecycleConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NotebookInstanceLifecycleConfiguration] {
+	return pulumix.Output[map[string]*NotebookInstanceLifecycleConfiguration]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NotebookInstanceLifecycleConfigurationMapOutput) MapIndex(k pulumi.StringInput) NotebookInstanceLifecycleConfigurationOutput {

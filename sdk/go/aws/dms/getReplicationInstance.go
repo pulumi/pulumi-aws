@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Data source for managing an AWS DMS (Database Migration) Replication Instance.
@@ -71,6 +72,8 @@ type LookupReplicationInstanceResult struct {
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 	// Specifies if the replication instance is a multi-az deployment.
 	MultiAz bool `pulumi:"multiAz"`
+	// The type of IP address protocol used by the replication instance.
+	NetworkType string `pulumi:"networkType"`
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	PreferredMaintenanceWindow string `pulumi:"preferredMaintenanceWindow"`
 	// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
@@ -130,6 +133,12 @@ func (o LookupReplicationInstanceResultOutput) ToLookupReplicationInstanceResult
 	return o
 }
 
+func (o LookupReplicationInstanceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupReplicationInstanceResult] {
+	return pulumix.Output[LookupReplicationInstanceResult]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The amount of storage (in gigabytes) to be initially allocated for the replication instance.
 func (o LookupReplicationInstanceResultOutput) AllocatedStorage() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupReplicationInstanceResult) int { return v.AllocatedStorage }).(pulumi.IntOutput)
@@ -163,6 +172,11 @@ func (o LookupReplicationInstanceResultOutput) KmsKeyArn() pulumi.StringOutput {
 // Specifies if the replication instance is a multi-az deployment.
 func (o LookupReplicationInstanceResultOutput) MultiAz() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupReplicationInstanceResult) bool { return v.MultiAz }).(pulumi.BoolOutput)
+}
+
+// The type of IP address protocol used by the replication instance.
+func (o LookupReplicationInstanceResultOutput) NetworkType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationInstanceResult) string { return v.NetworkType }).(pulumi.StringOutput)
 }
 
 // The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).

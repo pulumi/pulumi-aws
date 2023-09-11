@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The provider type for the aws package. By default, resources use package-wide configuration
@@ -39,6 +40,10 @@ type Provider struct {
 	// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
 	// `AWS_RETRY_MODE` environment variable.
 	RetryMode pulumi.StringPtrOutput `pulumi:"retryMode"`
+	// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+	// values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+	// variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+	S3UsEast1RegionalEndpoint pulumi.StringPtrOutput `pulumi:"s3UsEast1RegionalEndpoint"`
 	// The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
 	SecretKey pulumi.StringPtrOutput `pulumi:"secretKey"`
 	// The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
@@ -112,6 +117,10 @@ type providerArgs struct {
 	// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
 	// `AWS_RETRY_MODE` environment variable.
 	RetryMode *string `pulumi:"retryMode"`
+	// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+	// values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+	// variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+	S3UsEast1RegionalEndpoint *string `pulumi:"s3UsEast1RegionalEndpoint"`
 	// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
 	// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
 	// Specific to the Amazon S3 service.
@@ -178,6 +187,10 @@ type ProviderArgs struct {
 	// Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
 	// `AWS_RETRY_MODE` environment variable.
 	RetryMode pulumi.StringPtrInput
+	// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+	// values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+	// variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+	S3UsEast1RegionalEndpoint pulumi.StringPtrInput
 	// Set this to true to enable the request to use path-style addressing, i.e., https://s3.amazonaws.com/BUCKET/KEY. By
 	// default, the S3 client will use virtual hosted bucket addressing when possible (https://BUCKET.s3.amazonaws.com/KEY).
 	// Specific to the Amazon S3 service.
@@ -231,6 +244,12 @@ func (i *Provider) ToProviderOutputWithContext(ctx context.Context) ProviderOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderOutput)
 }
 
+func (i *Provider) ToOutput(ctx context.Context) pulumix.Output[*Provider] {
+	return pulumix.Output[*Provider]{
+		OutputState: i.ToProviderOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProviderOutput struct{ *pulumi.OutputState }
 
 func (ProviderOutput) ElementType() reflect.Type {
@@ -243,6 +262,12 @@ func (o ProviderOutput) ToProviderOutput() ProviderOutput {
 
 func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) ProviderOutput {
 	return o
+}
+
+func (o ProviderOutput) ToOutput(ctx context.Context) pulumix.Output[*Provider] {
+	return pulumix.Output[*Provider]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
@@ -288,6 +313,13 @@ func (o ProviderOutput) Region() pulumi.StringPtrOutput {
 // `AWS_RETRY_MODE` environment variable.
 func (o ProviderOutput) RetryMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.RetryMode }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether S3 API calls in the `us-east-1` region use the legacy global endpoint or a regional endpoint. Valid
+// values are `legacy` or `regional`. Can also be configured using the `AWS_S3_US_EAST_1_REGIONAL_ENDPOINT` environment
+// variable or the `s3_us_east_1_regional_endpoint` shared config file parameter
+func (o ProviderOutput) S3UsEast1RegionalEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.S3UsEast1RegionalEndpoint }).(pulumi.StringPtrOutput)
 }
 
 // The secret key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
