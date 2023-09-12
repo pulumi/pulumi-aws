@@ -1,4 +1,4 @@
-From 4f0283e83147b9e1cabcb79bd780681ab0f832fd Mon Sep 17 00:00:00 2001
+From f844f520d7da553aef6252b4e754aea006f8c7cd Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:05:11 +0000
 Subject: [PATCH 03/29] Add S3 legacy bucket to resources
