@@ -222,13 +222,11 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import CodePipelines using the name. For example:
+// In TODO v1.5.0 and later, use an `import` block to import CodePipelines using the name. For exampleterraform import {
 //
-// ```sh
+//	to = aws_codepipeline.foo
 //
-//	$ pulumi import aws:codepipeline/pipeline:Pipeline foo example
-//
-// ```
+//	id = "example" } Using `TODO import`, import CodePipelines using the name. For exampleconsole % TODO import aws_codepipeline.foo example
 type Pipeline struct {
 	pulumi.CustomResourceState
 
@@ -242,7 +240,7 @@ type Pipeline struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A stage block. Stages are documented below.
 	Stages PipelineStageArrayOutput `pulumi:"stages"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -297,7 +295,7 @@ type pipelineState struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// A stage block. Stages are documented below.
 	Stages []PipelineStage `pulumi:"stages"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -314,7 +312,7 @@ type PipelineState struct {
 	RoleArn pulumi.StringPtrInput
 	// A stage block. Stages are documented below.
 	Stages PipelineStageArrayInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -333,7 +331,7 @@ type pipelineArgs struct {
 	RoleArn string `pulumi:"roleArn"`
 	// A stage block. Stages are documented below.
 	Stages []PipelineStage `pulumi:"stages"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -347,7 +345,7 @@ type PipelineArgs struct {
 	RoleArn pulumi.StringInput
 	// A stage block. Stages are documented below.
 	Stages PipelineStageArrayInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -487,7 +485,7 @@ func (o PipelineOutput) Stages() PipelineStageArrayOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineStageArrayOutput { return v.Stages }).(PipelineStageArrayOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o PipelineOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

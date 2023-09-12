@@ -258,6 +258,7 @@ import * as timestreamwrite from "./timestreamwrite";
 import * as transcribe from "./transcribe";
 import * as transfer from "./transfer";
 import * as types from "./types";
+import * as verifiedaccess from "./verifiedaccess";
 import * as vpc from "./vpc";
 import * as vpclattice from "./vpclattice";
 import * as waf from "./waf";
@@ -452,6 +453,7 @@ export {
     transcribe,
     transfer,
     types,
+    verifiedaccess,
     vpc,
     vpclattice,
     waf,

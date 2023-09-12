@@ -12,6 +12,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+        /// </summary>
         [Input("errorClearTimeMsec")]
         public Input<int>? ErrorClearTimeMsec { get; set; }
 
@@ -23,9 +26,15 @@ namespace Pulumi.Aws.MediaLive.Inputs
             set => _failoverConditions = value;
         }
 
+        /// <summary>
+        /// Input preference when deciding which input to make active when a previously failed input has recovered.
+        /// </summary>
         [Input("inputPreference")]
         public Input<string>? InputPreference { get; set; }
 
+        /// <summary>
+        /// The input ID of the secondary input in the automatic input failover pair.
+        /// </summary>
         [Input("secondaryInputId", required: true)]
         public Input<string> SecondaryInputId { get; set; } = null!;
 

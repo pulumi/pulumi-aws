@@ -39,6 +39,8 @@ type GetObjectsArgs struct {
 	MaxKeys *int `pulumi:"maxKeys"`
 	// Limits results to object keys with this prefix (Default: none)
 	Prefix *string `pulumi:"prefix"`
+	// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
+	RequestPayer *string `pulumi:"requestPayer"`
 	// Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
 	StartAfter *string `pulumi:"startAfter"`
 }
@@ -57,9 +59,12 @@ type GetObjectsResult struct {
 	Keys    []string `pulumi:"keys"`
 	MaxKeys *int     `pulumi:"maxKeys"`
 	// List of strings representing object owner IDs (see `fetchOwner` above)
-	Owners     []string `pulumi:"owners"`
-	Prefix     *string  `pulumi:"prefix"`
-	StartAfter *string  `pulumi:"startAfter"`
+	Owners []string `pulumi:"owners"`
+	Prefix *string  `pulumi:"prefix"`
+	// If present, indicates that the requester was successfully charged for the request.
+	RequestCharged string  `pulumi:"requestCharged"`
+	RequestPayer   *string `pulumi:"requestPayer"`
+	StartAfter     *string `pulumi:"startAfter"`
 }
 
 func GetObjectsOutput(ctx *pulumi.Context, args GetObjectsOutputArgs, opts ...pulumi.InvokeOption) GetObjectsResultOutput {
@@ -89,6 +94,8 @@ type GetObjectsOutputArgs struct {
 	MaxKeys pulumi.IntPtrInput `pulumi:"maxKeys"`
 	// Limits results to object keys with this prefix (Default: none)
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
+	RequestPayer pulumi.StringPtrInput `pulumi:"requestPayer"`
 	// Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
 	StartAfter pulumi.StringPtrInput `pulumi:"startAfter"`
 }
@@ -160,6 +167,15 @@ func (o GetObjectsResultOutput) Owners() pulumi.StringArrayOutput {
 
 func (o GetObjectsResultOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetObjectsResult) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// If present, indicates that the requester was successfully charged for the request.
+func (o GetObjectsResultOutput) RequestCharged() pulumi.StringOutput {
+	return o.ApplyT(func(v GetObjectsResult) string { return v.RequestCharged }).(pulumi.StringOutput)
+}
+
+func (o GetObjectsResultOutput) RequestPayer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetObjectsResult) *string { return v.RequestPayer }).(pulumi.StringPtrOutput)
 }
 
 func (o GetObjectsResultOutput) StartAfter() pulumi.StringPtrOutput {

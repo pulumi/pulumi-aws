@@ -56,13 +56,11 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Security Hub product subscriptions using `product_arn,arn`. For example:
+// In TODO v1.5.0 and later, use an `import` block to import Security Hub product subscriptions using `product_arn,arn`. For exampleterraform import {
 //
-// ```sh
+//	to = aws_securityhub_product_subscription.example
 //
-//	$ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
-//
-// ```
+//	id = "arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement" } Using `TODO import`, import Security Hub product subscriptions using `product_arn,arn`. For exampleconsole % TODO import aws_securityhub_product_subscription.example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
 type ProductSubscription struct {
 	pulumi.CustomResourceState
 

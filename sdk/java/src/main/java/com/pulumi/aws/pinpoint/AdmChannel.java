@@ -19,6 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
  * 
+ * &gt; **Note:** All arguments including the Client ID and Client Secret will be stored in the raw state as plain-text.
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -57,11 +58,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Pinpoint ADM Channel using the `application-id`. For example:
+ * In TODO v1.5.0 and later, use an `import` block to import Pinpoint ADM Channel using the `application-id`. For exampleterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
- * ```
+ *  to = aws_pinpoint_adm_channel.channel
+ * 
+ *  id = &#34;application-id&#34; } Using `TODO import`, import Pinpoint ADM Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_adm_channel.channel application-id
  * 
  */
 @ResourceType(type="aws:pinpoint/admChannel:AdmChannel")

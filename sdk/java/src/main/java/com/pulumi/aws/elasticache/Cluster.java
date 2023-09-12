@@ -701,6 +701,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+     * 
+     */
+    @Export(name="transitEncryptionEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> transitEncryptionEnabled;
+
+    /**
+     * @return Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+     * 
+     */
+    public Output<Optional<Boolean>> transitEncryptionEnabled() {
+        return Codegen.optional(this.transitEncryptionEnabled);
+    }
 
     /**
      *

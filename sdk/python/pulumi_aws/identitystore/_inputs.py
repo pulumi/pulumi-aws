@@ -19,9 +19,11 @@ __all__ = [
     'GetGroupAlternateIdentifierArgs',
     'GetGroupAlternateIdentifierExternalIdArgs',
     'GetGroupAlternateIdentifierUniqueAttributeArgs',
+    'GetGroupFilterArgs',
     'GetUserAlternateIdentifierArgs',
     'GetUserAlternateIdentifierExternalIdArgs',
     'GetUserAlternateIdentifierUniqueAttributeArgs',
+    'GetUserFilterArgs',
 ]
 
 @pulumi.input_type
@@ -570,6 +572,43 @@ class GetGroupAlternateIdentifierUniqueAttributeArgs:
 
 
 @pulumi.input_type
+class GetGroupFilterArgs:
+    def __init__(__self__, *,
+                 attribute_path: str,
+                 attribute_value: str):
+        """
+        :param str attribute_path: Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+        :param str attribute_value: Value for an attribute.
+        """
+        pulumi.set(__self__, "attribute_path", attribute_path)
+        pulumi.set(__self__, "attribute_value", attribute_value)
+
+    @property
+    @pulumi.getter(name="attributePath")
+    def attribute_path(self) -> str:
+        """
+        Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+        """
+        return pulumi.get(self, "attribute_path")
+
+    @attribute_path.setter
+    def attribute_path(self, value: str):
+        pulumi.set(self, "attribute_path", value)
+
+    @property
+    @pulumi.getter(name="attributeValue")
+    def attribute_value(self) -> str:
+        """
+        Value for an attribute.
+        """
+        return pulumi.get(self, "attribute_value")
+
+    @attribute_value.setter
+    def attribute_value(self, value: str):
+        pulumi.set(self, "attribute_value", value)
+
+
+@pulumi.input_type
 class GetUserAlternateIdentifierArgs:
     def __init__(__self__, *,
                  external_id: Optional['GetUserAlternateIdentifierExternalIdArgs'] = None,
@@ -666,6 +705,43 @@ class GetUserAlternateIdentifierUniqueAttributeArgs:
     def attribute_path(self) -> str:
         """
         Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+        """
+        return pulumi.get(self, "attribute_path")
+
+    @attribute_path.setter
+    def attribute_path(self, value: str):
+        pulumi.set(self, "attribute_path", value)
+
+    @property
+    @pulumi.getter(name="attributeValue")
+    def attribute_value(self) -> str:
+        """
+        Value for an attribute.
+        """
+        return pulumi.get(self, "attribute_value")
+
+    @attribute_value.setter
+    def attribute_value(self, value: str):
+        pulumi.set(self, "attribute_value", value)
+
+
+@pulumi.input_type
+class GetUserFilterArgs:
+    def __init__(__self__, *,
+                 attribute_path: str,
+                 attribute_value: str):
+        """
+        :param str attribute_path: Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
+        :param str attribute_value: Value for an attribute.
+        """
+        pulumi.set(__self__, "attribute_path", attribute_path)
+        pulumi.set(__self__, "attribute_value", attribute_value)
+
+    @property
+    @pulumi.getter(name="attributePath")
+    def attribute_path(self) -> str:
+        """
+        Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
         """
         return pulumi.get(self, "attribute_path")
 

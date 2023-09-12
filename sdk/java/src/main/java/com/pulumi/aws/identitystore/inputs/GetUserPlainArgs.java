@@ -4,6 +4,7 @@
 package com.pulumi.aws.identitystore.inputs;
 
 import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifier;
+import com.pulumi.aws.identitystore.inputs.GetUserFilter;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
@@ -16,18 +17,41 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetUserPlainArgs Empty = new GetUserPlainArgs();
 
     /**
-     * A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id`. Detailed below.
+     * A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
      * 
      */
     @Import(name="alternateIdentifier")
     private @Nullable GetUserAlternateIdentifier alternateIdentifier;
 
     /**
-     * @return A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id`. Detailed below.
+     * @return A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
      * 
      */
     public Optional<GetUserAlternateIdentifier> alternateIdentifier() {
         return Optional.ofNullable(this.alternateIdentifier);
+    }
+
+    /**
+     * Configuration block for filtering by a unique attribute of the user. Detailed below.
+     * 
+     * @deprecated
+     * Use the alternate_identifier attribute instead.
+     * 
+     */
+    @Deprecated /* Use the alternate_identifier attribute instead. */
+    @Import(name="filter")
+    private @Nullable GetUserFilter filter;
+
+    /**
+     * @return Configuration block for filtering by a unique attribute of the user. Detailed below.
+     * 
+     * @deprecated
+     * Use the alternate_identifier attribute instead.
+     * 
+     */
+    @Deprecated /* Use the alternate_identifier attribute instead. */
+    public Optional<GetUserFilter> filter() {
+        return Optional.ofNullable(this.filter);
     }
 
     /**
@@ -52,7 +76,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * The identifier for a user in the Identity Store.
      * 
-     * &gt; Exactly one of the above arguments must be provided.
+     * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
      * 
      */
     @Import(name="userId")
@@ -61,7 +85,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return The identifier for a user in the Identity Store.
      * 
-     * &gt; Exactly one of the above arguments must be provided.
+     * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
      * 
      */
     public Optional<String> userId() {
@@ -72,6 +96,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetUserPlainArgs(GetUserPlainArgs $) {
         this.alternateIdentifier = $.alternateIdentifier;
+        this.filter = $.filter;
         this.identityStoreId = $.identityStoreId;
         this.userId = $.userId;
     }
@@ -95,13 +120,28 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param alternateIdentifier A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id`. Detailed below.
+         * @param alternateIdentifier A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
          * 
          * @return builder
          * 
          */
         public Builder alternateIdentifier(@Nullable GetUserAlternateIdentifier alternateIdentifier) {
             $.alternateIdentifier = alternateIdentifier;
+            return this;
+        }
+
+        /**
+         * @param filter Configuration block for filtering by a unique attribute of the user. Detailed below.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * Use the alternate_identifier attribute instead.
+         * 
+         */
+        @Deprecated /* Use the alternate_identifier attribute instead. */
+        public Builder filter(@Nullable GetUserFilter filter) {
+            $.filter = filter;
             return this;
         }
 
@@ -121,7 +161,7 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param userId The identifier for a user in the Identity Store.
          * 
-         * &gt; Exactly one of the above arguments must be provided.
+         * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
          * 
          * @return builder
          * 

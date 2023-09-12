@@ -19,6 +19,21 @@ public final class ApiKeyArgs extends com.pulumi.resources.ResourceArgs {
     public static final ApiKeyArgs Empty = new ApiKeyArgs();
 
     /**
+     * An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+     * 
+     */
+    @Import(name="customerId")
+    private @Nullable Output<String> customerId;
+
+    /**
+     * @return An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+     * 
+     */
+    public Optional<Output<String>> customerId() {
+        return Optional.ofNullable(this.customerId);
+    }
+
+    /**
      * API key description. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
@@ -96,6 +111,7 @@ public final class ApiKeyArgs extends com.pulumi.resources.ResourceArgs {
     private ApiKeyArgs() {}
 
     private ApiKeyArgs(ApiKeyArgs $) {
+        this.customerId = $.customerId;
         this.description = $.description;
         this.enabled = $.enabled;
         this.name = $.name;
@@ -119,6 +135,27 @@ public final class ApiKeyArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ApiKeyArgs defaults) {
             $ = new ApiKeyArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param customerId An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customerId(@Nullable Output<String> customerId) {
+            $.customerId = customerId;
+            return this;
+        }
+
+        /**
+         * @param customerId An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customerId(String customerId) {
+            return customerId(Output.of(customerId));
         }
 
         /**

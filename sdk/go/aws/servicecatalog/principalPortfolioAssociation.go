@@ -45,11 +45,13 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_servicecatalog_principal_portfolio_association` using the accept language, principal ARN, and portfolio ID, separated by a comma. For example:
+// In TODO v1.5.0 and later, use an `import` block to import `aws_servicecatalog_principal_portfolio_association` using `accept_language`, `principal_arn`, `portfolio_id`, and `principal_type` separated by a comma. For example:
+//
+// Using `TODO import`, import `aws_servicecatalog_principal_portfolio_association` using `accept_language`, `principal_arn`, `portfolio_id`, and `principal_type` separated by a comma. For example:
 //
 // ```sh
 //
-//	$ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f
+//	$ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f,IAM
 //
 // ```
 type PrincipalPortfolioAssociation struct {
@@ -63,7 +65,7 @@ type PrincipalPortfolioAssociation struct {
 	//
 	// The following arguments are optional:
 	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
-	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
 	PrincipalType pulumi.StringPtrOutput `pulumi:"principalType"`
 }
 
@@ -111,7 +113,7 @@ type principalPortfolioAssociationState struct {
 	//
 	// The following arguments are optional:
 	PrincipalArn *string `pulumi:"principalArn"`
-	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
 	PrincipalType *string `pulumi:"principalType"`
 }
 
@@ -124,7 +126,7 @@ type PrincipalPortfolioAssociationState struct {
 	//
 	// The following arguments are optional:
 	PrincipalArn pulumi.StringPtrInput
-	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
 	PrincipalType pulumi.StringPtrInput
 }
 
@@ -141,7 +143,7 @@ type principalPortfolioAssociationArgs struct {
 	//
 	// The following arguments are optional:
 	PrincipalArn string `pulumi:"principalArn"`
-	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
 	PrincipalType *string `pulumi:"principalType"`
 }
 
@@ -155,7 +157,7 @@ type PrincipalPortfolioAssociationArgs struct {
 	//
 	// The following arguments are optional:
 	PrincipalArn pulumi.StringInput
-	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+	// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
 	PrincipalType pulumi.StringPtrInput
 }
 
@@ -287,7 +289,7 @@ func (o PrincipalPortfolioAssociationOutput) PrincipalArn() pulumi.StringOutput 
 	return o.ApplyT(func(v *PrincipalPortfolioAssociation) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
 }
 
-// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+// Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
 func (o PrincipalPortfolioAssociationOutput) PrincipalType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrincipalPortfolioAssociation) pulumi.StringPtrOutput { return v.PrincipalType }).(pulumi.StringPtrOutput)
 }

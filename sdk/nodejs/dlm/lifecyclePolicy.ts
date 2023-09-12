@@ -55,11 +55,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import DLM lifecycle policies using their policy ID. For example:
+ * In TODO v1.5.0 and later, use an `import` block to import DLM lifecycle policies using their policy ID. For exampleterraform import {
  *
- * ```sh
- *  $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
- * ```
+ *  to = aws_dlm_lifecycle_policy.example
+ *
+ *  id = "policy-abcdef12345678901" } Using `TODO import`, import DLM lifecycle policies using their policy ID. For exampleconsole % TODO import aws_dlm_lifecycle_policy.example policy-abcdef12345678901
  */
 export class LifecyclePolicy extends pulumi.CustomResource {
     /**
@@ -110,7 +110,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
      */
     public readonly state!: pulumi.Output<string | undefined>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -187,7 +187,7 @@ export interface LifecyclePolicyState {
      */
     state?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -217,7 +217,7 @@ export interface LifecyclePolicyArgs {
      */
     state?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -146,6 +146,12 @@ namespace Pulumi.Aws.Glue
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block for open table formats. See `open_table_format_input` below.
+        /// </summary>
+        [Output("openTableFormatInput")]
+        public Output<Outputs.CatalogTableOpenTableFormatInput?> OpenTableFormatInput { get; private set; } = null!;
+
+        /// <summary>
         /// Owner of the table.
         /// </summary>
         [Output("owner")]
@@ -278,6 +284,12 @@ namespace Pulumi.Aws.Glue
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Configuration block for open table formats. See `open_table_format_input` below.
+        /// </summary>
+        [Input("openTableFormatInput")]
+        public Input<Inputs.CatalogTableOpenTableFormatInputArgs>? OpenTableFormatInput { get; set; }
+
+        /// <summary>
         /// Owner of the table.
         /// </summary>
         [Input("owner")]
@@ -394,6 +406,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Configuration block for open table formats. See `open_table_format_input` below.
+        /// </summary>
+        [Input("openTableFormatInput")]
+        public Input<Inputs.CatalogTableOpenTableFormatInputGetArgs>? OpenTableFormatInput { get; set; }
 
         /// <summary>
         /// Owner of the table.

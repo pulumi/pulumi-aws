@@ -227,6 +227,10 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainSnapshotOptionResult> SnapshotOptions;
         /// <summary>
+        /// Software update options for the domain
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDomainSoftwareUpdateOptionResult> SoftwareUpdateOptions;
+        /// <summary>
         /// Tags assigned to the domain.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -283,6 +287,8 @@ namespace Pulumi.Aws.OpenSearch
 
             ImmutableArray<Outputs.GetDomainSnapshotOptionResult> snapshotOptions,
 
+            ImmutableArray<Outputs.GetDomainSoftwareUpdateOptionResult> softwareUpdateOptions,
+
             ImmutableDictionary<string, string> tags,
 
             ImmutableArray<Outputs.GetDomainVpcOptionResult> vpcOptions)
@@ -310,6 +316,7 @@ namespace Pulumi.Aws.OpenSearch
             OffPeakWindowOptions = offPeakWindowOptions;
             Processing = processing;
             SnapshotOptions = snapshotOptions;
+            SoftwareUpdateOptions = softwareUpdateOptions;
             Tags = tags;
             VpcOptions = vpcOptions;
         }

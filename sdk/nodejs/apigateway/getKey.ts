@@ -51,6 +51,10 @@ export interface GetKeyResult {
      */
     readonly createdDate: string;
     /**
+     * Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+     */
+    readonly customerId: string;
+    /**
      * Description of the API Key.
      */
     readonly description: string;

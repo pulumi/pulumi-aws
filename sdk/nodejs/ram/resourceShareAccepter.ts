@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * This configuration provides an example of using multiple AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `aws.ram.ResourceShare` and uses a data source in the _receiver_ account to create a `aws.ram.PrincipalAssociation` resource with the _receiver's_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `aws.ram.ResourceShareAccepter`.
+ * This configuration provides an example of using multiple TODO AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `aws.ram.ResourceShare` and uses a data source in the _receiver_ account to create a `aws.ram.PrincipalAssociation` resource with the _receiver's_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `aws.ram.ResourceShareAccepter`.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -38,11 +38,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import resource share accepters using the resource share ARN. For example:
+ * In TODO v1.5.0 and later, use an `import` block to import resource share accepters using the resource share ARN. For exampleterraform import {
  *
- * ```sh
- *  $ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
- * ```
+ *  to = aws_ram_resource_share_accepter.example
+ *
+ *  id = "arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767" } Using `TODO import`, import resource share accepters using the resource share ARN. For exampleconsole % TODO import aws_ram_resource_share_accepter.example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
  */
 export class ResourceShareAccepter extends pulumi.CustomResource {
     /**

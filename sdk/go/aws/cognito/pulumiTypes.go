@@ -7530,6 +7530,136 @@ func (o UserPoolVerificationMessageTemplatePtrOutput) SmsMessage() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetIdentityPoolCognitoIdentityProvider struct {
+	ClientId             string `pulumi:"clientId"`
+	ProviderName         string `pulumi:"providerName"`
+	ServerSideTokenCheck bool   `pulumi:"serverSideTokenCheck"`
+}
+
+// GetIdentityPoolCognitoIdentityProviderInput is an input type that accepts GetIdentityPoolCognitoIdentityProviderArgs and GetIdentityPoolCognitoIdentityProviderOutput values.
+// You can construct a concrete instance of `GetIdentityPoolCognitoIdentityProviderInput` via:
+//
+//	GetIdentityPoolCognitoIdentityProviderArgs{...}
+type GetIdentityPoolCognitoIdentityProviderInput interface {
+	pulumi.Input
+
+	ToGetIdentityPoolCognitoIdentityProviderOutput() GetIdentityPoolCognitoIdentityProviderOutput
+	ToGetIdentityPoolCognitoIdentityProviderOutputWithContext(context.Context) GetIdentityPoolCognitoIdentityProviderOutput
+}
+
+type GetIdentityPoolCognitoIdentityProviderArgs struct {
+	ClientId             pulumi.StringInput `pulumi:"clientId"`
+	ProviderName         pulumi.StringInput `pulumi:"providerName"`
+	ServerSideTokenCheck pulumi.BoolInput   `pulumi:"serverSideTokenCheck"`
+}
+
+func (GetIdentityPoolCognitoIdentityProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIdentityPoolCognitoIdentityProvider)(nil)).Elem()
+}
+
+func (i GetIdentityPoolCognitoIdentityProviderArgs) ToGetIdentityPoolCognitoIdentityProviderOutput() GetIdentityPoolCognitoIdentityProviderOutput {
+	return i.ToGetIdentityPoolCognitoIdentityProviderOutputWithContext(context.Background())
+}
+
+func (i GetIdentityPoolCognitoIdentityProviderArgs) ToGetIdentityPoolCognitoIdentityProviderOutputWithContext(ctx context.Context) GetIdentityPoolCognitoIdentityProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIdentityPoolCognitoIdentityProviderOutput)
+}
+
+func (i GetIdentityPoolCognitoIdentityProviderArgs) ToOutput(ctx context.Context) pulumix.Output[GetIdentityPoolCognitoIdentityProvider] {
+	return pulumix.Output[GetIdentityPoolCognitoIdentityProvider]{
+		OutputState: i.ToGetIdentityPoolCognitoIdentityProviderOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetIdentityPoolCognitoIdentityProviderArrayInput is an input type that accepts GetIdentityPoolCognitoIdentityProviderArray and GetIdentityPoolCognitoIdentityProviderArrayOutput values.
+// You can construct a concrete instance of `GetIdentityPoolCognitoIdentityProviderArrayInput` via:
+//
+//	GetIdentityPoolCognitoIdentityProviderArray{ GetIdentityPoolCognitoIdentityProviderArgs{...} }
+type GetIdentityPoolCognitoIdentityProviderArrayInput interface {
+	pulumi.Input
+
+	ToGetIdentityPoolCognitoIdentityProviderArrayOutput() GetIdentityPoolCognitoIdentityProviderArrayOutput
+	ToGetIdentityPoolCognitoIdentityProviderArrayOutputWithContext(context.Context) GetIdentityPoolCognitoIdentityProviderArrayOutput
+}
+
+type GetIdentityPoolCognitoIdentityProviderArray []GetIdentityPoolCognitoIdentityProviderInput
+
+func (GetIdentityPoolCognitoIdentityProviderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIdentityPoolCognitoIdentityProvider)(nil)).Elem()
+}
+
+func (i GetIdentityPoolCognitoIdentityProviderArray) ToGetIdentityPoolCognitoIdentityProviderArrayOutput() GetIdentityPoolCognitoIdentityProviderArrayOutput {
+	return i.ToGetIdentityPoolCognitoIdentityProviderArrayOutputWithContext(context.Background())
+}
+
+func (i GetIdentityPoolCognitoIdentityProviderArray) ToGetIdentityPoolCognitoIdentityProviderArrayOutputWithContext(ctx context.Context) GetIdentityPoolCognitoIdentityProviderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIdentityPoolCognitoIdentityProviderArrayOutput)
+}
+
+func (i GetIdentityPoolCognitoIdentityProviderArray) ToOutput(ctx context.Context) pulumix.Output[[]GetIdentityPoolCognitoIdentityProvider] {
+	return pulumix.Output[[]GetIdentityPoolCognitoIdentityProvider]{
+		OutputState: i.ToGetIdentityPoolCognitoIdentityProviderArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetIdentityPoolCognitoIdentityProviderOutput struct{ *pulumi.OutputState }
+
+func (GetIdentityPoolCognitoIdentityProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIdentityPoolCognitoIdentityProvider)(nil)).Elem()
+}
+
+func (o GetIdentityPoolCognitoIdentityProviderOutput) ToGetIdentityPoolCognitoIdentityProviderOutput() GetIdentityPoolCognitoIdentityProviderOutput {
+	return o
+}
+
+func (o GetIdentityPoolCognitoIdentityProviderOutput) ToGetIdentityPoolCognitoIdentityProviderOutputWithContext(ctx context.Context) GetIdentityPoolCognitoIdentityProviderOutput {
+	return o
+}
+
+func (o GetIdentityPoolCognitoIdentityProviderOutput) ToOutput(ctx context.Context) pulumix.Output[GetIdentityPoolCognitoIdentityProvider] {
+	return pulumix.Output[GetIdentityPoolCognitoIdentityProvider]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetIdentityPoolCognitoIdentityProviderOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIdentityPoolCognitoIdentityProvider) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+func (o GetIdentityPoolCognitoIdentityProviderOutput) ProviderName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIdentityPoolCognitoIdentityProvider) string { return v.ProviderName }).(pulumi.StringOutput)
+}
+
+func (o GetIdentityPoolCognitoIdentityProviderOutput) ServerSideTokenCheck() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetIdentityPoolCognitoIdentityProvider) bool { return v.ServerSideTokenCheck }).(pulumi.BoolOutput)
+}
+
+type GetIdentityPoolCognitoIdentityProviderArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIdentityPoolCognitoIdentityProviderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIdentityPoolCognitoIdentityProvider)(nil)).Elem()
+}
+
+func (o GetIdentityPoolCognitoIdentityProviderArrayOutput) ToGetIdentityPoolCognitoIdentityProviderArrayOutput() GetIdentityPoolCognitoIdentityProviderArrayOutput {
+	return o
+}
+
+func (o GetIdentityPoolCognitoIdentityProviderArrayOutput) ToGetIdentityPoolCognitoIdentityProviderArrayOutputWithContext(ctx context.Context) GetIdentityPoolCognitoIdentityProviderArrayOutput {
+	return o
+}
+
+func (o GetIdentityPoolCognitoIdentityProviderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetIdentityPoolCognitoIdentityProvider] {
+	return pulumix.Output[[]GetIdentityPoolCognitoIdentityProvider]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetIdentityPoolCognitoIdentityProviderArrayOutput) Index(i pulumi.IntInput) GetIdentityPoolCognitoIdentityProviderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIdentityPoolCognitoIdentityProvider {
+		return vs[0].([]GetIdentityPoolCognitoIdentityProvider)[vs[1].(int)]
+	}).(GetIdentityPoolCognitoIdentityProviderOutput)
+}
+
 type GetUserPoolClientAnalyticsConfiguration struct {
 	// (Optional) Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
 	ApplicationArn string `pulumi:"applicationArn"`
@@ -7905,6 +8035,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUsernameConfigurationPtrInput)(nil)).Elem(), UserPoolUsernameConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolVerificationMessageTemplateInput)(nil)).Elem(), UserPoolVerificationMessageTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolVerificationMessageTemplatePtrInput)(nil)).Elem(), UserPoolVerificationMessageTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityPoolCognitoIdentityProviderInput)(nil)).Elem(), GetIdentityPoolCognitoIdentityProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIdentityPoolCognitoIdentityProviderArrayInput)(nil)).Elem(), GetIdentityPoolCognitoIdentityProviderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolClientAnalyticsConfigurationInput)(nil)).Elem(), GetUserPoolClientAnalyticsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolClientAnalyticsConfigurationArrayInput)(nil)).Elem(), GetUserPoolClientAnalyticsConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPoolClientTokenValidityUnitInput)(nil)).Elem(), GetUserPoolClientTokenValidityUnitArgs{})
@@ -7987,6 +8119,8 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolUsernameConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolVerificationMessageTemplateOutput{})
 	pulumi.RegisterOutputType(UserPoolVerificationMessageTemplatePtrOutput{})
+	pulumi.RegisterOutputType(GetIdentityPoolCognitoIdentityProviderOutput{})
+	pulumi.RegisterOutputType(GetIdentityPoolCognitoIdentityProviderArrayOutput{})
 	pulumi.RegisterOutputType(GetUserPoolClientAnalyticsConfigurationOutput{})
 	pulumi.RegisterOutputType(GetUserPoolClientAnalyticsConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetUserPoolClientTokenValidityUnitOutput{})

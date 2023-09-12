@@ -470,7 +470,7 @@ class CertificateAuthority(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
         acmpca_bucket_access = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=[
                 "s3:GetBucketAcl",
@@ -504,6 +504,7 @@ class CertificateAuthority(pulumi.CustomResource):
                     enabled=True,
                     expiration_in_days=7,
                     s3_bucket_name=example_bucket_v2.id,
+                    s3_object_acl="BUCKET_OWNER_FULL_CONTROL",
                 ),
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
@@ -578,7 +579,7 @@ class CertificateAuthority(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
+        example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
         acmpca_bucket_access = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=[
                 "s3:GetBucketAcl",
@@ -612,6 +613,7 @@ class CertificateAuthority(pulumi.CustomResource):
                     enabled=True,
                     expiration_in_days=7,
                     s3_bucket_name=example_bucket_v2.id,
+                    s3_object_acl="BUCKET_OWNER_FULL_CONTROL",
                 ),
             ),
             opts=pulumi.ResourceOptions(depends_on=[example_bucket_policy]))

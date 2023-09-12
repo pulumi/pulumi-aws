@@ -76,6 +76,12 @@ namespace Pulumi.Aws.S3Control
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
+        /// Alias for the S3 Object Lambda Access Point.
+        /// </summary>
+        [Output("alias")]
+        public Output<string> Alias { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the Object Lambda Access Point.
         /// </summary>
         [Output("arn")]
@@ -170,6 +176,12 @@ namespace Pulumi.Aws.S3Control
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
+
+        /// <summary>
+        /// Alias for the S3 Object Lambda Access Point.
+        /// </summary>
+        [Input("alias")]
+        public Input<string>? Alias { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Object Lambda Access Point.

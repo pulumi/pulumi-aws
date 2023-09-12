@@ -18,9 +18,17 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs exte
 
     public static final ChannelInputAttachmentAutomaticInputFailoverSettingsArgs Empty = new ChannelInputAttachmentAutomaticInputFailoverSettingsArgs();
 
+    /**
+     * This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+     * 
+     */
     @Import(name="errorClearTimeMsec")
     private @Nullable Output<Integer> errorClearTimeMsec;
 
+    /**
+     * @return This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+     * 
+     */
     public Optional<Output<Integer>> errorClearTimeMsec() {
         return Optional.ofNullable(this.errorClearTimeMsec);
     }
@@ -32,16 +40,32 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs exte
         return Optional.ofNullable(this.failoverConditions);
     }
 
+    /**
+     * Input preference when deciding which input to make active when a previously failed input has recovered.
+     * 
+     */
     @Import(name="inputPreference")
     private @Nullable Output<String> inputPreference;
 
+    /**
+     * @return Input preference when deciding which input to make active when a previously failed input has recovered.
+     * 
+     */
     public Optional<Output<String>> inputPreference() {
         return Optional.ofNullable(this.inputPreference);
     }
 
+    /**
+     * The input ID of the secondary input in the automatic input failover pair.
+     * 
+     */
     @Import(name="secondaryInputId", required=true)
     private Output<String> secondaryInputId;
 
+    /**
+     * @return The input ID of the secondary input in the automatic input failover pair.
+     * 
+     */
     public Output<String> secondaryInputId() {
         return this.secondaryInputId;
     }
@@ -73,11 +97,23 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs exte
             $ = new ChannelInputAttachmentAutomaticInputFailoverSettingsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param errorClearTimeMsec This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+         * 
+         * @return builder
+         * 
+         */
         public Builder errorClearTimeMsec(@Nullable Output<Integer> errorClearTimeMsec) {
             $.errorClearTimeMsec = errorClearTimeMsec;
             return this;
         }
 
+        /**
+         * @param errorClearTimeMsec This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+         * 
+         * @return builder
+         * 
+         */
         public Builder errorClearTimeMsec(Integer errorClearTimeMsec) {
             return errorClearTimeMsec(Output.of(errorClearTimeMsec));
         }
@@ -95,20 +131,44 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs exte
             return failoverConditions(List.of(failoverConditions));
         }
 
+        /**
+         * @param inputPreference Input preference when deciding which input to make active when a previously failed input has recovered.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputPreference(@Nullable Output<String> inputPreference) {
             $.inputPreference = inputPreference;
             return this;
         }
 
+        /**
+         * @param inputPreference Input preference when deciding which input to make active when a previously failed input has recovered.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inputPreference(String inputPreference) {
             return inputPreference(Output.of(inputPreference));
         }
 
+        /**
+         * @param secondaryInputId The input ID of the secondary input in the automatic input failover pair.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secondaryInputId(Output<String> secondaryInputId) {
             $.secondaryInputId = secondaryInputId;
             return this;
         }
 
+        /**
+         * @param secondaryInputId The input ID of the secondary input in the automatic input failover pair.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secondaryInputId(String secondaryInputId) {
             return secondaryInputId(Output.of(secondaryInputId));
         }

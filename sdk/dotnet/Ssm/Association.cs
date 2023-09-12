@@ -225,6 +225,12 @@ namespace Pulumi.Aws.Ssm
         public Output<string?> ScheduleExpression { get; private set; } = null!;
 
         /// <summary>
+        /// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+        /// </summary>
+        [Output("syncCompliance")]
+        public Output<string?> SyncCompliance { get; private set; } = null!;
+
+        /// <summary>
         /// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         /// </summary>
         [Output("targets")]
@@ -362,6 +368,12 @@ namespace Pulumi.Aws.Ssm
         [Input("scheduleExpression")]
         public Input<string>? ScheduleExpression { get; set; }
 
+        /// <summary>
+        /// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+        /// </summary>
+        [Input("syncCompliance")]
+        public Input<string>? SyncCompliance { get; set; }
+
         [Input("targets")]
         private InputList<Inputs.AssociationTargetArgs>? _targets;
 
@@ -479,6 +491,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("scheduleExpression")]
         public Input<string>? ScheduleExpression { get; set; }
+
+        /// <summary>
+        /// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+        /// </summary>
+        [Input("syncCompliance")]
+        public Input<string>? SyncCompliance { get; set; }
 
         [Input("targets")]
         private InputList<Inputs.AssociationTargetGetArgs>? _targets;

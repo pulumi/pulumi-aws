@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings {
+    /**
+     * @return The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
+     * 
+     */
     private @Nullable Integer inputLossThresholdMsec;
 
     private ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings() {}
+    /**
+     * @return The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
+     * 
+     */
     public Optional<Integer> inputLossThresholdMsec() {
         return Optional.ofNullable(this.inputLossThresholdMsec);
     }

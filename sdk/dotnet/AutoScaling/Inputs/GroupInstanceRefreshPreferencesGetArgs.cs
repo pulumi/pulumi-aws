@@ -49,10 +49,22 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         public Input<int>? MinHealthyPercentage { get; set; }
 
         /// <summary>
+        /// Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
+        /// </summary>
+        [Input("scaleInProtectedInstances")]
+        public Input<string>? ScaleInProtectedInstances { get; set; }
+
+        /// <summary>
         /// Replace instances that already have your desired configuration. Defaults to `false`.
         /// </summary>
         [Input("skipMatching")]
         public Input<bool>? SkipMatching { get; set; }
+
+        /// <summary>
+        /// Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
+        /// </summary>
+        [Input("standbyInstances")]
+        public Input<string>? StandbyInstances { get; set; }
 
         public GroupInstanceRefreshPreferencesGetArgs()
         {

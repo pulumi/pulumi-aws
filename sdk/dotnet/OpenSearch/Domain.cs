@@ -566,6 +566,12 @@ namespace Pulumi.Aws.OpenSearch
         public Output<Outputs.DomainSnapshotOptions?> SnapshotOptions { get; private set; } = null!;
 
         /// <summary>
+        /// Software update options for the domain. Detailed below.
+        /// </summary>
+        [Output("softwareUpdateOptions")]
+        public Output<Outputs.DomainSoftwareUpdateOptions> SoftwareUpdateOptions { get; private set; } = null!;
+
+        /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -737,6 +743,12 @@ namespace Pulumi.Aws.OpenSearch
         [Input("snapshotOptions")]
         public Input<Inputs.DomainSnapshotOptionsArgs>? SnapshotOptions { get; set; }
 
+        /// <summary>
+        /// Software update options for the domain. Detailed below.
+        /// </summary>
+        [Input("softwareUpdateOptions")]
+        public Input<Inputs.DomainSoftwareUpdateOptionsArgs>? SoftwareUpdateOptions { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -898,6 +910,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("snapshotOptions")]
         public Input<Inputs.DomainSnapshotOptionsGetArgs>? SnapshotOptions { get; set; }
+
+        /// <summary>
+        /// Software update options for the domain. Detailed below.
+        /// </summary>
+        [Input("softwareUpdateOptions")]
+        public Input<Inputs.DomainSoftwareUpdateOptionsGetArgs>? SoftwareUpdateOptions { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

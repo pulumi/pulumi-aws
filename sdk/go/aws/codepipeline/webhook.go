@@ -127,13 +127,11 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:
+// In TODO v1.5.0 and later, use an `import` block to import CodePipeline Webhooks using their ARN. For exampleterraform import {
 //
-// ```sh
+//	to = aws_codepipeline_webhook.example
 //
-//	$ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
-//
-// ```
+//	id = "arn:aws:codepipeline:us-west-2:123456789012:webhook:example" } Using `TODO import`, import CodePipeline Webhooks using their ARN. For exampleconsole % TODO import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
 type Webhook struct {
 	pulumi.CustomResourceState
 
@@ -147,7 +145,7 @@ type Webhook struct {
 	Filters WebhookFilterArrayOutput `pulumi:"filters"`
 	// The name of the webhook.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -211,7 +209,7 @@ type webhookState struct {
 	Filters []WebhookFilter `pulumi:"filters"`
 	// The name of the webhook.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -234,7 +232,7 @@ type WebhookState struct {
 	Filters WebhookFilterArrayInput
 	// The name of the webhook.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -259,7 +257,7 @@ type webhookArgs struct {
 	Filters []WebhookFilter `pulumi:"filters"`
 	// The name of the webhook.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
 	TargetAction string `pulumi:"targetAction"`
@@ -277,7 +275,7 @@ type WebhookArgs struct {
 	Filters WebhookFilterArrayInput
 	// The name of the webhook.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
 	TargetAction pulumi.StringInput
@@ -421,7 +419,7 @@ func (o WebhookOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o WebhookOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

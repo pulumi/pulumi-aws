@@ -177,7 +177,7 @@ def get_function_url(function_name: Optional[str] = None,
     ```
 
 
-    :param str function_name: he name (or ARN) of the Lambda function.
+    :param str function_name: The name (or ARN) of the Lambda function.
     :param str qualifier: Alias name or `"$LATEST"`.
     """
     __args__ = dict()
@@ -219,7 +219,7 @@ def get_function_url_output(function_name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str function_name: he name (or ARN) of the Lambda function.
+    :param str function_name: The name (or ARN) of the Lambda function.
     :param str qualifier: Alias name or `"$LATEST"`.
     """
     ...

@@ -21,12 +21,14 @@ __all__ = [
     'GetGroupAlternateIdentifierExternalIdResult',
     'GetGroupAlternateIdentifierUniqueAttributeResult',
     'GetGroupExternalIdResult',
+    'GetGroupFilterResult',
     'GetUserAddressResult',
     'GetUserAlternateIdentifierResult',
     'GetUserAlternateIdentifierExternalIdResult',
     'GetUserAlternateIdentifierUniqueAttributeResult',
     'GetUserEmailResult',
     'GetUserExternalIdResult',
+    'GetUserFilterResult',
     'GetUserNameResult',
     'GetUserPhoneNumberResult',
 ]
@@ -530,6 +532,35 @@ class GetGroupExternalIdResult(dict):
 
 
 @pulumi.output_type
+class GetGroupFilterResult(dict):
+    def __init__(__self__, *,
+                 attribute_path: str,
+                 attribute_value: str):
+        """
+        :param str attribute_path: Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+        :param str attribute_value: Value for an attribute.
+        """
+        pulumi.set(__self__, "attribute_path", attribute_path)
+        pulumi.set(__self__, "attribute_value", attribute_value)
+
+    @property
+    @pulumi.getter(name="attributePath")
+    def attribute_path(self) -> str:
+        """
+        Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+        """
+        return pulumi.get(self, "attribute_path")
+
+    @property
+    @pulumi.getter(name="attributeValue")
+    def attribute_value(self) -> str:
+        """
+        Value for an attribute.
+        """
+        return pulumi.get(self, "attribute_value")
+
+
+@pulumi.output_type
 class GetUserAddressResult(dict):
     def __init__(__self__, *,
                  country: str,
@@ -784,6 +815,35 @@ class GetUserExternalIdResult(dict):
         The issuer for an external identifier.
         """
         return pulumi.get(self, "issuer")
+
+
+@pulumi.output_type
+class GetUserFilterResult(dict):
+    def __init__(__self__, *,
+                 attribute_path: str,
+                 attribute_value: str):
+        """
+        :param str attribute_path: Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
+        :param str attribute_value: Value for an attribute.
+        """
+        pulumi.set(__self__, "attribute_path", attribute_path)
+        pulumi.set(__self__, "attribute_value", attribute_value)
+
+    @property
+    @pulumi.getter(name="attributePath")
+    def attribute_path(self) -> str:
+        """
+        Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
+        """
+        return pulumi.get(self, "attribute_path")
+
+    @property
+    @pulumi.getter(name="attributeValue")
+    def attribute_value(self) -> str:
+        """
+        Value for an attribute.
+        """
+        return pulumi.get(self, "attribute_value")
 
 
 @pulumi.output_type

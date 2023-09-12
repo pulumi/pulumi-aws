@@ -68,6 +68,12 @@ namespace Pulumi.Aws.S3
         public string? Prefix { get; set; }
 
         /// <summary>
+        /// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
+        /// </summary>
+        [Input("requestPayer")]
+        public string? RequestPayer { get; set; }
+
+        /// <summary>
         /// Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
         /// </summary>
         [Input("startAfter")]
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.S3
         public Input<string>? Prefix { get; set; }
 
         /// <summary>
+        /// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
+        /// </summary>
+        [Input("requestPayer")]
+        public Input<string>? RequestPayer { get; set; }
+
+        /// <summary>
         /// Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
         /// </summary>
         [Input("startAfter")]
@@ -155,6 +167,11 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly ImmutableArray<string> Owners;
         public readonly string? Prefix;
+        /// <summary>
+        /// If present, indicates that the requester was successfully charged for the request.
+        /// </summary>
+        public readonly string RequestCharged;
+        public readonly string? RequestPayer;
         public readonly string? StartAfter;
 
         [OutputConstructor]
@@ -179,6 +196,10 @@ namespace Pulumi.Aws.S3
 
             string? prefix,
 
+            string requestCharged,
+
+            string? requestPayer,
+
             string? startAfter)
         {
             Bucket = bucket;
@@ -191,6 +212,8 @@ namespace Pulumi.Aws.S3
             MaxKeys = maxKeys;
             Owners = owners;
             Prefix = prefix;
+            RequestCharged = requestCharged;
+            RequestPayer = requestPayer;
             StartAfter = startAfter;
         }
     }

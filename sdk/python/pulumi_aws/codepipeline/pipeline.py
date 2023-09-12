@@ -27,7 +27,7 @@ class PipelineArgs:
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]] stages: A stage block. Stages are documented below.
         :param pulumi.Input[str] name: The name of the pipeline.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "artifact_stores", artifact_stores)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -89,7 +89,7 @@ class PipelineArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -115,7 +115,7 @@ class _PipelineState:
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]] stages: A stage block. Stages are documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -197,7 +197,7 @@ class _PipelineState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -350,11 +350,11 @@ class Pipeline(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CodePipelines using the name. For example:
+        In TODO v1.5.0 and later, use an `import` block to import CodePipelines using the name. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
-        ```
+         to = aws_codepipeline.foo
+
+         id = "example" } Using `TODO import`, import CodePipelines using the name. For exampleconsole % TODO import aws_codepipeline.foo example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -362,7 +362,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageArgs']]]] stages: A stage block. Stages are documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -491,11 +491,11 @@ class Pipeline(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CodePipelines using the name. For example:
+        In TODO v1.5.0 and later, use an `import` block to import CodePipelines using the name. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
-        ```
+         to = aws_codepipeline.foo
+
+         id = "example" } Using `TODO import`, import CodePipelines using the name. For exampleconsole % TODO import aws_codepipeline.foo example
 
         :param str resource_name: The name of the resource.
         :param PipelineArgs args: The arguments to use to populate this resource's properties.
@@ -568,7 +568,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the pipeline.
         :param pulumi.Input[str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageArgs']]]] stages: A stage block. Stages are documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -628,7 +628,7 @@ class Pipeline(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

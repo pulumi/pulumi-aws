@@ -618,7 +618,7 @@ class StackSet(pulumi.CustomResource):
          Using `TODO import`, import CloudFormation StackSets when acting a delegated administrator in a member account using the `name` and `call_as` values separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:cloudformation/stackSet:StackSet example example/DELEGATED_ADMIN
+         $ pulumi import aws:cloudformation/stackSet:StackSet example example,DELEGATED_ADMIN
         ```
 
         :param str resource_name: The name of the resource.
@@ -717,7 +717,7 @@ class StackSet(pulumi.CustomResource):
          Using `TODO import`, import CloudFormation StackSets when acting a delegated administrator in a member account using the `name` and `call_as` values separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:cloudformation/stackSet:StackSet example example/DELEGATED_ADMIN
+         $ pulumi import aws:cloudformation/stackSet:StackSet example example,DELEGATED_ADMIN
         ```
 
         :param str resource_name: The name of the resource.

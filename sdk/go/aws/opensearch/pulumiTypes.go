@@ -3843,6 +3843,167 @@ func (o DomainSnapshotOptionsPtrOutput) AutomatedSnapshotStartHour() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+type DomainSoftwareUpdateOptions struct {
+	// Whether automatic service software updates are enabled for the domain. Defaults to `false`.
+	AutoSoftwareUpdateEnabled *bool `pulumi:"autoSoftwareUpdateEnabled"`
+}
+
+// DomainSoftwareUpdateOptionsInput is an input type that accepts DomainSoftwareUpdateOptionsArgs and DomainSoftwareUpdateOptionsOutput values.
+// You can construct a concrete instance of `DomainSoftwareUpdateOptionsInput` via:
+//
+//	DomainSoftwareUpdateOptionsArgs{...}
+type DomainSoftwareUpdateOptionsInput interface {
+	pulumi.Input
+
+	ToDomainSoftwareUpdateOptionsOutput() DomainSoftwareUpdateOptionsOutput
+	ToDomainSoftwareUpdateOptionsOutputWithContext(context.Context) DomainSoftwareUpdateOptionsOutput
+}
+
+type DomainSoftwareUpdateOptionsArgs struct {
+	// Whether automatic service software updates are enabled for the domain. Defaults to `false`.
+	AutoSoftwareUpdateEnabled pulumi.BoolPtrInput `pulumi:"autoSoftwareUpdateEnabled"`
+}
+
+func (DomainSoftwareUpdateOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainSoftwareUpdateOptions)(nil)).Elem()
+}
+
+func (i DomainSoftwareUpdateOptionsArgs) ToDomainSoftwareUpdateOptionsOutput() DomainSoftwareUpdateOptionsOutput {
+	return i.ToDomainSoftwareUpdateOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainSoftwareUpdateOptionsArgs) ToDomainSoftwareUpdateOptionsOutputWithContext(ctx context.Context) DomainSoftwareUpdateOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSoftwareUpdateOptionsOutput)
+}
+
+func (i DomainSoftwareUpdateOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[DomainSoftwareUpdateOptions] {
+	return pulumix.Output[DomainSoftwareUpdateOptions]{
+		OutputState: i.ToDomainSoftwareUpdateOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DomainSoftwareUpdateOptionsArgs) ToDomainSoftwareUpdateOptionsPtrOutput() DomainSoftwareUpdateOptionsPtrOutput {
+	return i.ToDomainSoftwareUpdateOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainSoftwareUpdateOptionsArgs) ToDomainSoftwareUpdateOptionsPtrOutputWithContext(ctx context.Context) DomainSoftwareUpdateOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSoftwareUpdateOptionsOutput).ToDomainSoftwareUpdateOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainSoftwareUpdateOptionsPtrInput is an input type that accepts DomainSoftwareUpdateOptionsArgs, DomainSoftwareUpdateOptionsPtr and DomainSoftwareUpdateOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainSoftwareUpdateOptionsPtrInput` via:
+//
+//	        DomainSoftwareUpdateOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainSoftwareUpdateOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainSoftwareUpdateOptionsPtrOutput() DomainSoftwareUpdateOptionsPtrOutput
+	ToDomainSoftwareUpdateOptionsPtrOutputWithContext(context.Context) DomainSoftwareUpdateOptionsPtrOutput
+}
+
+type domainSoftwareUpdateOptionsPtrType DomainSoftwareUpdateOptionsArgs
+
+func DomainSoftwareUpdateOptionsPtr(v *DomainSoftwareUpdateOptionsArgs) DomainSoftwareUpdateOptionsPtrInput {
+	return (*domainSoftwareUpdateOptionsPtrType)(v)
+}
+
+func (*domainSoftwareUpdateOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainSoftwareUpdateOptions)(nil)).Elem()
+}
+
+func (i *domainSoftwareUpdateOptionsPtrType) ToDomainSoftwareUpdateOptionsPtrOutput() DomainSoftwareUpdateOptionsPtrOutput {
+	return i.ToDomainSoftwareUpdateOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainSoftwareUpdateOptionsPtrType) ToDomainSoftwareUpdateOptionsPtrOutputWithContext(ctx context.Context) DomainSoftwareUpdateOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainSoftwareUpdateOptionsPtrOutput)
+}
+
+func (i *domainSoftwareUpdateOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DomainSoftwareUpdateOptions] {
+	return pulumix.Output[*DomainSoftwareUpdateOptions]{
+		OutputState: i.ToDomainSoftwareUpdateOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DomainSoftwareUpdateOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainSoftwareUpdateOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainSoftwareUpdateOptions)(nil)).Elem()
+}
+
+func (o DomainSoftwareUpdateOptionsOutput) ToDomainSoftwareUpdateOptionsOutput() DomainSoftwareUpdateOptionsOutput {
+	return o
+}
+
+func (o DomainSoftwareUpdateOptionsOutput) ToDomainSoftwareUpdateOptionsOutputWithContext(ctx context.Context) DomainSoftwareUpdateOptionsOutput {
+	return o
+}
+
+func (o DomainSoftwareUpdateOptionsOutput) ToDomainSoftwareUpdateOptionsPtrOutput() DomainSoftwareUpdateOptionsPtrOutput {
+	return o.ToDomainSoftwareUpdateOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainSoftwareUpdateOptionsOutput) ToDomainSoftwareUpdateOptionsPtrOutputWithContext(ctx context.Context) DomainSoftwareUpdateOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainSoftwareUpdateOptions) *DomainSoftwareUpdateOptions {
+		return &v
+	}).(DomainSoftwareUpdateOptionsPtrOutput)
+}
+
+func (o DomainSoftwareUpdateOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DomainSoftwareUpdateOptions] {
+	return pulumix.Output[DomainSoftwareUpdateOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Whether automatic service software updates are enabled for the domain. Defaults to `false`.
+func (o DomainSoftwareUpdateOptionsOutput) AutoSoftwareUpdateEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainSoftwareUpdateOptions) *bool { return v.AutoSoftwareUpdateEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type DomainSoftwareUpdateOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainSoftwareUpdateOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainSoftwareUpdateOptions)(nil)).Elem()
+}
+
+func (o DomainSoftwareUpdateOptionsPtrOutput) ToDomainSoftwareUpdateOptionsPtrOutput() DomainSoftwareUpdateOptionsPtrOutput {
+	return o
+}
+
+func (o DomainSoftwareUpdateOptionsPtrOutput) ToDomainSoftwareUpdateOptionsPtrOutputWithContext(ctx context.Context) DomainSoftwareUpdateOptionsPtrOutput {
+	return o
+}
+
+func (o DomainSoftwareUpdateOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainSoftwareUpdateOptions] {
+	return pulumix.Output[*DomainSoftwareUpdateOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainSoftwareUpdateOptionsPtrOutput) Elem() DomainSoftwareUpdateOptionsOutput {
+	return o.ApplyT(func(v *DomainSoftwareUpdateOptions) DomainSoftwareUpdateOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainSoftwareUpdateOptions
+		return ret
+	}).(DomainSoftwareUpdateOptionsOutput)
+}
+
+// Whether automatic service software updates are enabled for the domain. Defaults to `false`.
+func (o DomainSoftwareUpdateOptionsPtrOutput) AutoSoftwareUpdateEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainSoftwareUpdateOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoSoftwareUpdateEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type DomainVpcOptions struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// List of VPC Security Group IDs to be applied to the OpenSearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
@@ -7494,6 +7655,127 @@ func (o GetDomainSnapshotOptionArrayOutput) Index(i pulumi.IntInput) GetDomainSn
 	}).(GetDomainSnapshotOptionOutput)
 }
 
+type GetDomainSoftwareUpdateOption struct {
+	// Enabled or disabled.
+	AutoSoftwareUpdateEnabled bool `pulumi:"autoSoftwareUpdateEnabled"`
+}
+
+// GetDomainSoftwareUpdateOptionInput is an input type that accepts GetDomainSoftwareUpdateOptionArgs and GetDomainSoftwareUpdateOptionOutput values.
+// You can construct a concrete instance of `GetDomainSoftwareUpdateOptionInput` via:
+//
+//	GetDomainSoftwareUpdateOptionArgs{...}
+type GetDomainSoftwareUpdateOptionInput interface {
+	pulumi.Input
+
+	ToGetDomainSoftwareUpdateOptionOutput() GetDomainSoftwareUpdateOptionOutput
+	ToGetDomainSoftwareUpdateOptionOutputWithContext(context.Context) GetDomainSoftwareUpdateOptionOutput
+}
+
+type GetDomainSoftwareUpdateOptionArgs struct {
+	// Enabled or disabled.
+	AutoSoftwareUpdateEnabled pulumi.BoolInput `pulumi:"autoSoftwareUpdateEnabled"`
+}
+
+func (GetDomainSoftwareUpdateOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainSoftwareUpdateOption)(nil)).Elem()
+}
+
+func (i GetDomainSoftwareUpdateOptionArgs) ToGetDomainSoftwareUpdateOptionOutput() GetDomainSoftwareUpdateOptionOutput {
+	return i.ToGetDomainSoftwareUpdateOptionOutputWithContext(context.Background())
+}
+
+func (i GetDomainSoftwareUpdateOptionArgs) ToGetDomainSoftwareUpdateOptionOutputWithContext(ctx context.Context) GetDomainSoftwareUpdateOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainSoftwareUpdateOptionOutput)
+}
+
+func (i GetDomainSoftwareUpdateOptionArgs) ToOutput(ctx context.Context) pulumix.Output[GetDomainSoftwareUpdateOption] {
+	return pulumix.Output[GetDomainSoftwareUpdateOption]{
+		OutputState: i.ToGetDomainSoftwareUpdateOptionOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetDomainSoftwareUpdateOptionArrayInput is an input type that accepts GetDomainSoftwareUpdateOptionArray and GetDomainSoftwareUpdateOptionArrayOutput values.
+// You can construct a concrete instance of `GetDomainSoftwareUpdateOptionArrayInput` via:
+//
+//	GetDomainSoftwareUpdateOptionArray{ GetDomainSoftwareUpdateOptionArgs{...} }
+type GetDomainSoftwareUpdateOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetDomainSoftwareUpdateOptionArrayOutput() GetDomainSoftwareUpdateOptionArrayOutput
+	ToGetDomainSoftwareUpdateOptionArrayOutputWithContext(context.Context) GetDomainSoftwareUpdateOptionArrayOutput
+}
+
+type GetDomainSoftwareUpdateOptionArray []GetDomainSoftwareUpdateOptionInput
+
+func (GetDomainSoftwareUpdateOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainSoftwareUpdateOption)(nil)).Elem()
+}
+
+func (i GetDomainSoftwareUpdateOptionArray) ToGetDomainSoftwareUpdateOptionArrayOutput() GetDomainSoftwareUpdateOptionArrayOutput {
+	return i.ToGetDomainSoftwareUpdateOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetDomainSoftwareUpdateOptionArray) ToGetDomainSoftwareUpdateOptionArrayOutputWithContext(ctx context.Context) GetDomainSoftwareUpdateOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainSoftwareUpdateOptionArrayOutput)
+}
+
+func (i GetDomainSoftwareUpdateOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainSoftwareUpdateOption] {
+	return pulumix.Output[[]GetDomainSoftwareUpdateOption]{
+		OutputState: i.ToGetDomainSoftwareUpdateOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetDomainSoftwareUpdateOptionOutput struct{ *pulumi.OutputState }
+
+func (GetDomainSoftwareUpdateOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainSoftwareUpdateOption)(nil)).Elem()
+}
+
+func (o GetDomainSoftwareUpdateOptionOutput) ToGetDomainSoftwareUpdateOptionOutput() GetDomainSoftwareUpdateOptionOutput {
+	return o
+}
+
+func (o GetDomainSoftwareUpdateOptionOutput) ToGetDomainSoftwareUpdateOptionOutputWithContext(ctx context.Context) GetDomainSoftwareUpdateOptionOutput {
+	return o
+}
+
+func (o GetDomainSoftwareUpdateOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GetDomainSoftwareUpdateOption] {
+	return pulumix.Output[GetDomainSoftwareUpdateOption]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Enabled or disabled.
+func (o GetDomainSoftwareUpdateOptionOutput) AutoSoftwareUpdateEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDomainSoftwareUpdateOption) bool { return v.AutoSoftwareUpdateEnabled }).(pulumi.BoolOutput)
+}
+
+type GetDomainSoftwareUpdateOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDomainSoftwareUpdateOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainSoftwareUpdateOption)(nil)).Elem()
+}
+
+func (o GetDomainSoftwareUpdateOptionArrayOutput) ToGetDomainSoftwareUpdateOptionArrayOutput() GetDomainSoftwareUpdateOptionArrayOutput {
+	return o
+}
+
+func (o GetDomainSoftwareUpdateOptionArrayOutput) ToGetDomainSoftwareUpdateOptionArrayOutputWithContext(ctx context.Context) GetDomainSoftwareUpdateOptionArrayOutput {
+	return o
+}
+
+func (o GetDomainSoftwareUpdateOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDomainSoftwareUpdateOption] {
+	return pulumix.Output[[]GetDomainSoftwareUpdateOption]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetDomainSoftwareUpdateOptionArrayOutput) Index(i pulumi.IntInput) GetDomainSoftwareUpdateOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainSoftwareUpdateOption {
+		return vs[0].([]GetDomainSoftwareUpdateOption)[vs[1].(int)]
+	}).(GetDomainSoftwareUpdateOptionOutput)
+}
+
 type GetDomainVpcOption struct {
 	// Availability zones used by the domain.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
@@ -7900,6 +8182,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSamlOptionsSamlOptionsIdpPtrInput)(nil)).Elem(), DomainSamlOptionsSamlOptionsIdpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSnapshotOptionsInput)(nil)).Elem(), DomainSnapshotOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSnapshotOptionsPtrInput)(nil)).Elem(), DomainSnapshotOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainSoftwareUpdateOptionsInput)(nil)).Elem(), DomainSoftwareUpdateOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainSoftwareUpdateOptionsPtrInput)(nil)).Elem(), DomainSoftwareUpdateOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainVpcOptionsInput)(nil)).Elem(), DomainVpcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainVpcOptionsPtrInput)(nil)).Elem(), DomainVpcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutboundConnectionLocalDomainInfoInput)(nil)).Elem(), OutboundConnectionLocalDomainInfoArgs{})
@@ -7946,6 +8230,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayInput)(nil)).Elem(), GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainSnapshotOptionInput)(nil)).Elem(), GetDomainSnapshotOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainSnapshotOptionArrayInput)(nil)).Elem(), GetDomainSnapshotOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainSoftwareUpdateOptionInput)(nil)).Elem(), GetDomainSoftwareUpdateOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainSoftwareUpdateOptionArrayInput)(nil)).Elem(), GetDomainSoftwareUpdateOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainVpcOptionInput)(nil)).Elem(), GetDomainVpcOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainVpcOptionArrayInput)(nil)).Elem(), GetDomainVpcOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessSecurityConfigSamlOptionsInput)(nil)).Elem(), GetServerlessSecurityConfigSamlOptionsArgs{})
@@ -7989,6 +8275,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainSamlOptionsSamlOptionsIdpPtrOutput{})
 	pulumi.RegisterOutputType(DomainSnapshotOptionsOutput{})
 	pulumi.RegisterOutputType(DomainSnapshotOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainSoftwareUpdateOptionsOutput{})
+	pulumi.RegisterOutputType(DomainSoftwareUpdateOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainVpcOptionsOutput{})
 	pulumi.RegisterOutputType(DomainVpcOptionsPtrOutput{})
 	pulumi.RegisterOutputType(OutboundConnectionLocalDomainInfoOutput{})
@@ -8035,6 +8323,8 @@ func init() {
 	pulumi.RegisterOutputType(GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainSnapshotOptionOutput{})
 	pulumi.RegisterOutputType(GetDomainSnapshotOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetDomainSoftwareUpdateOptionOutput{})
+	pulumi.RegisterOutputType(GetDomainSoftwareUpdateOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainVpcOptionOutput{})
 	pulumi.RegisterOutputType(GetDomainVpcOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetServerlessSecurityConfigSamlOptionsOutput{})

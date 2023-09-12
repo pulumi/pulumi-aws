@@ -30,11 +30,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import EKS job templates using the `id`. For example:
+ * In TODO v1.5.0 and later, use an `import` block to import EKS job templates using the `id`. For exampleterraform import {
  *
- * ```sh
- *  $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
- * ```
+ *  to = aws_emrcontainers_job_template.example
+ *
+ *  id = "a1b2c3d4e5f6g7h8i9j10k11l" } Using `TODO import`, import EKS job templates using the `id`. For exampleconsole % TODO import aws_emrcontainers_job_template.example a1b2c3d4e5f6g7h8i9j10k11l
  */
 export class JobTemplate extends pulumi.CustomResource {
     /**

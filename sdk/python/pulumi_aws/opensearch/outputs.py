@@ -31,6 +31,7 @@ __all__ = [
     'DomainSamlOptionsSamlOptions',
     'DomainSamlOptionsSamlOptionsIdp',
     'DomainSnapshotOptions',
+    'DomainSoftwareUpdateOptions',
     'DomainVpcOptions',
     'OutboundConnectionLocalDomainInfo',
     'OutboundConnectionRemoteDomainInfo',
@@ -54,6 +55,7 @@ __all__ = [
     'GetDomainOffPeakWindowOptionsOffPeakWindowResult',
     'GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeResult',
     'GetDomainSnapshotOptionResult',
+    'GetDomainSoftwareUpdateOptionResult',
     'GetDomainVpcOptionResult',
     'GetServerlessSecurityConfigSamlOptionsResult',
 ]
@@ -1277,6 +1279,42 @@ class DomainSnapshotOptions(dict):
 
 
 @pulumi.output_type
+class DomainSoftwareUpdateOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoSoftwareUpdateEnabled":
+            suggest = "auto_software_update_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainSoftwareUpdateOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainSoftwareUpdateOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainSoftwareUpdateOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_software_update_enabled: Optional[bool] = None):
+        """
+        :param bool auto_software_update_enabled: Whether automatic service software updates are enabled for the domain. Defaults to `false`.
+        """
+        if auto_software_update_enabled is not None:
+            pulumi.set(__self__, "auto_software_update_enabled", auto_software_update_enabled)
+
+    @property
+    @pulumi.getter(name="autoSoftwareUpdateEnabled")
+    def auto_software_update_enabled(self) -> Optional[bool]:
+        """
+        Whether automatic service software updates are enabled for the domain. Defaults to `false`.
+        """
+        return pulumi.get(self, "auto_software_update_enabled")
+
+
+@pulumi.output_type
 class DomainVpcOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2263,6 +2301,24 @@ class GetDomainSnapshotOptionResult(dict):
         Hour during which the service takes an automated daily snapshot of the indices in the domain.
         """
         return pulumi.get(self, "automated_snapshot_start_hour")
+
+
+@pulumi.output_type
+class GetDomainSoftwareUpdateOptionResult(dict):
+    def __init__(__self__, *,
+                 auto_software_update_enabled: bool):
+        """
+        :param bool auto_software_update_enabled: Enabled or disabled.
+        """
+        pulumi.set(__self__, "auto_software_update_enabled", auto_software_update_enabled)
+
+    @property
+    @pulumi.getter(name="autoSoftwareUpdateEnabled")
+    def auto_software_update_enabled(self) -> bool:
+        """
+        Enabled or disabled.
+        """
+        return pulumi.get(self, "auto_software_update_enabled")
 
 
 @pulumi.output_type

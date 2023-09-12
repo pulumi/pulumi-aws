@@ -21,6 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation":
+		r = &DrtAccessLogBucketAssociation{}
+	case "aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation":
+		r = &DrtAccessRoleArnAssociation{}
 	case "aws:shield/protection:Protection":
 		r = &Protection{}
 	case "aws:shield/protectionGroup:ProtectionGroup":
@@ -40,6 +44,16 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"shield/drtAccessLogBucketAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"shield/drtAccessRoleArnAssociation",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"shield/protection",

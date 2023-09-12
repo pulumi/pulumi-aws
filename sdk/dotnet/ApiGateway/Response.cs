@@ -44,11 +44,11 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:
+    /// In TODO v1.5.0 and later, use an `import` block to import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For exampleterraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
-    /// ```
+    ///  to = aws_api_gateway_gateway_response.example
+    /// 
+    ///  id = "12345abcde/UNAUTHORIZED" } Using `TODO import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For exampleconsole % TODO import aws_api_gateway_gateway_response.example 12345abcde/UNAUTHORIZED
     /// </summary>
     [AwsResourceType("aws:apigateway/response:Response")]
     public partial class Response : global::Pulumi.CustomResource

@@ -43,9 +43,11 @@ __all__ = [
     'OpenZfsVolumeOriginSnapshot',
     'OpenZfsVolumeUserAndGroupQuota',
     'WindowsFileSystemAuditLogConfiguration',
+    'WindowsFileSystemDiskIopsConfiguration',
     'WindowsFileSystemSelfManagedActiveDirectory',
     'GetOpenZfsSnapshotFilterResult',
     'GetWindowsFileSystemAuditLogConfigurationResult',
+    'GetWindowsFileSystemDiskIopsConfigurationResult',
 ]
 
 @pulumi.output_type
@@ -1652,6 +1654,37 @@ class WindowsFileSystemAuditLogConfiguration(dict):
 
 
 @pulumi.output_type
+class WindowsFileSystemDiskIopsConfiguration(dict):
+    def __init__(__self__, *,
+                 iops: Optional[int] = None,
+                 mode: Optional[str] = None):
+        """
+        :param int iops: The total number of SSD IOPS provisioned for the file system.
+        :param str mode: Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        """
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[int]:
+        """
+        The total number of SSD IOPS provisioned for the file system.
+        """
+        return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        """
+        return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
 class WindowsFileSystemSelfManagedActiveDirectory(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1798,5 +1831,24 @@ class GetWindowsFileSystemAuditLogConfigurationResult(dict):
     @pulumi.getter(name="fileShareAccessAuditLogLevel")
     def file_share_access_audit_log_level(self) -> str:
         return pulumi.get(self, "file_share_access_audit_log_level")
+
+
+@pulumi.output_type
+class GetWindowsFileSystemDiskIopsConfigurationResult(dict):
+    def __init__(__self__, *,
+                 iops: int,
+                 mode: str):
+        pulumi.set(__self__, "iops", iops)
+        pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def iops(self) -> int:
+        return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        return pulumi.get(self, "mode")
 
 

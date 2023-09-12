@@ -32,6 +32,21 @@ public final class ObjectLambdaAccessPointState extends com.pulumi.resources.Res
     }
 
     /**
+     * Alias for the S3 Object Lambda Access Point.
+     * 
+     */
+    @Import(name="alias")
+    private @Nullable Output<String> alias;
+
+    /**
+     * @return Alias for the S3 Object Lambda Access Point.
+     * 
+     */
+    public Optional<Output<String>> alias() {
+        return Optional.ofNullable(this.alias);
+    }
+
+    /**
      * Amazon Resource Name (ARN) of the Object Lambda Access Point.
      * 
      */
@@ -80,6 +95,7 @@ public final class ObjectLambdaAccessPointState extends com.pulumi.resources.Res
 
     private ObjectLambdaAccessPointState(ObjectLambdaAccessPointState $) {
         this.accountId = $.accountId;
+        this.alias = $.alias;
         this.arn = $.arn;
         this.configuration = $.configuration;
         this.name = $.name;
@@ -122,6 +138,27 @@ public final class ObjectLambdaAccessPointState extends com.pulumi.resources.Res
          */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
+        }
+
+        /**
+         * @param alias Alias for the S3 Object Lambda Access Point.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alias(@Nullable Output<String> alias) {
+            $.alias = alias;
+            return this;
+        }
+
+        /**
+         * @param alias Alias for the S3 Object Lambda Access Point.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alias(String alias) {
+            return alias(Output.of(alias));
         }
 
         /**

@@ -15,9 +15,9 @@ import (
 
 // Manages the Security Hub Organization Configuration.
 //
-// > **NOTE:** This resource requires an `securityhub.OrganizationAdminAccount` to be configured (not necessarily with this provider). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation
+// > **NOTE:** This resource requires an `securityhub.OrganizationAdminAccount` to be configured (not necessarily with TODO). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation
 //
-// > **NOTE:** This is an advanced resource. This provider will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the configuration.
+// > **NOTE:** This is an advanced TODO resource. TODO will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the TODO configuration.
 //
 // ## Example Usage
 //
@@ -65,13 +65,11 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:
+// In TODO v1.5.0 and later, use an `import` block to import an existing Security Hub enabled account using the AWS account ID. For exampleterraform import {
 //
-// ```sh
+//	to = aws_securityhub_organization_configuration.example
 //
-//	$ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
-//
-// ```
+//	id = "123456789012" } Using `TODO import`, import an existing Security Hub enabled account using the AWS account ID. For exampleconsole % TODO import aws_securityhub_organization_configuration.example 123456789012
 type OrganizationConfiguration struct {
 	pulumi.CustomResourceState
 

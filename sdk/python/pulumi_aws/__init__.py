@@ -387,6 +387,8 @@ if typing.TYPE_CHECKING:
     transcribe = __transcribe
     import pulumi_aws.transfer as __transfer
     transfer = __transfer
+    import pulumi_aws.verifiedaccess as __verifiedaccess
+    verifiedaccess = __verifiedaccess
     import pulumi_aws.vpc as __vpc
     vpc = __vpc
     import pulumi_aws.vpclattice as __vpclattice
@@ -586,6 +588,7 @@ else:
     timestreamwrite = _utilities.lazy_import('pulumi_aws.timestreamwrite')
     transcribe = _utilities.lazy_import('pulumi_aws.transcribe')
     transfer = _utilities.lazy_import('pulumi_aws.transfer')
+    verifiedaccess = _utilities.lazy_import('pulumi_aws.verifiedaccess')
     vpc = _utilities.lazy_import('pulumi_aws.vpc')
     vpclattice = _utilities.lazy_import('pulumi_aws.vpclattice')
     waf = _utilities.lazy_import('pulumi_aws.waf')
@@ -9616,6 +9619,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "shield/drtAccessLogBucketAssociation",
+  "fqn": "pulumi_aws.shield",
+  "classes": {
+   "aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation": "DrtAccessLogBucketAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "shield/drtAccessRoleArnAssociation",
+  "fqn": "pulumi_aws.shield",
+  "classes": {
+   "aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation": "DrtAccessRoleArnAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "shield/protection",
   "fqn": "pulumi_aws.shield",
   "classes": {
@@ -10180,6 +10199,14 @@ _utilities.register(
   "fqn": "pulumi_aws.transfer",
   "classes": {
    "aws:transfer/workflow:Workflow": "Workflow"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "verifiedaccess/trustProvider",
+  "fqn": "pulumi_aws.verifiedaccess",
+  "classes": {
+   "aws:verifiedaccess/trustProvider:TrustProvider": "TrustProvider"
   }
  },
  {

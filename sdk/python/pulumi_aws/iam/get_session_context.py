@@ -117,7 +117,7 @@ def get_session_context(arn: Optional[str] = None,
 
     example = aws.iam.get_session_context(arn="arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes")
     ```
-    ### Find the Provider's Source Role
+    ### Find the TODO Runner's Source Role
 
     Combined with `get_caller_identity`, you can get the current user's source IAM role ARN (`issuer_arn`) if you're using an assumed role. If you're not using an assumed role, the caller's (e.g., an IAM user's) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
 
@@ -132,7 +132,7 @@ def get_session_context(arn: Optional[str] = None,
 
     :param str arn: ARN for an assumed role.
            
-           > If `arn` is a non-role ARN, the provider gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, the provider gives an error if the identified IAM role does not exist.
+           > If `arn` is a non-role ARN, TODO gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, TODO gives an error if the identified IAM role does not exist.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -165,7 +165,7 @@ def get_session_context_output(arn: Optional[pulumi.Input[str]] = None,
 
     example = aws.iam.get_session_context(arn="arn:aws:sts::123456789012:assumed-role/Audien-Heaven/MatyNoyes")
     ```
-    ### Find the Provider's Source Role
+    ### Find the TODO Runner's Source Role
 
     Combined with `get_caller_identity`, you can get the current user's source IAM role ARN (`issuer_arn`) if you're using an assumed role. If you're not using an assumed role, the caller's (e.g., an IAM user's) ARN will simply be passed through. In environments where both IAM users and individuals using assumed roles need to apply the same configurations, this data source enables seamless use.
 
@@ -180,6 +180,6 @@ def get_session_context_output(arn: Optional[pulumi.Input[str]] = None,
 
     :param str arn: ARN for an assumed role.
            
-           > If `arn` is a non-role ARN, the provider gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, the provider gives an error if the identified IAM role does not exist.
+           > If `arn` is a non-role ARN, TODO gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, TODO gives an error if the identified IAM role does not exist.
     """
     ...

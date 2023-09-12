@@ -129,7 +129,7 @@ public final class LifecyclePolicyPolicyDetailsArgs extends com.pulumi.resources
     /**
      * A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
      * 
-     * &gt; Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. This provider is unable to detect this at plan time but it will fail during apply.
+     * &gt; Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. TODO is unable to detect this at plan time but it will fail during apply.
      * 
      */
     @Import(name="targetTags")
@@ -138,7 +138,7 @@ public final class LifecyclePolicyPolicyDetailsArgs extends com.pulumi.resources
     /**
      * @return A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
      * 
-     * &gt; Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. This provider is unable to detect this at plan time but it will fail during apply.
+     * &gt; Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. TODO is unable to detect this at plan time but it will fail during apply.
      * 
      */
     public Optional<Output<Map<String,String>>> targetTags() {
@@ -346,7 +346,7 @@ public final class LifecyclePolicyPolicyDetailsArgs extends com.pulumi.resources
         /**
          * @param targetTags A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
          * 
-         * &gt; Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. This provider is unable to detect this at plan time but it will fail during apply.
+         * &gt; Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. TODO is unable to detect this at plan time but it will fail during apply.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class LifecyclePolicyPolicyDetailsArgs extends com.pulumi.resources
         /**
          * @param targetTags A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
          * 
-         * &gt; Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. This provider is unable to detect this at plan time but it will fail during apply.
+         * &gt; Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. TODO is unable to detect this at plan time but it will fail during apply.
          * 
          * @return builder
          * 

@@ -557,6 +557,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+     * 
+     */
+    @Import(name="transitEncryptionEnabled")
+    private @Nullable Output<Boolean> transitEncryptionEnabled;
+
+    /**
+     * @return Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+     * 
+     */
+    public Optional<Output<Boolean>> transitEncryptionEnabled() {
+        return Optional.ofNullable(this.transitEncryptionEnabled);
+    }
+
     private ClusterState() {}
 
     private ClusterState(ClusterState $) {
@@ -594,6 +609,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.subnetGroupName = $.subnetGroupName;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.transitEncryptionEnabled = $.transitEncryptionEnabled;
     }
 
     public static Builder builder() {
@@ -1392,6 +1408,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param transitEncryptionEnabled Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transitEncryptionEnabled(@Nullable Output<Boolean> transitEncryptionEnabled) {
+            $.transitEncryptionEnabled = transitEncryptionEnabled;
+            return this;
+        }
+
+        /**
+         * @param transitEncryptionEnabled Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transitEncryptionEnabled(Boolean transitEncryptionEnabled) {
+            return transitEncryptionEnabled(Output.of(transitEncryptionEnabled));
         }
 
         public ClusterState build() {

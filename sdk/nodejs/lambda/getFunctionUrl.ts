@@ -37,7 +37,7 @@ export function getFunctionUrl(args: GetFunctionUrlArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetFunctionUrlArgs {
     /**
-     * he name (or ARN) of the Lambda function.
+     * The name (or ARN) of the Lambda function.
      */
     functionName: string;
     /**
@@ -114,7 +114,7 @@ export function getFunctionUrlOutput(args: GetFunctionUrlOutputArgs, opts?: pulu
  */
 export interface GetFunctionUrlOutputArgs {
     /**
-     * he name (or ARN) of the Lambda function.
+     * The name (or ARN) of the Lambda function.
      */
     functionName: pulumi.Input<string>;
     /**

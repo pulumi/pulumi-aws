@@ -104,14 +104,14 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs ext
     }
 
     /**
-     * UDP output settings. See UDP Output Settings for more details
+     * UDP output settings. See UDP Output Settings for more details.
      * 
      */
     @Import(name="udpOutputSettings")
     private @Nullable Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs> udpOutputSettings;
 
     /**
-     * @return UDP output settings. See UDP Output Settings for more details
+     * @return UDP output settings. See UDP Output Settings for more details.
      * 
      */
     public Optional<Output<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs>> udpOutputSettings() {
@@ -261,7 +261,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs ext
         }
 
         /**
-         * @param udpOutputSettings UDP output settings. See UDP Output Settings for more details
+         * @param udpOutputSettings UDP output settings. See UDP Output Settings for more details.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs ext
         }
 
         /**
-         * @param udpOutputSettings UDP output settings. See UDP Output Settings for more details
+         * @param udpOutputSettings UDP output settings. See UDP Output Settings for more details.
          * 
          * @return builder
          * 

@@ -282,6 +282,10 @@ export class Cluster extends pulumi.CustomResource {
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+     */
+    public readonly transitEncryptionEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -330,6 +334,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["subnetGroupName"] = state ? state.subnetGroupName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["transitEncryptionEnabled"] = state ? state.transitEncryptionEnabled : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
             resourceInputs["applyImmediately"] = args ? args.applyImmediately : undefined;
@@ -360,6 +365,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["snapshotWindow"] = args ? args.snapshotWindow : undefined;
             resourceInputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["transitEncryptionEnabled"] = args ? args.transitEncryptionEnabled : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["cacheNodes"] = undefined /*out*/;
             resourceInputs["clusterAddress"] = undefined /*out*/;
@@ -525,6 +531,10 @@ export interface ClusterState {
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+     */
+    transitEncryptionEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -656,4 +666,8 @@ export interface ClusterArgs {
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+     */
+    transitEncryptionEnabled?: pulumi.Input<boolean>;
 }

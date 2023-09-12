@@ -27,7 +27,7 @@ class LifecyclePolicyArgs:
         :param pulumi.Input[str] execution_role_arn: The ARN of an IAM role that is able to be assumed by the DLM service.
         :param pulumi.Input['LifecyclePolicyPolicyDetailsArgs'] policy_details: See the `policy_details` configuration block. Max of 1.
         :param pulumi.Input[str] state: Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "execution_role_arn", execution_role_arn)
@@ -89,7 +89,7 @@ class LifecyclePolicyArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -115,7 +115,7 @@ class _LifecyclePolicyState:
         :param pulumi.Input[str] execution_role_arn: The ARN of an IAM role that is able to be assumed by the DLM service.
         :param pulumi.Input['LifecyclePolicyPolicyDetailsArgs'] policy_details: See the `policy_details` configuration block. Max of 1.
         :param pulumi.Input[str] state: Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -197,7 +197,7 @@ class _LifecyclePolicyState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -273,11 +273,11 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import DLM lifecycle policies using their policy ID. For example:
+        In TODO v1.5.0 and later, use an `import` block to import DLM lifecycle policies using their policy ID. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
-        ```
+         to = aws_dlm_lifecycle_policy.example
+
+         id = "policy-abcdef12345678901" } Using `TODO import`, import DLM lifecycle policies using their policy ID. For exampleconsole % TODO import aws_dlm_lifecycle_policy.example policy-abcdef12345678901
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -285,7 +285,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[str] execution_role_arn: The ARN of an IAM role that is able to be assumed by the DLM service.
         :param pulumi.Input[pulumi.InputType['LifecyclePolicyPolicyDetailsArgs']] policy_details: See the `policy_details` configuration block. Max of 1.
         :param pulumi.Input[str] state: Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -337,11 +337,11 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import DLM lifecycle policies using their policy ID. For example:
+        In TODO v1.5.0 and later, use an `import` block to import DLM lifecycle policies using their policy ID. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
-        ```
+         to = aws_dlm_lifecycle_policy.example
+
+         id = "policy-abcdef12345678901" } Using `TODO import`, import DLM lifecycle policies using their policy ID. For exampleconsole % TODO import aws_dlm_lifecycle_policy.example policy-abcdef12345678901
 
         :param str resource_name: The name of the resource.
         :param LifecyclePolicyArgs args: The arguments to use to populate this resource's properties.
@@ -414,7 +414,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[str] execution_role_arn: The ARN of an IAM role that is able to be assumed by the DLM service.
         :param pulumi.Input[pulumi.InputType['LifecyclePolicyPolicyDetailsArgs']] policy_details: See the `policy_details` configuration block. Max of 1.
         :param pulumi.Input[str] state: Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -474,7 +474,7 @@ class LifecyclePolicy(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

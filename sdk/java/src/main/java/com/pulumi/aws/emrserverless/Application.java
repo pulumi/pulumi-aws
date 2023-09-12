@@ -137,11 +137,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import EMR Severless applications using the `id`. For example:
+ * In TODO v1.5.0 and later, use an `import` block to import EMR Severless applications using the `id`. For exampleterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:emrserverless/application:Application example id
- * ```
+ *  to = aws_emrserverless_application.example
+ * 
+ *  id = &#34;id&#34; } Using `TODO import`, import EMR Severless applications using the `id`. For exampleconsole % TODO import aws_emrserverless_application.example id
  * 
  */
 @ResourceType(type="aws:emrserverless/application:Application")
@@ -287,14 +287,14 @@ public class Application extends com.pulumi.resources.CustomResource {
         return this.releaseLabel;
     }
     /**
-     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     * Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     * @return Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

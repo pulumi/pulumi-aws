@@ -12,6 +12,9 @@ namespace Pulumi.Aws.MediaLive.Inputs
 
     public sealed class ChannelInputAttachmentGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
+        /// </summary>
         [Input("automaticInputFailoverSettings")]
         public Input<Inputs.ChannelInputAttachmentAutomaticInputFailoverSettingsGetArgs>? AutomaticInputFailoverSettings { get; set; }
 
@@ -28,7 +31,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<string> InputId { get; set; } = null!;
 
         /// <summary>
-        /// Settings of an input. See Input Settings for more details
+        /// Settings of an input. See Input Settings for more details.
         /// </summary>
         [Input("inputSettings")]
         public Input<Inputs.ChannelInputAttachmentInputSettingsGetArgs>? InputSettings { get; set; }

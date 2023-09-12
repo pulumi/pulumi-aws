@@ -33,11 +33,11 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Config aggregate authorizations using `account_id:region`. For example:
+    /// In TODO v1.5.0 and later, use an `import` block to import Config aggregate authorizations using `account_id:region`. For exampleterraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
-    /// ```
+    ///  to = aws_config_aggregate_authorization.example
+    /// 
+    ///  id = "123456789012:us-east-1" } Using `TODO import`, import Config aggregate authorizations using `account_id:region`. For exampleconsole % TODO import aws_config_aggregate_authorization.example 123456789012:us-east-1
     /// </summary>
     [AwsResourceType("aws:cfg/aggregateAuthorization:AggregateAuthorization")]
     public partial class AggregateAuthorization : global::Pulumi.CustomResource
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Cfg
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Cfg
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Cfg
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

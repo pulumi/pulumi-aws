@@ -15,7 +15,7 @@ public final class GetSessionContextPlainArgs extends com.pulumi.resources.Invok
     /**
      * ARN for an assumed role.
      * 
-     * &gt; If `arn` is a non-role ARN, the provider gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, the provider gives an error if the identified IAM role does not exist.
+     * &gt; If `arn` is a non-role ARN, TODO gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, TODO gives an error if the identified IAM role does not exist.
      * 
      */
     @Import(name="arn", required=true)
@@ -24,7 +24,7 @@ public final class GetSessionContextPlainArgs extends com.pulumi.resources.Invok
     /**
      * @return ARN for an assumed role.
      * 
-     * &gt; If `arn` is a non-role ARN, the provider gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, the provider gives an error if the identified IAM role does not exist.
+     * &gt; If `arn` is a non-role ARN, TODO gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, TODO gives an error if the identified IAM role does not exist.
      * 
      */
     public String arn() {
@@ -58,7 +58,7 @@ public final class GetSessionContextPlainArgs extends com.pulumi.resources.Invok
         /**
          * @param arn ARN for an assumed role.
          * 
-         * &gt; If `arn` is a non-role ARN, the provider gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, the provider gives an error if the identified IAM role does not exist.
+         * &gt; If `arn` is a non-role ARN, TODO gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, TODO gives an error if the identified IAM role does not exist.
          * 
          * @return builder
          * 

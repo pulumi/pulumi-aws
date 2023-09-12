@@ -23,7 +23,7 @@ class GetDomainResult:
     """
     A collection of values returned by getDomain.
     """
-    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, auto_tune_options=None, cluster_configs=None, cognito_options=None, created=None, dashboard_endpoint=None, deleted=None, domain_id=None, domain_name=None, ebs_options=None, encryption_at_rests=None, endpoint=None, engine_version=None, id=None, kibana_endpoint=None, log_publishing_options=None, node_to_node_encryptions=None, off_peak_window_options=None, processing=None, snapshot_options=None, tags=None, vpc_options=None):
+    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, auto_tune_options=None, cluster_configs=None, cognito_options=None, created=None, dashboard_endpoint=None, deleted=None, domain_id=None, domain_name=None, ebs_options=None, encryption_at_rests=None, endpoint=None, engine_version=None, id=None, kibana_endpoint=None, log_publishing_options=None, node_to_node_encryptions=None, off_peak_window_options=None, processing=None, snapshot_options=None, software_update_options=None, tags=None, vpc_options=None):
         if access_policies and not isinstance(access_policies, str):
             raise TypeError("Expected argument 'access_policies' to be a str")
         pulumi.set(__self__, "access_policies", access_policies)
@@ -93,6 +93,9 @@ class GetDomainResult:
         if snapshot_options and not isinstance(snapshot_options, list):
             raise TypeError("Expected argument 'snapshot_options' to be a list")
         pulumi.set(__self__, "snapshot_options", snapshot_options)
+        if software_update_options and not isinstance(software_update_options, list):
+            raise TypeError("Expected argument 'software_update_options' to be a list")
+        pulumi.set(__self__, "software_update_options", software_update_options)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -285,6 +288,14 @@ class GetDomainResult:
         return pulumi.get(self, "snapshot_options")
 
     @property
+    @pulumi.getter(name="softwareUpdateOptions")
+    def software_update_options(self) -> Sequence['outputs.GetDomainSoftwareUpdateOptionResult']:
+        """
+        Software update options for the domain
+        """
+        return pulumi.get(self, "software_update_options")
+
+    @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
@@ -330,6 +341,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             off_peak_window_options=self.off_peak_window_options,
             processing=self.processing,
             snapshot_options=self.snapshot_options,
+            software_update_options=self.software_update_options,
             tags=self.tags,
             vpc_options=self.vpc_options)
 
@@ -386,6 +398,7 @@ def get_domain(domain_name: Optional[str] = None,
         off_peak_window_options=pulumi.get(__ret__, 'off_peak_window_options'),
         processing=pulumi.get(__ret__, 'processing'),
         snapshot_options=pulumi.get(__ret__, 'snapshot_options'),
+        software_update_options=pulumi.get(__ret__, 'software_update_options'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_options=pulumi.get(__ret__, 'vpc_options'))
 

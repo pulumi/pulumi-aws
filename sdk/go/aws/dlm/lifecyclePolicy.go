@@ -90,13 +90,11 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import DLM lifecycle policies using their policy ID. For example:
+// In TODO v1.5.0 and later, use an `import` block to import DLM lifecycle policies using their policy ID. For exampleterraform import {
 //
-// ```sh
+//	to = aws_dlm_lifecycle_policy.example
 //
-//	$ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
-//
-// ```
+//	id = "policy-abcdef12345678901" } Using `TODO import`, import DLM lifecycle policies using their policy ID. For exampleconsole % TODO import aws_dlm_lifecycle_policy.example policy-abcdef12345678901
 type LifecyclePolicy struct {
 	pulumi.CustomResourceState
 
@@ -110,7 +108,7 @@ type LifecyclePolicy struct {
 	PolicyDetails LifecyclePolicyPolicyDetailsOutput `pulumi:"policyDetails"`
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State pulumi.StringPtrOutput `pulumi:"state"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -165,7 +163,7 @@ type lifecyclePolicyState struct {
 	PolicyDetails *LifecyclePolicyPolicyDetails `pulumi:"policyDetails"`
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State *string `pulumi:"state"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -182,7 +180,7 @@ type LifecyclePolicyState struct {
 	PolicyDetails LifecyclePolicyPolicyDetailsPtrInput
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -201,7 +199,7 @@ type lifecyclePolicyArgs struct {
 	PolicyDetails LifecyclePolicyPolicyDetails `pulumi:"policyDetails"`
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State *string `pulumi:"state"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -215,7 +213,7 @@ type LifecyclePolicyArgs struct {
 	PolicyDetails LifecyclePolicyPolicyDetailsInput
 	// Whether the lifecycle policy should be enabled or disabled. `ENABLED` or `DISABLED` are valid values. Defaults to `ENABLED`.
 	State pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -355,7 +353,7 @@ func (o LifecyclePolicyOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LifecyclePolicyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

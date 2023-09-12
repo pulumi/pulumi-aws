@@ -91,11 +91,11 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Cognito User Pools using the `id`. For example:
+    /// In TODO v1.5.0 and later, use an `import` block to import Cognito User Pools using the `id`. For exampleterraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
-    /// ```
+    ///  to = aws_cognito_user_pool.pool
+    /// 
+    ///  id = "us-west-2_abc123" } Using `TODO import`, import Cognito User Pools using the `id`. For exampleconsole % TODO import aws_cognito_user_pool.pool us-west-2_abc123
     /// </summary>
     [AwsResourceType("aws:cognito/userPool:UserPool")]
     public partial class UserPool : global::Pulumi.CustomResource
@@ -235,7 +235,7 @@ namespace Pulumi.Aws.Cognito
         public Output<string?> SmsAuthenticationMessage { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
+        /// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
         /// </summary>
         [Output("smsConfiguration")]
         public Output<Outputs.UserPoolSmsConfiguration> SmsConfiguration { get; private set; } = null!;
@@ -451,7 +451,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? SmsAuthenticationMessage { get; set; }
 
         /// <summary>
-        /// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
+        /// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
         /// </summary>
         [Input("smsConfiguration")]
         public Input<Inputs.UserPoolSmsConfigurationArgs>? SmsConfiguration { get; set; }
@@ -677,7 +677,7 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? SmsAuthenticationMessage { get; set; }
 
         /// <summary>
-        /// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
+        /// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
         /// </summary>
         [Input("smsConfiguration")]
         public Input<Inputs.UserPoolSmsConfigurationGetArgs>? SmsConfiguration { get; set; }

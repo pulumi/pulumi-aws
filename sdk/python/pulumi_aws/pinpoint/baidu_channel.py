@@ -165,6 +165,7 @@ class BaiduChannel(pulumi.CustomResource):
         """
         Provides a Pinpoint Baidu Channel resource.
 
+        > **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
         ## Example Usage
 
         ```python
@@ -180,11 +181,11 @@ class BaiduChannel(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Pinpoint Baidu Channel using the `application-id`. For example:
+        In TODO v1.5.0 and later, use an `import` block to import Pinpoint Baidu Channel using the `application-id`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
-        ```
+         to = aws_pinpoint_baidu_channel.channel
+
+         id = "application-id" } Using `TODO import`, import Pinpoint Baidu Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_baidu_channel.channel application-id
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,6 +203,7 @@ class BaiduChannel(pulumi.CustomResource):
         """
         Provides a Pinpoint Baidu Channel resource.
 
+        > **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
         ## Example Usage
 
         ```python
@@ -217,11 +219,11 @@ class BaiduChannel(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Pinpoint Baidu Channel using the `application-id`. For example:
+        In TODO v1.5.0 and later, use an `import` block to import Pinpoint Baidu Channel using the `application-id`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
-        ```
+         to = aws_pinpoint_baidu_channel.channel
+
+         id = "application-id" } Using `TODO import`, import Pinpoint Baidu Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_baidu_channel.channel application-id
 
         :param str resource_name: The name of the resource.
         :param BaiduChannelArgs args: The arguments to use to populate this resource's properties.

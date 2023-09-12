@@ -42,6 +42,7 @@ __all__ = [
     'OpenZfsVolumeOriginSnapshotArgs',
     'OpenZfsVolumeUserAndGroupQuotaArgs',
     'WindowsFileSystemAuditLogConfigurationArgs',
+    'WindowsFileSystemDiskIopsConfigurationArgs',
     'WindowsFileSystemSelfManagedActiveDirectoryArgs',
     'GetOpenZfsSnapshotFilterArgs',
 ]
@@ -1547,6 +1548,45 @@ class WindowsFileSystemAuditLogConfigurationArgs:
     @file_share_access_audit_log_level.setter
     def file_share_access_audit_log_level(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "file_share_access_audit_log_level", value)
+
+
+@pulumi.input_type
+class WindowsFileSystemDiskIopsConfigurationArgs:
+    def __init__(__self__, *,
+                 iops: Optional[pulumi.Input[int]] = None,
+                 mode: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] iops: The total number of SSD IOPS provisioned for the file system.
+        :param pulumi.Input[str] mode: Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        """
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[pulumi.Input[int]]:
+        """
+        The total number of SSD IOPS provisioned for the file system.
+        """
+        return pulumi.get(self, "iops")
+
+    @iops.setter
+    def iops(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "iops", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
 
 
 @pulumi.input_type

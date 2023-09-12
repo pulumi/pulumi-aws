@@ -160,6 +160,10 @@ export class Association extends pulumi.CustomResource {
      */
     public readonly scheduleExpression!: pulumi.Output<string | undefined>;
     /**
+     * The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+     */
+    public readonly syncCompliance!: pulumi.Output<string | undefined>;
+    /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */
     public readonly targets!: pulumi.Output<outputs.ssm.AssociationTarget[]>;
@@ -197,6 +201,7 @@ export class Association extends pulumi.CustomResource {
             resourceInputs["outputLocation"] = state ? state.outputLocation : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["scheduleExpression"] = state ? state.scheduleExpression : undefined;
+            resourceInputs["syncCompliance"] = state ? state.syncCompliance : undefined;
             resourceInputs["targets"] = state ? state.targets : undefined;
             resourceInputs["waitForSuccessTimeoutSeconds"] = state ? state.waitForSuccessTimeoutSeconds : undefined;
         } else {
@@ -213,6 +218,7 @@ export class Association extends pulumi.CustomResource {
             resourceInputs["outputLocation"] = args ? args.outputLocation : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
+            resourceInputs["syncCompliance"] = args ? args.syncCompliance : undefined;
             resourceInputs["targets"] = args ? args.targets : undefined;
             resourceInputs["waitForSuccessTimeoutSeconds"] = args ? args.waitForSuccessTimeoutSeconds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -286,6 +292,10 @@ export interface AssociationState {
      */
     scheduleExpression?: pulumi.Input<string>;
     /**
+     * The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+     */
+    syncCompliance?: pulumi.Input<string>;
+    /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */
     targets?: pulumi.Input<pulumi.Input<inputs.ssm.AssociationTarget>[]>;
@@ -351,6 +361,10 @@ export interface AssociationArgs {
      * A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
      */
     scheduleExpression?: pulumi.Input<string>;
+    /**
+     * The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+     */
+    syncCompliance?: pulumi.Input<string>;
     /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      */

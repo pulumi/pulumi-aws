@@ -15,6 +15,7 @@ import (
 
 // Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
 //
+// > **Note:** All arguments including the Client ID and Client Secret will be stored in the raw state as plain-text.
 // ## Example Usage
 //
 // ```go
@@ -50,13 +51,11 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Pinpoint ADM Channel using the `application-id`. For example:
+// In TODO v1.5.0 and later, use an `import` block to import Pinpoint ADM Channel using the `application-id`. For exampleterraform import {
 //
-// ```sh
+//	to = aws_pinpoint_adm_channel.channel
 //
-//	$ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
-//
-// ```
+//	id = "application-id" } Using `TODO import`, import Pinpoint ADM Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_adm_channel.channel application-id
 type AdmChannel struct {
 	pulumi.CustomResourceState
 

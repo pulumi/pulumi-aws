@@ -113,7 +113,7 @@ type WindowsFileSystem struct {
 	Aliases pulumi.StringArrayOutput `pulumi:"aliases"`
 	// Amazon Resource Name of the file system.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+	// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
 	AuditLogConfiguration WindowsFileSystemAuditLogConfigurationOutput `pulumi:"auditLogConfiguration"`
 	// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
 	AutomaticBackupRetentionDays pulumi.IntPtrOutput `pulumi:"automaticBackupRetentionDays"`
@@ -125,6 +125,8 @@ type WindowsFileSystem struct {
 	DailyAutomaticBackupStartTime pulumi.StringOutput `pulumi:"dailyAutomaticBackupStartTime"`
 	// Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
 	DeploymentType pulumi.StringPtrOutput `pulumi:"deploymentType"`
+	// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+	DiskIopsConfiguration WindowsFileSystemDiskIopsConfigurationOutput `pulumi:"diskIopsConfiguration"`
 	// DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
@@ -141,7 +143,7 @@ type WindowsFileSystem struct {
 	RemoteAdministrationEndpoint pulumi.StringOutput `pulumi:"remoteAdministrationEndpoint"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. Detailed below.
+	// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See Self-Managed Active Directory below.
 	SelfManagedActiveDirectory WindowsFileSystemSelfManagedActiveDirectoryPtrOutput `pulumi:"selfManagedActiveDirectory"`
 	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup pulumi.BoolPtrOutput `pulumi:"skipFinalBackup"`
@@ -207,7 +209,7 @@ type windowsFileSystemState struct {
 	Aliases []string `pulumi:"aliases"`
 	// Amazon Resource Name of the file system.
 	Arn *string `pulumi:"arn"`
-	// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+	// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
 	AuditLogConfiguration *WindowsFileSystemAuditLogConfiguration `pulumi:"auditLogConfiguration"`
 	// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
 	AutomaticBackupRetentionDays *int `pulumi:"automaticBackupRetentionDays"`
@@ -219,6 +221,8 @@ type windowsFileSystemState struct {
 	DailyAutomaticBackupStartTime *string `pulumi:"dailyAutomaticBackupStartTime"`
 	// Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
 	DeploymentType *string `pulumi:"deploymentType"`
+	// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+	DiskIopsConfiguration *WindowsFileSystemDiskIopsConfiguration `pulumi:"diskIopsConfiguration"`
 	// DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
 	DnsName *string `pulumi:"dnsName"`
 	// ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
@@ -235,7 +239,7 @@ type windowsFileSystemState struct {
 	RemoteAdministrationEndpoint *string `pulumi:"remoteAdministrationEndpoint"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. Detailed below.
+	// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See Self-Managed Active Directory below.
 	SelfManagedActiveDirectory *WindowsFileSystemSelfManagedActiveDirectory `pulumi:"selfManagedActiveDirectory"`
 	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup *bool `pulumi:"skipFinalBackup"`
@@ -266,7 +270,7 @@ type WindowsFileSystemState struct {
 	Aliases pulumi.StringArrayInput
 	// Amazon Resource Name of the file system.
 	Arn pulumi.StringPtrInput
-	// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+	// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
 	AuditLogConfiguration WindowsFileSystemAuditLogConfigurationPtrInput
 	// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
 	AutomaticBackupRetentionDays pulumi.IntPtrInput
@@ -278,6 +282,8 @@ type WindowsFileSystemState struct {
 	DailyAutomaticBackupStartTime pulumi.StringPtrInput
 	// Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
 	DeploymentType pulumi.StringPtrInput
+	// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+	DiskIopsConfiguration WindowsFileSystemDiskIopsConfigurationPtrInput
 	// DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
 	DnsName pulumi.StringPtrInput
 	// ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
@@ -294,7 +300,7 @@ type WindowsFileSystemState struct {
 	RemoteAdministrationEndpoint pulumi.StringPtrInput
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds pulumi.StringArrayInput
-	// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. Detailed below.
+	// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See Self-Managed Active Directory below.
 	SelfManagedActiveDirectory WindowsFileSystemSelfManagedActiveDirectoryPtrInput
 	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup pulumi.BoolPtrInput
@@ -327,7 +333,7 @@ type windowsFileSystemArgs struct {
 	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
 	// An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
 	Aliases []string `pulumi:"aliases"`
-	// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+	// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
 	AuditLogConfiguration *WindowsFileSystemAuditLogConfiguration `pulumi:"auditLogConfiguration"`
 	// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
 	AutomaticBackupRetentionDays *int `pulumi:"automaticBackupRetentionDays"`
@@ -339,13 +345,15 @@ type windowsFileSystemArgs struct {
 	DailyAutomaticBackupStartTime *string `pulumi:"dailyAutomaticBackupStartTime"`
 	// Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
 	DeploymentType *string `pulumi:"deploymentType"`
+	// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+	DiskIopsConfiguration *WindowsFileSystemDiskIopsConfiguration `pulumi:"diskIopsConfiguration"`
 	// ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
 	PreferredSubnetId *string `pulumi:"preferredSubnetId"`
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. Detailed below.
+	// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See Self-Managed Active Directory below.
 	SelfManagedActiveDirectory *WindowsFileSystemSelfManagedActiveDirectory `pulumi:"selfManagedActiveDirectory"`
 	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup *bool `pulumi:"skipFinalBackup"`
@@ -371,7 +379,7 @@ type WindowsFileSystemArgs struct {
 	ActiveDirectoryId pulumi.StringPtrInput
 	// An array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
 	Aliases pulumi.StringArrayInput
-	// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+	// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
 	AuditLogConfiguration WindowsFileSystemAuditLogConfigurationPtrInput
 	// The number of days to retain automatic backups. Minimum of `0` and maximum of `90`. Defaults to `7`. Set to `0` to disable.
 	AutomaticBackupRetentionDays pulumi.IntPtrInput
@@ -383,13 +391,15 @@ type WindowsFileSystemArgs struct {
 	DailyAutomaticBackupStartTime pulumi.StringPtrInput
 	// Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
 	DeploymentType pulumi.StringPtrInput
+	// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+	DiskIopsConfiguration WindowsFileSystemDiskIopsConfigurationPtrInput
 	// ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
 	KmsKeyId pulumi.StringPtrInput
 	// Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
 	PreferredSubnetId pulumi.StringPtrInput
 	// A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
 	SecurityGroupIds pulumi.StringArrayInput
-	// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. Detailed below.
+	// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See Self-Managed Active Directory below.
 	SelfManagedActiveDirectory WindowsFileSystemSelfManagedActiveDirectoryPtrInput
 	// When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	SkipFinalBackup pulumi.BoolPtrInput
@@ -535,7 +545,7 @@ func (o WindowsFileSystemOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
 func (o WindowsFileSystemOutput) AuditLogConfiguration() WindowsFileSystemAuditLogConfigurationOutput {
 	return o.ApplyT(func(v *WindowsFileSystem) WindowsFileSystemAuditLogConfigurationOutput {
 		return v.AuditLogConfiguration
@@ -565,6 +575,13 @@ func (o WindowsFileSystemOutput) DailyAutomaticBackupStartTime() pulumi.StringOu
 // Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
 func (o WindowsFileSystemOutput) DeploymentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringPtrOutput { return v.DeploymentType }).(pulumi.StringPtrOutput)
+}
+
+// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+func (o WindowsFileSystemOutput) DiskIopsConfiguration() WindowsFileSystemDiskIopsConfigurationOutput {
+	return o.ApplyT(func(v *WindowsFileSystem) WindowsFileSystemDiskIopsConfigurationOutput {
+		return v.DiskIopsConfiguration
+	}).(WindowsFileSystemDiskIopsConfigurationOutput)
 }
 
 // DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
@@ -607,7 +624,7 @@ func (o WindowsFileSystemOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. Detailed below.
+// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `activeDirectoryId`. See Self-Managed Active Directory below.
 func (o WindowsFileSystemOutput) SelfManagedActiveDirectory() WindowsFileSystemSelfManagedActiveDirectoryPtrOutput {
 	return o.ApplyT(func(v *WindowsFileSystem) WindowsFileSystemSelfManagedActiveDirectoryPtrOutput {
 		return v.SelfManagedActiveDirectory

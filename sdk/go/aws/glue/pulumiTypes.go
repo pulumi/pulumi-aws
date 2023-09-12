@@ -508,6 +508,349 @@ func (o CatalogDatabaseTargetDatabasePtrOutput) Region() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type CatalogTableOpenTableFormatInput struct {
+	// Configuration block for iceberg table config. See `icebergInput` below.
+	IcebergInput CatalogTableOpenTableFormatInputIcebergInput `pulumi:"icebergInput"`
+}
+
+// CatalogTableOpenTableFormatInputInput is an input type that accepts CatalogTableOpenTableFormatInputArgs and CatalogTableOpenTableFormatInputOutput values.
+// You can construct a concrete instance of `CatalogTableOpenTableFormatInputInput` via:
+//
+//	CatalogTableOpenTableFormatInputArgs{...}
+type CatalogTableOpenTableFormatInputInput interface {
+	pulumi.Input
+
+	ToCatalogTableOpenTableFormatInputOutput() CatalogTableOpenTableFormatInputOutput
+	ToCatalogTableOpenTableFormatInputOutputWithContext(context.Context) CatalogTableOpenTableFormatInputOutput
+}
+
+type CatalogTableOpenTableFormatInputArgs struct {
+	// Configuration block for iceberg table config. See `icebergInput` below.
+	IcebergInput CatalogTableOpenTableFormatInputIcebergInputInput `pulumi:"icebergInput"`
+}
+
+func (CatalogTableOpenTableFormatInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOpenTableFormatInput)(nil)).Elem()
+}
+
+func (i CatalogTableOpenTableFormatInputArgs) ToCatalogTableOpenTableFormatInputOutput() CatalogTableOpenTableFormatInputOutput {
+	return i.ToCatalogTableOpenTableFormatInputOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOpenTableFormatInputArgs) ToCatalogTableOpenTableFormatInputOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOpenTableFormatInputOutput)
+}
+
+func (i CatalogTableOpenTableFormatInputArgs) ToOutput(ctx context.Context) pulumix.Output[CatalogTableOpenTableFormatInput] {
+	return pulumix.Output[CatalogTableOpenTableFormatInput]{
+		OutputState: i.ToCatalogTableOpenTableFormatInputOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i CatalogTableOpenTableFormatInputArgs) ToCatalogTableOpenTableFormatInputPtrOutput() CatalogTableOpenTableFormatInputPtrOutput {
+	return i.ToCatalogTableOpenTableFormatInputPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOpenTableFormatInputArgs) ToCatalogTableOpenTableFormatInputPtrOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOpenTableFormatInputOutput).ToCatalogTableOpenTableFormatInputPtrOutputWithContext(ctx)
+}
+
+// CatalogTableOpenTableFormatInputPtrInput is an input type that accepts CatalogTableOpenTableFormatInputArgs, CatalogTableOpenTableFormatInputPtr and CatalogTableOpenTableFormatInputPtrOutput values.
+// You can construct a concrete instance of `CatalogTableOpenTableFormatInputPtrInput` via:
+//
+//	        CatalogTableOpenTableFormatInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogTableOpenTableFormatInputPtrInput interface {
+	pulumi.Input
+
+	ToCatalogTableOpenTableFormatInputPtrOutput() CatalogTableOpenTableFormatInputPtrOutput
+	ToCatalogTableOpenTableFormatInputPtrOutputWithContext(context.Context) CatalogTableOpenTableFormatInputPtrOutput
+}
+
+type catalogTableOpenTableFormatInputPtrType CatalogTableOpenTableFormatInputArgs
+
+func CatalogTableOpenTableFormatInputPtr(v *CatalogTableOpenTableFormatInputArgs) CatalogTableOpenTableFormatInputPtrInput {
+	return (*catalogTableOpenTableFormatInputPtrType)(v)
+}
+
+func (*catalogTableOpenTableFormatInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOpenTableFormatInput)(nil)).Elem()
+}
+
+func (i *catalogTableOpenTableFormatInputPtrType) ToCatalogTableOpenTableFormatInputPtrOutput() CatalogTableOpenTableFormatInputPtrOutput {
+	return i.ToCatalogTableOpenTableFormatInputPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogTableOpenTableFormatInputPtrType) ToCatalogTableOpenTableFormatInputPtrOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOpenTableFormatInputPtrOutput)
+}
+
+func (i *catalogTableOpenTableFormatInputPtrType) ToOutput(ctx context.Context) pulumix.Output[*CatalogTableOpenTableFormatInput] {
+	return pulumix.Output[*CatalogTableOpenTableFormatInput]{
+		OutputState: i.ToCatalogTableOpenTableFormatInputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type CatalogTableOpenTableFormatInputOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOpenTableFormatInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOpenTableFormatInput)(nil)).Elem()
+}
+
+func (o CatalogTableOpenTableFormatInputOutput) ToCatalogTableOpenTableFormatInputOutput() CatalogTableOpenTableFormatInputOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputOutput) ToCatalogTableOpenTableFormatInputOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputOutput) ToCatalogTableOpenTableFormatInputPtrOutput() CatalogTableOpenTableFormatInputPtrOutput {
+	return o.ToCatalogTableOpenTableFormatInputPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogTableOpenTableFormatInputOutput) ToCatalogTableOpenTableFormatInputPtrOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogTableOpenTableFormatInput) *CatalogTableOpenTableFormatInput {
+		return &v
+	}).(CatalogTableOpenTableFormatInputPtrOutput)
+}
+
+func (o CatalogTableOpenTableFormatInputOutput) ToOutput(ctx context.Context) pulumix.Output[CatalogTableOpenTableFormatInput] {
+	return pulumix.Output[CatalogTableOpenTableFormatInput]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Configuration block for iceberg table config. See `icebergInput` below.
+func (o CatalogTableOpenTableFormatInputOutput) IcebergInput() CatalogTableOpenTableFormatInputIcebergInputOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInput) CatalogTableOpenTableFormatInputIcebergInput {
+		return v.IcebergInput
+	}).(CatalogTableOpenTableFormatInputIcebergInputOutput)
+}
+
+type CatalogTableOpenTableFormatInputPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOpenTableFormatInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOpenTableFormatInput)(nil)).Elem()
+}
+
+func (o CatalogTableOpenTableFormatInputPtrOutput) ToCatalogTableOpenTableFormatInputPtrOutput() CatalogTableOpenTableFormatInputPtrOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputPtrOutput) ToCatalogTableOpenTableFormatInputPtrOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputPtrOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CatalogTableOpenTableFormatInput] {
+	return pulumix.Output[*CatalogTableOpenTableFormatInput]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CatalogTableOpenTableFormatInputPtrOutput) Elem() CatalogTableOpenTableFormatInputOutput {
+	return o.ApplyT(func(v *CatalogTableOpenTableFormatInput) CatalogTableOpenTableFormatInput {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogTableOpenTableFormatInput
+		return ret
+	}).(CatalogTableOpenTableFormatInputOutput)
+}
+
+// Configuration block for iceberg table config. See `icebergInput` below.
+func (o CatalogTableOpenTableFormatInputPtrOutput) IcebergInput() CatalogTableOpenTableFormatInputIcebergInputPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOpenTableFormatInput) *CatalogTableOpenTableFormatInputIcebergInput {
+		if v == nil {
+			return nil
+		}
+		return &v.IcebergInput
+	}).(CatalogTableOpenTableFormatInputIcebergInputPtrOutput)
+}
+
+type CatalogTableOpenTableFormatInputIcebergInput struct {
+	// A required metadata operation. Can only be set to CREATE.
+	MetadataOperation string `pulumi:"metadataOperation"`
+	// The table version for the Iceberg table. Defaults to 2.
+	Version *string `pulumi:"version"`
+}
+
+// CatalogTableOpenTableFormatInputIcebergInputInput is an input type that accepts CatalogTableOpenTableFormatInputIcebergInputArgs and CatalogTableOpenTableFormatInputIcebergInputOutput values.
+// You can construct a concrete instance of `CatalogTableOpenTableFormatInputIcebergInputInput` via:
+//
+//	CatalogTableOpenTableFormatInputIcebergInputArgs{...}
+type CatalogTableOpenTableFormatInputIcebergInputInput interface {
+	pulumi.Input
+
+	ToCatalogTableOpenTableFormatInputIcebergInputOutput() CatalogTableOpenTableFormatInputIcebergInputOutput
+	ToCatalogTableOpenTableFormatInputIcebergInputOutputWithContext(context.Context) CatalogTableOpenTableFormatInputIcebergInputOutput
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputArgs struct {
+	// A required metadata operation. Can only be set to CREATE.
+	MetadataOperation pulumi.StringInput `pulumi:"metadataOperation"`
+	// The table version for the Iceberg table. Defaults to 2.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (CatalogTableOpenTableFormatInputIcebergInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInput)(nil)).Elem()
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputArgs) ToCatalogTableOpenTableFormatInputIcebergInputOutput() CatalogTableOpenTableFormatInputIcebergInputOutput {
+	return i.ToCatalogTableOpenTableFormatInputIcebergInputOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputArgs) ToCatalogTableOpenTableFormatInputIcebergInputOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOpenTableFormatInputIcebergInputOutput)
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputArgs) ToOutput(ctx context.Context) pulumix.Output[CatalogTableOpenTableFormatInputIcebergInput] {
+	return pulumix.Output[CatalogTableOpenTableFormatInputIcebergInput]{
+		OutputState: i.ToCatalogTableOpenTableFormatInputIcebergInputOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputArgs) ToCatalogTableOpenTableFormatInputIcebergInputPtrOutput() CatalogTableOpenTableFormatInputIcebergInputPtrOutput {
+	return i.ToCatalogTableOpenTableFormatInputIcebergInputPtrOutputWithContext(context.Background())
+}
+
+func (i CatalogTableOpenTableFormatInputIcebergInputArgs) ToCatalogTableOpenTableFormatInputIcebergInputPtrOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOpenTableFormatInputIcebergInputOutput).ToCatalogTableOpenTableFormatInputIcebergInputPtrOutputWithContext(ctx)
+}
+
+// CatalogTableOpenTableFormatInputIcebergInputPtrInput is an input type that accepts CatalogTableOpenTableFormatInputIcebergInputArgs, CatalogTableOpenTableFormatInputIcebergInputPtr and CatalogTableOpenTableFormatInputIcebergInputPtrOutput values.
+// You can construct a concrete instance of `CatalogTableOpenTableFormatInputIcebergInputPtrInput` via:
+//
+//	        CatalogTableOpenTableFormatInputIcebergInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type CatalogTableOpenTableFormatInputIcebergInputPtrInput interface {
+	pulumi.Input
+
+	ToCatalogTableOpenTableFormatInputIcebergInputPtrOutput() CatalogTableOpenTableFormatInputIcebergInputPtrOutput
+	ToCatalogTableOpenTableFormatInputIcebergInputPtrOutputWithContext(context.Context) CatalogTableOpenTableFormatInputIcebergInputPtrOutput
+}
+
+type catalogTableOpenTableFormatInputIcebergInputPtrType CatalogTableOpenTableFormatInputIcebergInputArgs
+
+func CatalogTableOpenTableFormatInputIcebergInputPtr(v *CatalogTableOpenTableFormatInputIcebergInputArgs) CatalogTableOpenTableFormatInputIcebergInputPtrInput {
+	return (*catalogTableOpenTableFormatInputIcebergInputPtrType)(v)
+}
+
+func (*catalogTableOpenTableFormatInputIcebergInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOpenTableFormatInputIcebergInput)(nil)).Elem()
+}
+
+func (i *catalogTableOpenTableFormatInputIcebergInputPtrType) ToCatalogTableOpenTableFormatInputIcebergInputPtrOutput() CatalogTableOpenTableFormatInputIcebergInputPtrOutput {
+	return i.ToCatalogTableOpenTableFormatInputIcebergInputPtrOutputWithContext(context.Background())
+}
+
+func (i *catalogTableOpenTableFormatInputIcebergInputPtrType) ToCatalogTableOpenTableFormatInputIcebergInputPtrOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CatalogTableOpenTableFormatInputIcebergInputPtrOutput)
+}
+
+func (i *catalogTableOpenTableFormatInputIcebergInputPtrType) ToOutput(ctx context.Context) pulumix.Output[*CatalogTableOpenTableFormatInputIcebergInput] {
+	return pulumix.Output[*CatalogTableOpenTableFormatInputIcebergInput]{
+		OutputState: i.ToCatalogTableOpenTableFormatInputIcebergInputPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOpenTableFormatInputIcebergInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInput)(nil)).Elem()
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputOutput) ToCatalogTableOpenTableFormatInputIcebergInputOutput() CatalogTableOpenTableFormatInputIcebergInputOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputOutput) ToCatalogTableOpenTableFormatInputIcebergInputOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputOutput) ToCatalogTableOpenTableFormatInputIcebergInputPtrOutput() CatalogTableOpenTableFormatInputIcebergInputPtrOutput {
+	return o.ToCatalogTableOpenTableFormatInputIcebergInputPtrOutputWithContext(context.Background())
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputOutput) ToCatalogTableOpenTableFormatInputIcebergInputPtrOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CatalogTableOpenTableFormatInputIcebergInput) *CatalogTableOpenTableFormatInputIcebergInput {
+		return &v
+	}).(CatalogTableOpenTableFormatInputIcebergInputPtrOutput)
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputOutput) ToOutput(ctx context.Context) pulumix.Output[CatalogTableOpenTableFormatInputIcebergInput] {
+	return pulumix.Output[CatalogTableOpenTableFormatInputIcebergInput]{
+		OutputState: o.OutputState,
+	}
+}
+
+// A required metadata operation. Can only be set to CREATE.
+func (o CatalogTableOpenTableFormatInputIcebergInputOutput) MetadataOperation() pulumi.StringOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInput) string { return v.MetadataOperation }).(pulumi.StringOutput)
+}
+
+// The table version for the Iceberg table. Defaults to 2.
+func (o CatalogTableOpenTableFormatInputIcebergInputOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInput) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type CatalogTableOpenTableFormatInputIcebergInputPtrOutput struct{ *pulumi.OutputState }
+
+func (CatalogTableOpenTableFormatInputIcebergInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CatalogTableOpenTableFormatInputIcebergInput)(nil)).Elem()
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputPtrOutput) ToCatalogTableOpenTableFormatInputIcebergInputPtrOutput() CatalogTableOpenTableFormatInputIcebergInputPtrOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputPtrOutput) ToCatalogTableOpenTableFormatInputIcebergInputPtrOutputWithContext(ctx context.Context) CatalogTableOpenTableFormatInputIcebergInputPtrOutput {
+	return o
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CatalogTableOpenTableFormatInputIcebergInput] {
+	return pulumix.Output[*CatalogTableOpenTableFormatInputIcebergInput]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CatalogTableOpenTableFormatInputIcebergInputPtrOutput) Elem() CatalogTableOpenTableFormatInputIcebergInputOutput {
+	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInput) CatalogTableOpenTableFormatInputIcebergInput {
+		if v != nil {
+			return *v
+		}
+		var ret CatalogTableOpenTableFormatInputIcebergInput
+		return ret
+	}).(CatalogTableOpenTableFormatInputIcebergInputOutput)
+}
+
+// A required metadata operation. Can only be set to CREATE.
+func (o CatalogTableOpenTableFormatInputIcebergInputPtrOutput) MetadataOperation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetadataOperation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The table version for the Iceberg table. Defaults to 2.
+func (o CatalogTableOpenTableFormatInputIcebergInputPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
 type CatalogTablePartitionIndex struct {
 	// Name of the partition index.
 	IndexName   string  `pulumi:"indexName"`
@@ -12703,6 +13046,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrInput)(nil)).Elem(), CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseTargetDatabaseInput)(nil)).Elem(), CatalogDatabaseTargetDatabaseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseTargetDatabasePtrInput)(nil)).Elem(), CatalogDatabaseTargetDatabaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputInput)(nil)).Elem(), CatalogTableOpenTableFormatInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputPtrInput)(nil)).Elem(), CatalogTableOpenTableFormatInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputInput)(nil)).Elem(), CatalogTableOpenTableFormatInputIcebergInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableOpenTableFormatInputIcebergInputPtrInput)(nil)).Elem(), CatalogTableOpenTableFormatInputIcebergInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTablePartitionIndexInput)(nil)).Elem(), CatalogTablePartitionIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTablePartitionIndexArrayInput)(nil)).Elem(), CatalogTablePartitionIndexArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTablePartitionKeyInput)(nil)).Elem(), CatalogTablePartitionKeyArgs{})
@@ -12851,6 +13198,10 @@ func init() {
 	pulumi.RegisterOutputType(CatalogDatabaseCreateTableDefaultPermissionPrincipalPtrOutput{})
 	pulumi.RegisterOutputType(CatalogDatabaseTargetDatabaseOutput{})
 	pulumi.RegisterOutputType(CatalogDatabaseTargetDatabasePtrOutput{})
+	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputOutput{})
+	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputPtrOutput{})
+	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputIcebergInputOutput{})
+	pulumi.RegisterOutputType(CatalogTableOpenTableFormatInputIcebergInputPtrOutput{})
 	pulumi.RegisterOutputType(CatalogTablePartitionIndexOutput{})
 	pulumi.RegisterOutputType(CatalogTablePartitionIndexArrayOutput{})
 	pulumi.RegisterOutputType(CatalogTablePartitionKeyOutput{})

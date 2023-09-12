@@ -44,13 +44,11 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Config aggregate authorizations using `account_id:region`. For example:
+// In TODO v1.5.0 and later, use an `import` block to import Config aggregate authorizations using `account_id:region`. For exampleterraform import {
 //
-// ```sh
+//	to = aws_config_aggregate_authorization.example
 //
-//	$ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
-//
-// ```
+//	id = "123456789012:us-east-1" } Using `TODO import`, import Config aggregate authorizations using `account_id:region`. For exampleconsole % TODO import aws_config_aggregate_authorization.example 123456789012:us-east-1
 type AggregateAuthorization struct {
 	pulumi.CustomResourceState
 
@@ -60,7 +58,7 @@ type AggregateAuthorization struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Region
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -108,7 +106,7 @@ type aggregateAuthorizationState struct {
 	Arn *string `pulumi:"arn"`
 	// Region
 	Region *string `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -121,7 +119,7 @@ type AggregateAuthorizationState struct {
 	Arn pulumi.StringPtrInput
 	// Region
 	Region pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -136,7 +134,7 @@ type aggregateAuthorizationArgs struct {
 	AccountId string `pulumi:"accountId"`
 	// Region
 	Region string `pulumi:"region"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -146,7 +144,7 @@ type AggregateAuthorizationArgs struct {
 	AccountId pulumi.StringInput
 	// Region
 	Region pulumi.StringInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -276,7 +274,7 @@ func (o AggregateAuthorizationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AggregateAuthorization) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AggregateAuthorizationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AggregateAuthorization) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

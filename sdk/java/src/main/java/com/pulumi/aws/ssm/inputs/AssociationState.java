@@ -240,6 +240,21 @@ public final class AssociationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+     * 
+     */
+    @Import(name="syncCompliance")
+    private @Nullable Output<String> syncCompliance;
+
+    /**
+     * @return The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+     * 
+     */
+    public Optional<Output<String>> syncCompliance() {
+        return Optional.ofNullable(this.syncCompliance);
+    }
+
+    /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      * 
      */
@@ -290,6 +305,7 @@ public final class AssociationState extends com.pulumi.resources.ResourceArgs {
         this.outputLocation = $.outputLocation;
         this.parameters = $.parameters;
         this.scheduleExpression = $.scheduleExpression;
+        this.syncCompliance = $.syncCompliance;
         this.targets = $.targets;
         this.waitForSuccessTimeoutSeconds = $.waitForSuccessTimeoutSeconds;
     }
@@ -612,6 +628,27 @@ public final class AssociationState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder scheduleExpression(String scheduleExpression) {
             return scheduleExpression(Output.of(scheduleExpression));
+        }
+
+        /**
+         * @param syncCompliance The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder syncCompliance(@Nullable Output<String> syncCompliance) {
+            $.syncCompliance = syncCompliance;
+            return this;
+        }
+
+        /**
+         * @param syncCompliance The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder syncCompliance(String syncCompliance) {
+            return syncCompliance(Output.of(syncCompliance));
         }
 
         /**

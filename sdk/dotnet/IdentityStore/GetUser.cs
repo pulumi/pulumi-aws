@@ -28,10 +28,16 @@ namespace Pulumi.Aws.IdentityStore
     public sealed class GetUserArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id`. Detailed below.
+        /// A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
         /// </summary>
         [Input("alternateIdentifier")]
         public Inputs.GetUserAlternateIdentifierArgs? AlternateIdentifier { get; set; }
+
+        /// <summary>
+        /// Configuration block for filtering by a unique attribute of the user. Detailed below.
+        /// </summary>
+        [Input("filter")]
+        public Inputs.GetUserFilterArgs? Filter { get; set; }
 
         /// <summary>
         /// Identity Store ID associated with the Single Sign-On Instance.
@@ -44,7 +50,7 @@ namespace Pulumi.Aws.IdentityStore
         /// <summary>
         /// The identifier for a user in the Identity Store.
         /// 
-        /// &gt; Exactly one of the above arguments must be provided.
+        /// &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
         /// </summary>
         [Input("userId")]
         public string? UserId { get; set; }
@@ -58,10 +64,16 @@ namespace Pulumi.Aws.IdentityStore
     public sealed class GetUserInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id`. Detailed below.
+        /// A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
         /// </summary>
         [Input("alternateIdentifier")]
         public Input<Inputs.GetUserAlternateIdentifierInputArgs>? AlternateIdentifier { get; set; }
+
+        /// <summary>
+        /// Configuration block for filtering by a unique attribute of the user. Detailed below.
+        /// </summary>
+        [Input("filter")]
+        public Input<Inputs.GetUserFilterInputArgs>? Filter { get; set; }
 
         /// <summary>
         /// Identity Store ID associated with the Single Sign-On Instance.
@@ -74,7 +86,7 @@ namespace Pulumi.Aws.IdentityStore
         /// <summary>
         /// The identifier for a user in the Identity Store.
         /// 
-        /// &gt; Exactly one of the above arguments must be provided.
+        /// &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
         /// </summary>
         [Input("userId")]
         public Input<string>? UserId { get; set; }
@@ -106,6 +118,7 @@ namespace Pulumi.Aws.IdentityStore
         /// List of identifiers issued to this resource by an external identity provider.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUserExternalIdResult> ExternalIds;
+        public readonly Outputs.GetUserFilterResult? Filter;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -165,6 +178,8 @@ namespace Pulumi.Aws.IdentityStore
 
             ImmutableArray<Outputs.GetUserExternalIdResult> externalIds,
 
+            Outputs.GetUserFilterResult? filter,
+
             string id,
 
             string identityStoreId,
@@ -196,6 +211,7 @@ namespace Pulumi.Aws.IdentityStore
             DisplayName = displayName;
             Emails = emails;
             ExternalIds = externalIds;
+            Filter = filter;
             Id = id;
             IdentityStoreId = identityStoreId;
             Locale = locale;

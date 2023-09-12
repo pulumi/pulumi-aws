@@ -49,13 +49,11 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For example:
+// In TODO v1.5.0 and later, use an `import` block to import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For exampleterraform import {
 //
-// ```sh
+//	to = aws_route53_resolver_firewall_rule_group_association.example
 //
-//	$ pulumi import aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation example rslvr-frgassoc-0123456789abcdef
-//
-// ```
+//	id = "rslvr-frgassoc-0123456789abcdef" } Using `TODO import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For exampleconsole % TODO import aws_route53_resolver_firewall_rule_group_association.example rslvr-frgassoc-0123456789abcdef
 type ResolverFirewallRuleGroupAssociation struct {
 	pulumi.CustomResourceState
 
@@ -69,7 +67,7 @@ type ResolverFirewallRuleGroupAssociation struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
 	Priority pulumi.IntOutput `pulumi:"priority"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -126,7 +124,7 @@ type resolverFirewallRuleGroupAssociationState struct {
 	Name *string `pulumi:"name"`
 	// The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
 	Priority *int `pulumi:"priority"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -145,7 +143,7 @@ type ResolverFirewallRuleGroupAssociationState struct {
 	Name pulumi.StringPtrInput
 	// The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
 	Priority pulumi.IntPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -166,7 +164,7 @@ type resolverFirewallRuleGroupAssociationArgs struct {
 	Name *string `pulumi:"name"`
 	// The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
 	Priority int `pulumi:"priority"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The unique identifier of the VPC that you want to associate with the rule group.
 	VpcId string `pulumi:"vpcId"`
@@ -182,7 +180,7 @@ type ResolverFirewallRuleGroupAssociationArgs struct {
 	Name pulumi.StringPtrInput
 	// The setting that determines the processing order of the rule group among the rule groups that you associate with the specified VPC. DNS Firewall filters VPC traffic starting from the rule group with the lowest numeric priority setting.
 	Priority pulumi.IntInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The unique identifier of the VPC that you want to associate with the rule group.
 	VpcId pulumi.StringInput
@@ -324,7 +322,7 @@ func (o ResolverFirewallRuleGroupAssociationOutput) Priority() pulumi.IntOutput 
 	return o.ApplyT(func(v *ResolverFirewallRuleGroupAssociation) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
 
-// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ResolverFirewallRuleGroupAssociationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverFirewallRuleGroupAssociation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

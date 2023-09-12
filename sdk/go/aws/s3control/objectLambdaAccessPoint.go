@@ -81,6 +81,8 @@ type ObjectLambdaAccessPoint struct {
 
 	// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// Alias for the S3 Object Lambda Access Point.
+	Alias pulumi.StringOutput `pulumi:"alias"`
 	// Amazon Resource Name (ARN) of the Object Lambda Access Point.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
@@ -124,6 +126,8 @@ func GetObjectLambdaAccessPoint(ctx *pulumi.Context,
 type objectLambdaAccessPointState struct {
 	// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`
+	// Alias for the S3 Object Lambda Access Point.
+	Alias *string `pulumi:"alias"`
 	// Amazon Resource Name (ARN) of the Object Lambda Access Point.
 	Arn *string `pulumi:"arn"`
 	// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
@@ -135,6 +139,8 @@ type objectLambdaAccessPointState struct {
 type ObjectLambdaAccessPointState struct {
 	// The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringPtrInput
+	// Alias for the S3 Object Lambda Access Point.
+	Alias pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the Object Lambda Access Point.
 	Arn pulumi.StringPtrInput
 	// A configuration block containing details about the Object Lambda Access Point. See Configuration below for more details.
@@ -280,6 +286,11 @@ func (o ObjectLambdaAccessPointOutput) ToOutput(ctx context.Context) pulumix.Out
 // The AWS account ID for the owner of the bucket for which you want to create an Object Lambda Access Point. Defaults to automatically determined account ID of the AWS provider.
 func (o ObjectLambdaAccessPointOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPoint) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// Alias for the S3 Object Lambda Access Point.
+func (o ObjectLambdaAccessPointOutput) Alias() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectLambdaAccessPoint) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
 }
 
 // Amazon Resource Name (ARN) of the Object Lambda Access Point.

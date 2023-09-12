@@ -240,14 +240,18 @@ class GroupInstanceRefreshPreferencesArgs:
                  checkpoint_percentages: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  instance_warmup: Optional[pulumi.Input[str]] = None,
                  min_healthy_percentage: Optional[pulumi.Input[int]] = None,
-                 skip_matching: Optional[pulumi.Input[bool]] = None):
+                 scale_in_protected_instances: Optional[pulumi.Input[str]] = None,
+                 skip_matching: Optional[pulumi.Input[bool]] = None,
+                 standby_instances: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] auto_rollback: Automatically rollback if instance refresh fails. Defaults to `false`. This option may only be set to `true` when specifying a `launch_template` or `mixed_instances_policy`.
         :param pulumi.Input[str] checkpoint_delay: Number of seconds to wait after a checkpoint. Defaults to `3600`.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] checkpoint_percentages: List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
         :param pulumi.Input[str] instance_warmup: Number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
         :param pulumi.Input[int] min_healthy_percentage: Amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
+        :param pulumi.Input[str] scale_in_protected_instances: Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
         :param pulumi.Input[bool] skip_matching: Replace instances that already have your desired configuration. Defaults to `false`.
+        :param pulumi.Input[str] standby_instances: Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
         """
         if auto_rollback is not None:
             pulumi.set(__self__, "auto_rollback", auto_rollback)
@@ -259,8 +263,12 @@ class GroupInstanceRefreshPreferencesArgs:
             pulumi.set(__self__, "instance_warmup", instance_warmup)
         if min_healthy_percentage is not None:
             pulumi.set(__self__, "min_healthy_percentage", min_healthy_percentage)
+        if scale_in_protected_instances is not None:
+            pulumi.set(__self__, "scale_in_protected_instances", scale_in_protected_instances)
         if skip_matching is not None:
             pulumi.set(__self__, "skip_matching", skip_matching)
+        if standby_instances is not None:
+            pulumi.set(__self__, "standby_instances", standby_instances)
 
     @property
     @pulumi.getter(name="autoRollback")
@@ -323,6 +331,18 @@ class GroupInstanceRefreshPreferencesArgs:
         pulumi.set(self, "min_healthy_percentage", value)
 
     @property
+    @pulumi.getter(name="scaleInProtectedInstances")
+    def scale_in_protected_instances(self) -> Optional[pulumi.Input[str]]:
+        """
+        Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
+        """
+        return pulumi.get(self, "scale_in_protected_instances")
+
+    @scale_in_protected_instances.setter
+    def scale_in_protected_instances(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scale_in_protected_instances", value)
+
+    @property
     @pulumi.getter(name="skipMatching")
     def skip_matching(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -333,6 +353,18 @@ class GroupInstanceRefreshPreferencesArgs:
     @skip_matching.setter
     def skip_matching(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "skip_matching", value)
+
+    @property
+    @pulumi.getter(name="standbyInstances")
+    def standby_instances(self) -> Optional[pulumi.Input[str]]:
+        """
+        Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
+        """
+        return pulumi.get(self, "standby_instances")
+
+    @standby_instances.setter
+    def standby_instances(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "standby_instances", value)
 
 
 @pulumi.input_type

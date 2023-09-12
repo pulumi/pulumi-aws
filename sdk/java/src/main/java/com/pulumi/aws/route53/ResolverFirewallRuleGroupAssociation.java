@@ -56,11 +56,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For example:
+ * In TODO v1.5.0 and later, use an `import` block to import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For exampleterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation example rslvr-frgassoc-0123456789abcdef
- * ```
+ *  to = aws_route53_resolver_firewall_rule_group_association.example
+ * 
+ *  id = &#34;rslvr-frgassoc-0123456789abcdef&#34; } Using `TODO import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For exampleconsole % TODO import aws_route53_resolver_firewall_rule_group_association.example rslvr-frgassoc-0123456789abcdef
  * 
  */
 @ResourceType(type="aws:route53/resolverFirewallRuleGroupAssociation:ResolverFirewallRuleGroupAssociation")
@@ -136,14 +136,14 @@ public class ResolverFirewallRuleGroupAssociation extends com.pulumi.resources.C
         return this.priority;
     }
     /**
-     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

@@ -343,6 +343,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
         fleet = aws.iot.ProvisioningTemplate("fleet",
             description="My provisioning template",
             provisioning_role_arn=iot_fleet_provisioning.arn,
+            enabled=True,
             template_body=device_policy_policy.name.apply(lambda name: json.dumps({
                 "Parameters": {
                     "SerialNumber": {
@@ -424,6 +425,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
         fleet = aws.iot.ProvisioningTemplate("fleet",
             description="My provisioning template",
             provisioning_role_arn=iot_fleet_provisioning.arn,
+            enabled=True,
             template_body=device_policy_policy.name.apply(lambda name: json.dumps({
                 "Parameters": {
                     "SerialNumber": {

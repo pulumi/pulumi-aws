@@ -61,11 +61,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Cognito User Pools using the `id`. For example:
+ * In TODO v1.5.0 and later, use an `import` block to import Cognito User Pools using the `id`. For exampleterraform import {
  *
- * ```sh
- *  $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
- * ```
+ *  to = aws_cognito_user_pool.pool
+ *
+ *  id = "us-west-2_abc123" } Using `TODO import`, import Cognito User Pools using the `id`. For exampleconsole % TODO import aws_cognito_user_pool.pool us-west-2_abc123
  */
 export class UserPool extends pulumi.CustomResource {
     /**
@@ -186,7 +186,7 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly smsAuthenticationMessage!: pulumi.Output<string | undefined>;
     /**
-     * Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
+     * Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
      */
     public readonly smsConfiguration!: pulumi.Output<outputs.cognito.UserPoolSmsConfiguration>;
     /**
@@ -406,7 +406,7 @@ export interface UserPoolState {
      */
     smsAuthenticationMessage?: pulumi.Input<string>;
     /**
-     * Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
+     * Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
      */
     smsConfiguration?: pulumi.Input<inputs.cognito.UserPoolSmsConfiguration>;
     /**
@@ -514,7 +514,7 @@ export interface UserPoolArgs {
      */
     smsAuthenticationMessage?: pulumi.Input<string>;
     /**
-     * Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
+     * Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
      */
     smsConfiguration?: pulumi.Input<inputs.cognito.UserPoolSmsConfiguration>;
     /**

@@ -40,10 +40,20 @@ public final class GroupInstanceRefreshPreferences {
      */
     private @Nullable Integer minHealthyPercentage;
     /**
+     * @return Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
+     * 
+     */
+    private @Nullable String scaleInProtectedInstances;
+    /**
      * @return Replace instances that already have your desired configuration. Defaults to `false`.
      * 
      */
     private @Nullable Boolean skipMatching;
+    /**
+     * @return Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
+     * 
+     */
+    private @Nullable String standbyInstances;
 
     private GroupInstanceRefreshPreferences() {}
     /**
@@ -82,11 +92,25 @@ public final class GroupInstanceRefreshPreferences {
         return Optional.ofNullable(this.minHealthyPercentage);
     }
     /**
+     * @return Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
+     * 
+     */
+    public Optional<String> scaleInProtectedInstances() {
+        return Optional.ofNullable(this.scaleInProtectedInstances);
+    }
+    /**
      * @return Replace instances that already have your desired configuration. Defaults to `false`.
      * 
      */
     public Optional<Boolean> skipMatching() {
         return Optional.ofNullable(this.skipMatching);
+    }
+    /**
+     * @return Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
+     * 
+     */
+    public Optional<String> standbyInstances() {
+        return Optional.ofNullable(this.standbyInstances);
     }
 
     public static Builder builder() {
@@ -103,7 +127,9 @@ public final class GroupInstanceRefreshPreferences {
         private @Nullable List<Integer> checkpointPercentages;
         private @Nullable String instanceWarmup;
         private @Nullable Integer minHealthyPercentage;
+        private @Nullable String scaleInProtectedInstances;
         private @Nullable Boolean skipMatching;
+        private @Nullable String standbyInstances;
         public Builder() {}
         public Builder(GroupInstanceRefreshPreferences defaults) {
     	      Objects.requireNonNull(defaults);
@@ -112,7 +138,9 @@ public final class GroupInstanceRefreshPreferences {
     	      this.checkpointPercentages = defaults.checkpointPercentages;
     	      this.instanceWarmup = defaults.instanceWarmup;
     	      this.minHealthyPercentage = defaults.minHealthyPercentage;
+    	      this.scaleInProtectedInstances = defaults.scaleInProtectedInstances;
     	      this.skipMatching = defaults.skipMatching;
+    	      this.standbyInstances = defaults.standbyInstances;
         }
 
         @CustomType.Setter
@@ -144,8 +172,18 @@ public final class GroupInstanceRefreshPreferences {
             return this;
         }
         @CustomType.Setter
+        public Builder scaleInProtectedInstances(@Nullable String scaleInProtectedInstances) {
+            this.scaleInProtectedInstances = scaleInProtectedInstances;
+            return this;
+        }
+        @CustomType.Setter
         public Builder skipMatching(@Nullable Boolean skipMatching) {
             this.skipMatching = skipMatching;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder standbyInstances(@Nullable String standbyInstances) {
+            this.standbyInstances = standbyInstances;
             return this;
         }
         public GroupInstanceRefreshPreferences build() {
@@ -155,7 +193,9 @@ public final class GroupInstanceRefreshPreferences {
             o.checkpointPercentages = checkpointPercentages;
             o.instanceWarmup = instanceWarmup;
             o.minHealthyPercentage = minHealthyPercentage;
+            o.scaleInProtectedInstances = scaleInProtectedInstances;
             o.skipMatching = skipMatching;
+            o.standbyInstances = standbyInstances;
             return o;
         }
     }

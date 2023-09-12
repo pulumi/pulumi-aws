@@ -29,7 +29,7 @@ class LicenseConfigurationArgs:
         :param pulumi.Input[bool] license_count_hard_limit: Sets the number of available licenses as a hard limit.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] license_rules: Array of configured License Manager rules.
         :param pulumi.Input[str] name: Name of the license configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "license_counting_type", license_counting_type)
         if description is not None:
@@ -121,7 +121,7 @@ class LicenseConfigurationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -153,7 +153,7 @@ class _LicenseConfigurationState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] license_rules: Array of configured License Manager rules.
         :param pulumi.Input[str] name: Name of the license configuration.
         :param pulumi.Input[str] owner_account_id: Account ID of the owner of the license configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -277,7 +277,7 @@ class _LicenseConfigurationState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -314,7 +314,7 @@ class LicenseConfiguration(pulumi.CustomResource):
         """
         Provides a License Manager license configuration resource.
 
-        > **Note:** Removing the `license_count` attribute is not supported by the License Manager API - recreate the resource instead.
+        > **Note:** Removing the `license_count` attribute is not supported by the License Manager API - use `TODO taint aws_licensemanager_license_configuration.<id>` to recreate the resource instead.
 
         ## Example Usage
 
@@ -346,11 +346,11 @@ class LicenseConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import license configurations using the `id`. For example:
+        In TODO v1.5.0 and later, use an `import` block to import license configurations using the `id`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
-        ```
+         to = aws_licensemanager_license_configuration.example
+
+         id = "arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef" } Using `TODO import`, import license configurations using the `id`. For exampleconsole % TODO import aws_licensemanager_license_configuration.example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -360,7 +360,7 @@ class LicenseConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] license_counting_type: Dimension to use to track license inventory. Specify either `vCPU`, `Instance`, `Core` or `Socket`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] license_rules: Array of configured License Manager rules.
         :param pulumi.Input[str] name: Name of the license configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -371,7 +371,7 @@ class LicenseConfiguration(pulumi.CustomResource):
         """
         Provides a License Manager license configuration resource.
 
-        > **Note:** Removing the `license_count` attribute is not supported by the License Manager API - recreate the resource instead.
+        > **Note:** Removing the `license_count` attribute is not supported by the License Manager API - use `TODO taint aws_licensemanager_license_configuration.<id>` to recreate the resource instead.
 
         ## Example Usage
 
@@ -403,11 +403,11 @@ class LicenseConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import license configurations using the `id`. For example:
+        In TODO v1.5.0 and later, use an `import` block to import license configurations using the `id`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
-        ```
+         to = aws_licensemanager_license_configuration.example
+
+         id = "arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef" } Using `TODO import`, import license configurations using the `id`. For exampleconsole % TODO import aws_licensemanager_license_configuration.example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
 
         :param str resource_name: The name of the resource.
         :param LicenseConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -487,7 +487,7 @@ class LicenseConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] license_rules: Array of configured License Manager rules.
         :param pulumi.Input[str] name: Name of the license configuration.
         :param pulumi.Input[str] owner_account_id: Account ID of the owner of the license configuration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -574,7 +574,7 @@ class LicenseConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

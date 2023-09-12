@@ -87,6 +87,7 @@ namespace Pulumi.Aws.Iot
     ///     {
     ///         Description = "My provisioning template",
     ///         ProvisioningRoleArn = iotFleetProvisioning.Arn,
+    ///         Enabled = true,
     ///         TemplateBody = devicePolicyPolicy.Name.Apply(name =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["Parameters"] = new Dictionary&lt;string, object?&gt;

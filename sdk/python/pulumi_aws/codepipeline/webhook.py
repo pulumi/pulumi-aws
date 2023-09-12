@@ -31,7 +31,7 @@ class WebhookArgs:
         :param pulumi.Input[str] target_pipeline: The name of the pipeline.
         :param pulumi.Input['WebhookAuthenticationConfigurationArgs'] authentication_configuration: An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
         :param pulumi.Input[str] name: The name of the webhook.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "authentication", authentication)
         pulumi.set(__self__, "filters", filters)
@@ -120,7 +120,7 @@ class WebhookArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -149,7 +149,7 @@ class _WebhookState:
         :param pulumi.Input['WebhookAuthenticationConfigurationArgs'] authentication_configuration: An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
         :param pulumi.Input[Sequence[pulumi.Input['WebhookFilterArgs']]] filters: One or more `filter` blocks. Filter blocks are documented below.
         :param pulumi.Input[str] name: The name of the webhook.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] target_action: The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
         :param pulumi.Input[str] target_pipeline: The name of the pipeline.
@@ -240,7 +240,7 @@ class _WebhookState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -388,11 +388,11 @@ class Webhook(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:
+        In TODO v1.5.0 and later, use an `import` block to import CodePipeline Webhooks using their ARN. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
-        ```
+         to = aws_codepipeline_webhook.example
+
+         id = "arn:aws:codepipeline:us-west-2:123456789012:webhook:example" } Using `TODO import`, import CodePipeline Webhooks using their ARN. For exampleconsole % TODO import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -400,7 +400,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WebhookAuthenticationConfigurationArgs']] authentication_configuration: An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookFilterArgs']]]] filters: One or more `filter` blocks. Filter blocks are documented below.
         :param pulumi.Input[str] name: The name of the webhook.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] target_action: The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
         :param pulumi.Input[str] target_pipeline: The name of the pipeline.
         """
@@ -488,11 +488,11 @@ class Webhook(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:
+        In TODO v1.5.0 and later, use an `import` block to import CodePipeline Webhooks using their ARN. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
-        ```
+         to = aws_codepipeline_webhook.example
+
+         id = "arn:aws:codepipeline:us-west-2:123456789012:webhook:example" } Using `TODO import`, import CodePipeline Webhooks using their ARN. For exampleconsole % TODO import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
 
         :param str resource_name: The name of the resource.
         :param WebhookArgs args: The arguments to use to populate this resource's properties.
@@ -575,7 +575,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WebhookAuthenticationConfigurationArgs']] authentication_configuration: An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebhookFilterArgs']]]] filters: One or more `filter` blocks. Filter blocks are documented below.
         :param pulumi.Input[str] name: The name of the webhook.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] target_action: The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
         :param pulumi.Input[str] target_pipeline: The name of the pipeline.
@@ -641,7 +641,7 @@ class Webhook(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

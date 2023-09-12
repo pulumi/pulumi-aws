@@ -81,11 +81,11 @@ namespace Pulumi.Aws.Dlm
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DLM lifecycle policies using their policy ID. For example:
+    /// In TODO v1.5.0 and later, use an `import` block to import DLM lifecycle policies using their policy ID. For exampleterraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
-    /// ```
+    ///  to = aws_dlm_lifecycle_policy.example
+    /// 
+    ///  id = "policy-abcdef12345678901" } Using `TODO import`, import DLM lifecycle policies using their policy ID. For exampleconsole % TODO import aws_dlm_lifecycle_policy.example policy-abcdef12345678901
     /// </summary>
     [AwsResourceType("aws:dlm/lifecyclePolicy:LifecyclePolicy")]
     public partial class LifecyclePolicy : global::Pulumi.CustomResource
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Dlm
         public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Aws.Dlm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -256,7 +256,7 @@ namespace Pulumi.Aws.Dlm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

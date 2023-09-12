@@ -132,6 +132,10 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public readonly string CreatedDate;
         /// <summary>
+        /// Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+        /// </summary>
+        public readonly string CustomerId;
+        /// <summary>
         /// Description of the API Key.
         /// </summary>
         public readonly string Description;
@@ -164,6 +168,8 @@ namespace Pulumi.Aws.ApiGateway
         private GetKeyResult(
             string createdDate,
 
+            string customerId,
+
             string description,
 
             bool enabled,
@@ -179,6 +185,7 @@ namespace Pulumi.Aws.ApiGateway
             string value)
         {
             CreatedDate = createdDate;
+            CustomerId = customerId;
             Description = description;
             Enabled = enabled;
             Id = id;

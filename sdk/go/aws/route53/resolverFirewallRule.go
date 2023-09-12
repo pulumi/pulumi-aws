@@ -65,15 +65,15 @@ import (
 //
 // ## Import
 //
-// # Using `pulumi import`, import
+// # In TODO v1.5.0 and later, use an `import` block to import
 //
-// Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':'. For example:
+// Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':'. For exampleterraform import {
 //
-// ```sh
+//	to = aws_route53_resolver_firewall_rule.example
 //
-//	$ pulumi import aws:route53/resolverFirewallRule:ResolverFirewallRule example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
+//	id = "rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef" } Using `TODO import`, import
 //
-// ```
+// Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':'. For exampleconsole % TODO import aws_route53_resolver_firewall_rule.example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef
 type ResolverFirewallRule struct {
 	pulumi.CustomResourceState
 

@@ -70,11 +70,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Security Hub invite acceptance using the account ID. For example:
+ * In TODO v1.5.0 and later, use an `import` block to import Security Hub invite acceptance using the account ID. For exampleterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
- * ```
+ *  to = aws_securityhub_invite_accepter.example
+ * 
+ *  id = &#34;123456789012&#34; } Using `TODO import`, import Security Hub invite acceptance using the account ID. For exampleconsole % TODO import aws_securityhub_invite_accepter.example 123456789012
  * 
  */
 @ResourceType(type="aws:securityhub/inviteAccepter:InviteAccepter")

@@ -15,6 +15,7 @@ import (
 
 // Provides a Pinpoint Baidu Channel resource.
 //
+// > **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
 // ## Example Usage
 //
 // ```go
@@ -49,13 +50,11 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Pinpoint Baidu Channel using the `application-id`. For example:
+// In TODO v1.5.0 and later, use an `import` block to import Pinpoint Baidu Channel using the `application-id`. For exampleterraform import {
 //
-// ```sh
+//	to = aws_pinpoint_baidu_channel.channel
 //
-//	$ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
-//
-// ```
+//	id = "application-id" } Using `TODO import`, import Pinpoint Baidu Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_baidu_channel.channel application-id
 type BaiduChannel struct {
 	pulumi.CustomResourceState
 

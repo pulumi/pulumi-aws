@@ -368,6 +368,7 @@ class ApnsVoipChannel(pulumi.CustomResource):
         """
         Provides a Pinpoint APNs VoIP Channel resource.
 
+        > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
         ## Example Usage
 
         ```python
@@ -383,11 +384,11 @@ class ApnsVoipChannel(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Pinpoint APNs VoIP Channel using the `application-id`. For example:
+        In TODO v1.5.0 and later, use an `import` block to import Pinpoint APNs VoIP Channel using the `application-id`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:pinpoint/apnsVoipChannel:ApnsVoipChannel apns_voip application-id
-        ```
+         to = aws_pinpoint_apns_voip_channel.apns_voip
+
+         id = "application-id" } Using `TODO import`, import Pinpoint APNs VoIP Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_apns_voip_channel.apns_voip application-id
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -419,6 +420,7 @@ class ApnsVoipChannel(pulumi.CustomResource):
         """
         Provides a Pinpoint APNs VoIP Channel resource.
 
+        > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
         ## Example Usage
 
         ```python
@@ -434,11 +436,11 @@ class ApnsVoipChannel(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Pinpoint APNs VoIP Channel using the `application-id`. For example:
+        In TODO v1.5.0 and later, use an `import` block to import Pinpoint APNs VoIP Channel using the `application-id`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:pinpoint/apnsVoipChannel:ApnsVoipChannel apns_voip application-id
-        ```
+         to = aws_pinpoint_apns_voip_channel.apns_voip
+
+         id = "application-id" } Using `TODO import`, import Pinpoint APNs VoIP Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_apns_voip_channel.apns_voip application-id
 
         :param str resource_name: The name of the resource.
         :param ApnsVoipChannelArgs args: The arguments to use to populate this resource's properties.

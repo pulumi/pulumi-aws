@@ -113,13 +113,11 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import EMR Severless applications using the `id`. For example:
+// In TODO v1.5.0 and later, use an `import` block to import EMR Severless applications using the `id`. For exampleterraform import {
 //
-// ```sh
+//	to = aws_emrserverless_application.example
 //
-//	$ pulumi import aws:emrserverless/application:Application example id
-//
-// ```
+//	id = "id" } Using `TODO import`, import EMR Severless applications using the `id`. For exampleconsole % TODO import aws_emrserverless_application.example id
 type Application struct {
 	pulumi.CustomResourceState
 
@@ -143,7 +141,7 @@ type Application struct {
 	NetworkConfiguration ApplicationNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
 	// The EMR release version associated with the application.
 	ReleaseLabel pulumi.StringOutput `pulumi:"releaseLabel"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -207,7 +205,7 @@ type applicationState struct {
 	NetworkConfiguration *ApplicationNetworkConfiguration `pulumi:"networkConfiguration"`
 	// The EMR release version associated with the application.
 	ReleaseLabel *string `pulumi:"releaseLabel"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -236,7 +234,7 @@ type ApplicationState struct {
 	NetworkConfiguration ApplicationNetworkConfigurationPtrInput
 	// The EMR release version associated with the application.
 	ReleaseLabel pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -267,7 +265,7 @@ type applicationArgs struct {
 	NetworkConfiguration *ApplicationNetworkConfiguration `pulumi:"networkConfiguration"`
 	// The EMR release version associated with the application.
 	ReleaseLabel string `pulumi:"releaseLabel"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of application you want to start, such as `spark` or `hive`.
 	Type string `pulumi:"type"`
@@ -293,7 +291,7 @@ type ApplicationArgs struct {
 	NetworkConfiguration ApplicationNetworkConfigurationPtrInput
 	// The EMR release version associated with the application.
 	ReleaseLabel pulumi.StringInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The type of application you want to start, such as `spark` or `hive`.
 	Type pulumi.StringInput
@@ -460,7 +458,7 @@ func (o ApplicationOutput) ReleaseLabel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ReleaseLabel }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

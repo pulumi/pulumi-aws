@@ -88,9 +88,17 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
+     * The version of the API keys used for the account.
+     */
+    public /*out*/ readonly apiKeyVersion!: pulumi.Output<string>;
+    /**
      * ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
      */
     public readonly cloudwatchRoleArn!: pulumi.Output<string | undefined>;
+    /**
+     * A list of features supported for the account.
+     */
+    public /*out*/ readonly features!: pulumi.Output<string[]>;
     /**
      * Account-Level throttle settings. See exported fields below.
      */
@@ -109,11 +117,15 @@ export class Account extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
+            resourceInputs["apiKeyVersion"] = state ? state.apiKeyVersion : undefined;
             resourceInputs["cloudwatchRoleArn"] = state ? state.cloudwatchRoleArn : undefined;
+            resourceInputs["features"] = state ? state.features : undefined;
             resourceInputs["throttleSettings"] = state ? state.throttleSettings : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
             resourceInputs["cloudwatchRoleArn"] = args ? args.cloudwatchRoleArn : undefined;
+            resourceInputs["apiKeyVersion"] = undefined /*out*/;
+            resourceInputs["features"] = undefined /*out*/;
             resourceInputs["throttleSettings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -126,9 +138,17 @@ export class Account extends pulumi.CustomResource {
  */
 export interface AccountState {
     /**
+     * The version of the API keys used for the account.
+     */
+    apiKeyVersion?: pulumi.Input<string>;
+    /**
      * ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
      */
     cloudwatchRoleArn?: pulumi.Input<string>;
+    /**
+     * A list of features supported for the account.
+     */
+    features?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Account-Level throttle settings. See exported fields below.
      */

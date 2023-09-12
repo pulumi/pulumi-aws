@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+        /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
         /// </summary>
         [Output("auditLogConfiguration")]
         public Output<Outputs.WindowsFileSystemAuditLogConfiguration> AuditLogConfiguration { get; private set; } = null!;
@@ -143,6 +143,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Output("deploymentType")]
         public Output<string?> DeploymentType { get; private set; } = null!;
+
+        /// <summary>
+        /// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+        /// </summary>
+        [Output("diskIopsConfiguration")]
+        public Output<Outputs.WindowsFileSystemDiskIopsConfiguration> DiskIopsConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
@@ -193,7 +199,7 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. Detailed below.
+        /// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See Self-Managed Active Directory below.
         /// </summary>
         [Output("selfManagedActiveDirectory")]
         public Output<Outputs.WindowsFileSystemSelfManagedActiveDirectory?> SelfManagedActiveDirectory { get; private set; } = null!;
@@ -319,7 +325,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+        /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
         /// </summary>
         [Input("auditLogConfiguration")]
         public Input<Inputs.WindowsFileSystemAuditLogConfigurationArgs>? AuditLogConfiguration { get; set; }
@@ -355,6 +361,12 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DeploymentType { get; set; }
 
         /// <summary>
+        /// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+        /// </summary>
+        [Input("diskIopsConfiguration")]
+        public Input<Inputs.WindowsFileSystemDiskIopsConfigurationArgs>? DiskIopsConfiguration { get; set; }
+
+        /// <summary>
         /// ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
         /// </summary>
         [Input("kmsKeyId")]
@@ -379,7 +391,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. Detailed below.
+        /// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See Self-Managed Active Directory below.
         /// </summary>
         [Input("selfManagedActiveDirectory")]
         public Input<Inputs.WindowsFileSystemSelfManagedActiveDirectoryArgs>? SelfManagedActiveDirectory { get; set; }
@@ -473,7 +485,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See below.
+        /// The configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See Audit Log Configuration below.
         /// </summary>
         [Input("auditLogConfiguration")]
         public Input<Inputs.WindowsFileSystemAuditLogConfigurationGetArgs>? AuditLogConfiguration { get; set; }
@@ -507,6 +519,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("deploymentType")]
         public Input<string>? DeploymentType { get; set; }
+
+        /// <summary>
+        /// The SSD IOPS configuration for the Amazon FSx for Windows File Server file system. See Disk Iops Configuration below.
+        /// </summary>
+        [Input("diskIopsConfiguration")]
+        public Input<Inputs.WindowsFileSystemDiskIopsConfigurationGetArgs>? DiskIopsConfiguration { get; set; }
 
         /// <summary>
         /// DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
@@ -569,7 +587,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. Detailed below.
+        /// Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See Self-Managed Active Directory below.
         /// </summary>
         [Input("selfManagedActiveDirectory")]
         public Input<Inputs.WindowsFileSystemSelfManagedActiveDirectoryGetArgs>? SelfManagedActiveDirectory { get; set; }

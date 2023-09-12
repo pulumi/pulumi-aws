@@ -43,7 +43,8 @@ class ClusterArgs:
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
                  snapshot_window: Optional[pulumi.Input[str]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 transit_encryption_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[bool] apply_immediately: Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html).
@@ -87,6 +88,7 @@ class ClusterArgs:
         :param pulumi.Input[str] snapshot_window: Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
         :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[bool] transit_encryption_enabled: Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
         """
         if apply_immediately is not None:
             pulumi.set(__self__, "apply_immediately", apply_immediately)
@@ -144,6 +146,8 @@ class ClusterArgs:
             pulumi.set(__self__, "subnet_group_name", subnet_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if transit_encryption_enabled is not None:
+            pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
 
     @property
     @pulumi.getter(name="applyImmediately")
@@ -494,6 +498,18 @@ class ClusterArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="transitEncryptionEnabled")
+    def transit_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+        """
+        return pulumi.get(self, "transit_encryption_enabled")
+
+    @transit_encryption_enabled.setter
+    def transit_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "transit_encryption_enabled", value)
+
 
 @pulumi.input_type
 class _ClusterState:
@@ -531,7 +547,8 @@ class _ClusterState:
                  snapshot_window: Optional[pulumi.Input[str]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 transit_encryption_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
         :param pulumi.Input[bool] apply_immediately: Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html).
@@ -581,6 +598,7 @@ class _ClusterState:
         :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[bool] transit_encryption_enabled: Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
         """
         if apply_immediately is not None:
             pulumi.set(__self__, "apply_immediately", apply_immediately)
@@ -650,6 +668,8 @@ class _ClusterState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if transit_encryption_enabled is not None:
+            pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
 
     @property
     @pulumi.getter(name="applyImmediately")
@@ -1072,6 +1092,18 @@ class _ClusterState:
     def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags_all", value)
 
+    @property
+    @pulumi.getter(name="transitEncryptionEnabled")
+    def transit_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+        """
+        return pulumi.get(self, "transit_encryption_enabled")
+
+    @transit_encryption_enabled.setter
+    def transit_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "transit_encryption_enabled", value)
+
 
 class Cluster(pulumi.CustomResource):
     @overload
@@ -1106,6 +1138,7 @@ class Cluster(pulumi.CustomResource):
                  snapshot_window: Optional[pulumi.Input[str]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         Provides an ElastiCache Cluster resource, which manages either a
@@ -1245,6 +1278,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] snapshot_window: Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
         :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[bool] transit_encryption_enabled: Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
         """
         ...
     @overload
@@ -1390,6 +1424,7 @@ class Cluster(pulumi.CustomResource):
                  snapshot_window: Optional[pulumi.Input[str]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 transit_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1427,6 +1462,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["snapshot_window"] = snapshot_window
             __props__.__dict__["subnet_group_name"] = subnet_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["transit_encryption_enabled"] = transit_encryption_enabled
             __props__.__dict__["arn"] = None
             __props__.__dict__["cache_nodes"] = None
             __props__.__dict__["cluster_address"] = None
@@ -1476,7 +1512,8 @@ class Cluster(pulumi.CustomResource):
             snapshot_window: Optional[pulumi.Input[str]] = None,
             subnet_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Cluster':
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            transit_encryption_enabled: Optional[pulumi.Input[bool]] = None) -> 'Cluster':
         """
         Get an existing Cluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1531,6 +1568,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_group_name: Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[bool] transit_encryption_enabled: Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1570,6 +1608,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["subnet_group_name"] = subnet_group_name
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["transit_encryption_enabled"] = transit_encryption_enabled
         return Cluster(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1856,4 +1895,12 @@ class Cluster(pulumi.CustomResource):
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
+
+    @property
+    @pulumi.getter(name="transitEncryptionEnabled")
+    def transit_encryption_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+        """
+        return pulumi.get(self, "transit_encryption_enabled")
 

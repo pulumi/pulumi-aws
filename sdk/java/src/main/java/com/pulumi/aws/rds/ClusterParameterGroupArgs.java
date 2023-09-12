@@ -20,14 +20,14 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
     public static final ClusterParameterGroupArgs Empty = new ClusterParameterGroupArgs();
 
     /**
-     * The description of the DB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
+     * The description of the DB cluster parameter group. Defaults to &#34;Managed by TODO&#34;.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the DB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
+     * @return The description of the DB cluster parameter group. Defaults to &#34;Managed by TODO&#34;.
      * 
      */
     public Optional<Output<String>> description() {
@@ -95,14 +95,14 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -139,7 +139,7 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param description The description of the DB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
+         * @param description The description of the DB cluster parameter group. Defaults to &#34;Managed by TODO&#34;.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param description The description of the DB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
+         * @param description The description of the DB cluster parameter group. Defaults to &#34;Managed by TODO&#34;.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class ClusterParameterGroupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

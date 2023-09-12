@@ -15,16 +15,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const myDemoApiKey = new aws.apigateway.ApiKey("myDemoApiKey", {});
+ * const example = new aws.apigateway.ApiKey("example", {});
  * ```
  *
  * ## Import
  *
- * Using `pulumi import`, import API Gateway Keys using the `id`. For example:
+ * terraform import {
  *
- * ```sh
- *  $ pulumi import aws:apigateway/apiKey:ApiKey my_demo_key 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk
- * ```
+ *  to = aws_api_gateway_api_key.example
+ *
+ *  id = "8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk" } Using `pulumi import`, import API Gateway Keys using the `id`. For exampleconsole % TODO import aws_api_gateway_api_key.example 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk
  */
 export class ApiKey extends pulumi.CustomResource {
     /**
@@ -62,6 +62,10 @@ export class ApiKey extends pulumi.CustomResource {
      * Creation date of the API key
      */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    /**
+     * An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+     */
+    public readonly customerId!: pulumi.Output<string | undefined>;
     /**
      * API key description. Defaults to "Managed by Pulumi".
      */
@@ -106,6 +110,7 @@ export class ApiKey extends pulumi.CustomResource {
             const state = argsOrState as ApiKeyState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["createdDate"] = state ? state.createdDate : undefined;
+            resourceInputs["customerId"] = state ? state.customerId : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
@@ -115,6 +120,7 @@ export class ApiKey extends pulumi.CustomResource {
             resourceInputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as ApiKeyArgs | undefined;
+            resourceInputs["customerId"] = args ? args.customerId : undefined;
             resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -144,6 +150,10 @@ export interface ApiKeyState {
      * Creation date of the API key
      */
     createdDate?: pulumi.Input<string>;
+    /**
+     * An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+     */
+    customerId?: pulumi.Input<string>;
     /**
      * API key description. Defaults to "Managed by Pulumi".
      */
@@ -178,6 +188,10 @@ export interface ApiKeyState {
  * The set of arguments for constructing a ApiKey resource.
  */
 export interface ApiKeyArgs {
+    /**
+     * An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+     */
+    customerId?: pulumi.Input<string>;
     /**
      * API key description. Defaults to "Managed by Pulumi".
      */

@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a Pinpoint APNs Channel resource.
  *
+ * > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
  * ## Example Usage
  *
  * ```typescript
@@ -24,11 +25,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Pinpoint APNs Channel using the `application-id`. For example:
+ * In TODO v1.5.0 and later, use an `import` block to import Pinpoint APNs Channel using the `application-id`. For exampleterraform import {
  *
- * ```sh
- *  $ pulumi import aws:pinpoint/apnsChannel:ApnsChannel apns application-id
- * ```
+ *  to = aws_pinpoint_apns_channel.apns
+ *
+ *  id = "application-id" } Using `TODO import`, import Pinpoint APNs Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_apns_channel.apns application-id
  */
 export class ApnsChannel extends pulumi.CustomResource {
     /**

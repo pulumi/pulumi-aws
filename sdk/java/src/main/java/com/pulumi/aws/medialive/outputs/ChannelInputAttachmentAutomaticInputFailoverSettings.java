@@ -14,21 +14,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelInputAttachmentAutomaticInputFailoverSettings {
+    /**
+     * @return This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+     * 
+     */
     private @Nullable Integer errorClearTimeMsec;
     private @Nullable List<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition> failoverConditions;
+    /**
+     * @return Input preference when deciding which input to make active when a previously failed input has recovered.
+     * 
+     */
     private @Nullable String inputPreference;
+    /**
+     * @return The input ID of the secondary input in the automatic input failover pair.
+     * 
+     */
     private String secondaryInputId;
 
     private ChannelInputAttachmentAutomaticInputFailoverSettings() {}
+    /**
+     * @return This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+     * 
+     */
     public Optional<Integer> errorClearTimeMsec() {
         return Optional.ofNullable(this.errorClearTimeMsec);
     }
     public List<ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition> failoverConditions() {
         return this.failoverConditions == null ? List.of() : this.failoverConditions;
     }
+    /**
+     * @return Input preference when deciding which input to make active when a previously failed input has recovered.
+     * 
+     */
     public Optional<String> inputPreference() {
         return Optional.ofNullable(this.inputPreference);
     }
+    /**
+     * @return The input ID of the secondary input in the automatic input failover pair.
+     * 
+     */
     public String secondaryInputId() {
         return this.secondaryInputId;
     }

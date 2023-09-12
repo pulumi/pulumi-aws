@@ -40,15 +40,15 @@ import (
 //
 // ## Import
 //
-// # Using `pulumi import`, import
+// # In TODO v1.5.0 and later, use an `import` block to import
 //
-// Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For example:
+// Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For exampleterraform import {
 //
-// ```sh
+//	to = aws_route53_resolver_firewall_rule_group.example
 //
-//	$ pulumi import aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup example rslvr-frg-0123456789abcdef
+//	id = "rslvr-frg-0123456789abcdef" } Using `TODO import`, import
 //
-// ```
+// Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For exampleconsole % TODO import aws_route53_resolver_firewall_rule_group.example rslvr-frg-0123456789abcdef
 type ResolverFirewallRuleGroup struct {
 	pulumi.CustomResourceState
 
@@ -60,7 +60,7 @@ type ResolverFirewallRuleGroup struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`
 	ShareStatus pulumi.StringOutput `pulumi:"shareStatus"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -104,7 +104,7 @@ type resolverFirewallRuleGroupState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`
 	ShareStatus *string `pulumi:"shareStatus"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -119,7 +119,7 @@ type ResolverFirewallRuleGroupState struct {
 	OwnerId pulumi.StringPtrInput
 	// Whether the rule group is shared with other AWS accounts, or was shared with the current account by another AWS account. Sharing is configured through AWS Resource Access Manager (AWS RAM). Valid values: `NOT_SHARED`, `SHARED_BY_ME`, `SHARED_WITH_ME`
 	ShareStatus pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -132,7 +132,7 @@ func (ResolverFirewallRuleGroupState) ElementType() reflect.Type {
 type resolverFirewallRuleGroupArgs struct {
 	// A name that lets you identify the rule group, to manage and use it.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -140,7 +140,7 @@ type resolverFirewallRuleGroupArgs struct {
 type ResolverFirewallRuleGroupArgs struct {
 	// A name that lets you identify the rule group, to manage and use it.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -275,7 +275,7 @@ func (o ResolverFirewallRuleGroupOutput) ShareStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallRuleGroup) pulumi.StringOutput { return v.ShareStatus }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ResolverFirewallRuleGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverFirewallRuleGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

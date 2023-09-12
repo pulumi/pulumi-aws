@@ -100,7 +100,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
+//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", &s3.BucketV2Args{
+//				ForceDestroy: pulumi.Bool(true),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -153,6 +155,7 @@ import (
 //						Enabled:          pulumi.Bool(true),
 //						ExpirationInDays: pulumi.Int(7),
 //						S3BucketName:     exampleBucketV2.ID(),
+//						S3ObjectAcl:      pulumi.String("BUCKET_OWNER_FULL_CONTROL"),
 //					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{

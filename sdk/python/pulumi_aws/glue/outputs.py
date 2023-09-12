@@ -14,6 +14,8 @@ __all__ = [
     'CatalogDatabaseCreateTableDefaultPermission',
     'CatalogDatabaseCreateTableDefaultPermissionPrincipal',
     'CatalogDatabaseTargetDatabase',
+    'CatalogTableOpenTableFormatInput',
+    'CatalogTableOpenTableFormatInputIcebergInput',
     'CatalogTablePartitionIndex',
     'CatalogTablePartitionKey',
     'CatalogTableStorageDescriptor',
@@ -212,6 +214,88 @@ class CatalogDatabaseTargetDatabase(dict):
         Region of the target database.
         """
         return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class CatalogTableOpenTableFormatInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "icebergInput":
+            suggest = "iceberg_input"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTableOpenTableFormatInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTableOpenTableFormatInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTableOpenTableFormatInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 iceberg_input: 'outputs.CatalogTableOpenTableFormatInputIcebergInput'):
+        """
+        :param 'CatalogTableOpenTableFormatInputIcebergInputArgs' iceberg_input: Configuration block for iceberg table config. See `iceberg_input` below.
+        """
+        pulumi.set(__self__, "iceberg_input", iceberg_input)
+
+    @property
+    @pulumi.getter(name="icebergInput")
+    def iceberg_input(self) -> 'outputs.CatalogTableOpenTableFormatInputIcebergInput':
+        """
+        Configuration block for iceberg table config. See `iceberg_input` below.
+        """
+        return pulumi.get(self, "iceberg_input")
+
+
+@pulumi.output_type
+class CatalogTableOpenTableFormatInputIcebergInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metadataOperation":
+            suggest = "metadata_operation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogTableOpenTableFormatInputIcebergInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogTableOpenTableFormatInputIcebergInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogTableOpenTableFormatInputIcebergInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metadata_operation: str,
+                 version: Optional[str] = None):
+        """
+        :param str metadata_operation: A required metadata operation. Can only be set to CREATE.
+        :param str version: The table version for the Iceberg table. Defaults to 2.
+        """
+        pulumi.set(__self__, "metadata_operation", metadata_operation)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="metadataOperation")
+    def metadata_operation(self) -> str:
+        """
+        A required metadata operation. Can only be set to CREATE.
+        """
+        return pulumi.get(self, "metadata_operation")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        The table version for the Iceberg table. Defaults to 2.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type

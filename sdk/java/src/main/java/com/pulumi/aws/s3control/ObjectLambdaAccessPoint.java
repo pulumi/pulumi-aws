@@ -94,6 +94,20 @@ public class ObjectLambdaAccessPoint extends com.pulumi.resources.CustomResource
         return this.accountId;
     }
     /**
+     * Alias for the S3 Object Lambda Access Point.
+     * 
+     */
+    @Export(name="alias", refs={String.class}, tree="[0]")
+    private Output<String> alias;
+
+    /**
+     * @return Alias for the S3 Object Lambda Access Point.
+     * 
+     */
+    public Output<String> alias() {
+        return this.alias;
+    }
+    /**
      * Amazon Resource Name (ARN) of the Object Lambda Access Point.
      * 
      */
