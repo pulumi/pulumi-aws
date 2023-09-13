@@ -19,18 +19,6 @@ import (
 // use this resource with caution. IAM Identity Center does not support outbound synchronization,
 // so your identity source does not automatically update with the changes that you make to
 // users using this resource.
-//
-// ## Example Usage
-//
-// ## Import
-//
-// Using `pulumi import`, import an Identity Store User using the combination `identity_store_id/user_id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
-//
-// ```
 type User struct {
 	pulumi.CustomResourceState
 

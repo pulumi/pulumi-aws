@@ -17,48 +17,6 @@ import (
 //
 // To help you understand the charges for your Spot instances, Amazon EC2 provides a data feed that describes your Spot instance usage and pricing.
 // This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultBucketV2, err := s3.NewBucketV2(ctx, "defaultBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewSpotDatafeedSubscription(ctx, "defaultSpotDatafeedSubscription", &ec2.SpotDatafeedSubscriptionArgs{
-//				Bucket: defaultBucketV2.ID(),
-//				Prefix: pulumi.String("my_subdirectory"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import a Spot Datafeed Subscription using the word `spot-datafeed-subscription`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
-//
-// ```
 type SpotDatafeedSubscription struct {
 	pulumi.CustomResourceState
 

@@ -14,51 +14,6 @@ import (
 )
 
 // Provides a Glue Data Catalog Encryption Settings resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := glue.NewDataCatalogEncryptionSettings(ctx, "example", &glue.DataCatalogEncryptionSettingsArgs{
-//				DataCatalogEncryptionSettings: &glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs{
-//					ConnectionPasswordEncryption: &glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs{
-//						AwsKmsKeyId:                       pulumi.Any(aws_kms_key.Test.Arn),
-//						ReturnConnectionPasswordEncrypted: pulumi.Bool(true),
-//					},
-//					EncryptionAtRest: &glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs{
-//						CatalogEncryptionMode: pulumi.String("SSE-KMS"),
-//						SseAwsKmsKeyId:        pulumi.Any(aws_kms_key.Test.Arn),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Glue Data Catalog Encryption Settings using `CATALOG-ID` (AWS account ID if not custom). For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings example 123456789012
-//
-// ```
 type DataCatalogEncryptionSettings struct {
 	pulumi.CustomResourceState
 

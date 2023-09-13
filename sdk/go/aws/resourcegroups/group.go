@@ -13,57 +13,6 @@ import (
 )
 
 // Provides a Resource Group.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/resourcegroups"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := resourcegroups.NewGroup(ctx, "test", &resourcegroups.GroupArgs{
-//				ResourceQuery: &resourcegroups.GroupResourceQueryArgs{
-//					Query: pulumi.String(`{
-//	  "ResourceTypeFilters": [
-//	    "AWS::EC2::Instance"
-//	  ],
-//	  "TagFilters": [
-//	    {
-//	      "Key": "Stage",
-//	      "Values": ["Test"]
-//	    }
-//	  ]
-//	}
-//
-// `),
-//
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import resource groups using the `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:resourcegroups/group:Group foo resource-group-name
-//
-// ```
 type Group struct {
 	pulumi.CustomResourceState
 

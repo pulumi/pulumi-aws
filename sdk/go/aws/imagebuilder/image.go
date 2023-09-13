@@ -14,44 +14,6 @@ import (
 )
 
 // Manages an Image Builder Image.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.NewImage(ctx, "example", &imagebuilder.ImageArgs{
-//				DistributionConfigurationArn:   pulumi.Any(aws_imagebuilder_distribution_configuration.Example.Arn),
-//				ImageRecipeArn:                 pulumi.Any(aws_imagebuilder_image_recipe.Example.Arn),
-//				InfrastructureConfigurationArn: pulumi.Any(aws_imagebuilder_infrastructure_configuration.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_imagebuilder_image` resources using the Amazon Resource Name (ARN). For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:imagebuilder/image:Image example arn:aws:imagebuilder:us-east-1:123456789012:image/example/1.0.0/1
-//
-// ```
 type Image struct {
 	pulumi.CustomResourceState
 

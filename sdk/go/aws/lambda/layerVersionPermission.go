@@ -18,46 +18,6 @@ import (
 // For information about Lambda Layer Permissions and how to use them, see [Using Resource-based Policies for AWS Lambda][1]
 //
 // > **NOTE:** Setting `skipDestroy` to `true` means that the AWS Provider will _not_ destroy any layer version permission, even when running `pulumi destroy`. Layer version permissions are thus intentional dangling resources that are _not_ managed by Pulumi and may incur extra expense in your AWS account.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewLayerVersionPermission(ctx, "lambdaLayerPermission", &lambda.LayerVersionPermissionArgs{
-//				Action:        pulumi.String("lambda:GetLayerVersion"),
-//				LayerName:     pulumi.String("arn:aws:lambda:us-west-2:123456654321:layer:test_layer1"),
-//				Principal:     pulumi.String("111111111111"),
-//				StatementId:   pulumi.String("dev-account"),
-//				VersionNumber: pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Lambda Layer Permissions using `layer_name` and `version_number`, separated by a comma (`,`). For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:lambda/layerVersionPermission:LayerVersionPermission example arn:aws:lambda:us-west-2:123456654321:layer:test_layer1,1
-//
-// ```
 type LayerVersionPermission struct {
 	pulumi.CustomResourceState
 

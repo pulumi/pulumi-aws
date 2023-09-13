@@ -14,59 +14,6 @@ import (
 )
 
 // Provides a resource to manage AWS EMR Security Configurations
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.NewSecurityConfiguration(ctx, "foo", &emr.SecurityConfigurationArgs{
-//				Configuration: pulumi.String(`{
-//	  "EncryptionConfiguration": {
-//	    "AtRestEncryptionConfiguration": {
-//	      "S3EncryptionConfiguration": {
-//	        "EncryptionMode": "SSE-S3"
-//	      },
-//	      "LocalDiskEncryptionConfiguration": {
-//	        "EncryptionKeyProviderType": "AwsKms",
-//	        "AwsKmsKey": "arn:aws:kms:us-west-2:187416307283:alias/my_emr_test_key"
-//	      }
-//	    },
-//	    "EnableInTransitEncryption": false,
-//	    "EnableAtRestEncryption": true
-//	  }
-//	}
-//
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EMR Security Configurations using the `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:emr/securityConfiguration:SecurityConfiguration sc example-sc-name
-//
-// ```
 type SecurityConfiguration struct {
 	pulumi.CustomResourceState
 

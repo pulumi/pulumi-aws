@@ -14,46 +14,6 @@ import (
 )
 
 // Provides a CloudWatch Log Stream resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			yada, err := cloudwatch.NewLogGroup(ctx, "yada", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudwatch.NewLogStream(ctx, "foo", &cloudwatch.LogStreamArgs{
-//				LogGroupName: yada.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Cloudwatch Log Stream using the stream's `log_group_name` and `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
-//
-// ```
 type LogStream struct {
 	pulumi.CustomResourceState
 

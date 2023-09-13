@@ -21,51 +21,6 @@ import (
 // phase because a modification has not yet taken place. You can use the
 // `applyImmediately` flag to instruct the service to apply the change immediately
 // (see documentation below).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/neptune"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := neptune.NewCluster(ctx, "default", &neptune.ClusterArgs{
-//				ApplyImmediately:                 pulumi.Bool(true),
-//				BackupRetentionPeriod:            pulumi.Int(5),
-//				ClusterIdentifier:                pulumi.String("neptune-cluster-demo"),
-//				Engine:                           pulumi.String("neptune"),
-//				IamDatabaseAuthenticationEnabled: pulumi.Bool(true),
-//				PreferredBackupWindow:            pulumi.String("07:00-09:00"),
-//				SkipFinalSnapshot:                pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// > **Note:** AWS Neptune does not support user name/password–based access control.
-// See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_neptune_cluster` using the cluster identifier. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:neptune/cluster:Cluster example my-cluster
-//
-// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 

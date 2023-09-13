@@ -14,60 +14,6 @@ import (
 )
 
 // Attaches a Lightsail Load Balancer Certificate to a Lightsail Load Balancer.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testLb, err := lightsail.NewLb(ctx, "testLb", &lightsail.LbArgs{
-//				HealthCheckPath: pulumi.String("/"),
-//				InstancePort:    pulumi.Int(80),
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testLbCertificate, err := lightsail.NewLbCertificate(ctx, "testLbCertificate", &lightsail.LbCertificateArgs{
-//				LbName:     testLb.ID(),
-//				DomainName: pulumi.String("test.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewLbCertificateAttachment(ctx, "testLbCertificateAttachment", &lightsail.LbCertificateAttachmentArgs{
-//				LbName:          testLb.Name,
-//				CertificateName: testLbCertificate.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_lightsail_lb_certificate_attachment` using the name attribute. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment test example-load-balancer,example-certificate
-//
-// ```
 type LbCertificateAttachment struct {
 	pulumi.CustomResourceState
 

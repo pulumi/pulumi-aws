@@ -13,52 +13,6 @@ import (
 )
 
 // Provides a WAF Byte Match Set Resource
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/waf"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := waf.NewByteMatchSet(ctx, "byteSet", &waf.ByteMatchSetArgs{
-//				ByteMatchTuples: waf.ByteMatchSetByteMatchTupleArray{
-//					&waf.ByteMatchSetByteMatchTupleArgs{
-//						FieldToMatch: &waf.ByteMatchSetByteMatchTupleFieldToMatchArgs{
-//							Data: pulumi.String("referer"),
-//							Type: pulumi.String("HEADER"),
-//						},
-//						PositionalConstraint: pulumi.String("CONTAINS"),
-//						TargetString:         pulumi.String("badrefer1"),
-//						TextTransformation:   pulumi.String("NONE"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WAF Byte Match Set using the id. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:waf/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-//
-// ```
 type ByteMatchSet struct {
 	pulumi.CustomResourceState
 

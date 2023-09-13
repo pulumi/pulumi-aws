@@ -18,54 +18,6 @@ import (
 // > **NOTE:** This resource must be created in the Organization master account and rules will include the master account unless its ID is added to the `excludedAccounts` argument.
 //
 // > **NOTE:** Every Organization account except those configured in the `excludedAccounts` argument must have a Configuration Recorder with proper IAM permissions before the rule will successfully create or update. See also the `cfg.Recorder` resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
-//				AwsServiceAccessPrincipals: pulumi.StringArray{
-//					pulumi.String("config-multiaccountsetup.amazonaws.com"),
-//				},
-//				FeatureSet: pulumi.String("ALL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cfg.NewOrganizationManagedRule(ctx, "exampleOrganizationManagedRule", &cfg.OrganizationManagedRuleArgs{
-//				RuleIdentifier: pulumi.String("IAM_PASSWORD_POLICY"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleOrganization,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Config Organization Managed Rules using the name. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
-//
-// ```
 type OrganizationManagedRule struct {
 	pulumi.CustomResourceState
 

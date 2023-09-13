@@ -14,50 +14,6 @@ import (
 )
 
 // Manages an App Runner VPC Connector.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apprunner"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apprunner.NewVpcConnector(ctx, "connector", &apprunner.VpcConnectorArgs{
-//				SecurityGroups: pulumi.StringArray{
-//					pulumi.String("sg1"),
-//					pulumi.String("sg2"),
-//				},
-//				Subnets: pulumi.StringArray{
-//					pulumi.String("subnet1"),
-//					pulumi.String("subnet2"),
-//				},
-//				VpcConnectorName: pulumi.String("name"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import App Runner vpc connector using the `arn`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:apprunner/vpcConnector:VpcConnector example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
-//
-// ```
 type VpcConnector struct {
 	pulumi.CustomResourceState
 

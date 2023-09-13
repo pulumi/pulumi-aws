@@ -14,60 +14,6 @@ import (
 )
 
 // Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g., ARN)
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticsearch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
-//				ElasticsearchVersion: pulumi.String("2.3"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticsearch.NewDomainPolicy(ctx, "main", &elasticsearch.DomainPolicyArgs{
-//				DomainName: example.DomainName,
-//				AccessPolicies: example.Arn.ApplyT(func(arn string) (string, error) {
-//					return fmt.Sprintf(`{
-//	    "Version": "2012-10-17",
-//	    "Statement": [
-//	        {
-//	            "Action": "es:*",
-//	            "Principal": "*",
-//	            "Effect": "Allow",
-//	            "Condition": {
-//	                "IpAddress": {"aws:SourceIp": "127.0.0.1/32"}
-//	            },
-//	            "Resource": "%v/*"
-//	        }
-//	    ]
-//	}
-//
-// `, arn), nil
-//
-//				}).(pulumi.StringOutput),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type DomainPolicy struct {
 	pulumi.CustomResourceState
 

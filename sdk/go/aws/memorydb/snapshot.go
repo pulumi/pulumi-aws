@@ -16,42 +16,6 @@ import (
 // Provides a MemoryDB Snapshot.
 //
 // More information about snapshot and restore can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/snapshots.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/memorydb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := memorydb.NewSnapshot(ctx, "example", &memorydb.SnapshotArgs{
-//				ClusterName: pulumi.Any(aws_memorydb_cluster.Example.Name),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import a snapshot using the `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
-//
-// ```
 type Snapshot struct {
 	pulumi.CustomResourceState
 

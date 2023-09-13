@@ -14,46 +14,6 @@ import (
 )
 
 // A ChimeSDKVoice SIP Media Application is a managed object that passes values from a SIP rule to a target AWS Lambda function.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chime.NewSdkvoiceSipMediaApplication(ctx, "example", &chime.SdkvoiceSipMediaApplicationArgs{
-//				AwsRegion: pulumi.String("us-east-1"),
-//				Endpoints: &chime.SdkvoiceSipMediaApplicationEndpointsArgs{
-//					LambdaArn: pulumi.Any(aws_lambda_function.Test.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import a ChimeSDKVoice SIP Media Application using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication example abcdef123456
-//
-// ```
 type SdkvoiceSipMediaApplication struct {
 	pulumi.CustomResourceState
 

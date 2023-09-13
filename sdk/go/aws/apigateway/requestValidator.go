@@ -14,44 +14,6 @@ import (
 )
 
 // Manages an API Gateway Request Validator.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigateway.NewRequestValidator(ctx, "example", &apigateway.RequestValidatorArgs{
-//				RestApi:                   pulumi.Any(aws_api_gateway_rest_api.Example.Id),
-//				ValidateRequestBody:       pulumi.Bool(true),
-//				ValidateRequestParameters: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_api_gateway_request_validator` using `REST-API-ID/REQUEST-VALIDATOR-ID`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
-//
-// ```
 type RequestValidator struct {
 	pulumi.CustomResourceState
 

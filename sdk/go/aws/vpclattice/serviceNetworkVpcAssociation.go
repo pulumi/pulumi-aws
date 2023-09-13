@@ -14,47 +14,6 @@ import (
 )
 
 // Resource for managing an AWS VPC Lattice Service Network VPC Association.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewServiceNetworkVpcAssociation(ctx, "example", &vpclattice.ServiceNetworkVpcAssociationArgs{
-//				VpcIdentifier:            pulumi.Any(aws_vpc.Example.Id),
-//				ServiceNetworkIdentifier: pulumi.Any(aws_vpclattice_service_network.Example.Id),
-//				SecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Example.Id,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import VPC Lattice Service Network VPC Association using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:vpclattice/serviceNetworkVpcAssociation:ServiceNetworkVpcAssociation example snsa-05e2474658a88f6ba
-//
-// ```
 type ServiceNetworkVpcAssociation struct {
 	pulumi.CustomResourceState
 

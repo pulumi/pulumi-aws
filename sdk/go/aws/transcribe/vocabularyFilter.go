@@ -14,52 +14,6 @@ import (
 )
 
 // Resource for managing an AWS Transcribe VocabularyFilter.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transcribe"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transcribe.NewVocabularyFilter(ctx, "example", &transcribe.VocabularyFilterArgs{
-//				LanguageCode: pulumi.String("en-US"),
-//				Tags: pulumi.StringMap{
-//					"tag1": pulumi.String("value1"),
-//					"tag2": pulumi.String("value3"),
-//				},
-//				VocabularyFilterName: pulumi.String("example"),
-//				Words: pulumi.StringArray{
-//					pulumi.String("cars"),
-//					pulumi.String("bucket"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Transcribe VocabularyFilter using the `vocabulary_filter_name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
-//
-// ```
 type VocabularyFilter struct {
 	pulumi.CustomResourceState
 

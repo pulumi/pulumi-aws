@@ -14,48 +14,6 @@ import (
 )
 
 // Manages an App Runner Observability Configuration.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apprunner"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apprunner.NewObservabilityConfiguration(ctx, "example", &apprunner.ObservabilityConfigurationArgs{
-//				ObservabilityConfigurationName: pulumi.String("example"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("example-apprunner-observability-configuration"),
-//				},
-//				TraceConfiguration: &apprunner.ObservabilityConfigurationTraceConfigurationArgs{
-//					Vendor: pulumi.String("AWSXRAY"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import App Runner Observability Configuration using the `arn`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:apprunner/observabilityConfiguration:ObservabilityConfiguration example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
-//
-// ```
 type ObservabilityConfiguration struct {
 	pulumi.CustomResourceState
 

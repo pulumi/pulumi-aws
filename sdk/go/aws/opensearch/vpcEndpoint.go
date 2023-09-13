@@ -14,51 +14,6 @@ import (
 )
 
 // Manages an [AWS Opensearch VPC Endpoint](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon OpenSearch Service-managed VPC endpoint.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opensearch.NewVpcEndpoint(ctx, "foo", &opensearch.VpcEndpointArgs{
-//				DomainArn: pulumi.Any(aws_opensearch_domain.Domain_1.Arn),
-//				VpcOptions: &opensearch.VpcEndpointVpcOptionsArgs{
-//					SecurityGroupIds: pulumi.StringArray{
-//						aws_security_group.Test.Id,
-//						aws_security_group.Test2.Id,
-//					},
-//					SubnetIds: pulumi.StringArray{
-//						aws_subnet.Test.Id,
-//						aws_subnet.Test2.Id,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// In TODO v1.5.0 and later, use an `import` block to import OpenSearch VPC endpoint connections using the `id`. For exampleterraform import {
-//
-//	to = aws_opensearch_vpc_endpoint_connection.example
-//
-//	id = "endpoint-id" } Using `TODO import`, import OpenSearch VPC endpoint connections using the `id`. For exampleconsole % TODO import aws_opensearch_vpc_endpoint_connection.example endpoint-id
 type VpcEndpoint struct {
 	pulumi.CustomResourceState
 

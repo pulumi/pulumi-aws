@@ -15,49 +15,6 @@ import (
 
 // Manages an Amazon FSx for OpenZFS file system.
 // See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fsx.NewOpenZfsFileSystem(ctx, "test", &fsx.OpenZfsFileSystemArgs{
-//				StorageCapacity: pulumi.Int(64),
-//				SubnetIds: pulumi.String{
-//					aws_subnet.Test1.Id,
-//				},
-//				DeploymentType:     pulumi.String("SINGLE_AZ_1"),
-//				ThroughputCapacity: pulumi.Int(64),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import FSx File Systems using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:fsx/openZfsFileSystem:OpenZfsFileSystem example fs-543ab12b1ca672f33
-//
-// ```
-//
-//	Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:
 type OpenZfsFileSystem struct {
 	pulumi.CustomResourceState
 

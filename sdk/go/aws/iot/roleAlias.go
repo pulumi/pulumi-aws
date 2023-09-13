@@ -14,16 +14,6 @@ import (
 )
 
 // Provides an IoT role alias.
-//
-// ## Import
-//
-// Using `pulumi import`, import IOT Role Alias using the alias. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:iot/roleAlias:RoleAlias example myalias
-//
-// ```
 type RoleAlias struct {
 	pulumi.CustomResourceState
 

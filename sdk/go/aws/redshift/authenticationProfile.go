@@ -14,54 +14,6 @@ import (
 )
 
 // Creates a Redshift authentication profile
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"AllowDBUserOverride": "1",
-//				"Client_ID":           "ExampleClientID",
-//				"App_ID":              "example",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = redshift.NewAuthenticationProfile(ctx, "example", &redshift.AuthenticationProfileArgs{
-//				AuthenticationProfileName:    pulumi.String("example"),
-//				AuthenticationProfileContent: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
-//
-// ```
 type AuthenticationProfile struct {
 	pulumi.CustomResourceState
 

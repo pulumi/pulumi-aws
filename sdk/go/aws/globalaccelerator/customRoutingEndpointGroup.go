@@ -14,56 +14,6 @@ import (
 )
 
 // Provides a Global Accelerator custom routing endpoint group.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/globalaccelerator"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := globalaccelerator.NewCustomRoutingEndpointGroup(ctx, "example", &globalaccelerator.CustomRoutingEndpointGroupArgs{
-//				ListenerArn: pulumi.Any(aws_globalaccelerator_custom_routing_listener.Example.Id),
-//				DestinationConfigurations: globalaccelerator.CustomRoutingEndpointGroupDestinationConfigurationArray{
-//					&globalaccelerator.CustomRoutingEndpointGroupDestinationConfigurationArgs{
-//						FromPort: pulumi.Int(80),
-//						ToPort:   pulumi.Int(8080),
-//						Protocols: pulumi.StringArray{
-//							pulumi.String("TCP"),
-//						},
-//					},
-//				},
-//				EndpointConfigurations: globalaccelerator.CustomRoutingEndpointGroupEndpointConfigurationArray{
-//					&globalaccelerator.CustomRoutingEndpointGroupEndpointConfigurationArgs{
-//						EndpointId: pulumi.Any(aws_subnet.Example.Id),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Global Accelerator custom routing endpoint groups using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
-//
-// ```
 type CustomRoutingEndpointGroup struct {
 	pulumi.CustomResourceState
 

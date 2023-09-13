@@ -13,41 +13,6 @@ import (
 )
 
 // Provides a Synthetics Group resource.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/synthetics"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := synthetics.NewGroup(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudWatch Synthetics Group using the `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:synthetics/group:Group example example
-//
-// ```
 type Group struct {
 	pulumi.CustomResourceState
 

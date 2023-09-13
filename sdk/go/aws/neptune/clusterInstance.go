@@ -17,65 +17,6 @@ import (
 //
 // You can simply add neptune instances and Neptune manages the replication. You can use the count
 // meta-parameter to make multiple instances and join them all to the same Neptune Cluster, or you may specify different Cluster Instance resources with various `instanceClass` sizes.
-//
-// ## Example Usage
-//
-// The following example will create a neptune cluster with two neptune instances(one writer and one reader).
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/neptune"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := neptune.NewCluster(ctx, "default", &neptune.ClusterArgs{
-//				ClusterIdentifier:                pulumi.String("neptune-cluster-demo"),
-//				Engine:                           pulumi.String("neptune"),
-//				BackupRetentionPeriod:            pulumi.Int(5),
-//				PreferredBackupWindow:            pulumi.String("07:00-09:00"),
-//				SkipFinalSnapshot:                pulumi.Bool(true),
-//				IamDatabaseAuthenticationEnabled: pulumi.Bool(true),
-//				ApplyImmediately:                 pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			var example []*neptune.ClusterInstance
-//			for index := 0; index < 2; index++ {
-//				key0 := index
-//				_ := index
-//				__res, err := neptune.NewClusterInstance(ctx, fmt.Sprintf("example-%v", key0), &neptune.ClusterInstanceArgs{
-//					ClusterIdentifier: _default.ID(),
-//					Engine:            pulumi.String("neptune"),
-//					InstanceClass:     pulumi.String("db.r4.large"),
-//					ApplyImmediately:  pulumi.Bool(true),
-//				})
-//				if err != nil {
-//					return err
-//				}
-//				example = append(example, __res)
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_neptune_cluster_instance` using the instance identifier. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
-//
-// ```
 type ClusterInstance struct {
 	pulumi.CustomResourceState
 

@@ -14,48 +14,6 @@ import (
 )
 
 // Resource for managing an AWS Resource Groups Resource.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/resourcegroups"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleDedicatedHost, err := ec2.NewDedicatedHost(ctx, "exampleDedicatedHost", &ec2.DedicatedHostArgs{
-//				InstanceFamily:   pulumi.String("t3"),
-//				AvailabilityZone: pulumi.String("us-east-1a"),
-//				HostRecovery:     pulumi.String("off"),
-//				AutoPlacement:    pulumi.String("on"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleGroup, err := resourcegroups.NewGroup(ctx, "exampleGroup", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = resourcegroups.NewResource(ctx, "exampleResource", &resourcegroups.ResourceArgs{
-//				GroupArn:    exampleGroup.Arn,
-//				ResourceArn: exampleDedicatedHost.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type Resource struct {
 	pulumi.CustomResourceState
 

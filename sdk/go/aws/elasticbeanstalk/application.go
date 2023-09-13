@@ -18,47 +18,6 @@ import (
 //
 // This resource creates an application that has one configuration template named
 // `default`, and no application versions
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticbeanstalk"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
-//				Description: pulumi.String("tf-test-desc"),
-//				AppversionLifecycle: &elasticbeanstalk.ApplicationAppversionLifecycleArgs{
-//					ServiceRole:        pulumi.Any(aws_iam_role.Beanstalk_service.Arn),
-//					MaxCount:           pulumi.Int(128),
-//					DeleteSourceFromS3: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
-//
-// ```
 type Application struct {
 	pulumi.CustomResourceState
 

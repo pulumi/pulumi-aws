@@ -14,54 +14,6 @@ import (
 )
 
 // Manages an Amazon Managed Service for Prometheus (AMP) Rule Group Namespace
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amp"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			demoWorkspace, err := amp.NewWorkspace(ctx, "demoWorkspace", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = amp.NewRuleGroupNamespace(ctx, "demoRuleGroupNamespace", &amp.RuleGroupNamespaceArgs{
-//				WorkspaceId: demoWorkspace.ID(),
-//				Data: pulumi.String(`groups:
-//	  - name: test
-//	    rules:
-//	    - record: metric:recording_rule
-//	      expr: avg(rate(container_cpu_usage_seconds_total[5m]))
-//
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import the prometheus rule group namespace using the arn. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:amp/ruleGroupNamespace:RuleGroupNamespace demo arn:aws:aps:us-west-2:123456789012:rulegroupsnamespace/IDstring/namespace_name
-//
-// ```
 type RuleGroupNamespace struct {
 	pulumi.CustomResourceState
 

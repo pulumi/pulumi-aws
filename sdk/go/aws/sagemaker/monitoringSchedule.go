@@ -14,47 +14,6 @@ import (
 )
 
 // Provides a SageMaker monitoring schedule resource.
-//
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewMonitoringSchedule(ctx, "test", &sagemaker.MonitoringScheduleArgs{
-//				MonitoringScheduleConfig: &sagemaker.MonitoringScheduleMonitoringScheduleConfigArgs{
-//					MonitoringJobDefinitionName: pulumi.Any(aws_sagemaker_data_quality_job_definition.Test.Name),
-//					MonitoringType:              pulumi.String("DataQuality"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import monitoring schedules using the `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo
-//
-// ```
 type MonitoringSchedule struct {
 	pulumi.CustomResourceState
 

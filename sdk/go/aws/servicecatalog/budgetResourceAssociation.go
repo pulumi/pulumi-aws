@@ -16,44 +16,6 @@ import (
 // Manages a Service Catalog Budget Resource Association.
 //
 // > **Tip:** A "resource" is either a Service Catalog portfolio or product.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewBudgetResourceAssociation(ctx, "example", &servicecatalog.BudgetResourceAssociationArgs{
-//				BudgetName: pulumi.String("budget-pjtvyakdlyo3m"),
-//				ResourceId: pulumi.String("prod-dnigbtea24ste"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_servicecatalog_budget_resource_association` using the budget name and resource ID. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
-//
-// ```
 type BudgetResourceAssociation struct {
 	pulumi.CustomResourceState
 

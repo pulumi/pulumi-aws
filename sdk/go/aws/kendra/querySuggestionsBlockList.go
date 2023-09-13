@@ -14,51 +14,6 @@ import (
 )
 
 // Use the `awsKendraIndexBlockList` resource to manage an AWS Kendra block list used for query suggestions for an index.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewQuerySuggestionsBlockList(ctx, "example", &kendra.QuerySuggestionsBlockListArgs{
-//				IndexId: pulumi.Any(aws_kendra_index.Example.Id),
-//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				SourceS3Path: &kendra.QuerySuggestionsBlockListSourceS3PathArgs{
-//					Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
-//					Key:    pulumi.String("example/suggestions.txt"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Kendra Index"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import the `aws_kendra_query_suggestions_block_list` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
-//
-// ```
 type QuerySuggestionsBlockList struct {
 	pulumi.CustomResourceState
 

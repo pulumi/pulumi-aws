@@ -13,40 +13,6 @@ import (
 )
 
 // Provides a DataPipeline Pipeline resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datapipeline"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datapipeline.NewPipeline(ctx, "default", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_datapipeline_pipeline` using the id (Pipeline ID). For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
-//
-// ```
 type Pipeline struct {
 	pulumi.CustomResourceState
 

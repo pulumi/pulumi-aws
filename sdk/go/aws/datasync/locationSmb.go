@@ -16,48 +16,6 @@ import (
 // Manages a SMB Location within AWS DataSync.
 //
 // > **NOTE:** The DataSync Agents must be available before creating this resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datasync.NewLocationSmb(ctx, "example", &datasync.LocationSmbArgs{
-//				ServerHostname: pulumi.String("smb.example.com"),
-//				Subdirectory:   pulumi.String("/exported/path"),
-//				User:           pulumi.String("Guest"),
-//				Password:       pulumi.String("ANotGreatPassword"),
-//				AgentArns: pulumi.StringArray{
-//					aws_datasync_agent.Example.Arn,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_datasync_location_smb` using the Amazon Resource Name (ARN). For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-//
-// ```
 type LocationSmb struct {
 	pulumi.CustomResourceState
 

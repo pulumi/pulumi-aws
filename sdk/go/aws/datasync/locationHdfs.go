@@ -16,52 +16,6 @@ import (
 // Manages an HDFS Location within AWS DataSync.
 //
 // > **NOTE:** The DataSync Agents must be available before creating this resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datasync.NewLocationHdfs(ctx, "example", &datasync.LocationHdfsArgs{
-//				AgentArns: pulumi.StringArray{
-//					aws_datasync_agent.Example.Arn,
-//				},
-//				AuthenticationType: pulumi.String("SIMPLE"),
-//				SimpleUser:         pulumi.String("example"),
-//				NameNodes: datasync.LocationHdfsNameNodeArray{
-//					&datasync.LocationHdfsNameNodeArgs{
-//						Hostname: pulumi.Any(aws_instance.Example.Private_dns),
-//						Port:     pulumi.Int(80),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_datasync_location_hdfs` using the Amazon Resource Name (ARN). For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:datasync/locationHdfs:LocationHdfs example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-//
-// ```
 type LocationHdfs struct {
 	pulumi.CustomResourceState
 

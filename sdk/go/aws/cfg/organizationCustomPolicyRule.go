@@ -16,62 +16,6 @@ import (
 // Manages a Config Organization Custom Policy Rule. More information about these rules can be found in the [Enabling AWS Config Rules Across all Accounts in Your Organization](https://docs.aws.amazon.com/config/latest/developerguide/config-rule-multi-account-deployment.html) and [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) documentation. For working with Organization Managed Rules (those invoking an AWS managed rule), see the `aws_config_organization_managed__rule` resource.
 //
 // > **NOTE:** This resource must be created in the Organization master account and rules will include the master account unless its ID is added to the `excludedAccounts` argument.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cfg.NewOrganizationCustomPolicyRule(ctx, "example", &cfg.OrganizationCustomPolicyRuleArgs{
-//				PolicyRuntime: pulumi.String("guard-2.x.x"),
-//				PolicyText: pulumi.String(`  let status = ['ACTIVE']
-//
-//	  rule tableisactive when
-//	      resourceType == "AWS::DynamoDB::Table" {
-//	      configuration.tableStatus == %status
-//	  }
-//
-//	  rule checkcompliance when
-//	      resourceType == "AWS::DynamoDB::Table"
-//	      tableisactive {
-//	          let pitr = supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus
-//	          %pitr == "ENABLED"
-//	      }
-//
-// `),
-//
-//				ResourceTypesScopes: pulumi.StringArray{
-//					pulumi.String("AWS::DynamoDB::Table"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import a Config Organization Custom Policy Rule using the `name` argument. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name
-//
-// ```
 type OrganizationCustomPolicyRule struct {
 	pulumi.CustomResourceState
 

@@ -15,9 +15,14 @@
 package main
 
 import (
-	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"bytes"
+	"encoding/json"
+	"regexp"
+
 	aws "github.com/pulumi/pulumi-aws/provider/v6"
 	pftfgen "github.com/pulumi/pulumi-terraform-bridge/pf/tfgen"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 func main() {
@@ -26,7 +31,44 @@ func main() {
 	info.SchemaPostProcessor = func(spec *schema.PackageSpec) {
 		replaceWafV2TypesWithRecursive(spec)
 		removeUnusedQuicksightTypes(spec)
+
+		// Temporary workaround until this is exposed in tfbridge.
+		if val, ok := spec.Language["go"]; ok {
+			var options map[string]any
+			err := json.Unmarshal(val, &options)
+			contract.AssertNoErrorf(err, "unexpected error unmarshalling go options")
+			options["generics"] = "side-by-side"
+			spec.Language["go"] = rawMessage(options)
+		}
+
+		removeExamples(spec)
 	}
 
 	pftfgen.MainWithMuxer("aws", *info)
+}
+
+func rawMessage(v any) schema.RawMessage {
+	var out bytes.Buffer
+	encoder := json.NewEncoder(&out)
+	encoder.SetEscapeHTML(false)
+	err := encoder.Encode(v)
+	contract.AssertNoErrorf(err, "unexpected error while encoding JSON")
+	return out.Bytes()
+}
+
+var re = regexp.MustCompile(`(?ms)\n?\n?## Example Usage.*`)
+
+func removeExamples(spec *schema.PackageSpec) {
+	for tok, t := range spec.Types {
+		t.Description = re.ReplaceAllString(t.Description, "")
+		spec.Types[tok] = t
+	}
+	for tok, r := range spec.Resources {
+		r.Description = re.ReplaceAllString(r.Description, "")
+		spec.Resources[tok] = r
+	}
+	for tok, f := range spec.Functions {
+		f.Description = re.ReplaceAllString(f.Description, "")
+		spec.Functions[tok] = f
+	}
 }

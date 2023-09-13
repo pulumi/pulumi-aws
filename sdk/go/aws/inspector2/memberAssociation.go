@@ -14,43 +14,6 @@ import (
 )
 
 // Resource for associating accounts to existing Inspector instances.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/inspector2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := inspector2.NewMemberAssociation(ctx, "example", &inspector2.MemberAssociationArgs{
-//				AccountId: pulumi.String("123456789012"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Amazon Inspector Member Association using the `account_id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
-//
-// ```
 type MemberAssociation struct {
 	pulumi.CustomResourceState
 

@@ -23,16 +23,6 @@ import (
 // Practically no single attribute can be updated, except for `tags`.
 // If you need to delete a cluster, you have to remove its HSM modules first.
 // To initialize cluster, you have to add an HSM instance to the cluster, then sign CSR and upload it.
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudHSM v2 Clusters using the cluster `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:cloudhsmv2/cluster:Cluster test_cluster cluster-aeb282a201
-//
-// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 

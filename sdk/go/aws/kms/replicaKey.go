@@ -14,59 +14,6 @@ import (
 )
 
 // Manages a KMS multi-Region replica key.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := aws.NewProvider(ctx, "primary", &aws.ProviderArgs{
-//				Region: pulumi.String("us-east-1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			primaryKey, err := kms.NewKey(ctx, "primaryKey", &kms.KeyArgs{
-//				Description:          pulumi.String("Multi-Region primary key"),
-//				DeletionWindowInDays: pulumi.Int(30),
-//				MultiRegion:          pulumi.Bool(true),
-//			}, pulumi.Provider(aws.Primary))
-//			if err != nil {
-//				return err
-//			}
-//			_, err = kms.NewReplicaKey(ctx, "replica", &kms.ReplicaKeyArgs{
-//				Description:          pulumi.String("Multi-Region replica key"),
-//				DeletionWindowInDays: pulumi.Int(7),
-//				PrimaryKeyArn:        primaryKey.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import KMS multi-Region replica keys using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:kms/replicaKey:ReplicaKey example 1234abcd-12ab-34cd-56ef-1234567890ab
-//
-// ```
 type ReplicaKey struct {
 	pulumi.CustomResourceState
 

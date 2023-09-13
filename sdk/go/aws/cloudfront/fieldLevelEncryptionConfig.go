@@ -14,64 +14,6 @@ import (
 )
 
 // Provides a CloudFront Field-level Encryption Config resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewFieldLevelEncryptionConfig(ctx, "test", &cloudfront.FieldLevelEncryptionConfigArgs{
-//				Comment: pulumi.String("test comment"),
-//				ContentTypeProfileConfig: &cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigArgs{
-//					ForwardWhenContentTypeIsUnknown: pulumi.Bool(true),
-//					ContentTypeProfiles: &cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs{
-//						Items: cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArray{
-//							&cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs{
-//								ContentType: pulumi.String("application/x-www-form-urlencoded"),
-//								Format:      pulumi.String("URLEncoded"),
-//							},
-//						},
-//					},
-//				},
-//				QueryArgProfileConfig: &cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigArgs{
-//					ForwardWhenQueryArgProfileIsUnknown: pulumi.Bool(true),
-//					QueryArgProfiles: &cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs{
-//						Items: cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArray{
-//							&cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs{
-//								ProfileId: pulumi.Any(aws_cloudfront_field_level_encryption_profile.Test.Id),
-//								QueryArg:  pulumi.String("Arg1"),
-//							},
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Cloudfront Field Level Encryption Config using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE
-//
-// ```
 type FieldLevelEncryptionConfig struct {
 	pulumi.CustomResourceState
 

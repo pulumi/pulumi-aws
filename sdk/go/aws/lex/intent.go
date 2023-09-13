@@ -15,16 +15,6 @@ import (
 
 // Provides an Amazon Lex Intent resource. For more information see
 // [Amazon Lex: How It Works](https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html)
-//
-// ## Import
-//
-// Using `pulumi import`, import intents using their name. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
-//
-// ```
 type Intent struct {
 	pulumi.CustomResourceState
 

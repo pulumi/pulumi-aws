@@ -16,56 +16,6 @@ import (
 // Provides a Keyspaces Table.
 //
 // More information about Keyspaces tables can be found in the [Keyspaces Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/working-with-tables.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/keyspaces"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := keyspaces.NewTable(ctx, "example", &keyspaces.TableArgs{
-//				KeyspaceName: pulumi.Any(aws_keyspaces_keyspace.Example.Name),
-//				TableName:    pulumi.String("my_table"),
-//				SchemaDefinition: &keyspaces.TableSchemaDefinitionArgs{
-//					Columns: keyspaces.TableSchemaDefinitionColumnArray{
-//						&keyspaces.TableSchemaDefinitionColumnArgs{
-//							Name: pulumi.String("Message"),
-//							Type: pulumi.String("ASCII"),
-//						},
-//					},
-//					PartitionKeys: keyspaces.TableSchemaDefinitionPartitionKeyArray{
-//						&keyspaces.TableSchemaDefinitionPartitionKeyArgs{
-//							Name: pulumi.String("Message"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
-//
-// ```
 type Table struct {
 	pulumi.CustomResourceState
 

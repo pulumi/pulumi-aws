@@ -15,61 +15,6 @@ import (
 
 // Provides an Amazon Connect Routing Profile resource. For more information see
 // [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewRoutingProfile(ctx, "example", &connect.RoutingProfileArgs{
-//				DefaultOutboundQueueId: pulumi.String("12345678-1234-1234-1234-123456789012"),
-//				Description:            pulumi.String("example description"),
-//				InstanceId:             pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				MediaConcurrencies: connect.RoutingProfileMediaConcurrencyArray{
-//					&connect.RoutingProfileMediaConcurrencyArgs{
-//						Channel:     pulumi.String("VOICE"),
-//						Concurrency: pulumi.Int(1),
-//					},
-//				},
-//				QueueConfigs: connect.RoutingProfileQueueConfigArray{
-//					&connect.RoutingProfileQueueConfigArgs{
-//						Channel:  pulumi.String("VOICE"),
-//						Delay:    pulumi.Int(2),
-//						Priority: pulumi.Int(1),
-//						QueueId:  pulumi.String("12345678-1234-1234-1234-123456789012"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Routing Profile"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Amazon Connect Routing Profiles using the `instance_id` and `routing_profile_id` separated by a colon (`:`). For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-//
-// ```
 type RoutingProfile struct {
 	pulumi.CustomResourceState
 

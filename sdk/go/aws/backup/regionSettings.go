@@ -14,58 +14,6 @@ import (
 )
 
 // Provides an AWS Backup Region Settings resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := backup.NewRegionSettings(ctx, "test", &backup.RegionSettingsArgs{
-//				ResourceTypeManagementPreference: pulumi.BoolMap{
-//					"DynamoDB": pulumi.Bool(true),
-//					"EFS":      pulumi.Bool(true),
-//				},
-//				ResourceTypeOptInPreference: pulumi.BoolMap{
-//					"Aurora":          pulumi.Bool(true),
-//					"DocumentDB":      pulumi.Bool(true),
-//					"DynamoDB":        pulumi.Bool(true),
-//					"EBS":             pulumi.Bool(true),
-//					"EC2":             pulumi.Bool(true),
-//					"EFS":             pulumi.Bool(true),
-//					"FSx":             pulumi.Bool(true),
-//					"Neptune":         pulumi.Bool(true),
-//					"RDS":             pulumi.Bool(true),
-//					"Storage Gateway": pulumi.Bool(true),
-//					"VirtualMachine":  pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Backup Region Settings using the `region`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
-//
-// ```
 type RegionSettings struct {
 	pulumi.CustomResourceState
 

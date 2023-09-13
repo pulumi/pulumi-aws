@@ -14,49 +14,6 @@ import (
 )
 
 // Provides a resource to manage S3 Bucket Ownership Controls. For more information, see the [S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/about-object-ownership.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "exampleBucketV2", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketOwnershipControls(ctx, "exampleBucketOwnershipControls", &s3.BucketOwnershipControlsArgs{
-//				Bucket: exampleBucketV2.ID(),
-//				Rule: &s3.BucketOwnershipControlsRuleArgs{
-//					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
-//
-// ```
 type BucketOwnershipControls struct {
 	pulumi.CustomResourceState
 

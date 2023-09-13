@@ -14,16 +14,6 @@ import (
 )
 
 // Creates a Redshift cluster snapshot
-//
-// ## Import
-//
-// Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
-//
-// ```
 type ClusterSnapshot struct {
 	pulumi.CustomResourceState
 

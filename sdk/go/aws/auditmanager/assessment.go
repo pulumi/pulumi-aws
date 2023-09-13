@@ -14,67 +14,6 @@ import (
 )
 
 // Resource for managing an AWS Audit Manager Assessment.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/auditmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auditmanager.NewAssessment(ctx, "test", &auditmanager.AssessmentArgs{
-//				AssessmentReportsDestination: &auditmanager.AssessmentAssessmentReportsDestinationArgs{
-//					Destination:     pulumi.String(fmt.Sprintf("s3://%v", aws_s3_bucket.Test.Id)),
-//					DestinationType: pulumi.String("S3"),
-//				},
-//				FrameworkId: pulumi.Any(aws_auditmanager_framework.Test.Id),
-//				Roles: auditmanager.AssessmentRoleArray{
-//					&auditmanager.AssessmentRoleArgs{
-//						RoleArn:  pulumi.Any(aws_iam_role.Test.Arn),
-//						RoleType: pulumi.String("PROCESS_OWNER"),
-//					},
-//				},
-//				Scope: &auditmanager.AssessmentScopeArgs{
-//					AwsAccounts: auditmanager.AssessmentScopeAwsAccountArray{
-//						&auditmanager.AssessmentScopeAwsAccountArgs{
-//							Id: pulumi.Any(data.Aws_caller_identity.Current.Account_id),
-//						},
-//					},
-//					AwsServices: auditmanager.AssessmentScopeAwsServiceArray{
-//						&auditmanager.AssessmentScopeAwsServiceArgs{
-//							ServiceName: pulumi.String("S3"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Audit Manager Assessments using the assessment `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:auditmanager/assessment:Assessment example abc123-de45
-//
-// ```
 type Assessment struct {
 	pulumi.CustomResourceState
 

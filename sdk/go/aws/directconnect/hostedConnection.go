@@ -14,35 +14,6 @@ import (
 )
 
 // Provides a hosted connection on the specified interconnect or a link aggregation group (LAG) of interconnects. Intended for use by AWS Direct Connect Partners only.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.NewHostedConnection(ctx, "hosted", &directconnect.HostedConnectionArgs{
-//				Bandwidth:      pulumi.String("100Mbps"),
-//				ConnectionId:   pulumi.String("dxcon-ffabc123"),
-//				OwnerAccountId: pulumi.String("123456789012"),
-//				Vlan:           pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type HostedConnection struct {
 	pulumi.CustomResourceState
 

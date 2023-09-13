@@ -16,44 +16,6 @@ import (
 // Associates a link to a device.
 // A device can be associated to multiple links and a link can be associated to multiple devices.
 // The device and link must be in the same global network and the same site.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewLinkAssociation(ctx, "example", &networkmanager.LinkAssociationArgs{
-//				GlobalNetworkId: pulumi.Any(aws_networkmanager_global_network.Example.Id),
-//				LinkId:          pulumi.Any(aws_networkmanager_link.Example.Id),
-//				DeviceId:        pulumi.Any(aws_networkmanager_device.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_networkmanager_link_association` using the global network ID, link ID and device ID. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:networkmanager/linkAssociation:LinkAssociation example global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123
-//
-// ```
 type LinkAssociation struct {
 	pulumi.CustomResourceState
 

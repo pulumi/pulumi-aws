@@ -15,51 +15,6 @@ import (
 
 // Manages an Amazon FSx for NetApp ONTAP file system.
 // See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/what-is-fsx-ontap.html) for more information.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fsx.NewOntapFileSystem(ctx, "test", &fsx.OntapFileSystemArgs{
-//				StorageCapacity: pulumi.Int(1024),
-//				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Test1.Id,
-//					aws_subnet.Test2.Id,
-//				},
-//				DeploymentType:     pulumi.String("MULTI_AZ_1"),
-//				ThroughputCapacity: pulumi.Int(512),
-//				PreferredSubnetId:  pulumi.Any(aws_subnet.Test1.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import FSx File Systems using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:fsx/ontapFileSystem:OntapFileSystem example fs-543ab12b1ca672f33
-//
-// ```
-//
-//	Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the TODO configuration on an imported resource, TODO will always show a difference. To workaround this behavior, either omit the argument from the TODO configuration or use `ignore_changes` to hide the difference. For example:
 type OntapFileSystem struct {
 	pulumi.CustomResourceState
 

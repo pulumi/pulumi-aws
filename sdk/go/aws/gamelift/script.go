@@ -13,46 +13,6 @@ import (
 )
 
 // Provides an GameLift Script resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/gamelift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := gamelift.NewScript(ctx, "example", &gamelift.ScriptArgs{
-//				StorageLocation: &gamelift.ScriptStorageLocationArgs{
-//					Bucket:  pulumi.Any(aws_s3_bucket.Example.Id),
-//					Key:     pulumi.Any(aws_s3_object.Example.Key),
-//					RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import GameLift Scripts using the ID. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:gamelift/script:Script example <script-id>
-//
-// ```
 type Script struct {
 	pulumi.CustomResourceState
 

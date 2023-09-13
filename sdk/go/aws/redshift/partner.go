@@ -14,45 +14,6 @@ import (
 )
 
 // Creates a new Amazon Redshift Partner Integration.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshift.NewPartner(ctx, "example", &redshift.PartnerArgs{
-//				ClusterIdentifier: pulumi.Any(aws_redshift_cluster.Example.Id),
-//				AccountId:         pulumi.String("1234567910"),
-//				DatabaseName:      pulumi.Any(aws_redshift_cluster.Example.Database_name),
-//				PartnerName:       pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Redshift usage limits using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:redshift/partner:Partner example 01234567910:cluster-example-id:example:example
-//
-// ```
 type Partner struct {
 	pulumi.CustomResourceState
 

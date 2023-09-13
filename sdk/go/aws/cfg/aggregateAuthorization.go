@@ -14,43 +14,6 @@ import (
 )
 
 // Manages an AWS Config Aggregate Authorization
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cfg.NewAggregateAuthorization(ctx, "example", &cfg.AggregateAuthorizationArgs{
-//				AccountId: pulumi.String("123456789012"),
-//				Region:    pulumi.String("eu-west-2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Config aggregate authorizations using `account_id:region`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
-//
-// ```
 type AggregateAuthorization struct {
 	pulumi.CustomResourceState
 

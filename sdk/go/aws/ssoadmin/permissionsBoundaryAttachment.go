@@ -16,47 +16,6 @@ import (
 // Attaches a permissions boundary policy to a Single Sign-On (SSO) Permission Set resource.
 //
 // > **NOTE:** A permission set can have at most one permissions boundary attached; using more than one `ssoadmin.PermissionsBoundaryAttachment` references the same permission set will show a permanent difference.
-//
-// ## Example Usage
-// ### Attaching an AWS-managed policy
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssoadmin.NewPermissionsBoundaryAttachment(ctx, "example", &ssoadmin.PermissionsBoundaryAttachmentArgs{
-//				InstanceArn:      pulumi.Any(aws_ssoadmin_permission_set.Example.Instance_arn),
-//				PermissionSetArn: pulumi.Any(aws_ssoadmin_permission_set.Example.Arn),
-//				PermissionsBoundary: &ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundaryArgs{
-//					ManagedPolicyArn: pulumi.String("arn:aws:iam::aws:policy/ReadOnlyAccess"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SSO Admin Permissions Boundary Attachments using the `permission_set_arn` and `instance_arn`, separated by a comma (`,`). For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
-//
-// ```
 type PermissionsBoundaryAttachment struct {
 	pulumi.CustomResourceState
 

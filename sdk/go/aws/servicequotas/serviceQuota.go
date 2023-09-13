@@ -16,48 +16,6 @@ import (
 // Manages an individual Service Quota.
 //
 // > **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicequotas"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicequotas.NewServiceQuota(ctx, "example", &servicequotas.ServiceQuotaArgs{
-//				QuotaCode:   pulumi.String("L-F678F1CE"),
-//				ServiceCode: pulumi.String("vpc"),
-//				Value:       pulumi.Float64(75),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// ~> __NOTE:__ This resource does not require explicit import and will assume management of an existing service quota on Pulumi resource creation.
-//
-// Using `pulumi import`, import `aws_servicequotas_service_quota` using the service code and quota code, separated by a front slash (`/`). For example:
-//
-// ~> __NOTE:__ This resource does not require explicit import and will assume management of an existing service quota on Pulumi resource creation.
-//
-// ```sh
-//
-//	$ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
-//
-// ```
 type ServiceQuota struct {
 	pulumi.CustomResourceState
 

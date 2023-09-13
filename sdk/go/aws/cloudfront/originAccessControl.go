@@ -16,46 +16,6 @@ import (
 // Manages an AWS CloudFront Origin Access Control, which is used by CloudFront Distributions with an Amazon S3 bucket as the origin.
 //
 // Read more about Origin Access Control in the [CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html).
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewOriginAccessControl(ctx, "example", &cloudfront.OriginAccessControlArgs{
-//				Description:                   pulumi.String("Example Policy"),
-//				OriginAccessControlOriginType: pulumi.String("s3"),
-//				SigningBehavior:               pulumi.String("always"),
-//				SigningProtocol:               pulumi.String("sigv4"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudFront Origin Access Control using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:cloudfront/originAccessControl:OriginAccessControl example E327GJI25M56DG
-//
-// ```
 type OriginAccessControl struct {
 	pulumi.CustomResourceState
 

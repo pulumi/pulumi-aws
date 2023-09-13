@@ -14,46 +14,6 @@ import (
 )
 
 // Use the `pinpoint.SmsChannel` resource to manage Pinpoint SMS Channels.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pinpoint"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			app, err := pinpoint.NewApp(ctx, "app", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pinpoint.NewSmsChannel(ctx, "sms", &pinpoint.SmsChannelArgs{
-//				ApplicationId: app.ApplicationId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
-//
-// ```
 type SmsChannel struct {
 	pulumi.CustomResourceState
 

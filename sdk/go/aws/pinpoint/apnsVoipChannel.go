@@ -14,58 +14,6 @@ import (
 )
 
 // Provides a Pinpoint APNs VoIP Channel resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"os"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pinpoint"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			app, err := pinpoint.NewApp(ctx, "app", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pinpoint.NewApnsVoipChannel(ctx, "apnsVoip", &pinpoint.ApnsVoipChannelArgs{
-//				ApplicationId: app.ApplicationId,
-//				Certificate:   readFileOrPanic("./certificate.pem"),
-//				PrivateKey:    readFileOrPanic("./private_key.key"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Pinpoint APNs VoIP Channel using the `application-id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:pinpoint/apnsVoipChannel:ApnsVoipChannel apns_voip application-id
-//
-// ```
 type ApnsVoipChannel struct {
 	pulumi.CustomResourceState
 

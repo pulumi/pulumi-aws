@@ -14,54 +14,6 @@ import (
 )
 
 // Configures Session Stickiness for a Lightsail Load Balancer.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testLb, err := lightsail.NewLb(ctx, "testLb", &lightsail.LbArgs{
-//				HealthCheckPath: pulumi.String("/"),
-//				InstancePort:    pulumi.Int(80),
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewLbStickinessPolicy(ctx, "testLbStickinessPolicy", &lightsail.LbStickinessPolicyArgs{
-//				LbName:         testLb.Name,
-//				CookieDuration: pulumi.Int(900),
-//				Enabled:        pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_lightsail_lb_stickiness_policy` using the `lb_name` attribute. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:lightsail/lbStickinessPolicy:LbStickinessPolicy test example-load-balancer
-//
-// ```
 type LbStickinessPolicy struct {
 	pulumi.CustomResourceState
 

@@ -14,46 +14,6 @@ import (
 )
 
 // Provides a DMS (Data Migration Service) certificate resource. DMS certificates can be created, deleted, and imported.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dms.NewCertificate(ctx, "test", &dms.CertificateArgs{
-//				CertificateId:  pulumi.String("test-dms-certificate-tf"),
-//				CertificatePem: pulumi.String("..."),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import certificates using the `certificate_id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
-//
-// ```
 type Certificate struct {
 	pulumi.CustomResourceState
 

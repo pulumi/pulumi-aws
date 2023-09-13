@@ -14,33 +14,6 @@ import (
 )
 
 // Provides an OpsWorks ECS Cluster layer resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opsworks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := opsworks.NewEcsClusterLayer(ctx, "example", &opsworks.EcsClusterLayerArgs{
-//				StackId:       pulumi.Any(aws_opsworks_stack.Example.Id),
-//				EcsClusterArn: pulumi.Any(aws_ecs_cluster.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type EcsClusterLayer struct {
 	pulumi.CustomResourceState
 

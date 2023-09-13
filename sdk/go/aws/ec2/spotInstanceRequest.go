@@ -37,37 +37,6 @@ import (
 //
 // > **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
 // We recommend using the EC2 Instance resource with `instanceMarketOptions` instead.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewSpotInstanceRequest(ctx, "cheapWorker", &ec2.SpotInstanceRequestArgs{
-//				Ami:          pulumi.String("ami-1234"),
-//				InstanceType: pulumi.String("c4.xlarge"),
-//				SpotPrice:    pulumi.String("0.03"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("CheapWorker"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type SpotInstanceRequest struct {
 	pulumi.CustomResourceState
 

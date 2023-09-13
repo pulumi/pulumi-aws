@@ -14,50 +14,6 @@ import (
 )
 
 // Resource for managing an AWS Kendra Thesaurus.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewThesaurus(ctx, "example", &kendra.ThesaurusArgs{
-//				IndexId: pulumi.Any(aws_kendra_index.Example.Id),
-//				RoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				SourceS3Path: &kendra.ThesaurusSourceS3PathArgs{
-//					Bucket: pulumi.Any(aws_s3_bucket.Example.Id),
-//					Key:    pulumi.Any(aws_s3_object.Example.Key),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Kendra Thesaurus"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
-//
-// ```
 type Thesaurus struct {
 	pulumi.CustomResourceState
 

@@ -16,58 +16,6 @@ import (
 // Provides an MQ Configuration Resource.
 //
 // For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mq"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mq.NewConfiguration(ctx, "example", &mq.ConfigurationArgs{
-//				Data: pulumi.String(`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-//
-// <broker xmlns="http://activemq.apache.org/schema/core">
-//
-//	<plugins>
-//	  <forcePersistencyModeBrokerPlugin persistenceFlag="true"/>
-//	  <statisticsBrokerPlugin/>
-//	  <timeStampingBrokerPlugin ttlCeiling="86400000" zeroExpirationOverride="86400000"/>
-//	</plugins>
-//
-// </broker>
-//
-// `),
-//
-//				Description:   pulumi.String("Example Configuration"),
-//				EngineType:    pulumi.String("ActiveMQ"),
-//				EngineVersion: pulumi.String("5.15.0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import MQ Configurations using the configuration ID. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
-//
-// ```
 type Configuration struct {
 	pulumi.CustomResourceState
 

@@ -14,43 +14,6 @@ import (
 )
 
 // Provides a Location Service Place Index.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/location"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := location.NewPlaceIndex(ctx, "example", &location.PlaceIndexArgs{
-//				DataSource: pulumi.String("Here"),
-//				IndexName:  pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_location_place_index` resources using the place index name. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:location/placeIndex:PlaceIndex example example
-//
-// ```
 type PlaceIndex struct {
 	pulumi.CustomResourceState
 

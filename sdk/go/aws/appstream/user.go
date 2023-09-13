@@ -14,45 +14,6 @@ import (
 )
 
 // Provides an AppStream user.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appstream"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appstream.NewUser(ctx, "example", &appstream.UserArgs{
-//				AuthenticationType: pulumi.String("USERPOOL"),
-//				FirstName:          pulumi.String("FIRST NAME"),
-//				LastName:           pulumi.String("LAST NAME"),
-//				UserName:           pulumi.String("EMAIL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_appstream_user` using the `user_name` and `authentication_type` separated by a slash (`/`). For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:appstream/user:User example UserName/AuthenticationType
-//
-// ```
 type User struct {
 	pulumi.CustomResourceState
 

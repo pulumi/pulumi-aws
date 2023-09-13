@@ -14,60 +14,6 @@ import (
 )
 
 // Manages a Direct Connect Gateway Association Proposal, typically for enabling cross-account associations. For single account associations, see the `directconnect.GatewayAssociation` resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.NewGatewayAssociationProposal(ctx, "example", &directconnect.GatewayAssociationProposalArgs{
-//				DxGatewayId:             pulumi.Any(aws_dx_gateway.Example.Id),
-//				DxGatewayOwnerAccountId: pulumi.Any(aws_dx_gateway.Example.Owner_account_id),
-//				AssociatedGatewayId:     pulumi.Any(aws_vpn_gateway.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using a proposal ID:
-//
-// Using a proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`:
-//
-// __With `TODO import`__, import Direct Connect Gateway Association Proposals using either a proposal ID or proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`. For example:
-//
-// Using a proposal ID:
-//
-// ```sh
-//
-//	$ pulumi import aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal example ac90e981-b718-4364-872d-65478c84fafe
-//
-// ```
-//
-//	Using a proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`:
-//
-// ```sh
-//
-//	$ pulumi import aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal example ac90e981-b718-4364-872d-65478c84fafe/abcd1234-dcba-5678-be23-cdef9876ab45/vgw-12345678
-//
-// ```
-//
-//	The latter case is useful when a previous proposal has been accepted and deleted by AWS. The `aws_dx_gateway_association_proposal` resource will then represent a pseudo-proposal for the same Direct Connect Gateway and associated gateway. If no previous proposal is available, use a tool like [`uuidgen`](http://manpages.ubuntu.com/manpages/bionic/man1/uuidgen.1.html) to generate a new random pseudo-proposal ID.
 type GatewayAssociationProposal struct {
 	pulumi.CustomResourceState
 

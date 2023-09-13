@@ -14,48 +14,6 @@ import (
 )
 
 // Provides a Pinpoint Baidu Channel resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pinpoint"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			app, err := pinpoint.NewApp(ctx, "app", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pinpoint.NewBaiduChannel(ctx, "channel", &pinpoint.BaiduChannelArgs{
-//				ApplicationId: app.ApplicationId,
-//				ApiKey:        pulumi.String(""),
-//				SecretKey:     pulumi.String(""),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Pinpoint Baidu Channel using the `application-id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
-//
-// ```
 type BaiduChannel struct {
 	pulumi.CustomResourceState
 

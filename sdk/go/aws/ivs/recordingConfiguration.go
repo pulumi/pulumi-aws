@@ -14,47 +14,6 @@ import (
 )
 
 // Resource for managing an AWS IVS (Interactive Video) Recording Configuration.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ivs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ivs.NewRecordingConfiguration(ctx, "example", &ivs.RecordingConfigurationArgs{
-//				DestinationConfiguration: &ivs.RecordingConfigurationDestinationConfigurationArgs{
-//					S3: &ivs.RecordingConfigurationDestinationConfigurationS3Args{
-//						BucketName: pulumi.String("ivs-stream-archive"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import IVS (Interactive Video) Recording Configuration using the ARN. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
-//
-// ```
 type RecordingConfiguration struct {
 	pulumi.CustomResourceState
 

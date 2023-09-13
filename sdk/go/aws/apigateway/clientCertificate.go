@@ -13,42 +13,6 @@ import (
 )
 
 // Provides an API Gateway Client Certificate.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigateway.NewClientCertificate(ctx, "demo", &apigateway.ClientCertificateArgs{
-//				Description: pulumi.String("My client certificate"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import API Gateway Client Certificates using the id. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
-//
-// ```
 type ClientCertificate struct {
 	pulumi.CustomResourceState
 

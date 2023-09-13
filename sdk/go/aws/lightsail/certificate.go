@@ -13,45 +13,6 @@ import (
 )
 
 // Provides a lightsail certificate.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewCertificate(ctx, "test", &lightsail.CertificateArgs{
-//				DomainName: pulumi.String("testdomain.com"),
-//				SubjectAlternativeNames: pulumi.StringArray{
-//					pulumi.String("www.testdomain.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:lightsail/certificate:Certificate test CertificateName
-//
-// ```
 type Certificate struct {
 	pulumi.CustomResourceState
 

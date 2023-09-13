@@ -17,67 +17,6 @@ import (
 // > **NOTE:** An `opensearch.ServerlessCollection` cannot be created without having an applicable encryption security policy. Use the `dependsOn` meta-argument to define this dependency.
 //
 // > **NOTE:** An `opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Rules": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Resource": []string{
-//							"collection/example",
-//						},
-//						"ResourceType": "collection",
-//					},
-//				},
-//				"AWSOwnedKey": true,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			exampleServerlessSecurityPolicy, err := opensearch.NewServerlessSecurityPolicy(ctx, "exampleServerlessSecurityPolicy", &opensearch.ServerlessSecurityPolicyArgs{
-//				Type:   pulumi.String("encryption"),
-//				Policy: pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = opensearch.NewServerlessCollection(ctx, "exampleServerlessCollection", nil, pulumi.DependsOn([]pulumi.Resource{
-//				exampleServerlessSecurityPolicy,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
-//
-// ```
 type ServerlessCollection struct {
 	pulumi.CustomResourceState
 

@@ -13,51 +13,6 @@ import (
 )
 
 // Provides an Inspector Classic Assessment Target
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/inspector"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			bar, err := inspector.NewResourceGroup(ctx, "bar", &inspector.ResourceGroupArgs{
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("foo"),
-//					"Env":  pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = inspector.NewAssessmentTarget(ctx, "foo", &inspector.AssessmentTargetArgs{
-//				ResourceGroupArn: bar.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Inspector Classic Assessment Targets using their Amazon Resource Name (ARN). For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
-//
-// ```
 type AssessmentTarget struct {
 	pulumi.CustomResourceState
 

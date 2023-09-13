@@ -14,55 +14,6 @@ import (
 )
 
 // Creates and manages an AWS XRay Sampling Rule.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/xray"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := xray.NewSamplingRule(ctx, "example", &xray.SamplingRuleArgs{
-//				Attributes: pulumi.StringMap{
-//					"Hello": pulumi.String("Tris"),
-//				},
-//				FixedRate:     pulumi.Float64(0.05),
-//				Host:          pulumi.String("*"),
-//				HttpMethod:    pulumi.String("*"),
-//				Priority:      pulumi.Int(9999),
-//				ReservoirSize: pulumi.Int(1),
-//				ResourceArn:   pulumi.String("*"),
-//				RuleName:      pulumi.String("example"),
-//				ServiceName:   pulumi.String("*"),
-//				ServiceType:   pulumi.String("*"),
-//				UrlPath:       pulumi.String("*"),
-//				Version:       pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import XRay Sampling Rules using the name. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:xray/samplingRule:SamplingRule example example
-//
-// ```
 type SamplingRule struct {
 	pulumi.CustomResourceState
 

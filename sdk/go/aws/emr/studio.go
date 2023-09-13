@@ -14,53 +14,6 @@ import (
 )
 
 // Provides an Elastic MapReduce Studio.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.NewStudio(ctx, "example", &emr.StudioArgs{
-//				AuthMode:              pulumi.String("SSO"),
-//				DefaultS3Location:     pulumi.String(fmt.Sprintf("s3://%v/test", aws_s3_bucket.Test.Bucket)),
-//				EngineSecurityGroupId: pulumi.Any(aws_security_group.Test.Id),
-//				ServiceRole:           pulumi.Any(aws_iam_role.Test.Arn),
-//				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Test.Id,
-//				},
-//				UserRole:                 pulumi.Any(aws_iam_role.Test.Arn),
-//				VpcId:                    pulumi.Any(aws_vpc.Test.Id),
-//				WorkspaceSecurityGroupId: pulumi.Any(aws_security_group.Test.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EMR studios using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
-//
-// ```
 type Studio struct {
 	pulumi.CustomResourceState
 

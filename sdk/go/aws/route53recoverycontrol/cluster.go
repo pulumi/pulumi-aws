@@ -13,40 +13,6 @@ import (
 )
 
 // Provides an AWS Route 53 Recovery Control Config Cluster.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53recoverycontrol"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53recoverycontrol.NewCluster(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Route53 Recovery Control Config cluster using the cluster ARN. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:route53recoverycontrol/cluster:Cluster mycluster arn:aws:route53-recovery-control::313517334327:cluster/f9ae13be-a11e-4ec7-8522-94a70468e6ea
-//
-// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 

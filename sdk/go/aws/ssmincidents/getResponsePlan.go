@@ -13,8 +13,6 @@ import (
 )
 
 // Use this data source to manage a response plan in AWS Systems Manager Incident Manager.
-//
-// ## Example Usage
 func LookupResponsePlan(ctx *pulumi.Context, args *LookupResponsePlanArgs, opts ...pulumi.InvokeOption) (*LookupResponsePlanResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResponsePlanResult

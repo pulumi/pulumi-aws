@@ -14,48 +14,6 @@ import (
 )
 
 // Resource for managing an Amazon Inspector Delegated Admin Account.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/inspector2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			current, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = inspector2.NewDelegatedAdminAccount(ctx, "example", &inspector2.DelegatedAdminAccountArgs{
-//				AccountId: *pulumi.String(current.AccountId),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Inspector Delegated Admin Account using the `account_id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 012345678901
-//
-// ```
 type DelegatedAdminAccount struct {
 	pulumi.CustomResourceState
 

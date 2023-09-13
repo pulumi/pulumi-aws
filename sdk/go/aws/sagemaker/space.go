@@ -14,44 +14,6 @@ import (
 )
 
 // Provides a SageMaker Space resource.
-//
-// ## Example Usage
-// ### Basic usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewSpace(ctx, "example", &sagemaker.SpaceArgs{
-//				DomainId:  pulumi.Any(aws_sagemaker_domain.Test.Id),
-//				SpaceName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SageMaker Spaces using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:sagemaker/space:Space test_space arn:aws:sagemaker:us-west-2:123456789012:space/domain-id/space-name
-//
-// ```
 type Space struct {
 	pulumi.CustomResourceState
 

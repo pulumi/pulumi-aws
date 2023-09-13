@@ -14,45 +14,6 @@ import (
 )
 
 // Provides a DAX Subnet Group resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dax"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := dax.NewSubnetGroup(ctx, "example", &dax.SubnetGroupArgs{
-//				SubnetIds: pulumi.StringArray{
-//					aws_subnet.Example1.Id,
-//					aws_subnet.Example2.Id,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import DAX Subnet Group using the `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
-//
-// ```
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 

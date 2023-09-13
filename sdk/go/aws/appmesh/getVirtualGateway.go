@@ -13,8 +13,6 @@ import (
 )
 
 // Data source for managing an AWS App Mesh Virtual Gateway.
-//
-// ## Example Usage
 func LookupVirtualGateway(ctx *pulumi.Context, args *LookupVirtualGatewayArgs, opts ...pulumi.InvokeOption) (*LookupVirtualGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualGatewayResult

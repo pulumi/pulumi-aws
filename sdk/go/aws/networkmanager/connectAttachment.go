@@ -14,18 +14,6 @@ import (
 )
 
 // Resource for managing an AWS NetworkManager ConnectAttachment.
-//
-// ## Example Usage
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_networkmanager_connect_attachment` using the attachment ID. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
-//
-// ```
 type ConnectAttachment struct {
 	pulumi.CustomResourceState
 

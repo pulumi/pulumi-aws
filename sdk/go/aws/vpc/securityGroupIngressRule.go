@@ -21,46 +21,6 @@ import (
 // `egress` rules. Both of these resource were added before AWS assigned a [security group rule unique ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules.html), and they do not work well in all scenarios using the`description` and `tags` attributes, which rely on the unique ID.
 // The `vpc.SecurityGroupIngressRule` resource has been added to address these limitations and should be used for all new security group rules.
 // You should not use the `vpc.SecurityGroupIngressRule` resource in conjunction with an `ec2.SecurityGroup` resource with in-line rules or with `ec2.SecurityGroupRule` resources defined for the same Security Group, as rule conflicts may occur and rules will be overwritten.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpc"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpc.NewSecurityGroupIngressRule(ctx, "example", &vpc.SecurityGroupIngressRuleArgs{
-//				SecurityGroupId: pulumi.Any(aws_security_group.Example.Id),
-//				CidrIpv4:        pulumi.String("10.0.0.0/8"),
-//				FromPort:        pulumi.Int(80),
-//				IpProtocol:      pulumi.String("tcp"),
-//				ToPort:          pulumi.Int(80),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import security group ingress rules using the `security_group_rule_id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule example sgr-02108b27edd666983
-//
-// ```
 type SecurityGroupIngressRule struct {
 	pulumi.CustomResourceState
 

@@ -14,43 +14,6 @@ import (
 )
 
 // Manages an EC2 Transit Gateway Policy Table association.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.NewPolicyTableAssociation(ctx, "example", &ec2transitgateway.PolicyTableAssociationArgs{
-//				TransitGatewayAttachmentId:  pulumi.Any(aws_networkmanager_transit_gateway_peering.Example.Transit_gateway_peering_attachment_id),
-//				TransitGatewayPolicyTableId: pulumi.Any(aws_ec2_transit_gateway_policy_table.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_ec2_transit_gateway_policy_table_association` using the EC2 Transit Gateway Policy Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2transitgateway/policyTableAssociation:PolicyTableAssociation example tgw-rtb-12345678_tgw-attach-87654321
-//
-// ```
 type PolicyTableAssociation struct {
 	pulumi.CustomResourceState
 

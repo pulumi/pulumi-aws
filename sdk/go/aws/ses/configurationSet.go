@@ -13,67 +13,6 @@ import (
 )
 
 // Provides an SES configuration set resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.NewConfigurationSet(ctx, "test", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Require TLS Connections
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.NewConfigurationSet(ctx, "test", &ses.ConfigurationSetArgs{
-//				DeliveryOptions: &ses.ConfigurationSetDeliveryOptionsArgs{
-//					TlsPolicy: pulumi.String("Require"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SES Configuration Sets using their `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
-//
-// ```
 type ConfigurationSet struct {
 	pulumi.CustomResourceState
 

@@ -15,45 +15,6 @@ import (
 
 // Manages an Amazon API Gateway Version 2 route response.
 // More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
-//
-// ## Example Usage
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigatewayv2.NewRouteResponse(ctx, "example", &apigatewayv2.RouteResponseArgs{
-//				ApiId:            pulumi.Any(aws_apigatewayv2_api.Example.Id),
-//				RouteId:          pulumi.Any(aws_apigatewayv2_route.Example.Id),
-//				RouteResponseKey: pulumi.String("$default"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_apigatewayv2_route_response` using the API identifier, route identifier and route response identifier. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:apigatewayv2/routeResponse:RouteResponse example aabbccddee/1122334/998877
-//
-// ```
 type RouteResponse struct {
 	pulumi.CustomResourceState
 

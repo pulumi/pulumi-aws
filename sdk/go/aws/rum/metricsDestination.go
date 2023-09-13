@@ -14,43 +14,6 @@ import (
 )
 
 // Provides a CloudWatch RUM Metrics Destination resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rum"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := rum.NewMetricsDestination(ctx, "example", &rum.MetricsDestinationArgs{
-//				AppMonitorName: pulumi.Any(aws_rum_app_monitor.Example.Name),
-//				Destination:    pulumi.String("CloudWatch"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Cloudwatch RUM Metrics Destination using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:rum/metricsDestination:MetricsDestination example example
-//
-// ```
 type MetricsDestination struct {
 	pulumi.CustomResourceState
 

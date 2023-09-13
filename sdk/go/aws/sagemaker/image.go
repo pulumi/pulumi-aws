@@ -14,44 +14,6 @@ import (
 )
 
 // Provides a SageMaker Image resource.
-//
-// ## Example Usage
-// ### Basic usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewImage(ctx, "example", &sagemaker.ImageArgs{
-//				ImageName: pulumi.String("example"),
-//				RoleArn:   pulumi.Any(aws_iam_role.Test.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SageMaker Code Images using the `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:sagemaker/image:Image test_image my-code-repo
-//
-// ```
 type Image struct {
 	pulumi.CustomResourceState
 

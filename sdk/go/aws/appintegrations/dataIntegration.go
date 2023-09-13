@@ -14,52 +14,6 @@ import (
 )
 
 // Provides an Amazon AppIntegrations Data Integration resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appintegrations"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appintegrations.NewDataIntegration(ctx, "example", &appintegrations.DataIntegrationArgs{
-//				Description: pulumi.String("example"),
-//				KmsKey:      pulumi.Any(aws_kms_key.Test.Arn),
-//				SourceUri:   pulumi.String("Salesforce://AppFlow/example"),
-//				ScheduleConfig: &appintegrations.DataIntegrationScheduleConfigArgs{
-//					FirstExecutionFrom: pulumi.String("1439788442681"),
-//					Object:             pulumi.String("Account"),
-//					ScheduleExpression: pulumi.String("rate(1 hour)"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Key1": pulumi.String("Value1"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Amazon AppIntegrations Data Integrations using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:appintegrations/dataIntegration:DataIntegration example 12345678-1234-1234-1234-123456789123
-//
-// ```
 type DataIntegration struct {
 	pulumi.CustomResourceState
 

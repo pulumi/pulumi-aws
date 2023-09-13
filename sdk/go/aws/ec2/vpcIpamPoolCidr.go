@@ -19,14 +19,6 @@ import (
 //
 // > **NOTE:** In order to deprovision CIDRs all Allocations must be released. Allocations created by a VPC take up to 30 minutes to be released. However, for IPAM to properly manage the removal of allocation records created by VPCs and other resources, you must [grant it permissions](https://docs.aws.amazon.com/vpc/latest/ipam/choose-single-user-or-orgs-ipam.html) in
 // either a single account or organizationally. If you are unable to deprovision a cidr after waiting over 30 minutes, you may be missing the Service Linked Role.
-//
-// ## Import
-//
-// terraform import {
-//
-//	to = aws_vpc_ipam_pool_cidr.example
-//
-//	id = "172.20.0.0/24_ipam-pool-0e634f5a1517cccdc" } Using `pulumi import`, import IPAMs using the `<cidr>_<ipam-pool-id>`. For exampleconsole % TODO import aws_vpc_ipam_pool_cidr.example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
 type VpcIpamPoolCidr struct {
 	pulumi.CustomResourceState
 

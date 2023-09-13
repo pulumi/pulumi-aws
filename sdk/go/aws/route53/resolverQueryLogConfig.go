@@ -14,47 +14,6 @@ import (
 )
 
 // Provides a Route 53 Resolver query logging configuration resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53.NewResolverQueryLogConfig(ctx, "example", &route53.ResolverQueryLogConfigArgs{
-//				DestinationArn: pulumi.Any(aws_s3_bucket.Example.Arn),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("Prod"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// # Using `pulumi import`, import
-//
-// Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
-//
-// ```
 type ResolverQueryLogConfig struct {
 	pulumi.CustomResourceState
 

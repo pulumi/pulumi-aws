@@ -14,62 +14,6 @@ import (
 )
 
 // Resource for managing an AWS AccessAnalyzer Archive Rule.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/accessanalyzer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := accessanalyzer.NewArchiveRule(ctx, "example", &accessanalyzer.ArchiveRuleArgs{
-//				AnalyzerName: pulumi.String("example-analyzer"),
-//				Filters: accessanalyzer.ArchiveRuleFilterArray{
-//					&accessanalyzer.ArchiveRuleFilterArgs{
-//						Criteria: pulumi.String("condition.aws:UserId"),
-//						Eqs: pulumi.StringArray{
-//							pulumi.String("userid"),
-//						},
-//					},
-//					&accessanalyzer.ArchiveRuleFilterArgs{
-//						Criteria: pulumi.String("error"),
-//						Exists:   pulumi.String("true"),
-//					},
-//					&accessanalyzer.ArchiveRuleFilterArgs{
-//						Criteria: pulumi.String("isPublic"),
-//						Eqs: pulumi.StringArray{
-//							pulumi.String("false"),
-//						},
-//					},
-//				},
-//				RuleName: pulumi.String("example-rule"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AccessAnalyzer ArchiveRule using the `analyzer_name/rule_name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
-//
-// ```
 type ArchiveRule struct {
 	pulumi.CustomResourceState
 

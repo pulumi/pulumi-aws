@@ -14,42 +14,6 @@ import (
 )
 
 // Resource for managing an AWS CodeCatalyst Source Repository.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecatalyst"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codecatalyst.NewSourceRepository(ctx, "example", &codecatalyst.SourceRepositoryArgs{
-//				ProjectName: pulumi.String("example-project"),
-//				SpaceName:   pulumi.String("example-space"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// In TODO v1.5.0 and later, use an `import` block to import CodeCatalyst Source Repository using the `example_id_arg`. For exampleterraform import {
-//
-//	to = aws_codecatalyst_source_repository.example
-//
-//	id = "source_repository-id-12345678" } Using `TODO import`, import CodeCatalyst Source Repository using the `example_id_arg`. For exampleconsole % TODO import aws_codecatalyst_source_repository.example source_repository-id-12345678
 type SourceRepository struct {
 	pulumi.CustomResourceState
 

@@ -14,61 +14,6 @@ import (
 )
 
 // Provides a Cognito Risk Configuration resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cognito.NewRiskConfiguration(ctx, "example", &cognito.RiskConfigurationArgs{
-//				UserPoolId: pulumi.Any(aws_cognito_user_pool.Example.Id),
-//				RiskExceptionConfiguration: &cognito.RiskConfigurationRiskExceptionConfigurationArgs{
-//					BlockedIpRangeLists: pulumi.StringArray{
-//						pulumi.String("10.10.10.10/32"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Import using the user pool ID:
-//
-// Import using the user pool ID and Client ID separated by a `:`:
-//
-// __Using `pulumi import` to import__ Cognito Risk Configurations using the user pool ID or the user pool ID and Client Id separated by a `:`. For example:
-//
-// Import using the user pool ID:
-//
-// ```sh
-//
-//	$ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example
-//
-// ```
-//
-//	Import using the user pool ID and Client ID separated by a `:`:
-//
-// ```sh
-//
-//	$ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
-//
-// ```
 type RiskConfiguration struct {
 	pulumi.CustomResourceState
 

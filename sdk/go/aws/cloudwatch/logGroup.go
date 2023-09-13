@@ -13,45 +13,6 @@ import (
 )
 
 // Provides a CloudWatch Log Group resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewLogGroup(ctx, "yada", &cloudwatch.LogGroupArgs{
-//				Tags: pulumi.StringMap{
-//					"Application": pulumi.String("serviceA"),
-//					"Environment": pulumi.String("production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada
-//
-// ```
 type LogGroup struct {
 	pulumi.CustomResourceState
 

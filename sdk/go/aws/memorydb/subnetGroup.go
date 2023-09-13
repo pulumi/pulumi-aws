@@ -16,59 +16,6 @@ import (
 // Provides a MemoryDB Subnet Group.
 //
 // More information about subnet groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/subnetgroups.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/memorydb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVpc, err := ec2.NewVpc(ctx, "exampleVpc", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := ec2.NewSubnet(ctx, "exampleSubnet", &ec2.SubnetArgs{
-//				VpcId:            exampleVpc.ID(),
-//				CidrBlock:        pulumi.String("10.0.0.0/24"),
-//				AvailabilityZone: pulumi.String("us-west-2a"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = memorydb.NewSubnetGroup(ctx, "exampleSubnetGroup", &memorydb.SubnetGroupArgs{
-//				SubnetIds: pulumi.StringArray{
-//					exampleSubnet.ID(),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import a subnet group using its `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
-//
-// ```
 type SubnetGroup struct {
 	pulumi.CustomResourceState
 

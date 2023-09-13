@@ -14,68 +14,6 @@ import (
 )
 
 // Provides a SageMaker data quality job definition resource.
-//
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewDataQualityJobDefinition(ctx, "test", &sagemaker.DataQualityJobDefinitionArgs{
-//				DataQualityAppSpecification: &sagemaker.DataQualityJobDefinitionDataQualityAppSpecificationArgs{
-//					ImageUri: pulumi.Any(data.Aws_sagemaker_prebuilt_ecr_image.Monitor.Registry_path),
-//				},
-//				DataQualityJobInput: &sagemaker.DataQualityJobDefinitionDataQualityJobInputArgs{
-//					EndpointInput: &sagemaker.DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs{
-//						EndpointName: pulumi.Any(aws_sagemaker_endpoint.My_endpoint.Name),
-//					},
-//				},
-//				DataQualityJobOutputConfig: &sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigArgs{
-//					MonitoringOutputs: &sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs{
-//						S3Output: sagemaker.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs{
-//							S3Uri: pulumi.String(fmt.Sprintf("https://%v/output", aws_s3_bucket.My_bucket.Bucket_regional_domain_name)),
-//						},
-//					},
-//				},
-//				JobResources: &sagemaker.DataQualityJobDefinitionJobResourcesArgs{
-//					ClusterConfig: &sagemaker.DataQualityJobDefinitionJobResourcesClusterConfigArgs{
-//						InstanceCount:  pulumi.Int(1),
-//						InstanceType:   pulumi.String("ml.t3.medium"),
-//						VolumeSizeInGb: pulumi.Int(20),
-//					},
-//				},
-//				RoleArn: pulumi.Any(aws_iam_role.My_role.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import data quality job definitions using the `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo
-//
-// ```
 type DataQualityJobDefinition struct {
 	pulumi.CustomResourceState
 

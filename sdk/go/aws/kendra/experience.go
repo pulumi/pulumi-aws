@@ -14,56 +14,6 @@ import (
 )
 
 // Resource for managing an AWS Kendra Experience.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kendra.NewExperience(ctx, "example", &kendra.ExperienceArgs{
-//				IndexId:     pulumi.Any(aws_kendra_index.Example.Id),
-//				Description: pulumi.String("My Kendra Experience"),
-//				RoleArn:     pulumi.Any(aws_iam_role.Example.Arn),
-//				Configuration: &kendra.ExperienceConfigurationArgs{
-//					ContentSourceConfiguration: &kendra.ExperienceConfigurationContentSourceConfigurationArgs{
-//						DirectPutContent: pulumi.Bool(true),
-//						FaqIds: pulumi.StringArray{
-//							aws_kendra_faq.Example.Faq_id,
-//						},
-//					},
-//					UserIdentityConfiguration: &kendra.ExperienceConfigurationUserIdentityConfigurationArgs{
-//						IdentityAttributeName: pulumi.String("12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Kendra Experience using the unique identifiers of the experience and index separated by a slash (`/`). For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:kendra/experience:Experience example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f
-//
-// ```
 type Experience struct {
 	pulumi.CustomResourceState
 

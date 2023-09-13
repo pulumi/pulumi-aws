@@ -16,46 +16,6 @@ import (
 // Provides an EventBridge event API Destination resource.
 //
 // > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewEventApiDestination(ctx, "test", &cloudwatch.EventApiDestinationArgs{
-//				Description:                  pulumi.String("An API Destination"),
-//				InvocationEndpoint:           pulumi.String("https://api.destination.com/endpoint"),
-//				HttpMethod:                   pulumi.String("POST"),
-//				InvocationRateLimitPerSecond: pulumi.Int(20),
-//				ConnectionArn:                pulumi.Any(aws_cloudwatch_event_connection.Test.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EventBridge API Destinations using the `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination
-//
-// ```
 type EventApiDestination struct {
 	pulumi.CustomResourceState
 

@@ -18,16 +18,6 @@ import (
 // > **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `autoscaling.Group` and `autoscaling.Tag` to manage tags of the same ASG will cause a perpetual difference where the `autoscaling.Group` resource will try to remove the tag being added by the `autoscaling.Tag` resource.
 //
 // > **NOTE:** This tagging resource does not use the provider `ignoreTags` configuration.
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_autoscaling_group_tag` using the ASG name and key, separated by a comma (`,`). For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:autoscaling/tag:Tag example asg-example,k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType
-//
-// ```
 type Tag struct {
 	pulumi.CustomResourceState
 

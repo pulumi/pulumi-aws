@@ -14,51 +14,6 @@ import (
 )
 
 // Provides an Elastic Transcoder pipeline resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elastictranscoder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := elastictranscoder.NewPipeline(ctx, "bar", &elastictranscoder.PipelineArgs{
-//				InputBucket: pulumi.Any(aws_s3_bucket.Input_bucket.Id),
-//				Role:        pulumi.Any(aws_iam_role.Test_role.Arn),
-//				ContentConfig: &elastictranscoder.PipelineContentConfigArgs{
-//					Bucket:       pulumi.Any(aws_s3_bucket.Content_bucket.Id),
-//					StorageClass: pulumi.String("Standard"),
-//				},
-//				ThumbnailConfig: &elastictranscoder.PipelineThumbnailConfigArgs{
-//					Bucket:       pulumi.Any(aws_s3_bucket.Thumb_bucket.Id),
-//					StorageClass: pulumi.String("Standard"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
-//
-// ```
 type Pipeline struct {
 	pulumi.CustomResourceState
 

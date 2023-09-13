@@ -14,54 +14,6 @@ import (
 )
 
 // Manages an Amazon Managed Service for Prometheus (AMP) Alert Manager Definition
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amp"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			demoWorkspace, err := amp.NewWorkspace(ctx, "demoWorkspace", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = amp.NewAlertManagerDefinition(ctx, "demoAlertManagerDefinition", &amp.AlertManagerDefinitionArgs{
-//				WorkspaceId: demoWorkspace.ID(),
-//				Definition: pulumi.String(`alertmanager_config: |
-//	  route:
-//	    receiver: 'default'
-//	  receivers:
-//	    - name: 'default'
-//
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import the prometheus alert manager definition using the workspace identifier. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:amp/alertManagerDefinition:AlertManagerDefinition demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
-//
-// ```
 type AlertManagerDefinition struct {
 	pulumi.CustomResourceState
 

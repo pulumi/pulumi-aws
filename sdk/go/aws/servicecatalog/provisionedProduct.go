@@ -21,53 +21,6 @@ import (
 // > **Tip:** If you include conflicted keys as tags, AWS will report an error, "Parameter validation failed: Missing required parameter in Tags[N]:Value".
 //
 // > **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewProvisionedProduct(ctx, "example", &servicecatalog.ProvisionedProductArgs{
-//				ProductName:              pulumi.String("Example product"),
-//				ProvisioningArtifactName: pulumi.String("Example version"),
-//				ProvisioningParameters: servicecatalog.ProvisionedProductProvisioningParameterArray{
-//					&servicecatalog.ProvisionedProductProvisioningParameterArgs{
-//						Key:   pulumi.String("foo"),
-//						Value: pulumi.String("bar"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_servicecatalog_provisioned_product` using the provisioned product ID. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
-//
-// ```
 type ProvisionedProduct struct {
 	pulumi.CustomResourceState
 

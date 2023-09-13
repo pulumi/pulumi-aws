@@ -18,56 +18,6 @@ import (
 // For information about Lambda Layers and how to use them, see [AWS Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
 //
 // > **NOTE:** Setting `skipDestroy` to `true` means that the AWS Provider will _not_ destroy any layer version, even when running destroy. Layer versions are thus intentional dangling resources that are _not_ managed by the provider and may incur extra expense in your AWS account.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewLayerVersion(ctx, "lambdaLayer", &lambda.LayerVersionArgs{
-//				CompatibleRuntimes: pulumi.StringArray{
-//					pulumi.String("nodejs16.x"),
-//				},
-//				Code:      pulumi.NewFileArchive("lambda_layer_payload.zip"),
-//				LayerName: pulumi.String("lambda_layer_name"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ## Specifying the Deployment Package
-//
-// AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatibleRuntimes` this layer specifies.
-// See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) for the valid values of `compatibleRuntimes`.
-//
-// Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or
-// indirectly via Amazon S3 (using the `s3Bucket`, `s3Key` and `s3ObjectVersion` arguments). When providing the deployment
-// package via S3 it may be useful to use the `s3.BucketObjectv2` resource to upload it.
-//
-// For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading large files efficiently.
-//
-// ## Import
-//
-// Using `pulumi import`, import Lambda Layers using `arn`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:lambda/layerVersion:LayerVersion test_layer arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
-//
-// ```
 type LayerVersion struct {
 	pulumi.CustomResourceState
 

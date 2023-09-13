@@ -14,47 +14,6 @@ import (
 )
 
 // Provides a VPC DHCP Options Association resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewVpcDhcpOptionsAssociation(ctx, "dnsResolver", &ec2.VpcDhcpOptionsAssociationArgs{
-//				VpcId:         pulumi.Any(aws_vpc.Foo.Id),
-//				DhcpOptionsId: pulumi.Any(aws_vpc_dhcp_options.Foo.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ## Remarks
-//
-// * You can only associate one DHCP Options Set to a given VPC ID.
-// * Removing the DHCP Options Association automatically sets AWS's `default` DHCP Options Set to the VPC.
-//
-// ## Import
-//
-// Using `pulumi import`, import DHCP associations using the VPC ID associated with the options. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
-//
-// ```
 type VpcDhcpOptionsAssociation struct {
 	pulumi.CustomResourceState
 

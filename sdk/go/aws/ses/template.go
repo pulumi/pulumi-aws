@@ -13,44 +13,6 @@ import (
 )
 
 // Provides a resource to create a SES template.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.NewTemplate(ctx, "myTemplate", &ses.TemplateArgs{
-//				Html:    pulumi.String("<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>"),
-//				Subject: pulumi.String("Greetings, {{name}}!"),
-//				Text:    pulumi.String("Hello {{name}},\nYour favorite animal is {{favoriteanimal}}.\n"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SES templates using the template name. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:ses/template:Template MyTemplate MyTemplate
-//
-// ```
 type Template struct {
 	pulumi.CustomResourceState
 

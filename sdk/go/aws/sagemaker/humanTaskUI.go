@@ -14,55 +14,6 @@ import (
 )
 
 // Provides a SageMaker Human Task UI resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"os"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewHumanTaskUI(ctx, "example", &sagemaker.HumanTaskUIArgs{
-//				HumanTaskUiName: pulumi.String("example"),
-//				UiTemplate: &sagemaker.HumanTaskUIUiTemplateArgs{
-//					Content: readFileOrPanic("sagemaker-human-task-ui-template.html"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SageMaker Human Task UIs using the `human_task_ui_name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
-//
-// ```
 type HumanTaskUI struct {
 	pulumi.CustomResourceState
 

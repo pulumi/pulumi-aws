@@ -14,47 +14,6 @@ import (
 
 // Provides an Traffic mirror filter.\
 // Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
-//
-// ## Example Usage
-//
-// # To create a basic traffic mirror filter
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewTrafficMirrorFilter(ctx, "foo", &ec2.TrafficMirrorFilterArgs{
-//				Description: pulumi.String("traffic mirror filter - example"),
-//				NetworkServices: pulumi.StringArray{
-//					pulumi.String("amazon-dns"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import traffic mirror filter using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
-//
-// ```
 type TrafficMirrorFilter struct {
 	pulumi.CustomResourceState
 

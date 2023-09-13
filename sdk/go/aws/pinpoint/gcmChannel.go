@@ -14,47 +14,6 @@ import (
 )
 
 // Provides a Pinpoint GCM Channel resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pinpoint"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			app, err := pinpoint.NewApp(ctx, "app", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = pinpoint.NewGcmChannel(ctx, "gcm", &pinpoint.GcmChannelArgs{
-//				ApplicationId: app.ApplicationId,
-//				ApiKey:        pulumi.String("api_key"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
-//
-// ```
 type GcmChannel struct {
 	pulumi.CustomResourceState
 

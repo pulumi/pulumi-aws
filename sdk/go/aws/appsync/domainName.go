@@ -14,43 +14,6 @@ import (
 )
 
 // Provides an AppSync Domain Name.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appsync.NewDomainName(ctx, "example", &appsync.DomainNameArgs{
-//				DomainName:     pulumi.String("api.example.com"),
-//				CertificateArn: pulumi.Any(aws_acm_certificate.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_appsync_domain_name` using the AppSync domain name. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:appsync/domainName:DomainName example example.com
-//
-// ```
 type DomainName struct {
 	pulumi.CustomResourceState
 

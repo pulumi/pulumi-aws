@@ -14,47 +14,6 @@ import (
 )
 
 // Provides a CloudFront real-time log configuration resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudfront.NewMonitoringSubscription(ctx, "example", &cloudfront.MonitoringSubscriptionArgs{
-//				DistributionId: pulumi.Any(aws_cloudfront_distribution.Example.Id),
-//				MonitoringSubscription: &cloudfront.MonitoringSubscriptionMonitoringSubscriptionArgs{
-//					RealtimeMetricsSubscriptionConfig: &cloudfront.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs{
-//						RealtimeMetricsSubscriptionStatus: pulumi.String("Enabled"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudFront monitoring subscription using the id. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:cloudfront/monitoringSubscription:MonitoringSubscription example E3QYSUHO4VYRGB
-//
-// ```
 type MonitoringSubscription struct {
 	pulumi.CustomResourceState
 

@@ -15,42 +15,6 @@ import (
 // Provides an EventBridge Custom Schema Registry resource.
 //
 // > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/schemas"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := schemas.NewRegistry(ctx, "test", &schemas.RegistryArgs{
-//				Description: pulumi.String("A custom schema registry"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EventBridge schema registries using the `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:schemas/registry:Registry test my_own_registry
-//
-// ```
 type Registry struct {
 	pulumi.CustomResourceState
 

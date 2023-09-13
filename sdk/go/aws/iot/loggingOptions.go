@@ -14,33 +14,6 @@ import (
 )
 
 // Provides a resource to manage [default logging options](https://docs.aws.amazon.com/iot/latest/developerguide/configure-logging.html#configure-logging-console).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iot.NewLoggingOptions(ctx, "example", &iot.LoggingOptionsArgs{
-//				DefaultLogLevel: pulumi.String("WARN"),
-//				RoleArn:         pulumi.Any(aws_iam_role.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type LoggingOptions struct {
 	pulumi.CustomResourceState
 

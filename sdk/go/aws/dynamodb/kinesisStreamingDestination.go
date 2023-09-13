@@ -14,62 +14,6 @@ import (
 )
 
 // Enables a [Kinesis streaming destination](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/kds.html) for data replication of a DynamoDB table.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dynamodb"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTable, err := dynamodb.NewTable(ctx, "exampleTable", &dynamodb.TableArgs{
-//				HashKey: pulumi.String("id"),
-//				Attributes: dynamodb.TableAttributeArray{
-//					&dynamodb.TableAttributeArgs{
-//						Name: pulumi.String("id"),
-//						Type: pulumi.String("S"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleStream, err := kinesis.NewStream(ctx, "exampleStream", &kinesis.StreamArgs{
-//				ShardCount: pulumi.Int(1),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = dynamodb.NewKinesisStreamingDestination(ctx, "exampleKinesisStreamingDestination", &dynamodb.KinesisStreamingDestinationArgs{
-//				StreamArn: exampleStream.Arn,
-//				TableName: exampleTable.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import DynamoDB Kinesis Streaming Destinations using the `table_name` and `stream_arn` separated by `,`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination example example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName
-//
-// ```
 type KinesisStreamingDestination struct {
 	pulumi.CustomResourceState
 

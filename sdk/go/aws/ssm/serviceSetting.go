@@ -14,43 +14,6 @@ import (
 )
 
 // This setting defines how a user interacts with or uses a service or a feature of a service.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssm.NewServiceSetting(ctx, "testSetting", &ssm.ServiceSettingArgs{
-//				SettingId:    pulumi.String("arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled"),
-//				SettingValue: pulumi.String("true"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AWS SSM Service Setting using the `setting_id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:ssm/serviceSetting:ServiceSetting example arn:aws:ssm:us-east-1:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
-//
-// ```
 type ServiceSetting struct {
 	pulumi.CustomResourceState
 

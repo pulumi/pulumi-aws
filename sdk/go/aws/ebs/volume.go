@@ -14,48 +14,6 @@ import (
 )
 
 // Manages a single EBS volume.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ebs.NewVolume(ctx, "example", &ebs.VolumeArgs{
-//				AvailabilityZone: pulumi.String("us-west-2a"),
-//				Size:             pulumi.Int(40),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("HelloWorld"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// > **NOTE:** At least one of `size` or `snapshotId` is required when specifying an EBS volume
-//
-// ## Import
-//
-// Using `pulumi import`, import EBS Volumes using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
-//
-// ```
 type Volume struct {
 	pulumi.CustomResourceState
 

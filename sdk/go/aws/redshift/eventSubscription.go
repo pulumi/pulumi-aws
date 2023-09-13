@@ -14,68 +14,6 @@ import (
 )
 
 // Provides a Redshift event subscription resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultCluster, err := redshift.NewCluster(ctx, "defaultCluster", &redshift.ClusterArgs{
-//				ClusterIdentifier: pulumi.String("default"),
-//				DatabaseName:      pulumi.String("default"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			defaultTopic, err := sns.NewTopic(ctx, "defaultTopic", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = redshift.NewEventSubscription(ctx, "defaultEventSubscription", &redshift.EventSubscriptionArgs{
-//				SnsTopicArn: defaultTopic.Arn,
-//				SourceType:  pulumi.String("cluster"),
-//				SourceIds: pulumi.StringArray{
-//					defaultCluster.ID(),
-//				},
-//				Severity: pulumi.String("INFO"),
-//				EventCategories: pulumi.StringArray{
-//					pulumi.String("configuration"),
-//					pulumi.String("management"),
-//					pulumi.String("monitoring"),
-//					pulumi.String("security"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("default"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Redshift Event Subscriptions using the `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub
-//
-// ```
 type EventSubscription struct {
 	pulumi.CustomResourceState
 

@@ -14,51 +14,6 @@ import (
 )
 
 // Provides an AppSync API Cache.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGraphQLApi, err := appsync.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("API_KEY"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appsync.NewApiCache(ctx, "exampleApiCache", &appsync.ApiCacheArgs{
-//				ApiId:              exampleGraphQLApi.ID(),
-//				ApiCachingBehavior: pulumi.String("FULL_REQUEST_CACHING"),
-//				Type:               pulumi.String("LARGE"),
-//				Ttl:                pulumi.Int(900),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_appsync_api_cache` using the AppSync API ID. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
-//
-// ```
 type ApiCache struct {
 	pulumi.CustomResourceState
 

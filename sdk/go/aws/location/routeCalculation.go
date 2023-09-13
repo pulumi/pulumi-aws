@@ -14,43 +14,6 @@ import (
 )
 
 // Provides a Location Service Route Calculator.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/location"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := location.NewRouteCalculation(ctx, "example", &location.RouteCalculationArgs{
-//				CalculatorName: pulumi.String("example"),
-//				DataSource:     pulumi.String("Here"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_location_route_calculator` using the route calculator name. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:location/routeCalculation:RouteCalculation example example
-//
-// ```
 type RouteCalculation struct {
 	pulumi.CustomResourceState
 

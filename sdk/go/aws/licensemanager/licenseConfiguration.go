@@ -16,62 +16,6 @@ import (
 // Provides a License Manager license configuration resource.
 //
 // > **Note:** Removing the `licenseCount` attribute is not supported by the License Manager API - recreate the resource instead.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/licensemanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := licensemanager.NewLicenseConfiguration(ctx, "example", &licensemanager.LicenseConfigurationArgs{
-//				Description:           pulumi.String("Example"),
-//				LicenseCount:          pulumi.Int(10),
-//				LicenseCountHardLimit: pulumi.Bool(true),
-//				LicenseCountingType:   pulumi.String("Socket"),
-//				LicenseRules: pulumi.StringArray{
-//					pulumi.String("#minimumSockets=2"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("barr"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ## Rules
-//
-// License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:
-//
-// * `minimumVcpus` - Resource must have minimum vCPU count in order to use the license. Default: 1
-// * `maximumVcpus` - Resource must have maximum vCPU count in order to use the license. Default: unbounded, limit: 10000
-// * `minimumCores` - Resource must have minimum core count in order to use the license. Default: 1
-// * `maximumCores` - Resource must have maximum core count in order to use the license. Default: unbounded, limit: 10000
-// * `minimumSockets` - Resource must have minimum socket count in order to use the license. Default: 1
-// * `maximumSockets` - Resource must have maximum socket count in order to use the license. Default: unbounded, limit: 10000
-// * `allowedTenancy` - Defines where the license can be used. If set, restricts license usage to selected tenancies. Specify a comma delimited list of `EC2-Default`, `EC2-DedicatedHost`, `EC2-DedicatedInstance`
-//
-// ## Import
-//
-// Using `pulumi import`, import license configurations using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
-//
-// ```
 type LicenseConfiguration struct {
 	pulumi.CustomResourceState
 

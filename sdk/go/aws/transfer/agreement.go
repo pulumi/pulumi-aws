@@ -14,48 +14,6 @@ import (
 )
 
 // Provides a AWS Transfer AS2 Agreement resource.
-//
-// ## Example Usage
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transfer.NewAgreement(ctx, "example", &transfer.AgreementArgs{
-//				AccessRole:       pulumi.Any(aws_iam_role.Test.Arn),
-//				BaseDirectory:    pulumi.String("/DOC-EXAMPLE-BUCKET/home/mydirectory"),
-//				Description:      pulumi.String("example"),
-//				LocalProfileId:   pulumi.Any(aws_transfer_profile.Local.Profile_id),
-//				PartnerProfileId: pulumi.Any(aws_transfer_profile.Partner.Profile_id),
-//				ServerId:         pulumi.Any(aws_transfer_server.Test.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Transfer AS2 Agreement using the `server_id/agreement_id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:transfer/agreement:Agreement example s-4221a88afd5f4362a/a-4221a88afd5f4362a
-//
-// ```
 type Agreement struct {
 	pulumi.CustomResourceState
 

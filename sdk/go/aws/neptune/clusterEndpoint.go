@@ -14,44 +14,6 @@ import (
 )
 
 // Provides an Neptune Cluster Endpoint Resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/neptune"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := neptune.NewClusterEndpoint(ctx, "example", &neptune.ClusterEndpointArgs{
-//				ClusterIdentifier:         pulumi.Any(aws_neptune_cluster.Test.Cluster_identifier),
-//				ClusterEndpointIdentifier: pulumi.String("example"),
-//				EndpointType:              pulumi.String("READER"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_neptune_cluster_endpoint` using the `cluster-identifier:endpoint-identfier`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
-//
-// ```
 type ClusterEndpoint struct {
 	pulumi.CustomResourceState
 

@@ -14,52 +14,6 @@ import (
 )
 
 // Provides an AWS Network Firewall Firewall Resource
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkfirewall.NewFirewall(ctx, "example", &networkfirewall.FirewallArgs{
-//				FirewallPolicyArn: pulumi.Any(aws_networkfirewall_firewall_policy.Example.Arn),
-//				VpcId:             pulumi.Any(aws_vpc.Example.Id),
-//				SubnetMappings: networkfirewall.FirewallSubnetMappingArray{
-//					&networkfirewall.FirewallSubnetMappingArgs{
-//						SubnetId: pulumi.Any(aws_subnet.Example.Id),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Tag1": pulumi.String("Value1"),
-//					"Tag2": pulumi.String("Value2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Network Firewall Firewalls using their `arn`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:networkfirewall/firewall:Firewall example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
-//
-// ```
 type Firewall struct {
 	pulumi.CustomResourceState
 

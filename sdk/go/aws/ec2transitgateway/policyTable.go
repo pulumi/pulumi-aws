@@ -14,45 +14,6 @@ import (
 )
 
 // Manages an EC2 Transit Gateway Policy Table.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.NewPolicyTable(ctx, "example", &ec2transitgateway.PolicyTableArgs{
-//				TransitGatewayId: pulumi.Any(aws_ec2_transit_gateway.Example.Id),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Policy Table"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_ec2_transit_gateway_policy_table` using the EC2 Transit Gateway Policy Table identifier. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2transitgateway/policyTable:PolicyTable example tgw-rtb-12345678
-//
-// ```
 type PolicyTable struct {
 	pulumi.CustomResourceState
 

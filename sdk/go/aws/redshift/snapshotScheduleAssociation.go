@@ -13,62 +13,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultCluster, err := redshift.NewCluster(ctx, "defaultCluster", &redshift.ClusterArgs{
-//				ClusterIdentifier: pulumi.String("tf-redshift-cluster"),
-//				DatabaseName:      pulumi.String("mydb"),
-//				MasterUsername:    pulumi.String("foo"),
-//				MasterPassword:    pulumi.String("Mustbe8characters"),
-//				NodeType:          pulumi.String("dc1.large"),
-//				ClusterType:       pulumi.String("single-node"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			defaultSnapshotSchedule, err := redshift.NewSnapshotSchedule(ctx, "defaultSnapshotSchedule", &redshift.SnapshotScheduleArgs{
-//				Identifier: pulumi.String("tf-redshift-snapshot-schedule"),
-//				Definitions: pulumi.StringArray{
-//					pulumi.String("rate(12 hours)"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = redshift.NewSnapshotScheduleAssociation(ctx, "defaultSnapshotScheduleAssociation", &redshift.SnapshotScheduleAssociationArgs{
-//				ClusterIdentifier:  defaultCluster.ID(),
-//				ScheduleIdentifier: defaultSnapshotSchedule.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Redshift Snapshot Schedule Association using the `<cluster-identifier>/<schedule-identifier>`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
-//
-// ```
 type SnapshotScheduleAssociation struct {
 	pulumi.CustomResourceState
 

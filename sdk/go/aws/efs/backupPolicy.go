@@ -15,49 +15,6 @@ import (
 
 // Provides an Elastic File System (EFS) Backup Policy resource.
 // Backup policies turn automatic backups on or off for an existing file system.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			fs, err := efs.NewFileSystem(ctx, "fs", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = efs.NewBackupPolicy(ctx, "policy", &efs.BackupPolicyArgs{
-//				FileSystemId: fs.ID(),
-//				BackupPolicy: &efs.BackupPolicyBackupPolicyArgs{
-//					Status: pulumi.String("ENABLED"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import the EFS backup policies using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
-//
-// ```
 type BackupPolicy struct {
 	pulumi.CustomResourceState
 

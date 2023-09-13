@@ -14,43 +14,6 @@ import (
 )
 
 // Enables you to connect your phone system to the telephone network at a substantial cost savings by using SIP trunking.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := chime.NewVoiceConnector(ctx, "test", &chime.VoiceConnectorArgs{
-//				AwsRegion:         pulumi.String("us-east-1"),
-//				RequireEncryption: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Configuration Recorder using the name. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:chime/voiceConnector:VoiceConnector test example
-//
-// ```
 type VoiceConnector struct {
 	pulumi.CustomResourceState
 

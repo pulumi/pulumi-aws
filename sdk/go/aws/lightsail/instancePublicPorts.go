@@ -18,47 +18,6 @@ import (
 // > See [What is Amazon Lightsail?](https://lightsail.aws.amazon.com/ls/docs/getting-started/article/what-is-amazon-lightsail) for more information.
 //
 // > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testInstance, err := lightsail.NewInstance(ctx, "testInstance", &lightsail.InstanceArgs{
-//				AvailabilityZone: pulumi.Any(data.Aws_availability_zones.Available.Names[0]),
-//				BlueprintId:      pulumi.String("amazon_linux_2"),
-//				BundleId:         pulumi.String("nano_1_0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewInstancePublicPorts(ctx, "testInstancePublicPorts", &lightsail.InstancePublicPortsArgs{
-//				InstanceName: testInstance.Name,
-//				PortInfos: lightsail.InstancePublicPortsPortInfoArray{
-//					&lightsail.InstancePublicPortsPortInfoArgs{
-//						Protocol: pulumi.String("tcp"),
-//						FromPort: pulumi.Int(80),
-//						ToPort:   pulumi.Int(80),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type InstancePublicPorts struct {
 	pulumi.CustomResourceState
 

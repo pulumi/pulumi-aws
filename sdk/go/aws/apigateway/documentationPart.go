@@ -14,52 +14,6 @@ import (
 )
 
 // Provides a settings of an API Gateway Documentation Part.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apigateway.NewDocumentationPart(ctx, "exampleDocumentationPart", &apigateway.DocumentationPartArgs{
-//				Location: &apigateway.DocumentationPartLocationArgs{
-//					Type:   pulumi.String("METHOD"),
-//					Method: pulumi.String("GET"),
-//					Path:   pulumi.String("/example"),
-//				},
-//				Properties: pulumi.String("{\"description\":\"Example description\"}"),
-//				RestApiId:  exampleRestApi.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import API Gateway documentation_parts using `REST-API-ID/DOC-PART-ID`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:apigateway/documentationPart:DocumentationPart example 5i4e1ko720/3oyy3t
-//
-// ```
 type DocumentationPart struct {
 	pulumi.CustomResourceState
 

@@ -14,44 +14,6 @@ import (
 )
 
 // Manages a Service Catalog Principal Portfolio Association.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := servicecatalog.NewPrincipalPortfolioAssociation(ctx, "example", &servicecatalog.PrincipalPortfolioAssociationArgs{
-//				PortfolioId:  pulumi.String("port-68656c6c6f"),
-//				PrincipalArn: pulumi.String("arn:aws:iam::123456789012:user/Eleanor"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_servicecatalog_principal_portfolio_association` using the accept language, principal ARN, and portfolio ID, separated by a comma. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f
-//
-// ```
 type PrincipalPortfolioAssociation struct {
 	pulumi.CustomResourceState
 

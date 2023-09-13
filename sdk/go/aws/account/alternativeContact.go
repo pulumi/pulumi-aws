@@ -14,59 +14,6 @@ import (
 )
 
 // Manages the specified alternate contact attached to an AWS Account.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/account"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := account.NewAlternativeContact(ctx, "operations", &account.AlternativeContactArgs{
-//				AlternateContactType: pulumi.String("OPERATIONS"),
-//				EmailAddress:         pulumi.String("test@example.com"),
-//				PhoneNumber:          pulumi.String("+1234567890"),
-//				Title:                pulumi.String("Example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Import the Alternate Contact for the current account:
-//
-// Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):
-//
-// __Using `pulumi import` to import__ the Alternate Contact for the current or another account using the `alternate_contact_type`. For example:
-//
-// Import the Alternate Contact for the current account:
-//
-// ```sh
-//
-//	$ pulumi import aws:account/alternativeContact:AlternativeContact operations OPERATIONS
-//
-// ```
-//
-//	Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):
-//
-// ```sh
-//
-//	$ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS
-//
-// ```
 type AlternativeContact struct {
 	pulumi.CustomResourceState
 

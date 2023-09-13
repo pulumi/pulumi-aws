@@ -14,42 +14,6 @@ import (
 )
 
 // Provides an AWS Route 53 Recovery Readiness Cell.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53recoveryreadiness"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := route53recoveryreadiness.NewCell(ctx, "example", &route53recoveryreadiness.CellArgs{
-//				CellName: pulumi.String("us-west-2-failover-cell"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Route53 Recovery Readiness cells using the cell name. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
-//
-// ```
 type Cell struct {
 	pulumi.CustomResourceState
 

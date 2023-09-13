@@ -14,42 +14,6 @@ import (
 )
 
 // Provides a lightsail bucket.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewBucket(ctx, "test", &lightsail.BucketArgs{
-//				BundleId: pulumi.String("small_1_0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:lightsail/bucket:Bucket test example-bucket
-//
-// ```
 type Bucket struct {
 	pulumi.CustomResourceState
 

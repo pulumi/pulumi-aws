@@ -14,62 +14,6 @@ import (
 )
 
 // Resource for managing an AWS MediaLive Input.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/medialive"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleInputSecurityGroup, err := medialive.NewInputSecurityGroup(ctx, "exampleInputSecurityGroup", &medialive.InputSecurityGroupArgs{
-//				WhitelistRules: medialive.InputSecurityGroupWhitelistRuleArray{
-//					&medialive.InputSecurityGroupWhitelistRuleArgs{
-//						Cidr: pulumi.String("10.0.0.8/32"),
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"ENVIRONMENT": pulumi.String("prod"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = medialive.NewInput(ctx, "exampleInput", &medialive.InputArgs{
-//				InputSecurityGroups: pulumi.StringArray{
-//					exampleInputSecurityGroup.ID(),
-//				},
-//				Type: pulumi.String("UDP_PUSH"),
-//				Tags: pulumi.StringMap{
-//					"ENVIRONMENT": pulumi.String("prod"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import MediaLive Input using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:medialive/input:Input example 12345678
-//
-// ```
 type Input struct {
 	pulumi.CustomResourceState
 

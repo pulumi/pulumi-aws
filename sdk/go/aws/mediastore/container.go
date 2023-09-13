@@ -13,40 +13,6 @@ import (
 )
 
 // Provides a MediaStore Container.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mediastore"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := mediastore.NewContainer(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import MediaStore Container using the MediaStore Container Name. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:mediastore/container:Container example example
-//
-// ```
 type Container struct {
 	pulumi.CustomResourceState
 

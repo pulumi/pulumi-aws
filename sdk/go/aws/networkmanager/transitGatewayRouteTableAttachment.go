@@ -14,43 +14,6 @@ import (
 )
 
 // Creates a transit gateway route table attachment.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewTransitGatewayRouteTableAttachment(ctx, "example", &networkmanager.TransitGatewayRouteTableAttachmentArgs{
-//				PeeringId:                   pulumi.Any(aws_networkmanager_transit_gateway_peering.Example.Id),
-//				TransitGatewayRouteTableArn: pulumi.Any(aws_ec2_transit_gateway_route_table.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_networkmanager_transit_gateway_route_table_attachment` using the attachment ID. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8
-//
-// ```
 type TransitGatewayRouteTableAttachment struct {
 	pulumi.CustomResourceState
 

@@ -14,43 +14,6 @@ import (
 )
 
 // Resource for managing an AWS CodeCatalyst Project.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecatalyst"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codecatalyst.NewProject(ctx, "test", &codecatalyst.ProjectArgs{
-//				Description: pulumi.String("My CodeCatalyst Project created using TODO"),
-//				DisplayName: pulumi.String("MyProject"),
-//				SpaceName:   pulumi.String("myproject"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// In TODO v1.5.0 and later, use an `import` block to import CodeCatalyst Project using the `example_id_arg`. For exampleterraform import {
-//
-//	to = aws_codecatalyst_project.example
-//
-//	id = "project-id-12345678" } Using `TODO import`, import CodeCatalyst Project using the `example_id_arg`. For exampleconsole % TODO import aws_codecatalyst_project.example project-id-12345678
 type Project struct {
 	pulumi.CustomResourceState
 

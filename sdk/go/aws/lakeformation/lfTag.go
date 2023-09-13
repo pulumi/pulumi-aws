@@ -14,47 +14,6 @@ import (
 )
 
 // Creates an LF-Tag with the specified name and values. Each key must have at least one value. The maximum number of values permitted is 15.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lakeformation.NewLfTag(ctx, "example", &lakeformation.LfTagArgs{
-//				Key: pulumi.String("module"),
-//				Values: pulumi.StringArray{
-//					pulumi.String("Orders"),
-//					pulumi.String("Sales"),
-//					pulumi.String("Customers"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Lake Formation LF-Tags using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
-//
-// ```
 type LfTag struct {
 	pulumi.CustomResourceState
 

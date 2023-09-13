@@ -14,60 +14,6 @@ import (
 )
 
 // Provides an AWS App Mesh gateway route resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appmesh.NewGatewayRoute(ctx, "example", &appmesh.GatewayRouteArgs{
-//				MeshName:           pulumi.String("example-service-mesh"),
-//				VirtualGatewayName: pulumi.Any(aws_appmesh_virtual_gateway.Example.Name),
-//				Spec: &appmesh.GatewayRouteSpecArgs{
-//					HttpRoute: &appmesh.GatewayRouteSpecHttpRouteArgs{
-//						Action: &appmesh.GatewayRouteSpecHttpRouteActionArgs{
-//							Target: &appmesh.GatewayRouteSpecHttpRouteActionTargetArgs{
-//								VirtualService: &appmesh.GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs{
-//									VirtualServiceName: pulumi.Any(aws_appmesh_virtual_service.Example.Name),
-//								},
-//							},
-//						},
-//						Match: &appmesh.GatewayRouteSpecHttpRouteMatchArgs{
-//							Prefix: pulumi.String("/"),
-//						},
-//					},
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import App Mesh gateway routes using `mesh_name` and `virtual_gateway_name` together with the gateway route's `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:appmesh/gatewayRoute:GatewayRoute example mesh/gw1/example-gateway-route
-//
-// ```
 type GatewayRoute struct {
 	pulumi.CustomResourceState
 

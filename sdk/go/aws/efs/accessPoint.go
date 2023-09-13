@@ -14,42 +14,6 @@ import (
 )
 
 // Provides an Elastic File System (EFS) access point.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := efs.NewAccessPoint(ctx, "test", &efs.AccessPointArgs{
-//				FileSystemId: pulumi.Any(aws_efs_file_system.Foo.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import the EFS access points using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
-//
-// ```
 type AccessPoint struct {
 	pulumi.CustomResourceState
 

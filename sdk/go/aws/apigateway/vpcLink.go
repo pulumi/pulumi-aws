@@ -17,16 +17,6 @@ import (
 //
 // > **Note:** Amazon API Gateway Version 1 VPC Links enable private integrations that connect REST APIs to private resources in a VPC.
 // To enable private integration for HTTP APIs, use the Amazon API Gateway Version 2 VPC Link resource.
-//
-// ## Import
-//
-// Using `pulumi import`, import API Gateway VPC Link using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
-//
-// ```
 type VpcLink struct {
 	pulumi.CustomResourceState
 

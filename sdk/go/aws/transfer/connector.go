@@ -14,54 +14,6 @@ import (
 )
 
 // Provides a AWS Transfer AS2 Connector resource.
-//
-// ## Example Usage
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := transfer.NewConnector(ctx, "example", &transfer.ConnectorArgs{
-//				AccessRole: pulumi.Any(aws_iam_role.Test.Arn),
-//				As2Config: &transfer.ConnectorAs2ConfigArgs{
-//					Compression:         pulumi.String("DISABLED"),
-//					EncryptionAlgorithm: pulumi.String("AWS128_CBC"),
-//					MessageSubject:      pulumi.String("For Connector"),
-//					LocalProfileId:      pulumi.Any(aws_transfer_profile.Local.Profile_id),
-//					MdnResponse:         pulumi.String("NONE"),
-//					MdnSigningAlgorithm: pulumi.String("NONE"),
-//					PartnerProfileId:    pulumi.Any(aws_transfer_profile.Partner.Profile_id),
-//					SigningAlgorithm:    pulumi.String("NONE"),
-//				},
-//				Url: pulumi.String("http://www.test.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Transfer AS2 Connector using the `connector_id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:transfer/connector:Connector example c-4221a88afd5f4362a
-//
-// ```
 type Connector struct {
 	pulumi.CustomResourceState
 

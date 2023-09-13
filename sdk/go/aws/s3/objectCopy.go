@@ -14,43 +14,6 @@ import (
 )
 
 // Provides a resource for copying an S3 object.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewObjectCopy(ctx, "test", &s3.ObjectCopyArgs{
-//				Bucket: pulumi.String("destination_bucket"),
-//				Grants: s3.ObjectCopyGrantArray{
-//					&s3.ObjectCopyGrantArgs{
-//						Permissions: pulumi.StringArray{
-//							pulumi.String("READ"),
-//						},
-//						Type: pulumi.String("Group"),
-//						Uri:  pulumi.String("http://acs.amazonaws.com/groups/global/AllUsers"),
-//					},
-//				},
-//				Key:    pulumi.String("destination_key"),
-//				Source: pulumi.String("source_bucket/source_key"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type ObjectCopy struct {
 	pulumi.CustomResourceState
 

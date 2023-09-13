@@ -14,53 +14,6 @@ import (
 )
 
 // Creates a Lightsail load balancer Certificate resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testLb, err := lightsail.NewLb(ctx, "testLb", &lightsail.LbArgs{
-//				HealthCheckPath: pulumi.String("/"),
-//				InstancePort:    pulumi.Int(80),
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = lightsail.NewLbCertificate(ctx, "testLbCertificate", &lightsail.LbCertificateArgs{
-//				LbName:     testLb.ID(),
-//				DomainName: pulumi.String("test.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_lightsail_lb_certificate` using the id attribute. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
-//
-// ```
 type LbCertificate struct {
 	pulumi.CustomResourceState
 

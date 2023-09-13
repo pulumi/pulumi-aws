@@ -16,53 +16,6 @@ import (
 // scales elastically for real-time processing of streaming big data.
 //
 // For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kinesis.NewStream(ctx, "testStream", &kinesis.StreamArgs{
-//				RetentionPeriod: pulumi.Int(48),
-//				ShardCount:      pulumi.Int(1),
-//				ShardLevelMetrics: pulumi.StringArray{
-//					pulumi.String("IncomingBytes"),
-//					pulumi.String("OutgoingBytes"),
-//				},
-//				StreamModeDetails: &kinesis.StreamStreamModeDetailsArgs{
-//					StreamMode: pulumi.String("PROVISIONED"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("test"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Kinesis Streams using the `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:kinesis/stream:Stream test_stream TODO-kinesis-test
-//
-// ```
 type Stream struct {
 	pulumi.CustomResourceState
 

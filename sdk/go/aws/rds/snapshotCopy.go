@@ -14,65 +14,6 @@ import (
 )
 
 // Manages an RDS database instance snapshot copy. For managing RDS database cluster snapshots, see the `rds.ClusterSnapshot` resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleInstance, err := rds.NewInstance(ctx, "exampleInstance", &rds.InstanceArgs{
-//				AllocatedStorage:      pulumi.Int(10),
-//				Engine:                pulumi.String("mysql"),
-//				EngineVersion:         pulumi.String("5.6.21"),
-//				InstanceClass:         pulumi.String("db.t2.micro"),
-//				DbName:                pulumi.String("baz"),
-//				Password:              pulumi.String("barbarbarbar"),
-//				Username:              pulumi.String("foo"),
-//				MaintenanceWindow:     pulumi.String("Fri:09:00-Fri:09:30"),
-//				BackupRetentionPeriod: pulumi.Int(0),
-//				ParameterGroupName:    pulumi.String("default.mysql5.6"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSnapshot, err := rds.NewSnapshot(ctx, "exampleSnapshot", &rds.SnapshotArgs{
-//				DbInstanceIdentifier: exampleInstance.Identifier,
-//				DbSnapshotIdentifier: pulumi.String("testsnapshot1234"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = rds.NewSnapshotCopy(ctx, "exampleSnapshotCopy", &rds.SnapshotCopyArgs{
-//				SourceDbSnapshotIdentifier: exampleSnapshot.DbSnapshotArn,
-//				TargetDbSnapshotIdentifier: pulumi.String("testsnapshot1234-copy"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_db_snapshot_copy` using the snapshot identifier. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
-//
-// ```
 type SnapshotCopy struct {
 	pulumi.CustomResourceState
 

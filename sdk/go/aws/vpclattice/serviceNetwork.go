@@ -13,43 +13,6 @@ import (
 )
 
 // Resource for managing an AWS VPC Lattice Service Network.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewServiceNetwork(ctx, "example", &vpclattice.ServiceNetworkArgs{
-//				AuthType: pulumi.String("AWS_IAM"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import VPC Lattice Service Network using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:vpclattice/serviceNetwork:ServiceNetwork example sn-0158f91c1e3358dba
-//
-// ```
 type ServiceNetwork struct {
 	pulumi.CustomResourceState
 

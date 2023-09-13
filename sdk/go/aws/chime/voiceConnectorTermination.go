@@ -14,57 +14,6 @@ import (
 )
 
 // Enable Termination settings to control outbound calling from your SIP infrastructure.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			defaultVoiceConnector, err := chime.NewVoiceConnector(ctx, "defaultVoiceConnector", &chime.VoiceConnectorArgs{
-//				RequireEncryption: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = chime.NewVoiceConnectorTermination(ctx, "defaultVoiceConnectorTermination", &chime.VoiceConnectorTerminationArgs{
-//				Disabled: pulumi.Bool(false),
-//				CpsLimit: pulumi.Int(1),
-//				CidrAllowLists: pulumi.StringArray{
-//					pulumi.String("50.35.78.96/31"),
-//				},
-//				CallingRegions: pulumi.StringArray{
-//					pulumi.String("US"),
-//					pulumi.String("CA"),
-//				},
-//				VoiceConnectorId: defaultVoiceConnector.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Chime Voice Connector Termination using the `voice_connector_id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:chime/voiceConnectorTermination:VoiceConnectorTermination default abcdef1ghij2klmno3pqr4
-//
-// ```
 type VoiceConnectorTermination struct {
 	pulumi.CustomResourceState
 

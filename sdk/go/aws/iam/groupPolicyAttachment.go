@@ -16,54 +16,6 @@ import (
 // Attaches a Managed IAM Policy to an IAM group
 //
 // > **NOTE:** The usage of this resource conflicts with the `iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			group, err := iam.NewGroup(ctx, "group", nil)
-//			if err != nil {
-//				return err
-//			}
-//			policy, err := iam.NewPolicy(ctx, "policy", &iam.PolicyArgs{
-//				Description: pulumi.String("A test policy"),
-//				Policy:      pulumi.Any("{ ... policy JSON ... }"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = iam.NewGroupPolicyAttachment(ctx, "test-attach", &iam.GroupPolicyAttachmentArgs{
-//				Group:     group.Name,
-//				PolicyArn: policy.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import IAM group policy attachments using the group name and policy arn separated by `/`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
-//
-// ```
 type GroupPolicyAttachment struct {
 	pulumi.CustomResourceState
 

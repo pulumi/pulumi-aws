@@ -14,46 +14,6 @@ import (
 )
 
 // Provides a SageMaker Device resource.
-//
-// ## Example Usage
-// ### Basic usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewDevice(ctx, "example", &sagemaker.DeviceArgs{
-//				DeviceFleetName: pulumi.Any(aws_sagemaker_device_fleet.Example.Device_fleet_name),
-//				Device: &sagemaker.DeviceDeviceArgs{
-//					DeviceName: pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SageMaker Devices using the `device-fleet-name/device-name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:sagemaker/device:Device example my-fleet/my-device
-//
-// ```
 type Device struct {
 	pulumi.CustomResourceState
 

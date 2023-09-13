@@ -14,56 +14,6 @@ import (
 )
 
 // Provides a SageMaker Feature Group resource.
-//
-// ## Example Usage
-//
-// Basic usage:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewFeatureGroup(ctx, "example", &sagemaker.FeatureGroupArgs{
-//				FeatureGroupName:            pulumi.String("example"),
-//				RecordIdentifierFeatureName: pulumi.String("example"),
-//				EventTimeFeatureName:        pulumi.String("example"),
-//				RoleArn:                     pulumi.Any(aws_iam_role.Test.Arn),
-//				FeatureDefinitions: sagemaker.FeatureGroupFeatureDefinitionArray{
-//					&sagemaker.FeatureGroupFeatureDefinitionArgs{
-//						FeatureName: pulumi.String("example"),
-//						FeatureType: pulumi.String("String"),
-//					},
-//				},
-//				OnlineStoreConfig: &sagemaker.FeatureGroupOnlineStoreConfigArgs{
-//					EnableOnlineStore: pulumi.Bool(true),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Feature Groups using the `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
-//
-// ```
 type FeatureGroup struct {
 	pulumi.CustomResourceState
 

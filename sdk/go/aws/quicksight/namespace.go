@@ -14,43 +14,6 @@ import (
 )
 
 // Resource for managing an AWS QuickSight Namespace.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewNamespace(ctx, "example", &quicksight.NamespaceArgs{
-//				Namespace: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import QuickSight Namespace using the AWS account ID and namespace separated by commas (`,`). For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:quicksight/namespace:Namespace example 123456789012,example
-//
-// ```
 type Namespace struct {
 	pulumi.CustomResourceState
 

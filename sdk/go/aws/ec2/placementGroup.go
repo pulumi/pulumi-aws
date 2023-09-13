@@ -15,42 +15,6 @@ import (
 
 // Provides an EC2 placement group. Read more about placement groups
 // in [AWS Docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewPlacementGroup(ctx, "web", &ec2.PlacementGroupArgs{
-//				Strategy: pulumi.String("cluster"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import placement groups using the `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
-//
-// ```
 type PlacementGroup struct {
 	pulumi.CustomResourceState
 

@@ -14,55 +14,6 @@ import (
 )
 
 // Provides an AWS WAFv2 Regex Pattern Set Resource
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafv2.NewRegexPatternSet(ctx, "example", &wafv2.RegexPatternSetArgs{
-//				Description: pulumi.String("Example regex pattern set"),
-//				RegularExpressions: wafv2.RegexPatternSetRegularExpressionArray{
-//					&wafv2.RegexPatternSetRegularExpressionArgs{
-//						RegexString: pulumi.String("one"),
-//					},
-//					&wafv2.RegexPatternSetRegularExpressionArgs{
-//						RegexString: pulumi.String("two"),
-//					},
-//				},
-//				Scope: pulumi.String("REGIONAL"),
-//				Tags: pulumi.StringMap{
-//					"Tag1": pulumi.String("Value1"),
-//					"Tag2": pulumi.String("Value2"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WAFv2 Regex Pattern Sets using `ID/name/scope`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:wafv2/regexPatternSet:RegexPatternSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc/example/REGIONAL
-//
-// ```
 type RegexPatternSet struct {
 	pulumi.CustomResourceState
 

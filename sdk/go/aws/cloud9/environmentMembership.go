@@ -14,55 +14,6 @@ import (
 )
 
 // Provides an environment member to an AWS Cloud9 development environment.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloud9"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testEnvironmentEC2, err := cloud9.NewEnvironmentEC2(ctx, "testEnvironmentEC2", &cloud9.EnvironmentEC2Args{
-//				InstanceType: pulumi.String("t2.micro"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			testUser, err := iam.NewUser(ctx, "testUser", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloud9.NewEnvironmentMembership(ctx, "testEnvironmentMembership", &cloud9.EnvironmentMembershipArgs{
-//				EnvironmentId: testEnvironmentEC2.ID(),
-//				Permissions:   pulumi.String("read-only"),
-//				UserArn:       testUser.Arn,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Cloud9 environment membership using the `environment-id#user-arn`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
-//
-// ```
 type EnvironmentMembership struct {
 	pulumi.CustomResourceState
 

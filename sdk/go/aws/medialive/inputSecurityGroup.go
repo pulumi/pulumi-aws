@@ -14,50 +14,6 @@ import (
 )
 
 // Resource for managing an AWS MediaLive InputSecurityGroup.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/medialive"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := medialive.NewInputSecurityGroup(ctx, "example", &medialive.InputSecurityGroupArgs{
-//				Tags: pulumi.StringMap{
-//					"ENVIRONMENT": pulumi.String("prod"),
-//				},
-//				WhitelistRules: medialive.InputSecurityGroupWhitelistRuleArray{
-//					&medialive.InputSecurityGroupWhitelistRuleArgs{
-//						Cidr: pulumi.String("10.0.0.8/32"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
-//
-// ```
 type InputSecurityGroup struct {
 	pulumi.CustomResourceState
 

@@ -14,42 +14,6 @@ import (
 
 // Manages a single-Region or multi-Region primary KMS key that uses external key material.
 // To instead manage a single-Region or multi-Region primary KMS key where AWS automatically generates and potentially rotates key material, see the `kms.Key` resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kms.NewExternalKey(ctx, "example", &kms.ExternalKeyArgs{
-//				Description: pulumi.String("KMS EXTERNAL for AMI encryption"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import KMS External Keys using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:kms/externalKey:ExternalKey a arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
-//
-// ```
 type ExternalKey struct {
 	pulumi.CustomResourceState
 

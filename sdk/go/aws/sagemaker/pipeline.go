@@ -14,66 +14,6 @@ import (
 )
 
 // Provides a SageMaker Pipeline resource.
-//
-// ## Example Usage
-// ### Basic usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"Version": "2020-12-01",
-//				"Steps": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Name": "Test",
-//						"Type": "Fail",
-//						"Arguments": map[string]interface{}{
-//							"ErrorMessage": "test",
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = sagemaker.NewPipeline(ctx, "example", &sagemaker.PipelineArgs{
-//				PipelineName:        pulumi.String("example"),
-//				PipelineDisplayName: pulumi.String("example"),
-//				RoleArn:             pulumi.Any(aws_iam_role.Example.Arn),
-//				PipelineDefinition:  pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// You can use `pulumi import` to import pipelines using `pipeline_name`. For example:
-//
-// Using `pulumi import`, import pipelines using the `pipeline_name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
-//
-// ```
 type Pipeline struct {
 	pulumi.CustomResourceState
 

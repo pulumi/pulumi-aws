@@ -14,41 +14,6 @@ import (
 )
 
 // Resource for managing QuickSight User
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewUser(ctx, "example", &quicksight.UserArgs{
-//				Email:        pulumi.String("author@example.com"),
-//				IamArn:       pulumi.String("arn:aws:iam::123456789012:user/Example"),
-//				IdentityType: pulumi.String("IAM"),
-//				Namespace:    pulumi.String("foo"),
-//				SessionName:  pulumi.String("an-author"),
-//				UserRole:     pulumi.String("AUTHOR"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// You cannot import this resource.
 type User struct {
 	pulumi.CustomResourceState
 

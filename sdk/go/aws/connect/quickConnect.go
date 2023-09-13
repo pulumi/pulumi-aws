@@ -15,54 +15,6 @@ import (
 
 // Provides an Amazon Connect Quick Connect resource. For more information see
 // [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := connect.NewQuickConnect(ctx, "test", &connect.QuickConnectArgs{
-//				Description: pulumi.String("quick connect phone number"),
-//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				QuickConnectConfig: &connect.QuickConnectQuickConnectConfigArgs{
-//					PhoneConfigs: connect.QuickConnectQuickConnectConfigPhoneConfigArray{
-//						&connect.QuickConnectQuickConnectConfigPhoneConfigArgs{
-//							PhoneNumber: pulumi.String("+12345678912"),
-//						},
-//					},
-//					QuickConnectType: pulumi.String("PHONE_NUMBER"),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Quick Connect"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Amazon Connect Quick Connects using the `instance_id` and `quick_connect_id` separated by a colon (`:`). For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:connect/quickConnect:QuickConnect example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-//
-// ```
 type QuickConnect struct {
 	pulumi.CustomResourceState
 

@@ -14,44 +14,6 @@ import (
 )
 
 // Provides a SageMaker User Profile resource.
-//
-// ## Example Usage
-// ### Basic usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sagemaker.NewUserProfile(ctx, "example", &sagemaker.UserProfileArgs{
-//				DomainId:        pulumi.Any(aws_sagemaker_domain.Test.Id),
-//				UserProfileName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SageMaker User Profiles using the `arn`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:sagemaker/userProfile:UserProfile test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
-//
-// ```
 type UserProfile struct {
 	pulumi.CustomResourceState
 

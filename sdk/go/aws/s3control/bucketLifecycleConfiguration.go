@@ -18,62 +18,6 @@ import (
 // > **NOTE:** Each S3 Control Bucket can only have one Lifecycle Configuration. Using multiple of this resource against the same S3 Control Bucket will result in perpetual differences each provider run.
 //
 // > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Lifecycle Configurations in an AWS Partition, see the `s3.BucketV2` resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3control.NewBucketLifecycleConfiguration(ctx, "example", &s3control.BucketLifecycleConfigurationArgs{
-//				Bucket: pulumi.Any(aws_s3control_bucket.Example.Arn),
-//				Rules: s3control.BucketLifecycleConfigurationRuleArray{
-//					&s3control.BucketLifecycleConfigurationRuleArgs{
-//						Expiration: &s3control.BucketLifecycleConfigurationRuleExpirationArgs{
-//							Days: pulumi.Int(365),
-//						},
-//						Filter: &s3control.BucketLifecycleConfigurationRuleFilterArgs{
-//							Prefix: pulumi.String("logs/"),
-//						},
-//						Id: pulumi.String("logs"),
-//					},
-//					&s3control.BucketLifecycleConfigurationRuleArgs{
-//						Expiration: &s3control.BucketLifecycleConfigurationRuleExpirationArgs{
-//							Days: pulumi.Int(7),
-//						},
-//						Filter: &s3control.BucketLifecycleConfigurationRuleFilterArgs{
-//							Prefix: pulumi.String("temp/"),
-//						},
-//						Id: pulumi.String("temp"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import S3 Control Bucket Lifecycle Configurations using the Amazon Resource Name (ARN). For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
-//
-// ```
 type BucketLifecycleConfiguration struct {
 	pulumi.CustomResourceState
 

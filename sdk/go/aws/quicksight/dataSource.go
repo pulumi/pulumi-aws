@@ -14,51 +14,6 @@ import (
 )
 
 // Resource for managing QuickSight Data Source
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewDataSource(ctx, "default", &quicksight.DataSourceArgs{
-//				DataSourceId: pulumi.String("example-id"),
-//				Parameters: &quicksight.DataSourceParametersArgs{
-//					S3: &quicksight.DataSourceParametersS3Args{
-//						ManifestFileLocation: &quicksight.DataSourceParametersS3ManifestFileLocationArgs{
-//							Bucket: pulumi.String("my-bucket"),
-//							Key:    pulumi.String("path/to/manifest.json"),
-//						},
-//					},
-//				},
-//				Type: pulumi.String("S3"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import a QuickSight data source using the AWS account ID, and data source ID separated by a slash (`/`). For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
-//
-// ```
 type DataSource struct {
 	pulumi.CustomResourceState
 

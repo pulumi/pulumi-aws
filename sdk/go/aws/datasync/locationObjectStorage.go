@@ -16,46 +16,6 @@ import (
 // Manages a Object Storage Location within AWS DataSync.
 //
 // > **NOTE:** The DataSync Agents must be available before creating this resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datasync.NewLocationObjectStorage(ctx, "example", &datasync.LocationObjectStorageArgs{
-//				AgentArns: pulumi.StringArray{
-//					aws_datasync_agent.Example.Arn,
-//				},
-//				ServerHostname: pulumi.String("example"),
-//				BucketName:     pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_datasync_location_object_storage` using the Amazon Resource Name (ARN). For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:datasync/locationObjectStorage:LocationObjectStorage example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-//
-// ```
 type LocationObjectStorage struct {
 	pulumi.CustomResourceState
 

@@ -14,52 +14,6 @@ import (
 )
 
 // Resource for managing an AWS CodeGuru Reviewer Repository Association.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecommit"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codegurureviewer"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKey, err := kms.NewKey(ctx, "exampleKey", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleRepository, err := codecommit.NewRepository(ctx, "exampleRepository", &codecommit.RepositoryArgs{
-//				RepositoryName: pulumi.String("example-repo"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = codegurureviewer.NewRepositoryAssociation(ctx, "exampleRepositoryAssociation", &codegurureviewer.RepositoryAssociationArgs{
-//				Repository: &codegurureviewer.RepositoryAssociationRepositoryArgs{
-//					Codecommit: &codegurureviewer.RepositoryAssociationRepositoryCodecommitArgs{
-//						Name: exampleRepository.RepositoryName,
-//					},
-//				},
-//				KmsKeyDetails: &codegurureviewer.RepositoryAssociationKmsKeyDetailsArgs{
-//					EncryptionOption: pulumi.String("CUSTOMER_MANAGED_CMK"),
-//					KmsKeyId:         exampleKey.KeyId,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type RepositoryAssociation struct {
 	pulumi.CustomResourceState
 

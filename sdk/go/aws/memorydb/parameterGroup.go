@@ -16,48 +16,6 @@ import (
 // Provides a MemoryDB Parameter Group.
 //
 // More information about parameter groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/parametergroups.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/memorydb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := memorydb.NewParameterGroup(ctx, "example", &memorydb.ParameterGroupArgs{
-//				Family: pulumi.String("memorydb_redis6"),
-//				Parameters: memorydb.ParameterGroupParameterArray{
-//					&memorydb.ParameterGroupParameterArgs{
-//						Name:  pulumi.String("activedefrag"),
-//						Value: pulumi.String("yes"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import a parameter group using the `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
-//
-// ```
 type ParameterGroup struct {
 	pulumi.CustomResourceState
 

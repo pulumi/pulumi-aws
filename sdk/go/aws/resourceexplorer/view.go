@@ -13,57 +13,6 @@ import (
 )
 
 // Provides a resource to manage a Resource Explorer view.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/resourceexplorer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleIndex, err := resourceexplorer.NewIndex(ctx, "exampleIndex", &resourceexplorer.IndexArgs{
-//				Type: pulumi.String("LOCAL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = resourceexplorer.NewView(ctx, "exampleView", &resourceexplorer.ViewArgs{
-//				Filters: &resourceexplorer.ViewFiltersArgs{
-//					FilterString: pulumi.String("resourcetype:ec2:instance"),
-//				},
-//				IncludedProperties: resourceexplorer.ViewIncludedPropertyArray{
-//					&resourceexplorer.ViewIncludedPropertyArgs{
-//						Name: pulumi.String("tags"),
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleIndex,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Resource Explorer views using the `arn`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:resourceexplorer/view:View example arn:aws:resource-explorer-2:us-west-2:123456789012:view/exampleview/e0914f6c-6c27-4b47-b5d4-6b28381a2421
-//
-// ```
 type View struct {
 	pulumi.CustomResourceState
 

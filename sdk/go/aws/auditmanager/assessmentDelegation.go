@@ -14,46 +14,6 @@ import (
 )
 
 // Resource for managing an AWS Audit Manager Assessment Delegation.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/auditmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auditmanager.NewAssessmentDelegation(ctx, "example", &auditmanager.AssessmentDelegationArgs{
-//				AssessmentId: pulumi.Any(aws_auditmanager_assessment.Example.Id),
-//				RoleArn:      pulumi.Any(aws_iam_role.Example.Arn),
-//				RoleType:     pulumi.String("RESOURCE_OWNER"),
-//				ControlSetId: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Audit Manager Assessment Delegation using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:auditmanager/assessmentDelegation:AssessmentDelegation example abcdef-123456,arn:aws:iam::012345678901:role/example,example
-//
-// ```
 type AssessmentDelegation struct {
 	pulumi.CustomResourceState
 

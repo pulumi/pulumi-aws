@@ -14,58 +14,6 @@ import (
 )
 
 // Provides a resource to manage an [AWS Macie Classification Job](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/macie2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testAccount, err := macie2.NewAccount(ctx, "testAccount", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = macie2.NewClassificationJob(ctx, "testClassificationJob", &macie2.ClassificationJobArgs{
-//				JobType: pulumi.String("ONE_TIME"),
-//				S3JobDefinition: &macie2.ClassificationJobS3JobDefinitionArgs{
-//					BucketDefinitions: macie2.ClassificationJobS3JobDefinitionBucketDefinitionArray{
-//						&macie2.ClassificationJobS3JobDefinitionBucketDefinitionArgs{
-//							AccountId: pulumi.String("ACCOUNT ID"),
-//							Buckets: pulumi.StringArray{
-//								pulumi.String("S3 BUCKET NAME"),
-//							},
-//						},
-//					},
-//				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				testAccount,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_macie2_classification_job` using the id. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
-//
-// ```
 type ClassificationJob struct {
 	pulumi.CustomResourceState
 

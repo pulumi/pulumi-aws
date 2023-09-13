@@ -14,57 +14,6 @@ import (
 )
 
 // Provides an AppSync Type.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGraphQLApi, err := appsync.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("API_KEY"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = appsync.NewType(ctx, "exampleType", &appsync.TypeArgs{
-//				ApiId:  exampleGraphQLApi.ID(),
-//				Format: pulumi.String("SDL"),
-//				Definition: pulumi.String(`type Mutation
-//
-// {
-// putPost(id: ID!,title: String! ): Post
-//
-// }
-// `),
-//
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Appsync Types using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:appsync/type:Type example api-id:format:name
-//
-// ```
 type Type struct {
 	pulumi.CustomResourceState
 

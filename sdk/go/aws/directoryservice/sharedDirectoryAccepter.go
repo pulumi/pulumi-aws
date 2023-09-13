@@ -16,52 +16,6 @@ import (
 // Accepts a shared directory in a consumer account.
 //
 // > **NOTE:** Destroying this resource removes the shared directory from the consumer account only.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSharedDirectory, err := directoryservice.NewSharedDirectory(ctx, "exampleSharedDirectory", &directoryservice.SharedDirectoryArgs{
-//				DirectoryId: pulumi.Any(aws_directory_service_directory.Example.Id),
-//				Notes:       pulumi.String("example"),
-//				Target: &directoryservice.SharedDirectoryTargetArgs{
-//					Id: pulumi.Any(data.Aws_caller_identity.Receiver.Account_id),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = directoryservice.NewSharedDirectoryAccepter(ctx, "exampleSharedDirectoryAccepter", &directoryservice.SharedDirectoryAccepterArgs{
-//				SharedDirectoryId: exampleSharedDirectory.SharedDirectoryId,
-//			}, pulumi.Provider("awsalternate"))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Directory Service Shared Directories using the shared directory ID. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
-//
-// ```
 type SharedDirectoryAccepter struct {
 	pulumi.CustomResourceState
 

@@ -14,45 +14,6 @@ import (
 )
 
 // Provides an SWF Domain resource.
-//
-// ## Example Usage
-//
-// To register a basic SWF domain:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/swf"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := swf.NewDomain(ctx, "foo", &swf.DomainArgs{
-//				Description:                            pulumi.String("SWF Domain"),
-//				WorkflowExecutionRetentionPeriodInDays: pulumi.String("30"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SWF Domains using the `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:swf/domain:Domain foo test-domain
-//
-// ```
 type Domain struct {
 	pulumi.CustomResourceState
 

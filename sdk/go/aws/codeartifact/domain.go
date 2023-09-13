@@ -14,42 +14,6 @@ import (
 )
 
 // Provides a CodeArtifact Domain Resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codeartifact"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codeartifact.NewDomain(ctx, "example", &codeartifact.DomainArgs{
-//				Domain: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CodeArtifact Domain using the CodeArtifact Domain arn. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:codeartifact/domain:Domain example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
-//
-// ```
 type Domain struct {
 	pulumi.CustomResourceState
 

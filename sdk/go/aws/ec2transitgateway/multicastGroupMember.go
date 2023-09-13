@@ -15,34 +15,6 @@ import (
 
 // Registers members (network interfaces) with the transit gateway multicast group.
 // A member is a network interface associated with a supported EC2 instance that receives multicast traffic.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.NewMulticastGroupMember(ctx, "example", &ec2transitgateway.MulticastGroupMemberArgs{
-//				GroupIpAddress:                  pulumi.String("224.0.0.1"),
-//				NetworkInterfaceId:              pulumi.Any(aws_network_interface.Example.Id),
-//				TransitGatewayMulticastDomainId: pulumi.Any(aws_ec2_transit_gateway_multicast_domain.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type MulticastGroupMember struct {
 	pulumi.CustomResourceState
 

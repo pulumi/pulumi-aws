@@ -13,45 +13,6 @@ import (
 )
 
 // Provides a resource to create a VPC Internet Gateway.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2.NewInternetGateway(ctx, "gw", &ec2.InternetGatewayArgs{
-//				VpcId: pulumi.Any(aws_vpc.Main.Id),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("main"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Internet Gateways using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
-//
-// ```
 type InternetGateway struct {
 	pulumi.CustomResourceState
 

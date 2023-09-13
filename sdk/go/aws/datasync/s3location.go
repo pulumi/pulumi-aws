@@ -14,47 +14,6 @@ import (
 )
 
 // Manages an S3 Location within AWS DataSync.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := datasync.NewS3Location(ctx, "example", &datasync.S3LocationArgs{
-//				S3BucketArn:  pulumi.Any(aws_s3_bucket.Example.Arn),
-//				Subdirectory: pulumi.String("/example/prefix"),
-//				S3Config: &datasync.S3LocationS3ConfigArgs{
-//					BucketAccessRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_datasync_location_s3` using the DataSync Task Amazon Resource Name (ARN). For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:datasync/s3Location:S3Location example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
-//
-// ```
 type S3Location struct {
 	pulumi.CustomResourceState
 

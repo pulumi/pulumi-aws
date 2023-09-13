@@ -14,50 +14,6 @@ import (
 )
 
 // Resource for managing an AWS CloudWatch Observability Access Manager Link.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/oam"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := oam.NewLink(ctx, "example", &oam.LinkArgs{
-//				LabelTemplate: pulumi.String("$AccountName"),
-//				ResourceTypes: pulumi.StringArray{
-//					pulumi.String("AWS::CloudWatch::Metric"),
-//				},
-//				SinkIdentifier: pulumi.Any(aws_oam_sink.Test.Id),
-//				Tags: pulumi.StringMap{
-//					"Env": pulumi.String("prod"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
-//
-// ```
 type Link struct {
 	pulumi.CustomResourceState
 

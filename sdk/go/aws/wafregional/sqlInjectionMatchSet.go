@@ -13,49 +13,6 @@ import (
 )
 
 // Provides a WAF Regional SQL Injection Match Set Resource for use with Application Load Balancer.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafregional.NewSqlInjectionMatchSet(ctx, "sqlInjectionMatchSet", &wafregional.SqlInjectionMatchSetArgs{
-//				SqlInjectionMatchTuples: wafregional.SqlInjectionMatchSetSqlInjectionMatchTupleArray{
-//					&wafregional.SqlInjectionMatchSetSqlInjectionMatchTupleArgs{
-//						FieldToMatch: &wafregional.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs{
-//							Type: pulumi.String("QUERY_STRING"),
-//						},
-//						TextTransformation: pulumi.String("URL_DECODE"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WAF Regional Sql Injection Match Set using the id. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:wafregional/sqlInjectionMatchSet:SqlInjectionMatchSet sql_injection_match_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-//
-// ```
 type SqlInjectionMatchSet struct {
 	pulumi.CustomResourceState
 

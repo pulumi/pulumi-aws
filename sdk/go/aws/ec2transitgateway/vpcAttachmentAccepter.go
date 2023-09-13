@@ -20,45 +20,6 @@ import (
 // The requester can use the `ec2transitgateway.VpcAttachment` resource to manage its side of the connection
 // and the accepter can use the `ec2transitgateway.VpcAttachmentAccepter` resource to "adopt" its side of the
 // connection into management.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ec2transitgateway.NewVpcAttachmentAccepter(ctx, "example", &ec2transitgateway.VpcAttachmentAccepterArgs{
-//				TransitGatewayAttachmentId: pulumi.Any(aws_ec2_transit_gateway_vpc_attachment.Example.Id),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example cross-account attachment"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment_accepter` using the EC2 Transit Gateway Attachment identifier. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter example tgw-attach-12345678
-//
-// ```
 type VpcAttachmentAccepter struct {
 	pulumi.CustomResourceState
 

@@ -13,49 +13,6 @@ import (
 )
 
 // Resource for managing an AWS Audit Manager Control.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/auditmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auditmanager.NewControl(ctx, "example", &auditmanager.ControlArgs{
-//				ControlMappingSources: auditmanager.ControlControlMappingSourceArray{
-//					&auditmanager.ControlControlMappingSourceArgs{
-//						SourceName:        pulumi.String("example"),
-//						SourceSetUpOption: pulumi.String("Procedural_Controls_Mapping"),
-//						SourceType:        pulumi.String("MANUAL"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import an Audit Manager Control using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:auditmanager/control:Control example abc123-de45
-//
-// ```
 type Control struct {
 	pulumi.CustomResourceState
 

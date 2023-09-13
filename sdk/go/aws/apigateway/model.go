@@ -14,60 +14,6 @@ import (
 )
 
 // Provides a Model for a REST API Gateway.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myDemoAPI, err := apigateway.NewRestApi(ctx, "myDemoAPI", &apigateway.RestApiArgs{
-//				Description: pulumi.String("This is my API for demonstration purposes"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"type": "object",
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			_, err = apigateway.NewModel(ctx, "myDemoModel", &apigateway.ModelArgs{
-//				RestApi:     myDemoAPI.ID(),
-//				Description: pulumi.String("a JSON schema"),
-//				ContentType: pulumi.String("application/json"),
-//				Schema:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_api_gateway_model` using `REST-API-ID/NAME`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:apigateway/model:Model example 12345abcde/example
-//
-// ```
 type Model struct {
 	pulumi.CustomResourceState
 

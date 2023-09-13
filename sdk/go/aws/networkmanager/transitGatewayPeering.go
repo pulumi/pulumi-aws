@@ -14,43 +14,6 @@ import (
 )
 
 // Creates a peering connection between an AWS Cloud WAN core network and an AWS Transit Gateway.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := networkmanager.NewTransitGatewayPeering(ctx, "example", &networkmanager.TransitGatewayPeeringArgs{
-//				CoreNetworkId:     pulumi.Any(awscc_networkmanager_core_network.Example.Id),
-//				TransitGatewayArn: pulumi.Any(aws_ec2_transit_gateway.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_networkmanager_transit_gateway_peering` using the peering ID. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:networkmanager/transitGatewayPeering:TransitGatewayPeering example peering-444555aaabbb11223
-//
-// ```
 type TransitGatewayPeering struct {
 	pulumi.CustomResourceState
 

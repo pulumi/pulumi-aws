@@ -14,62 +14,6 @@ import (
 )
 
 // Manages an AWS Opensearch Outbound Connection.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			currentRegion, err := aws.GetRegion(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = opensearch.NewOutboundConnection(ctx, "foo", &opensearch.OutboundConnectionArgs{
-//				ConnectionAlias: pulumi.String("outbound_connection"),
-//				LocalDomainInfo: &opensearch.OutboundConnectionLocalDomainInfoArgs{
-//					OwnerId:    *pulumi.String(currentCallerIdentity.AccountId),
-//					Region:     *pulumi.String(currentRegion.Name),
-//					DomainName: pulumi.Any(aws_opensearch_domain.Local_domain.Domain_name),
-//				},
-//				RemoteDomainInfo: &opensearch.OutboundConnectionRemoteDomainInfoArgs{
-//					OwnerId:    *pulumi.String(currentCallerIdentity.AccountId),
-//					Region:     *pulumi.String(currentRegion.Name),
-//					DomainName: pulumi.Any(aws_opensearch_domain.Remote_domain.Domain_name),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AWS Opensearch Outbound Connections using the Outbound Connection ID. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
-//
-// ```
 type OutboundConnection struct {
 	pulumi.CustomResourceState
 

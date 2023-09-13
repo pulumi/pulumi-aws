@@ -14,49 +14,6 @@ import (
 )
 
 // Resource for managing an AWS CodeCatalyst Dev Environment.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecatalyst"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := codecatalyst.NewDevEnvironment(ctx, "test", &codecatalyst.DevEnvironmentArgs{
-//				Alias: pulumi.String("devenv"),
-//				Ides: &codecatalyst.DevEnvironmentIdesArgs{
-//					Name:    pulumi.String("PyCharm"),
-//					Runtime: pulumi.String("public.ecr.aws/jetbrains/py"),
-//				},
-//				InactivityTimeoutMinutes: pulumi.Int(40),
-//				InstanceType:             pulumi.String("dev.standard1.small"),
-//				PersistentStorage: &codecatalyst.DevEnvironmentPersistentStorageArgs{
-//					Size: pulumi.Int(16),
-//				},
-//				ProjectName: pulumi.String("myproject"),
-//				Repositories: codecatalyst.DevEnvironmentRepositoryArray{
-//					&codecatalyst.DevEnvironmentRepositoryArgs{
-//						BranchName:     pulumi.String("main"),
-//						RepositoryName: pulumi.String("TODO-provider-aws"),
-//					},
-//				},
-//				SpaceName: pulumi.String("myspace"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type DevEnvironment struct {
 	pulumi.CustomResourceState
 

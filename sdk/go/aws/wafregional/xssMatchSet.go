@@ -13,55 +13,6 @@ import (
 )
 
 // Provides a WAF Regional XSS Match Set Resource for use with Application Load Balancer.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := wafregional.NewXssMatchSet(ctx, "xssMatchSet", &wafregional.XssMatchSetArgs{
-//				XssMatchTuples: wafregional.XssMatchSetXssMatchTupleArray{
-//					&wafregional.XssMatchSetXssMatchTupleArgs{
-//						FieldToMatch: &wafregional.XssMatchSetXssMatchTupleFieldToMatchArgs{
-//							Type: pulumi.String("URI"),
-//						},
-//						TextTransformation: pulumi.String("NONE"),
-//					},
-//					&wafregional.XssMatchSetXssMatchTupleArgs{
-//						FieldToMatch: &wafregional.XssMatchSetXssMatchTupleFieldToMatchArgs{
-//							Type: pulumi.String("QUERY_STRING"),
-//						},
-//						TextTransformation: pulumi.String("NONE"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import AWS WAF Regional XSS Match using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
-//
-// ```
 type XssMatchSet struct {
 	pulumi.CustomResourceState
 

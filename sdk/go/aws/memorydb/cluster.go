@@ -16,49 +16,6 @@ import (
 // Provides a MemoryDB Cluster.
 //
 // More information about MemoryDB can be found in the [Developer Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/what-is-memorydb-for-redis.html).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/memorydb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := memorydb.NewCluster(ctx, "example", &memorydb.ClusterArgs{
-//				AclName:   pulumi.String("open-access"),
-//				NodeType:  pulumi.String("db.t4g.small"),
-//				NumShards: pulumi.Int(2),
-//				SecurityGroupIds: pulumi.StringArray{
-//					aws_security_group.Example.Id,
-//				},
-//				SnapshotRetentionLimit: pulumi.Int(7),
-//				SubnetGroupName:        pulumi.Any(aws_memorydb_subnet_group.Example.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import a cluster using the `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:memorydb/cluster:Cluster example my-cluster
-//
-// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 

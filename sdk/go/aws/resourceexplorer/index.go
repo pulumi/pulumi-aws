@@ -14,42 +14,6 @@ import (
 )
 
 // Provides a resource to manage a Resource Explorer index in the current AWS Region.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/resourceexplorer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := resourceexplorer.NewIndex(ctx, "example", &resourceexplorer.IndexArgs{
-//				Type: pulumi.String("LOCAL"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Resource Explorer indexes using the `arn`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:resourceexplorer/index:Index example arn:aws:resource-explorer-2:us-east-1:123456789012:index/6047ac4e-207e-4487-9bcf-cb53bb0ff5cc
-//
-// ```
 type Index struct {
 	pulumi.CustomResourceState
 

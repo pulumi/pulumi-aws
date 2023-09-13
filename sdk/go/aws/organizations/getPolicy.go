@@ -13,8 +13,6 @@ import (
 )
 
 // Data source for managing an AWS Organizations Policy.
-//
-// ## Example Usage
 func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.InvokeOption) (*LookupPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPolicyResult

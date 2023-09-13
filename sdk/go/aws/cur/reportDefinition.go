@@ -16,55 +16,6 @@ import (
 // Manages Cost and Usage Report Definitions.
 //
 // > *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cur"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cur.NewReportDefinition(ctx, "exampleCurReportDefinition", &cur.ReportDefinitionArgs{
-//				AdditionalArtifacts: pulumi.StringArray{
-//					pulumi.String("REDSHIFT"),
-//					pulumi.String("QUICKSIGHT"),
-//				},
-//				AdditionalSchemaElements: pulumi.StringArray{
-//					pulumi.String("RESOURCES"),
-//					pulumi.String("SPLIT_COST_ALLOCATION_DATA"),
-//				},
-//				Compression: pulumi.String("GZIP"),
-//				Format:      pulumi.String("textORcsv"),
-//				ReportName:  pulumi.String("example-cur-report-definition"),
-//				S3Bucket:    pulumi.String("example-bucket-name"),
-//				S3Region:    pulumi.String("us-east-1"),
-//				TimeUnit:    pulumi.String("HOURLY"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Report Definitions using the `report_name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
-//
-// ```
 type ReportDefinition struct {
 	pulumi.CustomResourceState
 

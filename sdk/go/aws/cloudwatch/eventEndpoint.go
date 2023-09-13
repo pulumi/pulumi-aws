@@ -16,63 +16,6 @@ import (
 // Provides a resource to create an EventBridge Global Endpoint.
 //
 // > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cloudwatch.NewEventEndpoint(ctx, "this", &cloudwatch.EventEndpointArgs{
-//				RoleArn: pulumi.Any(aws_iam_role.Replication.Arn),
-//				EventBuses: cloudwatch.EventEndpointEventBusArray{
-//					&cloudwatch.EventEndpointEventBusArgs{
-//						EventBusArn: pulumi.Any(aws_cloudwatch_event_bus.Primary.Arn),
-//					},
-//					&cloudwatch.EventEndpointEventBusArgs{
-//						EventBusArn: pulumi.Any(aws_cloudwatch_event_bus.Secondary.Arn),
-//					},
-//				},
-//				ReplicationConfig: &cloudwatch.EventEndpointReplicationConfigArgs{
-//					State: pulumi.String("DISABLED"),
-//				},
-//				RoutingConfig: &cloudwatch.EventEndpointRoutingConfigArgs{
-//					FailoverConfig: &cloudwatch.EventEndpointRoutingConfigFailoverConfigArgs{
-//						Primary: &cloudwatch.EventEndpointRoutingConfigFailoverConfigPrimaryArgs{
-//							HealthCheck: pulumi.Any(aws_route53_health_check.Primary.Arn),
-//						},
-//						Secondary: &cloudwatch.EventEndpointRoutingConfigFailoverConfigSecondaryArgs{
-//							Route: pulumi.String("us-east-2"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EventBridge Global Endpoints using the `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint
-//
-// ```
 type EventEndpoint struct {
 	pulumi.CustomResourceState
 

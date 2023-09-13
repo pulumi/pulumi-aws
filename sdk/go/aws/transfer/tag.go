@@ -18,58 +18,6 @@ import (
 // > **NOTE:** This tagging resource should not be combined with the resource for managing the parent resource. For example, using `transfer.Server` and `transfer.Tag` to manage tags of the same server will cause a perpetual difference where the `transfer.Server` resource will try to remove the tag being added by the `transfer.Tag` resource.
 //
 // > **NOTE:** This tagging resource does not use the provider `ignoreTags` configuration.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := transfer.NewServer(ctx, "example", &transfer.ServerArgs{
-//				IdentityProviderType: pulumi.String("SERVICE_MANAGED"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = transfer.NewTag(ctx, "zoneId", &transfer.TagArgs{
-//				ResourceArn: example.Arn,
-//				Key:         pulumi.String("aws:transfer:route53HostedZoneId"),
-//				Value:       pulumi.String("/hostedzone/MyHostedZoneId"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = transfer.NewTag(ctx, "hostname", &transfer.TagArgs{
-//				ResourceArn: example.Arn,
-//				Key:         pulumi.String("aws:transfer:customHostname"),
-//				Value:       pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_transfer_tag` using the Transfer Family resource identifier and key, separated by a comma (`,`). For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:transfer/tag:Tag example arn:aws:transfer:us-east-1:123456789012:server/s-1234567890abcdef0,Name
-//
-// ```
 type Tag struct {
 	pulumi.CustomResourceState
 

@@ -14,43 +14,6 @@ import (
 )
 
 // Creates a new Amazon Redshift Serverless Workgroup.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshiftserverless"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := redshiftserverless.NewWorkgroup(ctx, "example", &redshiftserverless.WorkgroupArgs{
-//				NamespaceName: pulumi.String("concurrency-scaling"),
-//				WorkgroupName: pulumi.String("concurrency-scaling"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
-//
-// ```
 type Workgroup struct {
 	pulumi.CustomResourceState
 

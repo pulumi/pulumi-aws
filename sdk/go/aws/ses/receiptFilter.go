@@ -14,43 +14,6 @@ import (
 )
 
 // Provides an SES receipt filter resource
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.NewReceiptFilter(ctx, "filter", &ses.ReceiptFilterArgs{
-//				Cidr:   pulumi.String("10.10.10.10"),
-//				Policy: pulumi.String("Block"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import SES Receipt Filter using their `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
-//
-// ```
 type ReceiptFilter struct {
 	pulumi.CustomResourceState
 

@@ -13,40 +13,6 @@ import (
 )
 
 // Creates and manages an AWS IoT Thing Type.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := iot.NewThingType(ctx, "foo", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import IOT Thing Types using the name. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:iot/thingType:ThingType example example
-//
-// ```
 type ThingType struct {
 	pulumi.CustomResourceState
 

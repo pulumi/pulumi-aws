@@ -13,66 +13,6 @@ import (
 )
 
 // Resource for managing AWS Audit Manager Account Registration.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/auditmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auditmanager.NewAccountRegistration(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Deregister On Destroy
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/auditmanager"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := auditmanager.NewAccountRegistration(ctx, "example", &auditmanager.AccountRegistrationArgs{
-//				DeregisterOnDestroy: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Audit Manager Account Registration resources using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:auditmanager/accountRegistration:AccountRegistration example us-east-1
-//
-// ```
 type AccountRegistration struct {
 	pulumi.CustomResourceState
 

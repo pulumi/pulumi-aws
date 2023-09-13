@@ -14,60 +14,6 @@ import (
 )
 
 // Provides a resource to manage an API Gateway Documentation Version.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRestApi, err := apigateway.NewRestApi(ctx, "exampleRestApi", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleDocumentationPart, err := apigateway.NewDocumentationPart(ctx, "exampleDocumentationPart", &apigateway.DocumentationPartArgs{
-//				Location: &apigateway.DocumentationPartLocationArgs{
-//					Type: pulumi.String("API"),
-//				},
-//				Properties: pulumi.String("{\"description\":\"Example\"}"),
-//				RestApiId:  exampleRestApi.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apigateway.NewDocumentationVersion(ctx, "exampleDocumentationVersion", &apigateway.DocumentationVersionArgs{
-//				Version:     pulumi.String("example_version"),
-//				RestApiId:   exampleRestApi.ID(),
-//				Description: pulumi.String("Example description"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleDocumentationPart,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import API Gateway documentation versions using `REST-API-ID/VERSION`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
-//
-// ```
 type DocumentationVersion struct {
 	pulumi.CustomResourceState
 

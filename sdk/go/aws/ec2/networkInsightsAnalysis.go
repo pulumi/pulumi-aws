@@ -14,50 +14,6 @@ import (
 )
 
 // Provides a Network Insights Analysis resource. Part of the "Reachability Analyzer" service in the AWS VPC console.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			path, err := ec2.NewNetworkInsightsPath(ctx, "path", &ec2.NetworkInsightsPathArgs{
-//				Source:      pulumi.Any(aws_network_interface.Source.Id),
-//				Destination: pulumi.Any(aws_network_interface.Destination.Id),
-//				Protocol:    pulumi.String("tcp"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ec2.NewNetworkInsightsAnalysis(ctx, "analysis", &ec2.NetworkInsightsAnalysisArgs{
-//				NetworkInsightsPathId: path.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Network Insights Analyses using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis test nia-0462085c957f11a55
-//
-// ```
 type NetworkInsightsAnalysis struct {
 	pulumi.CustomResourceState
 

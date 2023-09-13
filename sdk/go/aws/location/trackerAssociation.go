@@ -14,55 +14,6 @@ import (
 )
 
 // Resource for managing an AWS Location Tracker Association.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/location"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGeofenceCollection, err := location.NewGeofenceCollection(ctx, "exampleGeofenceCollection", &location.GeofenceCollectionArgs{
-//				CollectionName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleTracker, err := location.NewTracker(ctx, "exampleTracker", &location.TrackerArgs{
-//				TrackerName: pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = location.NewTrackerAssociation(ctx, "exampleTrackerAssociation", &location.TrackerAssociationArgs{
-//				ConsumerArn: exampleGeofenceCollection.CollectionArn,
-//				TrackerName: exampleTracker.TrackerName,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Location Tracker Association using the `tracker_name|consumer_arn`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
-//
-// ```
 type TrackerAssociation struct {
 	pulumi.CustomResourceState
 

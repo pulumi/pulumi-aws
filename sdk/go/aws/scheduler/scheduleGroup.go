@@ -17,40 +17,6 @@ import (
 // You can find out more about EventBridge Scheduler in the [User Guide](https://docs.aws.amazon.com/scheduler/latest/UserGuide/what-is-scheduler.html).
 //
 // > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/scheduler"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := scheduler.NewScheduleGroup(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import schedule groups using the `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:scheduler/scheduleGroup:ScheduleGroup example my-schedule-group
-//
-// ```
 type ScheduleGroup struct {
 	pulumi.CustomResourceState
 

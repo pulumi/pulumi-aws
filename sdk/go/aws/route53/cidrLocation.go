@@ -14,50 +14,6 @@ import (
 )
 
 // Provides a Route53 CIDR location resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleCidrCollection, err := route53.NewCidrCollection(ctx, "exampleCidrCollection", nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = route53.NewCidrLocation(ctx, "exampleCidrLocation", &route53.CidrLocationArgs{
-//				CidrCollectionId: exampleCidrCollection.ID(),
-//				CidrBlocks: pulumi.StringArray{
-//					pulumi.String("200.5.3.0/24"),
-//					pulumi.String("200.6.3.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import CIDR locations using their the CIDR collection ID and location name. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:route53/cidrLocation:CidrLocation example 9ac32814-3e67-0932-6048-8d779cc6f511,office
-//
-// ```
 type CidrLocation struct {
 	pulumi.CustomResourceState
 

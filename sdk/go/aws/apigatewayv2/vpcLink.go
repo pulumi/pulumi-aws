@@ -17,48 +17,6 @@ import (
 //
 // > **Note:** Amazon API Gateway Version 2 VPC Links enable private integrations that connect HTTP APIs to private resources in a VPC.
 // To enable private integration for REST APIs, use the Amazon API Gateway Version 1 VPC Link resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigatewayv2.NewVpcLink(ctx, "example", &apigatewayv2.VpcLinkArgs{
-//				SecurityGroupIds: pulumi.StringArray{
-//					data.Aws_security_group.Example.Id,
-//				},
-//				SubnetIds: pulumi.Any(data.Aws_subnets.Example.Ids),
-//				Tags: pulumi.StringMap{
-//					"Usage": pulumi.String("example"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
-//
-// ```
 type VpcLink struct {
 	pulumi.CustomResourceState
 

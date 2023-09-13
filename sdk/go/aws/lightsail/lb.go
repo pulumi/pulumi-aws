@@ -14,46 +14,6 @@ import (
 )
 
 // Creates a Lightsail load balancer resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lightsail.NewLb(ctx, "test", &lightsail.LbArgs{
-//				HealthCheckPath: pulumi.String("/"),
-//				InstancePort:    pulumi.Int(80),
-//				Tags: pulumi.StringMap{
-//					"foo": pulumi.String("bar"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import `aws_lightsail_lb` using the name attribute. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:lightsail/lb:Lb test example-load-balancer
-//
-// ```
 type Lb struct {
 	pulumi.CustomResourceState
 

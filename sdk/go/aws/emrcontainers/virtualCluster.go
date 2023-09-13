@@ -14,51 +14,6 @@ import (
 )
 
 // Manages an EMR Containers (EMR on EKS) Virtual Cluster.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emrcontainers"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emrcontainers.NewVirtualCluster(ctx, "example", &emrcontainers.VirtualClusterArgs{
-//				ContainerProvider: &emrcontainers.VirtualClusterContainerProviderArgs{
-//					Id:   pulumi.Any(aws_eks_cluster.Example.Name),
-//					Type: pulumi.String("EKS"),
-//					Info: &emrcontainers.VirtualClusterContainerProviderInfoArgs{
-//						EksInfo: &emrcontainers.VirtualClusterContainerProviderInfoEksInfoArgs{
-//							Namespace: pulumi.String("default"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EKS Clusters using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
-//
-// ```
 type VirtualCluster struct {
 	pulumi.CustomResourceState
 

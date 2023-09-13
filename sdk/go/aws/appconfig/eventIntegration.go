@@ -14,49 +14,6 @@ import (
 )
 
 // Provides an Amazon AppIntegrations Event Integration resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := appconfig.NewEventIntegration(ctx, "example", &appconfig.EventIntegrationArgs{
-//				Description: pulumi.String("Example Description"),
-//				EventFilter: &appconfig.EventIntegrationEventFilterArgs{
-//					Source: pulumi.String("aws.partner/examplepartner.com"),
-//				},
-//				EventbridgeBus: pulumi.String("default"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("Example Event Integration"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
-//
-// ```
 type EventIntegration struct {
 	pulumi.CustomResourceState
 

@@ -13,44 +13,6 @@ import (
 )
 
 // Resource for managing an AWS VPC Lattice Service.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := vpclattice.NewService(ctx, "example", &vpclattice.ServiceArgs{
-//				AuthType:         pulumi.String("AWS_IAM"),
-//				CustomDomainName: pulumi.String("example.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import VPC Lattice Service using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
-//
-// ```
 type Service struct {
 	pulumi.CustomResourceState
 

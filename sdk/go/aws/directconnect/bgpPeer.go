@@ -14,34 +14,6 @@ import (
 )
 
 // Provides a Direct Connect BGP peer resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.NewBgpPeer(ctx, "peer", &directconnect.BgpPeerArgs{
-//				VirtualInterfaceId: pulumi.Any(aws_dx_private_virtual_interface.Foo.Id),
-//				AddressFamily:      pulumi.String("ipv6"),
-//				BgpAsn:             pulumi.Int(65351),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type BgpPeer struct {
 	pulumi.CustomResourceState
 

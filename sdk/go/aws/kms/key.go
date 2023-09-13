@@ -17,43 +17,6 @@ import (
 // > **NOTE on KMS Key Policy:** KMS Key Policy can be configured in either the standalone resource `kms.KeyPolicy`
 // or with the parameter `policy` in this resource.
 // Configuring with both will cause inconsistencies and may overwrite configuration.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kms.NewKey(ctx, "key", &kms.KeyArgs{
-//				DeletionWindowInDays: pulumi.Int(10),
-//				Description:          pulumi.String("KMS key 1"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import KMS Keys using the `id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:kms/key:Key a 1234abcd-12ab-34cd-56ef-1234567890ab
-//
-// ```
 type Key struct {
 	pulumi.CustomResourceState
 

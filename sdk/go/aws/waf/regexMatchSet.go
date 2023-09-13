@@ -13,60 +13,6 @@ import (
 )
 
 // Provides a WAF Regex Match Set Resource
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/waf"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRegexPatternSet, err := waf.NewRegexPatternSet(ctx, "exampleRegexPatternSet", &waf.RegexPatternSetArgs{
-//				RegexPatternStrings: pulumi.StringArray{
-//					pulumi.String("one"),
-//					pulumi.String("two"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = waf.NewRegexMatchSet(ctx, "exampleRegexMatchSet", &waf.RegexMatchSetArgs{
-//				RegexMatchTuples: waf.RegexMatchSetRegexMatchTupleArray{
-//					&waf.RegexMatchSetRegexMatchTupleArgs{
-//						FieldToMatch: &waf.RegexMatchSetRegexMatchTupleFieldToMatchArgs{
-//							Data: pulumi.String("User-Agent"),
-//							Type: pulumi.String("HEADER"),
-//						},
-//						RegexPatternSetId:  exampleRegexPatternSet.ID(),
-//						TextTransformation: pulumi.String("NONE"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import WAF Regex Match Set using their ID. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:waf/regexMatchSet:RegexMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-//
-// ```
 type RegexMatchSet struct {
 	pulumi.CustomResourceState
 

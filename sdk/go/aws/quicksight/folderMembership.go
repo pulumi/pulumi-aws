@@ -14,45 +14,6 @@ import (
 )
 
 // Resource for managing an AWS QuickSight Folder Membership.
-//
-// ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := quicksight.NewFolderMembership(ctx, "example", &quicksight.FolderMembershipArgs{
-//				FolderId:   pulumi.Any(aws_quicksight_folder.Example.Folder_id),
-//				MemberType: pulumi.String("DATASET"),
-//				MemberId:   pulumi.Any(aws_quicksight_data_set.Example.Data_set_id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import QuickSight Folder Membership using the AWS account ID, folder ID, member type, and member ID separated by commas (`,`). For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:quicksight/folderMembership:FolderMembership example 123456789012,example-folder,DATASET,example-dataset
-//
-// ```
 type FolderMembership struct {
 	pulumi.CustomResourceState
 

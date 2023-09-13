@@ -14,57 +14,6 @@ import (
 )
 
 // Manages a directory in your account (directory owner) shared with another account (directory consumer).
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// exampleDirectory, err := directoryservice.NewDirectory(ctx, "exampleDirectory", &directoryservice.DirectoryArgs{
-// Name: pulumi.String("tf-example"),
-// Password: pulumi.String("SuperSecretPassw0rd"),
-// Type: pulumi.String("MicrosoftAD"),
-// Edition: pulumi.String("Standard"),
-// VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
-// VpcId: pulumi.Any(aws_vpc.Example.Id),
-// SubnetIds: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ #-resources-aws:directoryservice-sharedDirectory:SharedDirectory.pp:7,17-41),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = directoryservice.NewSharedDirectory(ctx, "exampleSharedDirectory", &directoryservice.SharedDirectoryArgs{
-// DirectoryId: exampleDirectory.ID(),
-// Notes: pulumi.String("You wanna have a catch?"),
-// Target: &directoryservice.SharedDirectoryTargetArgs{
-// Id: pulumi.Any(data.Aws_caller_identity.Receiver.Account_id),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import Directory Service Shared Directories using the owner directory ID/shared directory ID. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:directoryservice/sharedDirectory:SharedDirectory example d-1234567890/d-9267633ece
-//
-// ```
 type SharedDirectory struct {
 	pulumi.CustomResourceState
 

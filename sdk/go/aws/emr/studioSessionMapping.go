@@ -14,45 +14,6 @@ import (
 )
 
 // Provides an Elastic MapReduce Studio Session Mapping.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.NewStudioSessionMapping(ctx, "example", &emr.StudioSessionMappingArgs{
-//				StudioId:         pulumi.Any(aws_emr_studio.Example.Id),
-//				IdentityType:     pulumi.String("USER"),
-//				IdentityId:       pulumi.String("example"),
-//				SessionPolicyArn: pulumi.Any(aws_iam_policy.Example.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EMR studio session mappings using `studio-id:identity-type:identity-id`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
-//
-// ```
 type StudioSessionMapping struct {
 	pulumi.CustomResourceState
 

@@ -19,44 +19,6 @@ import (
 // > **NOTE:** At this time, Instance Groups cannot be destroyed through the API nor
 // web interface. Instance Groups are destroyed when the EMR Cluster is destroyed.
 // this provider will resize any Instance Group to zero when destroying the resource.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := emr.NewInstanceGroup(ctx, "task", &emr.InstanceGroupArgs{
-//				ClusterId:     pulumi.Any(aws_emr_cluster.TfTestCluster.Id),
-//				InstanceCount: pulumi.Int(1),
-//				InstanceType:  pulumi.String("m5.xlarge"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// Using `pulumi import`, import EMR task instance group using their EMR Cluster id and Instance Group id separated by a forward-slash `/`. For example:
-//
-// ```sh
-//
-//	$ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
-//
-// ```
 type InstanceGroup struct {
 	pulumi.CustomResourceState
 
