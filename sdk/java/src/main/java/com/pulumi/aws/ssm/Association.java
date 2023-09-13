@@ -376,6 +376,20 @@ public class Association extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.scheduleExpression);
     }
     /**
+     * The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+     * 
+     */
+    @Export(name="syncCompliance", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> syncCompliance;
+
+    /**
+     * @return The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+     * 
+     */
+    public Output<Optional<String>> syncCompliance() {
+        return Codegen.optional(this.syncCompliance);
+    }
+    /**
      * A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
      * 
      */

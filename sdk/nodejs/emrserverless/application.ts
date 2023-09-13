@@ -61,11 +61,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import EMR Severless applications using the `id`. For example:
+ * In TODO v1.5.0 and later, use an `import` block to import EMR Severless applications using the `id`. For exampleterraform import {
  *
- * ```sh
- *  $ pulumi import aws:emrserverless/application:Application example id
- * ```
+ *  to = aws_emrserverless_application.example
+ *
+ *  id = "id" } Using `TODO import`, import EMR Severless applications using the `id`. For exampleconsole % TODO import aws_emrserverless_application.example id
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -136,7 +136,7 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly releaseLabel!: pulumi.Output<string>;
     /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -246,7 +246,7 @@ export interface ApplicationState {
      */
     releaseLabel?: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -300,7 +300,7 @@ export interface ApplicationArgs {
      */
     releaseLabel: pulumi.Input<string>;
     /**
-     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

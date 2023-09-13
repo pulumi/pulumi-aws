@@ -109,6 +109,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
@@ -133,7 +134,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;);
+ *         var exampleBucketV2 = new BucketV2(&#34;exampleBucketV2&#34;, BucketV2Args.builder()        
+ *             .forceDestroy(true)
+ *             .build());
  * 
  *         final var acmpcaBucketAccess = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
@@ -171,6 +174,7 @@ import javax.annotation.Nullable;
  *                     .enabled(true)
  *                     .expirationInDays(7)
  *                     .s3BucketName(exampleBucketV2.id())
+ *                     .s3ObjectAcl(&#34;BUCKET_OWNER_FULL_CONTROL&#34;)
  *                     .build())
  *                 .build())
  *             .build(), CustomResourceOptions.builder()

@@ -42,7 +42,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettings {
      */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings rtmpOutputSettings;
     /**
-     * @return UDP output settings. See UDP Output Settings for more details
+     * @return UDP output settings. See UDP Output Settings for more details.
      * 
      */
     private @Nullable ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings udpOutputSettings;
@@ -86,7 +86,7 @@ public final class ChannelEncoderSettingsOutputGroupOutputOutputSettings {
         return Optional.ofNullable(this.rtmpOutputSettings);
     }
     /**
-     * @return UDP output settings. See UDP Output Settings for more details
+     * @return UDP output settings. See UDP Output Settings for more details.
      * 
      */
     public Optional<ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings> udpOutputSettings() {

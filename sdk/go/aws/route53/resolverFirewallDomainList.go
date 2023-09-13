@@ -40,15 +40,15 @@ import (
 //
 // ## Import
 //
-// # Using `pulumi import`, import
+// # In TODO v1.5.0 and later, use an `import` block to import
 //
-// Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For example:
+// Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For exampleterraform import {
 //
-// ```sh
+//	to = aws_route53_resolver_firewall_domain_list.example
 //
-//	$ pulumi import aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList example rslvr-fdl-0123456789abcdef
+//	id = "rslvr-fdl-0123456789abcdef" } Using `TODO import`, import
 //
-// ```
+// Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For exampleconsole % TODO import aws_route53_resolver_firewall_domain_list.example rslvr-fdl-0123456789abcdef
 type ResolverFirewallDomainList struct {
 	pulumi.CustomResourceState
 
@@ -58,7 +58,7 @@ type ResolverFirewallDomainList struct {
 	Domains pulumi.StringArrayOutput `pulumi:"domains"`
 	// A name that lets you identify the domain list, to manage and use it.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. f configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -100,7 +100,7 @@ type resolverFirewallDomainListState struct {
 	Domains []string `pulumi:"domains"`
 	// A name that lets you identify the domain list, to manage and use it.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. f configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -113,7 +113,7 @@ type ResolverFirewallDomainListState struct {
 	Domains pulumi.StringArrayInput
 	// A name that lets you identify the domain list, to manage and use it.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. f configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -128,7 +128,7 @@ type resolverFirewallDomainListArgs struct {
 	Domains []string `pulumi:"domains"`
 	// A name that lets you identify the domain list, to manage and use it.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. f configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -138,7 +138,7 @@ type ResolverFirewallDomainListArgs struct {
 	Domains pulumi.StringArrayInput
 	// A name that lets you identify the domain list, to manage and use it.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. f configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -268,7 +268,7 @@ func (o ResolverFirewallDomainListOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallDomainList) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. f configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ResolverFirewallDomainListOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverFirewallDomainList) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -360,6 +360,12 @@ namespace Pulumi.Aws.ElastiCache
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+        /// </summary>
+        [Output("transitEncryptionEnabled")]
+        public Output<bool?> TransitEncryptionEnabled { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Cluster resource with the given unique name, arguments, and options.
@@ -610,6 +616,12 @@ namespace Pulumi.Aws.ElastiCache
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+        /// </summary>
+        [Input("transitEncryptionEnabled")]
+        public Input<bool>? TransitEncryptionEnabled { get; set; }
 
         public ClusterArgs()
         {
@@ -871,6 +883,12 @@ namespace Pulumi.Aws.ElastiCache
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// Enable encryption in-transit. Supported only with Memcached versions `1.6.12` and later, running in a VPC. See the [ElastiCache in-transit encryption](https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/in-transit-encryption-mc.html) documentation for more details.
+        /// </summary>
+        [Input("transitEncryptionEnabled")]
+        public Input<bool>? TransitEncryptionEnabled { get; set; }
 
         public ClusterState()
         {

@@ -61,11 +61,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import IAM user policy attachments using the user name and policy arn separated by `/`. For example:
+ * In TODO v1.5.0 and later, use an `import` block to import IAM user policy attachments using the user name and policy arn separated by `/`. For exampleterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:iam/userPolicyAttachment:UserPolicyAttachment test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
- * ```
+ *  to = aws_iam_user_policy_attachment.test-attach
+ * 
+ *  id = &#34;test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy&#34; } Using `TODO import`, import IAM user policy attachments using the user name and policy arn separated by `/`. For exampleconsole % TODO import aws_iam_user_policy_attachment.test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
  * 
  */
 @ResourceType(type="aws:iam/userPolicyAttachment:UserPolicyAttachment")

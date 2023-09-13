@@ -5842,7 +5842,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettings(dict):
         :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArgs' media_package_output_settings: Media package output settings. This can be set as an empty block.
         :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs' multiplex_output_settings: Multiplex output settings. See Multiplex Output Settings for more details.
         :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs' rtmp_output_settings: RTMP output settings. See RTMP Output Settings for more details.
-        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs' udp_output_settings: UDP output settings. See UDP Output Settings for more details
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs' udp_output_settings: UDP output settings. See UDP Output Settings for more details.
         """
         if archive_output_settings is not None:
             pulumi.set(__self__, "archive_output_settings", archive_output_settings)
@@ -5912,7 +5912,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettings(dict):
     @pulumi.getter(name="udpOutputSettings")
     def udp_output_settings(self) -> Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings']:
         """
-        UDP output settings. See UDP Output Settings for more details
+        UDP output settings. See UDP Output Settings for more details.
         """
         return pulumi.get(self, "udp_output_settings")
 
@@ -9962,7 +9962,8 @@ class ChannelInputAttachment(dict):
         """
         :param str input_attachment_name: User-specified name for the attachment.
         :param str input_id: The ID of the input.
-        :param 'ChannelInputAttachmentInputSettingsArgs' input_settings: Settings of an input. See Input Settings for more details
+        :param 'ChannelInputAttachmentAutomaticInputFailoverSettingsArgs' automatic_input_failover_settings: User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
+        :param 'ChannelInputAttachmentInputSettingsArgs' input_settings: Settings of an input. See Input Settings for more details.
         """
         pulumi.set(__self__, "input_attachment_name", input_attachment_name)
         pulumi.set(__self__, "input_id", input_id)
@@ -9990,13 +9991,16 @@ class ChannelInputAttachment(dict):
     @property
     @pulumi.getter(name="automaticInputFailoverSettings")
     def automatic_input_failover_settings(self) -> Optional['outputs.ChannelInputAttachmentAutomaticInputFailoverSettings']:
+        """
+        User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
+        """
         return pulumi.get(self, "automatic_input_failover_settings")
 
     @property
     @pulumi.getter(name="inputSettings")
     def input_settings(self) -> Optional['outputs.ChannelInputAttachmentInputSettings']:
         """
-        Settings of an input. See Input Settings for more details
+        Settings of an input. See Input Settings for more details.
         """
         return pulumi.get(self, "input_settings")
 
@@ -10031,6 +10035,11 @@ class ChannelInputAttachmentAutomaticInputFailoverSettings(dict):
                  error_clear_time_msec: Optional[int] = None,
                  failover_conditions: Optional[Sequence['outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition']] = None,
                  input_preference: Optional[str] = None):
+        """
+        :param str secondary_input_id: The input ID of the secondary input in the automatic input failover pair.
+        :param int error_clear_time_msec: This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\\_preference for the failover pair is set to PRIMARY\\_INPUT\\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+        :param str input_preference: Input preference when deciding which input to make active when a previously failed input has recovered.
+        """
         pulumi.set(__self__, "secondary_input_id", secondary_input_id)
         if error_clear_time_msec is not None:
             pulumi.set(__self__, "error_clear_time_msec", error_clear_time_msec)
@@ -10042,11 +10051,17 @@ class ChannelInputAttachmentAutomaticInputFailoverSettings(dict):
     @property
     @pulumi.getter(name="secondaryInputId")
     def secondary_input_id(self) -> str:
+        """
+        The input ID of the secondary input in the automatic input failover pair.
+        """
         return pulumi.get(self, "secondary_input_id")
 
     @property
     @pulumi.getter(name="errorClearTimeMsec")
     def error_clear_time_msec(self) -> Optional[int]:
+        """
+        This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\\_preference for the failover pair is set to PRIMARY\\_INPUT\\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+        """
         return pulumi.get(self, "error_clear_time_msec")
 
     @property
@@ -10057,6 +10072,9 @@ class ChannelInputAttachmentAutomaticInputFailoverSettings(dict):
     @property
     @pulumi.getter(name="inputPreference")
     def input_preference(self) -> Optional[str]:
+        """
+        Input preference when deciding which input to make active when a previously failed input has recovered.
+        """
         return pulumi.get(self, "input_preference")
 
 
@@ -10081,12 +10099,18 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition(dict
 
     def __init__(__self__, *,
                  failover_condition_settings: Optional['outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings'] = None):
+        """
+        :param 'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs' failover_condition_settings: Failover condition type-specific settings. See Failover Condition Settings for more details.
+        """
         if failover_condition_settings is not None:
             pulumi.set(__self__, "failover_condition_settings", failover_condition_settings)
 
     @property
     @pulumi.getter(name="failoverConditionSettings")
     def failover_condition_settings(self) -> Optional['outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings']:
+        """
+        Failover condition type-specific settings. See Failover Condition Settings for more details.
+        """
         return pulumi.get(self, "failover_condition_settings")
 
 
@@ -10117,6 +10141,11 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
                  audio_silence_settings: Optional['outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings'] = None,
                  input_loss_settings: Optional['outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings'] = None,
                  video_black_settings: Optional['outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings'] = None):
+        """
+        :param 'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs' audio_silence_settings: MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
+        :param 'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs' input_loss_settings: MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
+        :param 'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs' video_black_settings: MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
+        """
         if audio_silence_settings is not None:
             pulumi.set(__self__, "audio_silence_settings", audio_silence_settings)
         if input_loss_settings is not None:
@@ -10127,16 +10156,25 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
     @property
     @pulumi.getter(name="audioSilenceSettings")
     def audio_silence_settings(self) -> Optional['outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings']:
+        """
+        MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
+        """
         return pulumi.get(self, "audio_silence_settings")
 
     @property
     @pulumi.getter(name="inputLossSettings")
     def input_loss_settings(self) -> Optional['outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings']:
+        """
+        MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
+        """
         return pulumi.get(self, "input_loss_settings")
 
     @property
     @pulumi.getter(name="videoBlackSettings")
     def video_black_settings(self) -> Optional['outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings']:
+        """
+        MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
+        """
         return pulumi.get(self, "video_black_settings")
 
 
@@ -10165,7 +10203,8 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
                  audio_selector_name: str,
                  audio_silence_threshold_msec: Optional[int] = None):
         """
-        :param str audio_selector_name: The name of the audio selector used as the source for this AudioDescription.
+        :param str audio_selector_name: The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn't create an audio selector in this input, leave blank.
+        :param int audio_silence_threshold_msec: The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
         """
         pulumi.set(__self__, "audio_selector_name", audio_selector_name)
         if audio_silence_threshold_msec is not None:
@@ -10175,13 +10214,16 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
     @pulumi.getter(name="audioSelectorName")
     def audio_selector_name(self) -> str:
         """
-        The name of the audio selector used as the source for this AudioDescription.
+        The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn't create an audio selector in this input, leave blank.
         """
         return pulumi.get(self, "audio_selector_name")
 
     @property
     @pulumi.getter(name="audioSilenceThresholdMsec")
     def audio_silence_threshold_msec(self) -> Optional[int]:
+        """
+        The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
+        """
         return pulumi.get(self, "audio_silence_threshold_msec")
 
 
@@ -10206,12 +10248,18 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
 
     def __init__(__self__, *,
                  input_loss_threshold_msec: Optional[int] = None):
+        """
+        :param int input_loss_threshold_msec: The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
+        """
         if input_loss_threshold_msec is not None:
             pulumi.set(__self__, "input_loss_threshold_msec", input_loss_threshold_msec)
 
     @property
     @pulumi.getter(name="inputLossThresholdMsec")
     def input_loss_threshold_msec(self) -> Optional[int]:
+        """
+        The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
+        """
         return pulumi.get(self, "input_loss_threshold_msec")
 
 
@@ -10239,6 +10287,10 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
     def __init__(__self__, *,
                  black_detect_threshold: Optional[float] = None,
                  video_black_threshold_msec: Optional[int] = None):
+        """
+        :param float black_detect_threshold: A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
+        :param int video_black_threshold_msec: The amount of time (in milliseconds) that the active input must be black before automatic input failover occurs.
+        """
         if black_detect_threshold is not None:
             pulumi.set(__self__, "black_detect_threshold", black_detect_threshold)
         if video_black_threshold_msec is not None:
@@ -10247,11 +10299,17 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
     @property
     @pulumi.getter(name="blackDetectThreshold")
     def black_detect_threshold(self) -> Optional[float]:
+        """
+        A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
+        """
         return pulumi.get(self, "black_detect_threshold")
 
     @property
     @pulumi.getter(name="videoBlackThresholdMsec")
     def video_black_threshold_msec(self) -> Optional[int]:
+        """
+        The amount of time (in milliseconds) that the active input must be black before automatic input failover occurs.
+        """
         return pulumi.get(self, "video_black_threshold_msec")
 
 

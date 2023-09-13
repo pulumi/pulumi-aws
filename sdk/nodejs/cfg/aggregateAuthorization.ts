@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Config aggregate authorizations using `account_id:region`. For example:
+ * In TODO v1.5.0 and later, use an `import` block to import Config aggregate authorizations using `account_id:region`. For exampleterraform import {
  *
- * ```sh
- *  $ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
- * ```
+ *  to = aws_config_aggregate_authorization.example
+ *
+ *  id = "123456789012:us-east-1" } Using `TODO import`, import Config aggregate authorizations using `account_id:region`. For exampleconsole % TODO import aws_config_aggregate_authorization.example 123456789012:us-east-1
  */
 export class AggregateAuthorization extends pulumi.CustomResource {
     /**
@@ -68,7 +68,7 @@ export class AggregateAuthorization extends pulumi.CustomResource {
      */
     public readonly region!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -130,7 +130,7 @@ export interface AggregateAuthorizationState {
      */
     region?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -152,7 +152,7 @@ export interface AggregateAuthorizationArgs {
      */
     region: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

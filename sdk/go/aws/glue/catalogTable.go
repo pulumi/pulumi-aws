@@ -135,6 +135,8 @@ type CatalogTable struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Configuration block for open table formats. See `openTableFormatInput` below.
+	OpenTableFormatInput CatalogTableOpenTableFormatInputPtrOutput `pulumi:"openTableFormatInput"`
 	// Owner of the table.
 	Owner pulumi.StringPtrOutput `pulumi:"owner"`
 	// Properties associated with this table, as a list of key-value pairs.
@@ -202,6 +204,8 @@ type catalogTableState struct {
 	Description *string `pulumi:"description"`
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
 	Name *string `pulumi:"name"`
+	// Configuration block for open table formats. See `openTableFormatInput` below.
+	OpenTableFormatInput *CatalogTableOpenTableFormatInput `pulumi:"openTableFormatInput"`
 	// Owner of the table.
 	Owner *string `pulumi:"owner"`
 	// Properties associated with this table, as a list of key-value pairs.
@@ -237,6 +241,8 @@ type CatalogTableState struct {
 	Description pulumi.StringPtrInput
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
 	Name pulumi.StringPtrInput
+	// Configuration block for open table formats. See `openTableFormatInput` below.
+	OpenTableFormatInput CatalogTableOpenTableFormatInputPtrInput
 	// Owner of the table.
 	Owner pulumi.StringPtrInput
 	// Properties associated with this table, as a list of key-value pairs.
@@ -274,6 +280,8 @@ type catalogTableArgs struct {
 	Description *string `pulumi:"description"`
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
 	Name *string `pulumi:"name"`
+	// Configuration block for open table formats. See `openTableFormatInput` below.
+	OpenTableFormatInput *CatalogTableOpenTableFormatInput `pulumi:"openTableFormatInput"`
 	// Owner of the table.
 	Owner *string `pulumi:"owner"`
 	// Properties associated with this table, as a list of key-value pairs.
@@ -308,6 +316,8 @@ type CatalogTableArgs struct {
 	Description pulumi.StringPtrInput
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
 	Name pulumi.StringPtrInput
+	// Configuration block for open table formats. See `openTableFormatInput` below.
+	OpenTableFormatInput CatalogTableOpenTableFormatInputPtrInput
 	// Owner of the table.
 	Owner pulumi.StringPtrInput
 	// Properties associated with this table, as a list of key-value pairs.
@@ -466,6 +476,11 @@ func (o CatalogTableOutput) Description() pulumi.StringPtrOutput {
 // Name of the table. For Hive compatibility, this must be entirely lowercase.
 func (o CatalogTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Configuration block for open table formats. See `openTableFormatInput` below.
+func (o CatalogTableOutput) OpenTableFormatInput() CatalogTableOpenTableFormatInputPtrOutput {
+	return o.ApplyT(func(v *CatalogTable) CatalogTableOpenTableFormatInputPtrOutput { return v.OpenTableFormatInput }).(CatalogTableOpenTableFormatInputPtrOutput)
 }
 
 // Owner of the table.

@@ -17,13 +17,11 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID. For example:
+// In TODO v1.5.0 and later, use an `import` block to import Cognito Identity Pool Roles Attachment using the Identity Pool ID. For exampleterraform import {
 //
-// ```sh
+//	to = aws_cognito_identity_pool_roles_attachment.example
 //
-//	$ pulumi import aws:cognito/identityPoolRoleAttachment:IdentityPoolRoleAttachment example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
-//
-// ```
+//	id = "us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42" } Using `TODO import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID. For exampleconsole % TODO import aws_cognito_identity_pool_roles_attachment.example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42
 type IdentityPoolRoleAttachment struct {
 	pulumi.CustomResourceState
 

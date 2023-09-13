@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:
+ * In TODO v1.5.0 and later, use an `import` block to import an existing Security Hub enabled account using the AWS account ID. For exampleterraform import {
  *
- * ```sh
- *  $ pulumi import aws:securityhub/account:Account example 123456789012
- * ```
+ *  to = aws_securityhub_account.example
+ *
+ *  id = "123456789012" } Using `TODO import`, import an existing Security Hub enabled account using the AWS account ID. For exampleconsole % TODO import aws_securityhub_account.example 123456789012
  */
 export class Account extends pulumi.CustomResource {
     /**

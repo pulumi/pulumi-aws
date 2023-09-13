@@ -5,6 +5,7 @@ package com.pulumi.aws.identitystore.outputs;
 
 import com.pulumi.aws.identitystore.outputs.GetGroupAlternateIdentifier;
 import com.pulumi.aws.identitystore.outputs.GetGroupExternalId;
+import com.pulumi.aws.identitystore.outputs.GetGroupFilter;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
@@ -30,6 +31,13 @@ public final class GetGroupResult {
      * 
      */
     private List<GetGroupExternalId> externalIds;
+    /**
+     * @deprecated
+     * Use the alternate_identifier attribute instead.
+     * 
+     */
+    @Deprecated /* Use the alternate_identifier attribute instead. */
+    private @Nullable GetGroupFilter filter;
     private String groupId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -63,6 +71,15 @@ public final class GetGroupResult {
     public List<GetGroupExternalId> externalIds() {
         return this.externalIds;
     }
+    /**
+     * @deprecated
+     * Use the alternate_identifier attribute instead.
+     * 
+     */
+    @Deprecated /* Use the alternate_identifier attribute instead. */
+    public Optional<GetGroupFilter> filter() {
+        return Optional.ofNullable(this.filter);
+    }
     public String groupId() {
         return this.groupId;
     }
@@ -90,6 +107,7 @@ public final class GetGroupResult {
         private String description;
         private String displayName;
         private List<GetGroupExternalId> externalIds;
+        private @Nullable GetGroupFilter filter;
         private String groupId;
         private String id;
         private String identityStoreId;
@@ -100,6 +118,7 @@ public final class GetGroupResult {
     	      this.description = defaults.description;
     	      this.displayName = defaults.displayName;
     	      this.externalIds = defaults.externalIds;
+    	      this.filter = defaults.filter;
     	      this.groupId = defaults.groupId;
     	      this.id = defaults.id;
     	      this.identityStoreId = defaults.identityStoreId;
@@ -129,6 +148,11 @@ public final class GetGroupResult {
             return externalIds(List.of(externalIds));
         }
         @CustomType.Setter
+        public Builder filter(@Nullable GetGroupFilter filter) {
+            this.filter = filter;
+            return this;
+        }
+        @CustomType.Setter
         public Builder groupId(String groupId) {
             this.groupId = Objects.requireNonNull(groupId);
             return this;
@@ -149,6 +173,7 @@ public final class GetGroupResult {
             o.description = description;
             o.displayName = displayName;
             o.externalIds = externalIds;
+            o.filter = filter;
             o.groupId = groupId;
             o.id = id;
             o.identityStoreId = identityStoreId;

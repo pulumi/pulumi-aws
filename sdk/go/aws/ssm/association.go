@@ -193,6 +193,8 @@ type Association struct {
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
 	ScheduleExpression pulumi.StringPtrOutput `pulumi:"scheduleExpression"`
+	// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+	SyncCompliance pulumi.StringPtrOutput `pulumi:"syncCompliance"`
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets AssociationTargetArrayOutput `pulumi:"targets"`
 	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
@@ -261,6 +263,8 @@ type associationState struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
+	// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+	SyncCompliance *string `pulumi:"syncCompliance"`
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets []AssociationTarget `pulumi:"targets"`
 	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
@@ -300,6 +304,8 @@ type AssociationState struct {
 	Parameters pulumi.StringMapInput
 	// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
 	ScheduleExpression pulumi.StringPtrInput
+	// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+	SyncCompliance pulumi.StringPtrInput
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets AssociationTargetArrayInput
 	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
@@ -339,6 +345,8 @@ type associationArgs struct {
 	Parameters map[string]string `pulumi:"parameters"`
 	// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
+	// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+	SyncCompliance *string `pulumi:"syncCompliance"`
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets []AssociationTarget `pulumi:"targets"`
 	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
@@ -375,6 +383,8 @@ type AssociationArgs struct {
 	Parameters pulumi.StringMapInput
 	// A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
 	ScheduleExpression pulumi.StringPtrInput
+	// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+	SyncCompliance pulumi.StringPtrInput
 	// A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
 	Targets AssociationTargetArrayInput
 	// The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
@@ -564,6 +574,11 @@ func (o AssociationOutput) Parameters() pulumi.StringMapOutput {
 // A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
 func (o AssociationOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
+}
+
+// The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+func (o AssociationOutput) SyncCompliance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Association) pulumi.StringPtrOutput { return v.SyncCompliance }).(pulumi.StringPtrOutput)
 }
 
 // A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.

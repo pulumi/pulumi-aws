@@ -7,6 +7,7 @@ import com.pulumi.aws.identitystore.outputs.GetUserAddress;
 import com.pulumi.aws.identitystore.outputs.GetUserAlternateIdentifier;
 import com.pulumi.aws.identitystore.outputs.GetUserEmail;
 import com.pulumi.aws.identitystore.outputs.GetUserExternalId;
+import com.pulumi.aws.identitystore.outputs.GetUserFilter;
 import com.pulumi.aws.identitystore.outputs.GetUserName;
 import com.pulumi.aws.identitystore.outputs.GetUserPhoneNumber;
 import com.pulumi.core.annotations.CustomType;
@@ -39,6 +40,13 @@ public final class GetUserResult {
      * 
      */
     private List<GetUserExternalId> externalIds;
+    /**
+     * @deprecated
+     * Use the alternate_identifier attribute instead.
+     * 
+     */
+    @Deprecated /* Use the alternate_identifier attribute instead. */
+    private @Nullable GetUserFilter filter;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -128,6 +136,15 @@ public final class GetUserResult {
      */
     public List<GetUserExternalId> externalIds() {
         return this.externalIds;
+    }
+    /**
+     * @deprecated
+     * Use the alternate_identifier attribute instead.
+     * 
+     */
+    @Deprecated /* Use the alternate_identifier attribute instead. */
+    public Optional<GetUserFilter> filter() {
+        return Optional.ofNullable(this.filter);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -227,6 +244,7 @@ public final class GetUserResult {
         private String displayName;
         private List<GetUserEmail> emails;
         private List<GetUserExternalId> externalIds;
+        private @Nullable GetUserFilter filter;
         private String id;
         private String identityStoreId;
         private String locale;
@@ -248,6 +266,7 @@ public final class GetUserResult {
     	      this.displayName = defaults.displayName;
     	      this.emails = defaults.emails;
     	      this.externalIds = defaults.externalIds;
+    	      this.filter = defaults.filter;
     	      this.id = defaults.id;
     	      this.identityStoreId = defaults.identityStoreId;
     	      this.locale = defaults.locale;
@@ -296,6 +315,11 @@ public final class GetUserResult {
         }
         public Builder externalIds(GetUserExternalId... externalIds) {
             return externalIds(List.of(externalIds));
+        }
+        @CustomType.Setter
+        public Builder filter(@Nullable GetUserFilter filter) {
+            this.filter = filter;
+            return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -375,6 +399,7 @@ public final class GetUserResult {
             o.displayName = displayName;
             o.emails = emails;
             o.externalIds = externalIds;
+            o.filter = filter;
             o.id = id;
             o.identityStoreId = identityStoreId;
             o.locale = locale;

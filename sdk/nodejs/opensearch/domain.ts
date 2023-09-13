@@ -378,6 +378,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly snapshotOptions!: pulumi.Output<outputs.opensearch.DomainSnapshotOptions | undefined>;
     /**
+     * Software update options for the domain. Detailed below.
+     */
+    public readonly softwareUpdateOptions!: pulumi.Output<outputs.opensearch.DomainSoftwareUpdateOptions>;
+    /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -425,6 +429,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["nodeToNodeEncryption"] = state ? state.nodeToNodeEncryption : undefined;
             resourceInputs["offPeakWindowOptions"] = state ? state.offPeakWindowOptions : undefined;
             resourceInputs["snapshotOptions"] = state ? state.snapshotOptions : undefined;
+            resourceInputs["softwareUpdateOptions"] = state ? state.softwareUpdateOptions : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["vpcOptions"] = state ? state.vpcOptions : undefined;
@@ -445,6 +450,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["nodeToNodeEncryption"] = args ? args.nodeToNodeEncryption : undefined;
             resourceInputs["offPeakWindowOptions"] = args ? args.offPeakWindowOptions : undefined;
             resourceInputs["snapshotOptions"] = args ? args.snapshotOptions : undefined;
+            resourceInputs["softwareUpdateOptions"] = args ? args.softwareUpdateOptions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcOptions"] = args ? args.vpcOptions : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -550,6 +556,10 @@ export interface DomainState {
      */
     snapshotOptions?: pulumi.Input<inputs.opensearch.DomainSnapshotOptions>;
     /**
+     * Software update options for the domain. Detailed below.
+     */
+    softwareUpdateOptions?: pulumi.Input<inputs.opensearch.DomainSoftwareUpdateOptions>;
+    /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -633,6 +643,10 @@ export interface DomainArgs {
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
      */
     snapshotOptions?: pulumi.Input<inputs.opensearch.DomainSnapshotOptions>;
+    /**
+     * Software update options for the domain. Detailed below.
+     */
+    softwareUpdateOptions?: pulumi.Input<inputs.opensearch.DomainSoftwareUpdateOptions>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -55,7 +55,7 @@ public final class LifecyclePolicyPolicyDetails {
     /**
      * @return A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
      * 
-     * &gt; Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. This provider is unable to detect this at plan time but it will fail during apply.
+     * &gt; Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. TODO is unable to detect this at plan time but it will fail during apply.
      * 
      */
     private @Nullable Map<String,String> targetTags;
@@ -113,7 +113,7 @@ public final class LifecyclePolicyPolicyDetails {
     /**
      * @return A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
      * 
-     * &gt; Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. This provider is unable to detect this at plan time but it will fail during apply.
+     * &gt; Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. TODO is unable to detect this at plan time but it will fail during apply.
      * 
      */
     public Map<String,String> targetTags() {

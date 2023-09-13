@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
+ * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {forceDestroy: true});
  * const acmpcaBucketAccess = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         actions: [
@@ -90,6 +90,7 @@ import * as utilities from "../utilities";
  *             enabled: true,
  *             expirationInDays: 7,
  *             s3BucketName: exampleBucketV2.id,
+ *             s3ObjectAcl: "BUCKET_OWNER_FULL_CONTROL",
  *         },
  *     },
  * }, {

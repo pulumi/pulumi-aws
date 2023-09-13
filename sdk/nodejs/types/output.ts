@@ -8464,9 +8464,17 @@ export namespace autoscaling {
          */
         minHealthyPercentage?: number;
         /**
+         * Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
+         */
+        scaleInProtectedInstances?: string;
+        /**
          * Replace instances that already have your desired configuration. Defaults to `false`.
          */
         skipMatching?: boolean;
+        /**
+         * Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
+         */
+        standbyInstances?: string;
     }
 
     export interface GroupLaunchTemplate {
@@ -14554,6 +14562,12 @@ export namespace codestarnotifications {
 }
 
 export namespace cognito {
+    export interface GetIdentityPoolCognitoIdentityProvider {
+        clientId: string;
+        providerName: string;
+        serverSideTokenCheck: boolean;
+    }
+
     export interface GetUserPoolClientAnalyticsConfiguration {
         /**
          * (Optional) Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
@@ -18417,7 +18431,7 @@ export namespace dlm {
         /**
          * A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
          *
-         * > Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. This provider is unable to detect this at plan time but it will fail during apply.
+         * > Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. TODO is unable to detect this at plan time but it will fail during apply.
          */
         targetTags?: {[key: string]: string};
     }
@@ -29891,6 +29905,11 @@ export namespace fsx {
         fileShareAccessAuditLogLevel: string;
     }
 
+    export interface GetWindowsFileSystemDiskIopsConfiguration {
+        iops: number;
+        mode: string;
+    }
+
     export interface LustreFileSystemLogConfiguration {
         /**
          * The Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
@@ -30185,6 +30204,17 @@ export namespace fsx {
          * Sets which attempt type is logged by Amazon FSx for file share accesses. Valid values are `SUCCESS_ONLY`, `FAILURE_ONLY`, `SUCCESS_AND_FAILURE`, and `DISABLED`. Default value is `DISABLED`.
          */
         fileShareAccessAuditLogLevel?: string;
+    }
+
+    export interface WindowsFileSystemDiskIopsConfiguration {
+        /**
+         * The total number of SSD IOPS provisioned for the file system.
+         */
+        iops: number;
+        /**
+         * Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+         */
+        mode?: string;
     }
 
     export interface WindowsFileSystemSelfManagedActiveDirectory {
@@ -30602,6 +30632,24 @@ export namespace glue {
          * Region of the target database.
          */
         region?: string;
+    }
+
+    export interface CatalogTableOpenTableFormatInput {
+        /**
+         * Configuration block for iceberg table config. See `icebergInput` below.
+         */
+        icebergInput: outputs.glue.CatalogTableOpenTableFormatInputIcebergInput;
+    }
+
+    export interface CatalogTableOpenTableFormatInputIcebergInput {
+        /**
+         * A required metadata operation. Can only be set to CREATE.
+         */
+        metadataOperation: string;
+        /**
+         * The table version for the Iceberg table. Defaults to 2.
+         */
+        version?: string;
     }
 
     export interface CatalogTablePartitionIndex {
@@ -32170,6 +32218,17 @@ export namespace identitystore {
         issuer: string;
     }
 
+    export interface GetGroupFilter {
+        /**
+         * Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+         */
+        attributePath: string;
+        /**
+         * Value for an attribute.
+         */
+        attributeValue: string;
+    }
+
     export interface GetUserAddress {
         /**
          * The country that this address is in.
@@ -32264,6 +32323,17 @@ export namespace identitystore {
          * The issuer for an external identifier.
          */
         issuer: string;
+    }
+
+    export interface GetUserFilter {
+        /**
+         * Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
+         */
+        attributePath: string;
+        /**
+         * Value for an attribute.
+         */
+        attributeValue: string;
     }
 
     export interface GetUserName {
@@ -41655,7 +41725,7 @@ export namespace medialive {
          */
         rtmpOutputSettings?: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings;
         /**
-         * UDP output settings. See UDP Output Settings for more details
+         * UDP output settings. See UDP Output Settings for more details.
          */
         udpOutputSettings?: outputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings;
     }
@@ -42448,6 +42518,9 @@ export namespace medialive {
     }
 
     export interface ChannelInputAttachment {
+        /**
+         * User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
+         */
         automaticInputFailoverSettings?: outputs.medialive.ChannelInputAttachmentAutomaticInputFailoverSettings;
         /**
          * User-specified name for the attachment.
@@ -42458,42 +42531,75 @@ export namespace medialive {
          */
         inputId: string;
         /**
-         * Settings of an input. See Input Settings for more details
+         * Settings of an input. See Input Settings for more details.
          */
         inputSettings: outputs.medialive.ChannelInputAttachmentInputSettings;
     }
 
     export interface ChannelInputAttachmentAutomaticInputFailoverSettings {
+        /**
+         * This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+         */
         errorClearTimeMsec?: number;
         failoverConditions?: outputs.medialive.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition[];
+        /**
+         * Input preference when deciding which input to make active when a previously failed input has recovered.
+         */
         inputPreference?: string;
+        /**
+         * The input ID of the secondary input in the automatic input failover pair.
+         */
         secondaryInputId: string;
     }
 
     export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition {
+        /**
+         * Failover condition type-specific settings. See Failover Condition Settings for more details.
+         */
         failoverConditionSettings?: outputs.medialive.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings;
     }
 
     export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings {
+        /**
+         * MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
+         */
         audioSilenceSettings?: outputs.medialive.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings;
+        /**
+         * MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
+         */
         inputLossSettings?: outputs.medialive.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings;
+        /**
+         * MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
+         */
         videoBlackSettings?: outputs.medialive.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings;
     }
 
     export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings {
         /**
-         * The name of the audio selector used as the source for this AudioDescription.
+         * The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn't create an audio selector in this input, leave blank.
          */
         audioSelectorName: string;
+        /**
+         * The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
+         */
         audioSilenceThresholdMsec?: number;
     }
 
     export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings {
+        /**
+         * The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
+         */
         inputLossThresholdMsec?: number;
     }
 
     export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings {
+        /**
+         * A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
+         */
         blackDetectThreshold?: number;
+        /**
+         * The amount of time (in milliseconds) that the active input must be black before automatic input failover occurs.
+         */
         videoBlackThresholdMsec?: number;
     }
 
@@ -45509,6 +45615,13 @@ export namespace opensearch {
         automatedSnapshotStartHour: number;
     }
 
+    export interface DomainSoftwareUpdateOptions {
+        /**
+         * Whether automatic service software updates are enabled for the domain. Defaults to `false`.
+         */
+        autoSoftwareUpdateEnabled: boolean;
+    }
+
     export interface DomainVpcOptions {
         availabilityZones: string[];
         /**
@@ -45743,6 +45856,13 @@ export namespace opensearch {
          * Hour during which the service takes an automated daily snapshot of the indices in the domain.
          */
         automatedSnapshotStartHour: number;
+    }
+
+    export interface GetDomainSoftwareUpdateOption {
+        /**
+         * Enabled or disabled.
+         */
+        autoSoftwareUpdateEnabled: boolean;
     }
 
     export interface GetDomainVpcOption {
@@ -58288,6 +58408,21 @@ export namespace sfn {
 
 }
 
+export namespace shield {
+    export interface DrtAccessLogBucketAssociationTimeouts {
+        create?: string;
+        delete?: string;
+        read?: string;
+    }
+
+    export interface DrtAccessRoleArnAssociationTimeouts {
+        create?: string;
+        delete?: string;
+        read?: string;
+    }
+
+}
+
 export namespace signer {
     export interface GetSigningJobRevocationRecord {
         reason: string;
@@ -59993,6 +60128,23 @@ export namespace transfer {
          * The value that corresponds to the key.
          */
         value: string;
+    }
+
+}
+
+export namespace verifiedaccess {
+    export interface TrustProviderDeviceOptions {
+        tenantId?: string;
+    }
+
+    export interface TrustProviderOidcOptions {
+        authorizationEndpoint?: string;
+        clientId?: string;
+        clientSecret: string;
+        issuer?: string;
+        scope?: string;
+        tokenEndpoint?: string;
+        userInfoEndpoint?: string;
     }
 
 }

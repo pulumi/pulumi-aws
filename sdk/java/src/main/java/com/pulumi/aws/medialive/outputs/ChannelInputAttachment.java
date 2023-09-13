@@ -13,6 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ChannelInputAttachment {
+    /**
+     * @return User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
+     * 
+     */
     private @Nullable ChannelInputAttachmentAutomaticInputFailoverSettings automaticInputFailoverSettings;
     /**
      * @return User-specified name for the attachment.
@@ -25,12 +29,16 @@ public final class ChannelInputAttachment {
      */
     private String inputId;
     /**
-     * @return Settings of an input. See Input Settings for more details
+     * @return Settings of an input. See Input Settings for more details.
      * 
      */
     private @Nullable ChannelInputAttachmentInputSettings inputSettings;
 
     private ChannelInputAttachment() {}
+    /**
+     * @return User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
+     * 
+     */
     public Optional<ChannelInputAttachmentAutomaticInputFailoverSettings> automaticInputFailoverSettings() {
         return Optional.ofNullable(this.automaticInputFailoverSettings);
     }
@@ -49,7 +57,7 @@ public final class ChannelInputAttachment {
         return this.inputId;
     }
     /**
-     * @return Settings of an input. See Input Settings for more details
+     * @return Settings of an input. See Input Settings for more details.
      * 
      */
     public Optional<ChannelInputAttachmentInputSettings> inputSettings() {

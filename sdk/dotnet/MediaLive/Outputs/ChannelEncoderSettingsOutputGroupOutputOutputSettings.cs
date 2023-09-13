@@ -33,7 +33,7 @@ namespace Pulumi.Aws.MediaLive.Outputs
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings? RtmpOutputSettings;
         /// <summary>
-        /// UDP output settings. See UDP Output Settings for more details
+        /// UDP output settings. See UDP Output Settings for more details.
         /// </summary>
         public readonly Outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings? UdpOutputSettings;
 

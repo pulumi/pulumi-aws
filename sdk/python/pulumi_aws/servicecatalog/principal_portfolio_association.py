@@ -25,7 +25,7 @@ class PrincipalPortfolioAssociationArgs:
                
                The following arguments are optional:
         :param pulumi.Input[str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
-        :param pulumi.Input[str] principal_type: Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+        :param pulumi.Input[str] principal_type: Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
         """
         pulumi.set(__self__, "portfolio_id", portfolio_id)
         pulumi.set(__self__, "principal_arn", principal_arn)
@@ -76,7 +76,7 @@ class PrincipalPortfolioAssociationArgs:
     @pulumi.getter(name="principalType")
     def principal_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+        Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
         """
         return pulumi.get(self, "principal_type")
 
@@ -99,7 +99,7 @@ class _PrincipalPortfolioAssociationState:
         :param pulumi.Input[str] principal_arn: Principal ARN.
                
                The following arguments are optional:
-        :param pulumi.Input[str] principal_type: Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+        :param pulumi.Input[str] principal_type: Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
         """
         if accept_language is not None:
             pulumi.set(__self__, "accept_language", accept_language)
@@ -152,7 +152,7 @@ class _PrincipalPortfolioAssociationState:
     @pulumi.getter(name="principalType")
     def principal_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+        Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
         """
         return pulumi.get(self, "principal_type")
 
@@ -188,10 +188,12 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_servicecatalog_principal_portfolio_association` using the accept language, principal ARN, and portfolio ID, separated by a comma. For example:
+        In TODO v1.5.0 and later, use an `import` block to import `aws_servicecatalog_principal_portfolio_association` using `accept_language`, `principal_arn`, `portfolio_id`, and `principal_type` separated by a comma. For example:
+
+        Using `TODO import`, import `aws_servicecatalog_principal_portfolio_association` using `accept_language`, `principal_arn`, `portfolio_id`, and `principal_type` separated by a comma. For example:
 
         ```sh
-         $ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f
+         $ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f,IAM
         ```
 
         :param str resource_name: The name of the resource.
@@ -201,7 +203,7 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] principal_arn: Principal ARN.
                
                The following arguments are optional:
-        :param pulumi.Input[str] principal_type: Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+        :param pulumi.Input[str] principal_type: Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
         """
         ...
     @overload
@@ -226,10 +228,12 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_servicecatalog_principal_portfolio_association` using the accept language, principal ARN, and portfolio ID, separated by a comma. For example:
+        In TODO v1.5.0 and later, use an `import` block to import `aws_servicecatalog_principal_portfolio_association` using `accept_language`, `principal_arn`, `portfolio_id`, and `principal_type` separated by a comma. For example:
+
+        Using `TODO import`, import `aws_servicecatalog_principal_portfolio_association` using `accept_language`, `principal_arn`, `portfolio_id`, and `principal_type` separated by a comma. For example:
 
         ```sh
-         $ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f
+         $ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f,IAM
         ```
 
         :param str resource_name: The name of the resource.
@@ -294,7 +298,7 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] principal_arn: Principal ARN.
                
                The following arguments are optional:
-        :param pulumi.Input[str] principal_type: Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+        :param pulumi.Input[str] principal_type: Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -336,7 +340,7 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
     @pulumi.getter(name="principalType")
     def principal_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+        Principal type. Setting this argument empty (e.g., `principal_type = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
         """
         return pulumi.get(self, "principal_type")
 

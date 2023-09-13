@@ -17,6 +17,11 @@ public final class GetKeyResult {
      */
     private String createdDate;
     /**
+     * @return Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+     * 
+     */
+    private String customerId;
+    /**
      * @return Description of the API Key.
      * 
      */
@@ -59,6 +64,13 @@ public final class GetKeyResult {
      */
     public String createdDate() {
         return this.createdDate;
+    }
+    /**
+     * @return Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+     * 
+     */
+    public String customerId() {
+        return this.customerId;
     }
     /**
      * @return Description of the API Key.
@@ -120,6 +132,7 @@ public final class GetKeyResult {
     @CustomType.Builder
     public static final class Builder {
         private String createdDate;
+        private String customerId;
         private String description;
         private Boolean enabled;
         private String id;
@@ -131,6 +144,7 @@ public final class GetKeyResult {
         public Builder(GetKeyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.createdDate = defaults.createdDate;
+    	      this.customerId = defaults.customerId;
     	      this.description = defaults.description;
     	      this.enabled = defaults.enabled;
     	      this.id = defaults.id;
@@ -143,6 +157,11 @@ public final class GetKeyResult {
         @CustomType.Setter
         public Builder createdDate(String createdDate) {
             this.createdDate = Objects.requireNonNull(createdDate);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder customerId(String customerId) {
+            this.customerId = Objects.requireNonNull(customerId);
             return this;
         }
         @CustomType.Setter
@@ -183,6 +202,7 @@ public final class GetKeyResult {
         public GetKeyResult build() {
             final var o = new GetKeyResult();
             o.createdDate = createdDate;
+            o.customerId = customerId;
             o.description = description;
             o.enabled = enabled;
             o.id = id;

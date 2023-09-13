@@ -62,6 +62,8 @@ type GetKeyArgs struct {
 type GetKeyResult struct {
 	// Date and time when the API Key was created.
 	CreatedDate string `pulumi:"createdDate"`
+	// Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+	CustomerId string `pulumi:"customerId"`
 	// Description of the API Key.
 	Description string `pulumi:"description"`
 	// Whether the API Key is enabled.
@@ -127,6 +129,11 @@ func (o GetKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetKeyR
 // Date and time when the API Key was created.
 func (o GetKeyResultOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKeyResult) string { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+func (o GetKeyResultOutput) CustomerId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKeyResult) string { return v.CustomerId }).(pulumi.StringOutput)
 }
 
 // Description of the API Key.

@@ -220,11 +220,11 @@ class Response(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:
+        In TODO v1.5.0 and later, use an `import` block to import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
-        ```
+         to = aws_api_gateway_gateway_response.example
+
+         id = "12345abcde/UNAUTHORIZED" } Using `TODO import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For exampleconsole % TODO import aws_api_gateway_gateway_response.example 12345abcde/UNAUTHORIZED
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -264,11 +264,11 @@ class Response(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:
+        In TODO v1.5.0 and later, use an `import` block to import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
-        ```
+         to = aws_api_gateway_gateway_response.example
+
+         id = "12345abcde/UNAUTHORIZED" } Using `TODO import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For exampleconsole % TODO import aws_api_gateway_gateway_response.example 12345abcde/UNAUTHORIZED
 
         :param str resource_name: The name of the resource.
         :param ResponseArgs args: The arguments to use to populate this resource's properties.

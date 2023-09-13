@@ -52,13 +52,11 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import EKS Clusters using the `id`. For example:
+// In TODO v1.5.0 and later, use an `import` block to import EKS Clusters using the `id`. For exampleterraform import {
 //
-// ```sh
+//	to = aws_emrcontainers_virtual_cluster.example
 //
-//	$ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
-//
-// ```
+//	id = "a1b2c3d4e5f6g7h8i9j10k11l" } Using `TODO import`, import EKS Clusters using the `id`. For exampleconsole % TODO import aws_emrcontainers_virtual_cluster.example a1b2c3d4e5f6g7h8i9j10k11l
 type VirtualCluster struct {
 	pulumi.CustomResourceState
 
@@ -68,7 +66,7 @@ type VirtualCluster struct {
 	ContainerProvider VirtualClusterContainerProviderOutput `pulumi:"containerProvider"`
 	// Name of the virtual cluster.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -113,7 +111,7 @@ type virtualClusterState struct {
 	ContainerProvider *VirtualClusterContainerProvider `pulumi:"containerProvider"`
 	// Name of the virtual cluster.
 	Name *string `pulumi:"name"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -126,7 +124,7 @@ type VirtualClusterState struct {
 	ContainerProvider VirtualClusterContainerProviderPtrInput
 	// Name of the virtual cluster.
 	Name pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -141,7 +139,7 @@ type virtualClusterArgs struct {
 	ContainerProvider VirtualClusterContainerProvider `pulumi:"containerProvider"`
 	// Name of the virtual cluster.
 	Name *string `pulumi:"name"`
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -151,7 +149,7 @@ type VirtualClusterArgs struct {
 	ContainerProvider VirtualClusterContainerProviderInput
 	// Name of the virtual cluster.
 	Name pulumi.StringPtrInput
-	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -281,7 +279,7 @@ func (o VirtualClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VirtualClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VirtualCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

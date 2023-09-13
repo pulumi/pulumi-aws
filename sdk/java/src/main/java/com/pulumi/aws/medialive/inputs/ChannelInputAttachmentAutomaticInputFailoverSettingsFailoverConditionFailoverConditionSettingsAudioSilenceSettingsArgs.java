@@ -17,23 +17,31 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
     public static final ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs Empty = new ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs();
 
     /**
-     * The name of the audio selector used as the source for this AudioDescription.
+     * The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn&#39;t create an audio selector in this input, leave blank.
      * 
      */
     @Import(name="audioSelectorName", required=true)
     private Output<String> audioSelectorName;
 
     /**
-     * @return The name of the audio selector used as the source for this AudioDescription.
+     * @return The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn&#39;t create an audio selector in this input, leave blank.
      * 
      */
     public Output<String> audioSelectorName() {
         return this.audioSelectorName;
     }
 
+    /**
+     * The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
+     * 
+     */
     @Import(name="audioSilenceThresholdMsec")
     private @Nullable Output<Integer> audioSilenceThresholdMsec;
 
+    /**
+     * @return The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
+     * 
+     */
     public Optional<Output<Integer>> audioSilenceThresholdMsec() {
         return Optional.ofNullable(this.audioSilenceThresholdMsec);
     }
@@ -64,7 +72,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
         }
 
         /**
-         * @param audioSelectorName The name of the audio selector used as the source for this AudioDescription.
+         * @param audioSelectorName The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn&#39;t create an audio selector in this input, leave blank.
          * 
          * @return builder
          * 
@@ -75,7 +83,7 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
         }
 
         /**
-         * @param audioSelectorName The name of the audio selector used as the source for this AudioDescription.
+         * @param audioSelectorName The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn&#39;t create an audio selector in this input, leave blank.
          * 
          * @return builder
          * 
@@ -84,11 +92,23 @@ public final class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverC
             return audioSelectorName(Output.of(audioSelectorName));
         }
 
+        /**
+         * @param audioSilenceThresholdMsec The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioSilenceThresholdMsec(@Nullable Output<Integer> audioSilenceThresholdMsec) {
             $.audioSilenceThresholdMsec = audioSilenceThresholdMsec;
             return this;
         }
 
+        /**
+         * @param audioSilenceThresholdMsec The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
+         * 
+         * @return builder
+         * 
+         */
         public Builder audioSilenceThresholdMsec(Integer audioSilenceThresholdMsec) {
             return audioSilenceThresholdMsec(Output.of(audioSilenceThresholdMsec));
         }

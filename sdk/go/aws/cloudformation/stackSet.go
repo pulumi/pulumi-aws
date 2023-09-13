@@ -148,7 +148,7 @@ import (
 //
 // ```sh
 //
-//	$ pulumi import aws:cloudformation/stackSet:StackSet example example/DELEGATED_ADMIN
+//	$ pulumi import aws:cloudformation/stackSet:StackSet example example,DELEGATED_ADMIN
 //
 // ```
 type StackSet struct {

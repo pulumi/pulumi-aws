@@ -30,6 +30,7 @@ __all__ = [
     'DomainSamlOptionsSamlOptionsArgs',
     'DomainSamlOptionsSamlOptionsIdpArgs',
     'DomainSnapshotOptionsArgs',
+    'DomainSoftwareUpdateOptionsArgs',
     'DomainVpcOptionsArgs',
     'OutboundConnectionLocalDomainInfoArgs',
     'OutboundConnectionRemoteDomainInfoArgs',
@@ -1179,6 +1180,29 @@ class DomainSnapshotOptionsArgs:
     @automated_snapshot_start_hour.setter
     def automated_snapshot_start_hour(self, value: pulumi.Input[int]):
         pulumi.set(self, "automated_snapshot_start_hour", value)
+
+
+@pulumi.input_type
+class DomainSoftwareUpdateOptionsArgs:
+    def __init__(__self__, *,
+                 auto_software_update_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] auto_software_update_enabled: Whether automatic service software updates are enabled for the domain. Defaults to `false`.
+        """
+        if auto_software_update_enabled is not None:
+            pulumi.set(__self__, "auto_software_update_enabled", auto_software_update_enabled)
+
+    @property
+    @pulumi.getter(name="autoSoftwareUpdateEnabled")
+    def auto_software_update_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether automatic service software updates are enabled for the domain. Defaults to `false`.
+        """
+        return pulumi.get(self, "auto_software_update_enabled")
+
+    @auto_software_update_enabled.setter
+    def auto_software_update_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_software_update_enabled", value)
 
 
 @pulumi.input_type

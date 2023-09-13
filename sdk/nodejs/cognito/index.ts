@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetIdentityPoolArgs, GetIdentityPoolResult, GetIdentityPoolOutputArgs } from "./getIdentityPool";
+export const getIdentityPool: typeof import("./getIdentityPool").getIdentityPool = null as any;
+export const getIdentityPoolOutput: typeof import("./getIdentityPool").getIdentityPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getIdentityPool","getIdentityPoolOutput"], () => require("./getIdentityPool"));
+
 export { GetUserPoolClientArgs, GetUserPoolClientResult, GetUserPoolClientOutputArgs } from "./getUserPoolClient";
 export const getUserPoolClient: typeof import("./getUserPoolClient").getUserPoolClient = null as any;
 export const getUserPoolClientOutput: typeof import("./getUserPoolClient").getUserPoolClientOutput = null as any;

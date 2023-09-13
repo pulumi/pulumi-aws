@@ -14,6 +14,7 @@ import com.pulumi.aws.opensearch.inputs.DomainLogPublishingOptionArgs;
 import com.pulumi.aws.opensearch.inputs.DomainNodeToNodeEncryptionArgs;
 import com.pulumi.aws.opensearch.inputs.DomainOffPeakWindowOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainSnapshotOptionsArgs;
+import com.pulumi.aws.opensearch.inputs.DomainSoftwareUpdateOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainVpcOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -263,6 +264,21 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Software update options for the domain. Detailed below.
+     * 
+     */
+    @Import(name="softwareUpdateOptions")
+    private @Nullable Output<DomainSoftwareUpdateOptionsArgs> softwareUpdateOptions;
+
+    /**
+     * @return Software update options for the domain. Detailed below.
+     * 
+     */
+    public Optional<Output<DomainSoftwareUpdateOptionsArgs>> softwareUpdateOptions() {
+        return Optional.ofNullable(this.softwareUpdateOptions);
+    }
+
+    /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -310,6 +326,7 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
         this.nodeToNodeEncryption = $.nodeToNodeEncryption;
         this.offPeakWindowOptions = $.offPeakWindowOptions;
         this.snapshotOptions = $.snapshotOptions;
+        this.softwareUpdateOptions = $.softwareUpdateOptions;
         this.tags = $.tags;
         this.vpcOptions = $.vpcOptions;
     }
@@ -663,6 +680,27 @@ public final class DomainArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder snapshotOptions(DomainSnapshotOptionsArgs snapshotOptions) {
             return snapshotOptions(Output.of(snapshotOptions));
+        }
+
+        /**
+         * @param softwareUpdateOptions Software update options for the domain. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder softwareUpdateOptions(@Nullable Output<DomainSoftwareUpdateOptionsArgs> softwareUpdateOptions) {
+            $.softwareUpdateOptions = softwareUpdateOptions;
+            return this;
+        }
+
+        /**
+         * @param softwareUpdateOptions Software update options for the domain. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder softwareUpdateOptions(DomainSoftwareUpdateOptionsArgs softwareUpdateOptions) {
+            return softwareUpdateOptions(Output.of(softwareUpdateOptions));
         }
 
         /**

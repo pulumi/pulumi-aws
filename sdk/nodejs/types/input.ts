@@ -7183,9 +7183,17 @@ export namespace autoscaling {
          */
         minHealthyPercentage?: pulumi.Input<number>;
         /**
+         * Behavior when encountering instances protected from scale in are found. Available behaviors are `Refresh`, `Ignore`, and `Wait`. Default is `Ignore`.
+         */
+        scaleInProtectedInstances?: pulumi.Input<string>;
+        /**
          * Replace instances that already have your desired configuration. Defaults to `false`.
          */
         skipMatching?: pulumi.Input<boolean>;
+        /**
+         * Behavior when encountering instances in the `Standby` state in are found. Available behaviors are `Terminate`, `Ignore`, and `Wait`. Default is `Ignore`.
+         */
+        standbyInstances?: pulumi.Input<string>;
     }
 
     export interface GroupLaunchTemplate {
@@ -15644,7 +15652,7 @@ export namespace dlm {
         /**
          * A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
          *
-         * > Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. This provider is unable to detect this at plan time but it will fail during apply.
+         * > Note: You cannot have overlapping lifecycle policies that share the same `targetTags`. TODO is unable to detect this at plan time but it will fail during apply.
          */
         targetTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
@@ -25908,6 +25916,17 @@ export namespace fsx {
         fileShareAccessAuditLogLevel?: pulumi.Input<string>;
     }
 
+    export interface WindowsFileSystemDiskIopsConfiguration {
+        /**
+         * The total number of SSD IOPS provisioned for the file system.
+         */
+        iops?: pulumi.Input<number>;
+        /**
+         * Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+         */
+        mode?: pulumi.Input<string>;
+    }
+
     export interface WindowsFileSystemSelfManagedActiveDirectory {
         /**
          * A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
@@ -26297,6 +26316,24 @@ export namespace glue {
          * Region of the target database.
          */
         region?: pulumi.Input<string>;
+    }
+
+    export interface CatalogTableOpenTableFormatInput {
+        /**
+         * Configuration block for iceberg table config. See `icebergInput` below.
+         */
+        icebergInput: pulumi.Input<inputs.glue.CatalogTableOpenTableFormatInputIcebergInput>;
+    }
+
+    export interface CatalogTableOpenTableFormatInputIcebergInput {
+        /**
+         * A required metadata operation. Can only be set to CREATE.
+         */
+        metadataOperation: pulumi.Input<string>;
+        /**
+         * The table version for the Iceberg table. Defaults to 2.
+         */
+        version?: pulumi.Input<string>;
     }
 
     export interface CatalogTablePartitionIndex {
@@ -27722,6 +27759,28 @@ export namespace identitystore {
         attributeValue: pulumi.Input<string>;
     }
 
+    export interface GetGroupFilter {
+        /**
+         * Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+         */
+        attributePath: string;
+        /**
+         * Value for an attribute.
+         */
+        attributeValue: string;
+    }
+
+    export interface GetGroupFilterArgs {
+        /**
+         * Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
+         */
+        attributePath: pulumi.Input<string>;
+        /**
+         * Value for an attribute.
+         */
+        attributeValue: pulumi.Input<string>;
+    }
+
     export interface GetUserAlternateIdentifier {
         /**
          * Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
@@ -27784,6 +27843,28 @@ export namespace identitystore {
     export interface GetUserAlternateIdentifierUniqueAttributeArgs {
         /**
          * Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+         */
+        attributePath: pulumi.Input<string>;
+        /**
+         * Value for an attribute.
+         */
+        attributeValue: pulumi.Input<string>;
+    }
+
+    export interface GetUserFilter {
+        /**
+         * Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
+         */
+        attributePath: string;
+        /**
+         * Value for an attribute.
+         */
+        attributeValue: string;
+    }
+
+    export interface GetUserFilterArgs {
+        /**
+         * Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
          */
         attributePath: pulumi.Input<string>;
         /**
@@ -36333,7 +36414,7 @@ export namespace medialive {
          */
         rtmpOutputSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings>;
         /**
-         * UDP output settings. See UDP Output Settings for more details
+         * UDP output settings. See UDP Output Settings for more details.
          */
         udpOutputSettings?: pulumi.Input<inputs.medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings>;
     }
@@ -37126,6 +37207,9 @@ export namespace medialive {
     }
 
     export interface ChannelInputAttachment {
+        /**
+         * User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
+         */
         automaticInputFailoverSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentAutomaticInputFailoverSettings>;
         /**
          * User-specified name for the attachment.
@@ -37136,42 +37220,75 @@ export namespace medialive {
          */
         inputId: pulumi.Input<string>;
         /**
-         * Settings of an input. See Input Settings for more details
+         * Settings of an input. See Input Settings for more details.
          */
         inputSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentInputSettings>;
     }
 
     export interface ChannelInputAttachmentAutomaticInputFailoverSettings {
+        /**
+         * This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
+         */
         errorClearTimeMsec?: pulumi.Input<number>;
         failoverConditions?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition>[]>;
+        /**
+         * Input preference when deciding which input to make active when a previously failed input has recovered.
+         */
         inputPreference?: pulumi.Input<string>;
+        /**
+         * The input ID of the secondary input in the automatic input failover pair.
+         */
         secondaryInputId: pulumi.Input<string>;
     }
 
     export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition {
+        /**
+         * Failover condition type-specific settings. See Failover Condition Settings for more details.
+         */
         failoverConditionSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings>;
     }
 
     export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings {
+        /**
+         * MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
+         */
         audioSilenceSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings>;
+        /**
+         * MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
+         */
         inputLossSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings>;
+        /**
+         * MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
+         */
         videoBlackSettings?: pulumi.Input<inputs.medialive.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings>;
     }
 
     export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings {
         /**
-         * The name of the audio selector used as the source for this AudioDescription.
+         * The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn't create an audio selector in this input, leave blank.
          */
         audioSelectorName: pulumi.Input<string>;
+        /**
+         * The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
+         */
         audioSilenceThresholdMsec?: pulumi.Input<number>;
     }
 
     export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings {
+        /**
+         * The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
+         */
         inputLossThresholdMsec?: pulumi.Input<number>;
     }
 
     export interface ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings {
+        /**
+         * A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
+         */
         blackDetectThreshold?: pulumi.Input<number>;
+        /**
+         * The amount of time (in milliseconds) that the active input must be black before automatic input failover occurs.
+         */
         videoBlackThresholdMsec?: pulumi.Input<number>;
     }
 
@@ -39906,6 +40023,13 @@ export namespace opensearch {
          * Hour during which the service takes an automated daily snapshot of the indices in the domain.
          */
         automatedSnapshotStartHour: pulumi.Input<number>;
+    }
+
+    export interface DomainSoftwareUpdateOptions {
+        /**
+         * Whether automatic service software updates are enabled for the domain. Defaults to `false`.
+         */
+        autoSoftwareUpdateEnabled?: pulumi.Input<boolean>;
     }
 
     export interface DomainVpcOptions {
@@ -51734,6 +51858,20 @@ export namespace sfn {
     }
 }
 
+export namespace shield {
+    export interface DrtAccessLogBucketAssociationTimeouts {
+        create?: pulumi.Input<string>;
+        delete?: pulumi.Input<string>;
+        read?: pulumi.Input<string>;
+    }
+
+    export interface DrtAccessRoleArnAssociationTimeouts {
+        create?: pulumi.Input<string>;
+        delete?: pulumi.Input<string>;
+        read?: pulumi.Input<string>;
+    }
+}
+
 export namespace signer {
     export interface SigningJobDestination {
         /**
@@ -53208,6 +53346,22 @@ export namespace transfer {
          * The value that corresponds to the key.
          */
         value: pulumi.Input<string>;
+    }
+}
+
+export namespace verifiedaccess {
+    export interface TrustProviderDeviceOptions {
+        tenantId?: pulumi.Input<string>;
+    }
+
+    export interface TrustProviderOidcOptions {
+        authorizationEndpoint?: pulumi.Input<string>;
+        clientId?: pulumi.Input<string>;
+        clientSecret: pulumi.Input<string>;
+        issuer?: pulumi.Input<string>;
+        scope?: pulumi.Input<string>;
+        tokenEndpoint?: pulumi.Input<string>;
+        userInfoEndpoint?: pulumi.Input<string>;
     }
 }
 

@@ -108,6 +108,8 @@ type LookupDomainResult struct {
 	Processing bool `pulumi:"processing"`
 	// Domain snapshot related options.
 	SnapshotOptions []GetDomainSnapshotOption `pulumi:"snapshotOptions"`
+	// Software update options for the domain
+	SoftwareUpdateOptions []GetDomainSoftwareUpdateOption `pulumi:"softwareUpdateOptions"`
 	// Tags assigned to the domain.
 	Tags map[string]string `pulumi:"tags"`
 	// VPC Options for private OpenSearch domains.
@@ -276,6 +278,11 @@ func (o LookupDomainResultOutput) Processing() pulumi.BoolOutput {
 // Domain snapshot related options.
 func (o LookupDomainResultOutput) SnapshotOptions() GetDomainSnapshotOptionArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []GetDomainSnapshotOption { return v.SnapshotOptions }).(GetDomainSnapshotOptionArrayOutput)
+}
+
+// Software update options for the domain
+func (o LookupDomainResultOutput) SoftwareUpdateOptions() GetDomainSoftwareUpdateOptionArrayOutput {
+	return o.ApplyT(func(v LookupDomainResult) []GetDomainSoftwareUpdateOption { return v.SoftwareUpdateOptions }).(GetDomainSoftwareUpdateOptionArrayOutput)
 }
 
 // Tags assigned to the domain.

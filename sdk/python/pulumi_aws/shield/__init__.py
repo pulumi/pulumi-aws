@@ -5,6 +5,10 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .drt_access_log_bucket_association import *
+from .drt_access_role_arn_association import *
 from .protection import *
 from .protection_group import *
 from .protection_health_check_association import *
+from ._inputs import *
+from . import outputs

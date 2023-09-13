@@ -46,7 +46,7 @@ namespace Pulumi.Aws.MediaLive.Inputs
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs>? RtmpOutputSettings { get; set; }
 
         /// <summary>
-        /// UDP output settings. See UDP Output Settings for more details
+        /// UDP output settings. See UDP Output Settings for more details.
         /// </summary>
         [Input("udpOutputSettings")]
         public Input<Inputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs>? UdpOutputSettings { get; set; }

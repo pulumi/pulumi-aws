@@ -43,6 +43,7 @@ import * as utilities from "../utilities";
  * const fleet = new aws.iot.ProvisioningTemplate("fleet", {
  *     description: "My provisioning template",
  *     provisioningRoleArn: iotFleetProvisioning.arn,
+ *     enabled: true,
  *     templateBody: devicePolicyPolicy.name.apply(name => JSON.stringify({
  *         Parameters: {
  *             SerialNumber: {

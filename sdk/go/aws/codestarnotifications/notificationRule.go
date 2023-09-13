@@ -94,13 +94,11 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import CodeStar notification rule using the ARN. For example:
+// In TODO v1.5.0 and later, use an `import` block to import CodeStar notification rule using the ARN. For exampleterraform import {
 //
-// ```sh
+//	to = aws_codestarnotifications_notification_rule.foo
 //
-//	$ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
-//
-// ```
+//	id = "arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b" } Using `TODO import`, import CodeStar notification rule using the ARN. For exampleconsole % TODO import aws_codestarnotifications_notification_rule.foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
 type NotificationRule struct {
 	pulumi.CustomResourceState
 
@@ -117,7 +115,7 @@ type NotificationRule struct {
 	Resource pulumi.StringOutput `pulumi:"resource"`
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 	Status pulumi.StringPtrOutput `pulumi:"status"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -177,7 +175,7 @@ type notificationRuleState struct {
 	Resource *string `pulumi:"resource"`
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 	Status *string `pulumi:"status"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -199,7 +197,7 @@ type NotificationRuleState struct {
 	Resource pulumi.StringPtrInput
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 	Status pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -223,7 +221,7 @@ type notificationRuleArgs struct {
 	Resource string `pulumi:"resource"`
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 	Status *string `pulumi:"status"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
 	Targets []NotificationRuleTarget `pulumi:"targets"`
@@ -242,7 +240,7 @@ type NotificationRuleArgs struct {
 	Resource pulumi.StringInput
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
 	Status pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
 	Targets NotificationRuleTargetArrayInput
@@ -390,7 +388,7 @@ func (o NotificationRuleOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.StringPtrOutput { return v.Status }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o NotificationRuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

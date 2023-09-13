@@ -64,11 +64,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Network Interfaces using the `id`. For example:
+    /// In TODO v1.5.0 and later, use an `import` block to import Network Interfaces using the `id`. For exampleterraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
-    /// ```
+    ///  to = aws_network_interface.test
+    /// 
+    ///  id = "eni-e5aa89a3" } Using `TODO import`, import Network Interfaces using the `id`. For exampleconsole % TODO import aws_network_interface.test eni-e5aa89a3
     /// </summary>
     [AwsResourceType("aws:ec2/networkInterface:NetworkInterface")]
     public partial class NetworkInterface : global::Pulumi.CustomResource

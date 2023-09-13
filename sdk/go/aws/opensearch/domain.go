@@ -512,6 +512,8 @@ type Domain struct {
 	OffPeakWindowOptions DomainOffPeakWindowOptionsOutput `pulumi:"offPeakWindowOptions"`
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
 	SnapshotOptions DomainSnapshotOptionsPtrOutput `pulumi:"snapshotOptions"`
+	// Software update options for the domain. Detailed below.
+	SoftwareUpdateOptions DomainSoftwareUpdateOptionsOutput `pulumi:"softwareUpdateOptions"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -598,6 +600,8 @@ type domainState struct {
 	OffPeakWindowOptions *DomainOffPeakWindowOptions `pulumi:"offPeakWindowOptions"`
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
 	SnapshotOptions *DomainSnapshotOptions `pulumi:"snapshotOptions"`
+	// Software update options for the domain. Detailed below.
+	SoftwareUpdateOptions *DomainSoftwareUpdateOptions `pulumi:"softwareUpdateOptions"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -655,6 +659,8 @@ type DomainState struct {
 	OffPeakWindowOptions DomainOffPeakWindowOptionsPtrInput
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
 	SnapshotOptions DomainSnapshotOptionsPtrInput
+	// Software update options for the domain. Detailed below.
+	SoftwareUpdateOptions DomainSoftwareUpdateOptionsPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -704,6 +710,8 @@ type domainArgs struct {
 	OffPeakWindowOptions *DomainOffPeakWindowOptions `pulumi:"offPeakWindowOptions"`
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
 	SnapshotOptions *DomainSnapshotOptions `pulumi:"snapshotOptions"`
+	// Software update options for the domain. Detailed below.
+	SoftwareUpdateOptions *DomainSoftwareUpdateOptions `pulumi:"softwareUpdateOptions"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
@@ -746,6 +754,8 @@ type DomainArgs struct {
 	OffPeakWindowOptions DomainOffPeakWindowOptionsPtrInput
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
 	SnapshotOptions DomainSnapshotOptionsPtrInput
+	// Software update options for the domain. Detailed below.
+	SoftwareUpdateOptions DomainSoftwareUpdateOptionsPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
@@ -967,6 +977,11 @@ func (o DomainOutput) OffPeakWindowOptions() DomainOffPeakWindowOptionsOutput {
 // Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
 func (o DomainOutput) SnapshotOptions() DomainSnapshotOptionsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainSnapshotOptionsPtrOutput { return v.SnapshotOptions }).(DomainSnapshotOptionsPtrOutput)
+}
+
+// Software update options for the domain. Detailed below.
+func (o DomainOutput) SoftwareUpdateOptions() DomainSoftwareUpdateOptionsOutput {
+	return o.ApplyT(func(v *Domain) DomainSoftwareUpdateOptionsOutput { return v.SoftwareUpdateOptions }).(DomainSoftwareUpdateOptionsOutput)
 }
 
 // Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

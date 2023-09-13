@@ -13,6 +13,7 @@ import com.pulumi.aws.opensearch.outputs.GetDomainLogPublishingOption;
 import com.pulumi.aws.opensearch.outputs.GetDomainNodeToNodeEncryption;
 import com.pulumi.aws.opensearch.outputs.GetDomainOffPeakWindowOptions;
 import com.pulumi.aws.opensearch.outputs.GetDomainSnapshotOption;
+import com.pulumi.aws.opensearch.outputs.GetDomainSoftwareUpdateOption;
 import com.pulumi.aws.opensearch.outputs.GetDomainVpcOption;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
@@ -140,6 +141,11 @@ public final class GetDomainResult {
      * 
      */
     private List<GetDomainSnapshotOption> snapshotOptions;
+    /**
+     * @return Software update options for the domain
+     * 
+     */
+    private List<GetDomainSoftwareUpdateOption> softwareUpdateOptions;
     /**
      * @return Tags assigned to the domain.
      * 
@@ -314,6 +320,13 @@ public final class GetDomainResult {
         return this.snapshotOptions;
     }
     /**
+     * @return Software update options for the domain
+     * 
+     */
+    public List<GetDomainSoftwareUpdateOption> softwareUpdateOptions() {
+        return this.softwareUpdateOptions;
+    }
+    /**
      * @return Tags assigned to the domain.
      * 
      */
@@ -360,6 +373,7 @@ public final class GetDomainResult {
         private @Nullable GetDomainOffPeakWindowOptions offPeakWindowOptions;
         private Boolean processing;
         private List<GetDomainSnapshotOption> snapshotOptions;
+        private List<GetDomainSoftwareUpdateOption> softwareUpdateOptions;
         private Map<String,String> tags;
         private List<GetDomainVpcOption> vpcOptions;
         public Builder() {}
@@ -388,6 +402,7 @@ public final class GetDomainResult {
     	      this.offPeakWindowOptions = defaults.offPeakWindowOptions;
     	      this.processing = defaults.processing;
     	      this.snapshotOptions = defaults.snapshotOptions;
+    	      this.softwareUpdateOptions = defaults.softwareUpdateOptions;
     	      this.tags = defaults.tags;
     	      this.vpcOptions = defaults.vpcOptions;
         }
@@ -535,6 +550,14 @@ public final class GetDomainResult {
             return snapshotOptions(List.of(snapshotOptions));
         }
         @CustomType.Setter
+        public Builder softwareUpdateOptions(List<GetDomainSoftwareUpdateOption> softwareUpdateOptions) {
+            this.softwareUpdateOptions = Objects.requireNonNull(softwareUpdateOptions);
+            return this;
+        }
+        public Builder softwareUpdateOptions(GetDomainSoftwareUpdateOption... softwareUpdateOptions) {
+            return softwareUpdateOptions(List.of(softwareUpdateOptions));
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
@@ -572,6 +595,7 @@ public final class GetDomainResult {
             o.offPeakWindowOptions = offPeakWindowOptions;
             o.processing = processing;
             o.snapshotOptions = snapshotOptions;
+            o.softwareUpdateOptions = softwareUpdateOptions;
             o.tags = tags;
             o.vpcOptions = vpcOptions;
             return o;

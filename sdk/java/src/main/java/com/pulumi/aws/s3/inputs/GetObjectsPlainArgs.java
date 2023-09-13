@@ -107,6 +107,21 @@ public final class GetObjectsPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
+     * 
+     */
+    @Import(name="requestPayer")
+    private @Nullable String requestPayer;
+
+    /**
+     * @return Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
+     * 
+     */
+    public Optional<String> requestPayer() {
+        return Optional.ofNullable(this.requestPayer);
+    }
+
+    /**
      * Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
      * 
      */
@@ -130,6 +145,7 @@ public final class GetObjectsPlainArgs extends com.pulumi.resources.InvokeArgs {
         this.fetchOwner = $.fetchOwner;
         this.maxKeys = $.maxKeys;
         this.prefix = $.prefix;
+        this.requestPayer = $.requestPayer;
         this.startAfter = $.startAfter;
     }
 
@@ -214,6 +230,17 @@ public final class GetObjectsPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder prefix(@Nullable String prefix) {
             $.prefix = prefix;
+            return this;
+        }
+
+        /**
+         * @param requestPayer Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestPayer(@Nullable String requestPayer) {
+            $.requestPayer = requestPayer;
             return this;
         }
 

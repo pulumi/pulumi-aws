@@ -145,6 +145,10 @@ export interface GetDomainResult {
      */
     readonly snapshotOptions: outputs.opensearch.GetDomainSnapshotOption[];
     /**
+     * Software update options for the domain
+     */
+    readonly softwareUpdateOptions: outputs.opensearch.GetDomainSoftwareUpdateOption[];
+    /**
      * Tags assigned to the domain.
      */
     readonly tags: {[key: string]: string};

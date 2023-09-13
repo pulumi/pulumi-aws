@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a License Manager license configuration resource.
  *
- * > **Note:** Removing the `licenseCount` attribute is not supported by the License Manager API - recreate the resource instead.
+ * > **Note:** Removing the `licenseCount` attribute is not supported by the License Manager API - use `TODO taint aws_licensemanager_license_configuration.<id>` to recreate the resource instead.
  *
  * ## Example Usage
  *
@@ -40,11 +40,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import license configurations using the `id`. For example:
+ * In TODO v1.5.0 and later, use an `import` block to import license configurations using the `id`. For exampleterraform import {
  *
- * ```sh
- *  $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
- * ```
+ *  to = aws_licensemanager_license_configuration.example
+ *
+ *  id = "arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef" } Using `TODO import`, import license configurations using the `id`. For exampleconsole % TODO import aws_licensemanager_license_configuration.example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
  */
 export class LicenseConfiguration extends pulumi.CustomResource {
     /**
@@ -107,7 +107,7 @@ export class LicenseConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -196,7 +196,7 @@ export interface LicenseConfigurationState {
      */
     ownerAccountId?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -234,7 +234,7 @@ export interface LicenseConfigurationArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

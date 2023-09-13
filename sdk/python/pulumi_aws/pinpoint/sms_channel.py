@@ -211,11 +211,11 @@ class SmsChannel(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For example:
+        In TODO v1.5.0 and later, use an `import` block to import the Pinpoint SMS Channel using the `application_id`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
-        ```
+         to = aws_pinpoint_sms_channel.sms
+
+         id = "application-id" } Using `TODO import`, import the Pinpoint SMS Channel using the `application_id`. For exampleconsole % TODO import aws_pinpoint_sms_channel.sms application-id
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,11 +245,11 @@ class SmsChannel(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For example:
+        In TODO v1.5.0 and later, use an `import` block to import the Pinpoint SMS Channel using the `application_id`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
-        ```
+         to = aws_pinpoint_sms_channel.sms
+
+         id = "application-id" } Using `TODO import`, import the Pinpoint SMS Channel using the `application_id`. For exampleconsole % TODO import aws_pinpoint_sms_channel.sms application-id
 
         :param str resource_name: The name of the resource.
         :param SmsChannelArgs args: The arguments to use to populate this resource's properties.

@@ -90,6 +90,7 @@ import (
 //			_, err = iot.NewProvisioningTemplate(ctx, "fleet", &iot.ProvisioningTemplateArgs{
 //				Description:         pulumi.String("My provisioning template"),
 //				ProvisioningRoleArn: iotFleetProvisioning.Arn,
+//				Enabled:             pulumi.Bool(true),
 //				TemplateBody: devicePolicyPolicy.Name.ApplyT(func(name string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{

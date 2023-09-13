@@ -25,11 +25,11 @@ class ClusterParameterGroupArgs:
         """
         The set of arguments for constructing a ClusterParameterGroup resource.
         :param pulumi.Input[str] family: The family of the DB cluster parameter group.
-        :param pulumi.Input[str] description: The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] description: The description of the DB cluster parameter group. Defaults to "Managed by TODO".
         :param pulumi.Input[str] name: The name of the DB parameter.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterParameterGroupParameterArgs']]] parameters: A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "family", family)
         if description is None:
@@ -61,7 +61,7 @@ class ClusterParameterGroupArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+        The description of the DB cluster parameter group. Defaults to "Managed by TODO".
         """
         return pulumi.get(self, "description")
 
@@ -109,7 +109,7 @@ class ClusterParameterGroupArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -132,12 +132,12 @@ class _ClusterParameterGroupState:
         """
         Input properties used for looking up and filtering ClusterParameterGroup resources.
         :param pulumi.Input[str] arn: The ARN of the db cluster parameter group.
-        :param pulumi.Input[str] description: The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] description: The description of the DB cluster parameter group. Defaults to "Managed by TODO".
         :param pulumi.Input[str] family: The family of the DB cluster parameter group.
         :param pulumi.Input[str] name: The name of the DB parameter.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterParameterGroupParameterArgs']]] parameters: A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -175,7 +175,7 @@ class _ClusterParameterGroupState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+        The description of the DB cluster parameter group. Defaults to "Managed by TODO".
         """
         return pulumi.get(self, "description")
 
@@ -235,7 +235,7 @@ class _ClusterParameterGroupState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -297,20 +297,20 @@ class ClusterParameterGroup(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import RDS Cluster Parameter Groups using the `name`. For example:
+        In TODO v1.5.0 and later, use an `import` block to import RDS Cluster Parameter Groups using the `name`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:rds/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
-        ```
+         to = aws_rds_cluster_parameter_group.cluster_pg
+
+         id = "production-pg-1" } Using `TODO import`, import RDS Cluster Parameter Groups using the `name`. For exampleconsole % TODO import aws_rds_cluster_parameter_group.cluster_pg production-pg-1
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] description: The description of the DB cluster parameter group. Defaults to "Managed by TODO".
         :param pulumi.Input[str] family: The family of the DB cluster parameter group.
         :param pulumi.Input[str] name: The name of the DB parameter.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterParameterGroupParameterArgs']]]] parameters: A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -347,11 +347,11 @@ class ClusterParameterGroup(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import RDS Cluster Parameter Groups using the `name`. For example:
+        In TODO v1.5.0 and later, use an `import` block to import RDS Cluster Parameter Groups using the `name`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:rds/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
-        ```
+         to = aws_rds_cluster_parameter_group.cluster_pg
+
+         id = "production-pg-1" } Using `TODO import`, import RDS Cluster Parameter Groups using the `name`. For exampleconsole % TODO import aws_rds_cluster_parameter_group.cluster_pg production-pg-1
 
         :param str resource_name: The name of the resource.
         :param ClusterParameterGroupArgs args: The arguments to use to populate this resource's properties.
@@ -421,12 +421,12 @@ class ClusterParameterGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the db cluster parameter group.
-        :param pulumi.Input[str] description: The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+        :param pulumi.Input[str] description: The description of the DB cluster parameter group. Defaults to "Managed by TODO".
         :param pulumi.Input[str] family: The family of the DB cluster parameter group.
         :param pulumi.Input[str] name: The name of the DB parameter.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterParameterGroupParameterArgs']]]] parameters: A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -455,7 +455,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
         """
-        The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+        The description of the DB cluster parameter group. Defaults to "Managed by TODO".
         """
         return pulumi.get(self, "description")
 
@@ -495,7 +495,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

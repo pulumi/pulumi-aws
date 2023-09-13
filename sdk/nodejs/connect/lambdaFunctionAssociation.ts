@@ -22,11 +22,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_connect_lambda_function_association` using the `instance_id` and `function_arn` separated by a comma (`,`). For example:
+ * In TODO v1.5.0 and later, use an `import` block to import `aws_connect_lambda_function_association` using the `instance_id` and `function_arn` separated by a comma (`,`). For exampleterraform import {
  *
- * ```sh
- *  $ pulumi import aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
- * ```
+ *  to = aws_connect_lambda_function_association.example
+ *
+ *  id = "aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example" } Using `TODO import`, import `aws_connect_lambda_function_association` using the `instance_id` and `function_arn` separated by a comma (`,`). For exampleconsole % TODO import aws_connect_lambda_function_association.example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example
  */
 export class LambdaFunctionAssociation extends pulumi.CustomResource {
     /**

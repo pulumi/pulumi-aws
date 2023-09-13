@@ -66,11 +66,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import RDS Cluster Parameter Groups using the `name`. For example:
+ * In TODO v1.5.0 and later, use an `import` block to import RDS Cluster Parameter Groups using the `name`. For exampleterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:rds/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
- * ```
+ *  to = aws_rds_cluster_parameter_group.cluster_pg
+ * 
+ *  id = &#34;production-pg-1&#34; } Using `TODO import`, import RDS Cluster Parameter Groups using the `name`. For exampleconsole % TODO import aws_rds_cluster_parameter_group.cluster_pg production-pg-1
  * 
  */
 @ResourceType(type="aws:rds/clusterParameterGroup:ClusterParameterGroup")
@@ -90,14 +90,14 @@ public class ClusterParameterGroup extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The description of the DB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
+     * The description of the DB cluster parameter group. Defaults to &#34;Managed by TODO&#34;.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return The description of the DB cluster parameter group. Defaults to &#34;Managed by Pulumi&#34;.
+     * @return The description of the DB cluster parameter group. Defaults to &#34;Managed by TODO&#34;.
      * 
      */
     public Output<String> description() {
@@ -160,14 +160,14 @@ public class ClusterParameterGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parameters);
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

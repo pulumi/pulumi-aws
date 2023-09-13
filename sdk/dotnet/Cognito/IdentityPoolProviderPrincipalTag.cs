@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For example:
+    /// In TODO v1.5.0 and later, use an `import` block to import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For exampleterraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag example us-west-2_abc123:CorpAD
-    /// ```
+    ///  to = aws_cognito_identity_pool_provider_principal_tag.example
+    /// 
+    ///  id = "us-west-2_abc123:CorpAD" } Using `TODO import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For exampleconsole % TODO import aws_cognito_identity_pool_provider_principal_tag.example us-west-2_abc123:CorpAD
     /// </summary>
     [AwsResourceType("aws:cognito/identityPoolProviderPrincipalTag:IdentityPoolProviderPrincipalTag")]
     public partial class IdentityPoolProviderPrincipalTag : global::Pulumi.CustomResource

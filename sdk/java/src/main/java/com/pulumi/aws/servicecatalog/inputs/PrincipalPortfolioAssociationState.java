@@ -65,14 +65,14 @@ public final class PrincipalPortfolioAssociationState extends com.pulumi.resourc
     }
 
     /**
-     * Principal type. Setting this argument empty (e.g., `principal_type = &#34;&#34;`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+     * Principal type. Setting this argument empty (e.g., `principal_type = &#34;&#34;`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
      * 
      */
     @Import(name="principalType")
     private @Nullable Output<String> principalType;
 
     /**
-     * @return Principal type. Setting this argument empty (e.g., `principal_type = &#34;&#34;`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+     * @return Principal type. Setting this argument empty (e.g., `principal_type = &#34;&#34;`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
      * 
      */
     public Optional<Output<String>> principalType() {
@@ -174,7 +174,7 @@ public final class PrincipalPortfolioAssociationState extends com.pulumi.resourc
         }
 
         /**
-         * @param principalType Principal type. Setting this argument empty (e.g., `principal_type = &#34;&#34;`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+         * @param principalType Principal type. Setting this argument empty (e.g., `principal_type = &#34;&#34;`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class PrincipalPortfolioAssociationState extends com.pulumi.resourc
         }
 
         /**
-         * @param principalType Principal type. Setting this argument empty (e.g., `principal_type = &#34;&#34;`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+         * @param principalType Principal type. Setting this argument empty (e.g., `principal_type = &#34;&#34;`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
          * 
          * @return builder
          * 

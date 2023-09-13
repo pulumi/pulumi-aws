@@ -17,6 +17,7 @@ import com.pulumi.aws.opensearch.outputs.DomainLogPublishingOption;
 import com.pulumi.aws.opensearch.outputs.DomainNodeToNodeEncryption;
 import com.pulumi.aws.opensearch.outputs.DomainOffPeakWindowOptions;
 import com.pulumi.aws.opensearch.outputs.DomainSnapshotOptions;
+import com.pulumi.aws.opensearch.outputs.DomainSoftwareUpdateOptions;
 import com.pulumi.aws.opensearch.outputs.DomainVpcOptions;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -740,6 +741,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<DomainSnapshotOptions>> snapshotOptions() {
         return Codegen.optional(this.snapshotOptions);
+    }
+    /**
+     * Software update options for the domain. Detailed below.
+     * 
+     */
+    @Export(name="softwareUpdateOptions", refs={DomainSoftwareUpdateOptions.class}, tree="[0]")
+    private Output<DomainSoftwareUpdateOptions> softwareUpdateOptions;
+
+    /**
+     * @return Software update options for the domain. Detailed below.
+     * 
+     */
+    public Output<DomainSoftwareUpdateOptions> softwareUpdateOptions() {
+        return this.softwareUpdateOptions;
     }
     /**
      * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

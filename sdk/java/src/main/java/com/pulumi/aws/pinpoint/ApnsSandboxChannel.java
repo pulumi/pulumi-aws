@@ -19,6 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Provides a Pinpoint APNs Sandbox Channel resource.
  * 
+ * &gt; **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -56,11 +57,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Pinpoint APNs Sandbox Channel using the `application-id`. For example:
+ * In TODO v1.5.0 and later, use an `import` block to import Pinpoint APNs Sandbox Channel using the `application-id`. For exampleterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel apns_sandbox application-id
- * ```
+ *  to = aws_pinpoint_apns_sandbox_channel.apns_sandbox
+ * 
+ *  id = &#34;application-id&#34; } Using `TODO import`, import Pinpoint APNs Sandbox Channel using the `application-id`. For exampleconsole % TODO import aws_pinpoint_apns_sandbox_channel.apns_sandbox application-id
  * 
  */
 @ResourceType(type="aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel")

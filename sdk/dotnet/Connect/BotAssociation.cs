@@ -117,11 +117,11 @@ namespace Pulumi.Aws.Connect
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_connect_bot_association` using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`). For example:
+    /// In TODO v1.5.0 and later, use an `import` block to import `aws_connect_bot_association` using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`). For exampleterraform import {
     /// 
-    /// ```sh
-    ///  $ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
-    /// ```
+    ///  to = aws_connect_bot_association.example
+    /// 
+    ///  id = "aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2" } Using `TODO import`, import `aws_connect_bot_association` using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`). For exampleconsole % TODO import aws_connect_bot_association.example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
     /// </summary>
     [AwsResourceType("aws:connect/botAssociation:BotAssociation")]
     public partial class BotAssociation : global::Pulumi.CustomResource

@@ -1,4 +1,4 @@
-From 86cd43ca06dc1788d66d42ecc04bbd21d0eae17c Mon Sep 17 00:00:00 2001
+From a95b5c1e221f5b49d223775fb7e4997390b6da36 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:08:23 +0000
 Subject: [PATCH 06/29] Remove lakeformation catalog_resource default

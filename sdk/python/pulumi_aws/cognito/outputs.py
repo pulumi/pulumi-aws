@@ -50,6 +50,7 @@ __all__ = [
     'UserPoolUserPoolAddOns',
     'UserPoolUsernameConfiguration',
     'UserPoolVerificationMessageTemplate',
+    'GetIdentityPoolCognitoIdentityProviderResult',
     'GetUserPoolClientAnalyticsConfigurationResult',
     'GetUserPoolClientTokenValidityUnitResult',
 ]
@@ -2512,6 +2513,32 @@ class UserPoolVerificationMessageTemplate(dict):
         SMS message template. Must contain the `{####}` placeholder. Conflicts with `sms_verification_message` argument.
         """
         return pulumi.get(self, "sms_message")
+
+
+@pulumi.output_type
+class GetIdentityPoolCognitoIdentityProviderResult(dict):
+    def __init__(__self__, *,
+                 client_id: str,
+                 provider_name: str,
+                 server_side_token_check: bool):
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "provider_name", provider_name)
+        pulumi.set(__self__, "server_side_token_check", server_side_token_check)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="providerName")
+    def provider_name(self) -> str:
+        return pulumi.get(self, "provider_name")
+
+    @property
+    @pulumi.getter(name="serverSideTokenCheck")
+    def server_side_token_check(self) -> bool:
+        return pulumi.get(self, "server_side_token_check")
 
 
 @pulumi.output_type

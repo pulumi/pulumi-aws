@@ -111,13 +111,11 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Cognito User Pools using the `id`. For example:
+// In TODO v1.5.0 and later, use an `import` block to import Cognito User Pools using the `id`. For exampleterraform import {
 //
-// ```sh
+//	to = aws_cognito_user_pool.pool
 //
-//	$ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
-//
-// ```
+//	id = "us-west-2_abc123" } Using `TODO import`, import Cognito User Pools using the `id`. For exampleconsole % TODO import aws_cognito_user_pool.pool us-west-2_abc123
 type UserPool struct {
 	pulumi.CustomResourceState
 
@@ -167,7 +165,7 @@ type UserPool struct {
 	Schemas UserPoolSchemaArrayOutput `pulumi:"schemas"`
 	// String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
 	SmsAuthenticationMessage pulumi.StringPtrOutput `pulumi:"smsAuthenticationMessage"`
-	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
+	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
 	SmsConfiguration UserPoolSmsConfigurationOutput `pulumi:"smsConfiguration"`
 	// String representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
 	SmsVerificationMessage pulumi.StringOutput `pulumi:"smsVerificationMessage"`
@@ -265,7 +263,7 @@ type userPoolState struct {
 	Schemas []UserPoolSchema `pulumi:"schemas"`
 	// String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
 	SmsAuthenticationMessage *string `pulumi:"smsAuthenticationMessage"`
-	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
+	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
 	SmsConfiguration *UserPoolSmsConfiguration `pulumi:"smsConfiguration"`
 	// String representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
 	SmsVerificationMessage *string `pulumi:"smsVerificationMessage"`
@@ -334,7 +332,7 @@ type UserPoolState struct {
 	Schemas UserPoolSchemaArrayInput
 	// String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
 	SmsAuthenticationMessage pulumi.StringPtrInput
-	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
+	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
 	SmsConfiguration UserPoolSmsConfigurationPtrInput
 	// String representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
 	SmsVerificationMessage pulumi.StringPtrInput
@@ -393,7 +391,7 @@ type userPoolArgs struct {
 	Schemas []UserPoolSchema `pulumi:"schemas"`
 	// String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
 	SmsAuthenticationMessage *string `pulumi:"smsAuthenticationMessage"`
-	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
+	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
 	SmsConfiguration *UserPoolSmsConfiguration `pulumi:"smsConfiguration"`
 	// String representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
 	SmsVerificationMessage *string `pulumi:"smsVerificationMessage"`
@@ -447,7 +445,7 @@ type UserPoolArgs struct {
 	Schemas UserPoolSchemaArrayInput
 	// String representing the SMS authentication message. The Message must contain the `{####}` placeholder, which will be replaced with the code.
 	SmsAuthenticationMessage pulumi.StringPtrInput
-	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
+	// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
 	SmsConfiguration UserPoolSmsConfigurationPtrInput
 	// String representing the SMS verification message. Conflicts with `verificationMessageTemplate` configuration block `smsMessage` argument.
 	SmsVerificationMessage pulumi.StringPtrInput
@@ -690,7 +688,7 @@ func (o UserPoolOutput) SmsAuthenticationMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.SmsAuthenticationMessage }).(pulumi.StringPtrOutput)
 }
 
-// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection.
+// Configuration block for Short Message Service (SMS) settings. Detailed below. These settings apply to SMS user verification and SMS Multi-Factor Authentication (MFA). Due to Cognito API restrictions, the SMS configuration cannot be removed without recreating the Cognito User Pool. For user data safety, this resource will ignore the removal of this configuration by disabling drift detection. To force resource recreation after this configuration has been applied, see the `taint` command.
 func (o UserPoolOutput) SmsConfiguration() UserPoolSmsConfigurationOutput {
 	return o.ApplyT(func(v *UserPool) UserPoolSmsConfigurationOutput { return v.SmsConfiguration }).(UserPoolSmsConfigurationOutput)
 }

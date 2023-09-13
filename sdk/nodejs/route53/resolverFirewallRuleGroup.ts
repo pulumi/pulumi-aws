@@ -18,13 +18,15 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import
+ * In TODO v1.5.0 and later, use an `import` block to import
  *
- * Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For example:
+ * Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For exampleterraform import {
  *
- * ```sh
- *  $ pulumi import aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup example rslvr-frg-0123456789abcdef
- * ```
+ *  to = aws_route53_resolver_firewall_rule_group.example
+ *
+ *  id = "rslvr-frg-0123456789abcdef" } Using `TODO import`, import
+ *
+ * Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For exampleconsole % TODO import aws_route53_resolver_firewall_rule_group.example rslvr-frg-0123456789abcdef
  */
 export class ResolverFirewallRuleGroup extends pulumi.CustomResource {
     /**
@@ -71,7 +73,7 @@ export class ResolverFirewallRuleGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly shareStatus!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -133,7 +135,7 @@ export interface ResolverFirewallRuleGroupState {
      */
     shareStatus?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -151,7 +153,7 @@ export interface ResolverFirewallRuleGroupArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -77,7 +77,10 @@ namespace Pulumi.Aws.Acmpca
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2");
+    ///     var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new()
+    ///     {
+    ///         ForceDestroy = true,
+    ///     });
     /// 
     ///     var acmpcaBucketAccess = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
@@ -137,6 +140,7 @@ namespace Pulumi.Aws.Acmpca
     ///                 Enabled = true,
     ///                 ExpirationInDays = 7,
     ///                 S3BucketName = exampleBucketV2.Id,
+    ///                 S3ObjectAcl = "BUCKET_OWNER_FULL_CONTROL",
     ///             },
     ///         },
     ///     }, new CustomResourceOptions

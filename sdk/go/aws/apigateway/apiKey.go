@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := apigateway.NewApiKey(ctx, "myDemoApiKey", nil)
+//			_, err := apigateway.NewApiKey(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
@@ -42,13 +42,11 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import API Gateway Keys using the `id`. For example:
+// terraform import {
 //
-// ```sh
+//	to = aws_api_gateway_api_key.example
 //
-//	$ pulumi import aws:apigateway/apiKey:ApiKey my_demo_key 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk
-//
-// ```
+//	id = "8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk" } Using `pulumi import`, import API Gateway Keys using the `id`. For exampleconsole % TODO import aws_api_gateway_api_key.example 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk
 type ApiKey struct {
 	pulumi.CustomResourceState
 
@@ -56,6 +54,8 @@ type ApiKey struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Creation date of the API key
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
+	// An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+	CustomerId pulumi.StringPtrOutput `pulumi:"customerId"`
 	// API key description. Defaults to "Managed by Pulumi".
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Whether the API key can be used by callers. Defaults to `true`.
@@ -116,6 +116,8 @@ type apiKeyState struct {
 	Arn *string `pulumi:"arn"`
 	// Creation date of the API key
 	CreatedDate *string `pulumi:"createdDate"`
+	// An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+	CustomerId *string `pulumi:"customerId"`
 	// API key description. Defaults to "Managed by Pulumi".
 	Description *string `pulumi:"description"`
 	// Whether the API key can be used by callers. Defaults to `true`.
@@ -137,6 +139,8 @@ type ApiKeyState struct {
 	Arn pulumi.StringPtrInput
 	// Creation date of the API key
 	CreatedDate pulumi.StringPtrInput
+	// An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+	CustomerId pulumi.StringPtrInput
 	// API key description. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
 	// Whether the API key can be used by callers. Defaults to `true`.
@@ -158,6 +162,8 @@ func (ApiKeyState) ElementType() reflect.Type {
 }
 
 type apiKeyArgs struct {
+	// An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+	CustomerId *string `pulumi:"customerId"`
 	// API key description. Defaults to "Managed by Pulumi".
 	Description *string `pulumi:"description"`
 	// Whether the API key can be used by callers. Defaults to `true`.
@@ -172,6 +178,8 @@ type apiKeyArgs struct {
 
 // The set of arguments for constructing a ApiKey resource.
 type ApiKeyArgs struct {
+	// An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+	CustomerId pulumi.StringPtrInput
 	// API key description. Defaults to "Managed by Pulumi".
 	Description pulumi.StringPtrInput
 	// Whether the API key can be used by callers. Defaults to `true`.
@@ -303,6 +311,11 @@ func (o ApiKeyOutput) Arn() pulumi.StringOutput {
 // Creation date of the API key
 func (o ApiKeyOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
+}
+
+// An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.
+func (o ApiKeyOutput) CustomerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiKey) pulumi.StringPtrOutput { return v.CustomerId }).(pulumi.StringPtrOutput)
 }
 
 // API key description. Defaults to "Managed by Pulumi".

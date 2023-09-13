@@ -13,6 +13,8 @@ __all__ = [
     'CatalogDatabaseCreateTableDefaultPermissionArgs',
     'CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs',
     'CatalogDatabaseTargetDatabaseArgs',
+    'CatalogTableOpenTableFormatInputArgs',
+    'CatalogTableOpenTableFormatInputIcebergInputArgs',
     'CatalogTablePartitionIndexArgs',
     'CatalogTablePartitionKeyArgs',
     'CatalogTableStorageDescriptorArgs',
@@ -185,6 +187,66 @@ class CatalogDatabaseTargetDatabaseArgs:
     @region.setter
     def region(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "region", value)
+
+
+@pulumi.input_type
+class CatalogTableOpenTableFormatInputArgs:
+    def __init__(__self__, *,
+                 iceberg_input: pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputArgs']):
+        """
+        :param pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputArgs'] iceberg_input: Configuration block for iceberg table config. See `iceberg_input` below.
+        """
+        pulumi.set(__self__, "iceberg_input", iceberg_input)
+
+    @property
+    @pulumi.getter(name="icebergInput")
+    def iceberg_input(self) -> pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputArgs']:
+        """
+        Configuration block for iceberg table config. See `iceberg_input` below.
+        """
+        return pulumi.get(self, "iceberg_input")
+
+    @iceberg_input.setter
+    def iceberg_input(self, value: pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputArgs']):
+        pulumi.set(self, "iceberg_input", value)
+
+
+@pulumi.input_type
+class CatalogTableOpenTableFormatInputIcebergInputArgs:
+    def __init__(__self__, *,
+                 metadata_operation: pulumi.Input[str],
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] metadata_operation: A required metadata operation. Can only be set to CREATE.
+        :param pulumi.Input[str] version: The table version for the Iceberg table. Defaults to 2.
+        """
+        pulumi.set(__self__, "metadata_operation", metadata_operation)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="metadataOperation")
+    def metadata_operation(self) -> pulumi.Input[str]:
+        """
+        A required metadata operation. Can only be set to CREATE.
+        """
+        return pulumi.get(self, "metadata_operation")
+
+    @metadata_operation.setter
+    def metadata_operation(self, value: pulumi.Input[str]):
+        pulumi.set(self, "metadata_operation", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The table version for the Iceberg table. Defaults to 2.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 @pulumi.input_type

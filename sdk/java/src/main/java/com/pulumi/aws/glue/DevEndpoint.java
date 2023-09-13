@@ -79,11 +79,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import a Glue Development Endpoint using the `name`. For example:
+ * In TODO v1.5.0 and later, use an `import` block to import a Glue Development Endpoint using the `name`. For exampleterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
- * ```
+ *  to = aws_glue_dev_endpoint.example
+ * 
+ *  id = &#34;foo&#34; } Using `TODO import`, import a Glue Development Endpoint using the `name`. For exampleconsole % TODO import aws_glue_dev_endpoint.example foo
  * 
  */
 @ResourceType(type="aws:glue/devEndpoint:DevEndpoint")
@@ -355,14 +355,14 @@ public class DevEndpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.subnetId);
     }
     /**
-     * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

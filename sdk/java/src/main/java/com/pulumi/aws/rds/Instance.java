@@ -177,6 +177,67 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### RDS Custom for SQL Server
+ * 
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.rds.RdsFunctions;
+ * import com.pulumi.aws.rds.inputs.GetOrderableDbInstanceArgs;
+ * import com.pulumi.aws.kms.KmsFunctions;
+ * import com.pulumi.aws.kms.inputs.GetKeyArgs;
+ * import com.pulumi.aws.rds.Instance;
+ * import com.pulumi.aws.rds.InstanceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var custom-sqlserver = RdsFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
+ *             .engine(&#34;custom-sqlserver-se&#34;)
+ *             .engineVersion(&#34;115.00.4249.2.cev1&#34;)
+ *             .storageType(&#34;gp3&#34;)
+ *             .preferredInstanceClasses(            
+ *                 &#34;db.r5.24xlarge&#34;,
+ *                 &#34;db.r5.16xlarge&#34;,
+ *                 &#34;db.r5.12xlarge&#34;)
+ *             .build());
+ * 
+ *         final var byId = KmsFunctions.getKey(GetKeyArgs.builder()
+ *             .keyId(&#34;example-ef278353ceba4a5a97de6784565b9f78&#34;)
+ *             .build());
+ * 
+ *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
+ *             .allocatedStorage(500)
+ *             .autoMinorVersionUpgrade(false)
+ *             .customIamInstanceProfile(&#34;AWSRDSCustomSQLServerInstanceRole&#34;)
+ *             .backupRetentionPeriod(7)
+ *             .dbSubnetGroupName(local.db_subnet_group_name())
+ *             .engine(custom_sqlserver.engine())
+ *             .engineVersion(custom_sqlserver.engineVersion())
+ *             .identifier(&#34;sql-instance-demo&#34;)
+ *             .instanceClass(custom_sqlserver.instanceClass())
+ *             .kmsKeyId(byId.applyValue(getKeyResult -&gt; getKeyResult.arn()))
+ *             .multiAz(false)
+ *             .password(&#34;avoid-plaintext-passwords&#34;)
+ *             .username(&#34;test&#34;)
+ *             .timeouts(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ### Storage Autoscaling
  * 
  * To enable Storage Autoscaling with instances that support the feature, define the `max_allocated_storage` argument higher than the `allocated_storage` argument. This provider will automatically hide differences with the `allocated_storage` argument value if autoscaling occurs.

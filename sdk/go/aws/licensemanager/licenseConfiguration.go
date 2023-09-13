@@ -15,7 +15,7 @@ import (
 
 // Provides a License Manager license configuration resource.
 //
-// > **Note:** Removing the `licenseCount` attribute is not supported by the License Manager API - recreate the resource instead.
+// > **Note:** Removing the `licenseCount` attribute is not supported by the License Manager API - use `TODO taint aws_licensemanager_license_configuration.<id>` to recreate the resource instead.
 //
 // ## Example Usage
 //
@@ -65,13 +65,11 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import license configurations using the `id`. For example:
+// In TODO v1.5.0 and later, use an `import` block to import license configurations using the `id`. For exampleterraform import {
 //
-// ```sh
+//	to = aws_licensemanager_license_configuration.example
 //
-//	$ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
-//
-// ```
+//	id = "arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef" } Using `TODO import`, import license configurations using the `id`. For exampleconsole % TODO import aws_licensemanager_license_configuration.example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
 type LicenseConfiguration struct {
 	pulumi.CustomResourceState
 
@@ -91,7 +89,7 @@ type LicenseConfiguration struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Account ID of the owner of the license configuration.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -146,7 +144,7 @@ type licenseConfigurationState struct {
 	Name *string `pulumi:"name"`
 	// Account ID of the owner of the license configuration.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -169,7 +167,7 @@ type LicenseConfigurationState struct {
 	Name pulumi.StringPtrInput
 	// Account ID of the owner of the license configuration.
 	OwnerAccountId pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -192,7 +190,7 @@ type licenseConfigurationArgs struct {
 	LicenseRules []string `pulumi:"licenseRules"`
 	// Name of the license configuration.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -210,7 +208,7 @@ type LicenseConfigurationArgs struct {
 	LicenseRules pulumi.StringArrayInput
 	// Name of the license configuration.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -365,7 +363,7 @@ func (o LicenseConfigurationOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseConfiguration) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LicenseConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LicenseConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

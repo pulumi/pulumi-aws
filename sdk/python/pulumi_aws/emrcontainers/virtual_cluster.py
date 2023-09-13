@@ -23,7 +23,7 @@ class VirtualClusterArgs:
         The set of arguments for constructing a VirtualCluster resource.
         :param pulumi.Input['VirtualClusterContainerProviderArgs'] container_provider: Configuration block for the container provider associated with your cluster.
         :param pulumi.Input[str] name: Name of the virtual cluster.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "container_provider", container_provider)
         if name is not None:
@@ -59,7 +59,7 @@ class VirtualClusterArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -81,7 +81,7 @@ class _VirtualClusterState:
         :param pulumi.Input[str] arn: ARN of the cluster.
         :param pulumi.Input['VirtualClusterContainerProviderArgs'] container_provider: Configuration block for the container provider associated with your cluster.
         :param pulumi.Input[str] name: Name of the virtual cluster.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -135,7 +135,7 @@ class _VirtualClusterState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -188,17 +188,17 @@ class VirtualCluster(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import EKS Clusters using the `id`. For example:
+        In TODO v1.5.0 and later, use an `import` block to import EKS Clusters using the `id`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
-        ```
+         to = aws_emrcontainers_virtual_cluster.example
+
+         id = "a1b2c3d4e5f6g7h8i9j10k11l" } Using `TODO import`, import EKS Clusters using the `id`. For exampleconsole % TODO import aws_emrcontainers_virtual_cluster.example a1b2c3d4e5f6g7h8i9j10k11l
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['VirtualClusterContainerProviderArgs']] container_provider: Configuration block for the container provider associated with your cluster.
         :param pulumi.Input[str] name: Name of the virtual cluster.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -229,11 +229,11 @@ class VirtualCluster(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import EKS Clusters using the `id`. For example:
+        In TODO v1.5.0 and later, use an `import` block to import EKS Clusters using the `id`. For exampleterraform import {
 
-        ```sh
-         $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
-        ```
+         to = aws_emrcontainers_virtual_cluster.example
+
+         id = "a1b2c3d4e5f6g7h8i9j10k11l" } Using `TODO import`, import EKS Clusters using the `id`. For exampleconsole % TODO import aws_emrcontainers_virtual_cluster.example a1b2c3d4e5f6g7h8i9j10k11l
 
         :param str resource_name: The name of the resource.
         :param VirtualClusterArgs args: The arguments to use to populate this resource's properties.
@@ -294,7 +294,7 @@ class VirtualCluster(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the cluster.
         :param pulumi.Input[pulumi.InputType['VirtualClusterContainerProviderArgs']] container_provider: Configuration block for the container provider associated with your cluster.
         :param pulumi.Input[str] name: Name of the virtual cluster.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -336,7 +336,7 @@ class VirtualCluster(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

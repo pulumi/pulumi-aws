@@ -28,6 +28,7 @@ class AssociationArgs:
                  output_location: Optional[pulumi.Input['AssociationOutputLocationArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
+                 sync_compliance: Optional[pulumi.Input[str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]] = None,
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None):
         """
@@ -44,6 +45,7 @@ class AssociationArgs:
         :param pulumi.Input['AssociationOutputLocationArgs'] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
         :param pulumi.Input[str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
+        :param pulumi.Input[str] sync_compliance: The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
         :param pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         :param pulumi.Input[int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
                
@@ -76,6 +78,8 @@ class AssociationArgs:
             pulumi.set(__self__, "parameters", parameters)
         if schedule_expression is not None:
             pulumi.set(__self__, "schedule_expression", schedule_expression)
+        if sync_compliance is not None:
+            pulumi.set(__self__, "sync_compliance", sync_compliance)
         if targets is not None:
             pulumi.set(__self__, "targets", targets)
         if wait_for_success_timeout_seconds is not None:
@@ -229,6 +233,18 @@ class AssociationArgs:
         pulumi.set(self, "schedule_expression", value)
 
     @property
+    @pulumi.getter(name="syncCompliance")
+    def sync_compliance(self) -> Optional[pulumi.Input[str]]:
+        """
+        The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+        """
+        return pulumi.get(self, "sync_compliance")
+
+    @sync_compliance.setter
+    def sync_compliance(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sync_compliance", value)
+
+    @property
     @pulumi.getter
     def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]]:
         """
@@ -272,6 +288,7 @@ class _AssociationState:
                  output_location: Optional[pulumi.Input['AssociationOutputLocationArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
+                 sync_compliance: Optional[pulumi.Input[str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]] = None,
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None):
         """
@@ -290,6 +307,7 @@ class _AssociationState:
         :param pulumi.Input['AssociationOutputLocationArgs'] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
         :param pulumi.Input[str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
+        :param pulumi.Input[str] sync_compliance: The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
         :param pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         :param pulumi.Input[int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
                
@@ -326,6 +344,8 @@ class _AssociationState:
             pulumi.set(__self__, "parameters", parameters)
         if schedule_expression is not None:
             pulumi.set(__self__, "schedule_expression", schedule_expression)
+        if sync_compliance is not None:
+            pulumi.set(__self__, "sync_compliance", sync_compliance)
         if targets is not None:
             pulumi.set(__self__, "targets", targets)
         if wait_for_success_timeout_seconds is not None:
@@ -503,6 +523,18 @@ class _AssociationState:
         pulumi.set(self, "schedule_expression", value)
 
     @property
+    @pulumi.getter(name="syncCompliance")
+    def sync_compliance(self) -> Optional[pulumi.Input[str]]:
+        """
+        The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+        """
+        return pulumi.get(self, "sync_compliance")
+
+    @sync_compliance.setter
+    def sync_compliance(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sync_compliance", value)
+
+    @property
     @pulumi.getter
     def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]]:
         """
@@ -546,6 +578,7 @@ class Association(pulumi.CustomResource):
                  output_location: Optional[pulumi.Input[pulumi.InputType['AssociationOutputLocationArgs']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
+                 sync_compliance: Optional[pulumi.Input[str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]]] = None,
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -628,6 +661,7 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AssociationOutputLocationArgs']] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
         :param pulumi.Input[str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
+        :param pulumi.Input[str] sync_compliance: The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         :param pulumi.Input[int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
                
@@ -731,6 +765,7 @@ class Association(pulumi.CustomResource):
                  output_location: Optional[pulumi.Input[pulumi.InputType['AssociationOutputLocationArgs']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
+                 sync_compliance: Optional[pulumi.Input[str]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]]] = None,
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -757,6 +792,7 @@ class Association(pulumi.CustomResource):
             __props__.__dict__["output_location"] = output_location
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["schedule_expression"] = schedule_expression
+            __props__.__dict__["sync_compliance"] = sync_compliance
             __props__.__dict__["targets"] = targets
             __props__.__dict__["wait_for_success_timeout_seconds"] = wait_for_success_timeout_seconds
             __props__.__dict__["arn"] = None
@@ -785,6 +821,7 @@ class Association(pulumi.CustomResource):
             output_location: Optional[pulumi.Input[pulumi.InputType['AssociationOutputLocationArgs']]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             schedule_expression: Optional[pulumi.Input[str]] = None,
+            sync_compliance: Optional[pulumi.Input[str]] = None,
             targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]]] = None,
             wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None) -> 'Association':
         """
@@ -808,6 +845,7 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AssociationOutputLocationArgs']] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
         :param pulumi.Input[str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
+        :param pulumi.Input[str] sync_compliance: The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         :param pulumi.Input[int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
                
@@ -831,6 +869,7 @@ class Association(pulumi.CustomResource):
         __props__.__dict__["output_location"] = output_location
         __props__.__dict__["parameters"] = parameters
         __props__.__dict__["schedule_expression"] = schedule_expression
+        __props__.__dict__["sync_compliance"] = sync_compliance
         __props__.__dict__["targets"] = targets
         __props__.__dict__["wait_for_success_timeout_seconds"] = wait_for_success_timeout_seconds
         return Association(resource_name, opts=opts, __props__=__props__)
@@ -949,6 +988,14 @@ class Association(pulumi.CustomResource):
         A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         """
         return pulumi.get(self, "schedule_expression")
+
+    @property
+    @pulumi.getter(name="syncCompliance")
+    def sync_compliance(self) -> pulumi.Output[Optional[str]]:
+        """
+        The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
+        """
+        return pulumi.get(self, "sync_compliance")
 
     @property
     @pulumi.getter

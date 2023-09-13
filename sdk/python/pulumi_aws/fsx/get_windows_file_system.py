@@ -22,7 +22,7 @@ class GetWindowsFileSystemResult:
     """
     A collection of values returned by getWindowsFileSystem.
     """
-    def __init__(__self__, active_directory_id=None, aliases=None, arn=None, audit_log_configurations=None, automatic_backup_retention_days=None, backup_id=None, copy_tags_to_backups=None, daily_automatic_backup_start_time=None, deployment_type=None, dns_name=None, id=None, kms_key_id=None, network_interface_ids=None, owner_id=None, preferred_file_server_ip=None, preferred_subnet_id=None, security_group_ids=None, skip_final_backup=None, storage_capacity=None, storage_type=None, subnet_ids=None, tags=None, throughput_capacity=None, vpc_id=None, weekly_maintenance_start_time=None):
+    def __init__(__self__, active_directory_id=None, aliases=None, arn=None, audit_log_configurations=None, automatic_backup_retention_days=None, backup_id=None, copy_tags_to_backups=None, daily_automatic_backup_start_time=None, deployment_type=None, disk_iops_configurations=None, dns_name=None, id=None, kms_key_id=None, network_interface_ids=None, owner_id=None, preferred_file_server_ip=None, preferred_subnet_id=None, security_group_ids=None, skip_final_backup=None, storage_capacity=None, storage_type=None, subnet_ids=None, tags=None, throughput_capacity=None, vpc_id=None, weekly_maintenance_start_time=None):
         if active_directory_id and not isinstance(active_directory_id, str):
             raise TypeError("Expected argument 'active_directory_id' to be a str")
         pulumi.set(__self__, "active_directory_id", active_directory_id)
@@ -50,6 +50,9 @@ class GetWindowsFileSystemResult:
         if deployment_type and not isinstance(deployment_type, str):
             raise TypeError("Expected argument 'deployment_type' to be a str")
         pulumi.set(__self__, "deployment_type", deployment_type)
+        if disk_iops_configurations and not isinstance(disk_iops_configurations, list):
+            raise TypeError("Expected argument 'disk_iops_configurations' to be a list")
+        pulumi.set(__self__, "disk_iops_configurations", disk_iops_configurations)
         if dns_name and not isinstance(dns_name, str):
             raise TypeError("Expected argument 'dns_name' to be a str")
         pulumi.set(__self__, "dns_name", dns_name)
@@ -167,6 +170,14 @@ class GetWindowsFileSystemResult:
         The file system deployment type.
         """
         return pulumi.get(self, "deployment_type")
+
+    @property
+    @pulumi.getter(name="diskIopsConfigurations")
+    def disk_iops_configurations(self) -> Sequence['outputs.GetWindowsFileSystemDiskIopsConfigurationResult']:
+        """
+        The SSD IOPS configuration for the file system.
+        """
+        return pulumi.get(self, "disk_iops_configurations")
 
     @property
     @pulumi.getter(name="dnsName")
@@ -303,6 +314,7 @@ class AwaitableGetWindowsFileSystemResult(GetWindowsFileSystemResult):
             copy_tags_to_backups=self.copy_tags_to_backups,
             daily_automatic_backup_start_time=self.daily_automatic_backup_start_time,
             deployment_type=self.deployment_type,
+            disk_iops_configurations=self.disk_iops_configurations,
             dns_name=self.dns_name,
             id=self.id,
             kms_key_id=self.kms_key_id,
@@ -357,6 +369,7 @@ def get_windows_file_system(id: Optional[str] = None,
         copy_tags_to_backups=pulumi.get(__ret__, 'copy_tags_to_backups'),
         daily_automatic_backup_start_time=pulumi.get(__ret__, 'daily_automatic_backup_start_time'),
         deployment_type=pulumi.get(__ret__, 'deployment_type'),
+        disk_iops_configurations=pulumi.get(__ret__, 'disk_iops_configurations'),
         dns_name=pulumi.get(__ret__, 'dns_name'),
         id=pulumi.get(__ret__, 'id'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),

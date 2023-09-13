@@ -108,6 +108,21 @@ public final class GetObjectsArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
+     * 
+     */
+    @Import(name="requestPayer")
+    private @Nullable Output<String> requestPayer;
+
+    /**
+     * @return Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
+     * 
+     */
+    public Optional<Output<String>> requestPayer() {
+        return Optional.ofNullable(this.requestPayer);
+    }
+
+    /**
      * Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
      * 
      */
@@ -131,6 +146,7 @@ public final class GetObjectsArgs extends com.pulumi.resources.InvokeArgs {
         this.fetchOwner = $.fetchOwner;
         this.maxKeys = $.maxKeys;
         this.prefix = $.prefix;
+        this.requestPayer = $.requestPayer;
         this.startAfter = $.startAfter;
     }
 
@@ -276,6 +292,27 @@ public final class GetObjectsArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
+        }
+
+        /**
+         * @param requestPayer Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestPayer(@Nullable Output<String> requestPayer) {
+            $.requestPayer = requestPayer;
+            return this;
+        }
+
+        /**
+         * @param requestPayer Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requestPayer(String requestPayer) {
+            return requestPayer(Output.of(requestPayer));
         }
 
         /**

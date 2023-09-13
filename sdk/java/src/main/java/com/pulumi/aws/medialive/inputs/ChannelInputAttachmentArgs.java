@@ -17,9 +17,17 @@ public final class ChannelInputAttachmentArgs extends com.pulumi.resources.Resou
 
     public static final ChannelInputAttachmentArgs Empty = new ChannelInputAttachmentArgs();
 
+    /**
+     * User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
+     * 
+     */
     @Import(name="automaticInputFailoverSettings")
     private @Nullable Output<ChannelInputAttachmentAutomaticInputFailoverSettingsArgs> automaticInputFailoverSettings;
 
+    /**
+     * @return User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
+     * 
+     */
     public Optional<Output<ChannelInputAttachmentAutomaticInputFailoverSettingsArgs>> automaticInputFailoverSettings() {
         return Optional.ofNullable(this.automaticInputFailoverSettings);
     }
@@ -55,14 +63,14 @@ public final class ChannelInputAttachmentArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Settings of an input. See Input Settings for more details
+     * Settings of an input. See Input Settings for more details.
      * 
      */
     @Import(name="inputSettings")
     private @Nullable Output<ChannelInputAttachmentInputSettingsArgs> inputSettings;
 
     /**
-     * @return Settings of an input. See Input Settings for more details
+     * @return Settings of an input. See Input Settings for more details.
      * 
      */
     public Optional<Output<ChannelInputAttachmentInputSettingsArgs>> inputSettings() {
@@ -96,11 +104,23 @@ public final class ChannelInputAttachmentArgs extends com.pulumi.resources.Resou
             $ = new ChannelInputAttachmentArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param automaticInputFailoverSettings User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder automaticInputFailoverSettings(@Nullable Output<ChannelInputAttachmentAutomaticInputFailoverSettingsArgs> automaticInputFailoverSettings) {
             $.automaticInputFailoverSettings = automaticInputFailoverSettings;
             return this;
         }
 
+        /**
+         * @param automaticInputFailoverSettings User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder automaticInputFailoverSettings(ChannelInputAttachmentAutomaticInputFailoverSettingsArgs automaticInputFailoverSettings) {
             return automaticInputFailoverSettings(Output.of(automaticInputFailoverSettings));
         }
@@ -148,7 +168,7 @@ public final class ChannelInputAttachmentArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param inputSettings Settings of an input. See Input Settings for more details
+         * @param inputSettings Settings of an input. See Input Settings for more details.
          * 
          * @return builder
          * 
@@ -159,7 +179,7 @@ public final class ChannelInputAttachmentArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param inputSettings Settings of an input. See Input Settings for more details
+         * @param inputSettings Settings of an input. See Input Settings for more details.
          * 
          * @return builder
          * 

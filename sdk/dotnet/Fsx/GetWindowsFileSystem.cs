@@ -161,6 +161,10 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public readonly string DeploymentType;
         /// <summary>
+        /// The SSD IOPS configuration for the file system.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetWindowsFileSystemDiskIopsConfigurationResult> DiskIopsConfigurations;
+        /// <summary>
         /// DNS name for the file system (e.g. `fs-12345678.corp.example.com`).
         /// </summary>
         public readonly string DnsName;
@@ -236,6 +240,8 @@ namespace Pulumi.Aws.Fsx
 
             string deploymentType,
 
+            ImmutableArray<Outputs.GetWindowsFileSystemDiskIopsConfigurationResult> diskIopsConfigurations,
+
             string dnsName,
 
             string id,
@@ -277,6 +283,7 @@ namespace Pulumi.Aws.Fsx
             CopyTagsToBackups = copyTagsToBackups;
             DailyAutomaticBackupStartTime = dailyAutomaticBackupStartTime;
             DeploymentType = deploymentType;
+            DiskIopsConfigurations = diskIopsConfigurations;
             DnsName = dnsName;
             Id = id;
             KmsKeyId = kmsKeyId;

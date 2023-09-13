@@ -5157,6 +5157,186 @@ func (o WindowsFileSystemAuditLogConfigurationPtrOutput) FileShareAccessAuditLog
 	}).(pulumi.StringPtrOutput)
 }
 
+type WindowsFileSystemDiskIopsConfiguration struct {
+	// The total number of SSD IOPS provisioned for the file system.
+	Iops *int `pulumi:"iops"`
+	// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+	Mode *string `pulumi:"mode"`
+}
+
+// WindowsFileSystemDiskIopsConfigurationInput is an input type that accepts WindowsFileSystemDiskIopsConfigurationArgs and WindowsFileSystemDiskIopsConfigurationOutput values.
+// You can construct a concrete instance of `WindowsFileSystemDiskIopsConfigurationInput` via:
+//
+//	WindowsFileSystemDiskIopsConfigurationArgs{...}
+type WindowsFileSystemDiskIopsConfigurationInput interface {
+	pulumi.Input
+
+	ToWindowsFileSystemDiskIopsConfigurationOutput() WindowsFileSystemDiskIopsConfigurationOutput
+	ToWindowsFileSystemDiskIopsConfigurationOutputWithContext(context.Context) WindowsFileSystemDiskIopsConfigurationOutput
+}
+
+type WindowsFileSystemDiskIopsConfigurationArgs struct {
+	// The total number of SSD IOPS provisioned for the file system.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+}
+
+func (WindowsFileSystemDiskIopsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsFileSystemDiskIopsConfiguration)(nil)).Elem()
+}
+
+func (i WindowsFileSystemDiskIopsConfigurationArgs) ToWindowsFileSystemDiskIopsConfigurationOutput() WindowsFileSystemDiskIopsConfigurationOutput {
+	return i.ToWindowsFileSystemDiskIopsConfigurationOutputWithContext(context.Background())
+}
+
+func (i WindowsFileSystemDiskIopsConfigurationArgs) ToWindowsFileSystemDiskIopsConfigurationOutputWithContext(ctx context.Context) WindowsFileSystemDiskIopsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsFileSystemDiskIopsConfigurationOutput)
+}
+
+func (i WindowsFileSystemDiskIopsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[WindowsFileSystemDiskIopsConfiguration] {
+	return pulumix.Output[WindowsFileSystemDiskIopsConfiguration]{
+		OutputState: i.ToWindowsFileSystemDiskIopsConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i WindowsFileSystemDiskIopsConfigurationArgs) ToWindowsFileSystemDiskIopsConfigurationPtrOutput() WindowsFileSystemDiskIopsConfigurationPtrOutput {
+	return i.ToWindowsFileSystemDiskIopsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WindowsFileSystemDiskIopsConfigurationArgs) ToWindowsFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx context.Context) WindowsFileSystemDiskIopsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsFileSystemDiskIopsConfigurationOutput).ToWindowsFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx)
+}
+
+// WindowsFileSystemDiskIopsConfigurationPtrInput is an input type that accepts WindowsFileSystemDiskIopsConfigurationArgs, WindowsFileSystemDiskIopsConfigurationPtr and WindowsFileSystemDiskIopsConfigurationPtrOutput values.
+// You can construct a concrete instance of `WindowsFileSystemDiskIopsConfigurationPtrInput` via:
+//
+//	        WindowsFileSystemDiskIopsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WindowsFileSystemDiskIopsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWindowsFileSystemDiskIopsConfigurationPtrOutput() WindowsFileSystemDiskIopsConfigurationPtrOutput
+	ToWindowsFileSystemDiskIopsConfigurationPtrOutputWithContext(context.Context) WindowsFileSystemDiskIopsConfigurationPtrOutput
+}
+
+type windowsFileSystemDiskIopsConfigurationPtrType WindowsFileSystemDiskIopsConfigurationArgs
+
+func WindowsFileSystemDiskIopsConfigurationPtr(v *WindowsFileSystemDiskIopsConfigurationArgs) WindowsFileSystemDiskIopsConfigurationPtrInput {
+	return (*windowsFileSystemDiskIopsConfigurationPtrType)(v)
+}
+
+func (*windowsFileSystemDiskIopsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsFileSystemDiskIopsConfiguration)(nil)).Elem()
+}
+
+func (i *windowsFileSystemDiskIopsConfigurationPtrType) ToWindowsFileSystemDiskIopsConfigurationPtrOutput() WindowsFileSystemDiskIopsConfigurationPtrOutput {
+	return i.ToWindowsFileSystemDiskIopsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsFileSystemDiskIopsConfigurationPtrType) ToWindowsFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx context.Context) WindowsFileSystemDiskIopsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsFileSystemDiskIopsConfigurationPtrOutput)
+}
+
+func (i *windowsFileSystemDiskIopsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WindowsFileSystemDiskIopsConfiguration] {
+	return pulumix.Output[*WindowsFileSystemDiskIopsConfiguration]{
+		OutputState: i.ToWindowsFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type WindowsFileSystemDiskIopsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WindowsFileSystemDiskIopsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsFileSystemDiskIopsConfiguration)(nil)).Elem()
+}
+
+func (o WindowsFileSystemDiskIopsConfigurationOutput) ToWindowsFileSystemDiskIopsConfigurationOutput() WindowsFileSystemDiskIopsConfigurationOutput {
+	return o
+}
+
+func (o WindowsFileSystemDiskIopsConfigurationOutput) ToWindowsFileSystemDiskIopsConfigurationOutputWithContext(ctx context.Context) WindowsFileSystemDiskIopsConfigurationOutput {
+	return o
+}
+
+func (o WindowsFileSystemDiskIopsConfigurationOutput) ToWindowsFileSystemDiskIopsConfigurationPtrOutput() WindowsFileSystemDiskIopsConfigurationPtrOutput {
+	return o.ToWindowsFileSystemDiskIopsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsFileSystemDiskIopsConfigurationOutput) ToWindowsFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx context.Context) WindowsFileSystemDiskIopsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsFileSystemDiskIopsConfiguration) *WindowsFileSystemDiskIopsConfiguration {
+		return &v
+	}).(WindowsFileSystemDiskIopsConfigurationPtrOutput)
+}
+
+func (o WindowsFileSystemDiskIopsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[WindowsFileSystemDiskIopsConfiguration] {
+	return pulumix.Output[WindowsFileSystemDiskIopsConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The total number of SSD IOPS provisioned for the file system.
+func (o WindowsFileSystemDiskIopsConfigurationOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WindowsFileSystemDiskIopsConfiguration) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+func (o WindowsFileSystemDiskIopsConfigurationOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsFileSystemDiskIopsConfiguration) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+type WindowsFileSystemDiskIopsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsFileSystemDiskIopsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsFileSystemDiskIopsConfiguration)(nil)).Elem()
+}
+
+func (o WindowsFileSystemDiskIopsConfigurationPtrOutput) ToWindowsFileSystemDiskIopsConfigurationPtrOutput() WindowsFileSystemDiskIopsConfigurationPtrOutput {
+	return o
+}
+
+func (o WindowsFileSystemDiskIopsConfigurationPtrOutput) ToWindowsFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx context.Context) WindowsFileSystemDiskIopsConfigurationPtrOutput {
+	return o
+}
+
+func (o WindowsFileSystemDiskIopsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WindowsFileSystemDiskIopsConfiguration] {
+	return pulumix.Output[*WindowsFileSystemDiskIopsConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o WindowsFileSystemDiskIopsConfigurationPtrOutput) Elem() WindowsFileSystemDiskIopsConfigurationOutput {
+	return o.ApplyT(func(v *WindowsFileSystemDiskIopsConfiguration) WindowsFileSystemDiskIopsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsFileSystemDiskIopsConfiguration
+		return ret
+	}).(WindowsFileSystemDiskIopsConfigurationOutput)
+}
+
+// The total number of SSD IOPS provisioned for the file system.
+func (o WindowsFileSystemDiskIopsConfigurationPtrOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WindowsFileSystemDiskIopsConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+func (o WindowsFileSystemDiskIopsConfigurationPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsFileSystemDiskIopsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
 type WindowsFileSystemSelfManagedActiveDirectory struct {
 	// A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
 	DnsIps []string `pulumi:"dnsIps"`
@@ -5672,6 +5852,130 @@ func (o GetWindowsFileSystemAuditLogConfigurationArrayOutput) Index(i pulumi.Int
 	}).(GetWindowsFileSystemAuditLogConfigurationOutput)
 }
 
+type GetWindowsFileSystemDiskIopsConfiguration struct {
+	Iops int    `pulumi:"iops"`
+	Mode string `pulumi:"mode"`
+}
+
+// GetWindowsFileSystemDiskIopsConfigurationInput is an input type that accepts GetWindowsFileSystemDiskIopsConfigurationArgs and GetWindowsFileSystemDiskIopsConfigurationOutput values.
+// You can construct a concrete instance of `GetWindowsFileSystemDiskIopsConfigurationInput` via:
+//
+//	GetWindowsFileSystemDiskIopsConfigurationArgs{...}
+type GetWindowsFileSystemDiskIopsConfigurationInput interface {
+	pulumi.Input
+
+	ToGetWindowsFileSystemDiskIopsConfigurationOutput() GetWindowsFileSystemDiskIopsConfigurationOutput
+	ToGetWindowsFileSystemDiskIopsConfigurationOutputWithContext(context.Context) GetWindowsFileSystemDiskIopsConfigurationOutput
+}
+
+type GetWindowsFileSystemDiskIopsConfigurationArgs struct {
+	Iops pulumi.IntInput    `pulumi:"iops"`
+	Mode pulumi.StringInput `pulumi:"mode"`
+}
+
+func (GetWindowsFileSystemDiskIopsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFileSystemDiskIopsConfiguration)(nil)).Elem()
+}
+
+func (i GetWindowsFileSystemDiskIopsConfigurationArgs) ToGetWindowsFileSystemDiskIopsConfigurationOutput() GetWindowsFileSystemDiskIopsConfigurationOutput {
+	return i.ToGetWindowsFileSystemDiskIopsConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFileSystemDiskIopsConfigurationArgs) ToGetWindowsFileSystemDiskIopsConfigurationOutputWithContext(ctx context.Context) GetWindowsFileSystemDiskIopsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFileSystemDiskIopsConfigurationOutput)
+}
+
+func (i GetWindowsFileSystemDiskIopsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFileSystemDiskIopsConfiguration] {
+	return pulumix.Output[GetWindowsFileSystemDiskIopsConfiguration]{
+		OutputState: i.ToGetWindowsFileSystemDiskIopsConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GetWindowsFileSystemDiskIopsConfigurationArrayInput is an input type that accepts GetWindowsFileSystemDiskIopsConfigurationArray and GetWindowsFileSystemDiskIopsConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetWindowsFileSystemDiskIopsConfigurationArrayInput` via:
+//
+//	GetWindowsFileSystemDiskIopsConfigurationArray{ GetWindowsFileSystemDiskIopsConfigurationArgs{...} }
+type GetWindowsFileSystemDiskIopsConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetWindowsFileSystemDiskIopsConfigurationArrayOutput() GetWindowsFileSystemDiskIopsConfigurationArrayOutput
+	ToGetWindowsFileSystemDiskIopsConfigurationArrayOutputWithContext(context.Context) GetWindowsFileSystemDiskIopsConfigurationArrayOutput
+}
+
+type GetWindowsFileSystemDiskIopsConfigurationArray []GetWindowsFileSystemDiskIopsConfigurationInput
+
+func (GetWindowsFileSystemDiskIopsConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFileSystemDiskIopsConfiguration)(nil)).Elem()
+}
+
+func (i GetWindowsFileSystemDiskIopsConfigurationArray) ToGetWindowsFileSystemDiskIopsConfigurationArrayOutput() GetWindowsFileSystemDiskIopsConfigurationArrayOutput {
+	return i.ToGetWindowsFileSystemDiskIopsConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetWindowsFileSystemDiskIopsConfigurationArray) ToGetWindowsFileSystemDiskIopsConfigurationArrayOutputWithContext(ctx context.Context) GetWindowsFileSystemDiskIopsConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWindowsFileSystemDiskIopsConfigurationArrayOutput)
+}
+
+func (i GetWindowsFileSystemDiskIopsConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFileSystemDiskIopsConfiguration] {
+	return pulumix.Output[[]GetWindowsFileSystemDiskIopsConfiguration]{
+		OutputState: i.ToGetWindowsFileSystemDiskIopsConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GetWindowsFileSystemDiskIopsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFileSystemDiskIopsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWindowsFileSystemDiskIopsConfiguration)(nil)).Elem()
+}
+
+func (o GetWindowsFileSystemDiskIopsConfigurationOutput) ToGetWindowsFileSystemDiskIopsConfigurationOutput() GetWindowsFileSystemDiskIopsConfigurationOutput {
+	return o
+}
+
+func (o GetWindowsFileSystemDiskIopsConfigurationOutput) ToGetWindowsFileSystemDiskIopsConfigurationOutputWithContext(ctx context.Context) GetWindowsFileSystemDiskIopsConfigurationOutput {
+	return o
+}
+
+func (o GetWindowsFileSystemDiskIopsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetWindowsFileSystemDiskIopsConfiguration] {
+	return pulumix.Output[GetWindowsFileSystemDiskIopsConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetWindowsFileSystemDiskIopsConfigurationOutput) Iops() pulumi.IntOutput {
+	return o.ApplyT(func(v GetWindowsFileSystemDiskIopsConfiguration) int { return v.Iops }).(pulumi.IntOutput)
+}
+
+func (o GetWindowsFileSystemDiskIopsConfigurationOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFileSystemDiskIopsConfiguration) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+type GetWindowsFileSystemDiskIopsConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetWindowsFileSystemDiskIopsConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetWindowsFileSystemDiskIopsConfiguration)(nil)).Elem()
+}
+
+func (o GetWindowsFileSystemDiskIopsConfigurationArrayOutput) ToGetWindowsFileSystemDiskIopsConfigurationArrayOutput() GetWindowsFileSystemDiskIopsConfigurationArrayOutput {
+	return o
+}
+
+func (o GetWindowsFileSystemDiskIopsConfigurationArrayOutput) ToGetWindowsFileSystemDiskIopsConfigurationArrayOutputWithContext(ctx context.Context) GetWindowsFileSystemDiskIopsConfigurationArrayOutput {
+	return o
+}
+
+func (o GetWindowsFileSystemDiskIopsConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWindowsFileSystemDiskIopsConfiguration] {
+	return pulumix.Output[[]GetWindowsFileSystemDiskIopsConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GetWindowsFileSystemDiskIopsConfigurationArrayOutput) Index(i pulumi.IntInput) GetWindowsFileSystemDiskIopsConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetWindowsFileSystemDiskIopsConfiguration {
+		return vs[0].([]GetWindowsFileSystemDiskIopsConfiguration)[vs[1].(int)]
+	}).(GetWindowsFileSystemDiskIopsConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationS3Input)(nil)).Elem(), DataRepositoryAssociationS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationS3PtrInput)(nil)).Elem(), DataRepositoryAssociationS3Args{})
@@ -5737,12 +6041,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OpenZfsVolumeUserAndGroupQuotaArrayInput)(nil)).Elem(), OpenZfsVolumeUserAndGroupQuotaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsFileSystemAuditLogConfigurationInput)(nil)).Elem(), WindowsFileSystemAuditLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsFileSystemAuditLogConfigurationPtrInput)(nil)).Elem(), WindowsFileSystemAuditLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsFileSystemDiskIopsConfigurationInput)(nil)).Elem(), WindowsFileSystemDiskIopsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsFileSystemDiskIopsConfigurationPtrInput)(nil)).Elem(), WindowsFileSystemDiskIopsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsFileSystemSelfManagedActiveDirectoryInput)(nil)).Elem(), WindowsFileSystemSelfManagedActiveDirectoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsFileSystemSelfManagedActiveDirectoryPtrInput)(nil)).Elem(), WindowsFileSystemSelfManagedActiveDirectoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenZfsSnapshotFilterInput)(nil)).Elem(), GetOpenZfsSnapshotFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenZfsSnapshotFilterArrayInput)(nil)).Elem(), GetOpenZfsSnapshotFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFileSystemAuditLogConfigurationInput)(nil)).Elem(), GetWindowsFileSystemAuditLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFileSystemAuditLogConfigurationArrayInput)(nil)).Elem(), GetWindowsFileSystemAuditLogConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFileSystemDiskIopsConfigurationInput)(nil)).Elem(), GetWindowsFileSystemDiskIopsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWindowsFileSystemDiskIopsConfigurationArrayInput)(nil)).Elem(), GetWindowsFileSystemDiskIopsConfigurationArray{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationS3Output{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationS3PtrOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationS3AutoExportPolicyOutput{})
@@ -5807,10 +6115,14 @@ func init() {
 	pulumi.RegisterOutputType(OpenZfsVolumeUserAndGroupQuotaArrayOutput{})
 	pulumi.RegisterOutputType(WindowsFileSystemAuditLogConfigurationOutput{})
 	pulumi.RegisterOutputType(WindowsFileSystemAuditLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WindowsFileSystemDiskIopsConfigurationOutput{})
+	pulumi.RegisterOutputType(WindowsFileSystemDiskIopsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WindowsFileSystemSelfManagedActiveDirectoryOutput{})
 	pulumi.RegisterOutputType(WindowsFileSystemSelfManagedActiveDirectoryPtrOutput{})
 	pulumi.RegisterOutputType(GetOpenZfsSnapshotFilterOutput{})
 	pulumi.RegisterOutputType(GetOpenZfsSnapshotFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetWindowsFileSystemAuditLogConfigurationOutput{})
 	pulumi.RegisterOutputType(GetWindowsFileSystemAuditLogConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetWindowsFileSystemDiskIopsConfigurationOutput{})
+	pulumi.RegisterOutputType(GetWindowsFileSystemDiskIopsConfigurationArrayOutput{})
 }

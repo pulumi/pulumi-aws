@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 /**
  * Provides a License Manager license configuration resource.
  * 
- * &gt; **Note:** Removing the `license_count` attribute is not supported by the License Manager API - recreate the resource instead.
+ * &gt; **Note:** Removing the `license_count` attribute is not supported by the License Manager API - use `TODO taint aws_licensemanager_license_configuration.&lt;id&gt;` to recreate the resource instead.
  * 
  * ## Example Usage
  * ```java
@@ -71,11 +71,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import license configurations using the `id`. For example:
+ * In TODO v1.5.0 and later, use an `import` block to import license configurations using the `id`. For exampleterraform import {
  * 
- * ```sh
- *  $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
- * ```
+ *  to = aws_licensemanager_license_configuration.example
+ * 
+ *  id = &#34;arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef&#34; } Using `TODO import`, import license configurations using the `id`. For exampleconsole % TODO import aws_licensemanager_license_configuration.example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
  * 
  */
 @ResourceType(type="aws:licensemanager/licenseConfiguration:LicenseConfiguration")
@@ -193,14 +193,14 @@ public class LicenseConfiguration extends com.pulumi.resources.CustomResource {
         return this.ownerAccountId;
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

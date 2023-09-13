@@ -16456,7 +16456,7 @@ type ChannelEncoderSettingsOutputGroupOutputOutputSettings struct {
 	MultiplexOutputSettings *ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings `pulumi:"multiplexOutputSettings"`
 	// RTMP output settings. See RTMP Output Settings for more details.
 	RtmpOutputSettings *ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings `pulumi:"rtmpOutputSettings"`
-	// UDP output settings. See UDP Output Settings for more details
+	// UDP output settings. See UDP Output Settings for more details.
 	UdpOutputSettings *ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings `pulumi:"udpOutputSettings"`
 }
 
@@ -16483,7 +16483,7 @@ type ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs struct {
 	MultiplexOutputSettings ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsPtrInput `pulumi:"multiplexOutputSettings"`
 	// RTMP output settings. See RTMP Output Settings for more details.
 	RtmpOutputSettings ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsPtrInput `pulumi:"rtmpOutputSettings"`
-	// UDP output settings. See UDP Output Settings for more details
+	// UDP output settings. See UDP Output Settings for more details.
 	UdpOutputSettings ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsPtrInput `pulumi:"udpOutputSettings"`
 }
 
@@ -16571,7 +16571,7 @@ func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsOutput) RtmpOutputS
 	}).(ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsPtrOutput)
 }
 
-// UDP output settings. See UDP Output Settings for more details
+// UDP output settings. See UDP Output Settings for more details.
 func (o ChannelEncoderSettingsOutputGroupOutputOutputSettingsOutput) UdpOutputSettings() ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelEncoderSettingsOutputGroupOutputOutputSettings) *ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings {
 		return v.UdpOutputSettings
@@ -28162,12 +28162,13 @@ func (o ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeB
 }
 
 type ChannelInputAttachment struct {
+	// User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
 	AutomaticInputFailoverSettings *ChannelInputAttachmentAutomaticInputFailoverSettings `pulumi:"automaticInputFailoverSettings"`
 	// User-specified name for the attachment.
 	InputAttachmentName string `pulumi:"inputAttachmentName"`
 	// The ID of the input.
 	InputId string `pulumi:"inputId"`
-	// Settings of an input. See Input Settings for more details
+	// Settings of an input. See Input Settings for more details.
 	InputSettings *ChannelInputAttachmentInputSettings `pulumi:"inputSettings"`
 }
 
@@ -28183,12 +28184,13 @@ type ChannelInputAttachmentInput interface {
 }
 
 type ChannelInputAttachmentArgs struct {
+	// User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
 	AutomaticInputFailoverSettings ChannelInputAttachmentAutomaticInputFailoverSettingsPtrInput `pulumi:"automaticInputFailoverSettings"`
 	// User-specified name for the attachment.
 	InputAttachmentName pulumi.StringInput `pulumi:"inputAttachmentName"`
 	// The ID of the input.
 	InputId pulumi.StringInput `pulumi:"inputId"`
-	// Settings of an input. See Input Settings for more details
+	// Settings of an input. See Input Settings for more details.
 	InputSettings ChannelInputAttachmentInputSettingsPtrInput `pulumi:"inputSettings"`
 }
 
@@ -28261,6 +28263,7 @@ func (o ChannelInputAttachmentOutput) ToOutput(ctx context.Context) pulumix.Outp
 	}
 }
 
+// User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
 func (o ChannelInputAttachmentOutput) AutomaticInputFailoverSettings() ChannelInputAttachmentAutomaticInputFailoverSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachment) *ChannelInputAttachmentAutomaticInputFailoverSettings {
 		return v.AutomaticInputFailoverSettings
@@ -28277,7 +28280,7 @@ func (o ChannelInputAttachmentOutput) InputId() pulumi.StringOutput {
 	return o.ApplyT(func(v ChannelInputAttachment) string { return v.InputId }).(pulumi.StringOutput)
 }
 
-// Settings of an input. See Input Settings for more details
+// Settings of an input. See Input Settings for more details.
 func (o ChannelInputAttachmentOutput) InputSettings() ChannelInputAttachmentInputSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachment) *ChannelInputAttachmentInputSettings { return v.InputSettings }).(ChannelInputAttachmentInputSettingsPtrOutput)
 }
@@ -28309,10 +28312,13 @@ func (o ChannelInputAttachmentArrayOutput) Index(i pulumi.IntInput) ChannelInput
 }
 
 type ChannelInputAttachmentAutomaticInputFailoverSettings struct {
+	// This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
 	ErrorClearTimeMsec *int                                                                    `pulumi:"errorClearTimeMsec"`
 	FailoverConditions []ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition `pulumi:"failoverConditions"`
-	InputPreference    *string                                                                 `pulumi:"inputPreference"`
-	SecondaryInputId   string                                                                  `pulumi:"secondaryInputId"`
+	// Input preference when deciding which input to make active when a previously failed input has recovered.
+	InputPreference *string `pulumi:"inputPreference"`
+	// The input ID of the secondary input in the automatic input failover pair.
+	SecondaryInputId string `pulumi:"secondaryInputId"`
 }
 
 // ChannelInputAttachmentAutomaticInputFailoverSettingsInput is an input type that accepts ChannelInputAttachmentAutomaticInputFailoverSettingsArgs and ChannelInputAttachmentAutomaticInputFailoverSettingsOutput values.
@@ -28327,10 +28333,13 @@ type ChannelInputAttachmentAutomaticInputFailoverSettingsInput interface {
 }
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsArgs struct {
+	// This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
 	ErrorClearTimeMsec pulumi.IntPtrInput                                                              `pulumi:"errorClearTimeMsec"`
 	FailoverConditions ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArrayInput `pulumi:"failoverConditions"`
-	InputPreference    pulumi.StringPtrInput                                                           `pulumi:"inputPreference"`
-	SecondaryInputId   pulumi.StringInput                                                              `pulumi:"secondaryInputId"`
+	// Input preference when deciding which input to make active when a previously failed input has recovered.
+	InputPreference pulumi.StringPtrInput `pulumi:"inputPreference"`
+	// The input ID of the secondary input in the automatic input failover pair.
+	SecondaryInputId pulumi.StringInput `pulumi:"secondaryInputId"`
 }
 
 func (ChannelInputAttachmentAutomaticInputFailoverSettingsArgs) ElementType() reflect.Type {
@@ -28428,6 +28437,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsOutput) ToOutput(ctx
 	}
 }
 
+// This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsOutput) ErrorClearTimeMsec() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentAutomaticInputFailoverSettings) *int { return v.ErrorClearTimeMsec }).(pulumi.IntPtrOutput)
 }
@@ -28438,10 +28448,12 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsOutput) FailoverCond
 	}).(ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArrayOutput)
 }
 
+// Input preference when deciding which input to make active when a previously failed input has recovered.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsOutput) InputPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentAutomaticInputFailoverSettings) *string { return v.InputPreference }).(pulumi.StringPtrOutput)
 }
 
+// The input ID of the secondary input in the automatic input failover pair.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsOutput) SecondaryInputId() pulumi.StringOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentAutomaticInputFailoverSettings) string { return v.SecondaryInputId }).(pulumi.StringOutput)
 }
@@ -28476,6 +28488,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsPtrOutput) Elem() Ch
 	}).(ChannelInputAttachmentAutomaticInputFailoverSettingsOutput)
 }
 
+// This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\_preference for the failover pair is set to PRIMARY\_INPUT\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsPtrOutput) ErrorClearTimeMsec() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentAutomaticInputFailoverSettings) *int {
 		if v == nil {
@@ -28494,6 +28507,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsPtrOutput) FailoverC
 	}).(ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArrayOutput)
 }
 
+// Input preference when deciding which input to make active when a previously failed input has recovered.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsPtrOutput) InputPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentAutomaticInputFailoverSettings) *string {
 		if v == nil {
@@ -28503,6 +28517,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsPtrOutput) InputPref
 	}).(pulumi.StringPtrOutput)
 }
 
+// The input ID of the secondary input in the automatic input failover pair.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsPtrOutput) SecondaryInputId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentAutomaticInputFailoverSettings) *string {
 		if v == nil {
@@ -28513,6 +28528,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsPtrOutput) Secondary
 }
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition struct {
+	// Failover condition type-specific settings. See Failover Condition Settings for more details.
 	FailoverConditionSettings *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings `pulumi:"failoverConditionSettings"`
 }
 
@@ -28528,6 +28544,7 @@ type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionInput 
 }
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs struct {
+	// Failover condition type-specific settings. See Failover Condition Settings for more details.
 	FailoverConditionSettings ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsPtrInput `pulumi:"failoverConditionSettings"`
 }
 
@@ -28600,6 +28617,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionOut
 	}
 }
 
+// Failover condition type-specific settings. See Failover Condition Settings for more details.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionOutput) FailoverConditionSettings() ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition) *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings {
 		return v.FailoverConditionSettings
@@ -28633,9 +28651,12 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArr
 }
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings struct {
+	// MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
 	AudioSilenceSettings *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings `pulumi:"audioSilenceSettings"`
-	InputLossSettings    *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings    `pulumi:"inputLossSettings"`
-	VideoBlackSettings   *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings   `pulumi:"videoBlackSettings"`
+	// MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
+	InputLossSettings *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings `pulumi:"inputLossSettings"`
+	// MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
+	VideoBlackSettings *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings `pulumi:"videoBlackSettings"`
 }
 
 // ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInput is an input type that accepts ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs and ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsOutput values.
@@ -28650,9 +28671,12 @@ type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailov
 }
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs struct {
+	// MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
 	AudioSilenceSettings ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsPtrInput `pulumi:"audioSilenceSettings"`
-	InputLossSettings    ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsPtrInput    `pulumi:"inputLossSettings"`
-	VideoBlackSettings   ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsPtrInput   `pulumi:"videoBlackSettings"`
+	// MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
+	InputLossSettings ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsPtrInput `pulumi:"inputLossSettings"`
+	// MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
+	VideoBlackSettings ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsPtrInput `pulumi:"videoBlackSettings"`
 }
 
 func (ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs) ElementType() reflect.Type {
@@ -28750,18 +28774,21 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 	}
 }
 
+// MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsOutput) AudioSilenceSettings() ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings) *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings {
 		return v.AudioSilenceSettings
 	}).(ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsPtrOutput)
 }
 
+// MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsOutput) InputLossSettings() ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings) *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings {
 		return v.InputLossSettings
 	}).(ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsPtrOutput)
 }
 
+// MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsOutput) VideoBlackSettings() ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings) *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings {
 		return v.VideoBlackSettings
@@ -28798,6 +28825,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 	}).(ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsOutput)
 }
 
+// MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsPtrOutput) AudioSilenceSettings() ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings) *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings {
 		if v == nil {
@@ -28807,6 +28835,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 	}).(ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsPtrOutput)
 }
 
+// MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsPtrOutput) InputLossSettings() ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings) *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings {
 		if v == nil {
@@ -28816,6 +28845,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 	}).(ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsPtrOutput)
 }
 
+// MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsPtrOutput) VideoBlackSettings() ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings) *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings {
 		if v == nil {
@@ -28826,9 +28856,10 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 }
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings struct {
-	// The name of the audio selector used as the source for this AudioDescription.
-	AudioSelectorName         string `pulumi:"audioSelectorName"`
-	AudioSilenceThresholdMsec *int   `pulumi:"audioSilenceThresholdMsec"`
+	// The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn't create an audio selector in this input, leave blank.
+	AudioSelectorName string `pulumi:"audioSelectorName"`
+	// The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
+	AudioSilenceThresholdMsec *int `pulumi:"audioSilenceThresholdMsec"`
 }
 
 // ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsInput is an input type that accepts ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs and ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsOutput values.
@@ -28843,8 +28874,9 @@ type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailov
 }
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs struct {
-	// The name of the audio selector used as the source for this AudioDescription.
-	AudioSelectorName         pulumi.StringInput `pulumi:"audioSelectorName"`
+	// The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn't create an audio selector in this input, leave blank.
+	AudioSelectorName pulumi.StringInput `pulumi:"audioSelectorName"`
+	// The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
 	AudioSilenceThresholdMsec pulumi.IntPtrInput `pulumi:"audioSilenceThresholdMsec"`
 }
 
@@ -28943,13 +28975,14 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 	}
 }
 
-// The name of the audio selector used as the source for this AudioDescription.
+// The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn't create an audio selector in this input, leave blank.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsOutput) AudioSelectorName() pulumi.StringOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings) string {
 		return v.AudioSelectorName
 	}).(pulumi.StringOutput)
 }
 
+// The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsOutput) AudioSilenceThresholdMsec() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings) *int {
 		return v.AudioSilenceThresholdMsec
@@ -28986,7 +29019,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 	}).(ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsOutput)
 }
 
-// The name of the audio selector used as the source for this AudioDescription.
+// The name of the audio selector in the input that MediaLive should monitor to detect silence. Select your most important rendition. If you didn't create an audio selector in this input, leave blank.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsPtrOutput) AudioSelectorName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings) *string {
 		if v == nil {
@@ -28996,6 +29029,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 	}).(pulumi.StringPtrOutput)
 }
 
+// The amount of time (in milliseconds) that the active input must be silent before automatic input failover occurs. Silence is defined as audio loss or audio quieter than -50 dBFS.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsPtrOutput) AudioSilenceThresholdMsec() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings) *int {
 		if v == nil {
@@ -29006,6 +29040,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 }
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings struct {
+	// The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
 	InputLossThresholdMsec *int `pulumi:"inputLossThresholdMsec"`
 }
 
@@ -29021,6 +29056,7 @@ type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailov
 }
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs struct {
+	// The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
 	InputLossThresholdMsec pulumi.IntPtrInput `pulumi:"inputLossThresholdMsec"`
 }
 
@@ -29119,6 +29155,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 	}
 }
 
+// The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsOutput) InputLossThresholdMsec() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings) *int {
 		return v.InputLossThresholdMsec
@@ -29155,6 +29192,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 	}).(ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsOutput)
 }
 
+// The amount of time (in milliseconds) that no input is detected. After that time, an input failover will occur.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsPtrOutput) InputLossThresholdMsec() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings) *int {
 		if v == nil {
@@ -29165,8 +29203,10 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 }
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings struct {
-	BlackDetectThreshold    *float64 `pulumi:"blackDetectThreshold"`
-	VideoBlackThresholdMsec *int     `pulumi:"videoBlackThresholdMsec"`
+	// A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
+	BlackDetectThreshold *float64 `pulumi:"blackDetectThreshold"`
+	// The amount of time (in milliseconds) that the active input must be black before automatic input failover occurs.
+	VideoBlackThresholdMsec *int `pulumi:"videoBlackThresholdMsec"`
 }
 
 // ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsInput is an input type that accepts ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs and ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsOutput values.
@@ -29181,8 +29221,10 @@ type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailov
 }
 
 type ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs struct {
-	BlackDetectThreshold    pulumi.Float64PtrInput `pulumi:"blackDetectThreshold"`
-	VideoBlackThresholdMsec pulumi.IntPtrInput     `pulumi:"videoBlackThresholdMsec"`
+	// A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
+	BlackDetectThreshold pulumi.Float64PtrInput `pulumi:"blackDetectThreshold"`
+	// The amount of time (in milliseconds) that the active input must be black before automatic input failover occurs.
+	VideoBlackThresholdMsec pulumi.IntPtrInput `pulumi:"videoBlackThresholdMsec"`
 }
 
 func (ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs) ElementType() reflect.Type {
@@ -29280,12 +29322,14 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 	}
 }
 
+// A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsOutput) BlackDetectThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings) *float64 {
 		return v.BlackDetectThreshold
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The amount of time (in milliseconds) that the active input must be black before automatic input failover occurs.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsOutput) VideoBlackThresholdMsec() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings) *int {
 		return v.VideoBlackThresholdMsec
@@ -29322,6 +29366,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 	}).(ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsOutput)
 }
 
+// A value used in calculating the threshold below which MediaLive considers a pixel to be 'black'. For the input to be considered black, every pixel in a frame must be below this threshold. The threshold is calculated as a percentage (expressed as a decimal) of white. Therefore .1 means 10% white (or 90% black). Note how the formula works for any color depth. For example, if you set this field to 0.1 in 10-bit color depth: (10230.1=102.3), which means a pixel value of 102 or less is 'black'. If you set this field to .1 in an 8-bit color depth: (2550.1=25.5), which means a pixel value of 25 or less is 'black'. The range is 0.0 to 1.0, with any number of decimal places.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsPtrOutput) BlackDetectThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings) *float64 {
 		if v == nil {
@@ -29331,6 +29376,7 @@ func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFai
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The amount of time (in milliseconds) that the active input must be black before automatic input failover occurs.
 func (o ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsPtrOutput) VideoBlackThresholdMsec() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings) *int {
 		if v == nil {

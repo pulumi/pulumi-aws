@@ -46,13 +46,11 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Identity Notification Topics using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type. For example:
+// In TODO v1.5.0 and later, use an `import` block to import Identity Notification Topics using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type. For exampleterraform import {
 //
-// ```sh
+//	to = aws_ses_identity_notification_topic.test
 //
-//	$ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test 'example.com|Bounce'
-//
-// ```
+//	id = "example.com|Bounce" } Using `TODO import`, import Identity Notification Topics using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type. For exampleconsole % TODO import aws_ses_identity_notification_topic.test 'example.com|Bounce'
 type IdentityNotificationTopic struct {
 	pulumi.CustomResourceState
 

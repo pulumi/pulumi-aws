@@ -22,10 +22,12 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_servicecatalog_principal_portfolio_association` using the accept language, principal ARN, and portfolio ID, separated by a comma. For example:
+ * In TODO v1.5.0 and later, use an `import` block to import `aws_servicecatalog_principal_portfolio_association` using `accept_language`, `principal_arn`, `portfolio_id`, and `principal_type` separated by a comma. For example:
+ *
+ * Using `TODO import`, import `aws_servicecatalog_principal_portfolio_association` using `accept_language`, `principal_arn`, `portfolio_id`, and `principal_type` separated by a comma. For example:
  *
  * ```sh
- *  $ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f
+ *  $ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f,IAM
  * ```
  */
 export class PrincipalPortfolioAssociation extends pulumi.CustomResource {
@@ -71,7 +73,7 @@ export class PrincipalPortfolioAssociation extends pulumi.CustomResource {
      */
     public readonly principalArn!: pulumi.Output<string>;
     /**
-     * Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+     * Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
      */
     public readonly principalType!: pulumi.Output<string | undefined>;
 
@@ -129,7 +131,7 @@ export interface PrincipalPortfolioAssociationState {
      */
     principalArn?: pulumi.Input<string>;
     /**
-     * Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+     * Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
      */
     principalType?: pulumi.Input<string>;
 }
@@ -153,7 +155,7 @@ export interface PrincipalPortfolioAssociationArgs {
      */
     principalArn: pulumi.Input<string>;
     /**
-     * Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid value is `IAM`. Default is `IAM`.
+     * Principal type. Setting this argument empty (e.g., `principalType = ""`) will result in an error. Valid values are `IAM` and `IAM_PATTERN`. Default is `IAM`.
      */
     principalType?: pulumi.Input<string>;
 }

@@ -54,7 +54,7 @@ func LookupFunctionUrl(ctx *pulumi.Context, args *LookupFunctionUrlArgs, opts ..
 
 // A collection of arguments for invoking getFunctionUrl.
 type LookupFunctionUrlArgs struct {
-	// he name (or ARN) of the Lambda function.
+	// The name (or ARN) of the Lambda function.
 	FunctionName string `pulumi:"functionName"`
 	// Alias name or `"$LATEST"`.
 	Qualifier *string `pulumi:"qualifier"`
@@ -99,7 +99,7 @@ func LookupFunctionUrlOutput(ctx *pulumi.Context, args LookupFunctionUrlOutputAr
 
 // A collection of arguments for invoking getFunctionUrl.
 type LookupFunctionUrlOutputArgs struct {
-	// he name (or ARN) of the Lambda function.
+	// The name (or ARN) of the Lambda function.
 	FunctionName pulumi.StringInput `pulumi:"functionName"`
 	// Alias name or `"$LATEST"`.
 	Qualifier pulumi.StringPtrInput `pulumi:"qualifier"`

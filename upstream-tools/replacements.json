@@ -17,6 +17,12 @@
       "new": "  name = \"my_example_backup_report_plan_name\""
     }
   ],
+  "website/docs/d/default_tags.html.markdown": [
+    {
+      "old": "With this data source, you can apply default tags to resources not _directly_ managed by a Terraform resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.",
+      "new": "With this data source, you can apply default tags to resources not _directly_ managed by a TODO resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance."
+    }
+  ],
   "website/docs/d/default_tags.markdown": [
     {
       "old": "With this data source, you can apply default tags to resources not _directly_ managed by a Terraform resource, such as the instances underneath an Auto Scaling group or the volumes created for an EC2 instance.",
@@ -68,6 +74,16 @@
     {
       "old": "Using `terraform import`, import an IAM server certificate using `name`. For example:",
       "new": "Using `pulumi import`, import an IAM server certificate using `name`. For example:"
+    }
+  ],
+  "website/docs/d/iam_session_context.html.markdown": [
+    {
+      "old": "### Find the Terraform Runner's Source Role",
+      "new": "### Find the TODO Runner's Source Role"
+    },
+    {
+      "old": "~> If `arn` is a non-role ARN, Terraform gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, Terraform gives an error if the identified IAM role does not exist.",
+      "new": "~> If `arn` is a non-role ARN, TODO gives no error and `issuer_arn` will be equal to the `arn` value. For STS assumed-role ARNs, TODO gives an error if the identified IAM role does not exist."
     }
   ],
   "website/docs/d/iam_session_context.markdown": [
@@ -227,6 +243,886 @@
     {
       "old": "the data source, as noted in issue 4149",
       "new": "the data source."
+    }
+  ],
+  "website/docs/guides/continuous-validation-examples.html.markdown": [
+    {
+      "old": "  Using Terraform Cloud's Continuous Validation feature with the AWS Provider",
+      "new": "  Using TODO Cloud's Continuous Validation feature with the AWS Provider"
+    },
+    {
+      "old": "# Using Terraform Cloud's Continuous Validation feature with the AWS Provider",
+      "new": "# Using TODO Cloud's Continuous Validation feature with the AWS Provider"
+    },
+    {
+      "old": "## Continuous Validation in Terraform Cloud",
+      "new": "## Continuous Validation in TODO Cloud"
+    },
+    {
+      "old": "Below, this guide shows examples of how data returned by the AWS provider can be used to define checks in your Terraform configuration.",
+      "new": "Below, this guide shows examples of how data returned by the AWS provider can be used to define checks in your TODO configuration."
+    },
+    {
+      "old": "Custom conditions can be created using data from Terraform providers’ resources and data sources. Data can also be combined from multiple sources; for example, you can use checks to monitor expirable resources by comparing a resource’s expiration date attribute to the current time returned by Terraform’s built-in time functions.",
+      "new": "Custom conditions can be created using data from TODO providers’ resources and data sources. Data can also be combined from multiple sources; for example, you can use checks to monitor expirable resources by comparing a resource’s expiration date attribute to the current time returned by TODO’s built-in time functions."
+    },
+    {
+      "old": "The Continuous Validation feature in Terraform Cloud (TFC) allows users to make assertions about their infrastructure between applied runs. This helps users to identify issues at the time they first appear and avoid situations where a change is only identified once it causes a customer-facing problem.",
+      "new": "The Continuous Validation feature in TODO Cloud (TFC) allows users to make assertions about their infrastructure between applied runs. This helps users to identify issues at the time they first appear and avoid situations where a change is only identified once it causes a customer-facing problem."
+    },
+    {
+      "old": "Users can add checks to their Terraform configuration using check blocks. Check blocks contain assertions that are defined with a custom condition expression and an error message. When the condition expression evaluates to true the check passes, but when the expression evaluates to false Terraform will show a warning message that includes the user-defined error message.",
+      "new": "Users can add checks to their TODO configuration using check blocks. Check blocks contain assertions that are defined with a custom condition expression and an error message. When the condition expression evaluates to true the check passes, but when the expression evaluates to false TODO will show a warning message that includes the user-defined error message."
+    },
+    {
+      "old": "page_title: \"Using Terraform Cloud's Continuous Validation feature with the AWS Provider\"",
+      "new": "page_title: \"Using TODO Cloud's Continuous Validation feature with the AWS Provider\""
+    }
+  ],
+  "website/docs/guides/custom-service-endpoints.html.markdown": [
+    {
+      "old": "    for Markdown within HTML elements, however the Terraform Registry parser",
+      "new": "    for Markdown within HTML elements, however the TODO Registry parser"
+    },
+    {
+      "old": "    maintaining a table. The terraform.io Markdown parser previously allowed",
+      "new": "    maintaining a table. The TODO.io Markdown parser previously allowed"
+    },
+    {
+      "old": "  Configuring the Terraform AWS Provider to connect to custom AWS service endpoints and AWS compatible solutions.",
+      "new": "  Configuring the TODO AWS Provider to connect to custom AWS service endpoints and AWS compatible solutions."
+    },
+    {
+      "old": "As a convenience, for compatibility with the Terraform S3 Backend,",
+      "new": "As a convenience, for compatibility with the TODO S3 Backend,"
+    },
+    {
+      "old": "If multiple, different Terraform AWS Provider configurations are required, see the Terraform documentation on multiple provider instances for additional information about the `alias` provider configuration and its usage.",
+      "new": "If multiple, different TODO AWS Provider configurations are required, see the TODO documentation on multiple provider instances for additional information about the `alias` provider configuration and its usage."
+    },
+    {
+      "old": "The Terraform AWS Provider allows the following endpoints to be customized.",
+      "new": "The TODO AWS Provider allows the following endpoints to be customized."
+    },
+    {
+      "old": "The Terraform AWS Provider configuration can be customized to connect to non-default AWS service endpoints and AWS compatible solutions. This may be useful for environments with specific compliance requirements, such as using [AWS FIPS 140-2 endpoints](https://aws.amazon.com/compliance/fips/), connecting to AWS Snowball, SC2S, or C2S environments, or local testing.",
+      "new": "The TODO AWS Provider configuration can be customized to connect to non-default AWS service endpoints and AWS compatible solutions. This may be useful for environments with specific compliance requirements, such as using [AWS FIPS 140-2 endpoints](https://aws.amazon.com/compliance/fips/), connecting to AWS Snowball, SC2S, or C2S environments, or local testing."
+    },
+    {
+      "old": "To configure the Terraform AWS Provider to use customized endpoints, it can be done within `provider` declarations using the `endpoints` configuration block, e.g.,",
+      "new": "To configure the TODO AWS Provider to use customized endpoints, it can be done within `provider` declarations using the `endpoints` configuration block, e.g.,"
+    },
+    {
+      "old": "page_title: \"Terraform AWS Provider Custom Service Endpoint Configuration\"",
+      "new": "page_title: \"TODO AWS Provider Custom Service Endpoint Configuration\""
+    },
+    {
+      "old": "~> **NOTE:** Support for connecting the TODO AWS Provider with custom endpoints and AWS compatible solutions is offered as best effort. Individual TODO resources may require compatibility updates to work in certain environments. Integration testing by HashiCorp during provider changes is exclusively done against default AWS endpoints at this time.",
+      "new": "~> **NOTE:** Support for connecting the TODO AWS Provider with custom endpoints and AWS compatible solutions is offered as best effort. Individual TODO resources may require compatibility updates to work in certain environments. Integration testing by TODO during provider changes is exclusively done against default AWS endpoints at this time."
+    },
+    {
+      "old": "~> **NOTE:** Support for connecting the Terraform AWS Provider with custom endpoints and AWS compatible solutions is offered as best effort. Individual Terraform resources may require compatibility updates to work in certain environments. Integration testing by HashiCorp during provider changes is exclusively done against default AWS endpoints at this time.",
+      "new": "~> **NOTE:** Support for connecting the TODO AWS Provider with custom endpoints and AWS compatible solutions is offered as best effort. Individual TODO resources may require compatibility updates to work in certain environments. Integration testing by HashiCorp during provider changes is exclusively done against default AWS endpoints at this time."
+    }
+  ],
+  "website/docs/guides/resource-tagging.html.markdown": [
+    {
+      "old": "  Managing resource tags with the Terraform AWS Provider.",
+      "new": "  Managing resource tags with the TODO AWS Provider."
+    },
+    {
+      "old": "# Terraform 0.12 and later syntax",
+      "new": "# TODO 0.12 and later syntax"
+    },
+    {
+      "old": "-> Not all AWS resources support tagging, which can differ across AWS services and even across resources within the same service. Browse the individual Terraform AWS Provider resource documentation pages for the `tags` argument, to see which support resource tagging. If the AWS API implements tagging support for a resource and it is missing from the Terraform AWS Provider resource, a feature request can be submitted.",
+      "new": "-> Not all AWS resources support tagging, which can differ across AWS services and even across resources within the same service. Browse the individual TODO AWS Provider resource documentation pages for the `tags` argument, to see which support resource tagging. If the AWS API implements tagging support for a resource and it is missing from the TODO AWS Provider resource, a feature request can be submitted."
+    },
+    {
+      "old": "-> Not all services supported by the Terraform AWS Provider implement these resources. Browse the Terraform AWS Provider resource documentation pages for a resource with a type ending in `_tag`. If there is a use case where this type of resource is missing, a feature request can be submitted.",
+      "new": "-> Not all services supported by the TODO AWS Provider implement these resources. Browse the TODO AWS Provider resource documentation pages for a resource with a type ending in `_tag`. If there is a use case where this type of resource is missing, a feature request can be submitted."
+    },
+    {
+      "old": "All Terraform resources support the `lifecycle` configuration block `ignore_changes` argument, which can be used to explicitly ignore all tags changes on a resource beyond an initial configuration or individual tag values.",
+      "new": "All TODO resources support the `lifecycle` configuration block `ignore_changes` argument, which can be used to explicitly ignore all tags changes on a resource beyond an initial configuration or individual tag values."
+    },
+    {
+      "old": "As of version 2.60.0 of the Terraform AWS Provider, there is support for ignoring tag changes across all resources under a provider. This simplifies situations where certain tags may be externally applied more globally and enhances functionality beyond `ignore_changes` to support cases such as tag key prefixes.",
+      "new": "As of version 2.60.0 of the TODO AWS Provider, there is support for ignoring tag changes across all resources under a provider. This simplifies situations where certain tags may be externally applied more globally and enhances functionality beyond `ignore_changes` to support cases such as tag key prefixes."
+    },
+    {
+      "old": "As of version 3.38.0 of the Terraform AWS Provider, the Terraform Configuration language also enables provider-level tagging as an alternative to the methods described in the [Getting Started with Resource Tags](#getting-started-with-resource-tags) section above.",
+      "new": "As of version 3.38.0 of the TODO AWS Provider, the TODO Configuration language also enables provider-level tagging as an alternative to the methods described in the [Getting Started with Resource Tags](#getting-started-with-resource-tags) section above."
+    },
+    {
+      "old": "Certain Terraform AWS Provider services support a special resource for managing an individual tag on a resource without managing the resource itself. One example is the `aws_ec2_tag` resource. These resources enable tagging where resources are created outside Terraform such as EC2 Images (AMIs), shared across accounts via Resource Access Manager (RAM), or implicitly created by other means such as EC2 VPN Connections implicitly creating a taggable EC2 Transit Gateway VPN Attachment.",
+      "new": "Certain TODO AWS Provider services support a special resource for managing an individual tag on a resource without managing the resource itself. One example is the `aws_ec2_tag` resource. These resources enable tagging where resources are created outside TODO such as EC2 Images (AMIs), shared across accounts via Resource Access Manager (RAM), or implicitly created by other means such as EC2 VPN Connections implicitly creating a taggable EC2 Transit Gateway VPN Attachment."
+    },
+    {
+      "old": "For most environments and use cases, this is the typical implementation pattern, whether it be in a standalone Terraform configuration or within a Terraform Module. The Terraform configuration language also enables less repetitive configurations via variables, locals, or potentially a combination of these, e.g.,",
+      "new": "For most environments and use cases, this is the typical implementation pattern, whether it be in a standalone TODO configuration or within a TODO Module. The TODO configuration language also enables less repetitive configurations via variables, locals, or potentially a combination of these, e.g.,"
+    },
+    {
+      "old": "Many AWS services implement [resource tags](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) as an essential part of managing components. These arbitrary key-value pairs can be utilized for billing, ownership, automation, [access control](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html), and many other use cases. Given that these tags are an important aspect of successfully managing an AWS environment, the Terraform AWS Provider implements additional functionality beyond the typical one-to-one resource lifecycle management for easier and more customized implementations.",
+      "new": "Many AWS services implement [resource tags](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) as an essential part of managing components. These arbitrary key-value pairs can be utilized for billing, ownership, automation, [access control](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html), and many other use cases. Given that these tags are an important aspect of successfully managing an AWS environment, the TODO AWS Provider implements additional functionality beyond the typical one-to-one resource lifecycle management for easier and more customized implementations."
+    },
+    {
+      "old": "Systems outside of Terraform may automatically interact with the tagging associated with AWS resources. These external systems may be for administrative purposes, such as a Configuration Management Database, or the tagging may be required functionality for those systems, such as Kubernetes. This section shows methods to prevent Terraform from showing differences for specific tags.",
+      "new": "Systems outside of TODO may automatically interact with the tagging associated with AWS resources. These external systems may be for administrative purposes, such as a Configuration Management Database, or the tagging may be required functionality for those systems, such as Kubernetes. This section shows methods to prevent TODO from showing differences for specific tags."
+    },
+    {
+      "old": "Terraform AWS Provider resources that support resource tags implement a consistent argument named `tags` which accepts a key-value map, e.g.,",
+      "new": "TODO AWS Provider resources that support resource tags implement a consistent argument named `tags` which accepts a key-value map, e.g.,"
+    },
+    {
+      "old": "The inline map provided to `for_each` in the example above is used for brevity, but other Terraform configuration language features similar to those noted at the beginning of this guide can be used to make the example more extensible.",
+      "new": "The inline map provided to `for_each` in the example above is used for brevity, but other TODO configuration language features similar to those noted at the beginning of this guide can be used to make the example more extensible."
+    },
+    {
+      "old": "The provider ignore tags configuration applies to all Terraform AWS Provider resources under that particular instance (the `default` provider instance in the above cases). If multiple, different Terraform AWS Provider configurations are being used (e.g., multiple provider instances), the ignore tags configuration must be added to all applicable provider configurations.",
+      "new": "The provider ignore tags configuration applies to all TODO AWS Provider resources under that particular instance (the `default` provider instance in the above cases). If multiple, different TODO AWS Provider configurations are being used (e.g., multiple provider instances), the ignore tags configuration must be added to all applicable provider configurations."
+    },
+    {
+      "old": "The tags for the resource are wholly managed by Terraform except tag keys beginning with `aws:` as these are managed by AWS services and cannot typically be edited or deleted. Any non-AWS tags added to the VPC outside of Terraform will be proposed for removal on the next Terraform execution. Missing tags or those with incorrect values from the Terraform configuration will be proposed for addition or update on the next Terraform execution. Advanced patterns that can adjust these behaviors for special use cases, such as Terraform AWS Provider configurations that affect all resources and the ability to manage resource tags for resources not managed by Terraform, can be found later in this guide.",
+      "new": "The tags for the resource are wholly managed by TODO except tag keys beginning with `aws:` as these are managed by AWS services and cannot typically be edited or deleted. Any non-AWS tags added to the VPC outside of TODO will be proposed for removal on the next TODO execution. Missing tags or those with incorrect values from the TODO configuration will be proposed for addition or update on the next TODO execution. Advanced patterns that can adjust these behaviors for special use cases, such as TODO AWS Provider configurations that affect all resources and the ability to manage resource tags for resources not managed by TODO, can be found later in this guide."
+    },
+    {
+      "old": "This functionality is available for all Terraform AWS Provider resources that currently support `tags`, with the exception of the `aws_autoscaling_group` resource. Refactoring the use of variables or locals may look like:",
+      "new": "This functionality is available for all TODO AWS Provider resources that currently support `tags`, with the exception of the `aws_autoscaling_group` resource. Refactoring the use of variables or locals may look like:"
+    },
+    {
+      "old": "page_title: \"Terraform AWS Provider Resource Tagging\"",
+      "new": "page_title: \"TODO AWS Provider Resource Tagging\""
+    },
+    {
+      "old": "~> **NOTE:** This is an advanced use case and can cause conflicting management issues when improperly implemented. These individual tag resources should not be combined with the Terraform resource for managing the parent resource. For example, using `aws_vpc` and `aws_ec2_tag` to manage tags of the same VPC will cause a perpetual difference where the `aws_vpc` resource will try to remove the tag being added by the `aws_ec2_tag` resource.",
+      "new": "~> **NOTE:** This is an advanced use case and can cause conflicting management issues when improperly implemented. These individual tag resources should not be combined with the TODO resource for managing the parent resource. For example, using `aws_vpc` and `aws_ec2_tag` to manage tags of the same VPC will cause a perpetual difference where the `aws_vpc` resource will try to remove the tag being added by the `aws_ec2_tag` resource."
+    }
+  ],
+  "website/docs/guides/using-aws-with-awscc-provider.html.markdown": [
+    {
+      "old": "      source  = \"hashicorp/aws\"",
+      "new": "      source  = \"TODO/aws\""
+    },
+    {
+      "old": "      source  = \"hashicorp/awscc\"",
+      "new": "      source  = \"TODO/awscc\""
+    },
+    {
+      "old": "    key   = \"terraform\"",
+      "new": "    key   = \"TODO\""
+    },
+    {
+      "old": "  Managing resource tags with the Terraform AWS Provider.",
+      "new": "  Managing resource tags with the TODO AWS Provider."
+    },
+    {
+      "old": "  tags            = local.terraform_tag",
+      "new": "  tags            = local.TODO_tag"
+    },
+    {
+      "old": "  tags = concat(local.terraform_tag,",
+      "new": "  tags = concat(local.TODO_tag,"
+    },
+    {
+      "old": "  terraform_tag = [{",
+      "new": "  TODO_tag = [{"
+    },
+    {
+      "old": "Above, we define a `awscc_networkmanager_global_network` with 2 tags and a description. AWSCC resources use the [standard AWS tag format](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) which is expressed in HCL as a list of maps with 2 keys. We want to reuse the `terraform = true` tag so we define it as a `local` then we use concat to join the list of tags together.",
+      "new": "Above, we define a `awscc_networkmanager_global_network` with 2 tags and a description. AWSCC resources use the [standard AWS tag format](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) which is expressed in HCL as a list of maps with 2 keys. We want to reuse the `TODO = true` tag so we define it as a `local` then we use concat to join the list of tags together."
+    },
+    {
+      "old": "For Terraform users managing infrastructure on AWS, we expect the AWSCC provider will be used alongside the existing AWS provider. This guide is provided to show guidance and an example of using the providers together to deploy an AWS Cloud WAN Core Network.",
+      "new": "For TODO users managing infrastructure on AWS, we expect the AWSCC provider will be used alongside the existing AWS provider. This guide is provided to show guidance and an example of using the providers together to deploy an AWS Cloud WAN Core Network."
+    },
+    {
+      "old": "For more information about the AWSCC provider, please see the provider documentation in Terraform Registry",
+      "new": "For more information about the AWSCC provider, please see the provider documentation in TODO Registry"
+    },
+    {
+      "old": "Terraform can use many providers at once, as long as they are specified in your `terraform` configuration block:",
+      "new": "TODO can use many providers at once, as long as they are specified in your `TODO` configuration block:"
+    },
+    {
+      "old": "Thanks to Terraform's plugin design, the providers work together seemlessly!",
+      "new": "Thanks to TODO's plugin design, the providers work together seemlessly!"
+    },
+    {
+      "old": "The HashiCorp TODO AWS Cloud Control Provider aims to bring Amazon Web Services (AWS) resources to TODO users faster. The new provider is automatically generated, which means new features and services on AWS can be supported right away. The AWS Cloud Control provider supports hundreds of AWS resources, with more support being added as AWS service teams adopt the Cloud Control API standard.",
+      "new": "The TODO TODO AWS Cloud Control Provider aims to bring Amazon Web Services (AWS) resources to TODO users faster. The new provider is automatically generated, which means new features and services on AWS can be supported right away. The AWS Cloud Control provider supports hundreds of AWS resources, with more support being added as AWS service teams adopt the Cloud Control API standard."
+    },
+    {
+      "old": "The HashiCorp Terraform AWS Cloud Control Provider aims to bring Amazon Web Services (AWS) resources to Terraform users faster. The new provider is automatically generated, which means new features and services on AWS can be supported right away. The AWS Cloud Control provider supports hundreds of AWS resources, with more support being added as AWS service teams adopt the Cloud Control API standard.",
+      "new": "The HashiCorp TODO AWS Cloud Control Provider aims to bring Amazon Web Services (AWS) resources to TODO users faster. The new provider is automatically generated, which means new features and services on AWS can be supported right away. The AWS Cloud Control provider supports hundreds of AWS resources, with more support being added as AWS service teams adopt the Cloud Control API standard."
+    },
+    {
+      "old": "The code snippet above informs terraform to download 2 providers as plugins for the current root module, the AWS and AWSCC provider. You can tell which provider is being use by looking at the resource or data source name-prefix. Resources that start with `aws_` use the AWS provider, resources that start with `awscc_` are using the AWSCC provider.",
+      "new": "The code snippet above informs TODO to download 2 providers as plugins for the current root module, the AWS and AWSCC provider. You can tell which provider is being use by looking at the resource or data source name-prefix. Resources that start with `aws_` use the AWS provider, resources that start with `awscc_` are using the AWSCC provider."
+    },
+    {
+      "old": "page_title: \"Using the Terraform awscc provider with aws provider\"",
+      "new": "page_title: \"Using the TODO awscc provider with aws provider\""
+    },
+    {
+      "old": "terraform {",
+      "new": "TODO {"
+    }
+  ],
+  "website/docs/guides/version-2-upgrade.html.markdown": [
+    {
+      "old": "  Terraform AWS Provider Version 2 Upgrade Guide",
+      "new": "  TODO AWS Provider Version 2 Upgrade Guide"
+    },
+    {
+      "old": "# Below example configuration will not be supported in Terraform AWS provider version 2.0.0",
+      "new": "# Below example configuration will not be supported in TODO AWS provider version 2.0.0"
+    },
+    {
+      "old": "# Terraform AWS Provider Version 2 Upgrade Guide",
+      "new": "# TODO AWS Provider Version 2 Upgrade Guide"
+    },
+    {
+      "old": "-> Before upgrading to version 2.0.0 or later, it is recommended to upgrade to the most recent 1.X version of the provider (version 1.60.0) and ensure that your environment successfully runs `terraform plan` without unexpected changes or deprecation notices.",
+      "new": "-> Before upgrading to version 2.0.0 or later, it is recommended to upgrade to the most recent 1.X version of the provider (version 1.60.0) and ensure that your environment successfully runs `TODO plan` without unexpected changes or deprecation notices."
+    },
+    {
+      "old": "Default connections have been removed as part of LAG creation. To migrate your Terraform configuration, the AWS provider implements the following resources:",
+      "new": "Default connections have been removed as part of LAG creation. To migrate your TODO configuration, the AWS provider implements the following resources:"
+    },
+    {
+      "old": "During resource creation in version 1.X and prior, it would silently perform an `UPSERT` changeset to the existing Route 53 Record and not report back an error. In version 2.0.0 of the Terraform AWS Provider, the resource now performs a `CREATE` changeset, which will error for existing Route 53 Records.",
+      "new": "During resource creation in version 1.X and prior, it would silently perform an `UPSERT` changeset to the existing Route 53 Record and not report back an error. In version 2.0.0 of the TODO AWS Provider, the resource now performs a `CREATE` changeset, which will error for existing Route 53 Records."
+    },
+    {
+      "old": "For example, if the `www.example.com` Route 53 Record in the `example.com` Route 53 Hosted Zone existed previously and this new Terraform configuration was introduced:",
+      "new": "For example, if the `www.example.com` Route 53 Record in the `example.com` Route 53 Hosted Zone existed previously and this new TODO configuration was introduced:"
+    },
+    {
+      "old": "Most of the changes outlined in this guide have been previously marked as deprecated in the Terraform plan/apply output throughout previous provider releases. These changes, such as deprecation notices, can always be found in the Terraform AWS Provider CHANGELOG.",
+      "new": "Most of the changes outlined in this guide have been previously marked as deprecated in the TODO plan/apply output throughout previous provider releases. These changes, such as deprecation notices, can always be found in the TODO AWS Provider CHANGELOG."
+    },
+    {
+      "old": "Simply remove `current = true` from your Terraform configuration. The data source defaults to the current provider region if no other filtering is enabled.",
+      "new": "Simply remove `current = true` from your TODO configuration. The data source defaults to the current provider region if no other filtering is enabled."
+    },
+    {
+      "old": "Since the API Gateway usage plans feature was launched on August 11, 2016, usage plans are now required to associate an API key with an API stage. To migrate your Terraform configuration, the AWS provider implements support for usage plans with the following resources:",
+      "new": "Since the API Gateway usage plans feature was launched on August 11, 2016, usage plans are now required to associate an API key with an API stage. To migrate your TODO configuration, the AWS provider implements support for usage plans with the following resources:"
+    },
+    {
+      "old": "Switch your Terraform configuration to `vpc` configuration block(s) instead.",
+      "new": "Switch your TODO configuration to `vpc` configuration block(s) instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `byte_match_tuples` argument instead.",
+      "new": "Switch your TODO configuration to the `byte_match_tuples` argument instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `creation_token` argument instead.",
+      "new": "Switch your TODO configuration to the `creation_token` argument instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `min_adjustment_magnitude` argument instead.",
+      "new": "Switch your TODO configuration to the `min_adjustment_magnitude` argument instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `name` argument instead.",
+      "new": "Switch your TODO configuration to the `name` argument instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `ordered_cache_behavior` argument instead. It behaves similar to the previous `cache_behavior` argument, however the ordering of the configurations in Terraform is now reflected in the distribution where previously it was indeterminate.",
+      "new": "Switch your TODO configuration to the `ordered_cache_behavior` argument instead. It behaves similar to the previous `cache_behavior` argument, however the ordering of the configurations in TODO is now reflected in the distribution where previously it was indeterminate."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `ordered_placement_strategy` argument instead. It behaves similar to the previous `placement_strategy` argument, however the ordering of the configurations in Terraform is now reflected in the distribution where previously it was indeterminate.",
+      "new": "Switch your TODO configuration to the `ordered_placement_strategy` argument instead. It behaves similar to the previous `placement_strategy` argument, however the ordering of the configurations in TODO is now reflected in the distribution where previously it was indeterminate."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `preferred_availability_zones` argument instead. The argument is still optional and the API will continue to automatically choose Availability Zones for nodes if not specified. The new argument will also continue to match the APIs required behavior that the length of the list must be the same as `num_cache_nodes`.",
+      "new": "Switch your TODO configuration to the `preferred_availability_zones` argument instead. The argument is still optional and the API will continue to automatically choose Availability Zones for nodes if not specified. The new argument will also continue to match the APIs required behavior that the length of the list must be the same as `num_cache_nodes`."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `request_parameters` argument instead.",
+      "new": "Switch your TODO configuration to the `request_parameters` argument instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `response_parameters` argument instead.",
+      "new": "Switch your TODO configuration to the `response_parameters` argument instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `subnet_ids` argument instead.",
+      "new": "Switch your TODO configuration to the `subnet_ids` argument instead."
+    },
+    {
+      "old": "Terraform configuration migration steps:",
+      "new": "TODO configuration migration steps:"
+    },
+    {
+      "old": "The `allow_overwrite` argument provides a workaround to keep the old behavior, but most existing workflows should be updated to perform a `terraform import` command like the following instead:",
+      "new": "The `allow_overwrite` argument provides a workaround to keep the old behavior, but most existing workflows should be updated to perform a `TODO import` command like the following instead:"
+    },
+    {
+      "old": "The implementation of the `aws_kms_secret` data source, prior to Terraform AWS provider version 2.0.0, used dynamic attribute behavior which is not supported with Terraform 0.12 and beyond (full details available in this GitHub issue).",
+      "new": "The implementation of the `aws_kms_secret` data source, prior to TODO AWS provider version 2.0.0, used dynamic attribute behavior which is not supported with TODO 0.12 and beyond (full details available in this GitHub issue)."
+    },
+    {
+      "old": "The resource now requires existing Route 53 Records to be imported into the Terraform state for management unless the `allow_overwrite` argument is enabled.",
+      "new": "The resource now requires existing Route 53 Records to be imported into the TODO state for management unless the `allow_overwrite` argument is enabled."
+    },
+    {
+      "old": "Version 2.0.0 of the AWS provider for Terraform is a major release and includes some changes that you will need to consider when upgrading. This guide is intended to help with that process and focuses only on changes from version 1.60.0 to version 2.0.0.",
+      "new": "Version 2.0.0 of the AWS provider for TODO is a major release and includes some changes that you will need to consider when upgrading. This guide is intended to help with that process and focuses only on changes from version 1.60.0 to version 2.0.0."
+    },
+    {
+      "old": "We recommend using version constraints when configuring Terraform providers. If you are following that recommendation, update the version constraints in your Terraform configuration and run `terraform init` to download the new version.",
+      "new": "We recommend using version constraints when configuring TODO providers. If you are following that recommendation, update the version constraints in your TODO configuration and run `TODO init` to download the new version."
+    },
+    {
+      "old": "When attempting to bring existing IAM User Login Profiles under Terraform management, `terraform import` is now required. See the `aws_iam_user_login_profile` resource documentation for more information.",
+      "new": "When attempting to bring existing IAM User Login Profiles under TODO management, `TODO import` is now required. See the `aws_iam_user_login_profile` resource documentation for more information."
+    },
+    {
+      "old": "addition to the `aws_route_table`, in the Terraform state. Support for importing `aws_route` resources has been added and importing this resource only adds the `aws_route_table`",
+      "new": "addition to the `aws_route_table`, in the TODO state. Support for importing `aws_route` resources has been added and importing this resource only adds the `aws_route_table`"
+    },
+    {
+      "old": "page_title: \"Terraform AWS Provider Version 2 Upgrade Guide\"",
+      "new": "page_title: \"TODO AWS Provider Version 2 Upgrade Guide\""
+    }
+  ],
+  "website/docs/guides/version-3-upgrade.html.markdown": [
+    {
+      "old": "        Owner      = \"lifesum-terraform\"",
+      "new": "        Owner      = \"lifesum-TODO\""
+    },
+    {
+      "old": "        Owner  = \"lifesum-terraform\"",
+      "new": "        Owner  = \"lifesum-TODO\""
+    },
+    {
+      "old": "  Terraform AWS Provider Version 3 Upgrade Guide",
+      "new": "  TODO AWS Provider Version 3 Upgrade Guide"
+    },
+    {
+      "old": "# In Terraform 0.11 and earlier, the result_map attribute can be used",
+      "new": "# In TODO 0.11 and earlier, the result_map attribute can be used"
+    },
+    {
+      "old": "# In Terraform 0.12 and later, the jsondecode() function can be used",
+      "new": "# In TODO 0.12 and later, the jsondecode() function can be used"
+    },
+    {
+      "old": "# Terraform AWS Provider Version 3 Upgrade Guide",
+      "new": "# TODO AWS Provider Version 3 Upgrade Guide"
+    },
+    {
+      "old": "# to convert a result JSON string to native Terraform types.",
+      "new": "# to convert a result JSON string to native TODO types."
+    },
+    {
+      "old": "$ GITHUB_TOKEN=<token> terraform apply",
+      "new": "$ GITHUB_TOKEN=<token> TODO apply"
+    },
+    {
+      "old": "$ TF_VAR_github_token=<token> terraform apply",
+      "new": "$ TF_VAR_github_token=<token> TODO apply"
+    },
+    {
+      "old": "$ terraform state rm aws_route53_record.existing",
+      "new": "$ TODO state rm aws_route53_record.existing"
+    },
+    {
+      "old": "- Static credentials (those defined in the Terraform configuration)",
+      "new": "- Static credentials (those defined in the TODO configuration)"
+    },
+    {
+      "old": "-> Before upgrading to version 3.0.0, it is recommended to upgrade to the most recent 2.X version of the provider and ensure that your environment successfully runs `terraform plan` without unexpected changes or deprecation notices.",
+      "new": "-> Before upgrading to version 3.0.0, it is recommended to upgrade to the most recent 2.X version of the provider and ensure that your environment successfully runs `TODO plan` without unexpected changes or deprecation notices."
+    },
+    {
+      "old": "-> This guide is showing the simpler `terraform state rm` option below as a potential shortcut in this specific situation, however in most other cases `terraform state mv` is required to change from `count` based resources to `for_each` based resources and properly match the existing Terraform state to the updated Terraform configuration.",
+      "new": "-> This guide is showing the simpler `TODO state rm` option below as a potential shortcut in this specific situation, however in most other cases `TODO state mv` is required to change from `count` based resources to `for_each` based resources and properly match the existing TODO state to the updated TODO configuration."
+    },
+    {
+      "old": "A few weeks after general availability launch and initial release of the `aws_msk_cluster` resource, the MSK API default for client broker encryption switched from `TLS_PLAINTEXT` to `TLS`. The attribute default has now been updated to match the more secure API default, however existing Terraform configurations may show a difference if this setting is not configured.",
+      "new": "A few weeks after general availability launch and initial release of the `aws_msk_cluster` resource, the MSK API default for client broker encryption switched from `TLS_PLAINTEXT` to `TLS`. The attribute default has now been updated to match the more secure API default, however existing TODO configurations may show a difference if this setting is not configured."
+    },
+    {
+      "old": "Due to the type of configuration change, Terraform does not know that the previous `aws_route53_record` resources (indexed by number in the existing state) and the new resources (indexed by domain names in the updated configuration) are equivalent. Typically in this situation, the `terraform state mv` command can be used to reduce the plan to show no changes. This is done by associating the count index (e.g., `[1]`) with the equivalent domain name index (e.g., `[\"existing2.example.com\"]`), making one of the four commands to fix the above example: `terraform state mv 'aws_route53_record.existing[1]' 'aws_route53_record.existing[\"existing2.example.com\"]'`. We recommend using this `terraform state mv` update process where possible to reduce chances of unexpected behaviors or changes in an environment.",
+      "new": "Due to the type of configuration change, TODO does not know that the previous `aws_route53_record` resources (indexed by number in the existing state) and the new resources (indexed by domain names in the updated configuration) are equivalent. Typically in this situation, the `TODO state mv` command can be used to reduce the plan to show no changes. This is done by associating the count index (e.g., `[1]`) with the equivalent domain name index (e.g., `[\"existing2.example.com\"]`), making one of the four commands to fix the above example: `TODO state mv 'aws_route53_record.existing[1]' 'aws_route53_record.existing[\"existing2.example.com\"]'`. We recommend using this `TODO state mv` update process where possible to reduce chances of unexpected behaviors or changes in an environment."
+    },
+    {
+      "old": "Exceptions to this are in cases where `iops` is set to `null` or `0` such that the Terraform AWS Provider will continue to accept the value regardless of `type`.",
+      "new": "Exceptions to this are in cases where `iops` is set to `null` or `0` such that the TODO AWS Provider will continue to accept the value regardless of `type`."
+    },
+    {
+      "old": "Further questions on potential update steps can be submitted to the [community forums](https://discuss.hashicorp.com/c/TODO-providers/tf-aws/33).",
+      "new": "Further questions on potential update steps can be submitted to the [community forums](https://discuss.TODO.com/c/TODO-providers/tf-aws/33)."
+    },
+    {
+      "old": "Further questions on potential update steps can be submitted to the [community forums](https://discuss.hashicorp.com/c/terraform-providers/tf-aws/33).",
+      "new": "Further questions on potential update steps can be submitted to the [community forums](https://discuss.hashicorp.com/c/TODO-providers/tf-aws/33)."
+    },
+    {
+      "old": "If `aws_autoscaling_attachment` resources reference your ASG configurations, you will need to add the `lifecycle` configuration block with an `ignore_changes` argument to prevent Terraform non-empty plans (i.e., forcing resource update) during the next state refresh.",
+      "new": "If `aws_autoscaling_attachment` resources reference your ASG configurations, you will need to add the `lifecycle` configuration block with an `ignore_changes` argument to prevent TODO non-empty plans (i.e., forcing resource update) during the next state refresh."
+    },
+    {
+      "old": "If using `terraform state mv` to reduce the plan to show no changes, no additional steps are required.",
+      "new": "If using `TODO state mv` to reduce the plan to show no changes, no additional steps are required."
+    },
+    {
+      "old": "In larger or more complex environments though, this process can be tedius to match the old resource address to the new resource address and run all the necessary `terraform state mv` commands. Instead, since the `aws_route53_record` resource implements the `allow_overwrite = true` argument, it is possible to just remove the old `aws_route53_record` resources from the Terraform state using the `terraform state rm` command. In this case, Terraform will leave the existing records in Route 53 and plan to just overwrite the existing validation records with the same exact (previous) values.",
+      "new": "In larger or more complex environments though, this process can be tedius to match the old resource address to the new resource address and run all the necessary `TODO state mv` commands. Instead, since the `aws_route53_record` resource implements the `allow_overwrite = true` argument, it is possible to just remove the old `aws_route53_record` resources from the TODO state using the `TODO state rm` command. In this case, TODO will leave the existing records in Route 53 and plan to just overwrite the existing validation records with the same exact (previous) values."
+    },
+    {
+      "old": "In many regions today and in all regions after October 1, 2020, the [SES API will only accept version 4 signatures](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/using-ses-api-authentication.html). If referencing the `ses_smtp_password` attribute, switch your Terraform configuration to the `ses_smtp_password_v4` attribute instead. Please note that this signature is based on the region of the Terraform AWS Provider. If you need the SES v4 password in multiple regions, it may require using multiple provider instances.",
+      "new": "In many regions today and in all regions after October 1, 2020, the [SES API will only accept version 4 signatures](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/using-ses-api-authentication.html). If referencing the `ses_smtp_password` attribute, switch your TODO configuration to the `ses_smtp_password_v4` attribute instead. Please note that this signature is based on the region of the TODO AWS Provider. If you need the SES v4 password in multiple regions, it may require using multiple provider instances."
+    },
+    {
+      "old": "Most of the changes outlined in this guide have been previously marked as deprecated in the Terraform plan/apply output throughout previous provider releases. These changes, such as deprecation notices, can always be found in the Terraform AWS Provider CHANGELOG.",
+      "new": "Most of the changes outlined in this guide have been previously marked as deprecated in the TODO plan/apply output throughout previous provider releases. These changes, such as deprecation notices, can always be found in the TODO AWS Provider CHANGELOG."
+    },
+    {
+      "old": "Now the Terraform plan will show only the additions of new Route 53 records (which are exactly the same as before the upgrade) and the proposed recreation of the `aws_acm_certificate_validation` resource. The `aws_acm_certificate_validation` resource recreation will have no effect as the certificate is already validated and issued.",
+      "new": "Now the TODO plan will show only the additions of new Route 53 records (which are exactly the same as before the upgrade) and the proposed recreation of the `aws_acm_certificate_validation` resource. The `aws_acm_certificate_validation` resource recreation will have no effect as the certificate is already validated and issued."
+    },
+    {
+      "old": "Previously the `subject_alternative_names` argument was stored in the TODO state as an ordered list while the API returned information in an unordered manner. The attribute is now configured as a set instead of a list. Certain TODO configuration language features distinguish between these two attribute types such as not being able to index a set (e.g., `aws_acm_certificate.example.subject_alternative_names[0]` is no longer a valid reference). Depending on the implementation details of a particular configuration using `subject_alternative_names` as a reference, possible solutions include changing references to using `for`/`for_each` or using the `tolist()` function as a temporary workaround to keep the previous behavior until an appropriate configuration (properly using the unordered set) can be determined. Usage questions can be submitted to the [community forums](https://discuss.hashicorp.com/c/TODO-providers/tf-aws/33).",
+      "new": "Previously the `subject_alternative_names` argument was stored in the TODO state as an ordered list while the API returned information in an unordered manner. The attribute is now configured as a set instead of a list. Certain TODO configuration language features distinguish between these two attribute types such as not being able to index a set (e.g., `aws_acm_certificate.example.subject_alternative_names[0]` is no longer a valid reference). Depending on the implementation details of a particular configuration using `subject_alternative_names` as a reference, possible solutions include changing references to using `for`/`for_each` or using the `tolist()` function as a temporary workaround to keep the previous behavior until an appropriate configuration (properly using the unordered set) can be determined. Usage questions can be submitted to the [community forums](https://discuss.TODO.com/c/TODO-providers/tf-aws/33)."
+    },
+    {
+      "old": "Previously the `subject_alternative_names` argument was stored in the Terraform state as an ordered list while the API returned information in an unordered manner. The attribute is now configured as a set instead of a list. Certain Terraform configuration language features distinguish between these two attribute types such as not being able to index a set (e.g., `aws_acm_certificate.example.subject_alternative_names[0]` is no longer a valid reference). Depending on the implementation details of a particular configuration using `subject_alternative_names` as a reference, possible solutions include changing references to using `for`/`for_each` or using the `tolist()` function as a temporary workaround to keep the previous behavior until an appropriate configuration (properly using the unordered set) can be determined. Usage questions can be submitted to the [community forums](https://discuss.hashicorp.com/c/terraform-providers/tf-aws/33).",
+      "new": "Previously the `subject_alternative_names` argument was stored in the TODO state as an ordered list while the API returned information in an unordered manner. The attribute is now configured as a set instead of a list. Certain TODO configuration language features distinguish between these two attribute types such as not being able to index a set (e.g., `aws_acm_certificate.example.subject_alternative_names[0]` is no longer a valid reference). Depending on the implementation details of a particular configuration using `subject_alternative_names` as a reference, possible solutions include changing references to using `for`/`for_each` or using the `tolist()` function as a temporary workaround to keep the previous behavior until an appropriate configuration (properly using the unordered set) can be determined. Usage questions can be submitted to the [community forums](https://discuss.hashicorp.com/c/TODO-providers/tf-aws/33)."
+    },
+    {
+      "old": "Previously when importing the `aws_dx_gateway` resource with the `terraform import` command, the Terraform AWS Provider would automatically attempt to import an associated `aws_dx_gateway_association` resource(s) as well. This automatic resource import has been removed. Use the `aws_dx_gateway_association` resource import to import those resources separately.",
+      "new": "Previously when importing the `aws_dx_gateway` resource with the `TODO import` command, the TODO AWS Provider would automatically attempt to import an associated `aws_dx_gateway_association` resource(s) as well. This automatic resource import has been removed. Use the `aws_dx_gateway_association` resource import to import those resources separately."
+    },
+    {
+      "old": "Previously when importing the `aws_s3_bucket` resource with the `terraform import` command, the Terraform AWS Provider would automatically attempt to import an associated `aws_s3_bucket_policy` resource as well. This automatic resource import has been removed. Use the `aws_s3_bucket_policy` resource import to import that resource separately.",
+      "new": "Previously when importing the `aws_s3_bucket` resource with the `TODO import` command, the TODO AWS Provider would automatically attempt to import an associated `aws_s3_bucket_policy` resource as well. This automatic resource import has been removed. Use the `aws_s3_bucket_policy` resource import to import that resource separately."
+    },
+    {
+      "old": "Previously when importing the `aws_security_group` resource with the `terraform import` command, the Terraform AWS Provider would automatically attempt to import an associated `aws_security_group_rule` resource(s) as well. This automatic resource import has been removed. Use the `aws_security_group_rule` resource import to import those resources separately.",
+      "new": "Previously when importing the `aws_security_group` resource with the `TODO import` command, the TODO AWS Provider would automatically attempt to import an associated `aws_security_group_rule` resource(s) as well. This automatic resource import has been removed. Use the `aws_security_group_rule` resource import to import those resources separately."
+    },
+    {
+      "old": "Previously when the `certificate_body`, `certificate_chain`, and `private_key` arguments were stored in state, they were stored as a hash of the actual value. This prevented Terraform from properly updating the resource when necessary and the hashing has been removed. The Terraform AWS Provider will show an update to these arguments on the first apply after upgrading to version 3.0.0, which is fixing the Terraform state to remove the hash. Since the `private_key` attribute is marked as sensitive, the values in the update will not be visible in the Terraform output. If the non-hashed values have not changed, then no update is occurring other than the Terraform state update. If these arguments are the only updates and they all match the hash removal, the apply will occur without submitting API calls.",
+      "new": "Previously when the `certificate_body`, `certificate_chain`, and `private_key` arguments were stored in state, they were stored as a hash of the actual value. This prevented TODO from properly updating the resource when necessary and the hashing has been removed. The TODO AWS Provider will show an update to these arguments on the first apply after upgrading to version 3.0.0, which is fixing the TODO state to remove the hash. Since the `private_key` attribute is marked as sensitive, the values in the update will not be visible in the TODO output. If the non-hashed values have not changed, then no update is occurring other than the TODO state update. If these arguments are the only updates and they all match the hash removal, the apply will occur without submitting API calls."
+    },
+    {
+      "old": "Previously when the `iops` argument was configured in either the `ebs_block_device` or `root_block_device` configuration block, the Terraform AWS Provider would automatically disregard the value provided to `iops` if the `type` argument was also configured with a value other than `io1` (either explicitly or omitted, indicating the default type `gp2`) as `iops` are only configurable for the `io1` volume type per the AWS EC2 API. This behavior has changed such that the Terraform AWS Provider will instead return an error at apply time indicating an `iops` value is invalid for volume types other than `io1`.",
+      "new": "Previously when the `iops` argument was configured in either the `ebs_block_device` or `root_block_device` configuration block, the TODO AWS Provider would automatically disregard the value provided to `iops` if the `type` argument was also configured with a value other than `io1` (either explicitly or omitted, indicating the default type `gp2`) as `iops` are only configurable for the `io1` volume type per the AWS EC2 API. This behavior has changed such that the TODO AWS Provider will instead return an error at apply time indicating an `iops` value is invalid for volume types other than `io1`."
+    },
+    {
+      "old": "Previously when the `iops` argument was configured with a `type` other than `io1` (either explicitly or omitted, indicating the default type `gp2`), the Terraform AWS Provider would automatically disregard the value provided to `iops` as it is only configurable for the `io1` volume type per the AWS EC2 API. This behavior has changed such that the Terraform AWS Provider will instead return an error at apply time indicating an `iops` value is invalid for types other than `io1`.",
+      "new": "Previously when the `iops` argument was configured with a `type` other than `io1` (either explicitly or omitted, indicating the default type `gp2`), the TODO AWS Provider would automatically disregard the value provided to `iops` as it is only configurable for the `io1` volume type per the AWS EC2 API. This behavior has changed such that the TODO AWS Provider will instead return an error at apply time indicating an `iops` value is invalid for types other than `io1`."
+    },
+    {
+      "old": "Previously when the `platform_credential` and `platform_principal` arguments were stored in state, they were stored as a SHA256 hash of the actual value. This prevented Terraform from properly updating the resource when necessary and the hashing has been removed. The Terraform AWS Provider will show an update to these arguments on the first apply after upgrading to version 3.0.0, which is fixing the Terraform state to remove the hash. Since the attributes are marked as sensitive, the values in the update will not be visible in the Terraform output. If the non-hashed values have not changed, then no update is occurring other than the Terraform state update. If these arguments are the only two updates and they both match the SHA256 removal, the apply will occur without submitting an actual `SetPlatformApplicationAttributes` API call.",
+      "new": "Previously when the `platform_credential` and `platform_principal` arguments were stored in state, they were stored as a SHA256 hash of the actual value. This prevented TODO from properly updating the resource when necessary and the hashing has been removed. The TODO AWS Provider will show an update to these arguments on the first apply after upgrading to version 3.0.0, which is fixing the TODO state to remove the hash. Since the attributes are marked as sensitive, the values in the update will not be visible in the TODO output. If the non-hashed values have not changed, then no update is occurring other than the TODO state update. If these arguments are the only two updates and they both match the SHA256 removal, the apply will occur without submitting an actual `SetPlatformApplicationAttributes` API call."
+    },
+    {
+      "old": "Previously when the `throttling_burst_limit` or `throttling_rate_limit` argument was not configured, the resource would enable throttling and set the limit value to the AWS API Gateway default. In addition, as these arguments were marked as `Computed`, Terraform ignored any subsequent changes made to these arguments in the resource. These behaviors have been removed and, by default, the `throttling_burst_limit` and `throttling_rate_limit` arguments will be disabled in the resource with a value of `-1`.",
+      "new": "Previously when the `throttling_burst_limit` or `throttling_rate_limit` argument was not configured, the resource would enable throttling and set the limit value to the AWS API Gateway default. In addition, as these arguments were marked as `Computed`, TODO ignored any subsequent changes made to these arguments in the resource. These behaviors have been removed and, by default, the `throttling_burst_limit` and `throttling_rate_limit` arguments will be disabled in the resource with a value of `-1`."
+    },
+    {
+      "old": "Previously, the `active_trusted_signers` computed attribute was implemented with a Map that did not support accessing its computed `items` attribute in Terraform 0.12 correctly.",
+      "new": "Previously, the `active_trusted_signers` computed attribute was implemented with a Map that did not support accessing its computed `items` attribute in TODO 0.12 correctly."
+    },
+    {
+      "old": "Previously, the `domain_validation_options` attribute was a list type and completely unknown until after an initial `terraform apply`. This generally required complicated configuration workarounds to properly create DNS validation records since referencing this attribute directly could produce errors similar to the below:",
+      "new": "Previously, the `domain_validation_options` attribute was a list type and completely unknown until after an initial `TODO apply`. This generally required complicated configuration workarounds to properly create DNS validation records since referencing this attribute directly could produce errors similar to the below:"
+    },
+    {
+      "old": "Since the `domain_validation_options` attribute changed from a list to a set and sets cannot be indexed in Terraform, the recommendation is to update the configuration to use the more stable resource `for_each` support instead of `count`. Note the slight change in the `validation_record_fqdns` syntax as well.",
+      "new": "Since the `domain_validation_options` attribute changed from a list to a set and sets cannot be indexed in TODO, the recommendation is to update the configuration to use the more stable resource `for_each` support instead of `count`. Note the slight change in the `validation_record_fqdns` syntax as well."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `OAuthToken` element in the `action` `configuration` map instead.",
+      "new": "Switch your TODO configuration to the `OAuthToken` element in the `action` `configuration` map instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `associated_gateway_id` argument instead.",
+      "new": "Switch your TODO configuration to the `associated_gateway_id` argument instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `core_instance_group` configuration block instead.",
+      "new": "Switch your TODO configuration to the `core_instance_group` configuration block instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `exclude_names` attribute instead.",
+      "new": "Switch your TODO configuration to the `exclude_names` attribute instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `exclude_zone_ids` attribute instead.",
+      "new": "Switch your TODO configuration to the `exclude_zone_ids` attribute instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `master_instance_group` and `core_instance_group` configuration blocks instead. For any task instance groups, use the `aws_emr_instance_group` resource.",
+      "new": "Switch your TODO configuration to the `master_instance_group` and `core_instance_group` configuration blocks instead. For any task instance groups, use the `aws_emr_instance_group` resource."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `master_instance_group` configuration block instead.",
+      "new": "Switch your TODO configuration to the `master_instance_group` configuration block instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `result` attribute with the `jsondecode()` function instead.",
+      "new": "Switch your TODO configuration to the `result` attribute with the `jsondecode()` function instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `role` argument instead.",
+      "new": "Switch your TODO configuration to the `role` argument instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `task_invocation_parameters` configuration block `run_command_parameters` configuration block `output_s3_bucket` and `output_s3_key_prefix` arguments instead.",
+      "new": "Switch your TODO configuration to the `task_invocation_parameters` configuration block `run_command_parameters` configuration block `output_s3_bucket` and `output_s3_key_prefix` arguments instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `task_invocation_parameters` configuration block `run_command_parameters` configuration block `parameter` configuration blocks instead.",
+      "new": "Switch your TODO configuration to the `task_invocation_parameters` configuration block `run_command_parameters` configuration block `parameter` configuration blocks instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to use the `host_header` or `path_pattern` configuration block instead.",
+      "new": "Switch your TODO configuration to use the `host_header` or `path_pattern` configuration block instead."
+    },
+    {
+      "old": "Terraform will perform the following actions:",
+      "new": "TODO will perform the following actions:"
+    },
+    {
+      "old": "The Glue API has deprecated the `allocated_capacity` argument. Switch your Terraform configuration to the `max_capacity` argument instead.",
+      "new": "The Glue API has deprecated the `allocated_capacity` argument. Switch your TODO configuration to the `max_capacity` argument instead."
+    },
+    {
+      "old": "The `domain_validation_options` attribute is now a set type and the resource will attempt to populate the information necessary during the planning phase to handle the above situation in most environments without workarounds. This change also prevents Terraform from showing unexpected differences if the API returns the results in varying order.",
+      "new": "The `domain_validation_options` attribute is now a set type and the resource will attempt to populate the information necessary during the planning phase to handle the above situation in most environments without workarounds. This change also prevents TODO from showing unexpected differences if the API returns the results in varying order."
+    },
+    {
+      "old": "The `region` attribute is no longer configurable, but it remains as a read-only attribute. The region of the `aws_s3_bucket` resource is determined by the region of the Terraform AWS Provider, similar to all other resources.",
+      "new": "The `region` attribute is no longer configurable, but it remains as a read-only attribute. The region of the `aws_s3_bucket` resource is determined by the region of the TODO AWS Provider, similar to all other resources."
+    },
+    {
+      "old": "Version 3.0.0 of the AWS provider for Terraform is a major release and includes some changes that you will need to consider when upgrading. This guide is intended to help with that process and focuses only on changes from version 2.X to version 3.0.0. See the Version 2 Upgrade Guide for information about upgrading from 1.X to version 2.0.0.",
+      "new": "Version 3.0.0 of the AWS provider for TODO is a major release and includes some changes that you will need to consider when upgrading. This guide is intended to help with that process and focuses only on changes from version 2.X to version 3.0.0. See the Version 2 Upgrade Guide for information about upgrading from 1.X to version 2.0.0."
+    },
+    {
+      "old": "We recommend using version constraints when configuring Terraform providers. If you are following that recommendation, update the version constraints in your Terraform configuration and run `terraform init` to download the new version.",
+      "new": "We recommend using version constraints when configuring TODO providers. If you are following that recommendation, update the version constraints in your TODO configuration and run `TODO init` to download the new version."
+    },
+    {
+      "old": "page_title: \"Terraform AWS Provider Version 3 Upgrade Guide\"",
+      "new": "page_title: \"TODO AWS Provider Version 3 Upgrade Guide\""
+    },
+    {
+      "old": "until apply, so Terraform cannot predict how many instances will be created.",
+      "new": "until apply, so TODO cannot predict how many instances will be created."
+    },
+    {
+      "old": "~> **NOTE:** Version 3.0.0 and later of the AWS Provider can only be automatically installed on Terraform 0.12 and later.",
+      "new": "~> **NOTE:** Version 3.0.0 and later of the AWS Provider can only be automatically installed on TODO 0.12 and later."
+    }
+  ],
+  "website/docs/guides/version-4-upgrade.html.markdown": [
+    {
+      "old": "          on terraform_plugin_test.tf line 2, in resource \"aws_elasticache_cluster\" \"example\":",
+      "new": "          on TODO_plugin_test.tf line 2, in resource \"aws_elasticache_cluster\" \"example\":"
+    },
+    {
+      "old": "      source  = \"hashicorp/aws\"",
+      "new": "      source  = \"TODO/aws\""
+    },
+    {
+      "old": "      source = \"hashicorp/aws\"",
+      "new": "      source = \"TODO/aws\""
+    },
+    {
+      "old": "    allowed_origins = [\"https://s3-website-test.hashicorp.com\"]",
+      "new": "    allowed_origins = [\"https://s3-website-test.TODO.com\"]"
+    },
+    {
+      "old": "  Terraform AWS Provider Version 4 Upgrade Guide",
+      "new": "  TODO AWS Provider Version 4 Upgrade Guide"
+    },
+    {
+      "old": "  ```terraform",
+      "new": "  ```TODO"
+    },
+    {
+      "old": "# Terraform AWS Provider Version 4 Upgrade Guide",
+      "new": "# TODO AWS Provider Version 4 Upgrade Guide"
+    },
+    {
+      "old": "% terraform import aws_s3_object.example s3://some-bucket-name/some/key.txt",
+      "new": "% TODO import aws_s3_object.example s3://some-bucket-name/some/key.txt"
+    },
+    {
+      "old": "* If migrating from Terraform AWS Provider `v3.70.0` or later and bucket versioning was enabled at one point:",
+      "new": "* If migrating from TODO AWS Provider `v3.70.0` or later and bucket versioning was enabled at one point:"
+    },
+    {
+      "old": "* If migrating from Terraform AWS Provider `v3.70.0` or later and bucket versioning was never enabled:",
+      "new": "* If migrating from TODO AWS Provider `v3.70.0` or later and bucket versioning was never enabled:"
+    },
+    {
+      "old": "* If migrating from an earlier version of Terraform AWS Provider:",
+      "new": "* If migrating from an earlier version of TODO AWS Provider:"
+    },
+    {
+      "old": "* `assume_role.duration` - Assume role duration as a string, _e.g._, `\"1h\"` or `\"1h30s\"`. Terraform AWS Provider v4.0.0 deprecates `assume_role.duration_seconds` and a future version will remove it.",
+      "new": "* `assume_role.duration` - Assume role duration as a string, _e.g._, `\"1h\"` or `\"1h30s\"`. TODO AWS Provider v4.0.0 deprecates `assume_role.duration_seconds` and a future version will remove it."
+    },
+    {
+      "old": "* `s3_use_path_style` - Replaces `s3_force_path_style`, which has been deprecated in Terraform AWS Provider v4.0.0 and support will be removed in a future version.",
+      "new": "* `s3_use_path_style` - Replaces `s3_force_path_style`, which has been deprecated in TODO AWS Provider v4.0.0 and support will be removed in a future version."
+    },
+    {
+      "old": "* `shared_credentials_files` - List of paths to the shared credentials file. If not set, the default  is `[~/.aws/credentials]`. A single value can also be set with the `AWS_SHARED_CREDENTIALS_FILE` environment variable. Replaces `shared_credentials_file`, which has been deprecated in Terraform AWS Provider v4.0.0 and support will be removed in a future version.",
+      "new": "* `shared_credentials_files` - List of paths to the shared credentials file. If not set, the default  is `[~/.aws/credentials]`. A single value can also be set with the `AWS_SHARED_CREDENTIALS_FILE` environment variable. Replaces `shared_credentials_file`, which has been deprecated in TODO AWS Provider v4.0.0 and support will be removed in a future version."
+    },
+    {
+      "old": "-> Before upgrading to version 4.0.0, upgrade to the most recent 3.X version of the provider and ensure that your environment successfully runs `terraform plan`. You should not see changes you don't expect or deprecation notices.",
+      "new": "-> Before upgrading to version 4.0.0, upgrade to the most recent 3.X version of the provider and ensure that your environment successfully runs `TODO plan`. You should not see changes you don't expect or deprecation notices."
+    },
+    {
+      "old": "By default, `terraform destroy` does not delete the default VPC but does remove the resource from Terraform state.",
+      "new": "By default, `TODO destroy` does not delete the default VPC but does remove the resource from TODO state."
+    },
+    {
+      "old": "By default, `terraform destroy` does not delete the default subnet but does remove the resource from Terraform state.",
+      "new": "By default, `TODO destroy` does not delete the default subnet but does remove the resource from TODO state."
+    },
+    {
+      "old": "Configurations dependent on these arguments should be updated to use the corresponding `aws_s3_bucket_*` resource in order to prevent Terraform from reporting “unconfigurable attribute” errors for read-only arguments. Once updated, it is recommended to import new `aws_s3_bucket_*` resources into Terraform state.",
+      "new": "Configurations dependent on these arguments should be updated to use the corresponding `aws_s3_bucket_*` resource in order to prevent TODO from reporting “unconfigurable attribute” errors for read-only arguments. Once updated, it is recommended to import new `aws_s3_bucket_*` resources into TODO state."
+    },
+    {
+      "old": "Depending on the tools available to you, the above configuration can either be directly applied with Terraform or the standalone resource",
+      "new": "Depending on the tools available to you, the above configuration can either be directly applied with TODO or the standalone resource"
+    },
+    {
+      "old": "Depending on the version of the Terraform AWS Provider you are migrating from, the interpretation of `versioning.enabled = false`",
+      "new": "Depending on the version of the TODO AWS Provider you are migrating from, the interpretation of `versioning.enabled = false`"
+    },
+    {
+      "old": "For this reason, a deprecation notice is printed in the Terraform CLI for each of the parameters when used in a configuration.",
+      "new": "For this reason, a deprecation notice is printed in the TODO CLI for each of the parameters when used in a configuration."
+    },
+    {
+      "old": "If no default VPC exists, Terraform creates a new default VPC, which leads to the implicit creation of [other resources](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#default-vpc-components).",
+      "new": "If no default VPC exists, TODO creates a new default VPC, which leads to the implicit creation of [other resources](https://docs.aws.amazon.com/vpc/latest/userguide/default-vpc.html#default-vpc-components)."
+    },
+    {
+      "old": "If no default subnet exists, Terraform creates a new default subnet.",
+      "new": "If no default subnet exists, TODO creates a new default subnet."
+    },
+    {
+      "old": "If you are migrating from an earlier version of the Terraform AWS Provider:",
+      "new": "If you are migrating from an earlier version of the TODO AWS Provider:"
+    },
+    {
+      "old": "If you are migrating from the Terraform AWS Provider `v3.70.0` or later:",
+      "new": "If you are migrating from the TODO AWS Provider `v3.70.0` or later:"
+    },
+    {
+      "old": "In previous versions of the provider, you could explicitly set `profile` in the `provider`, and if the profile did not correspond to valid credentials, the provider would use credentials from environment variables. Starting in v4.0, the Terraform AWS provider enforces the precedence shown above, similarly to how the AWS SDK and AWS CLI behave.",
+      "new": "In previous versions of the provider, you could explicitly set `profile` in the `provider`, and if the profile did not correspond to valid credentials, the provider would use credentials from environment variables. Starting in v4.0, the TODO AWS provider enforces the precedence shown above, similarly to how the AWS SDK and AWS CLI behave."
+    },
+    {
+      "old": "In the event practitioners do not anticipate future modifications to the S3 bucket settings associated with these read-only arguments or drift detection is not needed, these read-only arguments should be removed from `aws_s3_bucket` resource configurations in order to prevent Terraform from reporting “unconfigurable attribute” errors; the states of these arguments will be preserved but are subject to change with modifications made outside Terraform.",
+      "new": "In the event practitioners do not anticipate future modifications to the S3 bucket settings associated with these read-only arguments or drift detection is not needed, these read-only arguments should be removed from `aws_s3_bucket` resource configurations in order to prevent TODO from reporting “unconfigurable attribute” errors; the states of these arguments will be preserved but are subject to change with modifications made outside TODO."
+    },
+    {
+      "old": "Once the standalone resources are managed by Terraform, updates and removal can be performed as needed.",
+      "new": "Once the standalone resources are managed by TODO, updates and removal can be performed as needed."
+    },
+    {
+      "old": "Previously, when you did not specify either `engine` or `replication_group_id`, Terraform would not prevent you from applying the invalid configuration.",
+      "new": "Previously, when you did not specify either `engine` or `replication_group_id`, TODO would not prevent you from applying the invalid configuration."
+    },
+    {
+      "old": "Run `terraform import` on each new resource, _e.g._,",
+      "new": "Run `TODO import` on each new resource, _e.g._,"
+    },
+    {
+      "old": "Second, the motivation behind this change is that previously, you might set an argument to `\"\"` to explicitly convey it is empty. However, with the introduction of `null` in Terraform 0.12 and to prepare for continuing enhancements that distinguish between unset arguments and those that have a value, including an empty string (`\"\"`), we are moving away from this use of zero values. We ask practitioners to either use `null` instead or remove the arguments that are set to `\"\"`.",
+      "new": "Second, the motivation behind this change is that previously, you might set an argument to `\"\"` to explicitly convey it is empty. However, with the introduction of `null` in TODO 0.12 and to prepare for continuing enhancements that distinguish between unset arguments and those that have a value, including an empty string (`\"\"`), we are moving away from this use of zero values. We ask practitioners to either use `null` instead or remove the arguments that are set to `\"\"`."
+    },
+    {
+      "old": "Switch your Terraform configuration from using `actual_engine_version` to use the `engine_version_actual` attribute instead.",
+      "new": "Switch your TODO configuration from using `actual_engine_version` to use the `engine_version_actual` attribute instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `aws_s3_bucket_accelerate_configuration` resource instead.",
+      "new": "Switch your TODO configuration to the `aws_s3_bucket_accelerate_configuration` resource instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `aws_s3_bucket_acl` resource instead.",
+      "new": "Switch your TODO configuration to the `aws_s3_bucket_acl` resource instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `aws_s3_bucket_cors_configuration` resource instead.",
+      "new": "Switch your TODO configuration to the `aws_s3_bucket_cors_configuration` resource instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `aws_s3_bucket_lifecycle_configuration` resource instead.",
+      "new": "Switch your TODO configuration to the `aws_s3_bucket_lifecycle_configuration` resource instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `aws_s3_bucket_logging` resource instead.",
+      "new": "Switch your TODO configuration to the `aws_s3_bucket_logging` resource instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `aws_s3_bucket_object_lock_configuration` resource instead.",
+      "new": "Switch your TODO configuration to the `aws_s3_bucket_object_lock_configuration` resource instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `aws_s3_bucket_policy` resource instead.",
+      "new": "Switch your TODO configuration to the `aws_s3_bucket_policy` resource instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `aws_s3_bucket_replication_configuration` resource instead.",
+      "new": "Switch your TODO configuration to the `aws_s3_bucket_replication_configuration` resource instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `aws_s3_bucket_request_payment_configuration` resource instead.",
+      "new": "Switch your TODO configuration to the `aws_s3_bucket_request_payment_configuration` resource instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `aws_s3_bucket_server_side_encryption_configuration` resource instead.",
+      "new": "Switch your TODO configuration to the `aws_s3_bucket_server_side_encryption_configuration` resource instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `aws_s3_bucket_versioning` resource instead.",
+      "new": "Switch your TODO configuration to the `aws_s3_bucket_versioning` resource instead."
+    },
+    {
+      "old": "Switch your Terraform configuration to the `aws_s3_bucket_website_configuration` resource instead.",
+      "new": "Switch your TODO configuration to the `aws_s3_bucket_website_configuration` resource instead."
+    },
+    {
+      "old": "Terraform CLI with v4.9.0 of the AWS Provider will report back:",
+      "new": "TODO CLI with v4.9.0 of the AWS Provider will report back:"
+    },
+    {
+      "old": "Terraform will not pick up on these changes on a subsequent `terraform plan` or `terraform apply`.",
+      "new": "TODO will not pick up on these changes on a subsequent `TODO plan` or `TODO apply`."
+    },
+    {
+      "old": "The `aws_default_subnet` resource behaves differently from normal resources in that if a default subnet exists in the specified Availability Zone, Terraform does not _create_ this resource, but instead \"adopts\" it into management.",
+      "new": "The `aws_default_subnet` resource behaves differently from normal resources in that if a default subnet exists in the specified Availability Zone, TODO does not _create_ this resource, but instead \"adopts\" it into management."
+    },
+    {
+      "old": "The `aws_default_vpc` resource behaves differently from normal resources in that if a default VPC exists, Terraform does not _create_ this resource, but instead \"adopts\" it into management.",
+      "new": "The `aws_default_vpc` resource behaves differently from normal resources in that if a default VPC exists, TODO does not _create_ this resource, but instead \"adopts\" it into management."
+    },
+    {
+      "old": "The following error was thrown on `terraform apply`:",
+      "new": "The following error was thrown on `TODO apply`:"
+    },
+    {
+      "old": "The following plural data sources are now consistent with [Provider Design](https://hashicorp.github.io/TODO-provider-aws/provider-design/#plural-data-sources)",
+      "new": "The following plural data sources are now consistent with [Provider Design](https://TODO.github.io/TODO-provider-aws/provider-design/#plural-data-sources)"
+    },
+    {
+      "old": "The following plural data sources are now consistent with [Provider Design](https://hashicorp.github.io/terraform-provider-aws/provider-design/#plural-data-sources)",
+      "new": "The following plural data sources are now consistent with [Provider Design](https://hashicorp.github.io/TODO-provider-aws/provider-design/#plural-data-sources)"
+    },
+    {
+      "old": "The following sections depict standalone resource adoption per individual parameter. Standalone resource adoption is not required to upgrade but is recommended to ensure drift is detected by Terraform.",
+      "new": "The following sections depict standalone resource adoption per individual parameter. Standalone resource adoption is not required to upgrade but is recommended to ensure drift is detected by TODO."
+    },
+    {
+      "old": "Use version constraints when configuring Terraform providers. If you are following that recommendation, update the version constraints in your Terraform configuration and run `terraform init -upgrade` to download the new version.",
+      "new": "Use version constraints when configuring TODO providers. If you are following that recommendation, update the version constraints in your TODO configuration and run `TODO init -upgrade` to download the new version."
+    },
+    {
+      "old": "Version 4.0.0 of the AWS provider for Terraform is a major release and includes some changes that you will need to consider when upgrading. We intend this guide to help with that process and focus only on changes from version 3.X to version 4.0.0. See the Version 3 Upgrade Guide for information about upgrading from 2.X to version 3.0.0.",
+      "new": "Version 4.0.0 of the AWS provider for TODO is a major release and includes some changes that you will need to consider when upgrading. We intend this guide to help with that process and focus only on changes from version 3.X to version 4.0.0. See the Version 3 Upgrade Guide for information about upgrading from 2.X to version 3.0.0."
+    },
+    {
+      "old": "We previously marked most of the changes we outline in this guide as deprecated in the Terraform plan/apply output throughout previous provider releases. You can find these changes, including deprecation notices, in the Terraform AWS Provider CHANGELOG.",
+      "new": "We previously marked most of the changes we outline in this guide as deprecated in the TODO plan/apply output throughout previous provider releases. You can find these changes, including deprecation notices, in the TODO AWS Provider CHANGELOG."
+    },
+    {
+      "old": "We removed the misspelled argument `active_directory_configuration.0.self_managed_active_directory_configuration.0.organizational_unit_distinguidshed_name` that we previously deprecated. Use `active_directory_configuration.0.self_managed_active_directory_configuration.0.organizational_unit_distinguished_name` now instead. Terraform will automatically migrate the state to `active_directory_configuration.0.self_managed_active_directory_configuration.0.organizational_unit_distinguished_name` during planning.",
+      "new": "We removed the misspelled argument `active_directory_configuration.0.self_managed_active_directory_configuration.0.organizational_unit_distinguidshed_name` that we previously deprecated. Use `active_directory_configuration.0.self_managed_active_directory_configuration.0.organizational_unit_distinguished_name` now instead. TODO will automatically migrate the state to `active_directory_configuration.0.self_managed_active_directory_configuration.0.organizational_unit_distinguished_name` during planning."
+    },
+    {
+      "old": "When replacing `aws_s3_bucket_object` with `aws_s3_object` in your configuration, on the next apply, Terraform will recreate the object. If you prefer to not have Terraform recreate the object, import the object using `aws_s3_object`.",
+      "new": "When replacing `aws_s3_bucket_object` with `aws_s3_object` in your configuration, on the next apply, TODO will recreate the object. If you prefer to not have TODO recreate the object, import the object using `aws_s3_object`."
+    },
+    {
+      "old": "While an upgrade to this major version will not directly impact EC2-Classic resources configured with Terraform,",
+      "new": "While an upgrade to this major version will not directly impact EC2-Classic resources configured with TODO,"
+    },
+    {
+      "old": "can be imported into Terraform state. Please refer to each standalone resource's _Import_ documentation for the proper syntax.",
+      "new": "can be imported into TODO state. Please refer to each standalone resource's _Import_ documentation for the proper syntax."
+    },
+    {
+      "old": "in that Terraform will only perform drift detection for each of the following parameters if a configuration value is provided:",
+      "new": "in that TODO will only perform drift detection for each of the following parameters if a configuration value is provided:"
+    },
+    {
+      "old": "page_title: \"Terraform AWS Provider Version 4 Upgrade Guide\"",
+      "new": "page_title: \"TODO AWS Provider Version 4 Upgrade Guide\""
+    },
+    {
+      "old": "terraform {",
+      "new": "TODO {"
+    },
+    {
+      "old": "your Terraform state and will henceforth be managed by Terraform.",
+      "new": "your TODO state and will henceforth be managed by TODO."
+    },
+    {
+      "old": "~> **CAUTION:** We do not recommend modifying the state file manually. If you do, you can make it unusable. However, if you accept that risk, some community members have upgraded to the new resource by searching and replacing `\"type\": \"aws_s3_bucket_object\",` with `\"type\": \"aws_s3_object\",` in the state file, and then running `terraform apply -refresh-only`.",
+      "new": "~> **CAUTION:** We do not recommend modifying the state file manually. If you do, you can make it unusable. However, if you accept that risk, some community members have upgraded to the new resource by searching and replacing `\"type\": \"aws_s3_bucket_object\",` with `\"type\": \"aws_s3_object\",` in the state file, and then running `TODO apply -refresh-only`."
+    },
+    {
+      "old": "~> **NOTE:** Using the `AWS_METADATA_URL` environment variable has been deprecated in Terraform AWS Provider v4.0.0 and support will be removed in a future version. Change any scripts or environments using `AWS_METADATA_URL` to instead use `AWS_EC2_METADATA_SERVICE_ENDPOINT`.",
+      "new": "~> **NOTE:** Using the `AWS_METADATA_URL` environment variable has been deprecated in TODO AWS Provider v4.0.0 and support will be removed in a future version. Change any scripts or environments using `AWS_METADATA_URL` to instead use `AWS_EC2_METADATA_SERVICE_ENDPOINT`."
+    },
+    {
+      "old": "~> **NOTE:** When importing into `aws_s3_bucket_acl`, make sure you use the S3 bucket name (_e.g._, `yournamehere` in the example above) as part of the ID, and _not_ the Terraform bucket configuration name (_e.g._, `example` in the example above).",
+      "new": "~> **NOTE:** When importing into `aws_s3_bucket_acl`, make sure you use the S3 bucket name (_e.g._, `yournamehere` in the example above) as part of the ID, and _not_ the TODO bucket configuration name (_e.g._, `example` in the example above)."
+    }
+  ],
+  "website/docs/guides/version-5-upgrade.html.markdown": [
+    {
+      "old": "      source  = \"hashicorp/aws\"",
+      "new": "      source  = \"TODO/aws\""
+    },
+    {
+      "old": "  Terraform AWS Provider Version 5 Upgrade Guide",
+      "new": "  TODO AWS Provider Version 5 Upgrade Guide"
+    },
+    {
+      "old": "# Terraform AWS Provider Version 5 Upgrade Guide",
+      "new": "# TODO AWS Provider Version 5 Upgrade Guide"
+    },
+    {
+      "old": "-> Before upgrading to version 5.0.0, upgrade to the most recent 4.X version of the provider and ensure that your environment successfully runs `terraform plan`. You should not see changes you don't expect or deprecation notices.",
+      "new": "-> Before upgrading to version 5.0.0, upgrade to the most recent 4.X version of the provider and ensure that your environment successfully runs `TODO plan`. You should not see changes you don't expect or deprecation notices."
+    },
+    {
+      "old": "Use version constraints when configuring Terraform providers. If you are following that recommendation, update the version constraints in your Terraform configuration and run `terraform init -upgrade` to download the new version.",
+      "new": "Use version constraints when configuring TODO providers. If you are following that recommendation, update the version constraints in your TODO configuration and run `TODO init -upgrade` to download the new version."
+    },
+    {
+      "old": "Version 5.0.0 of the AWS provider for Terraform is a major release and includes changes that you need to consider when upgrading. This guide will help with that process and focuses only on changes from version 4.x to version 5.0.0. See the Version 4 Upgrade Guide for information on upgrading from 3.x to version 4.0.0.",
+      "new": "Version 5.0.0 of the AWS provider for TODO is a major release and includes changes that you need to consider when upgrading. This guide will help with that process and focuses only on changes from version 4.x to version 5.0.0. See the Version 4 Upgrade Guide for information on upgrading from 3.x to version 4.0.0."
+    },
+    {
+      "old": "page_title: \"Terraform AWS Provider Version 5 Upgrade Guide\"",
+      "new": "page_title: \"TODO AWS Provider Version 5 Upgrade Guide\""
+    },
+    {
+      "old": "terraform {",
+      "new": "TODO {"
     }
   ],
   "website/docs/r/accessanalyzer_analyzer.html.markdown": [
@@ -484,6 +1380,10 @@
   ],
   "website/docs/r/api_gateway_api_key.html.markdown": [
     {
+      "old": "% terraform import aws_api_gateway_api_key.example 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk",
+      "new": "% TODO import aws_api_gateway_api_key.example 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk"
+    },
+    {
       "old": "% terraform import aws_api_gateway_api_key.my_demo_key 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk",
       "new": "% pulumi import aws_api_gateway_api_key.my_demo_key 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk"
     },
@@ -607,6 +1507,20 @@
     {
       "old": "Using `terraform import`, import API Gateway domain names using their `name`. For example:",
       "new": "Using `pulumi import`, import API Gateway domain names using their `name`. For example:"
+    }
+  ],
+  "website/docs/r/api_gateway_gateway_response.html.markdown": [
+    {
+      "old": "% terraform import aws_api_gateway_gateway_response.example 12345abcde/UNAUTHORIZED",
+      "new": "% TODO import aws_api_gateway_gateway_response.example 12345abcde/UNAUTHORIZED"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:",
+      "new": "Using `TODO import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:"
     }
   ],
   "website/docs/r/api_gateway_gateway_response.markdown": [
@@ -2543,6 +3457,20 @@
       "new": "  name                     = \"pulumi-example-collaboration\""
     }
   ],
+  "website/docs/r/cloud9_environment_membership.html.markdown": [
+    {
+      "old": "% terraform import aws_cloud9_environment_membership.test environment-id#user-arn",
+      "new": "% TODO import aws_cloud9_environment_membership.test environment-id#user-arn"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Cloud9 environment membership using the `environment-id#user-arn`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Cloud9 environment membership using the `environment-id#user-arn`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Cloud9 environment membership using the `environment-id#user-arn`. For example:",
+      "new": "Using `TODO import`, import Cloud9 environment membership using the `environment-id#user-arn`. For example:"
+    }
+  ],
   "website/docs/r/cloud9_environment_membership.markdown": [
     {
       "old": "% terraform import aws_cloud9_environment_membership.test environment-id#user-arn",
@@ -3555,6 +4483,20 @@
       "new": "Using `pulumi import`, import CodeDeploy Deployment Groups using `app_name`, a colon, and `deployment_group_name`. For example:"
     }
   ],
+  "website/docs/r/codepipeline.html.markdown": [
+    {
+      "old": "% terraform import aws_codepipeline.foo example",
+      "new": "% TODO import aws_codepipeline.foo example"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import CodePipelines using the name. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import CodePipelines using the name. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import CodePipelines using the name. For example:",
+      "new": "Using `TODO import`, import CodePipelines using the name. For example:"
+    }
+  ],
   "website/docs/r/codepipeline.markdown": [
     {
       "old": "% terraform import aws_codepipeline.foo example",
@@ -3591,6 +4533,20 @@
       "new": "Using `pulumi import`, import CodeDeploy CustomActionType using the `id`. For example:"
     }
   ],
+  "website/docs/r/codepipeline_webhook.html.markdown": [
+    {
+      "old": "% terraform import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example",
+      "new": "% TODO import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import CodePipeline Webhooks using their ARN. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import CodePipeline Webhooks using their ARN. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import CodePipeline Webhooks using their ARN. For example:",
+      "new": "Using `TODO import`, import CodePipeline Webhooks using their ARN. For example:"
+    }
+  ],
   "website/docs/r/codepipeline_webhook.markdown": [
     {
       "old": "% terraform import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example",
@@ -3603,6 +4559,20 @@
     {
       "old": "Using `terraform import`, import CodePipeline Webhooks using their ARN. For example:",
       "new": "Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:"
+    }
+  ],
+  "website/docs/r/codestarconnections_connection.html.markdown": [
+    {
+      "old": "% terraform import aws_codestarconnections_connection.test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448",
+      "new": "% TODO import aws_codestarconnections_connection.test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import CodeStar connections using the ARN. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import CodeStar connections using the ARN. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import CodeStar connections using the ARN. For example:",
+      "new": "Using `TODO import`, import CodeStar connections using the ARN. For example:"
     }
   ],
   "website/docs/r/codestarconnections_connection.markdown": [
@@ -3619,6 +4589,20 @@
       "new": "Using `pulumi import`, import CodeStar connections using the ARN. For example:"
     }
   ],
+  "website/docs/r/codestarconnections_host.html.markdown": [
+    {
+      "old": "% terraform import aws_codestarconnections_host.example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448",
+      "new": "% TODO import aws_codestarconnections_host.example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import CodeStar Host using the ARN. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import CodeStar Host using the ARN. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import CodeStar Host using the ARN. For example:",
+      "new": "Using `TODO import`, import CodeStar Host using the ARN. For example:"
+    }
+  ],
   "website/docs/r/codestarconnections_host.markdown": [
     {
       "old": "% terraform import aws_codestarconnections_host.example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448",
@@ -3631,6 +4615,20 @@
     {
       "old": "Using `terraform import`, import CodeStar Host using the ARN. For example:",
       "new": "Using `pulumi import`, import CodeStar Host using the ARN. For example:"
+    }
+  ],
+  "website/docs/r/codestarnotifications_notification_rule.html.markdown": [
+    {
+      "old": "% terraform import aws_codestarnotifications_notification_rule.foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b",
+      "new": "% TODO import aws_codestarnotifications_notification_rule.foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import CodeStar notification rule using the ARN. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import CodeStar notification rule using the ARN. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import CodeStar notification rule using the ARN. For example:",
+      "new": "Using `TODO import`, import CodeStar notification rule using the ARN. For example:"
     }
   ],
   "website/docs/r/codestarnotifications_notification_rule.markdown": [
@@ -3647,6 +4645,20 @@
       "new": "Using `pulumi import`, import CodeStar notification rule using the ARN. For example:"
     }
   ],
+  "website/docs/r/cognito_identity_pool.html.markdown": [
+    {
+      "old": "% terraform import aws_cognito_identity_pool.mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3",
+      "new": "% TODO import aws_cognito_identity_pool.mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Cognito Identity Pool using its ID. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Cognito Identity Pool using its ID. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Cognito Identity Pool using its ID. For example:",
+      "new": "Using `TODO import`, import Cognito Identity Pool using its ID. For example:"
+    }
+  ],
   "website/docs/r/cognito_identity_pool.markdown": [
     {
       "old": "% terraform import aws_cognito_identity_pool.mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3",
@@ -3661,6 +4673,20 @@
       "new": "Using `pulumi import`, import Cognito Identity Pool using its ID. For example:"
     }
   ],
+  "website/docs/r/cognito_identity_pool_provider_principal_tag.html.markdown": [
+    {
+      "old": "% terraform import aws_cognito_identity_pool_provider_principal_tag.example us-west-2_abc123:CorpAD",
+      "new": "% TODO import aws_cognito_identity_pool_provider_principal_tag.example us-west-2_abc123:CorpAD"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For example:",
+      "new": "Using `TODO import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For example:"
+    }
+  ],
   "website/docs/r/cognito_identity_pool_provider_principal_tag.markdown": [
     {
       "old": "% terraform import aws_cognito_identity_pool_provider_principal_tag.example us-west-2_abc123:CorpAD",
@@ -3673,6 +4699,20 @@
     {
       "old": "Using `terraform import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For example:",
       "new": "Using `pulumi import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID and provider name. For example:"
+    }
+  ],
+  "website/docs/r/cognito_identity_pool_roles_attachment.html.markdown": [
+    {
+      "old": "% terraform import aws_cognito_identity_pool_roles_attachment.example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42",
+      "new": "% TODO import aws_cognito_identity_pool_roles_attachment.example us-west-2:b64805ad-cb56-40ba-9ffc-f5d8207e6d42"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Cognito Identity Pool Roles Attachment using the Identity Pool ID. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Cognito Identity Pool Roles Attachment using the Identity Pool ID. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID. For example:",
+      "new": "Using `TODO import`, import Cognito Identity Pool Roles Attachment using the Identity Pool ID. For example:"
     }
   ],
   "website/docs/r/cognito_identity_pool_roles_attachment.markdown": [
@@ -3789,6 +4829,28 @@
       "new": "Using `pulumi import`, import Cognito User Groups using the `user_pool_id`/`name` attributes concatenated. For example:"
     }
   ],
+  "website/docs/r/cognito_user_pool.html.markdown": [
+    {
+      "old": "% terraform import aws_cognito_user_pool.pool us-west-2_abc123",
+      "new": "% TODO import aws_cognito_user_pool.pool us-west-2_abc123"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Cognito User Pools using the `id`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Cognito User Pools using the `id`. For example:"
+    },
+    {
+      "old": "The [standard attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) have the following defaults. Note that attributes which match the default values are not stored in Terraform state when importing.",
+      "new": "The [standard attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) have the following defaults. Note that attributes which match the default values are not stored in TODO state when importing."
+    },
+    {
+      "old": "Using `terraform import`, import Cognito User Pools using the `id`. For example:",
+      "new": "Using `TODO import`, import Cognito User Pools using the `id`. For example:"
+    },
+    {
+      "old": "~> **NOTE:** When defining an `attribute_data_type` of `String` or `Number`, the respective attribute constraints configuration block (e.g `string_attribute_constraints` or `number_attribute_constraints`) is **required** to prevent recreation of the Terraform resource. This requirement is true for both standard (e.g., name, email) and custom schema attributes.",
+      "new": "~> **NOTE:** When defining an `attribute_data_type` of `String` or `Number`, the respective attribute constraints configuration block (e.g `string_attribute_constraints` or `number_attribute_constraints`) is **required** to prevent recreation of the TODO resource. This requirement is true for both standard (e.g., name, email) and custom schema attributes."
+    }
+  ],
   "website/docs/r/cognito_user_pool.markdown": [
     {
       "old": "% terraform import aws_cognito_user_pool.pool us-west-2_abc123",
@@ -3879,6 +4941,20 @@
     {
       "old": "Using `terraform import`, import Comprehend Entity Recognizer using the ARN. For example:",
       "new": "Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For example:"
+    }
+  ],
+  "website/docs/r/config_aggregate_authorization.html.markdown": [
+    {
+      "old": "% terraform import aws_config_aggregate_authorization.example 123456789012:us-east-1",
+      "new": "% TODO import aws_config_aggregate_authorization.example 123456789012:us-east-1"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Config aggregate authorizations using `account_id:region`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Config aggregate authorizations using `account_id:region`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Config aggregate authorizations using `account_id:region`. For example:",
+      "new": "Using `TODO import`, import Config aggregate authorizations using `account_id:region`. For example:"
     }
   ],
   "website/docs/r/config_aggregate_authorization.markdown": [
@@ -4049,6 +5125,20 @@
       "new": "Using `pulumi import`, import Remediation Configurations using the name config_rule_name. For example:"
     }
   ],
+  "website/docs/r/connect_bot_association.html.markdown": [
+    {
+      "old": "% terraform import aws_connect_bot_association.example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2",
+      "new": "% TODO import aws_connect_bot_association.example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import `aws_connect_bot_association` using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`). For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import `aws_connect_bot_association` using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`). For example:"
+    },
+    {
+      "old": "Using `terraform import`, import `aws_connect_bot_association` using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`). For example:",
+      "new": "Using `TODO import`, import `aws_connect_bot_association` using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`). For example:"
+    }
+  ],
   "website/docs/r/connect_bot_association.markdown": [
     {
       "old": "% terraform import aws_connect_bot_association.example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2",
@@ -4151,6 +5241,20 @@
     {
       "old": "Using `terraform import`, import Amazon Connect Instance Storage Configs using the `instance_id`, `association_id`, and `resource_type` separated by a colon (`:`). For example:",
       "new": "Using `pulumi import`, import Amazon Connect Instance Storage Configs using the `instance_id`, `association_id`, and `resource_type` separated by a colon (`:`). For example:"
+    }
+  ],
+  "website/docs/r/connect_lambda_function_association.html.markdown": [
+    {
+      "old": "% terraform import aws_connect_lambda_function_association.example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example",
+      "new": "% TODO import aws_connect_lambda_function_association.example aaaaaaaa-bbbb-cccc-dddd-111111111111,arn:aws:lambda:us-west-2:123456789123:function:example"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import `aws_connect_lambda_function_association` using the `instance_id` and `function_arn` separated by a comma (`,`). For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import `aws_connect_lambda_function_association` using the `instance_id` and `function_arn` separated by a comma (`,`). For example:"
+    },
+    {
+      "old": "Using `terraform import`, import `aws_connect_lambda_function_association` using the `instance_id` and `function_arn` separated by a comma (`,`). For example:",
+      "new": "Using `TODO import`, import `aws_connect_lambda_function_association` using the `instance_id` and `function_arn` separated by a comma (`,`). For example:"
     }
   ],
   "website/docs/r/connect_lambda_function_association.markdown": [
@@ -4672,6 +5776,20 @@
       "new": "if omitted, this provider will assign a random, unique identifier. Required if `restore_to_point_in_time` is specified."
     }
   ],
+  "website/docs/r/db_instance_automated_backups_replication.html.markdown": [
+    {
+      "old": "% terraform import aws_db_instance_automated_backups_replication.default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my",
+      "new": "% TODO import aws_db_instance_automated_backups_replication.default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import RDS instance automated backups replication using the `arn`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import RDS instance automated backups replication using the `arn`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import RDS instance automated backups replication using the `arn`. For example:",
+      "new": "Using `TODO import`, import RDS instance automated backups replication using the `arn`. For example:"
+    }
+  ],
   "website/docs/r/db_instance_automated_backups_replication.markdown": [
     {
       "old": "% terraform import aws_db_instance_automated_backups_replication.default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my",
@@ -5174,6 +6292,24 @@
     {
       "old": "Using `terraform import`, import the Trust relationship using the directory ID and remote domain name, separated by a `/`. For example:",
       "new": "Using `pulumi import`, import the Trust relationship using the directory ID and remote domain name, separated by a `/`. For example:"
+    }
+  ],
+  "website/docs/r/dlm_lifecycle_policy.html.markdown": [
+    {
+      "old": "% terraform import aws_dlm_lifecycle_policy.example policy-abcdef12345678901",
+      "new": "% TODO import aws_dlm_lifecycle_policy.example policy-abcdef12345678901"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import DLM lifecycle policies using their policy ID. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import DLM lifecycle policies using their policy ID. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import DLM lifecycle policies using their policy ID. For example:",
+      "new": "Using `TODO import`, import DLM lifecycle policies using their policy ID. For example:"
+    },
+    {
+      "old": "~> Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. Terraform is unable to detect this at plan time but it will fail during apply.",
+      "new": "~> Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. TODO is unable to detect this at plan time but it will fail during apply."
     }
   ],
   "website/docs/r/dlm_lifecycle_policy.markdown": [
@@ -7316,6 +8452,20 @@
       "new": "Using `pulumi import`, import EMR studio session mappings using `studio-id:identity-type:identity-id`. For example:"
     }
   ],
+  "website/docs/r/emrcontainers_job_template.html.markdown": [
+    {
+      "old": "% terraform import aws_emrcontainers_job_template.example a1b2c3d4e5f6g7h8i9j10k11l",
+      "new": "% TODO import aws_emrcontainers_job_template.example a1b2c3d4e5f6g7h8i9j10k11l"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import EKS job templates using the `id`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import EKS job templates using the `id`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import EKS job templates using the `id`. For example:",
+      "new": "Using `TODO import`, import EKS job templates using the `id`. For example:"
+    }
+  ],
   "website/docs/r/emrcontainers_job_template.markdown": [
     {
       "old": "% terraform import aws_emrcontainers_job_template.example a1b2c3d4e5f6g7h8i9j10k11l",
@@ -7330,6 +8480,20 @@
       "new": "Using `pulumi import`, import EKS job templates using the `id`. For example:"
     }
   ],
+  "website/docs/r/emrcontainers_virtual_cluster.html.markdown": [
+    {
+      "old": "% terraform import aws_emrcontainers_virtual_cluster.example a1b2c3d4e5f6g7h8i9j10k11l",
+      "new": "% TODO import aws_emrcontainers_virtual_cluster.example a1b2c3d4e5f6g7h8i9j10k11l"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import EKS Clusters using the `id`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import EKS Clusters using the `id`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import EKS Clusters using the `id`. For example:",
+      "new": "Using `TODO import`, import EKS Clusters using the `id`. For example:"
+    }
+  ],
   "website/docs/r/emrcontainers_virtual_cluster.markdown": [
     {
       "old": "% terraform import aws_emrcontainers_virtual_cluster.example a1b2c3d4e5f6g7h8i9j10k11l",
@@ -7342,6 +8506,20 @@
     {
       "old": "Using `terraform import`, import EKS Clusters using the `id`. For example:",
       "new": "Using `pulumi import`, import EKS Clusters using the `id`. For example:"
+    }
+  ],
+  "website/docs/r/emrserverless_application.html.markdown": [
+    {
+      "old": "% terraform import aws_emrserverless_application.example id",
+      "new": "% TODO import aws_emrserverless_application.example id"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import EMR Severless applications using the `id`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import EMR Severless applications using the `id`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import EMR Severless applications using the `id`. For example:",
+      "new": "Using `TODO import`, import EMR Severless applications using the `id`. For example:"
     }
   ],
   "website/docs/r/emrserverless_application.markdown": [
@@ -7762,6 +8940,20 @@
       "new": "Using `pulumi import`, import GameLift Fleets using the ID. For example:"
     }
   ],
+  "website/docs/r/gamelift_game_server_group.html.markdown": [
+    {
+      "old": "% terraform import aws_gamelift_game_server_group.example example",
+      "new": "% TODO import aws_gamelift_game_server_group.example example"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import GameLift Game Server Group using the `name`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import GameLift Game Server Group using the `name`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import GameLift Game Server Group using the `name`. For example:",
+      "new": "Using `TODO import`, import GameLift Game Server Group using the `name`. For example:"
+    }
+  ],
   "website/docs/r/gamelift_game_server_group.markdown": [
     {
       "old": "% terraform import aws_gamelift_game_server_group.example example",
@@ -8012,6 +9204,20 @@
     {
       "old": "Using `terraform import`, import Glue Data Quality Ruleset using the `name`. For example:",
       "new": "Using `pulumi import`, import Glue Data Quality Ruleset using the `name`. For example:"
+    }
+  ],
+  "website/docs/r/glue_dev_endpoint.html.markdown": [
+    {
+      "old": "% terraform import aws_glue_dev_endpoint.example foo",
+      "new": "% TODO import aws_glue_dev_endpoint.example foo"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import a Glue Development Endpoint using the `name`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import a Glue Development Endpoint using the `name`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import a Glue Development Endpoint using the `name`. For example:",
+      "new": "Using `TODO import`, import a Glue Development Endpoint using the `name`. For example:"
     }
   ],
   "website/docs/r/glue_dev_endpoint.markdown": [
@@ -8461,6 +9667,20 @@
       "new": "Using `pulumi import`, import IAM Group Policies using the `group_name:group_policy_name`. For example:"
     }
   ],
+  "website/docs/r/iam_group_policy_attachment.html.markdown": [
+    {
+      "old": "% terraform import aws_iam_group_policy_attachment.test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy",
+      "new": "% TODO import aws_iam_group_policy_attachment.test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import IAM group policy attachments using the group name and policy arn separated by `/`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import IAM group policy attachments using the group name and policy arn separated by `/`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import IAM group policy attachments using the group name and policy arn separated by `/`. For example:",
+      "new": "Using `TODO import`, import IAM group policy attachments using the group name and policy arn separated by `/`. For example:"
+    }
+  ],
   "website/docs/r/iam_group_policy_attachment.markdown": [
     {
       "old": "% terraform import aws_iam_group_policy_attachment.test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy",
@@ -8583,6 +9803,24 @@
     {
       "old": "Using `terraform import`, import IAM Role Policies using the `role_name:role_policy_name`. For example:",
       "new": "Using `pulumi import`, import IAM Role Policies using the `role_name:role_policy_name`. For example:"
+    }
+  ],
+  "website/docs/r/iam_role_policy_attachment.html.markdown": [
+    {
+      "old": "% terraform import aws_iam_role_policy_attachment.test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy",
+      "new": "% TODO import aws_iam_role_policy_attachment.test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import IAM role policy attachments using the role name and policy arn separated by `/`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import IAM role policy attachments using the role name and policy arn separated by `/`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For example:",
+      "new": "Using `TODO import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For example:"
+    },
+    {
+      "old": "~> **NOTE:** For a given role, this resource is incompatible with using the `aws_iam_role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and Terraform will show a permanent difference.",
+      "new": "~> **NOTE:** For a given role, this resource is incompatible with using the `aws_iam_role` resource `managed_policy_arns` argument. When using that argument and this resource, both will attempt to manage the role's managed policy attachments and TODO will show a permanent difference."
     }
   ],
   "website/docs/r/iam_role_policy_attachment.markdown": [
@@ -8771,6 +10009,20 @@
     {
       "old": "Using `terraform import`, import IAM User Policies using the `user_name:user_policy_name`. For example:",
       "new": "Using `pulumi import`, import IAM User Policies using the `user_name:user_policy_name`. For example:"
+    }
+  ],
+  "website/docs/r/iam_user_policy_attachment.html.markdown": [
+    {
+      "old": "% terraform import aws_iam_user_policy_attachment.test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy",
+      "new": "% TODO import aws_iam_user_policy_attachment.test-attach test-user/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import IAM user policy attachments using the user name and policy arn separated by `/`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import IAM user policy attachments using the user name and policy arn separated by `/`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import IAM user policy attachments using the user name and policy arn separated by `/`. For example:",
+      "new": "Using `TODO import`, import IAM user policy attachments using the user name and policy arn separated by `/`. For example:"
     }
   ],
   "website/docs/r/iam_user_policy_attachment.markdown": [
@@ -10149,6 +11401,20 @@
       "new": "Using `pulumi import`, import slot types using their name. For example:"
     }
   ],
+  "website/docs/r/licensemanager_association.html.markdown": [
+    {
+      "old": "% terraform import aws_licensemanager_association.example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef",
+      "new": "% TODO import aws_licensemanager_association.example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import license configurations using `resource_arn,license_configuration_arn`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import license configurations using `resource_arn,license_configuration_arn`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import license configurations using `resource_arn,license_configuration_arn`. For example:",
+      "new": "Using `TODO import`, import license configurations using `resource_arn,license_configuration_arn`. For example:"
+    }
+  ],
   "website/docs/r/licensemanager_association.markdown": [
     {
       "old": "% terraform import aws_licensemanager_association.example arn:aws:ec2:eu-west-1:123456789012:image/ami-123456789abcdef01,arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef",
@@ -10189,6 +11455,24 @@
     {
       "old": "Using `terraform import`, import `aws_licensemanager_grant_accepter` using the grant arn. For example:",
       "new": "Using `pulumi import`, import `aws_licensemanager_grant_accepter` using the grant arn. For example:"
+    }
+  ],
+  "website/docs/r/licensemanager_license_configuration.html.markdown": [
+    {
+      "old": "% terraform import aws_licensemanager_license_configuration.example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef",
+      "new": "% TODO import aws_licensemanager_license_configuration.example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import license configurations using the `id`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import license configurations using the `id`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import license configurations using the `id`. For example:",
+      "new": "Using `TODO import`, import license configurations using the `id`. For example:"
+    },
+    {
+      "old": "~> **Note:** Removing the `license_count` attribute is not supported by the License Manager API - use `terraform taint aws_licensemanager_license_configuration.<id>` to recreate the resource instead.",
+      "new": "~> **Note:** Removing the `license_count` attribute is not supported by the License Manager API - use `TODO taint aws_licensemanager_license_configuration.<id>` to recreate the resource instead."
     }
   ],
   "website/docs/r/licensemanager_license_configuration.markdown": [
@@ -11297,6 +12581,20 @@
       "new": ""
     }
   ],
+  "website/docs/r/network_interface.html.markdown": [
+    {
+      "old": "% terraform import aws_network_interface.test eni-e5aa89a3",
+      "new": "% TODO import aws_network_interface.test eni-e5aa89a3"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Network Interfaces using the `id`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Network Interfaces using the `id`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Network Interfaces using the `id`. For example:",
+      "new": "Using `TODO import`, import Network Interfaces using the `id`. For example:"
+    }
+  ],
   "website/docs/r/network_interface.markdown": [
     {
       "old": "% terraform import aws_network_interface.test eni-e5aa89a3",
@@ -12084,6 +13382,20 @@
       "new": "Using `pulumi import`, import `aws_organizations_resource_policy` using the resource policy ID. For example:"
     }
   ],
+  "website/docs/r/pinpoint_adm_channel.html.markdown": [
+    {
+      "old": "% terraform import aws_pinpoint_adm_channel.channel application-id",
+      "new": "% TODO import aws_pinpoint_adm_channel.channel application-id"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Pinpoint ADM Channel using the `application-id`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Pinpoint ADM Channel using the `application-id`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Pinpoint ADM Channel using the `application-id`. For example:",
+      "new": "Using `TODO import`, import Pinpoint ADM Channel using the `application-id`. For example:"
+    }
+  ],
   "website/docs/r/pinpoint_adm_channel.markdown": [
     {
       "old": "% terraform import aws_pinpoint_adm_channel.channel application-id",
@@ -12096,6 +13408,20 @@
     {
       "old": "Using `terraform import`, import Pinpoint ADM Channel using the `application-id`. For example:",
       "new": "Using `pulumi import`, import Pinpoint ADM Channel using the `application-id`. For example:"
+    }
+  ],
+  "website/docs/r/pinpoint_apns_channel.html.markdown": [
+    {
+      "old": "% terraform import aws_pinpoint_apns_channel.apns application-id",
+      "new": "% TODO import aws_pinpoint_apns_channel.apns application-id"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Pinpoint APNs Channel using the `application-id`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Pinpoint APNs Channel using the `application-id`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Pinpoint APNs Channel using the `application-id`. For example:",
+      "new": "Using `TODO import`, import Pinpoint APNs Channel using the `application-id`. For example:"
     }
   ],
   "website/docs/r/pinpoint_apns_channel.markdown": [
@@ -12112,6 +13438,20 @@
       "new": "Using `pulumi import`, import Pinpoint APNs Channel using the `application-id`. For example:"
     }
   ],
+  "website/docs/r/pinpoint_apns_sandbox_channel.html.markdown": [
+    {
+      "old": "% terraform import aws_pinpoint_apns_sandbox_channel.apns_sandbox application-id",
+      "new": "% TODO import aws_pinpoint_apns_sandbox_channel.apns_sandbox application-id"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Pinpoint APNs Sandbox Channel using the `application-id`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Pinpoint APNs Sandbox Channel using the `application-id`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Pinpoint APNs Sandbox Channel using the `application-id`. For example:",
+      "new": "Using `TODO import`, import Pinpoint APNs Sandbox Channel using the `application-id`. For example:"
+    }
+  ],
   "website/docs/r/pinpoint_apns_sandbox_channel.markdown": [
     {
       "old": "% terraform import aws_pinpoint_apns_sandbox_channel.apns_sandbox application-id",
@@ -12124,6 +13464,20 @@
     {
       "old": "Using `terraform import`, import Pinpoint APNs Sandbox Channel using the `application-id`. For example:",
       "new": "Using `pulumi import`, import Pinpoint APNs Sandbox Channel using the `application-id`. For example:"
+    }
+  ],
+  "website/docs/r/pinpoint_apns_voip_channel.html.markdown": [
+    {
+      "old": "% terraform import aws_pinpoint_apns_voip_channel.apns_voip application-id",
+      "new": "% TODO import aws_pinpoint_apns_voip_channel.apns_voip application-id"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Pinpoint APNs VoIP Channel using the `application-id`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Pinpoint APNs VoIP Channel using the `application-id`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Pinpoint APNs VoIP Channel using the `application-id`. For example:",
+      "new": "Using `TODO import`, import Pinpoint APNs VoIP Channel using the `application-id`. For example:"
     }
   ],
   "website/docs/r/pinpoint_apns_voip_channel.markdown": [
@@ -12140,6 +13494,20 @@
       "new": "Using `pulumi import`, import Pinpoint APNs VoIP Channel using the `application-id`. For example:"
     }
   ],
+  "website/docs/r/pinpoint_apns_voip_sandbox_channel.html.markdown": [
+    {
+      "old": "% terraform import aws_pinpoint_apns_voip_sandbox_channel.apns_voip_sandbox application-id",
+      "new": "% TODO import aws_pinpoint_apns_voip_sandbox_channel.apns_voip_sandbox application-id"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For example:",
+      "new": "Using `TODO import`, import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For example:"
+    }
+  ],
   "website/docs/r/pinpoint_apns_voip_sandbox_channel.markdown": [
     {
       "old": "% terraform import aws_pinpoint_apns_voip_sandbox_channel.apns_voip_sandbox application-id",
@@ -12152,6 +13520,24 @@
     {
       "old": "Using `terraform import`, import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For example:",
       "new": "Using `pulumi import`, import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For example:"
+    }
+  ],
+  "website/docs/r/pinpoint_app.html.markdown": [
+    {
+      "old": "% terraform import aws_pinpoint_app.name application-id",
+      "new": "% TODO import aws_pinpoint_app.name application-id"
+    },
+    {
+      "old": "* `name` - (Optional) The application name. By default generated by Terraform",
+      "new": "* `name` - (Optional) The application name. By default generated by TODO"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Pinpoint App using the `application-id`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Pinpoint App using the `application-id`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Pinpoint App using the `application-id`. For example:",
+      "new": "Using `TODO import`, import Pinpoint App using the `application-id`. For example:"
     }
   ],
   "website/docs/r/pinpoint_app.markdown": [
@@ -12168,6 +13554,20 @@
       "new": "Using `pulumi import`, import Pinpoint App using the `application-id`. For example:"
     }
   ],
+  "website/docs/r/pinpoint_baidu_channel.html.markdown": [
+    {
+      "old": "% terraform import aws_pinpoint_baidu_channel.channel application-id",
+      "new": "% TODO import aws_pinpoint_baidu_channel.channel application-id"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Pinpoint Baidu Channel using the `application-id`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Pinpoint Baidu Channel using the `application-id`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Pinpoint Baidu Channel using the `application-id`. For example:",
+      "new": "Using `TODO import`, import Pinpoint Baidu Channel using the `application-id`. For example:"
+    }
+  ],
   "website/docs/r/pinpoint_baidu_channel.markdown": [
     {
       "old": "% terraform import aws_pinpoint_baidu_channel.channel application-id",
@@ -12180,6 +13580,20 @@
     {
       "old": "Using `terraform import`, import Pinpoint Baidu Channel using the `application-id`. For example:",
       "new": "Using `pulumi import`, import Pinpoint Baidu Channel using the `application-id`. For example:"
+    }
+  ],
+  "website/docs/r/pinpoint_email_channel.html.markdown": [
+    {
+      "old": "% terraform import aws_pinpoint_email_channel.email application-id",
+      "new": "% TODO import aws_pinpoint_email_channel.email application-id"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Pinpoint Email Channel using the `application-id`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Pinpoint Email Channel using the `application-id`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Pinpoint Email Channel using the `application-id`. For example:",
+      "new": "Using `TODO import`, import Pinpoint Email Channel using the `application-id`. For example:"
     }
   ],
   "website/docs/r/pinpoint_email_channel.markdown": [
@@ -12196,6 +13610,20 @@
       "new": "Using `pulumi import`, import Pinpoint Email Channel using the `application-id`. For example:"
     }
   ],
+  "website/docs/r/pinpoint_event_stream.html.markdown": [
+    {
+      "old": "% terraform import aws_pinpoint_event_stream.stream application-id",
+      "new": "% TODO import aws_pinpoint_event_stream.stream application-id"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Pinpoint Event Stream using the `application-id`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Pinpoint Event Stream using the `application-id`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Pinpoint Event Stream using the `application-id`. For example:",
+      "new": "Using `TODO import`, import Pinpoint Event Stream using the `application-id`. For example:"
+    }
+  ],
   "website/docs/r/pinpoint_event_stream.markdown": [
     {
       "old": "% terraform import aws_pinpoint_event_stream.stream application-id",
@@ -12210,6 +13638,20 @@
       "new": "Using `pulumi import`, import Pinpoint Event Stream using the `application-id`. For example:"
     }
   ],
+  "website/docs/r/pinpoint_gcm_channel.html.markdown": [
+    {
+      "old": "% terraform import aws_pinpoint_gcm_channel.gcm application-id",
+      "new": "% TODO import aws_pinpoint_gcm_channel.gcm application-id"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Pinpoint GCM Channel using the `application-id`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Pinpoint GCM Channel using the `application-id`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Pinpoint GCM Channel using the `application-id`. For example:",
+      "new": "Using `TODO import`, import Pinpoint GCM Channel using the `application-id`. For example:"
+    }
+  ],
   "website/docs/r/pinpoint_gcm_channel.markdown": [
     {
       "old": "% terraform import aws_pinpoint_gcm_channel.gcm application-id",
@@ -12222,6 +13664,20 @@
     {
       "old": "Using `terraform import`, import Pinpoint GCM Channel using the `application-id`. For example:",
       "new": "Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For example:"
+    }
+  ],
+  "website/docs/r/pinpoint_sms_channel.html.markdown": [
+    {
+      "old": "% terraform import aws_pinpoint_sms_channel.sms application-id",
+      "new": "% TODO import aws_pinpoint_sms_channel.sms application-id"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import the Pinpoint SMS Channel using the `application_id`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import the Pinpoint SMS Channel using the `application_id`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import the Pinpoint SMS Channel using the `application_id`. For example:",
+      "new": "Using `TODO import`, import the Pinpoint SMS Channel using the `application_id`. For example:"
     }
   ],
   "website/docs/r/pinpoint_sms_channel.markdown": [
@@ -12560,6 +14016,20 @@
       "new": "Using `pulumi import`, import QuickSight VPC connection using the AWS account ID and VPC connection ID separated by commas (`,`). For example:"
     }
   ],
+  "website/docs/r/ram_principal_association.html.markdown": [
+    {
+      "old": "% terraform import aws_ram_principal_association.example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012",
+      "new": "% TODO import aws_ram_principal_association.example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import RAM Principal Associations using their Resource Share ARN and the `principal` separated by a comma. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import RAM Principal Associations using their Resource Share ARN and the `principal` separated by a comma. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import RAM Principal Associations using their Resource Share ARN and the `principal` separated by a comma. For example:",
+      "new": "Using `TODO import`, import RAM Principal Associations using their Resource Share ARN and the `principal` separated by a comma. For example:"
+    }
+  ],
   "website/docs/r/ram_principal_association.markdown": [
     {
       "old": "% terraform import aws_ram_principal_association.example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012",
@@ -12588,6 +14058,20 @@
       "new": "Using `pulumi import`, import RAM Resource Associations using their Resource Share ARN and Resource ARN separated by a comma. For example:"
     }
   ],
+  "website/docs/r/ram_resource_share.html.markdown": [
+    {
+      "old": "% terraform import aws_ram_resource_share.example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12",
+      "new": "% TODO import aws_ram_resource_share.example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import resource shares using the `arn` of the resource share. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import resource shares using the `arn` of the resource share. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import resource shares using the `arn` of the resource share. For example:",
+      "new": "Using `TODO import`, import resource shares using the `arn` of the resource share. For example:"
+    }
+  ],
   "website/docs/r/ram_resource_share.markdown": [
     {
       "old": "% terraform import aws_ram_resource_share.example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12",
@@ -12602,6 +14086,24 @@
       "new": "Using `pulumi import`, import resource shares using the `arn` of the resource share. For example:"
     }
   ],
+  "website/docs/r/ram_resource_share_accepter.html.markdown": [
+    {
+      "old": "% terraform import aws_ram_resource_share_accepter.example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767",
+      "new": "% TODO import aws_ram_resource_share_accepter.example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import resource share accepters using the resource share ARN. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import resource share accepters using the resource share ARN. For example:"
+    },
+    {
+      "old": "This configuration provides an example of using multiple Terraform AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `aws_ram_resource_share` and uses a data source in the _receiver_ account to create a `aws_ram_principal_association` resource with the _receiver's_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `aws_ram_resource_share_accepter`.",
+      "new": "This configuration provides an example of using multiple TODO AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `aws_ram_resource_share` and uses a data source in the _receiver_ account to create a `aws_ram_principal_association` resource with the _receiver's_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `aws_ram_resource_share_accepter`."
+    },
+    {
+      "old": "Using `terraform import`, import resource share accepters using the resource share ARN. For example:",
+      "new": "Using `TODO import`, import resource share accepters using the resource share ARN. For example:"
+    }
+  ],
   "website/docs/r/ram_resource_share_accepter.markdown": [
     {
       "old": "% terraform import aws_ram_resource_share_accepter.example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767",
@@ -12614,6 +14116,20 @@
     {
       "old": "Using `terraform import`, import resource share accepters using the resource share ARN. For example:",
       "new": "Using `pulumi import`, import resource share accepters using the resource share ARN. For example:"
+    }
+  ],
+  "website/docs/r/ram_sharing_with_organization.html.markdown": [
+    {
+      "old": "% terraform import aws_ram_sharing_with_organization.example 123456789012",
+      "new": "% TODO import aws_ram_sharing_with_organization.example 123456789012"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import the resource using the current AWS account ID. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import the resource using the current AWS account ID. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import the resource using the current AWS account ID. For example:",
+      "new": "Using `TODO import`, import the resource using the current AWS account ID. For example:"
     }
   ],
   "website/docs/r/ram_sharing_with_organization.markdown": [
@@ -12738,6 +14254,24 @@
     {
       "old": "attributes that are specific to a single instance in a [RDS Cluster][3],",
       "new": "attributes that are specific to a single instance in a RDS Cluster,"
+    }
+  ],
+  "website/docs/r/rds_cluster_parameter_group.html.markdown": [
+    {
+      "old": "% terraform import aws_rds_cluster_parameter_group.cluster_pg production-pg-1",
+      "new": "% TODO import aws_rds_cluster_parameter_group.cluster_pg production-pg-1"
+    },
+    {
+      "old": "* `description` - (Optional) The description of the DB cluster parameter group. Defaults to \"Managed by Terraform\".",
+      "new": "* `description` - (Optional) The description of the DB cluster parameter group. Defaults to \"Managed by TODO\"."
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import RDS Cluster Parameter Groups using the `name`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import RDS Cluster Parameter Groups using the `name`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import RDS Cluster Parameter Groups using the `name`. For example:",
+      "new": "Using `TODO import`, import RDS Cluster Parameter Groups using the `name`. For example:"
     }
   ],
   "website/docs/r/rds_cluster_parameter_group.markdown": [
@@ -13434,6 +14968,20 @@
       "new": "Using `pulumi import`, import  Route 53 Resolver endpoints using the Route 53 Resolver endpoint ID. For example:"
     }
   ],
+  "website/docs/r/route53_resolver_firewall_config.html.markdown": [
+    {
+      "old": "% terraform import aws_route53_resolver_firewall_config.example rdsc-be1866ecc1683e95",
+      "new": "% TODO import aws_route53_resolver_firewall_config.example rdsc-be1866ecc1683e95"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For example:",
+      "new": "Using `TODO import`, import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For example:"
+    }
+  ],
   "website/docs/r/route53_resolver_firewall_config.markdown": [
     {
       "old": "% terraform import aws_route53_resolver_firewall_config.example rdsc-be1866ecc1683e95",
@@ -13446,6 +14994,20 @@
     {
       "old": "Using `terraform import`, import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For example:",
       "new": "Using `pulumi import`, import Route 53 Resolver DNS Firewall configs using the Route 53 Resolver DNS Firewall config ID. For example:"
+    }
+  ],
+  "website/docs/r/route53_resolver_firewall_domain_list.html.markdown": [
+    {
+      "old": "% terraform import aws_route53_resolver_firewall_domain_list.example rslvr-fdl-0123456789abcdef",
+      "new": "% TODO import aws_route53_resolver_firewall_domain_list.example rslvr-fdl-0123456789abcdef"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import  Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import  Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import  Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For example:",
+      "new": "Using `TODO import`, import  Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For example:"
     }
   ],
   "website/docs/r/route53_resolver_firewall_domain_list.markdown": [
@@ -13462,6 +15024,20 @@
       "new": "Using `pulumi import`, import  Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For example:"
     }
   ],
+  "website/docs/r/route53_resolver_firewall_rule.html.markdown": [
+    {
+      "old": "% terraform import aws_route53_resolver_firewall_rule.example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef",
+      "new": "% TODO import aws_route53_resolver_firewall_rule.example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import  Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':'. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import  Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':'. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import  Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':'. For example:",
+      "new": "Using `TODO import`, import  Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':'. For example:"
+    }
+  ],
   "website/docs/r/route53_resolver_firewall_rule.markdown": [
     {
       "old": "% terraform import aws_route53_resolver_firewall_rule.example rslvr-frg-0123456789abcdef:rslvr-fdl-0123456789abcdef",
@@ -13476,6 +15052,20 @@
       "new": "Using `pulumi import`, import  Route 53 Resolver DNS Firewall rules using the Route 53 Resolver DNS Firewall rule group ID and domain list ID separated by ':'. For example:"
     }
   ],
+  "website/docs/r/route53_resolver_firewall_rule_group.html.markdown": [
+    {
+      "old": "% terraform import aws_route53_resolver_firewall_rule_group.example rslvr-frg-0123456789abcdef",
+      "new": "% TODO import aws_route53_resolver_firewall_rule_group.example rslvr-frg-0123456789abcdef"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import  Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import  Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import  Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For example:",
+      "new": "Using `TODO import`, import  Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For example:"
+    }
+  ],
   "website/docs/r/route53_resolver_firewall_rule_group.markdown": [
     {
       "old": "% terraform import aws_route53_resolver_firewall_rule_group.example rslvr-frg-0123456789abcdef",
@@ -13488,6 +15078,20 @@
     {
       "old": "Using `terraform import`, import  Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For example:",
       "new": "Using `pulumi import`, import  Route 53 Resolver DNS Firewall rule groups using the Route 53 Resolver DNS Firewall rule group ID. For example:"
+    }
+  ],
+  "website/docs/r/route53_resolver_firewall_rule_group_association.html.markdown": [
+    {
+      "old": "% terraform import aws_route53_resolver_firewall_rule_group_association.example rslvr-frgassoc-0123456789abcdef",
+      "new": "% TODO import aws_route53_resolver_firewall_rule_group_association.example rslvr-frgassoc-0123456789abcdef"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For example:",
+      "new": "Using `TODO import`, import Route 53 Resolver DNS Firewall rule group associations using the Route 53 Resolver DNS Firewall rule group association ID. For example:"
     }
   ],
   "website/docs/r/route53_resolver_firewall_rule_group_association.markdown": [
@@ -15268,6 +16872,20 @@
       "new": ""
     }
   ],
+  "website/docs/r/securityhub_account.html.markdown": [
+    {
+      "old": "% terraform import aws_securityhub_account.example 123456789012",
+      "new": "% TODO import aws_securityhub_account.example 123456789012"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import an existing Security Hub enabled account using the AWS account ID. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import an existing Security Hub enabled account using the AWS account ID. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import an existing Security Hub enabled account using the AWS account ID. For example:",
+      "new": "Using `TODO import`, import an existing Security Hub enabled account using the AWS account ID. For example:"
+    }
+  ],
   "website/docs/r/securityhub_account.markdown": [
     {
       "old": "% terraform import aws_securityhub_account.example 123456789012",
@@ -15294,6 +16912,20 @@
     {
       "old": "Using `terraform import`, import Security Hub custom action using the action target ARN. For example:",
       "new": "Using `pulumi import`, import Security Hub custom action using the action target ARN. For example:"
+    }
+  ],
+  "website/docs/r/securityhub_finding_aggregator.html.markdown": [
+    {
+      "old": "% terraform import aws_securityhub_finding_aggregator.example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456",
+      "new": "% TODO import aws_securityhub_finding_aggregator.example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import an existing Security Hub finding aggregator using the `arn`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import an existing Security Hub finding aggregator using the `arn`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import an existing Security Hub finding aggregator using the `arn`. For example:",
+      "new": "Using `TODO import`, import an existing Security Hub finding aggregator using the `arn`. For example:"
     }
   ],
   "website/docs/r/securityhub_finding_aggregator.markdown": [
@@ -15324,6 +16956,20 @@
       "new": "Using `pulumi import`, import Security Hub insights using the ARN. For example:"
     }
   ],
+  "website/docs/r/securityhub_invite_accepter.html.markdown": [
+    {
+      "old": "% terraform import aws_securityhub_invite_accepter.example 123456789012",
+      "new": "% TODO import aws_securityhub_invite_accepter.example 123456789012"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Security Hub invite acceptance using the account ID. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Security Hub invite acceptance using the account ID. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Security Hub invite acceptance using the account ID. For example:",
+      "new": "Using `TODO import`, import Security Hub invite acceptance using the account ID. For example:"
+    }
+  ],
   "website/docs/r/securityhub_invite_accepter.markdown": [
     {
       "old": "% terraform import aws_securityhub_invite_accepter.example 123456789012",
@@ -15336,6 +16982,20 @@
     {
       "old": "Using `terraform import`, import Security Hub invite acceptance using the account ID. For example:",
       "new": "Using `pulumi import`, import Security Hub invite acceptance using the account ID. For example:"
+    }
+  ],
+  "website/docs/r/securityhub_member.html.markdown": [
+    {
+      "old": "% terraform import aws_securityhub_member.example 123456789012",
+      "new": "% TODO import aws_securityhub_member.example 123456789012"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Security Hub members using their account ID. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Security Hub members using their account ID. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Security Hub members using their account ID. For example:",
+      "new": "Using `TODO import`, import Security Hub members using their account ID. For example:"
     }
   ],
   "website/docs/r/securityhub_member.markdown": [
@@ -15366,6 +17026,28 @@
       "new": "Using `pulumi import`, import Security Hub Organization Admin Accounts using the AWS account ID. For example:"
     }
   ],
+  "website/docs/r/securityhub_organization_configuration.html.markdown": [
+    {
+      "old": "% terraform import aws_securityhub_organization_configuration.example 123456789012",
+      "new": "% TODO import aws_securityhub_organization_configuration.example 123456789012"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import an existing Security Hub enabled account using the AWS account ID. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import an existing Security Hub enabled account using the AWS account ID. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import an existing Security Hub enabled account using the AWS account ID. For example:",
+      "new": "Using `TODO import`, import an existing Security Hub enabled account using the AWS account ID. For example:"
+    },
+    {
+      "old": "~> **NOTE:** This is an advanced Terraform resource. Terraform will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the Terraform configuration.",
+      "new": "~> **NOTE:** This is an advanced TODO resource. TODO will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the TODO configuration."
+    },
+    {
+      "old": "~> **NOTE:** This resource requires an `aws_securityhub_organization_admin_account` to be configured (not necessarily with Terraform). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation",
+      "new": "~> **NOTE:** This resource requires an `aws_securityhub_organization_admin_account` to be configured (not necessarily with TODO). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation"
+    }
+  ],
   "website/docs/r/securityhub_organization_configuration.markdown": [
     {
       "old": "% terraform import aws_securityhub_organization_configuration.example 123456789012",
@@ -15378,6 +17060,20 @@
     {
       "old": "Using `terraform import`, import an existing Security Hub enabled account using the AWS account ID. For example:",
       "new": "Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:"
+    }
+  ],
+  "website/docs/r/securityhub_product_subscription.html.markdown": [
+    {
+      "old": "% terraform import aws_securityhub_product_subscription.example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement",
+      "new": "% TODO import aws_securityhub_product_subscription.example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Security Hub product subscriptions using `product_arn,arn`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Security Hub product subscriptions using `product_arn,arn`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Security Hub product subscriptions using `product_arn,arn`. For example:",
+      "new": "Using `TODO import`, import Security Hub product subscriptions using `product_arn,arn`. For example:"
     }
   ],
   "website/docs/r/securityhub_product_subscription.markdown": [
@@ -15394,6 +17090,16 @@
       "new": "Using `pulumi import`, import Security Hub product subscriptions using `product_arn,arn`. For example:"
     }
   ],
+  "website/docs/r/securityhub_standards_control.html.markdown": [
+    {
+      "old": "Terraform does not _create_ this resource, but instead \"adopts\" it",
+      "new": "TODO does not _create_ this resource, but instead \"adopts\" it"
+    },
+    {
+      "old": "into management. When you _delete_ this resource configuration, Terraform \"abandons\" resource as is and just removes it from the state.",
+      "new": "into management. When you _delete_ this resource configuration, TODO \"abandons\" resource as is and just removes it from the state."
+    }
+  ],
   "website/docs/r/securityhub_standards_control.markdown": [
     {
       "old": "Terraform does not _create_ this resource, but instead \"adopts\" it",
@@ -15402,6 +17108,28 @@
     {
       "old": "into management. When you _delete_ this resource configuration, Terraform \"abandons\" resource as is and just removes it from the state.",
       "new": "into management. When you _delete_ this resource configuration, the provider \"abandons\" resource as is and just removes it from the state."
+    }
+  ],
+  "website/docs/r/securityhub_standards_subscription.html.markdown": [
+    {
+      "old": "% terraform import aws_securityhub_standards_subscription.cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0",
+      "new": "% TODO import aws_securityhub_standards_subscription.cis arn:aws:securityhub:eu-west-1:123456789012:subscription/cis-aws-foundations-benchmark/v/1.2.0"
+    },
+    {
+      "old": "% terraform import aws_securityhub_standards_subscription.nist_800_53_rev_5 arn:aws:securityhub:eu-west-1:123456789012:subscription/nist-800-53/v/5.0.0",
+      "new": "% TODO import aws_securityhub_standards_subscription.nist_800_53_rev_5 arn:aws:securityhub:eu-west-1:123456789012:subscription/nist-800-53/v/5.0.0"
+    },
+    {
+      "old": "% terraform import aws_securityhub_standards_subscription.pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1",
+      "new": "% TODO import aws_securityhub_standards_subscription.pci_321 arn:aws:securityhub:eu-west-1:123456789012:subscription/pci-dss/v/3.2.1"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Security Hub standards subscriptions using the standards subscription ARN. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Security Hub standards subscriptions using the standards subscription ARN. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Security Hub standards subscriptions using the standards subscription ARN. For example:",
+      "new": "Using `TODO import`, import Security Hub standards subscriptions using the standards subscription ARN. For example:"
     }
   ],
   "website/docs/r/securityhub_standards_subscription.markdown": [
@@ -15580,8 +17308,16 @@
       "new": "% pulumi import aws_servicecatalog_principal_portfolio_association.example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f"
     },
     {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import `aws_servicecatalog_principal_portfolio_association` using `accept_language`, `principal_arn`, `portfolio_id`, and `principal_type` separated by a comma. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import `aws_servicecatalog_principal_portfolio_association` using `accept_language`, `principal_arn`, `portfolio_id`, and `principal_type` separated by a comma. For example:"
+    },
+    {
       "old": "In Terraform v1.5.0 and later, use an `import` block to import `aws_servicecatalog_principal_portfolio_association` using the accept language, principal ARN, and portfolio ID, separated by a comma. For example:",
       "new": ""
+    },
+    {
+      "old": "Using `terraform import`, import `aws_servicecatalog_principal_portfolio_association` using `accept_language`, `principal_arn`, `portfolio_id`, and `principal_type` separated by a comma. For example:",
+      "new": "Using `TODO import`, import `aws_servicecatalog_principal_portfolio_association` using `accept_language`, `principal_arn`, `portfolio_id`, and `principal_type` separated by a comma. For example:"
     },
     {
       "old": "Using `terraform import`, import `aws_servicecatalog_principal_portfolio_association` using the accept language, principal ARN, and portfolio ID, separated by a comma. For example:",
@@ -15800,6 +17536,20 @@
     {
       "old": "Using `terraform import`, import SES event destinations using `configuration_set_name` together with the event destination's `name`. For example:",
       "new": "Using `pulumi import`, import SES event destinations using `configuration_set_name` together with the event destination's `name`. For example:"
+    }
+  ],
+  "website/docs/r/ses_identity_notification_topic.html.markdown": [
+    {
+      "old": "% terraform import aws_ses_identity_notification_topic.test 'example.com|Bounce'",
+      "new": "% TODO import aws_ses_identity_notification_topic.test 'example.com|Bounce'"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Identity Notification Topics using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Identity Notification Topics using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Identity Notification Topics using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type. For example:",
+      "new": "Using `TODO import`, import Identity Notification Topics using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type. For example:"
     }
   ],
   "website/docs/r/ses_identity_notification_topic.markdown": [
@@ -17158,6 +18908,20 @@
     {
       "old": "Using `terraform import`, import Transfer Workflows using the `worflow_id`. For example:",
       "new": "Using `pulumi import`, import Transfer Workflows using the `worflow_id`. For example:"
+    }
+  ],
+  "website/docs/r/verifiedaccess_trust_provider.html.markdown": [
+    {
+      "old": "% terraform import aws_verifiedaccess_trust_provider.example vatp-8012925589",
+      "new": "% TODO import aws_verifiedaccess_trust_provider.example vatp-8012925589"
+    },
+    {
+      "old": "In Terraform v1.5.0 and later, use an `import` block to import Transfer Workflows using the `id`. For example:",
+      "new": "In TODO v1.5.0 and later, use an `import` block to import Transfer Workflows using the `id`. For example:"
+    },
+    {
+      "old": "Using `terraform import`, import Transfer Workflows using the  `id`. For example:",
+      "new": "Using `TODO import`, import Transfer Workflows using the  `id`. For example:"
     }
   ],
   "website/docs/r/volume_attachment.html.markdown": [
