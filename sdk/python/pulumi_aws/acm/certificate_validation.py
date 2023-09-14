@@ -129,7 +129,7 @@ class CertificateValidation(pulumi.CustomResource):
 
         cert_certificate_validation = aws.acm.CertificateValidation("cert",
                                                                       certificate_arn=example_certificate.arn,
-                                                                      validation_record_fqdns=[cert_validation.fdqn])
+                                                                      validation_record_fqdns=[cert_validation.fqdn])
 
         pulumi.export("certificate_arn", cert_certificate_validation.certificate_arn)
         ```
@@ -187,7 +187,7 @@ class CertificateValidation(pulumi.CustomResource):
 
         cert_certificate_validation = aws.acm.CertificateValidation("cert",
                                                                       certificate_arn=example_certificate.arn,
-                                                                      validation_record_fqdns=[cert_validation.fdqn])
+                                                                      validation_record_fqdns=[cert_validation.fqdn])
 
         pulumi.export("certificate_arn", cert_certificate_validation.certificate_arn)
         ```
